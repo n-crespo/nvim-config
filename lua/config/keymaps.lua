@@ -40,7 +40,10 @@ vim.keymap.set("n", "<leader>cpt", [[:w <CR>!g++ % -o %:r && %:r<CR>]])
 vim.keymap.set("n", "<leader>tm", [[:term <cr>]])
 -- select full file
 vim.keymap.set("n", "<C-a>", [[gg<S-v>G]])
--- rmd block
---
+-- r markdown code block
 vim.keymap.set("n", "<leader>rb", [[i ```{r}<cr>```<esc>O]])
+-- attempt to do colorscheme preview keymap
 vim.keymap.set("n", "<leader>th", [[:Telescope colorscheme<cr>]])
+-- undo tree (muntree)
+vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr>]])
+vim.keymap.set("n", "<leader>up", [[:Telescope undo <cr>]])
