@@ -17,6 +17,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- check primeagen video for separating y and leader y from yank for
 -- only vim and yank for system clipboard
 
+vim.api.nvim_get_color_map()
+
 -- run python file
 vim.keymap.set("n", "<leader>pp", [[:w<CR>:!python3 %<cr>]])
 -- format python file (with black)
@@ -28,14 +30,13 @@ vim.keymap.set("n", "<leader>jj", [[:cd %:h<cr> :w<CR>:!javac %<cr> :!java %:r<c
 -- telescope things
 vim.keymap.set("n", "<leader>fc", [[:Telescope colorscheme<cr>]])
 -- change directory things
-vim.keymap.set("n", "<leader>cd", [[:cd %:h<cr>]])
+-- vim.keymap.set("n", "<leader>cd", [[:cd %:h<cr>]])
 vim.keymap.set("n", "<leader>cu", [[:cd ..<cr>]])
 -- this is for (leader + s) changes all instances of the word the cursor is
 -- ontop of to the next word typed
-vim.keymap.set("n", "<leader>ra", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- c++ things
 vim.keymap.set("n", "<leader>cp", [[:w <CR>:!g++ % -o %:r && %:r<CR>]])
-vim.keymap.set("n", "<leader>cpt", [[:w <CR>!g++ % -o %:r && %:r<CR>]])
 --open terminal buffer
 vim.keymap.set("n", "<leader>tm", [[:term <cr>]])
 -- select full file
@@ -47,3 +48,5 @@ vim.keymap.set("n", "<leader>th", [[:Telescope colorscheme<cr>]])
 -- undo tree (muntree)
 vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr>]])
 vim.keymap.set("n", "<leader>up", [[:Telescope undo <cr>]])
+-- lsp install
+vim.keymap.set("n", "<leader>li", [[:LspInstall <CR>]])

@@ -6,12 +6,39 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   desc = "LSP actions",
+--   callback = function(event)
+--     -- Create your keybindings here...
+--   end,
+-- })
+--
+-- require("mason").setup()
+-- require("mason-lspconfig").setup({
+--   ensure_installed = {
+--     -- Replace these with whatever servers you want to install
+--     "rust_analyzer",
+--     "tsserver",
+--   },
+-- })
+--
+-- local lspconfig = require("lspconfig")
+-- local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+--
+-- require("mason-lspconfig").setup_handlers({
+--   function(server_name)
+--     lspconfig[server_name].setup({
+--       capabilities = lsp_capabilities,
+--     })
+--   end,
+-- })
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.lang.typescript" },
+    -- { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.linters.lang.json" },
     -- edit above line to add linters, lsp, etc ? pls
@@ -28,7 +55,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax", "nightfox", "catppuccin" } },
+  install = { colorscheme = { "tokyonight", "habamax", "catppuccin" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {

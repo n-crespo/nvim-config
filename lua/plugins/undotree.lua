@@ -1,5 +1,4 @@
 return {
   "mbbill/undotree",
-  "debugloop/telescope-undo.",
+  "debugloop/telescope-undo.nvim",
 }
---hello this is a test

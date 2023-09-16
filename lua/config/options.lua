@@ -11,7 +11,7 @@ opt.number = true
 opt.relativenumber = true
 -- opt.winbar = "%=%m %f"
 
-print("hello")
+-- print("hello")
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
