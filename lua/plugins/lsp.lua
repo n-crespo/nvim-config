@@ -1,9 +1,10 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
+  event = "VeryLazy",
   branch = "v2.x",
   dependencies = {
     -- LSP Support
-    { "neovim/nvim-lspconfig" }, -- Required
+    { "neovim/nvim-lspconfig" },
     { "williamboman/mason.nvim" }, -- Optional
     { "williamboman/mason-lspconfig.nvim" }, -- Optional
 

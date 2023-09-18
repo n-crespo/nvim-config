@@ -15,7 +15,7 @@ return {
     dashboard.section.header.val = vim.split(logo, "\n")
     dashboard.section.buttons.val = {
       dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-      dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("e", " " .. "File browser", ":Telescope file_browser <CR>"),
       dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
       -- dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
       dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
@@ -53,8 +53,10 @@ return {
       callback = function()
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        -- dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-        dashboard.section.footer.val = "⚡ Neovim loaded in " .. ms .. "ms"
+        dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+        -- dashboard.section.footer.val = "⚡ Neovim loaded in " .. ms .. "ms"
+        -- dashboard.section.footer.val = "⚡ Neovim loaded in " .. 0 .. " ms"
+        -- dashboard.section.footer.val = "⚡ Neovim loaded 10 years faster than vscode"
         pcall(vim.cmd.AlphaRedraw)
       end,
     })
