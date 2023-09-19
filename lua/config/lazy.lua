@@ -17,9 +17,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.mini-files" },
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.linters.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.java" },
     -- edit above line to add linters, lsp, etc ? pls
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -74,6 +75,3 @@ require("telescope").setup({
     },
   },
 })
--- To get telescope-file-browser loaded and working with telescope,
--- you need to call load_extension, somewhere after setup function:
-require("telescope").load_extension("file_browser")

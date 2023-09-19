@@ -15,6 +15,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- check primeagen video for separating y and leader y from yank for
+-- only vim and yank for system clipboard
+
 vim.api.nvim_get_color_map()
 
 -- run python file
@@ -23,27 +26,25 @@ vim.api.nvim_get_color_map()
 -- format python file (with black)
 -- conflicts with telescope projects (project.nvim)
 -- vim.keymap.set("n", "<leader>fp", [[:w <CR> :!black % <CR><CR>]])
+-- run java file
+-- TODO: do something or other
+-- vim.keymap.set("n", "<leader>jj", [[:cd %:h<cr> :w<CR>:!javac %<cr> :!java %:r<cr>]])
 
 vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.float_term()
 end, {})
 
--- switch to current buffer's directory
-vim.keymap.set("n", "<leader>gd", [[:set autochdir <CR>]])
--- run python file in floating terminal
 vim.keymap.set("n", "<leader>pp", [[:set autochdir <CR> :FloatingTerm <CR> python3 <C-\><C-n>"#pi<CR> ]])
--- run java file
 vim.keymap.set(
   "n",
   "<leader>jj",
-  [[:FloatingTerm <CR> javac <C-\><C-n>"#pi && java <C-\><C-n>"#pi<BS><BS><BS><BS><BS><CR> ]]
+  [[:w <CR>:set autochdir <CR> :FloatingTerm <CR> javac <C-\><C-n>"#pi && java <C-\><C-n>"#pi<BS><BS><BS><BS><BS><CR> ]]
 )
 
--- run cpp file in floating terminal (This is so sketch)
 vim.keymap.set(
   "n",
   "<leader>cp",
-  [[:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]]
+  [[:w <CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]]
 )
 
 -- telescope things
@@ -67,14 +68,11 @@ vim.keymap.set("n", "<leader>rb", [[i ```{r}<cr>```<esc>O]])
 vim.keymap.set("n", "<leader>th", [[:Telescope colorscheme<cr>]])
 -- undo tree (muntree)
 vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr>]])
--- see undos with a telescope preview
 vim.keymap.set("n", "<leader>up", [[:Telescope undo <cr>]])
 -- lsp install
 vim.keymap.set("n", "<leader>il", [[:LspInstall <CR>]])
-
 -- paste without overriding paste
 -- vim.keymap.set("n", "<leader>pp", [[/"_dP]])
-
 -- remove all other windows
 vim.keymap.set("n", "<leader>on", [[:only <CR>]])
 -- view alpha (homescreen) buffer
@@ -85,13 +83,12 @@ vim.keymap.set("n", "<leader>a", [[:Alpha<CR>]])
 -- vim.keymap.set("n", "<leader>tn", [[:put=expand('%:p')<CR> "9yy dd:vsplit <CR> :term cd <ESC>"4p <CR>]])
 
 -- close buffer and window
-vim.keymap.set("n", "<leader>xc", [[:close <CR>]])
+vim.keymap.set("n", "<leader>xc", [[:bdelete <CR>]])
 
--- REMOVED EXTENSION
 -- open file_browser with the path of the current buffer
--- vim.api.nvim_set_keymap(
---   "n",
---   "<space>e",
---   ":Telescope file_browser path=%:p:h select_buffer=true<CR><ESC>",
---   { noremap = true }
--- )
+vim.api.nvim_set_keymap(
+  "n",
+  "<space>e",
+  ":Telescope file_browser path=%:p:h select_buffer=true<CR><ESC>",
+  { noremap = true }
+)
