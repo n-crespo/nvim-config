@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
 -- alt + arrow key in vscode
+-- these are unneeded because alt + J and J does the same thing
 -- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 -- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -35,7 +36,6 @@ vim.api.nvim_set_keymap("v", "C", '"_C', { noremap = true, silent = true })
 -- vim.keymap.set("n", "<leader>fp", [[:w <CR> :!black % <CR><CR>]])
 
 -- run java file
--- TODO: do something or other
 -- vim.keymap.set("n", "<leader>jj", [[:cd %:h<cr> :w<CR>:!javac %<cr> :!java %:r<cr>]])
 
 vim.api.nvim_create_user_command("FloatingTerm", function()
