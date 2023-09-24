@@ -3,3 +3,6 @@ Config
 Neovim
 keymaps
 LazyVim
+keymaps
+config
+LSPs
