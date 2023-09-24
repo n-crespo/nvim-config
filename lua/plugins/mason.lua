@@ -7,6 +7,7 @@ return {
       "shfmt",
       "flake8",
       "black",
+      "jdtls",
     },
   },
 }

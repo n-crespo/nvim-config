@@ -1,11 +1,6 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
--- alt + arrow key in vscode
--- these are unneeded because alt + J and J does the same thing
--- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
--- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 -- centers c-d and c-u
 local Util = require("lazyvim.util")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -47,62 +42,59 @@ vim.keymap.set(
   "n",
   "<leader>pp",
   [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> python3 <C-\><C-n>"#pi<CR> ]],
-  { silent = true }
+  { silent = true, desc = "Run Python File" }
 )
 vim.keymap.set(
   "n",
   "<leader>jj",
   [[:set autochdir<CR>:w<CR>:FloatingTerm<CR>javac <C-\><C-n>"#pi && java <C-\><C-n>"#pi<BS><BS><BS><BS><BS><CR> ]],
-  { silent = true }
+  { silent = true, desc = "Run Java File" }
 )
 
 vim.keymap.set(
   "n",
   "<leader>cp",
   [[:set autochdir<CR>:w <CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
-  { silent = true }
+  { desc = "Run C++", silent = true }
 )
 
--- change directory things
-vim.keymap.set("n", "<leader>fd", [[:set autochdir <CR>]])
-vim.keymap.set("n", "<leader>cu", [[:cd ..<cr>]])
--- this is for (leader + s) changes all instances of the word the cursor is
--- ontop of to the next word typed
 -- replace word
-vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
--- c++ things
--- vim.keymap.set("n", "<leader>cp", [[:w <CR>:!g++ % -o %:r && %:r<CR>]])
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace Word" })
 -- open terminal buffer
-vim.keymap.set("n", "<leader>tm", [[:term <cr>]])
+vim.keymap.set("n", "<leader>tm", [[:term <cr>]], { desc = "Terminal Buffer" })
 -- select full file
 vim.keymap.set("n", "<C-a>", [[gg<S-v>G]])
 -- r markdown code block
-vim.keymap.set("n", "<leader>rb", [[i ```{r}<cr>```<esc>O]])
+vim.keymap.set("n", "<leader>rb", [[i ```{r}<cr>```<esc>O]], { desc = "R Code Block", silent = true })
 -- attempt to do colorscheme preview keymap
 vim.keymap.set("n", "<leader>th", [[:Telescope colorscheme<cr>]], { silent = true })
 -- undo tree (muntree)
-vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr>]], { silent = true })
-vim.keymap.set("n", "<leader>up", [[:Telescope undo <cr>]], { silent = true })
--- lsp install
-vim.keymap.set("n", "<leader>il", [[:LspInstall <CR>]], { silent = true })
--- paste without overriding paste
-vim.keymap.set("n", "<leader>op", [["_dP]])
--- remove all other windows
-vim.keymap.set("n", "<leader>on", [[:only <CR>]], { silent = true })
+vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr>]], { silent = true, desc = "Undo Tree" })
+-- remove all other windows, same as :on or :only
+vim.keymap.set("n", "<leader>on", [[:only <CR>]], { silent = true, desc = ":only" })
 -- view alpha (homescreen) buffer
-vim.keymap.set("n", "<leader>a", [[:Alpha<CR>]], { silent = true })
-
--- repeat last command in vertical split terminal buffer
--- vim.keymap.set("n", "<leader>tt", [[:vsplit <CR> :term <CR> i clear <CR> <Up><Up> <CR>]])
--- vim.keymap.set("n", "<leader>tn", [[:put=expand('%:p')<CR> "9yy dd:vsplit <CR> :term cd <ESC>"4p <CR>]])
-
+vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
 -- close buffer and window
-vim.keymap.set("n", "<leader>xc", [[:bdelete <CR>]], { silent = true })
+vim.keymap.set("n", "<leader>xc", [[:bdelete <CR>]], { silent = true, desc = "Close buffer" })
 
--- open file_browser with the path of the current buffer
-vim.api.nvim_set_keymap(
-  "n",
-  "<space>e",
-  ":set autochdir<CR>:Telescope file_browser path=%:p:h select_buffer=true<CR><ESC>",
-  { noremap = true, silent = true }
-)
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<leader>a", function()
+  ui.nav_file(1)
+end)
+
+vim.keymap.set("n", "<leader>a", function()
+  ui.nav_file(2)
+end)
+
+vim.keymap.set("n", "<leader>a", function()
+  ui.nav_file(3)
+end)
+
+vim.keymap.set("n", "<leader>a", function()
+  ui.nav_file(4)
+end)

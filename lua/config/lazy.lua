@@ -10,18 +10,9 @@ require("lazy").setup({
 
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "lazyvim.plugins.extras.util.project" },
-    -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import any extras modules here
     { import = "lazyvim.plugins.extras.editor.mini-files" },
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.java" },
-    -- edit above line to add linters, lsp, etc ? pls
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {
@@ -33,7 +24,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*",  try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax", "catppuccin" } },
+  install = { colorscheme = { "tokyonight", "catppuccin" } },
   checker = { enabled = true }, --   automatically check for plugin updates
   performance = {
     rtp = {
@@ -51,28 +42,3 @@ require("lazy").setup({
     },
   },
 })
-
-local lsp = require("lsp-zero").preset({})
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({ buffer = bufnr })
-end)
-lsp.setup()
-
-require("telescope").setup({
-  extensions = {
-    file_browser = {
-      theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
-        },
-      },
-    },
-  },
-})
-require("telescope").load_extension("file_browser")
