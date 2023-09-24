@@ -2,12 +2,19 @@ return {
   "williamboman/mason.nvim",
   opts = {
     ensure_installed = {
-      "stylua",
+      "bash-language-server",
+      "black",
+      "clang-format",
+      "clangd",
+      "flake8",
+      "jdtls",
+      "json-lsp",
+      "lua-language-server",
+      "pyright",
+      "rust-analyzer",
       "shellcheck",
       "shfmt",
-      "flake8",
-      "black",
-      "jdtls",
+      "stylua",
     },
   },
 }
