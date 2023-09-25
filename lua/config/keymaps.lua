@@ -108,6 +108,8 @@ vim.keymap.set("n", "<a-t>", function()
   tmux.sendCommand(1, "ls -La")
 end)
 
+vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "[M]arkdown [P]review" })
+
 vim.cmd("highlight! HarpoonInactive guibg=NONE guifg=#63698c")
 vim.cmd("highlight! HarpoonActive guibg=NONE guifg=white")
 vim.cmd("highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")

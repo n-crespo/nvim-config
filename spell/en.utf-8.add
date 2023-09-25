@@ -6,3 +6,5 @@ LazyVim
 keymaps
 config
 LSPs
+jdtls
+LSP
