@@ -46,6 +46,7 @@ require("lazy").setup({
 require("harpoon").setup({
   tabline = true,
   tabline_prefix = "   ",
+  tabling_suffix = "   ",
   save_on_toggle = false,
   save_on_change = true,
 })

@@ -115,3 +115,12 @@ vim.cmd("highlight! HarpoonActive guibg=NONE guifg=white")
 vim.cmd("highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
 vim.cmd("highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
 vim.cmd("highlight! TabLineFill guibg=NONE guifg=white")
+
+local builtin = require("telescope.builtin")
+local utils = require("telescope.utils")
+vim.api.nvim_create_user_command("FindCwd", function()
+  builtin.find_files({ cwd = utils.buffer_dir() })
+end, {})
+vim.keymap.set("n", "<leader><leader>", [[:FindCwd<CR>]], { silent = true, desc = "Find Files (cwd)" })
+
+vim.keymap.set("n", "<leader>e", [[:lua MiniFiles.open()<CR>]], { silent = true, desc = "Mini Files" })
