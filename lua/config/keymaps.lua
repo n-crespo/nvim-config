@@ -88,25 +88,16 @@ vim.keymap.set("n", "H", [[:bprev<CR>]], { silent = true, desc = "Previous Buffe
 vim.keymap.set("n", "<a-a>", mark.add_file)
 vim.keymap.set("n", "<a-e>", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<a-1>", function()
+vim.keymap.set("n", "<a-a>", function()
   ui.nav_file(1)
 end)
 
-vim.keymap.set("n", "<a-2>", function()
+vim.keymap.set("n", "<a-s>", function()
   ui.nav_file(2)
 end)
 
-vim.keymap.set("n", "<a-3>", function()
-  ui.nav_file(3)
-end)
-
-vim.keymap.set("n", "<a-c>", function()
-  term.sendCommand(1, "ls -La")
-end)
-
-vim.keymap.set("n", "<a-t>", function()
-  tmux.sendCommand(1, "ls -La")
-end)
+ui.nav_file(3)
+vim.keymap.set("n", "<a-d>", function() end)
 
 vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "[M]arkdown [P]review" })
 
@@ -121,6 +112,18 @@ local utils = require("telescope.utils")
 vim.api.nvim_create_user_command("FindCwd", function()
   builtin.find_files({ cwd = utils.buffer_dir() })
 end, {})
-vim.keymap.set("n", "<leader><leader>", [[:FindCwd<CR>]], { silent = true, desc = "Find Files (cwd)" })
+vim.keymap.set("n", "<leader>fd", [[:FindCwd<CR>]], { silent = true, desc = "Find Files (cwd)" })
+vim.keymap.set("n", "<leader><leader>", [[:Telescope git_files<CR>]], { silent = true, desc = "Find Files (cwd)" })
 
 vim.keymap.set("n", "<leader>e", [[:lua MiniFiles.open()<CR>]], { silent = true, desc = "Mini Files" })
+vim.keymap.set("n", "<space>cc", function()
+  local ok, start = require("ibl.utils").get_current_context(
+    vim.g.indent_blankline_context_patterns,
+    vim.g.indent_blankline_use_treesitter_scope
+  )
+  if not ok then
+    return
+  end
+  vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
+  vim.cmd([[normal! _]])
+end)
