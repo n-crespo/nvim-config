@@ -5,8 +5,8 @@ return {
     enabled = false,
   },
   {
-    "windwp/nvim-spectre",
+    "nvim-pack/nvim-spectre",
     enabled = false,
   },
-  { "akinsho/bufferline.nvim", enabled = false },
+  -- { "akinsho/bufferline.nvim", enabled = false },
 }

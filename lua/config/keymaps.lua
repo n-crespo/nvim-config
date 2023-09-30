@@ -77,28 +77,36 @@ vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
 -- close buffer and window
 vim.keymap.set("n", "<leader>xc", [[:bdelete <CR>]], { silent = true, desc = "Close buffer" })
 
+-- harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
-local term = require("harpoon.term")
-local tmux = require("harpoon.tmux")
+-- local term = require("harpoon.term")
+-- local tmux = require("harpoon.tmux")
 
+-- switching buffers
 vim.keymap.set("n", "L", [[:bnext<CR>]], { silent = true, desc = "Next Buffer" })
 vim.keymap.set("n", "H", [[:bprev<CR>]], { silent = true, desc = "Previous Buffer" })
 
+-- harpoon
 vim.keymap.set("n", "<a-a>", mark.add_file)
 vim.keymap.set("n", "<a-e>", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<a-a>", function()
+vim.keymap.set("n", "<a-q>", function()
   ui.nav_file(1)
 end)
 
-vim.keymap.set("n", "<a-s>", function()
+vim.keymap.set("n", "<a-w>", function()
   ui.nav_file(2)
 end)
 
-ui.nav_file(3)
-vim.keymap.set("n", "<a-d>", function() end)
+vim.keymap.set("n", "<a-d>", function()
+  ui.nav_file(3)
+end)
 
+vim.keymap.set("n", "<a-x>", function()
+  ui.nav_file(4)
+end)
+-- markdown preview
 vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "[M]arkdown [P]review" })
 
 vim.cmd("highlight! HarpoonInactive guibg=NONE guifg=#63698c")
@@ -112,18 +120,11 @@ local utils = require("telescope.utils")
 vim.api.nvim_create_user_command("FindCwd", function()
   builtin.find_files({ cwd = utils.buffer_dir() })
 end, {})
-vim.keymap.set("n", "<leader>fd", [[:FindCwd<CR>]], { silent = true, desc = "Find Files (cwd)" })
+
+-- better telescope keymaps
+vim.keymap.set("n", "<leader>fd", [[:FindCwd<CR>]], { silent = true, desc = "[F]ind Files (cw[d])" })
 vim.keymap.set("n", "<leader><leader>", [[:Telescope git_files<CR>]], { silent = true, desc = "Find Files (cwd)" })
 
-vim.keymap.set("n", "<leader>e", [[:lua MiniFiles.open()<CR>]], { silent = true, desc = "Mini Files" })
-vim.keymap.set("n", "<space>cc", function()
-  local ok, start = require("ibl.utils").get_current_context(
-    vim.g.indent_blankline_context_patterns,
-    vim.g.indent_blankline_use_treesitter_scope
-  )
-  if not ok then
-    return
-  end
-  vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-  vim.cmd([[normal! _]])
-end)
+-- better insert mode keymapsc
+vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
+vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
