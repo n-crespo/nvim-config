@@ -38,6 +38,7 @@ vim.api.nvim_create_user_command("FloatingTerm", function()
 end, {})
 
 vim.keymap.set("n", "<C-s>", [[:set autochdir<CR>:w<CR>]], { silent = true })
+vim.keymap.set("i", "<esc>", [[<esc>:set autochdir<CR>:w<CR>]], { silent = true })
 vim.keymap.set(
   "n",
   "<leader>pp",
@@ -128,3 +129,22 @@ vim.keymap.set("n", "<leader><leader>", [[:Telescope git_files<CR>]], { silent =
 -- better insert mode keymapsc
 vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
 vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
+
+vim.api.nvim_create_user_command("HideLualine", function()
+  require("lualine").hide({ place = { "statusline" }, unhide = false })
+end, {})
+
+vim.api.nvim_create_user_command("ShowLualine", function()
+  require("lualine").hide({ place = { "statusline" }, unhide = true })
+end, {})
+
+vim.keymap.set(
+  "n",
+  "<leader>ge",
+  "[[:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo<CR>]]",
+  { silent = true, desc = "[E]nable [G]oyo" }
+)
+vim.keymap.set("n", "<leader>gd", "[[:ShowLualine<CR>:Goyo!<CR>]]", { silent = true, desc = "[D]isable [G]oyo" })
+vim.keymap.set("n", "<leader>fp", function()
+  require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+end, { silent = true, desc = "[F]ind [P]lugin File" })
