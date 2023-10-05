@@ -38,7 +38,8 @@ vim.api.nvim_create_user_command("FloatingTerm", function()
 end, {})
 
 vim.keymap.set("n", "<C-s>", [[:set autochdir<CR>:w<CR>]], { silent = true })
-vim.keymap.set("i", "<esc>", [[<esc>:set autochdir<CR>:w<CR>]], { silent = true })
+-- auto save on escape insert mode
+-- vim.keymap.set("i", "<esc>", [[<esc>:set autochdir<CR>:w<CR>]], { silent = true })
 vim.keymap.set(
   "n",
   "<leader>pp",
