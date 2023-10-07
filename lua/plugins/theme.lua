@@ -64,9 +64,15 @@ return {
       "wuelnerdotexe/vim-enfocado",
     },
     {
+      "EdenEast/nightfox.nvim",
+    },
+    {
+      "nyoom-engineering/oxocarbon.nvim",
+    },
+    {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "enfocado",
+        colorscheme = "carbonfox",
       },
     },
   },

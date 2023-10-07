@@ -17,7 +17,6 @@ Some interesting things in this configuration are:
 
 > **Note**: many of the plugins I use are not visible in lua/plugins/ because I use the lazyvim configuration which comes with lots of plugins. You can see these in these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also have disabled some plugins that come with LazyVim in the `overrides.lua` file. 
 
-## Installation
 To use this configuration (I don't recommend this, make your own)(this probably won't work for you anyway), just clone the repo into your `~/.config/nvim `folder. If you don't know how to do that, you shouldn't be using this in the first place. If you're using Windows, stop. Use WSL and do everything from there.
 
 > **Note**: If you do end up cloning this repo to use it, the jdtls (java) LSP may give you some errors if you don't have it installed. I don't suggest installing it unless absolutely necessary. Just delete all the files that reference jdtls. 

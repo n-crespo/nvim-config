@@ -36,7 +36,6 @@ require("lazy").setup({
         -- "matchparen",
         -- "netrwPlugin",
         "tarPlugin",
-        "tohtml",
         "tutor",
         "zipPlugin",
       },
@@ -51,22 +50,22 @@ require("harpoon").setup({
   save_on_toggle = false,
   save_on_change = true,
 })
-vim.g.enfocado_style = "nature"
+-- vim.g.enfocado_style = "nature"
 require("notify").setup({
   background_colour = "#000000",
 })
 
-local actions = require("telescope.actions")
-require("telescope").setup({
-  defaults = {
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-        -- ["<CR>"] =
-      },
-    },
-  },
-})
+-- local actions = require("telescope.actions")
+-- require("telescope").setup({
+--   defaults = {
+--     mappings = {
+--       i = {
+--         ["<esc>"] = actions.close,
+--         -- ["<CR>"] =
+--       },
+--     },
+--   },
+-- })
 
 -- START TELESCOPE CONFIG
 

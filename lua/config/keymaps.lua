@@ -26,18 +26,17 @@ vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "C", '"_C', { noremap = true, silent = true })
 
--- format python file (with black)
--- conflicts with telescope projects (project.nvim)
--- vim.keymap.set("n", "<leader>fp", [[:w <CR> :!black % <CR><CR>]])
-
--- run java file
--- vim.keymap.set("n", "<leader>jj", [[:cd %:h<cr> :w<CR>:!javac %<cr> :!java %:r<cr>]])
-
 vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.float_term()
 end, {})
 
-vim.keymap.set("n", "<C-s>", [[:set autochdir<CR>:w<CR>]], { silent = true })
+-- vim.keymap.set(
+--   "n",
+--   "<C-s>",
+--   [[:colorscheme tokyonight-moon<CR>:colorscheme enfocado<CR>:set autochdir<CR>:w<CR>]],
+--   { silent = true }
+-- )
+
 -- auto save on escape insert mode
 -- vim.keymap.set("i", "<esc>", [[<esc>:set autochdir<CR>:w<CR>]], { silent = true })
 vim.keymap.set(
@@ -117,20 +116,20 @@ vim.cmd("highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
 vim.cmd("highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
 vim.cmd("highlight! TabLineFill guibg=NONE guifg=white")
 
-local builtin = require("telescope.builtin")
-local utils = require("telescope.utils")
-vim.api.nvim_create_user_command("FindCwd", function()
-  builtin.find_files({ cwd = utils.buffer_dir() })
-end, {})
-
--- better telescope keymaps
-vim.keymap.set("n", "<leader>fd", [[:FindCwd<CR>]], { silent = true, desc = "[F]ind Files (cw[d])" })
-vim.keymap.set(
-  "n",
-  "<leader><leader>",
-  [[:set autochdir<CR>:Telescope git_files<CR>]],
-  { silent = true, desc = "Find Files (cwd)" }
-)
+-- local builtin = require("telescope.builtin")
+-- local utils = require("telescope.utils")
+-- vim.api.nvim_create_user_command("FindCwd", function()
+--   builtin.find_files({ cwd = utils.buffer_dir() })
+-- end, {})
+--
+-- -- better telescope keymaps
+-- vim.keymap.set("n", "<leader>fd", [[:FindCwd<CR>]], { silent = true, desc = "[F]ind Files (cw[d])" })
+-- vim.keymap.set(
+--   "n",
+--   "<leader><leader>",
+--   [[:set autochdir<CR>:Telescope git_files<CR>]],
+--   { silent = true, desc = "Find Files (cwd)" }
+-- )
 
 -- better insert mode keymapsc
 vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
@@ -151,7 +150,7 @@ end, {})
 vim.keymap.set(
   "n",
   "<leader>ge",
-  "[[:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo<CR>]]",
+  "[[:colorscheme :set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo<CR>]]",
   { silent = true, desc = "[E]nable [G]oyo" }
 )
 
