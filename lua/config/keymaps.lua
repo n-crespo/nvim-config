@@ -30,13 +30,6 @@ vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.float_term()
 end, {})
 
--- vim.keymap.set(
---   "n",
---   "<C-s>",
---   [[:colorscheme tokyonight-moon<CR>:colorscheme enfocado<CR>:set autochdir<CR>:w<CR>]],
---   { silent = true }
--- )
-
 -- auto save on escape insert mode
 -- vim.keymap.set("i", "<esc>", [[<esc>:set autochdir<CR>:w<CR>]], { silent = true })
 vim.keymap.set(
@@ -150,12 +143,17 @@ end, {})
 vim.keymap.set(
   "n",
   "<leader>ge",
-  "[[:colorscheme :set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo<CR>]]",
+  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo<CR>]]",
   { silent = true, desc = "[E]nable [G]oyo" }
 )
 
--- Goyo disable
-vim.keymap.set("n", "<leader>gd", "[[:ShowLualine<CR>:Goyo!<CR>]]", { silent = true, desc = "[D]isable [G]oyo" })
+--  Goyo disable
+vim.keymap.set(
+  "n",
+  "<leader>gd",
+  "[[:set nocursorline<CR>:ShowLualine<CR>:Goyo!<CR>]]",
+  { silent = true, desc = "[D]isable [G]oyo" }
+)
 
 -- telescope find plugin files
 vim.keymap.set("n", "<leader>fp", function()

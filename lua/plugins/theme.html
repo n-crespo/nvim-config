@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>~/.config/nvim/lua/plugins/theme.lua.html</title>
+<meta name="Generator" content="Vim/8.1">
+<meta name="plugin-version" content="vim9.0_v1">
+<meta name="syntax" content="none">
+<meta name="settings" content="number_lines,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=,use_input_for_pc=fallback">
+<meta name="colorscheme" content="carbonfox">
+<style>
+<!--
+pre { font-family: monospace; color: #f2f4f8; background-color: #161616; }
+body { font-family: monospace; color: #f2f4f8; background-color: #161616; }
+* { font-size: 1em; }
+.Folded { color: #7b7c7e; background-color: #252525; padding-bottom: 1px; }
+.LineNr { color: #7b7c7e; }
+-->
+</style>
+
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span>return {
+<span id="L2" class="LineNr"> 2 </span>  {
+<span id="L3" class="LineNr"> 3 </span>    &quot;catppuccin/nvim&quot;,
+<span id="L4" class="LineNr"> 4 </span>    -- catppuccin opts
+<span id="L5" class="Folded"> 5 </span><span class="Folded">return {  󰇘                                                                                                                                                                </span>
+<span id="L54" class="LineNr">54 </span>  { &quot;rose-pine/neovim&quot;, name = &quot;rose-pine&quot; },
+<span id="L55" class="LineNr">55 </span>  {
+<span id="L56" class="LineNr">56 </span>    &quot;folke/tokyonight.nvim&quot;,
+<span id="L57" class="LineNr">57 </span>    -- make background transparent
+<span id="L58" class="LineNr">58 </span>    opts = {
+<span id="L59" class="LineNr">59 </span>      transparent = true,
+<span id="L60" class="LineNr">60 </span>      styles = {
+<span id="L61" class="LineNr">61 </span>        sidebars = &quot;transparent&quot;,
+<span id="L62" class="LineNr">62 </span>        floats = &quot;transparent&quot;,
+<span id="L63" class="LineNr">63 </span>      },
+<span id="L64" class="LineNr">64 </span>    },
+<span id="L65" class="LineNr">65 </span>  },
+<span id="L66" class="LineNr">66 </span>  {
+<span id="L67" class="LineNr">67 </span>    -- current theme
+<span id="L68" class="LineNr">68 </span>    &quot;EdenEast/nightfox.nvim&quot;,
+<span id="L69" class="LineNr">69 </span>  },
+<span id="L70" class="LineNr">70 </span>  {
+<span id="L71" class="LineNr">71 </span>    &quot;LazyVim/LazyVim&quot;,
+<span id="L72" class="LineNr">72 </span>    opts = {
+<span id="L73" class="LineNr">73 </span>      -- set theme to load at start
+<span id="L74" class="LineNr">74 </span>      colorscheme = &quot;carbonfox&quot;,
+<span id="L75" class="LineNr">75 </span>    },
+<span id="L76" class="LineNr">76 </span>  },
+<span id="L77" class="LineNr">77 </span>}
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

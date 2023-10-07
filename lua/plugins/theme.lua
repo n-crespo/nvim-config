@@ -1,6 +1,7 @@
 return {
   {
     "catppuccin/nvim",
+    -- catppuccin opts
     name = "catppuccin",
     priority = 1000,
     ---@class CatppuccinOptions
@@ -49,31 +50,28 @@ return {
         },
       },
     },
-    { "rose-pine/neovim", name = "rose-pine" },
-    {
-      "folke/tokyonight.nvim",
-      opts = {
-        transparent = true,
-        styles = {
-          sidebars = "transparent",
-          floats = "transparent",
-        },
+  },
+  { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "folke/tokyonight.nvim",
+    -- make background transparent
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
       },
     },
-    {
-      "wuelnerdotexe/vim-enfocado",
-    },
-    {
-      "EdenEast/nightfox.nvim",
-    },
-    {
-      "nyoom-engineering/oxocarbon.nvim",
-    },
-    {
-      "LazyVim/LazyVim",
-      opts = {
-        colorscheme = "carbonfox",
-      },
+  },
+  {
+    -- current theme
+    "EdenEast/nightfox.nvim",
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      -- set theme to load at start
+      colorscheme = "carbonfox",
     },
   },
 }
