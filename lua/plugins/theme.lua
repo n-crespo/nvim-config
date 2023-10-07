@@ -60,11 +60,13 @@ return {
         },
       },
     },
-    { "wuelnerdotexe/vim-enfocado" },
+    {
+      "wuelnerdotexe/vim-enfocado",
+    },
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "tokyonight-moon",
+        colorscheme = "enfocado",
       },
     },
   },
