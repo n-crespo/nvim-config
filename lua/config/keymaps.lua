@@ -136,22 +136,29 @@ vim.keymap.set(
 vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
 vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
 
+-- enter in normal mode adds new line
+vim.keymap.set("n", "<CR>", "o<esc>", { desc = "Add new line" })
+
+-- functions for hiding and showing lualine for goyo
 vim.api.nvim_create_user_command("HideLualine", function()
   require("lualine").hide({ place = { "statusline" }, unhide = false })
 end, {})
-
 vim.api.nvim_create_user_command("ShowLualine", function()
   require("lualine").hide({ place = { "statusline" }, unhide = true })
 end, {})
 
+-- goyo enable
 vim.keymap.set(
   "n",
   "<leader>ge",
   "[[:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo<CR>]]",
   { silent = true, desc = "[E]nable [G]oyo" }
 )
+
+-- Goyo disable
 vim.keymap.set("n", "<leader>gd", "[[:ShowLualine<CR>:Goyo!<CR>]]", { silent = true, desc = "[D]isable [G]oyo" })
+
+-- telescope find plugin files
 vim.keymap.set("n", "<leader>fp", function()
   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
 end, { silent = true, desc = "[F]ind [P]lugin File" })
-vim.keymap.set("i", "jk", "<esc>")
