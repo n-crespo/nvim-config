@@ -56,7 +56,7 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>cp",
-  [[:set autochdir<CR>:w <CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
+  [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
   { desc = "Run C++", silent = true }
 )
 
@@ -71,7 +71,7 @@ vim.keymap.set("n", "<leader>rb", [[i ```{r}<cr>```<esc>O]], { desc = "R Code Bl
 -- attempt to do colorscheme preview keymap
 vim.keymap.set("n", "<leader>th", [[:Telescope colorscheme<cr>]], { silent = true })
 -- undo tree (muntree)
-vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr>]], { silent = true, desc = "Undo Tree" })
+vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr><c-w>h]], { silent = true, desc = "Undo Tree" })
 -- remove all other windows, same as :on or :only
 vim.keymap.set("n", "<leader>on", [[:only <CR>]], { silent = true, desc = ":only" })
 -- view alpha (homescreen) buffer
@@ -125,7 +125,12 @@ end, {})
 
 -- better telescope keymaps
 vim.keymap.set("n", "<leader>fd", [[:FindCwd<CR>]], { silent = true, desc = "[F]ind Files (cw[d])" })
-vim.keymap.set("n", "<leader><leader>", [[:Telescope git_files<CR>]], { silent = true, desc = "Find Files (cwd)" })
+vim.keymap.set(
+  "n",
+  "<leader><leader>",
+  [[:set autochdir<CR>:Telescope git_files<CR>]],
+  { silent = true, desc = "Find Files (cwd)" }
+)
 
 -- better insert mode keymapsc
 vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
@@ -149,3 +154,4 @@ vim.keymap.set("n", "<leader>gd", "[[:ShowLualine<CR>:Goyo!<CR>]]", { silent = t
 vim.keymap.set("n", "<leader>fp", function()
   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
 end, { silent = true, desc = "[F]ind [P]lugin File" })
+vim.keymap.set("i", "jk", "<esc>")

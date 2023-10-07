@@ -1,5 +1,4 @@
 return {
-  -- add gruvbox
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -61,10 +60,11 @@ return {
         },
       },
     },
+    { "wuelnerdotexe/vim-enfocado" },
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "tokyonight-night",
+        colorscheme = "tokyonight-moon",
       },
     },
   },

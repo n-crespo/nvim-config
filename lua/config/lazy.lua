@@ -43,11 +43,15 @@ require("lazy").setup({
     },
   },
 })
-
+-- require("lualine").setup({ options = { theme = "enfocado" } })
 require("harpoon").setup({
   tabline = true,
   tabline_prefix = "   ",
   tabling_suffix = "   ",
   save_on_toggle = false,
   save_on_change = true,
+})
+
+require("notify").setup({
+  background_colour = "#000000",
 })
