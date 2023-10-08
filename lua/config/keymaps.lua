@@ -16,19 +16,22 @@ vim.api.nvim_get_color_map()
 
 -- allow changing and deleting without overriding current paste registers
 -- in otherwords automatically delete or change to the void register
-vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "D", '"_D', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "C", '"_C', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true })
 
 vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.float_term()
 end, {})
+
+-- 0
+--
 
 -- auto save on escape insert mode
 -- vim.keymap.set("i", "<esc>", [[<esc>:set autochdir<CR>:w<CR>]], { silent = true })
@@ -57,7 +60,7 @@ vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- open terminal buffer
 vim.keymap.set("n", "<leader>tm", [[:term <cr>]], { desc = "Terminal Buffer" })
 -- select full file
-vim.keymap.set("n", "<C-a>", [[gg<S-v>G]])
+vim.keymap.set("n", "<C-s-a>", [[gg<S-v>G]])
 -- r markdown code block
 vim.keymap.set("n", "<leader>rb", [[i ```{r}<cr>```<esc>O]], { desc = "R Code Block", silent = true })
 -- attempt to do colorscheme preview keymap

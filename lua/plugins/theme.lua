@@ -1,7 +1,7 @@
 return {
   {
     "catppuccin/nvim",
-    -- catppuccin opts
+    -- catppuccin opts (fold line below)
     name = "catppuccin",
     priority = 1000,
     ---@class CatppuccinOptions
