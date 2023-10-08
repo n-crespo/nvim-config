@@ -112,22 +112,7 @@ vim.cmd("highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
 vim.cmd("highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
 vim.cmd("highlight! TabLineFill guibg=NONE guifg=white")
 
--- local builtin = require("telescope.builtin")
--- local utils = require("telescope.utils")
--- vim.api.nvim_create_user_command("FindCwd", function()
---   builtin.find_files({ cwd = utils.buffer_dir() })
--- end, {})
---
--- -- better telescope keymaps
--- vim.keymap.set("n", "<leader>fd", [[:FindCwd<CR>]], { silent = true, desc = "[F]ind Files (cw[d])" })
--- vim.keymap.set(
---   "n",
---   "<leader><leader>",
---   [[:set autochdir<CR>:Telescope git_files<CR>]],
---   { silent = true, desc = "Find Files (cwd)" }
--- )
-
--- better insert mode keymapsc
+-- better insert mode keymaps
 vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
 vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
 
@@ -146,7 +131,7 @@ end, {})
 vim.keymap.set(
   "n",
   "<leader>ge",
-  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo<CR>]]",
+  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 50%<CR>]]",
   { silent = true, desc = "[E]nable [G]oyo" }
 )
 
@@ -162,3 +147,9 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>fp", function()
   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
 end, { silent = true, desc = "[F]ind [P]lugin File" })
+
+-- This conflicts with vim's <C-a> key map that increments selected numbers, but
+-- I think it is a worth trade-off because <C-a> to select the whole file is so common
+-- in every other application I use.
+vim.keymap.set("n", "<C-A>", "ggVG", { desc = "Select [A]ll" })
+vim.keymap.set("i", "<C><BS>", ":echo 'you pressed backspace'")

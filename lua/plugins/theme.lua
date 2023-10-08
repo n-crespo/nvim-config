@@ -1,4 +1,18 @@
 return {
+  {
+    -- load current theme
+    "EdenEast/nightfox.nvim",
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      -- set theme to load at start
+      colorscheme = "carbonfox",
+    },
+  },
+
+  -- don't load unused themes
+
   -- {
   --   "catppuccin/nvim",
   -- -- catppuccin opts below (folded)
@@ -51,7 +65,9 @@ return {
   --     },
   --   },
   -- },
+
   -- { "rose-pine/neovim", name = "rose-pine" },
+
   -- {
   --   "folke/tokyonight.nvim",
   --   -- make background transparent
@@ -63,15 +79,4 @@ return {
   --     },
   --   },
   -- },
-  {
-    -- current theme
-    "EdenEast/nightfox.nvim",
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      -- set theme to load at start
-      colorscheme = "carbonfox",
-    },
-  },
 }
