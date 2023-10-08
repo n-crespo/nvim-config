@@ -22,3 +22,4 @@ opt.numberwidth = 1
 opt.relativenumber = true
 opt.textwidth = 80
 opt.cursorline = true
+opt.foldmethod = "manual"
