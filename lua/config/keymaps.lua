@@ -131,7 +131,7 @@ end, {})
 vim.keymap.set(
   "n",
   "<leader>ge",
-  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 50%<CR>]]",
+  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 45%<CR>]]",
   { silent = true, desc = "[E]nable [G]oyo" }
 )
 
@@ -150,6 +150,5 @@ end, { silent = true, desc = "[F]ind [P]lugin File" })
 
 -- This conflicts with vim's <C-a> key map that increments selected numbers, but
 -- I think it is a worth trade-off because <C-a> to select the whole file is so common
--- in every other application I use.
+-- in every other application I use. (C-x decrements numbers)
 vim.keymap.set("n", "<C-A>", "ggVG", { desc = "Select [A]ll" })
-vim.keymap.set("i", "<C><BS>", ":echo 'you pressed backspace'")

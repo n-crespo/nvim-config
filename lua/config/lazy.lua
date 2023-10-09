@@ -42,7 +42,6 @@ require("lazy").setup({
     },
   },
 })
--- require("lualine").setup({ options = { theme = "enfocado" } })
 require("harpoon").setup({
   tabline = true,
   tabline_prefix = "   ",
@@ -50,18 +49,18 @@ require("harpoon").setup({
   save_on_toggle = false,
   save_on_change = true,
 })
--- vim.g.enfocado_style = "nature"
+
 require("notify").setup({
   background_colour = "#000000",
 })
 
+-- -- this closes telescope when insert mode is exited
 -- local actions = require("telescope.actions")
 -- require("telescope").setup({
 --   defaults = {
 --     mappings = {
 --       i = {
 --         ["<esc>"] = actions.close,
---         -- ["<CR>"] =
 --       },
 --     },
 --   },
@@ -78,7 +77,7 @@ require("telescope").setup({
   },
 })
 
--- hide binary files
+-- hide binary files in telescope preview pane
 local previewers = require("telescope.previewers")
 local Job = require("plenary.job")
 local new_maker = function(filepath, bufnr, opts)
