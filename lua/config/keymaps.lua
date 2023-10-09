@@ -152,3 +152,7 @@ end, { silent = true, desc = "[F]ind [P]lugin File" })
 -- I think it is a worth trade-off because <C-a> to select the whole file is so common
 -- in every other application I use. (C-x decrements numbers)
 vim.keymap.set("n", "<C-A>", "ggVG", { desc = "Select [A]ll" })
+
+-- this adds <Control + backspace> and <Control + delete> to insert mode
+vim.keymap.set("i", "", "<C-o>db", { silent = true })
+vim.keymap.set("i", "<C-Del>", "<C-o>de")
