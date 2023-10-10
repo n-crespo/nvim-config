@@ -117,7 +117,7 @@ vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
 vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
 
 -- enter in normal mode adds new line
-vim.keymap.set("n", "<CR>", "o<esc>", { desc = "Add new line" })
+-- vim.keymap.set("n", "<CR>", "o<esc>", { desc = "Add new line" })
 
 -- functions for hiding and showing lualine for goyo
 vim.api.nvim_create_user_command("HideLualine", function()
@@ -131,7 +131,7 @@ end, {})
 vim.keymap.set(
   "n",
   "<leader>ge",
-  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 45%<CR>]]",
+  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 50%<CR>]]",
   { silent = true, desc = "[E]nable [G]oyo" }
 )
 
@@ -154,5 +154,8 @@ end, { silent = true, desc = "[F]ind [P]lugin File" })
 vim.keymap.set("n", "<C-A>", "ggVG", { desc = "Select [A]ll" })
 
 -- this adds <Control + backspace> and <Control + delete> to insert mode
-vim.keymap.set("i", "", "<C-o>db", { silent = true })
+vim.keymap.set("i", "", "<C-w>", { silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de")
+
+-- show lualine
+vim.keymap.set("n", "<leader>ub", "[[:ShowLualine<CR>]]", { silent = true, desc = "Toggle Status [B]ar" })
