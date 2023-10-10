@@ -159,3 +159,12 @@ vim.keymap.set("i", "<C-Del>", "<C-o>de")
 
 -- show lualine
 vim.keymap.set("n", "<leader>ub", "[[:ShowLualine<CR>]]", { silent = true, desc = "Toggle Status [B]ar" })
+
+-------- START NEORG KEYBINDS ------------
+-- new note
+vim.keymap.set(
+  "n",
+  "<leader>nn",
+  "[[:Neorg keybind all core.dirman.new.note<CR>]]",
+  { silent = true, desc = "[N]ew [N]ote" }
+)

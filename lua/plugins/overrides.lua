@@ -12,6 +12,10 @@ return {
     "catppuccin/nvim",
     enabled = false,
   },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   enabled = false,
+  -- },
   -- { "akinsho/bufferline.nvim", enabled = false },
   -- {
   --   "folke/which-key.nvim",
