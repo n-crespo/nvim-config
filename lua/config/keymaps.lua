@@ -190,3 +190,16 @@ vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
 
 -- enter in normal mode adds new line
 -- vim.keymap.set("n", "<CR>", "o<esc>", { desc = "Add new line" })
+
+-- [\w*\](\S\+
+-- vim.keymap.set("n", "<CR>", "/[\\w*\\](\\S\\+<CR>gf<CMD>noh<CR>")
+-- vim.keymap.set("n", "<CR>", "\v\\[[^/]+\\/\\w+\\.\\w+\\)<CR><ESC>", { silent = true })
+
+-- follow markdown links with gf (built into vim)
+vim.keymap.set(
+  "n",
+  "<CR>",
+  "/\\v\\[[^/]+\\/\\w+\\.\\w+\\)<CR><ESC>f(gf<CMD>noh<CR>",
+  { silent = true, desc = "Better Go to File (gf)" }
+)
+
