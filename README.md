@@ -13,8 +13,8 @@ Some interesting things in this configuration are:
 - With this config I consistently have a ~30ms startup time. (100ms+ are rookie numbers)
 - The "NEOVIM" text on the startup screen took way too long to get working, but it looks sick (uses plugin called Alpha)
 - Lualine now shows 12-hour time (*\'murica*)
-- I use tokyodark with a transparent background because pastel blue looks childish
-
+- I use the carbonfox theme
+ 
 > **Note**: many of the plugins I use are not visible in lua/plugins/ because I use the lazyvim configuration which comes with lots of plugins. You can see these in these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also have disabled some plugins that come with LazyVim in the `overrides.lua` file. 
 
 To use this configuration (I don't recommend this, make your own)(this probably won't work for you anyway), just clone the repo into your `~/.config/nvim `folder. If you don't know how to do that, you shouldn't be using this in the first place. If you're using Windows, stop. Use WSL and do everything from there.

@@ -41,48 +41,6 @@ require("lazy").setup({
       },
     },
   },
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup({
-        load = {
-          ["core.export.markdown"] = {},
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.completion"] = {
-            config = {
-              engine = "nvim-cmp",
-            },
-          },
-          -- ["core.dirman"] = { -- Manages Neorg workspaces
-          --   config = {
-          --     workspaces = {
-          --       notes = "~/notes",
-          --     },
-          --   },
-          -- },
-        },
-      })
-    end,
-  },
-})
-
-require("neorg").setup({
-  load = {
-    ["core.export.markdown"] = {},
-    ["core.defaults"] = {},
-    ["core.concealer"] = {},
-    ["core.dirman"] = {
-      config = {
-        workspaces = {
-          work = "~/notes/work",
-          home = "~/notes/home",
-        },
-      },
-    },
-  },
 })
 
 require("harpoon").setup({
@@ -93,23 +51,11 @@ require("harpoon").setup({
   save_on_change = true,
 })
 
-require("notify").setup({
-  background_colour = "#000000",
-})
-
--- -- this closes telescope when insert mode is exited
--- local actions = require("telescope.actions")
--- require("telescope").setup({
---   defaults = {
---     mappings = {
---       i = {
---         ["<esc>"] = actions.close,
---       },
---     },
---   },
+-- require("notify").setup({
+--   background_colour = "#000000",
 -- })
 
--- START TELESCOPE CONFIG
+-- START TELESCOPE CONFIG --
 
 -- set max file size for preview
 require("telescope").setup({

@@ -1,3 +1,0 @@
-return {
-  "nvim-neorg/neorg",
-}
