@@ -202,4 +202,3 @@ vim.keymap.set(
   "/\\v\\[[^/]+\\/\\w+\\.\\w+\\)<CR><ESC>f(gf<CMD>noh<CR>",
   { silent = true, desc = "Better Go to File (gf)" }
 )
-
