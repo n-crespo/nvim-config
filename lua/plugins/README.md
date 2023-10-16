@@ -25,6 +25,7 @@
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 * [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+* [nvim](https://github.com/catppuccin/nvim)
 * [persistence.nvim](https://github.com/folke/persistence.nvim)
 * [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)

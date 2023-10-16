@@ -1,8 +1,10 @@
 {
   "extras": [
-    "ui.alpha"
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.ui.alpha"
   ],
   "news": {
-    "NEWS.md": "2035"
-  }
+    "NEWS.md": "2123"
+  },
+  "version": 2
 }

@@ -169,11 +169,12 @@ vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Windo
 
 -- R markdown code block
 vim.keymap.set("n", "<leader>Rb", [[i```{r}<cr>```<esc>O]], { desc = "R Code Block", silent = true })
-vim.keymap.set("n", "<leader>Rk", [[:w <cr>:RMarkdown <CR>]], { silent = true })
+vim.keymap.set("n", "<leader>Rk", [[:w <cr>:RMarkdown <CR>]], { silent = true, desc = "R Knit" })
 vim.keymap.set(
   "n",
   "<leader>Rh",
-  [[i---<CR>title: ""<CR>author: ""<CR>date: "`r Sys.Date()`"<CR>output: html_document<CR>---<CR><CR>```{r setup, include=FALSE}<CR>knitr::opts_chunk$set(echo = TRUE)<CR>```<CR><CR>---<CR><CR>]]
+  [[i---<CR>title: ""<CR>author: ""<CR>date: "`r Sys.Date()`"<CR>output: html_document<CR>---<CR><CR>```{r setup, include=FALSE}<CR>knitr::opts_chunk$set(echo = TRUE)<CR>```<CR><CR>---<CR><CR>]],
+  { desc = "R Header" }
 )
 -- undo tree (muntree)
 vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr><c-w>h]], { silent = true, desc = "Undo [T]ree" })
@@ -184,21 +185,31 @@ vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
 -- markdown preview
 vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "[M]arkdown [P]review" })
 
+-- vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
 -- better insert mode keymaps
-vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
 vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
 
--- enter in normal mode adds new line
--- vim.keymap.set("n", "<CR>", "o<esc>", { desc = "Add new line" })
-
--- [\w*\](\S\+
--- vim.keymap.set("n", "<CR>", "/[\\w*\\](\\S\\+<CR>gf<CMD>noh<CR>")
--- vim.keymap.set("n", "<CR>", "\v\\[[^/]+\\/\\w+\\.\\w+\\)<CR><ESC>", { silent = true })
-
--- follow markdown links with gf (built into vim)
+-- go to markdown link (gl) ([g]o [l]ink)
 vim.keymap.set(
   "n",
-  "<CR>",
-  "/\\v\\[[^/]+\\/\\w+\\.\\w+\\)<CR><ESC>f(gf<CMD>noh<CR>",
-  { silent = true, desc = "Better Go to File (gf)" }
+  "gl",
+  "/\\[.*\\](.*)<CR><ESC>/master<CR><ESC>wwvt)gf<CMD>noh<CR>",
+  { silent = true, desc = "Goto Markdown [L]ink" }
+)
+
+-- create markdown heading
+vim.keymap.set("n", "<leader>mh", 'ggO<ESC>"%pa<bs><bs><bs><ESC>F/dbxyypVr=', { desc = "[H]eading" })
+vim.keymap.set("n", "<leader>mH", 'ggO<ESC>"%pa<bs><bs><bs><ESC>yypVr=', { desc = "[H]eading" })
+-- vim.keymap.set("n", "<leader>mm", "ggO")
+vim.keymap.set("n", "<leader>mm", "")
+
+-- add "=" underline in markdown with current line (for h1)
+vim.keymap.set("n", "gh", "yypVr=", { silent = true, desc = "Add '=' for [H]eading" })
+
+-- create markdown link with bracketed text
+vim.keymap.set(
+  "n",
+  "<leader>ml",
+  "f]a(word)<ESC>hciwhttps://github.com/n-crespo/NASA-2023/blob/master/",
+  { silent = true, desc = "Create [L]ink" }
 )

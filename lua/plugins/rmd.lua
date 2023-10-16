@@ -1,5 +1,5 @@
--- add functionality for rmarkdown
 return {
+  -- add functionality for rmarkdown
   {
     "vim-pandoc/vim-rmarkdown",
     dependencies = {
