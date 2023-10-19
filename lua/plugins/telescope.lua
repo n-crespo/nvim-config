@@ -1,4 +1,3 @@
--- plugins/telescope.lua:
 return {
   -- add telescope-fzf-native
   {
