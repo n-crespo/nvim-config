@@ -51,15 +51,12 @@ require("harpoon").setup({
   save_on_change = true,
 })
 
--- require("notify").setup({
---   background_colour = "#000000",
--- })
-
 -- START TELESCOPE CONFIG --
 
 -- set max file size for preview
 require("telescope").setup({
   defaults = {
+    initial_mode = "insert",
     preview = {
       filesize_limit = 0.1, -- MB
     },

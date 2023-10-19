@@ -26,3 +26,5 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.cursorline = true
 opt.foldmethod = "manual"
+vim.g.vim_markdown_math = 1
+vim.g.vim_markdown_toc_autofit = 1

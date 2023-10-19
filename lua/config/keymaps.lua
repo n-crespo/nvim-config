@@ -12,6 +12,9 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.keymap.set("n", "<C-i>", "<C-o>")
+vim.keymap.set("n", "<C-o>", "<C-i>")
+
 vim.api.nvim_get_color_map()
 
 -- allow changing and deleting without overriding current paste registers
@@ -154,7 +157,7 @@ vim.keymap.set("i", "", "<C-w>", { silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de")
 
 -- cd to current buffer directory
-vim.keymap.set("n", "<leader>bl", "[[:cd %:p:h<CR>]]", { silent = true, desc = "[B]uffer [L]ocate" })
+vim.keymap.set("n", "<leader>bl", "[[<CMD>cd %:p:h<CR>]]", { silent = true, desc = "[B]uffer [L]ocate" })
 
 -- replace word
 vim.keymap.set(
@@ -183,7 +186,7 @@ vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr><c-w>h]], { silent = tru
 vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
 
 -- markdown preview
-vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "[M]arkdown [P]review" })
+vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "Markdown [P]review" })
 
 -- vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
 -- better insert mode keymaps
@@ -197,19 +200,41 @@ vim.keymap.set(
   { silent = true, desc = "Goto Markdown [L]ink" }
 )
 
--- create markdown heading
-vim.keymap.set("n", "<leader>mh", 'ggO<ESC>"%pa<bs><bs><bs><ESC>F/dbxyypVr=', { desc = "[H]eading" })
-vim.keymap.set("n", "<leader>mH", 'ggO<ESC>"%pa<bs><bs><bs><ESC>yypVr=', { desc = "[H]eading" })
--- vim.keymap.set("n", "<leader>mm", "ggO")
-vim.keymap.set("n", "<leader>mm", "")
+-- -- create markdown heading
+-- vim.keymap.set(
+--   "n",
+--   "<leader>mh",
+--   'ggO<ESC>"%pa<bs><bs><bs><ESC>F/dbxyypVr=',
+--   { desc = "[H]eading (from notebook directory)" }
+-- )
 
--- add "=" underline in markdown with current line (for h1)
-vim.keymap.set("n", "gh", "yypVr=", { silent = true, desc = "Add '=' for [H]eading" })
-
--- create markdown link with bracketed text
 vim.keymap.set(
   "n",
-  "<leader>ml",
-  "f]a(word)<ESC>hciwhttps://github.com/n-crespo/NASA-2023/blob/master/",
-  { silent = true, desc = "Create [L]ink" }
+  "<leader>mh",
+  "ggO<ESC><CMD>r! echo %:t<CR>A<bs><bs><bs><ESC>kddyypVr=",
+  { silent = true, desc = "Markdown [H]eading" }
 )
+
+-- add "=" underline in markdown with current line (for h1)
+vim.keymap.set("n", "gh", "yypVr=", { silent = true, desc = "Add '=' for Markdown h1" })
+
+-- NOTE: the below keymap is unneeded because of new markdown plugin
+
+-- -- create markdown link with bracketed text
+-- vim.keymap.set(
+--   "n",
+--   "<leader>ml",
+--   "f]a(word)<ESC>hciwhttps://github.com/n-crespo/NASA-2023/blob/master/",
+--   { silent = true, desc = "Create Github [L]ink" }
+-- )
+
+function _G.change_directory()
+  local filepath = vim.fn.expand("%:p") -- get path of the current file
+  local path = vim.fn.fnamemodify(filepath, ":h") -- get directory of the file
+  local filename = vim.fn.fnamemodify(filepath, ":t") -- get name of the file
+
+  vim.cmd("new") -- create a new split
+  vim.fn.termopen("wezterm start --cwd " .. path .. " wezterm imgcat " .. filename) -- start terminal with the command
+end
+
+vim.api.nvim_set_keymap("n", "<leader>cv", ":lua change_directory()<CR>", { noremap = true, silent = true })

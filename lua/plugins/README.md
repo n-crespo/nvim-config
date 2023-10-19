@@ -23,7 +23,7 @@
 * [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 * [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-* [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
+* [nvim-markdown](https://github.com/ixru/nvim-markdown)
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 * [nvim](https://github.com/catppuccin/nvim)
 * [persistence.nvim](https://github.com/folke/persistence.nvim)

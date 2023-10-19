@@ -1,3 +1,17 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
+-- vim.api.nvim_exec(
+--   [[
+--   augroup ChangeDirectory
+--     autocmd!
+--     autocmd BufEnter *.png,*.jpg call luaeval('change_directory(_A)', expand('%:p'))
+--   augroup END
+-- ]],
+--   false
+-- )
+--
+-- function _G.change_directory(filepath)
+--   local path = vim.fn.fnamemodify(filepath, ":h") -- get directory of the file
+--   local filename = vim.fn.fnamemodify(filepath, ":t") -- get name of the file
+--
+--   vim.cmd("new") -- create a new split
+--   vim.fn.termopen("wezterm start --cwd " .. path .. " wezterm imgcat " .. filename) -- start terminal with the command
+-- end

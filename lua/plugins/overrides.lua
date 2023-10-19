@@ -4,10 +4,10 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = false,
   },
-  {
-    "nvim-pack/nvim-spectre",
-    enabled = false,
-  },
+  -- {
+  --   "nvim-pack/nvim-spectre",
+  --   enabled = false,
+  -- },
   {
     "catppuccin/nvim",
     enabled = false,
