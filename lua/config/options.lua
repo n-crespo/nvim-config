@@ -17,6 +17,7 @@ opt.splitright = true
 opt.swapfile = false
 opt.wrap = false
 opt.incsearch = true
+opt.autochdir = true
 opt.scrolloff = 8
 opt.numberwidth = 1
 opt.relativenumber = true
