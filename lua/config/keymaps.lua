@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<C-i>", "<C-o>")
+vim.keymap.set("n", ">/<C-i>", "<C-o>")
 vim.keymap.set("n", "<C-o>", "<C-i>")
 
 vim.api.nvim_get_color_map()
@@ -56,50 +56,33 @@ vim.keymap.set(
   [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
   { desc = "Run [C]++ File", silent = true }
 )
+
+-- Bufferline Keymaps --
 --====================--
--- End [R]un Keymaps
---====================--
 
---======================--
--- Start Harpoon Keymaps
---======================--
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+-- Require the bufferline plugin
+local bufferline = require("bufferline")
 
-vim.cmd("highlight! HarpoonInactive guibg=NONE guifg=#63699c")
-vim.cmd("highlight! HarpoonActive guibg=NONE guifg=white")
-vim.cmd("highlight! HarpoonNumberActive guibg=NONE guifg=#8aa2f7")
-vim.cmd("highlight! HarpoonNumberInactive guibg=NONE guifg=#8aa2f7")
-vim.cmd("highlight! TabLineFill guibg=NONE guifg=white")
+-- Set some options for bufferline
+---@diagnostic disable-next-line: missing-fields
+bufferline.setup({
+  ---@diagnostic disable-next-line: missing-fields
+  options = {
+    -- Enable mouse clicks on the bufferline
+    mouse = true,
+    -- Use letters for buffer pick functionality
+    buffer_pick_command = "Telescope buffers",
+  },
+})
 
--- add to list
-vim.keymap.set("n", "<a-a>", mark.add_file)
--- show list
-vim.keymap.set("n", "<a-e>", ui.toggle_quick_menu)
-
---navigate to first in list
-vim.keymap.set("n", "<a-q>", function()
-  ui.nav_file(2)
-end)
-
---navigate to second in list
-vim.keymap.set("n", "<a-w>", function()
-  ui.nav_file(3)
-end)
-
---navigate to third in list
-vim.keymap.set("n", "<a-d>", function()
-  ui.nav_file(4)
-end)
-
---navigate to fourth in list
-vim.keymap.set("n", "<a-x>", function()
-  ui.nav_file(5)
-end)
-
---====================--
--- End Harpoon Keymaps
---====================--
+-- Map <Alt-q> to switch to the first tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-q>", "<cmd>BufferLineGoToBuffer 1<CR>", { noremap = true })
+-- Map <Alt-w> to switch to the second tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-w>", "<cmd>BufferLineGoToBuffer 2<CR>", { noremap = true })
+-- Map <Alt-d> to switch to the third tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-e>", "<cmd>BufferLineGoToBuffer 3<CR>", { noremap = true })
+-- Map <Alt-x> to switch to the fourth tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
 
 --=================================--
 -- Start Goyo (and Lualine) Keymaps

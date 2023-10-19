@@ -9,7 +9,7 @@ Some interesting things in this configuration are:
 
 - The entire `keymaps.lua` file (plugin specific, very much personal preference)(but some of them are *muah*)
 - Some of the `options.lua` file (not plugin specific, everyone should use these regardless of your config)
-- The plugins Harpoon, UndoTree, LazyGit, and Mini Files are cool
+- The plugins MdMaker, UndoTree, LazyGit, and Mini Files are cool
 - With this config I consistently have a ~30ms startup time. (100ms+ are rookie numbers)
 - The "NEOVIM" text on the startup screen took way too long to get working, but it looks sick (uses plugin called Alpha)
 - Lualine now shows 12-hour time (*\'murica*)

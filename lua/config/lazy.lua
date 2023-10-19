@@ -43,15 +43,30 @@ require("lazy").setup({
   },
 })
 
-require("harpoon").setup({
-  tabline = true,
-  tabline_prefix = "   ",
-  tabling_suffix = "   ",
-  save_on_toggle = false,
-  save_on_change = true,
-})
+require("neoconf").setup({})
+local lspconfig = require("lspconfig")
 
--- START TELESCOPE CONFIG --
+-- Preconfiguration ===========================================================
+local on_attach_custom = function(client, bufnr)
+  local function buf_set_option(name, value)
+    vim.api.nvim_buf_set_option(bufnr, name, value)
+  end
+
+  buf_set_option("omnifunc", "v:lua.MiniCompletion.completefunc_lsp")
+
+  -- Mappings are created globally for simplicity
+
+  -- Currently all formatting is handled with 'null-ls' plugin
+  client.resolved_capabilities.document_formatting = false
+end
+
+---@diagnostic disable-next-line: missing-fields
+lspconfig.r_language_server.setup({
+  on_attach = on_attach_custom,
+  -- Debounce "textDocument/didChange" notifications because they are slowly
+  -- processed (seen when going through completion list with `<C-N>`)
+  flags = { debounce_text_changes = 150 },
+})
 
 -- set max file size for preview
 require("telescope").setup({
@@ -89,4 +104,3 @@ require("telescope").setup({
     buffer_previewer_maker = new_maker,
   },
 })
-require("mini.indentscope").gen_animation.none()
