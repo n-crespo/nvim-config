@@ -89,3 +89,4 @@ require("telescope").setup({
     buffer_previewer_maker = new_maker,
   },
 })
+require("mini.indentscope").gen_animation.none()

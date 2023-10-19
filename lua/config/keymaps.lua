@@ -146,7 +146,6 @@ vim.keymap.set("n", "<leader>fp", function()
   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
 end, { silent = true, desc = "[F]ind [P]lugin File" })
 
--- 3
 -- This conflicts with vim's <C-a> key map that increments selected numbers, but
 -- I think it is a worth trade-off because <C-a> to select the whole file is so common
 -- in every other application I use. (C-x decrements numbers)
