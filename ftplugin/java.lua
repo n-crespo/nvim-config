@@ -1,5 +1,5 @@
 local config = {
-  cmd = { "/path/to/jdt-language-server/bin/jdtls" },
+  cmd = { "/root/Library/jdt-language-server/bin/jdtls" },
   root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 }
 require("jdtls").start_or_attach(config)
@@ -10,6 +10,7 @@ local config = {
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
 
+    -- 💀
     "java", -- or '/path/to/java17_or_newer/bin/java'
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
@@ -25,16 +26,17 @@ local config = {
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
 
+    -- 💀
     "-jar",
     "/root/Library/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
-    -- "/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar",
+    --
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
 
+    -- 💀
     "-configuration",
     "/root/Library/jdt-language-server/config_linux/",
-    -- "/path/to/jdtls_install_location/config_SYSTEM",
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
     -- eclipse.jdt.ls installation            Depending on your system.

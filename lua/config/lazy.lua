@@ -12,6 +12,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
     { import = "lazyvim.plugins.extras.lang.java" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "plugins" },
@@ -42,31 +43,6 @@ require("lazy").setup({
     },
   },
 })
-
--- require("neoconf").setup({})
--- local lspconfig = require("lspconfig")
---
--- -- Preconfiguration ===========================================================
--- local on_attach_custom = function(client, bufnr)
---   local function buf_set_option(name, value)
---     vim.api.nvim_buf_set_option(bufnr, name, value)
---   end
---
---   buf_set_option("omnifunc", "v:lua.MiniCompletion.completefunc_lsp")
---
---   -- Mappings are created globally for simplicity
---
---   -- Currently all formatting is handled with 'null-ls' plugin
---   client.resolved_capabilities.document_formatting = false
--- end
---
--- ---@diagnostic disable-next-line: missing-fields
--- lspconfig.r_language_server.setup({
---   on_attach = on_attach_custom,
---   -- Debounce "textDocument/didChange" notifications because they are slowly
---   -- processed (seen when going through completion list with `<C-N>`)
---   flags = { debounce_text_changes = 150 },
--- })
 
 -- set max file size for preview
 require("telescope").setup({
@@ -99,6 +75,7 @@ local new_maker = function(filepath, bufnr, opts)
     end,
   }):sync()
 end
+
 require("telescope").setup({
   defaults = {
     buffer_previewer_maker = new_maker,
