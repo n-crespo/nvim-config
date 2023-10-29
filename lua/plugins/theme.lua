@@ -4,6 +4,10 @@ return {
     "EdenEast/nightfox.nvim",
   },
   {
+
+    "luisiacc/gruvbox-baby",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       -- set theme to load at start
