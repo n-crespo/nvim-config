@@ -3,10 +3,10 @@ return {
     -- load current theme
     "EdenEast/nightfox.nvim",
   },
-  {
-
-    "luisiacc/gruvbox-baby",
-  },
+  -- {
+  --
+  --   "luisiacc/gruvbox-baby",
+  -- },
   {
     "LazyVim/LazyVim",
     opts = {

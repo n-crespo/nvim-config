@@ -2,11 +2,31 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- NOTE: This is a limitation of using neovim in WSL, and makes yanking and
+-- pasting a bit slow. Using "unnamedplus" makes it instant, but then increases
+-- startup SUBSTANTIALLY (almost 900ms) (see :StartupTime --> clipboard.vim), so
+-- this is my current best solution. Also I had to remove my powershell profile
+-- configuration (🥲) so it wouldn't take ten years to paste.
+
+vim.g.clipboard = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
+    ["*"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
+  },
+  cache_enabled = 1,
+}
+
 local opt = vim.opt
 opt.autowrite = true -- Enable auto writes
-opt.clipboard = "unnamedplus" -- Sync with system clipboard
+opt.autowrite = true -- Enable auto writes
 opt.conceallevel = 3 -- Hide * markup for bold and italics
-opt.number = true
+opt.clipboard = "unnamedplus" -- lowkey does nothing bc i alreay defined the clipboard above (i think)
+
 opt.cursorline = false
 opt.relativenumber = true
 -- opt.winbar = "%=%m %f"
