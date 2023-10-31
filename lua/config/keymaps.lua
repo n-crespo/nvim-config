@@ -103,7 +103,7 @@ vim.keymap.set("n", "<leader>uB", "[[:HideLualine<CR>]]", { silent = true, desc 
 vim.keymap.set(
   "n",
   "<leader>ge",
-  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 51%<CR>]]",
+  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 90<CR>]]",
   { silent = true, desc = "[E]nable [G]oyo" }
 )
 
