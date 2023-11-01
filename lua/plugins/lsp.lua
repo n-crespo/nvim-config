@@ -12,6 +12,7 @@ return {
     servers = {
       jdtls = {},
       r_language_server = {},
+      arduino_language_server = {},
     },
     setup = {
       jdtls = function()
