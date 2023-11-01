@@ -23,7 +23,6 @@ vim.g.clipboard = {
 
 local opt = vim.opt
 opt.autowrite = true -- Enable auto writes
-opt.autowrite = true -- Enable auto writes
 opt.conceallevel = 3 -- Hide * markup for bold and italics
 opt.clipboard = "unnamedplus" -- lowkey does nothing bc i alreay defined the clipboard above (i think)
 
@@ -40,6 +39,7 @@ opt.wrap = false
 opt.incsearch = true
 opt.autochdir = true
 opt.scrolloff = 8
+opt.sidescrolloff = 8
 opt.numberwidth = 1
 opt.relativenumber = true
 opt.textwidth = 80
