@@ -198,3 +198,5 @@ function _G.spawn_image()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>cv", ":lua spawn_image()<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "p", "p<CMD>%s/\\r//<CR>", { desc = "Better paste", silent = true })

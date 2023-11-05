@@ -13,6 +13,7 @@ return {
       jdtls = {},
       r_language_server = {},
       arduino_language_server = {},
+      bashls = {},
     },
     setup = {
       jdtls = function()
