@@ -6,13 +6,14 @@
 ## 🔌 Plugins
 
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [cmp-emoji](https://github.com/hrsh7th/cmp-emoji)
 - [goyo.vim](https://github.com/junegunn/goyo.vim)
-- [gruvbox-baby](https://github.com/luisiacc/gruvbox-baby)
 - [java.lang=ALL-UNNAMED](https://github.com/java.base/java.lang=ALL-UNNAMED)
 - [java.util=ALL-UNNAMED](https://github.com/java.base/java.util=ALL-UNNAMED)
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [LazyVim](https://github.com/LazyVim/LazyVim)
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [mason.nvim](https://github.com/williamboman/mason.nvim)
 - [mdmaker.nvim](https://github.com/NStefan002/mdmaker.nvim)
@@ -20,6 +21,7 @@
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [neoconf.nvim](https://github.com/folke/neoconf.nvim)
 - [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [nvim-markdown](https://github.com/ixru/nvim-markdown)
 - [nvim](https://github.com/catppuccin/nvim)

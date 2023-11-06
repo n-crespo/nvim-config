@@ -200,3 +200,6 @@ end
 vim.api.nvim_set_keymap("n", "<leader>cv", ":lua spawn_image()<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "p", "p<CMD>%s/\\r//<CR>", { desc = "Better paste", silent = true })
+
+vim.keymap.set("n", "<leader>d", "d", { silent = true, desc = "Delete to Register", noremap = true })
+vim.keymap.set("n", "<leader>bx", "<CMD>bd<CR>", { silent = true, desc = "Delete Buffer AND Split", noremap = false })
