@@ -7,6 +7,7 @@
 
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [cmp-emoji](https://github.com/hrsh7th/cmp-emoji)
+- [garbage-day.nvim](https://github.com/zeioth/garbage-day.nvim)
 - [goyo.vim](https://github.com/junegunn/goyo.vim)
 - [java.lang=ALL-UNNAMED](https://github.com/java.base/java.lang=ALL-UNNAMED)
 - [java.util=ALL-UNNAMED](https://github.com/java.base/java.util=ALL-UNNAMED)
@@ -24,7 +25,6 @@
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [nvim-markdown](https://github.com/ixru/nvim-markdown)
-- [nvim](https://github.com/catppuccin/nvim)
 - [persistence.nvim](https://github.com/folke/persistence.nvim)
 - [undotree](https://github.com/mbbill/undotree)
 - [vim-pandoc-syntax](https://github.com/vim-pandoc/vim-pandoc-syntax)

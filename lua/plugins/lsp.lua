@@ -14,6 +14,7 @@ return {
       r_language_server = {},
       arduino_language_server = {},
       bashls = {},
+      clangd = {},
     },
     setup = {
       jdtls = function()
