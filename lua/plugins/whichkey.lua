@@ -39,6 +39,7 @@ return {
         ["<Leader>q"] = { name = "+Sessions" },
         ["<Leader>r"] = { name = "+Run" },
         ["<Leader>R"] = { name = "+R Markdown" },
+        ["<Leader>Rk"] = { name = "+R Knit" },
         ["<Leader>x"] = { name = "+Quickfix" },
 
         -- ["<Leader>Y"] = { name = "Yank History" },
