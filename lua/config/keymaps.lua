@@ -149,8 +149,13 @@ vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Windo
 
 -- R markdown code block
 vim.keymap.set("n", "<leader>Rb", [[i```{r}<cr>```<esc>O]], { desc = "R Code Block", silent = true })
-vim.keymap.set("n", "<leader>Rkh", [[:w <cr>:RMarkdown <CR>]], { silent = true, desc = "R Knit html" })
-vim.keymap.set("n", "<leader>Rkp", [[:w <cr>:RMarkdown <CR>]], { silent = true, desc = "R Knit pdf" })
+vim.keymap.set("n", "<leader>Rkh", [[:w <cr>:RMarkdown html<CR>]], { silent = true, desc = "R Knit html" })
+vim.keymap.set(
+  "n",
+  "<leader>Rkp",
+  [[:w <cr>:RMarkdown pdf latex_engine="xelatex"<CR>]],
+  { silent = true, desc = "R Knit pdf" }
+)
 vim.keymap.set(
   "n",
   "<leader>Rh",
