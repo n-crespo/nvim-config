@@ -31,6 +31,7 @@ opt.relativenumber = true
 -- opt.winbar = "%=%m %f"
 
 -- print("hello")
+vim.g.netrw_browsex_viewer = "sudo firefox" -- edit commands for gx and :open
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false

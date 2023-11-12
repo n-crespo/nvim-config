@@ -27,6 +27,7 @@
 - [nvim-markdown](https://github.com/ixru/nvim-markdown)
 - [persistence.nvim](https://github.com/folke/persistence.nvim)
 - [undotree](https://github.com/mbbill/undotree)
+- [vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [vim-pandoc-syntax](https://github.com/vim-pandoc/vim-pandoc-syntax)
 - [vim-pandoc](https://github.com/vim-pandoc/vim-pandoc)
 - [vim-rmarkdown](https://github.com/vim-pandoc/vim-rmarkdown)
