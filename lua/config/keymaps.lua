@@ -209,3 +209,6 @@ vim.api.nvim_set_keymap("n", "p", "p<CMD>%s/\\r//<CR>", { desc = "Better paste",
 
 vim.keymap.set("n", "<leader>d", "d", { silent = true, desc = "Delete to Register", noremap = true })
 vim.keymap.set("n", "<leader>bx", "<CMD>bd<CR>", { silent = true, desc = "Delete Buffer AND Split", noremap = false })
+
+-- support for ranger plugin
+vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "Ranger File [E]xplorer" })

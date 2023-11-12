@@ -1,5 +1,5 @@
-vim.g.pandoc_modules_enabled = {}
-vim.g.pandoc_filetypes_pandoc_markdown = 0
+-- vim.g.pandoc_modules_enabled = {}
+-- vim.g.pandoc_filetypes_pandoc_markdown = 0
 return {
   -- add functionality for rmarkdown
   {
