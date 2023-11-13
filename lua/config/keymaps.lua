@@ -132,6 +132,7 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select [A]ll" })
 -- adds <Control + backspace> and <Control + delete> to insert mode
 vim.keymap.set("i", "", "<C-w>", { silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de")
+vim.keymap.set("i", "<Alt-a>", "<C-o>A", { silent = true })
 
 -- cd to current buffer directory
 vim.keymap.set("n", "<leader>bl", "[[<CMD>cd %:p:h<CR>]]", { silent = true, desc = "[B]uffer [L]ocate" })
