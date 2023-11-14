@@ -122,7 +122,7 @@ vim.keymap.set(
 -- telescope find plugin files
 vim.keymap.set("n", "<leader>fp", function()
   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-end, { silent = true, desc = "[F]ind [P]lugin File" })
+end, { silent = true, desc = "Find [P]lugin File" })
 
 -- This conflicts with vim's <C-a> key map that increments selected numbers, but
 -- I think it is a worth trade-off because <C-a> to select the whole file is so common
@@ -184,12 +184,13 @@ vim.keymap.set(
   { silent = true, desc = "Goto Markdown [L]ink" }
 )
 
-vim.keymap.set(
-  "n",
-  "<leader>mh",
-  "ggO<ESC><CMD>r! echo %:t<CR>A<bs><bs><bs><ESC>kddyypVr=",
-  { silent = true, desc = "Markdown [H]eading" }
-)
+-- -- auto create markdown heading (setx or something, bad format)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>mh",
+--   "ggO<ESC><CMD>r! echo %:t<CR>A<bs><bs><bs><ESC>kddyypVr=",
+--   { silent = true, desc = "Markdown [H]eading" }
+-- )
 
 -- add "=" underline in markdown with current line (for h1)
 vim.keymap.set("n", "gh", "yypVr=", { silent = true, desc = "Add '=' for Markdown h1" })
@@ -204,22 +205,22 @@ function _G.spawn_image()
   vim.fn.termopen("wezterm start --cwd " .. path .. " wezterm imgcat " .. filename) -- start terminal with the command
 end
 
-vim.api.nvim_set_keymap("n", "<leader>cv", ":lua spawn_image()<CR>", { noremap = true, silent = true })
-
+-- remove  -- on paste
 vim.api.nvim_set_keymap("n", "p", "p<CMD>%s/\\r//<CR>", { desc = "Better paste", silent = true })
 
 vim.keymap.set("n", "<leader>d", "d", { silent = true, desc = "Delete to Register", noremap = true })
+-- delete buffer and split
 vim.keymap.set("n", "<leader>bx", "<CMD>bd<CR>", { silent = true, desc = "Delete Buffer AND Split", noremap = false })
 
 -- support for ranger plugin
-vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "Ranger File [E]xplorer" })
+vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "[E]xplore" })
 
 -- support for markdown table mode
 vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Markdown [T]able Mode" })
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
 -- markdown table of contents
-vim.keymap.set("n", "<leader>mc", "<CMD>Toc<CR><CMD>set nonu<CR>", { silent = true, desc = "Table of [C]ontents" })
+vim.keymap.set("n", "<leader>tc", "<CMD>Toc<CR><CMD>set nonu<CR>", { silent = true, desc = "Table of [C]ontents" })
 
 -- get one dark pro colors
 vim.keymap.set(
