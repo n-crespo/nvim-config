@@ -135,7 +135,7 @@ vim.keymap.set("i", "<C-Del>", "<C-o>de")
 vim.keymap.set("i", "<Alt-a>", "<C-o>A", { silent = true })
 
 -- cd to current buffer directory
-vim.keymap.set("n", "<leader>bl", "[[<CMD>cd %:p:h<CR>]]", { silent = true, desc = "[B]uffer [L]ocate" })
+vim.keymap.set("n", "<leader>bl", "[[<CMD>cd %:p:h<CR>]]", { silent = true, desc = "[L]ocate Buffer" })
 
 -- replace word
 vim.keymap.set(
@@ -219,7 +219,7 @@ vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, d
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
 -- markdown table of contents
-vim.keymap.set("n", "<leader>mc", "<CMD>Toc<CR><C-w>r", { silent = true, desc = "Table of [C]ontents" })
+vim.keymap.set("n", "<leader>mc", "<CMD>Toc<CR><CMD>set nonu<CR>", { silent = true, desc = "Table of [C]ontents" })
 
 -- get one dark pro colors
 vim.keymap.set(
@@ -228,4 +228,9 @@ vim.keymap.set(
   "<CMD>OnedarkproColors<CR>VGy<CMD>bd<CR>pvip:norm 0i-- <CR>",
   { silent = true, noremap = false, desc = "[G]et Theme Colors" }
 )
+-- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z", { silent = true, desc = "better J" })
+-- center on save
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>zz", { desc = "Save file" })
+-- better z<CR>
+vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
