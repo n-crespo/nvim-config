@@ -16,3 +16,6 @@ require("onedarkpro").setup({
   },
 })
 vim.cmd("color onedark_dark")
+require("headlines").setup({
+  rmarkdown = require("headlines").config.rmd,
+})
