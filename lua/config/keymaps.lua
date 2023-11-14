@@ -216,4 +216,16 @@ vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc 
 
 -- support for markdown table mode
 vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Markdown [T]able Mode" })
+-- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
+-- markdown table of contents
+vim.keymap.set("n", "<leader>mc", "<CMD>Toc<CR><C-w>r", { silent = true, desc = "Table of [C]ontents" })
+
+-- get one dark pro colors
+vim.keymap.set(
+  "n",
+  "<leader>ug",
+  "<CMD>OnedarkproColors<CR>VGy<CMD>bd<CR>pvip:norm 0i-- <CR>",
+  { silent = true, noremap = false, desc = "[G]et Theme Colors" }
+)
+vim.keymap.set("n", "J", "mzJ`z", { silent = true, desc = "better J" })
