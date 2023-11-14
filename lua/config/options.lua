@@ -24,7 +24,7 @@ vim.g.clipboard = {
 local opt = vim.opt
 opt.autowrite = true -- Enable auto writes
 opt.conceallevel = 3 -- Hide * markup for bold and italics
-opt.clipboard = "unnamedplus" -- lowkey does nothing bc i alreay defined the clipboard above (i think)
+-- opt.clipboard = "unnamedplus" -- lowkey does nothing bc i alreay defined the clipboard above (i think)
 
 opt.cursorline = false
 opt.relativenumber = true
@@ -47,6 +47,6 @@ opt.textwidth = 80
 opt.softtabstop = 2
 opt.tabstop = 2
 opt.shiftwidth = 2
-opt.foldmethod = "manual"
+-- opt.foldmethod = "manual"
 vim.g.vim_markdown_math = 1
 vim.g.vim_markdown_toc_autofit = 1

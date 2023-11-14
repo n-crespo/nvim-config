@@ -3,21 +3,17 @@ return {
     -- load current theme
     "EdenEast/nightfox.nvim",
   },
-  -- {
-  --
-  --   "luisiacc/gruvbox-baby",
-  -- },
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
   {
     "LazyVim/LazyVim",
     opts = {
       -- set theme to load at start
-      colorscheme = "carbonfox",
+      colorscheme = "onedark_dark",
     },
   },
-
-  -- don't load unused themes
-
-  -- { "rose-pine/neovim", name = "rose-pine" },
 
   -- {
   --   "folke/tokyonight.nvim",
