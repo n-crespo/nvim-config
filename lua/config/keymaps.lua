@@ -220,7 +220,7 @@ vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, d
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
 -- markdown table of contents
-vim.keymap.set("n", "<leader>tc", "<CMD>Toc<CR><CMD>set nonu<CR>", { silent = true, desc = "Table of [C]ontents" })
+vim.keymap.set("n", "<leader>tc", "<CMD>Toc<CR><CMD>set nornu<CR>", { silent = true, desc = "Table of [C]ontents" })
 
 -- get one dark pro colors
 vim.keymap.set(
@@ -232,6 +232,7 @@ vim.keymap.set(
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z", { silent = true, desc = "better J" })
 -- center on save
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>zz", { desc = "Save file" })
+-- vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>zz", { desc = "Save file" })
 -- better z<CR>
 vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
+vim.keymap.set("n", "<ESC><ESC>", "zz", { silent = true, desc = "Center" })
