@@ -80,29 +80,6 @@ vim.keymap.set(
 -- -- Map <a-x> to switch to the fourth tab in normal mode
 -- vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
 
--- functions for hiding and showing lualine for goyo
-vim.api.nvim_create_user_command("HideLualine", function()
-  require("lualine").hide({ place = { "statusline" }, unhide = false })
-end, {})
-vim.api.nvim_create_user_command("ShowLualine", function()
-  require("lualine").hide({ place = { "statusline" }, unhide = true })
-end, {})
-
--- Toggling lualine
-vim.keymap.set("n", "<leader>ub", "[[:ShowLualine<CR>]]", { silent = true, desc = "Enable Status [B]ar" })
-vim.keymap.set("n", "<leader>uB", "[[:HideLualine<CR>]]", { silent = true, desc = "Disable Status [B]ar" })
-
--- goyo enable
-vim.keymap.set(
-  "n",
-  "<leader>ge",
-  "[[:set nocursorline<CR>:set linebreak<CR>:set wrap<CR>:HideLualine<CR>:Goyo 90<CR>]]",
-  { silent = true, desc = "[E]nable [G]oyo" }
-)
-
---  Goyo disable
-vim.keymap.set("n", "<leader>gd", "<CMD>tabclose<CR>", { silent = true, desc = "[D]isable [G]oyo" })
-
 -- telescope find plugin files
 vim.keymap.set("n", "<leader>fp", function()
   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
@@ -117,9 +94,6 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select [A]ll" })
 vim.keymap.set("i", "", "<C-w>", { silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de")
 vim.keymap.set("i", "<A-a>", "<C-o>A", { silent = true })
-
--- cd to current buffer directory
-vim.keymap.set("n", "<leader>bl", "[[<CMD>cd %:p:h<CR>]]", { silent = true, desc = "[L]ocate Buffer" })
 
 -- replace word
 vim.keymap.set(
