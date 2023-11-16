@@ -1,6 +1,5 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
 
 -- NOTE: This is a limitation of using neovim in WSL, and makes yanking and
 -- pasting a bit slow. Using "unnamedplus" makes it instant, but then increases
@@ -26,7 +25,7 @@ opt.autowrite = true -- Enable auto writes
 opt.conceallevel = 3 -- Hide * markup for bold and italics
 -- opt.clipboard = "unnamedplus" -- lowkey does nothing bc i alreay defined the clipboard above (i think)
 
-opt.cursorline = false
+opt.cursorline = true
 opt.relativenumber = true
 -- opt.winbar = "%=%m %f"
 

@@ -3,30 +3,28 @@
 
 -- centers c-d and c-u
 local Util = require("lazyvim.util")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-i>", "<C-i>zz")
-vim.keymap.set("n", "<C-o>", "<C-o>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up" })
+vim.keymap.set("n", "<C-i>", "<C-i>zz", { noremap = true, desc = "Next jumplist" })
+vim.keymap.set("n", "<C-o>", "<C-o>zz", { noremap = true, desc = "Previous jumplist" })
 
 -- centers search function
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Previous Search Result" })
 
 vim.api.nvim_get_color_map()
 
 -- allow changing and deleting without overriding current paste registers
--- in otherwords automatically delete or change to the void register
-vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "D", '"_D', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true })
+-- in other words automatically delete or change to the void register
+vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true, desc = "Delete till end of line" })
+vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true, desc = "Delete" })
+vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true, desc = "Delete" })
 
-vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "C", '"_C', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true, desc = "Change till end of line" })
+vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true, desc = "Change" })
+vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true, desc = "Change" })
 
-vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
 
 vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.terminal.open()
@@ -138,5 +136,10 @@ vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
 -- center view port on doube escape
 vim.keymap.set("n", "<ESC><ESC>", "zz", { silent = true, desc = "Center" })
 
--- insert mode comment line
-vim.keymap.set("i", "<c-c>", "<Esc>Vgcgi", { silent = true, desc = "Comment line", noremap = false })
+-- open in system viewer
+vim.keymap.set(
+  "n",
+  "<leader>o",
+  "<cmd>!powershell.exe -Command Start-Process %<cr>",
+  { silent = true, desc = "Open in System Viewer" }
+)
