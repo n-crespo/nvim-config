@@ -136,7 +136,7 @@ vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
 -- center view port on double escape
 vim.keymap.set("n", "<ESC><ESC>", "<cmd>noh<cr><esc>zz", { noremap = false, silent = true, desc = "Center" })
 
--- open in system viewer
+-- open in windows system viewer (from within WSL)
 vim.keymap.set(
   "n",
   "<leader>o",
@@ -144,4 +144,9 @@ vim.keymap.set(
   { silent = true, desc = "Open in System Viewer" }
 )
 
+-- open in TRUE system viewer (for mac)
+vim.keymap.set("n", "<leader>om", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
+
 vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
+
+vim.keymap.set("n", "<c-s>", "<cmd>w<cr><esc>", { silent = true, desc = "Save", noremap = true })
