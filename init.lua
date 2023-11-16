@@ -84,7 +84,7 @@ require("onedarkpro").setup({
     which_key = true,
   },
   options = {
-    cursorline = false, -- Use cursorline highlighting?
+    cursorline = true, -- Use cursorline highlighting?
     transparency = false, -- Use a transparent background?
     terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
     highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
