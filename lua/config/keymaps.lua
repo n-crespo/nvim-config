@@ -133,8 +133,8 @@ vim.keymap.set("n", "J", "mzJ`z", { silent = true, desc = "better J" })
 -- better z<CR> (top line)
 vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
 
--- center view port on doube escape
-vim.keymap.set("n", "<ESC><ESC>", "zz", { silent = true, desc = "Center" })
+-- center view port on double escape
+vim.keymap.set("n", "<ESC><ESC>", "<cmd>noh<cr><esc>zz", { noremap = false, silent = true, desc = "Center" })
 
 -- open in system viewer
 vim.keymap.set(
