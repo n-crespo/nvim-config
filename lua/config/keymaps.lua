@@ -32,9 +32,7 @@ vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.terminal.open()
 end, {})
 
---======================--
--- Start [R]un Keymaps
---======================--
+-- run python
 vim.keymap.set(
   "n",
   "<leader>rp",
@@ -42,6 +40,7 @@ vim.keymap.set(
   { silent = true, desc = "Run [P]ython File" }
 )
 
+-- run java
 vim.keymap.set(
   "n",
   "<leader>rj",
@@ -49,6 +48,7 @@ vim.keymap.set(
   { silent = true, desc = "Run [J]ava File" }
 )
 
+-- run cpp
 vim.keymap.set(
   "n",
   "<leader>rc",
@@ -56,36 +56,29 @@ vim.keymap.set(
   { desc = "Run [C]++ File", silent = true }
 )
 
--- Bufferline Keymaps --
---====================--
-
 -- Require the bufferline plugin
-local bufferline = require("bufferline")
+-- local bufferline = require("bufferline")
 
--- Set some options for bufferline
----@diagnostic disable-next-line: missing-fields
-bufferline.setup({
-  ---@diagnostic disable-next-line: missing-fields
-  options = {
-    -- Enable mouse clicks on the bufferline
-    mouse = true,
-    -- Use letters for buffer pick functionality
-    buffer_pick_command = "Telescope buffers",
-  },
-})
-
--- Map <Alt-q> to switch to the first tab in normal mode
-vim.api.nvim_set_keymap("n", "<A-q>", "<cmd>BufferLineGoToBuffer 1<CR>", { noremap = true })
--- Map <Alt-w> to switch to the second tab in normal mode
-vim.api.nvim_set_keymap("n", "<A-w>", "<cmd>BufferLineGoToBuffer 2<CR>", { noremap = true })
--- Map <Alt-d> to switch to the third tab in normal mode
-vim.api.nvim_set_keymap("n", "<A-e>", "<cmd>BufferLineGoToBuffer 3<CR>", { noremap = true })
--- Map <Alt-x> to switch to the fourth tab in normal mode
-vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
-
---=================================--
--- Start Goyo (and Lualine) Keymaps
---=================================--
+-- -- Set some options for bufferline
+-- ---@diagnostic disable-next-line: missing-fields
+-- bufferline.setup({
+--   ---@diagnostic disable-next-line: missing-fields
+--   options = {
+--     -- Enable mouse clicks on the bufferline
+--     mouse = true,
+--     -- Use letters for buffer pick functionality
+--     buffer_pick_command = "Telescope buffers",
+--   },
+-- })
+--
+-- -- Map <a-q> to switch to the first tab in normal mode
+-- vim.api.nvim_set_keymap("n", "<A-q>", "<cmd>BufferLineGoToBuffer 1<CR>", { noremap = true })
+-- -- Map <a-w> to switch to the second tab in normal mode
+-- vim.api.nvim_set_keymap("n", "<A-w>", "<cmd>BufferLineGoToBuffer 2<CR>", { noremap = true })
+-- -- Map <a-d> to switch to the third tab in normal mode
+-- vim.api.nvim_set_keymap("n", "<A-e>", "<cmd>BufferLineGoToBuffer 3<CR>", { noremap = true })
+-- -- Map <a-x> to switch to the fourth tab in normal mode
+-- vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
 
 -- functions for hiding and showing lualine for goyo
 vim.api.nvim_create_user_command("HideLualine", function()
@@ -108,16 +101,7 @@ vim.keymap.set(
 )
 
 --  Goyo disable
-vim.keymap.set(
-  "n",
-  "<leader>gd",
-  "[[:set nocursorline<CR>:ShowLualine<CR>:Goyo!<CR>]]",
-  { silent = true, desc = "[D]isable [G]oyo" }
-)
-
---======================--
--- Miscellaneous Keymaps
---======================--
+vim.keymap.set("n", "<leader>gd", "<CMD>tabclose<CR>", { silent = true, desc = "[D]isable [G]oyo" })
 
 -- telescope find plugin files
 vim.keymap.set("n", "<leader>fp", function()
@@ -132,7 +116,7 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select [A]ll" })
 -- adds <Control + backspace> and <Control + delete> to insert mode
 vim.keymap.set("i", "", "<C-w>", { silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de")
-vim.keymap.set("i", "<Alt-a>", "<C-o>A", { silent = true })
+vim.keymap.set("i", "<A-a>", "<C-o>A", { silent = true })
 
 -- cd to current buffer directory
 vim.keymap.set("n", "<leader>bl", "[[<CMD>cd %:p:h<CR>]]", { silent = true, desc = "[L]ocate Buffer" })
@@ -231,8 +215,8 @@ vim.keymap.set(
 )
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z", { silent = true, desc = "better J" })
--- center on save
--- vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>zz", { desc = "Save file" })
 -- better z<CR>
 vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
 vim.keymap.set("n", "<ESC><ESC>", "zz", { silent = true, desc = "Center" })
+-- insert mode comment line
+vim.keymap.set("i", "<c-c>", "<Esc>Vgcgi", { silent = true, desc = "Comment line", noremap = false })
