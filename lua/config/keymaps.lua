@@ -95,7 +95,7 @@ vim.keymap.set("i", "", "<C-w>", { silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de")
 vim.keymap.set("i", "<A-a>", "<C-o>A", { silent = true })
 
--- replace word
+-- replace all instances of word (without LSP)
 vim.keymap.set(
   "n",
   "<leader>ci",
@@ -108,13 +108,16 @@ vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Windo
 
 -- R markdown code block
 vim.keymap.set("n", "<leader>Rb", [[i```{r}<cr>```<esc>O]], { desc = "R Code Block", silent = true })
+-- R knit html
 vim.keymap.set("n", "<leader>Rkh", [[:w <cr>:RMarkdown html<CR>]], { silent = true, desc = "R Knit html" })
+-- R knit pdf
 vim.keymap.set(
   "n",
   "<leader>Rkp",
   [[:w <cr>:RMarkdown pdf latex_engine="xelatex"<CR>]],
   { silent = true, desc = "R Knit pdf" }
 )
+-- R heading
 vim.keymap.set(
   "n",
   "<leader>Rh",
@@ -130,45 +133,8 @@ vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
 -- markdown preview
 vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "Markdown [P]review" })
 
--- vim.keymap.set("i", "<a-i>", "<esc>I", { desc = "[I]nsert at start of line" })
--- better insert mode keymaps
-vim.keymap.set("i", "<a-a>", "<esc>A", { desc = "[A]ppend to end of line" })
-
--- go to markdown link (gl) ([g]o [l]ink)
-vim.keymap.set(
-  "n",
-  "gl",
-  "/\\[.*\\](.*)<CR><ESC>/master<CR><ESC>wwvt)gf<CMD>noh<CR>",
-  { silent = true, desc = "Goto Markdown [L]ink" }
-)
-
--- -- auto create markdown heading (setx or something, bad format)
--- vim.keymap.set(
---   "n",
---   "<leader>mh",
---   "ggO<ESC><CMD>r! echo %:t<CR>A<bs><bs><bs><ESC>kddyypVr=",
---   { silent = true, desc = "Markdown [H]eading" }
--- )
-
--- add "=" underline in markdown with current line (for h1)
-vim.keymap.set("n", "gh", "yypVr=", { silent = true, desc = "Add '=' for Markdown h1" })
-
--- view images with imgcat
-function _G.spawn_image()
-  local filepath = vim.fn.expand("%:p") -- get path of the current file
-  local path = vim.fn.fnamemodify(filepath, ":h") -- get directory of the file
-  local filename = vim.fn.fnamemodify(filepath, ":t") -- get name of the file
-
-  vim.cmd("new") -- create a new split
-  vim.fn.termopen("wezterm start --cwd " .. path .. " wezterm imgcat " .. filename) -- start terminal with the command
-end
-
--- remove  -- on paste
+-- remove weid symbol (^ M) on paste
 vim.api.nvim_set_keymap("n", "p", "p<CMD>%s/\\r//<CR>", { desc = "Better paste", silent = true })
-
-vim.keymap.set("n", "<leader>d", "d", { silent = true, desc = "Delete to Register", noremap = true })
--- delete buffer and split
-vim.keymap.set("n", "<leader>bx", "<CMD>bd<CR>", { silent = true, desc = "Delete Buffer AND Split", noremap = false })
 
 -- support for ranger plugin
 vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "[E]xplore" })
@@ -189,8 +155,12 @@ vim.keymap.set(
 )
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z", { silent = true, desc = "better J" })
--- better z<CR>
+
+-- better z<CR> (top line)
 vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
+
+-- center view port on doube escape
 vim.keymap.set("n", "<ESC><ESC>", "zz", { silent = true, desc = "Center" })
+
 -- insert mode comment line
 vim.keymap.set("i", "<c-c>", "<Esc>Vgcgi", { silent = true, desc = "Comment line", noremap = false })
