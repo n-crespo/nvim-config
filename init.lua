@@ -24,7 +24,7 @@ require("onedarkpro").setup({
     variables = "NONE", -- Style that is applied to variables
     parameters = "NONE", -- Style that is applied to parameters
     conditionals = "NONE", -- Style that is applied to conditionals
-    virtual_text = "italic,bold", -- Style that is applied to virtual text
+    virtual_text = "bold", -- Style that is applied to virtual text
   },
   filetypes = { -- Override which filetype highlight groups are loaded
     comment = true,

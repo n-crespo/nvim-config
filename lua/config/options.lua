@@ -46,6 +46,6 @@ opt.textwidth = 80
 opt.softtabstop = 2
 opt.tabstop = 2
 opt.shiftwidth = 2
--- opt.foldmethod = "manual"
+opt.foldmethod = "indent"
 vim.g.vim_markdown_math = 1
 vim.g.vim_markdown_toc_autofit = 1

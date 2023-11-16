@@ -143,3 +143,5 @@ vim.keymap.set(
   "<cmd>!powershell.exe -Command Start-Process %<cr>",
   { silent = true, desc = "Open in System Viewer" }
 )
+
+vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
