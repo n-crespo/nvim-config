@@ -16,14 +16,12 @@ return {
       "marksman",
       "mdformat",
       "pyright",
-      "r-languageserver"
+      "r-languageserver",
       "ruff-lsp",
       "rust-analyzer",
       "shellcheck",
       "shfmt",
       "stylua",
-   },
+    },
   },
 }
-
-

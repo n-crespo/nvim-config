@@ -81,10 +81,3 @@ require("telescope").setup({
     buffer_previewer_maker = new_maker,
   },
 })
-
-vim.cmd([[
-augroup markdown_highlight
-  autocmd!
-  autocmd FileType rmd call matchadd('MarkdownCodeBlock', '```.*```', -1, -1, {'bg': 'darkgrey'})
-augroup END
-]])

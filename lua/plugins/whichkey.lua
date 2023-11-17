@@ -27,7 +27,7 @@ return {
         ["<Leader>c"] = { name = "+Code" },
         ["<Leader>f"] = { name = "+Find" },
         -- ["<Leader>gh"] = { name = "+Hunks" },
-        ["<Leader>g"] = { name = "+Git and Goyo" },
+        ["<Leader>g"] = { name = "+Git" },
         ["<Leader>l"] = { name = "+Lazy" },
         ["<Leader>s"] = { name = "+Search" },
         -- ["<Leader><tab>"] = { name = "+Tabs" },
@@ -47,6 +47,8 @@ return {
         ["<Leader>sn"] = { name = "+Noice" },
         ["<Leader>gh"] = { name = "+Hunk" },
         ["<LocalLeader>"] = { name = "+Leader" },
+        ["<Leader>tm"] = { name = "Toggle Table Mode" },
+        ["<Leader>tt"] = { name = "Tableize Line" },
 
         -- ["<Leader>Y"] = { name = "Yank History" },
         ["<LocalLeader>s"] = { name = "+Search" },
