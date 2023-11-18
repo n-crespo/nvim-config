@@ -108,7 +108,7 @@ vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
 vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "Markdown [P]review" })
 
 -- remove weid symbol (^ M) on paste
-vim.api.nvim_set_keymap("n", "p", "p<CMD>%s/\\r//<CR>", { desc = "Better paste", silent = true })
+vim.api.nvim_set_keymap("n", "<leader>p", "<CMD>%s/\\r//<CR>", { desc = "Fix paste", silent = true })
 
 -- support for ranger plugin
 vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "[E]xplore" })
@@ -141,11 +141,11 @@ vim.keymap.set(
   "n",
   "<leader>o",
   "<cmd>!powershell.exe -Command Start-Process %<cr>",
-  { silent = true, desc = "Open in System Viewer" }
+  { silent = true, desc = "Open in Windows System Viewer" }
 )
 
 -- open in TRUE system viewer (for mac)
-vim.keymap.set("n", "<leader>om", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
+vim.keymap.set("n", "<leader>om", "<cmd>!open %<cr>", { silent = true, desc = "Open in True System Viewer" })
 
 vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
 
