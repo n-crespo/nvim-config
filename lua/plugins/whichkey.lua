@@ -49,6 +49,9 @@ return {
         ["<LocalLeader>"] = { name = "+Leader" },
         ["<Leader>tm"] = { name = "Toggle Table Mode" },
         ["<Leader>tt"] = { name = "Tableize Line" },
+        ["<Leader>td"] = { name = "+Delete" },
+        ["<Leader>tf"] = { name = "+Formula" },
+        ["<Leader>ti"] = { name = "+Insert" },
 
         -- ["<Leader>Y"] = { name = "Yank History" },
         ["<LocalLeader>s"] = { name = "+Search" },
