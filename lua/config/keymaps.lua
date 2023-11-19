@@ -150,3 +150,5 @@ vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "O
 vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
 
 vim.keymap.set("n", "<c-s>", "<cmd>w<cr><esc>", { silent = true, desc = "Save", noremap = true })
+
+vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b" })
