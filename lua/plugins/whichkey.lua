@@ -52,6 +52,7 @@ return {
         ["<Leader>td"] = { name = "+Delete" },
         ["<Leader>tf"] = { name = "+Formula" },
         ["<Leader>ti"] = { name = "+Insert" },
+        ["<Leader>o"] = { name = "+Open" },
 
         -- ["<Leader>Y"] = { name = "Yank History" },
         ["<LocalLeader>s"] = { name = "+Search" },

@@ -139,13 +139,13 @@ vim.keymap.set("n", "<ESC><ESC>", "<cmd>noh<cr><esc>zz", { noremap = false, sile
 -- open in windows system viewer (from within WSL)
 vim.keymap.set(
   "n",
-  "<leader>o",
-  "<cmd>!powershell.exe -Command Start-Process %<cr>",
+  "<leader>ow",
+  "<cmd>!/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c Start-Process %<cr>",
   { silent = true, desc = "Open in Windows System Viewer" }
 )
 
 -- open in TRUE system viewer (for mac)
-vim.keymap.set("n", "<leader>om", "<cmd>!open %<cr>", { silent = true, desc = "Open in True System Viewer" })
+vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
 vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
 
