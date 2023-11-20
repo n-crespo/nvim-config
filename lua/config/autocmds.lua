@@ -6,10 +6,10 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  callback = function(event)
-    if vim.bo[event.buf].filetype == "markdown" then
-      vim.api.nvim_command("TableModeEnable")
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+--   callback = function(event)
+--     if vim.bo[event.buf].filetype == "markdown" then
+--       vim.api.nvim_command("TableModeEnable")
+--     end
+--   end,
+-- })
