@@ -1,8 +1,8 @@
 return {
-  {
-    -- load current theme
-    "EdenEast/nightfox.nvim",
-  },
+  -- {
+  --   -- load current theme
+  --   "EdenEast/nightfox.nvim",
+  -- },
   {
     "olimorris/onedarkpro.nvim",
     name = "onedarkpro",
