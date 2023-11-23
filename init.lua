@@ -3,7 +3,8 @@ require("config.lazy")
 require("onedarkpro").setup({
   colors = {
     dark = {
-      bg = "#080808",
+      bg = "#090909",
+      -- bg = "#101010",
     },
   }, -- Override default colors or create your own
   highlights = {
