@@ -6,3 +6,12 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
     end
   end,
 })
+
+-- set conceallevel to 3 on Rmd files, overriding some plugin (see
+-- lua/plugins/rmarkdown.lua)
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "*.Rmd" },
+  callback = function()
+    vim.opt_local.conceallevel = 3
+  end,
+})
