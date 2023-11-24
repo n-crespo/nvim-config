@@ -2,7 +2,7 @@
 
 ## Description
 
-My neovim config based on [LazyVim](lazyvim.org) (lazyvim.org), with added
+My neovim config based on [LazyVim](https://www.lazyvim.org), with added
 plugins, LSPs, and keymaps. If you don't understand how this works, you probably
 shouldn't use this configuration. First check out lazyvim, NvChad, or
 kickstart.nvim, and understand how plugins, keymaps, LSPs, and the rest of the
