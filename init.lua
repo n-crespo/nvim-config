@@ -82,3 +82,6 @@ vim.cmd("color onedark_dark")
 require("headlines").setup({
   rmarkdown = require("headlines").config.rmd,
 })
+
+-- use better scroll-off plugin
+require("scrollEOF").setup()
