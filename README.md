@@ -2,28 +2,24 @@
 
 ## Description
 
-My neovim config based on LazyVim, with added plugins, LSPs, and keymaps.
-If you don't understand how this works, you probably shouldn't use this
-configuration. First check out lazyvim, NvChad, or kickstart.nvim, and
-understand how plugins, keymaps, LSPs, and the rest of the config works.
+My neovim config based on [LazyVim](lazyvim.org) (lazyvim.org), with added
+plugins, LSPs, and keymaps. If you don't understand how this works, you probably
+shouldn't use this configuration. First check out lazyvim, NvChad, or
+kickstart.nvim, and understand how plugins, keymaps, LSPs, and the rest of the
+config works.
 
 ## Interesting Things
 
-Some interesting things in this configuration are:
+My favorite things about this configuration are:
 
-- The entire `keymaps.lua` file (plugin specific, very much personal
-  preference)(but some of them are _muah_)
-- Some of the `options.lua` file (not plugin specific, everyone should use these
-  regardless of your config)
-- The plugins Rnvimr, UndoTree, LazyGit, and Mini Files are cool
-- With this config I consistently have a ~30ms startup time. (Edit: I used to,
-  then I made my theme look nice and started caring a lot less)
-- The "NEOVIM" text on the startup screen took way too long to get working, but
-  it looks sick (uses plugin called Alpha)
-- Lualine now shows 12-hour time (_\'murica_)
-- I use the onedarkpro theme with some much needed modifications (in init.lua)
-- the vim-table-mode plugin is awesome
-- check recent commits for other cool stuff I found
+- the onedarpro theme that I slighly changed
+- the Rnvimr plugin
+- the markdown table plugin
+- the headlines.nvim plugin
+- the mini-files plugin
+- The mini.ai plugin
+- The **functional** LSPs/formatters set up for Java, C++, Markdown, and
+  R-Markdown
 
 > **Note**: many of the plugins I use are not visible in lua/plugins/ because I
 > use the lazyvim configuration which comes with lots of plugins. You can see
