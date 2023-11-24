@@ -114,13 +114,13 @@ vim.api.nvim_set_keymap("n", "<leader>p", "<CMD>%s/\\r//<CR>", { desc = "Fix pas
 vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "[E]xplore" })
 
 -- support for markdown table mode
-vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Markdown [T]able Mode" })
+vim.keymap.set("n", "<leader>mtm", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Table [M]ode" })
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
 -- markdown table of contents
-vim.keymap.set("n", "<leader>tc", "<CMD>Toc<CR><CMD>set nornu<CR>", { silent = true, desc = "Table of [C]ontents" })
+vim.keymap.set("n", "<leader>mtc", "<CMD>Toc<CR><CMD>set nornu<CR>", { silent = true, desc = "TOC" })
 
--- get one dark pro colors
+-- get one dark pro colors (kinda useless)
 vim.keymap.set(
   "n",
   "<leader>ug",
@@ -128,7 +128,7 @@ vim.keymap.set(
   { silent = true, noremap = false, desc = "[G]et Theme Colors" }
 )
 -- don't let cursor fly around when using J
-vim.keymap.set("n", "J", "mzJ`z", { silent = true, desc = "better J" })
+vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
 -- better z<CR> (top line)
 vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
@@ -136,19 +136,16 @@ vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
 -- center view port on double escape
 vim.keymap.set("n", "<ESC><ESC>", "<cmd>noh<cr><esc>zz", { noremap = false, silent = true, desc = "Center" })
 
--- open in windows system viewer (from within WSL)
-vim.keymap.set(
-  "n",
-  "<leader>ow",
-  "<cmd>!/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c Start-Process %<cr>",
-  { silent = true, desc = "Open in Windows System Viewer" }
-)
+-- open in windows system viewer (for WSL)
+vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" })
 
--- open in TRUE system viewer (for mac)
+-- open in system viewer
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
+-- tab for fold toggle
 vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
 
-vim.keymap.set("n", "<c-s>", "<cmd>w<cr><esc>", { silent = true, desc = "Save", noremap = true })
-
+-- nb sync
 vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b" })
+
+--spider keymaps
