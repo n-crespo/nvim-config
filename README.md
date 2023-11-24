@@ -28,8 +28,8 @@ My favorite things about this configuration are:
 > file.
 
 To use this configuration (I don't recommend this, make your own)(this probably
-won't work for you anyway), just clone the repo into your `~/.config/nvim
-`folder. If you don't know how to do that, you shouldn't be using this in the
+won't work for you anyway), just clone the repo into your `~/.config/nvim`
+folder. If you don't know how to do that, you shouldn't be using this in the
 first place. If you're using Windows, stop. Use WSL and do everything from
 there.
 
