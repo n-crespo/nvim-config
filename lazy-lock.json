@@ -64,6 +64,5 @@
   "vim-pandoc-syntax": { "branch": "master", "commit": "4268535e1d33117a680a91160d845cd3833dfe28" },
   "vim-rmarkdown": { "branch": "master", "commit": "a1787cb55e45b8778eaed7b392648deb4706cd0b" },
   "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
-  "vim-table-mode": { "branch": "master", "commit": "4ff8de2ac93431ee6d85a9e04177012752e6abdc" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }
