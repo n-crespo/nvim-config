@@ -30,7 +30,7 @@ opt.clipboard = "unnamedplus"
 
 opt.conceallevel = 3 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
-opt.cursorline = true
+opt.cursorline = false
 opt.relativenumber = true
 vim.g.netrw_browsex_viewer = "sudo firefox" -- edit commands for gx and :open
 opt.splitbelow = true

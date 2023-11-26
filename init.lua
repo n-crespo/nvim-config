@@ -69,7 +69,7 @@ require("onedarkpro").setup({
   },
   options = {
     cursorline = false, -- Use cursorline highlighting?
-    transparency = false, -- Use a transparent background?
+    transparency = true, -- Use a transparent background?
     terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
     highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
   },
@@ -94,4 +94,9 @@ require("scrollEOF").setup({
   disabled_filetypes = { "minifiles" },
   -- List of modes to disable scrollEOF for. see https://neovim.io/doc/user/builtin.html#mode() for available modes.
   disabled_modes = {},
+})
+
+---@diagnostic disable-next-line: missing-fields
+require("notify").setup({
+  background_colour = "#000000",
 })
