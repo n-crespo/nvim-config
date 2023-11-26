@@ -11,7 +11,7 @@ return {
     -- make sure mason installs the server
     servers = {
       jdtls = {},
-      r_language_server = {},
+      -- r_language_server = {},
       arduino_language_server = {},
       bashls = {},
       clangd = {},
