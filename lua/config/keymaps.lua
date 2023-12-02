@@ -156,6 +156,11 @@ vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')
 
 -- delete and save to register
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Vim Delete", silent = true })
+vim.keymap.set("n", "<leader>d", "yydd", { desc = "Vim Delete", silent = true })
 
 -- open terminal buffer in split
 vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr><cmd>set nornu | set nonu<cr>a", { desc = "Terminal Split" })
+
+-- increment and decrements
+vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
+vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })

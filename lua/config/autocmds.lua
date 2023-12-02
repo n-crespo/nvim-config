@@ -15,3 +15,12 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
     vim.opt_local.conceallevel = 3
   end,
 })
+
+local Util = require("lazyvim.util")
+-- disable diagnostics on markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "*.md" },
+  callback = function()
+    Util.toggle.diagnostics()
+  end,
+})
