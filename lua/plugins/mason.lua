@@ -18,7 +18,6 @@ return {
       "pyright",
       "r-languageserver",
       "ruff-lsp",
-      "rust-analyzer",
       "shellcheck",
       "shfmt",
       "stylua",

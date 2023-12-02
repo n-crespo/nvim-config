@@ -10,11 +10,15 @@ return {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     -- make sure mason installs the server
     servers = {
-      jdtls = {},
-      r_language_server = {},
+      pyright = {},
+      clangd = {},
       arduino_language_server = {},
       bashls = {},
-      clangd = {},
+      jdtls = {},
+      jsonls = {},
+      lua_ls = {},
+      r_language_server = {},
+      ruff_lsp = {},
     },
     setup = {
       jdtls = function()

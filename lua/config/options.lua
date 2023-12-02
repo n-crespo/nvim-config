@@ -27,6 +27,7 @@ local opt = vim.opt
 -- }
 
 opt.clipboard = "unnamedplus"
+vim.g.clipboard = "unnamedplus"
 -- disable mouse
 opt.mouse = ""
 
@@ -43,6 +44,7 @@ opt.incsearch = true
 opt.autochdir = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
+opt.sidescroll = 5
 opt.numberwidth = 1
 opt.relativenumber = true
 opt.textwidth = 80
