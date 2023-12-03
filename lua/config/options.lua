@@ -27,7 +27,8 @@ local opt = vim.opt
 -- }
 
 opt.clipboard = "unnamedplus"
-vim.g.clipboard = "unnamedplus"
+-- nvim says don't set a gloabl clipboard for some reason
+-- vim.g.clipboard = "unnamedplus"
 -- disable mouse
 opt.mouse = ""
 

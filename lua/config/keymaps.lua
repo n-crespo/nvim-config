@@ -34,7 +34,7 @@ end, {})
 vim.keymap.set(
   "n",
   "<leader>rp",
-  [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> python4 <C-\><C-n>"#pi<CR> ]],
+  [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> python3 <C-\><C-n>"#pi<CR> ]],
   { silent = true, desc = "Run [P]ython File" }
 )
 
