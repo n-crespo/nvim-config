@@ -166,4 +166,4 @@ vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- Force save as sudo (for readonly files)
-vim.keymap.set("n", "<leaderW", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
