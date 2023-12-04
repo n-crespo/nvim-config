@@ -167,3 +167,26 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- Force save as sudo (for readonly files)
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
+
+-- tab switching
+-- Require the bufferline plugin
+local bufferline = require("bufferline")
+
+-- Set some options for bufferline
+---@diagnostic disable-next-line: missing-fields
+bufferline.setup({
+  ---@diagnostic disable-next-line: missing-fields
+  options = {
+    -- Use letters for buffer pick functionality
+    buffer_pick_command = "Telescope buffers",
+  },
+})
+
+-- Map <a-q> to switch to the first tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-a>", "<cmd>BufferLineGoToBuffer 1<CR>", { noremap = true })
+-- Map <a-w> to switch to the second tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>BufferLineGoToBuffer 2<CR>", { noremap = true })
+-- Map <a-d> to switch to the third tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 3<CR>", { noremap = true })
+-- Map <a-x> to switch to the fourth tab in normal mode
+vim.api.nvim_set_keymap("n", "<A-c>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
