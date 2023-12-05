@@ -143,7 +143,7 @@ vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc 
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
 -- tab for fold toggle
-vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
+-- vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
 
 -- nb sync
 vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b" })
@@ -164,6 +164,11 @@ vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr><cmd>set nornu | set nonu<c
 -- increment and decrements
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
+
+-- center definition/references
+
+vim.keymap.set("n", "gd", "gdzz", { desc = "Go to Definition", noremap = true, silent = true })
+vim.keymap.set("n", "gr", "grzz", { desc = "Go to References", noremap = true, silent = true })
 
 -- Force save as sudo (for readonly files)
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
