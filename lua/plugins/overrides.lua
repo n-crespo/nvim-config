@@ -7,8 +7,4 @@ return {
     "RRethy/vim-illuminate",
     enabled = false,
   },
-  -- {
-  --   "chrisgrieser/nvim-spider",
-  --   enabled = false,
-  -- },
 }
