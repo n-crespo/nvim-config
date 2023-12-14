@@ -195,3 +195,6 @@ vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>BufferLineGoToBuffer 2<CR>", { norem
 vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 3<CR>", { noremap = true })
 -- Map <a-x> to switch to the fourth tab in normal mode
 vim.api.nvim_set_keymap("n", "<A-c>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
+
+-- system paste
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from System", silent = true })
