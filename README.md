@@ -37,4 +37,6 @@ won't fully work for you anyway)(you're better off starting your own config and
 stealing the chunks that you actually need), just clone the repo into your
 `~/.config/nvim` folder. If you don't know how to do that, you shouldn't be
 using this in the first place. If you're using Windows, stop. Use WSL and do
-everything from there.
+everything from there. (I have forked this repo with a version that is supposed
+to work (and does work) on Windows, but it is significantly slower and less
+enjoyable to use.)
