@@ -27,7 +27,6 @@ local opt = vim.opt
 -- }
 
 opt.clipboard = ""
-opt.clipboard = ""
 
 -- vim.g.loaded_netrw = 0
 opt.mouse = "" -- disable mouse
