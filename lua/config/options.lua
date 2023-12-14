@@ -2,16 +2,20 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 local opt = vim.opt
 
--- HACK: This is a limitation of using neovim in WSL, and makes yanking and
+-- BUG: This is a limitation of using neovim in WSL, and makes yanking and
 -- pasting a bit slow. Using "unnamedplus" makes it instant, but then increases
 -- startup SUBSTANTIALLY (almost 900ms) (see :StartupTime --> clipboard.vim), so
 -- this is my current best solution. Also I had to remove my powershell profile
 -- configuration (🥲) so it wouldn't take ten years to paste.
---
--- NOTE: I found that if I run neovim as root this is a huge problem, but when
+
+-- HACK: I found that if I run neovim as root this is a huge problem, but when
 -- I'm not running as root its totally fine. Using the below as clipboard also
 -- made pasting take like a full second which was frustrating. Just using a
 -- non-root user works like a charm.
+
+-- NOTE: I fixed this! See like 31, where I removed the clipboard syncing
+-- entirely, and see the bottom of autocmds.lua to see the autocmds that sync
+-- the clipboard for me. Amazing. Clocking 80ms startup time.
 
 -- vim.g.clipboard = {
 --   name = "WslClipboard",
