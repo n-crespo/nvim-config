@@ -27,7 +27,7 @@ My favorite things about this configuration are (in no particular order):
 - the mini.ai plugin
 - the Rnvimr (ranger) plugin
 
-> **Note**: many of the plugins I use are not visible in lua/plugins/ because I
+> [!Note]: many of the plugins I use are not visible in lua/plugins/ because I
 > use the lazyvim configuration which comes with lots of plugins. You can see
 > these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also have
 > disabled some plugins that come with LazyVim in the `overrides.lua` file.

@@ -7,4 +7,8 @@ return {
     "RRethy/vim-illuminate",
     enabled = false,
   },
+  {
+    "folke/neoconf.nvim",
+    enabled = false,
+  },
 }
