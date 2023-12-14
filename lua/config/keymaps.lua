@@ -197,4 +197,7 @@ vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 3<CR>", { norem
 vim.api.nvim_set_keymap("n", "<A-c>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
 
 -- system paste
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from System", silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from System", silent = true })
+
+-- system yank
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Paste from System", silent = true })
