@@ -31,6 +31,8 @@ opt.clipboard = "unnamedplus"
 -- vim.g.clipboard = "unnamedplus"
 -- disable mouse
 opt.mouse = ""
+vim.g.loaded_netrw = 0
+vim.g.mini_files_use_netrw = 0
 
 opt.conceallevel = 3 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
