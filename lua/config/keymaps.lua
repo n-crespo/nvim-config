@@ -54,11 +54,6 @@ vim.keymap.set(
   { desc = "Run [C]++ File", silent = true }
 )
 
--- telescope find plugin files
-vim.keymap.set("n", "<leader>fp", function()
-  require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-end, { silent = true, desc = "Find [P]lugin File" })
-
 -- This conflicts with vim's <C-a> key map that increments selected numbers, but
 -- I think it is a worth trade-off because <C-a> to select the whole file is so common
 -- in every other application I use. (C-x decrements numbers)
@@ -80,35 +75,11 @@ vim.keymap.set(
 -- remove all other windows, same as :on or :only
 vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window [O]nly" })
 
--- R markdown code block
-vim.keymap.set("n", "<leader>Rb", [[i```{r}<cr>```<esc>O]], { desc = "R Code Block", silent = true })
--- R knit html
-vim.keymap.set("n", "<leader>Rkh", [[:w <cr>:RMarkdown html<CR>]], { silent = true, desc = "R Knit html" })
--- R knit pdf
-vim.keymap.set(
-  "n",
-  "<leader>Rkp",
-  [[:w <cr>:RMarkdown pdf latex_engine="xelatex"<CR>]],
-  { silent = true, desc = "R Knit pdf" }
-)
--- R heading
-vim.keymap.set(
-  "n",
-  "<leader>Rh",
-  [[i---<CR>title: ""<CR>author: ""<CR>date: "`r Sys.Date()`"<CR>output: html_document<CR>---<CR><CR>```{r setup, include=FALSE}<CR>knitr::opts_chunk$set(echo = TRUE)<CR>```<CR><CR>---<CR><CR>]],
-  { desc = "R Header" }
-)
 -- undo tree (muntree)
 vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr><c-w>h]], { silent = true, desc = "Undo [T]ree" })
 
 -- view alpha (homescreen) buffer
 vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
-
--- markdown preview
-vim.keymap.set("n", "<leader>mp", [[:MarkdownPreview<CR>]], { silent = true, desc = "Markdown [P]review" })
-
--- remove weid symbol (^ M) on paste
-vim.api.nvim_set_keymap("n", "<leader>p", "<CMD>%s/\\r//<CR>", { desc = "Fix paste", silent = true })
 
 -- support for ranger plugin
 vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "[E]xplore" })
