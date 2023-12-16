@@ -13,7 +13,7 @@ local opt = vim.opt
 -- made pasting take like a full second which was frustrating. Just using a
 -- non-root user works like a charm.
 
--- NOTE: I fixed this! See like 31, where I removed the clipboard syncing
+-- NOTE: I fixed this! See line 33, where I removed the clipboard syncing
 -- entirely, and see the bottom of autocmds.lua to see the autocmds that sync
 -- the clipboard for me. Amazing. Clocking 80ms startup time.
 
