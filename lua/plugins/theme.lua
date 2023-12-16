@@ -8,33 +8,20 @@ return {
     name = "onedarkpro",
     priority = 1000, -- Ensure it loads first
     config = function()
+      require("onedarkpro").setup({
+        styles = { -- For example, to apply bold and italic, use "bold,italic"
+          comments = "italic", -- Style that is applied to comments
+          virtual_text = "bold", -- Style that is applied to virtual text
+        },
+        options = {
+          cursorline = false, -- Use cursorline highlighting?
+          transparency = true, -- Use a transparent background?
+          terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+          highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
+        },
+      })
       vim.cmd.colorscheme("onedark_dark")
     end,
-    styles = { -- For example, to apply bold and italic, use "bold,italic"
-      comments = "italic", -- Style that is applied to comments
-      virtual_text = "bold", -- Style that is applied to virtual text
-    },
-    options = {
-      cursorline = false, -- Use cursorline highlighting?
-      transparency = true, -- Use a transparent background?
-      terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
-      highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
-    },
-    colors = {
-      dark = {
-        bg = "#101010",
-      },
-      -- I am not sure if this is even doing anything
-      virtual_text_warning = "#f59166",
-      virtual_text_error = "#ff0000",
-    },
-    -- I am not sure if this is even doing anything
-    highlights = {
-      Error = {
-        bg = "#FF0000",
-        fg = "#FF0000",
-      },
-    },
   },
   {
     "LazyVim/LazyVim",

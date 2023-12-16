@@ -12,8 +12,6 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz", { noremap = true, desc = "Previous jumpl
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Previous Search Result" })
 
-vim.api.nvim_get_color_map()
-
 -- allow changing and deleting without overriding current paste registers
 -- in other words automatically delete or change to the void register
 vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true, desc = "Delete till end of line" })
@@ -75,29 +73,12 @@ vim.keymap.set(
 -- remove all other windows, same as :on or :only
 vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window [O]nly" })
 
--- undo tree (muntree)
-vim.keymap.set("n", "<leader>ut", [[:UndotreeToggle <cr><c-w>h]], { silent = true, desc = "Undo [T]ree" })
-
 -- view alpha (homescreen) buffer
 vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
 
--- support for ranger plugin
-vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "[E]xplore" })
-
--- support for markdown table mode
-vim.keymap.set("n", "<leader>mtm", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Table [M]ode" })
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
--- markdown table of contents
-vim.keymap.set("n", "<leader>mtc", "<CMD>Toc<CR><CMD>set nornu<CR>", { silent = true, desc = "TOC" })
 
--- get one dark pro colors (kinda useless)
-vim.keymap.set(
-  "n",
-  "<leader>ug",
-  "<CMD>OnedarkproColors<CR>VGy<CMD>bd<CR>pvip:norm 0i-- <CR>",
-  { silent = true, noremap = false, desc = "[G]et Theme Colors" }
-)
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
@@ -113,17 +94,8 @@ vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc 
 -- open in system viewer
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
--- tab for fold toggle
--- vim.keymap.set("n", "<tab>", "za", { silent = true, desc = "Fold by indent" })
-
 -- nb sync
 vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b" })
-
---spider keymaps
-vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 -- delete and save to register
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
@@ -166,9 +138,3 @@ vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>BufferLineGoToBuffer 2<CR>", { norem
 vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>BufferLineGoToBuffer 3<CR>", { noremap = true })
 -- Map <a-x> to switch to the fourth tab in normal mode
 vim.api.nvim_set_keymap("n", "<A-c>", "<cmd>BufferLineGoToBuffer 4<CR>", { noremap = true })
-
--- system paste
-vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from System", silent = true })
-
--- system yank
-vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank from System", silent = true })
