@@ -14,18 +14,14 @@ config works.
 
 My favorite things about this configuration are (in no particular order):
 
-- the <80 ms startup time
+- the <50 ms startup time
   - see the last 2 auto commands in [here](./lua/config/autocmds.lua) (fixing vim's slow clipboard)
 - the spider plugin
-- the transparent One Dark Pro theme that I slightly changed
 - the mini.files plugin
 - the **functional** LSPs/formatters I've set up for Java, C++, Markdown, and R-Markdown
-- the markdown table plugin
-- all of [these keymaps](lua/config/keymaps.lua)
-- the headlines.nvim plugin
-- the scrollEOF plugin
 - the mini.ai plugin
-- the Rnvimr (ranger) plugin
+- the headlines.nvim plugin
+- the vim-startuptime plugin
 
 > [!Note]
 > Many of the plugins I use are not visible in lua/plugins/ because I
