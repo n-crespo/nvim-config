@@ -73,9 +73,6 @@ vim.keymap.set(
 -- remove all other windows, same as :on or :only
 vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window [O]nly" })
 
--- view alpha (homescreen) buffer
-vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
-
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
 
