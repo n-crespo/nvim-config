@@ -34,8 +34,6 @@ opt.clipboard = ""
 
 -- vim.g.loaded_netrw = 0
 opt.mouse = "" -- disable mouse
-vim.g.mini_files_use_netrw = 0 -- pls use mini files not netrw
-
 opt.conceallevel = 3 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
 opt.cursorline = false
@@ -57,5 +55,3 @@ opt.softtabstop = 2
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.foldmethod = "indent"
-vim.g.vim_markdown_math = 1
-vim.g.vim_markdown_toc_autofit = 1
