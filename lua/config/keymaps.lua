@@ -15,14 +15,17 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Previous Search Resu
 -- allow changing and deleting without overriding current paste registers
 -- in other words automatically delete or change to the void register
 vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true, desc = "Delete till end of line" })
+vim.api.nvim_set_keymap("v", "D", '"_D', { noremap = true, silent = true, desc = "Delete till end of line" })
 vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true, desc = "Delete" })
 vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true, desc = "Delete" })
 
 vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true, desc = "Change till end of line" })
+vim.api.nvim_set_keymap("v", "C", '"_C', { noremap = true, silent = true, desc = "Change till end of line" })
 vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true, desc = "Change" })
 vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true, desc = "Change" })
 
 vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
+vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
 
 vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.terminal.open()
