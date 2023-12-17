@@ -11,7 +11,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
     { import = "lazyvim.plugins.extras.lang.java" },
-    -- { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "plugins" },
   },
@@ -30,13 +29,13 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        -- "gzip",
+        "gzip",
         "matchit",
         "matchparen",
-        -- "netrwPlugin",
-        -- "tarPlugin",
+        "netrwPlugin",
+        "tarPlugin",
         "tutor",
-        -- "zipPlugin",
+        "zipPlugin",
       },
     },
   },

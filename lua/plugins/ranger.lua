@@ -3,5 +3,6 @@ return {
   config = function()
     -- support for ranger plugin
     vim.keymap.set("n", "<leader>e", "<CMD>RnvimrToggle<CR>", { silent = true, desc = "[E]xplore" })
+    vim.g.rnvimr_enable_ex = 1
   end,
 }
