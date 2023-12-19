@@ -19,12 +19,13 @@ My favorite things about this configuration are (in no particular order):
   - see the last 2 auto commands in [here](./lua/config/autocmds.lua) (fixing vim's slow clipboard)
   - see the vim-startuptime plugin
 - the spider plugin (better `w`, `e`, and `b`)
+- the origami plugin (better native folding)
 - the mini.files plugin (better vesion of oil.nvim)
 - the mini.ai plugin (text objects)
-- the indent.blankline plugin (with an instant animation)
+- the mini.indent scope and indent.blankline plugin (with an instant animation)
 - the **functional** LSPs and formatters I've set up for Java, C++, Markdown, R-Markdown, and Shell
 - the headlines.nvim plugin (highlighted code blocks and markdown headers)
-- persistent code sessions (LazyVim default plugin)
+- persistent code sessions (LazyVim default plugin called persistence)
 - my transparent one dark pro theme
 
 > [!Note]
