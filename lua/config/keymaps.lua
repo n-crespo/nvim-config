@@ -15,14 +15,17 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Previous Search Resu
 -- allow changing and deleting without overriding current paste registers
 -- in other words automatically delete or change to the void register
 vim.api.nvim_set_keymap("n", "D", '"_D', { noremap = true, silent = true, desc = "Delete till end of line" })
+vim.api.nvim_set_keymap("v", "D", '"_D', { noremap = true, silent = true, desc = "Delete till end of line" })
 vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true, silent = true, desc = "Delete" })
 vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true, desc = "Delete" })
 
 vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true, silent = true, desc = "Change till end of line" })
+vim.api.nvim_set_keymap("v", "C", '"_C', { noremap = true, silent = true, desc = "Change till end of line" })
 vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true, silent = true, desc = "Change" })
 vim.api.nvim_set_keymap("v", "c", '"_c', { noremap = true, silent = true, desc = "Change" })
 
 vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
+vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
 
 vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.terminal.open()
@@ -116,3 +119,11 @@ vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save"
 -- indent with tab and shift tab
 vim.keymap.set("v", "<Tab>", ">gv", { desc = "Increase Indent", silent = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Decrease Indent", silent = true })
+
+-- these are don't work because they are used in glaze keymappings
+-- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+-- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- replacements to alt + j and alt + k
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move down", silent = true })
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move down", silent = true })
