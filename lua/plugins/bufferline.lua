@@ -1,6 +1,13 @@
 return {
   "akinsho/bufferline.nvim",
   opts = {
+    highlights = {
+
+      buffer_selected = {
+        bold = true,
+        italic = false,
+      },
+    },
     options = {
       show_buffer_close_icons = false,
       show_close_icon = false,
