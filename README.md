@@ -20,7 +20,7 @@ My favorite things about this configuration are (in no particular order):
   - see the vim-startuptime plugin
 - the spider plugin (better `w`, `e`, and `b`)
 - the origami plugin (better native folding)
-- the mini.files plugin (better vesion of oil.nvim)
+- the mini.files plugin (better version of oil.nvim)
 - the mini.ai plugin (text objects)
 - the mini.indent scope and indent.blankline plugin (with an instant animation)
 - the **functional** LSPs and formatters I've set up for Java, C++, Markdown, R-Markdown, and Shell
