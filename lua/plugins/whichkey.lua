@@ -33,7 +33,6 @@ return {
         -- ["<Leader><tab>"] = { name = "+Tabs" },
         ["<Leader>u"] = { name = "+UI" },
         ["<Leader>w"] = { name = "+Window" },
-        ["<Leader>m"] = { name = "+Markdown" },
         ["<Leader>j"] = { name = "+Java" },
         ["<Leader>p"] = { name = "+Python" },
         ["<Leader>q"] = { name = "+Sessions" },
