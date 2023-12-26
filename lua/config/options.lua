@@ -31,7 +31,7 @@ local opt = vim.opt
 -- }
 
 opt.clipboard = "" -- don't sync with system clipboard (see autocmds)
-opt.mouse = "" -- disable mouse
+-- opt.mouse = "" -- disable mouse
 opt.conceallevel = 3 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
 opt.cursorline = false -- don't highlight current line (transparent background)
