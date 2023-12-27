@@ -34,12 +34,20 @@ return {
       desc = "Open mini.files (directory of current file)",
     },
     {
-      "<leader>fM",
+      "<leader>e",
       function()
-        require("mini.files").open(vim.loop.cwd(), true)
+        require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
       end,
-      desc = "Open mini.files (cwd)",
+      desc = "Open mini.files (directory of current file)",
     },
+    -- below is unneeded due to autochdir option (see ../config/options.lua)
+    -- {
+    --   "<leader>fM",
+    --   function()
+    --     require("mini.files").open(vim.loop.cwd(), true)
+    --   end,
+    --   desc = "Open mini.files (cwd)",
+    -- },
   },
   config = function(_, opts)
     require("mini.files").setup(opts)
