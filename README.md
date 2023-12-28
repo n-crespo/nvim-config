@@ -15,15 +15,15 @@ config works.
 
 My favorite things about this configuration are (in no particular order):
 
-- the <40 ms startup time (even on regular Windows !)
-  - see the last 2 auto commands in [here](./lua/config/autocmds.lua) (fixing vim's slow clipboard)
-  - see the vim-startuptime plugin
+- the <25 ms startup time (more like 60ms in regular Windows)
+  - see the last 2 auto commands in [here](./lua/config/autocmds.lua) (fixing vim's slow clipboard in WSL)
+  - see the `vim-startuptime` plugin
 - the spider plugin (better `w`, `e`, and `b`)
-- the origami plugin (better native folding)
-- the mini.files plugin (better version of oil.nvim)
+- the origami plugin (better folding)
+- the mini.files plugin (less intrusive version of oil.nvim)
 - the mini.ai plugin (text objects)
 - the mini.indent scope and indent.blankline plugin (with an instant animation)
-- the **functional** LSPs and formatters I've set up for Java, C++, Markdown, R-Markdown, and Shell
+- the **functional** LSPs and formatters set up for Java, C++, Markdown, R-Markdown, and Shell
 - the headlines.nvim plugin (highlighted code blocks and markdown headers)
 - persistent code sessions (LazyVim default plugin called persistence)
 - my transparent one dark pro theme
