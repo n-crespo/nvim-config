@@ -120,10 +120,10 @@ vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save"
 vim.keymap.set("v", "<Tab>", ">gv", { desc = "Increase Indent", silent = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Decrease Indent", silent = true })
 
--- these are don't work because they are used in glaze keymappings
+-- these don't work because they are used as glaze keymappings
 -- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 -- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- replacements to alt + j and alt + k
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move down", silent = true })
-vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move down", silent = true })
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move up", silent = true })
