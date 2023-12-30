@@ -41,13 +41,13 @@ return {
       desc = "[E]xplore",
     },
     -- below is unneeded due to autochdir option (see ../config/options.lua)
-    -- {
-    --   "<leader>fM",
-    --   function()
-    --     require("mini.files").open(vim.loop.cwd(), true)
-    --   end,
-    --   desc = "Open mini.files (cwd)",
-    -- },
+    {
+      "<leader>E",
+      function()
+        require("mini.files").open(vim.loop.cwd(), true)
+      end,
+      desc = "Open mini.files (cwd)",
+    },
   },
   config = function(_, opts)
     require("mini.files").setup(opts)

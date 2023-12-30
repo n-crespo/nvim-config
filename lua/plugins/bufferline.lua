@@ -7,6 +7,5 @@ return {
         italic = false,
       },
     },
-    options = {},
   },
 }
