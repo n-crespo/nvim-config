@@ -31,29 +31,31 @@ vim.api.nvim_create_user_command("FloatingTerm", function()
   Util.terminal.open()
 end, {})
 
--- run python
-vim.keymap.set(
-  "n",
-  "<leader>rp",
-  [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> python3 <C-\><C-n>"#pi<CR> ]],
-  { silent = true, desc = "Run [P]ython File" }
-)
+-- below replaced with code_runner extension (see ../plugins/runner.lua)
 
--- run java
-vim.keymap.set(
-  "n",
-  "<leader>rj",
-  [[:set autochdir<CR>:w<CR>:FloatingTerm<CR>javac <C-\><C-n>"#pi && java <C-\><C-n>"#pi<BS><BS><BS><BS><BS><CR> ]],
-  { silent = true, desc = "Run [J]ava File" }
-)
+-- -- run python
+-- vim.keymap.set(
+--   "n",
+--   "<leader>rp",
+--   [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> python3 <C-\><C-n>"#pi<CR> ]],
+--   { silent = true, desc = "Run [P]ython File" }
+-- )
 
--- run cpp
-vim.keymap.set(
-  "n",
-  "<leader>rc",
-  [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
-  { desc = "Run [C]++ File", silent = true }
-)
+-- -- run java
+-- vim.keymap.set(
+--   "n",
+--   "<leader>rj",
+--   [[:set autochdir<CR>:w<CR>:FloatingTerm<CR>javac <C-\><C-n>"#pi && java <C-\><C-n>"#pi<BS><BS><BS><BS><BS><CR> ]],
+--   { silent = true, desc = "Run [J]ava File" }
+-- )
+
+-- -- run cpp
+-- vim.keymap.set(
+--   "n",
+--   "<leader>rc",
+--   [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
+--   { desc = "Run [C]++ File", silent = true }
+-- )
 
 -- This conflicts with vim's <C-a> key map that increments selected numbers, but
 -- I think it is a worth trade-off because <C-a> to select the whole file is so common
