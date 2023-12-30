@@ -24,6 +24,11 @@ return {
     end,
   },
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       -- set theme to load at start

@@ -15,4 +15,8 @@ return {
   --   "lukas-reineke/headlines.nvim",
   --   enabled = false,
   -- },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    enabled = false,
+  },
 }
