@@ -38,7 +38,7 @@ return {
       function()
         require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
       end,
-      desc = "[E]xplore",
+      desc = "[e]xplore",
     },
     -- below is unneeded due to autochdir option (see ../config/options.lua)
     {
@@ -46,7 +46,7 @@ return {
       function()
         require("mini.files").open(vim.loop.cwd(), true)
       end,
-      desc = "Open mini.files (cwd)",
+      desc = "[E]xplore!",
     },
   },
   config = function(_, opts)
