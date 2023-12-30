@@ -11,4 +11,8 @@ return {
     "folke/neoconf.nvim",
     enabled = false,
   },
+  -- {
+  --   "lukas-reineke/headlines.nvim",
+  --   enabled = false,
+  -- },
 }

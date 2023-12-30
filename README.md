@@ -1,6 +1,7 @@
 
 # My Neovim Config
 
+
 ## Description
 
 My neovim config based on [LazyVim](https://www.lazyvim.org), with added

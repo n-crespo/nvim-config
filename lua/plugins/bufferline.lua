@@ -4,7 +4,7 @@ return {
     highlights = {
       buffer_selected = {
         bold = true,
-        italic = true,
+        italic = false,
       },
     },
     options = {
