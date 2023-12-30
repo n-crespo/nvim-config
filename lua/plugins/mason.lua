@@ -13,7 +13,7 @@ return {
       "json-lsp",
       "lua-language-server",
       "markdownlint",
-      "marksman",
+      -- "marksman",
       "mdformat",
       "pyright",
       "r-languageserver",
