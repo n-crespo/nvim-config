@@ -35,13 +35,13 @@ return {
 
         dashboard.button("e", "📂 " .. " [E]xplore", '<cmd>lua require("mini.files").open()<cr>'),
 
-        -- dashboard.button("c", " " .. " Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
-        dashboard.button("c", "🔧 " .. " [C]onfig", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
-
         -- dashboard.button("h", "󰗶 " .. " Get Healthy", ":checkhealth <CR>"),
 
         -- dashboard.button("s", " " .. " Restore Session", ":lua require('persistence').load()<CR>"),
         dashboard.button("s", "➿ " .. " [S]ession Restore", ":lua require('persistence').load()<CR>"),
+
+        -- dashboard.button("c", " " .. " Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
+        dashboard.button("c", "🔧 " .. " [C]onfig", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
 
         -- dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         dashboard.button("l", "💤 " .. " [L]azy", ":Lazy<CR>"),
