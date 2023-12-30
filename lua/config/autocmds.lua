@@ -16,16 +16,6 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   end,
 })
 
--- i think this is unneeded now that i just removed the markdown lsp
--- local Util = require("lazyvim.util")
--- -- disable diagnostics on markdown files
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = { "*.md" },
---   callback = function()
---     Util.toggle.diagnostics()
---   end,
--- })
-
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
   pattern = { "*" },
