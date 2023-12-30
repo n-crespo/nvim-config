@@ -16,6 +16,11 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "*.Rmd" },
+  command = [[set ft=rmd]],
+})
+
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
   pattern = { "*" },
