@@ -56,6 +56,7 @@ return {
       },
     },
   },
+
   -- tab for completion
   {
     "L3MON4D3/LuaSnip",
@@ -63,9 +64,9 @@ return {
       return {}
     end,
   },
-  -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
+    -- then: setup supertab in cmp
     dependencies = {
       "hrsh7th/cmp-emoji",
     },

@@ -11,12 +11,16 @@ return {
     "folke/neoconf.nvim",
     enabled = false,
   },
-  -- {
-  --   "lukas-reineke/headlines.nvim",
-  --   enabled = false,
-  -- },
   {
     "nvim-treesitter/nvim-treesitter-context",
+    enabled = false,
+  },
+  {
+    "nvimdev/dashboard-nvim",
+    enabled = false,
+  },
+  {
+    "echasnovski/mini.starter",
     enabled = false,
   },
 }
