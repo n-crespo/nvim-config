@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+/home/nicolas/.config/nvim/workspace/.metadata/.plugins/org.eclipse.jdt.core
-3736901102.index
-1865797976.index
-3842426239.index
