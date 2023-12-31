@@ -1,3 +1,4 @@
+-- collection of plugins to set up, install, and use LSPs
 return {
   -- installing language servers
   {
