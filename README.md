@@ -18,22 +18,22 @@ My favorite things about this configuration are (in no particular order):
 
 - the <25 ms startup time (more like 60ms in regular Windows)
   - see the last 2 auto commands in [here](./lua/config/autocmds.lua) (fixing vim's slow clipboard in WSL)
-  - see the `vim-startuptime` plugin
-- the spider plugin (better `w`, `e`, and `b`)
-- the origami plugin (better folding)
-- the mini.files plugin (less intrusive version of oil.nvim)
-- the mini.ai plugin (text objects)
-- the mini.indent scope and indent.blankline plugin (with an instant animation)
-- the **functional** LSPs and formatters set up for Java, C++, Markdown, R-Markdown, and Shell
-- the headlines.nvim plugin (highlighted code blocks and markdown headers)
-- persistent code sessions (LazyVim default plugin called persistence)
-- my transparent one dark pro theme
+- these plugins: 
+  - spider (better `w`, `e`, and `b`)
+  - origami (better folding)
+  - mini.files less intrusive version of oil.nvim)
+  - indent scope (with an instant animation)
+  - one dark pro (transparent + italic comment)
+  - highlight undo
+  - code_runner
+  - better term
+  - the 90% of lazyvim that I don't have disabled
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
 > lazyvim configuration which already comes with lots of plugins. You can see
 > these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also have
-> disabled some plugins that come with LazyVim in the `overrides.lua` file.
+> disabled some plugins that come with LazyVim in the `./lua/plugins/overrides.lua` file.
 
 To use this configuration (I don't recommend this, make your own)(it probably
 won't fully work for you anyway)(you're better off starting your own config and
