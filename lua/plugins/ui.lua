@@ -43,7 +43,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       exclude = {
-        filetypes = { "better_term" },
+        filetypes = { "better_term", "noice" },
       },
       -- symbol = "▏"
       symbol = "│",
