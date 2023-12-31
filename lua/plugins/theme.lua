@@ -23,11 +23,4 @@ return {
       vim.cmd.colorscheme("onedark_dark")
     end,
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      -- set theme to load at start
-      -- colorscheme = "onedark_darK",
-    },
-  },
 }

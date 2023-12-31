@@ -1,4 +1,5 @@
 return {
+  -- installing language servers
   {
     "williamboman/mason.nvim",
     opts = {
@@ -25,6 +26,7 @@ return {
       },
     },
   },
+  -- lsp configurations
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -56,7 +58,6 @@ return {
       },
     },
   },
-
   -- tab for completion
   {
     "L3MON4D3/LuaSnip",

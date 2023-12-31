@@ -1,4 +1,5 @@
 return {
+  -- buffers
   {
     "akinsho/bufferline.nvim",
     opts = {
@@ -13,6 +14,7 @@ return {
       { "<C-p>", "<cmd>BufferLinePick<cr>", desc = "[P]ick Buffer" },
     },
   },
+  -- notifications
   {
     "rcarriga/nvim-notify",
     -- below is needed when using transparent background
@@ -23,6 +25,7 @@ return {
       })
     end,
   },
+  -- status line
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
@@ -33,11 +36,7 @@ return {
       }
     end,
   },
-  {
-    "chrisgrieser/nvim-origami",
-    event = "BufReadPost", -- later or on keypress would prevent saving folds
-    opts = true, -- needed even when using default config
-  },
+  -- indent guides (instant)
   {
     "echasnovski/mini.indentscope",
     -- version = false,  wait till new 0.7.0 release to put it back on semver
@@ -52,6 +51,7 @@ return {
       draw = { delay = 0, animation = require("mini.indentscope").gen_animation.none() },
     },
   },
+  -- homescreen
   {
     "goolord/alpha-nvim",
     event = "VimEnter",
@@ -148,6 +148,7 @@ return {
       vim.keymap.set("n", "<leader>A", [[:Alpha<CR>]], { silent = true })
     end,
   },
+  -- better ui
   {
     "folke/noice.nvim",
     opts = {
@@ -156,6 +157,7 @@ return {
       },
     },
   },
+  -- keymap popups
   {
     "folke/which-key.nvim",
     opts = function()
@@ -217,5 +219,30 @@ return {
     --   wk.setup(opts)
     --   wk.register(opts.defaults)
     -- end,
+  },
+  -- theme
+  {
+    "olimorris/onedarkpro.nvim",
+    name = "onedarkpro",
+    priority = 1000, -- Ensure it loads first
+    config = function()
+      require("onedarkpro").setup({
+        styles = { -- For example, to apply bold and italic, use "bold,italic"
+          comments = "italic", -- Style that is applied to comments
+          virtual_text = "bold", -- Style that is applied to virtual text
+        },
+        options = {
+          cursorline = false, -- Use cursorline highlighting?
+          transparency = true, -- Use a transparent background?
+          terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+          highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
+          bold = false,
+          italic = false,
+          underline = true,
+          undercurl = true,
+        },
+      })
+      vim.cmd.colorscheme("onedark_dark")
+    end,
   },
 }
