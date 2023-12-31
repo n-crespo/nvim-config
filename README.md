@@ -24,7 +24,7 @@ My favorite things about this configuration are (in no particular order):
   - mini.files less intrusive version of oil.nvim)
   - indent scope (with an instant animation)
   - one dark pro (transparent + italic comment)
-  - highlight undo
+  - highlight undo 
   - code_runner
   - better term
   - the 90% of lazyvim that I don't have disabled

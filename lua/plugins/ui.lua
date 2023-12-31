@@ -236,13 +236,21 @@ return {
           transparency = true, -- Use a transparent background?
           terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
           highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
-          bold = false,
-          italic = false,
+          bold = true,
+          italic = true,
           underline = true,
           undercurl = true,
+        },
+        -- THIS IS NEEDED for italics in markdown to work properly
+        highlights = {
+          ["@text.emphasis"] = { italic = true },
         },
       })
       vim.cmd.colorscheme("onedark_dark")
     end,
+  },
+  -- :TSCaptureUnderCursor
+  {
+    "nvim-treesitter/playground",
   },
 }
