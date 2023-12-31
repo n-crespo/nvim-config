@@ -28,6 +28,7 @@ My favorite things about this configuration are (in no particular order):
   - code_runner
   - better term
   - the 90% of lazyvim that I don't have disabled
+  - flatten.nvim (AMAZING when used with autojump)
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the

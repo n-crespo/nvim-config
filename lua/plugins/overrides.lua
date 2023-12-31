@@ -31,8 +31,8 @@ return {
   },
   -- why can I never fully remove catppuccin this thing will never fully
   -- disappear
-  {
-    "catppuccin/nvim",
-    enabled = false,
-  },
+  -- {
+  --   "catppuccin/nvim",
+  --   enabled = false,
+  -- },
 }
