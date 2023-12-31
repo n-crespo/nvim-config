@@ -8,10 +8,6 @@ return {
     enabled = false,
   },
   {
-    "folke/neoconf.nvim",
-    enabled = false,
-  },
-  {
     "nvim-treesitter/nvim-treesitter-context",
     enabled = false,
   },
@@ -21,6 +17,14 @@ return {
   },
   {
     "echasnovski/mini.starter",
+    enabled = false,
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    enabled = false,
+  },
+  {
+    "catppuccin/nvim",
     enabled = false,
   },
 }
