@@ -36,7 +36,7 @@ return {
         ["<Leader>p"] = { name = "+Python" },
         ["<Leader>q"] = { name = "+Sessions" },
         ["<Leader>r"] = { name = "+Run" },
-        ["<leader>t"] = { name = "+Table" },
+        -- ["<leader>t"] = { name = "+Table" },
         ["<Leader>R"] = { name = "+R Markdown" },
         ["<Leader>Rk"] = { name = "+R Knit" },
         ["<Leader>x"] = { name = "+Quickfix" },

@@ -1,6 +1,3 @@
-vim.diagnostic.config({
-  float = { border = "rounded" },
-})
 return {
   {
     "williamboman/mason.nvim",
@@ -34,6 +31,11 @@ return {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     },
     opts = {
+      config = function()
+        vim.diagnostic.config({
+          float = { border = "rounded" },
+        })
+      end,
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       -- make sure mason installs the server
       servers = {
@@ -53,5 +55,17 @@ return {
         end,
       },
     },
+  },
+  {
+    "Fildo7525/pretty_hover",
+    event = "LspAttach",
+    opts = {},
+    keys = {
+      { "<leader>k", '<cmd>lua require("pretty_hover").hover()<cr>', "Hover" },
+      { "K", '<cmd>lua require("pretty_hover").hover()<cr>', "Hover" },
+    },
+    setup = function()
+      vim.keymap.set("n", "K", "<cmd>lua require('pretty_hover').hover()<cr>", { desc = "PrettyHover", silent = true })
+    end,
   },
 }

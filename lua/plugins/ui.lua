@@ -9,6 +9,9 @@ return {
         },
       },
     },
+    keys = {
+      { "<C-p>", "<cmd>BufferLinePick<cr>", desc = "[P]ick Buffer" },
+    },
   },
   {
     "rcarriga/nvim-notify",
