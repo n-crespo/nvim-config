@@ -25,9 +25,11 @@ My favorite things about this configuration are (in no particular order):
 - the mini.ai plugin (text objects)
 - the mini.indent scope and indent.blankline plugin (with an instant animation)
 - the **functional** LSPs and formatters set up for Java, C++, Markdown, R-Markdown, and Shell
-- the headlines.nvim plugin (highlighted code blocks and markdown headers)
 - persistent code sessions (LazyVim default plugin called persistence)
 - my transparent one dark pro theme
+- the code_runner plugin
+  - the better term plugin
+- the highlight undo plugin
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
