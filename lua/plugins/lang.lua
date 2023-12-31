@@ -19,6 +19,10 @@ return {
     config = function()
       -- support for markdown table mode
       vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Table Mode [T]oggle" })
+      vim.keymap.del("v", "<leader>T")
+      vim.keymap.del("v", "<leader>tt")
+      vim.keymap.del("n", "<leader>tt")
+      vim.keymap.del("n", "<leader>tm")
     end,
   },
   {

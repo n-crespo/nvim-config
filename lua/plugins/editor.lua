@@ -248,14 +248,24 @@ return {
         list_buffers = false, -- This will make them show on other pickers (like :Telescope buffers)
         ext_options = { "java", "cpp", "js", "py", "c" }, -- Options to choose from
         -- format_opts = { [""] = "[None]" }, -- How they'll look
-        run = {
-          py = { "w !python3" }, -- Either table of strings or lua functions
-          js = { "w !node" },
-          cpp = { "w", "!" .. "g++" .. ' %:p -o %:p:r.out && echo "" && %:p:r.out && rm %:p:r.out ' },
-          c = { "w", "!" .. "g++" .. ' %:p -o %:p:r.out && echo "" && %:p:r.out && rm %:p:r.out' },
-          java = { "w", "!" .. "javac" .. " %:p && java %:p" },
-        },
       })
+    end,
+    keys = function()
+      local attempt = require("attempt")
+
+      function map(mode, l, r, opts)
+        opts = opts or {}
+        opts = vim.tbl_extend("force", { silent = true }, opts)
+        vim.keymap.set(mode, l, r, opts)
+      end
+
+      -- map("n", "<leader>an", attempt.new_select) -- new attempt, selecting extension
+      map("n", "<leader>an", attempt.new_input_ext, { desc = "[n]ew" }) -- new attempt, inputing extension
+      -- map("n", "<leader>ar", attempt.run) -- run attempt
+      map("n", "<leader>ad", attempt.delete_buf, { desc = "[d]elete" }) -- delete attempt from current buffer
+      map("n", "<leader>ar", attempt.rename_buf, { desc = "[r]ename" }) -- rename attempt from current buffer
+      -- map("n", "<leader>al", "Telescope attempt") -- search through attempts
+      map("n", "<leader>ap", attempt.open_select, { desc = "[p]ick" }) -- use ui.select instead of telescope
     end,
   },
 }
