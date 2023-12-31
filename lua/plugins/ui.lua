@@ -129,10 +129,13 @@ return {
         pattern = "LazyVimStarted",
         callback = function()
           local stats = require("lazy").stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           -- subtract catppuccin and tokyonight (I CANT REMOVE THEM) (shhhhhh i have 69 plugins trust)
           -- sike add back tokynight its loaded properly
+          -- SIKE I ACTUALLY HAVE 69 NO SUBTRACTING
           dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins"
+
+          -- if i see the startup time on my homescreen ill keep wasting time trying to lower it...
+          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           -- dashboard.section.footer.val = "⚡ Neovim loaded "
           --   .. stats.loaded
           --   .. "/"
