@@ -181,6 +181,8 @@ return {
       build = "make",
       config = function()
         require("telescope").load_extension("fzf")
+        -- see attempt.nvim plugin (temp files)
+        require("telescope").load_extension("attempt")
 
         -- telescope find plugin files
         vim.keymap.set("n", "<leader>fp", function()
@@ -227,6 +229,7 @@ return {
       end,
     },
   },
+  -- sending things from terminal to neovim
   {
     "willothy/flatten.nvim",
     -- config = true,
@@ -235,5 +238,24 @@ return {
     -- Ensure that it runs first to minimize delay when opening file from terminal
     lazy = false,
     priority = 1001,
+  },
+  {
+    "m-demare/attempt.nvim",
+    opts = function()
+      require("attempt").setup({
+        -- dir = (unix and "/tmp/" or vim.fn.expand("$TEMP\\")) .. "attempt.nvim" .. path_separator,
+        autosave = true,
+        list_buffers = false, -- This will make them show on other pickers (like :Telescope buffers)
+        ext_options = { "java", "cpp", "js", "py", "c" }, -- Options to choose from
+        -- format_opts = { [""] = "[None]" }, -- How they'll look
+        run = {
+          py = { "w !python3" }, -- Either table of strings or lua functions
+          js = { "w !node" },
+          cpp = { "w", "!" .. "g++" .. ' %:p -o %:p:r.out && echo "" && %:p:r.out && rm %:p:r.out ' },
+          c = { "w", "!" .. "g++" .. ' %:p -o %:p:r.out && echo "" && %:p:r.out && rm %:p:r.out' },
+          java = { "w", "!" .. "javac" .. " %:p && java %:p" },
+        },
+      })
+    end,
   },
 }
