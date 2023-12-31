@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   end,
 })
 
+-- fix rmd filetype for lsp functionality
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   pattern = { "*.Rmd" },
   command = [[set ft=rmd]],

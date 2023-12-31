@@ -5,31 +5,31 @@
 ## Description
 
 My neovim config based on [LazyVim](https://www.lazyvim.org), with added
-plugins, LSPs, and keymaps.
+plugins to extend its functionality.
 
-If you don't understand how this works, you probably
-shouldn't use this configuration. First check out lazyvim, NvChad, or
-kickstart.nvim, and understand how plugins, keymaps, LSPs, and the rest of the
-config works.
+If you don't understand how this works, you probably shouldn't use this
+configuration. First check out kickstart.nvim and understand how plugins,
+keymaps, LSPs, and the rest of the config works. Or just start with lazyvim like
+I did.
 
 ## Interesting Things
 
 My favorite things about this configuration are (in no particular order):
 
-- the 90% of lazyvim that I don't have disabled
+- the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
 - the <25 ms startup time (more like 60ms in regular Windows) (more like 30ms now that I've committed to having 69 plugins)
-  - see the last 2 auto commands in [here](./lua/config/autocmds.lua) (fixing vim's slow clipboard in WSL)
-- these plugins: 
-  - spider (better `w`, `e`, and `b`)
-  - origami (better folding)
-  - mini.files less intrusive version of oil.nvim)
-  - indent scope (with an instant animation)
-  - one dark pro (transparent + italic comment)
-  - highlight undo (very nice)
-  - code_runner (very very nice)
-  - better term (super nice)
-  - flatten.nvim (*amazing* when used with better term and autojump)
-  - attempt.nvim is somewhat useful
+  - see the last 2 auto commands in [here](./lua/config/autocmds.lua) if you use WSL
+- these plugins:
+  - [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
+  - [origami](https://github.com/chrisgrieser/nvim-origami) (better folding)
+  - [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
+  - [indent scope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
+  - [one dark pro](https://github.com/olimorris/onedarkpro.nvim) (transparent + italic comments)
+  - [highlight undo](https://github.com/tzachar/highlight-undo.nvim) (very nice)
+  - [code_runner](https://github.com/CRAG666/code_runner.nvim) (very very nice)
+  - [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
+  - [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
+  - [attempt.nvim](https://github.com/m-demare/attempt.nvim) is somewhat useful
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
@@ -41,6 +41,6 @@ To use this configuration (I don't recommend this, make your own)(it probably
 won't fully work for you anyway)(you're better off starting your own config and
 stealing the chunks that you actually need), just clone the repo into your
 `~/.config/nvim` folder. If you don't know how to do that, you shouldn't be
-using this in the first place. 
+using this in the first place.
 
 If you're using Windows, stop. Use WSL and be happy.
