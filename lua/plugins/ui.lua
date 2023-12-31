@@ -131,7 +131,8 @@ return {
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           -- subtract catppuccin and tokyonight (I CANT REMOVE THEM)
-          dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count - 2 .. " plugins"
+          -- sike add back tokynight its loaded properly
+          dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count - 1 .. " plugins"
           -- dashboard.section.footer.val = "⚡ Neovim loaded "
           --   .. stats.loaded
           --   .. "/"
