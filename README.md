@@ -16,7 +16,8 @@ config works.
 
 My favorite things about this configuration are (in no particular order):
 
-- the <25 ms startup time (more like 60ms in regular Windows)
+- the 90% of lazyvim that I don't have disabled
+- the <25 ms startup time (more like 60ms in regular Windows) (more like 30ms now that I've committed to having 69 plugins)
   - see the last 2 auto commands in [here](./lua/config/autocmds.lua) (fixing vim's slow clipboard in WSL)
 - these plugins: 
   - spider (better `w`, `e`, and `b`)
@@ -24,11 +25,11 @@ My favorite things about this configuration are (in no particular order):
   - mini.files less intrusive version of oil.nvim)
   - indent scope (with an instant animation)
   - one dark pro (transparent + italic comment)
-  - highlight undo 
-  - code_runner
-  - better term
-  - the 90% of lazyvim that I don't have disabled
-  - flatten.nvim (AMAZING when used with better term and autojump)
+  - highlight undo (very nice)
+  - code_runner (very very nice)
+  - better term (super nice)
+  - flatten.nvim (*amazing* when used with better term and autojump)
+  - attempt.nvim is somewhat useful
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the

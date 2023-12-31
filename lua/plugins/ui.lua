@@ -130,9 +130,9 @@ return {
         callback = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          -- subtract catppuccin and tokyonight (I CANT REMOVE THEM)
+          -- subtract catppuccin and tokyonight (I CANT REMOVE THEM) (shhhhhh i have 69 plugins trust)
           -- sike add back tokynight its loaded properly
-          dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count - 1 .. " plugins"
+          dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins"
           -- dashboard.section.footer.val = "⚡ Neovim loaded "
           --   .. stats.loaded
           --   .. "/"
@@ -252,7 +252,7 @@ return {
     end,
   },
   -- :TSCaptureUnderCursor
-  {
-    "nvim-treesitter/playground",
-  },
+  -- {
+  --   "nvim-treesitter/playground",
+  -- },
 }
