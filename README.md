@@ -21,6 +21,7 @@ My favorite things about this configuration are (in no particular order):
   - see the `vim-startuptime` plugin
 - the spider plugin (better `w`, `e`, and `b`)
 - the origami plugin (better folding)
+- all the `mini` plugins
 - the mini.files plugin (less intrusive version of oil.nvim)
 - the mini.ai plugin (text objects)
 - the mini.indent scope and indent.blankline plugin (with an instant animation)
