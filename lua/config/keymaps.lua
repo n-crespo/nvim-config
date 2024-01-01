@@ -118,8 +118,8 @@ vim.keymap.set("n", "gr", "grzz", { desc = "Go to References", noremap = true, s
 -- Force save as sudo (for readonly files)
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
 
--- indent with tab and shift tab
-vim.keymap.set({ "v" }, "<Tab>", ">gv", { desc = "Increase Indent", silent = true })
-vim.keymap.set({ "v" }, "<S-Tab>", "<gv", { desc = "Decrease Indent", silent = true })
+-- -- indent with tab and shift tab
+-- vim.keymap.set({ "v" }, "<Tab>", ">gv", { desc = "Increase Indent", silent = true })
+-- vim.keymap.set({ "v" }, "<S-Tab>", "<gv", { desc = "Decrease Indent", silent = true })
 -- vim.keymap.set("n", "<Tab>", ">>", { desc = "Increase Indent", silent = true })
 -- vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Decrease Indent", silent = true })
