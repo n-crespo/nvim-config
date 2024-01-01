@@ -4,13 +4,32 @@
 
 ## Description
 
-My neovim config based on [LazyVim](https://www.lazyvim.org), with added
-plugins, LSPs, and keymaps.
+My neovim config based on [LazyVim](https://www.lazyvim.org), with added plugins
+to extend its functionality.
 
-If you don't understand how this works, you probably
-shouldn't use this configuration. First check out lazyvim, NvChad, or
-kickstart.nvim, and understand how plugins, keymaps, LSPs, and the rest of the
-config works.
+If you don't understand how this works, you probably shouldn't use this
+configuration. First check out kickstart.nvim and understand how plugins,
+keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
+I did.
+
+![mini files](./assets/image1.png)
+![r markdown](./assets/image2.png)
+![markdown preview](./assets/image3.png)
+
+The configuration is structured so that:
+
+1) Vim specific configurations are in the
+  `./lua/config/` folder (keymaps, settings, auto commands, lazy plugin manager
+  setup) in the same way preconfigured LazyVim is structured, and
+
+2) All plugin configurations are in the `./lua/plugins/` folder, with each
+   plugin having its own file named similarly to the name of the plugin as
+  opposed to a modularized configuration that groups all related plugins in larger
+  files called `ui.lua`, `editor.lua`, etc. This way, removing a plugin is as
+  simple as deleting its file. This also makes editing the configuration easier
+  because the LSP doesn't have to read a massive lua file whenever I want to edit
+  a configuration.
+
 
 ## Interesting Things
 
@@ -45,3 +64,9 @@ stealing the chunks that you actually need), just clone the repo into your
 using this in the first place. 
 
 If you're using Windows, stop. Use WSL and be happy.
+
+## TODO
+
+- [x] Fix transparent completion window
+- [x] Edit Treesitter highlighting for markdown checkboxes
+- [ ] transparent Lualine?

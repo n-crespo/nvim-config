@@ -22,6 +22,7 @@ return {
       -- THIS IS NEEDED for italics in markdown to work properly
       highlights = {
         ["@text.emphasis"] = { italic = true },
+        ["@text.todo.unchecked"] = { bg = "#161616" },
       },
     })
     vim.cmd.colorscheme("onedark_dark")
