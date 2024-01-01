@@ -66,6 +66,6 @@ If you're using Windows, stop. Use WSL and be happy.
 
 ## TODO
 
-- [ ] Fix transparent completion window
-- [ ] Edit Treesitter highlighting for markdown checkboxes
+- [x] Fix transparent completion window
+- [x] Edit Treesitter highlighting for markdown checkboxes
 - [ ] transparent Lualine?
