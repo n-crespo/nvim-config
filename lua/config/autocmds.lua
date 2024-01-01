@@ -22,6 +22,12 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
   command = [[set ft=rmd]],
 })
 
+-- don't wrap markdown
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "*.md" },
+  command = [[set nowrap]],
+})
+
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
   pattern = { "*" },
