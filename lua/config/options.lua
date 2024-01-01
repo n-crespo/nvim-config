@@ -54,3 +54,5 @@ opt.tabstop = 2 -- 2 space tabs
 opt.shiftwidth = 2 -- 2 space tabs
 opt.foldmethod = "indent" -- indent folding
 vim.g.loaded_perl_provider = 0
+-- completion window transparency??
+vim.opt.pumblend = 0

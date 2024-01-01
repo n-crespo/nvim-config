@@ -111,3 +111,6 @@ kickstart
 blankline
 ai
 autojump
+LSP
+Treesitter
+Lualine

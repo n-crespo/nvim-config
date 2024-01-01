@@ -77,12 +77,13 @@ return {
         completion = { -- rounded border; thin-style scrollbar
           border = "rounded",
           scrollbar = "║",
+          scrollbar = "",
         },
         documentation = { -- no border; native-style scrollbar
           -- border = nil
           border = "rounded",
-          scrollbar = "║",
-          -- scrollbar = ""
+          -- scrollbar = "║",
+          scrollbar = "",
         },
       },
     }),
@@ -96,6 +97,7 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+      vim.cmd("highlight Pmenu guibg=NONE")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
