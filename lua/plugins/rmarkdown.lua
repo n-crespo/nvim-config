@@ -1,4 +1,5 @@
 return {
+  -- support for R-markdown knitting
   "vim-pandoc/vim-rmarkdown",
   dependencies = {
     { "vim-pandoc/vim-pandoc-syntax" },
