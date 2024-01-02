@@ -101,8 +101,8 @@ vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b"
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
 vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
 
--- open terminal buffer in split
-vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr><cmd>set nornu | set nonu<cr>a", { desc = "Terminal Split" })
+-- open terminal buffer in split (use better term instea)
+-- vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr><cmd>set nornu | set nonu<cr>a", { desc = "Terminal Split" })
 
 -- increment and decrements
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
@@ -117,6 +117,9 @@ vim.keymap.set("n", "gr", "grzz", { desc = "Go to References", noremap = true, s
 
 -- Force save as sudo (for readonly files)
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
+
+-- Force remove buffer (and split)
+vim.keymap.set("n", "<leader>bD", "<cmd>bd<cr>", { desc = "DELETE Buffer" })
 
 -- -- indent with tab and shift tab
 -- vim.keymap.set({ "v" }, "<Tab>", ">gv", { desc = "Increase Indent", silent = true })
