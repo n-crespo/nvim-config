@@ -101,8 +101,8 @@ vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b"
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
 vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
 
--- open terminal buffer in split (use better term instea)
--- vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr><cmd>set nornu | set nonu<cr>a", { desc = "Terminal Split" })
+-- open terminal buffer in split (alternative to better term when plugins don't work)
+vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr><cmd>set nornu | set nonu<cr>a", { desc = "Terminal Split" })
 
 -- increment and decrements
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
