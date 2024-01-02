@@ -63,15 +63,15 @@ My favorite things about this configuration are (in no particular order):
 * the <25 ms startup time (more like 60ms in regular Windows) (more like 30ms now that I've committed to having 69 plugins)
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) if you use WSL
 * these plugins:
-  * [spider](https://github.com/chrisgrieser/nvim*spider) (better `w`, `e`, and `b`)
-  * [origami](https://github.com/chrisgrieser/nvim*origami) (better folding)
+  * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
+  * [origami](https://github.com/chrisgrieser/nvim-origami) (better folding)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
   * [indent scope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
   * [one dark pro](https://github.com/olimorris/onedarkpro.nvim) (transparent + italic comments)
-  * [highlight undo](https://github.com/tzachar/highlight*undo.nvim) (very nice)
+  * [highlight undo](https://github.com/tzachar/highlight-undo.nvim) (very nice)
   * [code_runner](https://github.com/CRAG666/code_runner.nvim) (very very nice)
   * [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
-  * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term nd autojump)
+  * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
   * [attempt.nvim](https://github.com/m*demare/attempt.nvim) is somewhat useful
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
 
