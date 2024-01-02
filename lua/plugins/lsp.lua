@@ -76,14 +76,16 @@ return {
       window = {
         completion = { -- rounded border; thin-style scrollbar
           border = "rounded",
-          scrollbar = "║",
-          scrollbar = "",
+          scrollbar = false,
+          -- scrollbar = "║",
+          -- scrollbar = "",
         },
         documentation = { -- no border; native-style scrollbar
           -- border = nil
           border = "rounded",
+          scrollbar = false,
           -- scrollbar = "║",
-          scrollbar = "",
+          -- scrollbar = "",
         },
       },
     }),
