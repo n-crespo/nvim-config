@@ -73,6 +73,7 @@ My favorite things about this configuration are (in no particular order):
   * [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term nd autojump)
   * [attempt.nvim](https://github.com/m*demare/attempt.nvim) is somewhat useful
+* LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
