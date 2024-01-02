@@ -9,6 +9,7 @@ return {
     })
     local betterTerm = require("betterTerm")
     vim.keymap.set({ "n", "t" }, "<C-q>", betterTerm.open, { desc = "Open terminal" })
+    vim.keymap.set("n", "<leader>T", betterTerm.open, { desc = "Toggle Terminal" })
     -- only ever going to use one of these...
     -- vim.keymap.set({ "n", "t" }, "<C-p>", betterTerm.select, { desc = "Open terminal" })
   end,
