@@ -12,9 +12,9 @@ configuration. First check out kickstart.nvim and understand how plugins,
 keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
 I did.
 
+![markdown preview](./assets/image3.png)
 ![mini files](./assets/image1.png)
 ![r markdown](./assets/image2.png)
-![markdown preview](./assets/image3.png)
 
 The configuration is structured so that:
 
@@ -72,7 +72,7 @@ My favorite things about this configuration are (in no particular order):
   * [code_runner](https://github.com/CRAG666/code_runner.nvim) (very very nice)
   * [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
-  * [attempt.nvim](https://github.com/m*demare/attempt.nvim) is somewhat useful
+  * [attempt.nvim](https://github.com/m-demare/attempt.nvim) is somewhat useful
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
 
 > [!Note]
@@ -85,7 +85,7 @@ To use this configuration (I don't recommend this, make your own)(it probably
 won't fully work for you anyway)(you're better off starting your own config and
 stealing the chunks that you actually need), just clone the repo into your
 `~/.config/nvim` folder. If you don't know how to do that, you shouldn't be
-using this in the first place. 
+using this in the first place.
 
 If you're using Windows, stop. Use WSL and be happy.
 
