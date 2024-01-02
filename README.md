@@ -39,13 +39,14 @@ a plugin config. See below:
   ├── ftplugin
   │  └── java.lua
   ├── lua
-  │  ├──  config
+  │  ├── config
   │  │  ├── autocmds.lua
   │  │  ├── keymaps.lua
   │  │  ├── lazy.lua
   │  │  └── options.lua
   │  └── plugins
-  │     └── {allplugins}.lua
+  │     ├── {allplugins}.lua
+  │     └── ...
   ├── init.lua
   ├── lazyvim.json
   └── README.md
