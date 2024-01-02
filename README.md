@@ -22,13 +22,36 @@ The configuration is structured so that:
   `./lua/config/` folder (keymaps, settings, auto commands, lazy plugin manager
   setup) in the same way preconfigured LazyVim is structured, and
 
+
 2) All plugin configurations are in the `./lua/plugins/` folder, with each
-   plugin having its own file named similarly to the name of the plugin as
-   opposed to a modularized configuration that groups all related plugins in larger
-   files called `ui.lua`, `editor.lua`, etc. This way, removing a plugin is as
-   simple as deleting its file. This also makes editing the configuration easier
-   because the LSP doesn't have to read a massive lua file whenever I want to edit
-   a plugin config.
+plugin having its own file named similarly to the name of the plugin as
+opposed to a modularized configuration that groups all related plugins in larger
+files called `ui.lua`, `editor.lua`, etc. This way, removing a plugin is as
+simple as deleting its file. This also makes editing the configuration easier
+because the LSP doesn't have to read a massive lua file whenever I want to edit
+a plugin config. See below:
+
+<details>
+  <summary><b>File Structure</b></summary>
+
+  ```
+  .
+  ├── ftplugin
+  │  └── java.lua
+  ├── lua
+  │  ├──  config
+  │  │  ├── autocmds.lua
+  │  │  ├── keymaps.lua
+  │  │  ├── lazy.lua
+  │  │  └── options.lua
+  │  └── plugins
+  │     └── {allplugins}.lua
+  ├── init.lua
+  ├── lazyvim.json
+  └── README.md
+  ```
+
+</details>
 
 
 ## Interesting Things
