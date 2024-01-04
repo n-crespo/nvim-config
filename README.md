@@ -34,23 +34,23 @@ a plugin config. See below:
 <details>
   <summary><b>File Structure</b></summary>
 
-  ```
-  .
-  ├── ftplugin
-  │  └── java.lua
-  ├── lua
-  │  ├── config
-  │  │  ├── autocmds.lua
-  │  │  ├── keymaps.lua
-  │  │  ├── lazy.lua
-  │  │  └── options.lua
-  │  └── plugins
-  │     ├── {allplugins}.lua
-  │     └── ...
-  ├── init.lua
-  ├── lazyvim.json
-  └── README.md
-  ```
+```
+.
+├── ftplugin
+│  └── java.lua
+├── lua
+│  ├── config
+│  │  ├── autocmds.lua
+│  │  ├── keymaps.lua
+│  │  ├── lazy.lua
+│  │  └── options.lua
+│  └── plugins
+│     ├── {allplugins}.lua
+│     └── ...
+├── init.lua
+├── lazyvim.json
+└── README.md
+```
 
 </details>
 
