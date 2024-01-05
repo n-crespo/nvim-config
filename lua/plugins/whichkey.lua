@@ -4,6 +4,11 @@ return {
   "folke/which-key.nvim",
   opts = function()
     return {
+      window = {
+        border = "shadow",
+        -- margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+        padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
+      },
       plugins = {
         marks = true, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
