@@ -19,8 +19,7 @@ vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, silent = true, desc =
 vim.keymap.set({ "n", "v" }, "C", '"_C', { noremap = true, silent = true, desc = "Change till end of line" })
 vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true, silent = true, desc = "Change" })
 
-vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
-vim.keymap.set("v", "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
+vim.keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
 
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste" })
 
