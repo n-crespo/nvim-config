@@ -29,6 +29,10 @@ return {
     "linux-cultist/venv-selector.nvim",
     enabled = false,
   },
+  {
+    "echasnovski/mini.pairs",
+    enabled = false,
+  },
   -- why can I never fully remove catppuccin this thing will never fully
   -- disappear
   -- {
