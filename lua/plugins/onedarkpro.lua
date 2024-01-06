@@ -27,8 +27,7 @@ return {
       },
       colors = {
         onedark_dark = {
-          bg_statusline = "#000000",
-          bg,
+          bg_statusline = "#0e0e0e",
           -- bg_statusline = "",
         },
       },

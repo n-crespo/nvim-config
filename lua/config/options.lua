@@ -13,9 +13,11 @@ local opt = vim.opt
 -- made pasting take like a full second which was frustrating. Just using a
 -- non-root user works like a charm.
 
--- NOTE: I fixed this! See line 33, where I removed the clipboard syncing
--- entirely, and see the bottom of autocmds.lua to see the autocmds that sync
--- the clipboard for me. Amazing. Clocking 80ms startup time.
+-- NOTE: I fixed this! See the line below this note, where I removed the
+-- clipboard syncing entirely, and see the bottom of autocmds.lua to see the
+-- autocmds that sync the clipboard for me. Amazing.
+
+opt.clipboard = "" -- don't sync with system clipboard (see autocmds)
 
 -- vim.g.clipboard = {
 --   name = "WslClipboard",
@@ -30,7 +32,6 @@ local opt = vim.opt
 --   cache_enabled = 1,
 -- }
 
-opt.clipboard = "" -- don't sync with system clipboard (see autocmds)
 opt.mouse = "" -- disable mouse
 opt.conceallevel = 3 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
@@ -42,7 +43,8 @@ opt.splitright = true -- self explanatory
 opt.swapfile = false -- don't make backup swap files
 opt.wrap = false -- don't wrap text by default
 opt.incsearch = true -- who knows
-opt.autochdir = true -- change directory to the location of current open buffer automatically
+-- BUG: If below is true, persistence will break
+opt.autochdir = false -- change directory to the location of current open buffer automatically
 opt.scrolloff = 8 -- don't scroll all the way down
 opt.sidescrolloff = 8 -- don't scroll all the way to the side
 opt.sidescroll = 5 -- don't scroll all the way to the side
