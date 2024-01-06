@@ -23,20 +23,14 @@ return {
       highlights = {
         ["@text.emphasis"] = { italic = true },
         ["@text.todo.unchecked"] = { bg = "#161616" },
-        WhichKeyFloat = { bg = nil },
-
-        -- lualine_c_normal = { bg = nil },
-        lualine_b_normalxxx = { guibg = nil },
-        lualine_b_visualxxx = { guibg = nil },
-        lualine_b_commandxxx = { guibg = nil },
-        lualine_b_replacexxx = { guibg = nil },
-        lualine_b_insertxxx = { guibg = nil },
-        lualine_c_normalxxx = { guibg = nil },
-        lualine_transitional_lualine_a_normal_to_lualine_b_normalxxx = { guibg = nil },
-        lualine_transitional_lualine_a_insert_to_lualine_b_insertxxx = { guibg = nil },
-        lualine_transitional_lualine_a_command_to_lualine_b_commandxxx = { guibg = nil },
-        -- lualine_transitional_lualine_a_normal_to_lualine_b_normalxxx = { guibg = nil },
-        -- lualine_b = { guibg = nil },
+        WhichKeyFloat = { bg = nil }, -- transparent whichkey
+      },
+      colors = {
+        onedark_dark = {
+          bg_statusline = "#000000",
+          bg,
+          -- bg_statusline = "",
+        },
       },
     })
     vim.cmd.colorscheme("onedark_dark")
