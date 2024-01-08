@@ -24,37 +24,6 @@ vim.keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true, desc =
 
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste" })
 
--- below replaced with code_runner extension (see ../plugins/runner.lua)
-
--- local Util = require("lazyvim.util")
--- vim.api.nvim_create_user_command("FloatingTerm", function()
---   Util.terminal.open()
--- end, {})
-
--- -- run python
--- vim.keymap.set(
---   "n",
---   "<leader>rp",
---   [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> python3 <C-\><C-n>"#pi<CR> ]],
---   { silent = true, desc = "Run [P]ython File" }
--- )
-
--- -- run java
--- vim.keymap.set(
---   "n",
---   "<leader>rj",
---   [[:set autochdir<CR>:w<CR>:FloatingTerm<CR>javac <C-\><C-n>"#pi && java <C-\><C-n>"#pi<BS><BS><BS><BS><BS><CR> ]],
---   { silent = true, desc = "Run [J]ava File" }
--- )
-
--- -- run cpp
--- vim.keymap.set(
---   "n",
---   "<leader>rc",
---   [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
---   { desc = "Run [C]++ File", silent = true }
--- )
-
 -- adds <Control + backspace> and <Control + delete> to insert mode
 vim.keymap.set("i", "", "<C-w>", { silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de")
