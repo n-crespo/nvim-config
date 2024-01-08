@@ -6,6 +6,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up" })
 vim.keymap.set("n", "<C-i>", "<C-i>zz", { noremap = true, desc = "Next jumplist" })
 vim.keymap.set("n", "<C-o>", "<C-o>zz", { noremap = true, desc = "Previous jumplist" })
+vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
 
 -- centers search function
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
