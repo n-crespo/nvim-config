@@ -29,9 +29,18 @@ return {
     "linux-cultist/venv-selector.nvim",
     enabled = false,
   },
+  -- just type better bro
   {
     "echasnovski/mini.pairs",
     enabled = false,
+  },
+  -- i don't ever use this
+  {
+    "nvim-pack/nvim-spectre",
+    enabled = false,
+  },
+  {
+    "",
   },
   -- why can I never fully remove catppuccin this thing will never fully
   -- disappear
