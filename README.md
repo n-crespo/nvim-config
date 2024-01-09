@@ -73,8 +73,8 @@ My favorite things about this configuration are (in no particular order):
   * [code_runner](https://github.com/CRAG666/code_runner.nvim) (very very nice)
   * [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
-  * [scissors.nvim](https://github.com/chrisgrieser/nvim-scissors#installation) (creating snippets, created by guy who made spider)
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
+  * see `./lua/plugins/markdown.lua` for an amazing markdown editing experience
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
