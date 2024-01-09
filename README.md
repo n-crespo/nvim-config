@@ -60,6 +60,7 @@ a plugin config. See below:
 My favorite things about this configuration are (in no particular order):
 
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
+* every single one of the things in `./lua/config/keymaps.lua`
 * the <25 ms startup time (more like 60ms in regular Windows) (more like 30ms now that I've committed to having 69 plugins)
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) if you use WSL
 * these plugins:
@@ -72,7 +73,7 @@ My favorite things about this configuration are (in no particular order):
   * [code_runner](https://github.com/CRAG666/code_runner.nvim) (very very nice)
   * [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
-  * [attempt.nvim](https://github.com/m-demare/attempt.nvim) is somewhat useful
+  * [scissors.nvim](https://github.com/chrisgrieser/nvim-scissors#installation) (creating snippets, created by guy who made spider)
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
 
 > [!Note]
