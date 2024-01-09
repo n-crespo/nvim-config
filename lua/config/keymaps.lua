@@ -88,8 +88,5 @@ vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save"
 -- Force remove buffer (and split)
 vim.keymap.set("n", "<leader>bD", "<cmd>bd<cr>", { desc = "DELETE Buffer" })
 
--- -- indent with tab and shift tab
--- vim.keymap.set({ "v" }, "<Tab>", ">gv", { desc = "Increase Indent", silent = true })
--- vim.keymap.set({ "v" }, "<S-Tab>", "<gv", { desc = "Decrease Indent", silent = true })
--- vim.keymap.set("n", "<Tab>", ">>", { desc = "Increase Indent", silent = true })
--- vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Decrease Indent", silent = true })
+-- THIS IS AWESOME (in insert mode, <c-L> auto-corrects the last misspelled word
+vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
