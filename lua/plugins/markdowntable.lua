@@ -10,5 +10,9 @@ return {
     vim.keymap.del("v", "<leader>tt")
     vim.keymap.del("n", "<leader>tt")
     vim.keymap.del("n", "<leader>tm")
+
+    -- remove mappings I don't use
+    vim.g.table_mode_disable_mappings = 1
+    vim.g.table_mode_disable_tableize_mappings = 0
   end,
 }

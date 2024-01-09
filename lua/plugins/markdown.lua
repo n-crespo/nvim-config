@@ -6,9 +6,9 @@ return {
     -- markdown table of contents (i never use this)
     vim.keymap.set(
       "n",
-      "<leader>mt",
+      "<leader>t",
       "<CMD>Toc<CR><CMD>set nornu<CR><cmd>set nonu<cr>",
-      { silent = true, desc = "[T]able of Contents" }
+      { silent = true, desc = "[t]oc" }
     )
 
     -- i'm not sure this does anything
