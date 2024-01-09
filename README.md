@@ -61,7 +61,7 @@ My favorite things about this configuration are (in no particular order):
 
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
 * every single one of the things in `./lua/config/keymaps.lua`
-* the <25 ms startup time (more like 60ms in regular Windows) (more like 30ms now that I've committed to having 69 plugins)
+* the <25 ms startup time (more like 60ms in regular Windows) (sike I no longer care or check this)
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) if you use WSL
 * these plugins:
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
@@ -73,7 +73,7 @@ My favorite things about this configuration are (in no particular order):
   * [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
-  * see `./lua/plugins/markdown.lua` for an amazing markdown editing experience
+  * see `./lua/plugins/markdown.lua` and `./lua/plugins/markdowntable.lua` for an amazing markdown editing experience
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
