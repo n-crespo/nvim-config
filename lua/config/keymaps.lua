@@ -21,7 +21,6 @@ vim.keymap.set({ "n", "v" }, "C", '"_C', { noremap = true, silent = true, desc =
 vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true, silent = true, desc = "Change" })
 
 vim.keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
-
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste" })
 
 -- adds <Control + backspace> and <Control + delete> to insert mode
@@ -49,9 +48,6 @@ vim.keymap.set("n", "<leader>ww", "<C-w><C-w>", { silent = true, desc = "Window 
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
--- better z<CR> (top line)
-vim.keymap.set("n", "z<CR>", "zt", { desc = "Top this line" })
-
 -- center view port on double escape
 vim.keymap.set("n", "<ESC><ESC>", "<cmd>noh<cr><esc>zz", { noremap = false, silent = true, desc = "Center" })
 
@@ -68,19 +64,12 @@ vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b"
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
 vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
 
--- open terminal buffer in split (alternative to better term when plugins don't work)
-vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr><cmd>set nornu | set nonu<cr>a", { desc = "Terminal Split" })
-
 -- increment and decrements
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- select all
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select [A]ll" })
-
--- center definition/references
-vim.keymap.set("n", "gd", "gdzz", { desc = "Go to Definition", noremap = true, silent = true })
-vim.keymap.set("n", "gr", "grzz", { desc = "Go to References", noremap = true, silent = true })
 
 -- Force save as sudo (for readonly files)
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
