@@ -65,7 +65,6 @@ My favorite things about this configuration are (in no particular order):
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) if you use WSL
 * these plugins:
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
-  * [origami](https://github.com/chrisgrieser/nvim-origami) (better folding)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
   * [indent scope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
   * [one dark pro](https://github.com/olimorris/onedarkpro.nvim) (transparent + italic comments)
