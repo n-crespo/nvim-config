@@ -9,8 +9,6 @@ return {
     build = "make",
     config = function()
       require("telescope").load_extension("fzf")
-      -- see attempt.nvim plugin (temp files)
-      require("telescope").load_extension("attempt")
 
       -- telescope find plugin files
       vim.keymap.set("n", "<leader>fp", function()
