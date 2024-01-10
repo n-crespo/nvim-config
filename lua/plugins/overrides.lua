@@ -34,23 +34,24 @@ return {
     "echasnovski/mini.pairs",
     enabled = false,
   },
-  -- i don't ever use this
+  -- i never use this
   {
     "nvim-pack/nvim-spectre",
     enabled = false,
   },
+  -- this will never go away (Same with tokyo night for some reason)
   {
     "catppuccin/nvim",
     enabled = false,
   },
+  -- i never use this
   {
     "simrat39/symbols-outline.nvim",
     enabled = false,
   },
-  -- why can I never fully remove catppuccin this thing will never fully
-  -- disappear
+  -- this breaks things
   -- {
-  --   "catppuccin/nvim",
+  --   "folke/tokyonight.nvim",
   --   enabled = false,
   -- },
 }
