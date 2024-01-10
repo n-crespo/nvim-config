@@ -19,37 +19,6 @@ return {
     --
     --
     --   ]]
-    --     local logo = [[
-    --                            _
-    --                           (_)
-    --  _ __    ___   ___ __   __ _  _ __ ___
-    -- | '_ \  / _ \ / _ \\ \ / /| || '_ ` _ \
-    -- | | | ||  __/| (_) |\ V / | || | | | | |
-    -- |_| |_| \___| \___/  \_/  |_||_| |_| |_|
-    --
-    --
-    --
-    --
-    --     ]]
-
-    --     local logo = [[
-    --
-    --
-    --
-    --
-    --
-    --           (        )   (      )
-    --   (      ))\  (   /((  )\    (
-    --   )\ )  /((_) )\ (_))\((_)   )\  '
-    --  _(_/( (_))  ((_)_)((_)(_) _((_))
-    -- | ' \))/ -_)/ _ \\ V / | || '  \()
-    -- |_||_| \___|\___/ \_/  |_||_|_|_|
-    --
-    --
-    --
-    --
-    --
-    --     ]]
 
     local logo = [[
       ___           ___           ___                                    ___     
@@ -67,37 +36,17 @@ return {
     dashboard.section.header.val = vim.split(logo, "\n")
       -- stylua: ignore
       dashboard.section.buttons.val = {
+        -- dashboard.button("r", "⌛ " .. "Recent files", ":Telescope oldfiles <CR>"),
+        -- dashboard.button("s", "➰ " .. "Session Restore", ":lua require('persistence').load()<CR>"),
+        -- dashboard.button("c", "🔧 " .. "Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
+        -- dashboard.button("l", "💤 " .. "Lazy", ":Lazy<CR>"),
+        -- dashboard.button("q", "👋 " .. "Quit", ":qa<CR>"),
 
-        -- i dont rly use this either
-        -- dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-        -- dashboard.button("f", "🔍 " .. "Find file", ":Telescope find_files <CR>"),
-
-        -- dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("r", "⌛ " .. "Recent files", ":Telescope oldfiles <CR>"),
-
-        -- dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-
-        -- dashboard.button("n", " " .. " New file", "<cmd> ene <BAR> startinsert <cr>"),
-        -- dashboard.button("n", "📄 " .. " New file", "<cmd> ene <BAR> startinsert <cr>"),
-
-        -- i dont use this
-        -- dashboard.button("e", "📂 " .. "Explore", '<cmd>lua require("mini.files").open()<cr>'),
-
-        -- dashboard.button("h", "󰗶 " .. " Get Healthy", ":checkhealth <CR>"),
-        -- dashboard.button("h", "󰗶 " .. " Get Healthy", ":checkhealth <CR>"),
-
-        -- dashboard.button("s", " " .. " Restore Session", ":lua require('persistence').load()<CR>"),
-        -- dashboard.button("s", "➿ " .. "Session Restore", ":lua require('persistence').load()<CR>"),
-        dashboard.button("s", "➰ " .. "Session Restore", ":lua require('persistence').load()<CR>"),
-
-        -- dashboard.button("c", " " .. " Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
-        dashboard.button("c", "🔧 " .. "Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
-
-        -- dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-        dashboard.button("l", "💤 " .. "Lazy", ":Lazy<CR>"),
-
-        -- dashboard.button("q", " " .. " Quit", ":qa<CR>"),
-        dashboard.button("q", "👋 " .. "Quit", ":qa<CR>"),
+        dashboard.button("r", " " .. "Recent files", ":Telescope oldfiles <CR>"),
+        dashboard.button("s", " " .. "Session Restore", ":lua require('persistence').load()<CR>"),
+        dashboard.button("c", " " .. "Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
+        dashboard.button("l", " " .. "Lazy", ":Lazy<CR>"),
+        dashboard.button("q", " " .. "Quit", ":qa<CR>"),
       }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = "AlphaButtons"
@@ -129,24 +78,15 @@ return {
       pattern = "LazyVimStarted",
       callback = function()
         local stats = require("lazy").stats()
-        -- subtract catppuccin and tokyonight (I CANT REMOVE THEM) (shhhhhh i have 69 plugins trust)
-        -- sike add back tokynight its loaded properly
-        -- SIKE I ACTUALLY HAVE 69 NO SUBTRACTING
-        dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins"
+        dashboard.section.footer.val = "Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins"
+        -- dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins"
 
         -- if i see the startup time on my homescreen ill keep wasting time trying to lower it...
-        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        -- dashboard.section.footer.val = "⚡ Neovim loaded "
-        --   .. stats.loaded
-        --   .. "/"
-        --   .. stats.count
-        --   .. " plugins in "
-        --   .. ms
-        --   .. "ms"
+        -- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        -- dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
         -- dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
         -- dashboard.section.footer.val = "⚡ Neovim loaded in " .. ms .. "ms"
-        -- dashboard.section.footer.val = "⚡ Neovim loaded in " .. 0 .. " ms"
-        -- dashboard.section.footer.val = "\n⚡ Neovim loaded 10 years faster than vscode"
+
         pcall(vim.cmd.AlphaRedraw)
       end,
     })
