@@ -3,12 +3,14 @@ return {
   -- most is stolen from LazyVim's "tab-for-completion"
   {
     "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
     keys = function()
       return {}
     end,
   },
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     -- then: setup supertab in cmp
     dependencies = {
       "hrsh7th/cmp-emoji",
