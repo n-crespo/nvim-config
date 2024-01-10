@@ -43,6 +43,10 @@ return {
     "catppuccin/nvim",
     enabled = false,
   },
+  {
+    "simrat39/symbols-outline.nvim",
+    enabled = false,
+  },
   -- why can I never fully remove catppuccin this thing will never fully
   -- disappear
   -- {
