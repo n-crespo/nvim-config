@@ -30,6 +30,9 @@ require("lazy").setup({
       height = 0.8,
     },
   },
+  change_detection = {
+    notify = false,
+  },
   -- install = { colorscheme = { "onedark_dark" } },
   checker = { enabled = true }, --   automatically check for plugin updates
   performance = {
