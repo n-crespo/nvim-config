@@ -61,7 +61,7 @@ My favorite things about this configuration are (in no particular order):
 
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
 * every single one of the things in `./lua/config/keymaps.lua`
-* the ~30 ms startup time (more like 60ms in regular Windows)
+* the ~25 ms startup time (more like 60ms in regular Windows)
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) if you use WSL
 * these plugins:
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
