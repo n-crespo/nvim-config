@@ -24,6 +24,7 @@ return {
         ["@text.emphasis"] = { italic = true },
         ["@text.todo.unchecked"] = { bg = "#161616" },
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
+        TabLineSel = { bg = "#2b303a" },
       },
       colors = {
         onedark_dark = {

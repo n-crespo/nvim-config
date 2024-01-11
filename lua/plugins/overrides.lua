@@ -49,6 +49,11 @@ return {
     "simrat39/symbols-outline.nvim",
     enabled = false,
   },
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+
   -- this breaks things
   -- {
   --   "folke/tokyonight.nvim",
