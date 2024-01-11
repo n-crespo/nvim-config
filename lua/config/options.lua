@@ -8,11 +8,6 @@ local opt = vim.opt
 -- this is my current best solution. Also I had to remove my powershell profile
 -- configuration (🥲) so it wouldn't take ten years to paste.
 
--- HACK: I found that if I run neovim as root this is a huge problem, but when
--- I'm not running as root its totally fine. Using the below as clipboard also
--- made pasting take like a full second which was frustrating. Just using a
--- non-root user works like a charm.
-
 -- NOTE: I fixed this! See the line below this note, where I removed the
 -- clipboard syncing entirely, and see the bottom of autocmds.lua to see the
 -- autocmds that sync the clipboard for me. Amazing.
