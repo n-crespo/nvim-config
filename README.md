@@ -12,9 +12,9 @@ configuration. First check out kickstart.nvim and understand how plugins,
 keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
 I did.
 
+  ![alpha](./assets/image1.png)
+  ![mini files](./assets/image3.png)
   ![r markdown](./assets/image2.png)
-  ![markdown preview](./assets/image3.png)
-  ![mini files](./assets/image1.png)
 
 The configuration is structured so that:
 
