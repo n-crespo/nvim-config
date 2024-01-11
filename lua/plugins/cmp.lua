@@ -9,12 +9,12 @@ return {
       completion = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-        scorllbar = false,
+        scrollbar = false,
       },
       documentation = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-        scorllbar = false,
+        scrollbar = false,
       },
     },
   },

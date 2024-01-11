@@ -6,5 +6,10 @@ return {
     presets = {
       lsp_doc_border = true,
     },
+    views = {
+      popupmenu = {
+        scrollbar = false,
+      },
+    },
   },
 }
