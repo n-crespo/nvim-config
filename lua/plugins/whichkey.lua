@@ -50,7 +50,6 @@ return {
         ["<Leader>gh"] = { name = "+Hunk" },
         ["<LocalLeader>"] = { name = "+Leader" },
         ["<Leader>o"] = { name = "+Open" },
-        ["<Leader>mt"] = { name = "+Table" },
 
         ["<LocalLeader>s"] = { name = "+Search" },
         ["]"] = { name = "+next" },
