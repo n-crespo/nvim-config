@@ -20,20 +20,20 @@ return {
     enabled = false,
   },
   -- i use alpha
-  {
-    "echasnovski/mini.starter",
-    enabled = false,
-  },
+  -- {
+  --   "echasnovski/mini.starter",
+  --   enabled = false,
+  -- },
   -- im not thaaat deep into python development
   {
     "linux-cultist/venv-selector.nvim",
     enabled = false,
   },
   -- just type better bro
-  {
-    "echasnovski/mini.pairs",
-    enabled = false,
-  },
+  -- {
+  --   "echasnovski/mini.pairs",
+  --   enabled = false,
+  -- },
   -- i never use this
   {
     "nvim-pack/nvim-spectre",
@@ -51,6 +51,11 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+  {
+
+    "goolord/alpha-nvim",
     enabled = false,
   },
 
