@@ -26,6 +26,7 @@ return {
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         TabLineSel = { bg = "#2b303a" },
         MiniStatuslineModeNormal = { bg = "#2b303a" },
+        LazyButton = { bg = "#2b303a" },
       },
       colors = {
         onedark_dark = {
