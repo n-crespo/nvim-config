@@ -25,10 +25,11 @@ return {
         ["@text.todo.unchecked"] = { bg = "#161616" },
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         TabLineSel = { bg = "#2b303a" },
+        MiniStatuslineModeNormal = { bg = "#2b303a" },
       },
       colors = {
         onedark_dark = {
-          bg_statusline = "#0e0e0e",
+          bg_statusline = "#080d18",
           -- bg_statusline = "",
         },
       },
