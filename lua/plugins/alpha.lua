@@ -42,11 +42,11 @@ return {
         -- dashboard.button("l", "💤 " .. "Lazy", ":Lazy<CR>"),
         -- dashboard.button("q", "👋 " .. "Quit", ":qa<CR>"),
 
-        dashboard.button("r", " " .. "Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("s", " " .. "Session Restore", ":lua require('persistence').load()<CR>"),
-        dashboard.button("c", " " .. "Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
-        dashboard.button("l", " " .. "Lazy", ":Lazy<CR>"),
-        dashboard.button("q", " " .. "Quit", ":qa<CR>"),
+        dashboard.button("r", "   " .. "Recent files", ":Telescope oldfiles <CR>"),
+        dashboard.button("s", "   " .. "Session Restore", ":lua require('persistence').load()<CR>"),
+        dashboard.button("c", "   " .. "Config", '<CMD>lua require("lazyvim.util").telescope.config_files()()<CR>'),
+        dashboard.button("l", "   " .. "Lazy", ":Lazy<CR>"),
+        dashboard.button("q", "   " .. "Quit", ":qa<CR>"),
       }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = "AlphaButtons"
