@@ -1,10 +1,7 @@
 
 # My Neovim Config
 
-
-## Description
-
-My neovim config based on [LazyVim](https://www.lazyvim.org), with added plugins
+My Neovim config based on [LazyVim](https://www.lazyvim.org), with added plugins
 to extend its functionality.
 
 If you don't understand how this works, you probably shouldn't use this
@@ -65,11 +62,11 @@ My favorite things about this configuration are (in no particular order):
 * these plugins:
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
-  * [indent scope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
-  * [one dark pro](https://github.com/olimorris/onedarkpro.nvim) (transparent + italic comments)
-  * [highlight undo](https://github.com/tzachar/highlight-undo.nvim) (very nice)
+  * [indentscope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
+  * [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent + italic comments)
+  * [highlight-undo](https://github.com/tzachar/highlight-undo.nvim) (very nice)
   * [code_runner](https://github.com/CRAG666/code_runner.nvim) (very very nice)
-  * [better term](https://github.com/CRAG666/betterTerm.nvim) (super nice)
+  * [betterTerm](https://github.com/CRAG666/betterTerm.nvim) (super nice)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
   * see `./lua/plugins/markdown.lua` and `./lua/plugins/markdowntable.lua` for an amazing markdown editing experience
@@ -92,4 +89,6 @@ If you're using Windows, stop. Use WSL and be happy.
 
 - [x] Fix transparent completion window
 - [x] Edit Treesitter highlighting for markdown checkboxes
-- [ ] transparent Lualine?
+- [x] bordered floating window
+- [x] bordered floating terminal
+- [x] `require({})` less
