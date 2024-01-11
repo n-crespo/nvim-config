@@ -58,10 +58,10 @@ return {
     "goolord/alpha-nvim",
     enabled = false,
   },
-  {
-    "nvim-lualine/lualine.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   enabled = false,
+  -- },
 
   -- this breaks things
   -- {
