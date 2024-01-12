@@ -54,7 +54,6 @@ return {
     enabled = false,
   },
   {
-
     "goolord/alpha-nvim",
     enabled = false,
   },

@@ -24,7 +24,8 @@ return {
         ["@text.emphasis"] = { italic = true },
         ["@text.todo.unchecked"] = { bg = "#161616" },
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
-        TabLineSel = { bg = "#2b303a", undercurl = true },
+        -- TabLineSel = { bg = "#2b303a", underline = true },
+        TabLineSel = { bg = "#2b303a" },
         MiniStatuslineModeNormal = { bg = "#2b303a" },
         LazyButton = { bg = "#2b303a" },
       },

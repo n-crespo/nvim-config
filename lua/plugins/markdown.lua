@@ -2,7 +2,7 @@ return {
   -- use <enter> to follow markdown links (or hyperlinks), <C-k> in insert mode
   -- to create links, <tab> to fold headers, <leader>mc for table of contents
   "ixru/nvim-markdown",
-  event = "BufEnter *.md",
+  ft = "markdown",
   config = function()
     -- markdown table of contents (i never use this)
     vim.keymap.set(

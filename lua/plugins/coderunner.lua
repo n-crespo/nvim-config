@@ -4,7 +4,7 @@ return {
   event = "BufEnter *.*",
   config = true,
   opts = function()
-    vim.keymap.set("n", "<leader>r", "<cmd>RunCode<cr>", { desc = "Run Code", silent = true })
+    vim.keymap.set("n", "R", "<cmd>RunCode<cr>", { desc = "Run Code", silent = true })
     require("code_runner").setup({
       mode = "term",
       startinsert = true,
