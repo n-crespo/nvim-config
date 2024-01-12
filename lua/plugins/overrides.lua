@@ -44,11 +44,6 @@ return {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
-  -- i use mini starter
-  {
-    "goolord/alpha-nvim",
-    enabled = false,
-  },
   -- {
   --   "lukas-reineke/headlines.nvim",
   --   enabled = false,
