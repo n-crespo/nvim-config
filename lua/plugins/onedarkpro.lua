@@ -22,7 +22,7 @@ return {
       -- THIS IS NEEDED for italics in markdown to work properly
       highlights = {
         ["@text.emphasis"] = { italic = true },
-        ["@text.todo.unchecked"] = { bg = "#161616" },
+        ["@text.todo.unchecked"] = { bg = "#22272f" },
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         TabLineSel = { bg = "#22272f", bold = true },
         MiniStatuslineModeNormal = { bg = "#22272f" },
