@@ -7,10 +7,5 @@ return {
     require("notify").setup({
       background_colour = "#0e0e0e",
     })
-    -- require("lualine").setup({
-    --   options = {
-    --     theme = require("t-theme").theme(),
-    --   },
-    -- })
   end,
 }
