@@ -62,14 +62,15 @@ My favorite things about this configuration are (in no particular order):
 * these plugins:
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
-  * [indentscope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
-  * [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent + italic comments)
-  * [highlight-undo](https://github.com/tzachar/highlight-undo.nvim) (very nice)
-  * [code_runner](https://github.com/CRAG666/code_runner.nvim) (very very nice)
-  * [betterTerm](https://github.com/CRAG666/betterTerm.nvim) (super nice)
-  * [flatten.nvim](https://github.com/willothy/flatten.nvim) (*amazing* when used with better term and autojump)
+  * [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
+  * [mini.starter](https://github.com/echasnovski/mini.starter) (super fast and minimal)
+  * [mini.tabline](https://github.com/echasnovski/mini.tabline)(super fast and minimal)
+  * [highlight-undo](https://github.com/tzachar/highlight-undo.nvim) (surprisingly very nice)
+  * [betterTerm](https://github.com/CRAG666/betterTerm.nvim) (better `:term`)
+  * [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested neovim instances)(used with autojump and betterTerm)
+  * [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent + super customizable)
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
-  * see `./lua/plugins/markdown.lua` and `./lua/plugins/markdowntable.lua` for an amazing markdown editing experience
+  * see `./lua/plugins/markdown.lua` and `./lua/plugins/markdowntable.lua` for an amazing markdown editing experience (no LSP needed)
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
