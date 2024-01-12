@@ -14,26 +14,16 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     enabled = false,
   },
-  -- i use alpha
+  -- i use mini starter
   {
     "nvimdev/dashboard-nvim",
     enabled = false,
   },
-  -- i use alpha
-  -- {
-  --   "echasnovski/mini.starter",
-  --   enabled = false,
-  -- },
   -- im not thaaat deep into python development
   {
     "linux-cultist/venv-selector.nvim",
     enabled = false,
   },
-  -- just type better bro
-  -- {
-  --   "echasnovski/mini.pairs",
-  --   enabled = false,
-  -- },
   -- i never use this
   {
     "nvim-pack/nvim-spectre",
@@ -49,16 +39,18 @@ return {
     "simrat39/symbols-outline.nvim",
     enabled = false,
   },
+  -- i use mini tabline
   {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
+  -- i use mini starter
   {
     "goolord/alpha-nvim",
     enabled = false,
   },
   -- {
-  --   "nvim-lualine/lualine.nvim",
+  --   "lukas-reineke/headlines.nvim",
   --   enabled = false,
   -- },
 
