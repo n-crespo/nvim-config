@@ -34,11 +34,6 @@ return {
     "catppuccin/nvim",
     enabled = false,
   },
-  -- i never use this
-  {
-    "simrat39/symbols-outline.nvim",
-    enabled = false,
-  },
   -- i use mini tabline
   {
     "akinsho/bufferline.nvim",
