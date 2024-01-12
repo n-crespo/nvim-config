@@ -3,19 +3,15 @@ local M = {}
 local pref = require("onedarkpro.helpers").get_colors("onedark_dark")
 M.theme = function()
   local colors = {
-    -- normal = "#7e9cd8",
-    -- insert = "#98bb6c",
-    -- visual = "#ffa066",
-    -- replace = "#e46876",
-    darkgray = "#16161d",
-    gray = "#abb2bf",
-    innerbg = nil,
-    outerbg = "#16161D",
     normal = pref.blue,
     visual = pref.yellow,
+    replace = pref.red,
     insert = pref.green,
     command = pref.purple,
-    replace = pref.red,
+    innerbg = nil,
+    outerbg = "#22272f",
+    darkgray = "#16161d",
+    gray = "#abb2bf",
   }
   return {
     inactive = {
