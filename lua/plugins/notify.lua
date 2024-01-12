@@ -7,7 +7,10 @@ return {
     require("notify").setup({
       background_colour = "#0e0e0e",
     })
-    vim.cmd("hi lualine_c_normal guibg=NONE")
-    vim.cmd("hi lualine_x_normal guibg=NONE")
+    -- require("lualine").setup({
+    --   options = {
+    --     theme = require("t-theme").theme(),
+    --   },
+    -- })
   end,
 }

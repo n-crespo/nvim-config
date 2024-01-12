@@ -28,12 +28,6 @@ return {
         MiniStatuslineModeNormal = { bg = "#2b303a" },
         LazyButton = { bg = "#2b303a" },
       },
-      colors = {
-        onedark_dark = {
-          bg_statusline = "#070d19",
-          -- bg_statusline = "",
-        },
-      },
     })
     vim.cmd.colorscheme("onedark_dark")
   end,
