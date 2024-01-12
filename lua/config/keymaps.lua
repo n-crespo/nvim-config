@@ -80,4 +80,5 @@ vim.keymap.set("n", "<leader>bD", "<cmd>bd<cr>", { desc = "DELETE Buffer" })
 -- THIS IS AWESOME (in insert mode, <c-L> auto-corrects the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 
+-- open a file (OnlyFans)
 vim.keymap.set("n", "<leader>of", ":!open ", { desc = "Open File", silent = true })
