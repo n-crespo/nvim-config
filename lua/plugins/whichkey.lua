@@ -5,7 +5,7 @@ return {
   opts = function()
     return {
       window = {
-        border = "single",
+        border = "rounded",
         -- margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
       },

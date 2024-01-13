@@ -27,6 +27,9 @@ return {
         TabLineSel = { bg = "#22272f", bold = true },
         MiniStatuslineModeNormal = { bg = "#22272f" },
         LazyButton = { bg = "#22272f" },
+        CodeBlock = { bg = "#22272f" },
+        rmdCodeBlock = { bg = "#22272f" },
+        Headline = { bg = "#22272f" },
       },
     })
     vim.cmd.colorscheme("onedark_dark")
