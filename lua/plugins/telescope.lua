@@ -13,7 +13,7 @@ return {
       -- telescope find plugin files
       vim.keymap.set("n", "<leader>fp", function()
         require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-      end, { silent = true, desc = "Find [P]lugin File" })
+      end, { silent = true, desc = "Find Plugin File" })
 
       -- set max file size for preview
       require("telescope").setup({
