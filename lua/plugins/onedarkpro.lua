@@ -1,4 +1,4 @@
-local mdh = "#14161a"
+local md_highlight = "#14161a"
 return {
   -- theme of choice, transparent, italic comments, markdown italic support
   "olimorris/onedarkpro.nvim",
@@ -20,14 +20,13 @@ return {
         underline = true,
         undercurl = true,
       },
-      -- THIS IS NEEDED for italics in markdown to work properly
       highlights = {
         ["@text.emphasis"] = { italic = true },
         ["@tag.html"] = { fg = "#89ca78" },
 
-        ["@text.todo.unchecked"] = { bg = mdh },
-        Headline = { bg = mdh },
-        CodeBlock = { bg = mdh },
+        ["@text.todo.unchecked"] = { bg = md_highlight },
+        Headline = { bg = md_highlight },
+        CodeBlock = { bg = md_highlight },
 
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         TabLineSel = { bg = "#22272f", bold = true },
@@ -35,11 +34,6 @@ return {
         LazyButton = { bg = "#22272f" },
       },
     })
-
-    -- Treesitter
-    --   - @text.literal.block.markdown links to @text.literal markdown
-    --   - @none.markdown links to @none markdown
-
     vim.cmd.colorscheme("onedark_dark")
   end,
 }
