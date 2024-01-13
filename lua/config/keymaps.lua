@@ -33,14 +33,14 @@ vim.keymap.set(
   "n",
   "<leader>ci",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace [I]nstances" }
+  { desc = "Replace Instances" }
 )
 
 -- remove all other windows, same as :on or :only
-vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window [O]nly" })
+vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window Only" })
 
 -- window rotate
-vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window [R]otate" })
+vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window Rotate" })
 
 -- window window on the wall, tell me who is that windowest of them all
 vim.keymap.set("n", "<leader>ww", "<C-w><C-w>", { silent = true, desc = "Window Window" })
@@ -58,7 +58,7 @@ vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc 
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
 -- nb sync
-vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with [n]b" })
+vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with nb" })
 
 -- delete and save to register
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
@@ -69,7 +69,7 @@ vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- select all
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select [A]ll" })
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
 -- Force save as sudo (for readonly files)
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
@@ -80,5 +80,5 @@ vim.keymap.set("n", "<leader>bD", "<cmd>bd<cr>", { desc = "DELETE Buffer" })
 -- THIS IS AWESOME (in insert mode, <c-L> auto-corrects the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 
--- delete all other buffers ([b]ody [o]dor)
+-- delete all other buffers (body odor)
 vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Buffer Only", silent = true })

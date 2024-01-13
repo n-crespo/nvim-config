@@ -1,5 +1,6 @@
 return {
-  -- use <leader>r to run any file! very nice
+  -- use R to run any file! very nice
+  -- this overrides the vim native replace mode, which i never use
   "CRAG666/code_runner.nvim",
   event = "BufEnter *.*",
   config = true,
