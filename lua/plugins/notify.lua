@@ -5,7 +5,7 @@ return {
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require("notify").setup({
-      background_colour = "#0e0e0e",
+      background_colour = "#22272f",
     })
   end,
 }
