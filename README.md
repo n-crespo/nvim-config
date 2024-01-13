@@ -94,3 +94,4 @@ If you're using Windows, stop. Use WSL and be happy.
 - [x] bordered floating terminal
 - [x] `require({})` less
 - [x] transparent Lualine
+- [x] transparent LSP dialogues

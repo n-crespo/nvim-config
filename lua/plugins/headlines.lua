@@ -24,7 +24,7 @@ return {
     -- PERF: schedule to prevent headlines slowing down opening a file
     vim.schedule(function()
       require("headlines").setup({
-        -- rmd = { codeblock_highlight = false },
+        rmd = { codeblock_highlight = false },
         rmarkdown = require("headlines").config.rmd,
       })
       require("headlines").refresh()

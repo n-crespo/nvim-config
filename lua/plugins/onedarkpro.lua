@@ -22,16 +22,22 @@ return {
       -- THIS IS NEEDED for italics in markdown to work properly
       highlights = {
         ["@text.emphasis"] = { italic = true },
-        ["@text.todo.unchecked"] = { bg = "#22272f" },
+        -- ["@text.literal.block.markdown"] = { bg = "#141922" },
+        -- ["@text.todo.unchecked"] = { bg = "#22272f" },
+        ["@text.todo.unchecked"] = { bg = "#212121" },
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         TabLineSel = { bg = "#22272f", bold = true },
         MiniStatuslineModeNormal = { bg = "#22272f" },
         LazyButton = { bg = "#22272f" },
-        CodeBlock = { bg = "#22272f" },
-        rmdCodeBlock = { bg = "#22272f" },
-        Headline = { bg = "#22272f" },
+        CodeBlock = { bg = "#212121" },
+        Headline = { bg = "#212121" },
       },
     })
+
+    -- Treesitter
+    --   - @text.literal.block.markdown links to @text.literal markdown
+    --   - @none.markdown links to @none markdown
+
     vim.cmd.colorscheme("onedark_dark")
   end,
 }
