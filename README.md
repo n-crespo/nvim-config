@@ -88,4 +88,4 @@ If you're using Windows, stop. Use WSL.
 - [x] bordered floating terminal
 - [x] `require({})` less
 - [x] transparent Lualine
-- [x] transparent LSP dialogues
+- [x] transparent LSP and save dialogues (bottom right)

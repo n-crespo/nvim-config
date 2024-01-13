@@ -85,3 +85,6 @@ vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Buffer Only",
 
 -- apply macro over selected region
 vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
+
+-- yank with control C (shameful non native neovim keymap)
+vim.keymap.set("x", "<C-c>", "y", { desc = "Copy", silent = true })
