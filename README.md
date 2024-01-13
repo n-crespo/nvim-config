@@ -40,11 +40,6 @@ My favorite things about this configuration are (in no particular order):
 > these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also have
 > disabled some plugins that come with LazyVim in the `overrides.lua` file.
 
-To use this configuration just clone the repo into your `~/.config/nvim` folder.
-If you don't know how to do that, you shouldn't be using this in the first
-place.
-
-If you're using Windows, stop. Use WSL.
 
 ## Structure
 
@@ -81,6 +76,14 @@ a plugin config. See below:
 ```
 
 </details>
+
+## Usage
+
+To use this configuration just clone the repo into your `~/.config/nvim` folder.
+If you don't know how to do that, you shouldn't be using this in the first
+place.
+
+If you're using Windows, stop. Use WSL.
 
 ## TODO
 
