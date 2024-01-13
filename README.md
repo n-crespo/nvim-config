@@ -1,8 +1,8 @@
 
-# My Neovim Config
+# Neovim Configuration
 
-My Neovim config based on [LazyVim](https://www.lazyvim.org), with added plugins
-and LSPs to extend its functionality. Every configuration was done with
+My Neovim configuration based on [LazyVim](https://www.lazyvim.org), with added
+plugins and LSPs to extend its functionality. Every configuration was done with
 transparency in mind. 
 
   ![start screen](./assets/starter.png)
@@ -47,7 +47,7 @@ This configuration is structured so that:
 plugin having its own file. This way, removing a plugin is as
 simple as deleting its file. This also makes editing the configuration easier
 because the LSP doesn't have to read a massive lua file whenever I want to edit
-a plugin config. See below:
+a plugin configuration. See below:
 
 <details>
   <summary><b>File Structure</b></summary>
@@ -76,9 +76,7 @@ a plugin config. See below:
 
 To use this configuration just clone the repo into your `~/.config/nvim` folder.
 If you don't know how to do that, you shouldn't be using this in the first
-place. First check out kickstart.nvim and understand how plugins,
-keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
-I did.
+place. Good place to start is kickstart.nvim.
 
 If you're using Windows, stop. Use WSL.
 
