@@ -1,3 +1,4 @@
+local mdh = "#14161a"
 return {
   -- theme of choice, transparent, italic comments, markdown italic support
   "olimorris/onedarkpro.nvim",
@@ -22,15 +23,16 @@ return {
       -- THIS IS NEEDED for italics in markdown to work properly
       highlights = {
         ["@text.emphasis"] = { italic = true },
-        -- ["@text.literal.block.markdown"] = { bg = "#141922" },
-        -- ["@text.todo.unchecked"] = { bg = "#22272f" },
-        ["@text.todo.unchecked"] = { bg = "#212121" },
+        ["@tag.html"] = { fg = "#89ca78" },
+
+        ["@text.todo.unchecked"] = { bg = mdh },
+        Headline = { bg = mdh },
+        CodeBlock = { bg = mdh },
+
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         TabLineSel = { bg = "#22272f", bold = true },
         MiniStatuslineModeNormal = { bg = "#22272f" },
         LazyButton = { bg = "#22272f" },
-        CodeBlock = { bg = "#212121" },
-        Headline = { bg = "#212121" },
       },
     })
 
