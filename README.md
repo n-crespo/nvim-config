@@ -2,16 +2,15 @@
 # My Neovim Config
 
 My Neovim config based on [LazyVim](https://www.lazyvim.org), with added plugins
-to extend its functionality.
+and LSPs to extend its functionality. Every configuration was done with
+transparency in mind. 
 
 If you don't understand how this works, you probably shouldn't use this
 configuration. First check out kickstart.nvim and understand how plugins,
 keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
 I did.
 
-  ![alpha](./assets/image1.png)
-  ![mini files](./assets/image3.png)
-  ![r markdown](./assets/image2.png)
+  ![start screen](./assets/image1.png)
 
 The configuration is structured so that:
 
@@ -55,6 +54,7 @@ a plugin config. See below:
 
 My favorite things about this configuration are (in no particular order):
 
+* transparent everything
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
 * every single one of the things in `./lua/config/keymaps.lua`
 * the ~25 ms startup time (more like 60ms in regular Windows)
