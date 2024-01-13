@@ -10,7 +10,7 @@ configuration. First check out kickstart.nvim and understand how plugins,
 keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
 I did.
 
-  ![start screen](./assets/image1.png)
+  ![start screen](./assets/starter.png)
 
 The configuration is structured so that:
 
