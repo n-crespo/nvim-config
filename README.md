@@ -5,11 +5,6 @@ My Neovim config based on [LazyVim](https://www.lazyvim.org), with added plugins
 and LSPs to extend its functionality. Every configuration was done with
 transparency in mind. 
 
-If you don't understand how this works, you probably shouldn't use this
-configuration. First check out kickstart.nvim and understand how plugins,
-keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
-I did.
-
   ![start screen](./assets/starter.png)
 
 ## Interesting Things
@@ -81,7 +76,9 @@ a plugin config. See below:
 
 To use this configuration just clone the repo into your `~/.config/nvim` folder.
 If you don't know how to do that, you shouldn't be using this in the first
-place.
+place. First check out kickstart.nvim and understand how plugins,
+keymaps, LSPs, and the rest of the config works. Or just start with LazyVim like
+I did.
 
 If you're using Windows, stop. Use WSL.
 
