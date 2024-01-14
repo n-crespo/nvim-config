@@ -54,10 +54,10 @@ vim.keymap.set("n", "<ESC><ESC>", "<cmd>noh<cr><esc>zz", { noremap = false, sile
 -- open in windows system viewer (for WSL)
 vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" })
 
--- open in system viewer
+-- open in system viewer (operating system)
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
--- nb sync
+-- nb sync (good night)
 vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with nb" })
 
 -- delete and save to register

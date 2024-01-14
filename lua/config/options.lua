@@ -27,30 +27,46 @@ opt.clipboard = "" -- don't sync with system clipboard (see autocmds)
 --   cache_enabled = 1,
 -- }
 
-opt.mouse = "" -- disable mouse
-opt.conceallevel = 3 -- Hide * markup for bold and italics
-opt.autowrite = true -- Enable auto writes
-opt.cursorline = false -- don't highlight current line (transparent background)
-opt.relativenumber = true -- self explanatory
--- vim.g.netrw_browsex_viewer = "" -- edit commands for gx and :open
-opt.splitbelow = true -- self explanatory
-opt.splitright = true -- self explanatory
-opt.swapfile = false -- don't make backup swap files
-opt.wrap = false -- don't wrap text by default
+-- disable mouse
+opt.mouse = ""
+-- Hide * markup for bold and italics
+opt.conceallevel = 3
+-- Enable auto writes
+opt.autowrite = true
+-- don't highlight current line (transparent background)
+opt.cursorline = false
+-- self explanatory
+opt.relativenumber = true
+-- self explanatory
+opt.splitbelow = true
+-- self explanatory
+opt.splitright = true
+-- don't make backup swap files
+opt.swapfile = false
+-- don't wrap text by default
+opt.wrap = false
 opt.incsearch = true -- who knows
--- BUG: If below is true, persistence will break
-opt.autochdir = false -- change directory to the location of current open buffer automatically
-opt.scrolloff = 8 -- don't scroll all the way down
-opt.sidescrolloff = 8 -- don't scroll all the way to the side
-opt.sidescroll = 5 -- don't scroll all the way to the side
-opt.numberwidth = 1 -- left side width
-opt.relativenumber = true -- rnu
-opt.textwidth = 80 -- formatted text width
-opt.softtabstop = 2 -- 2 space tabs
-opt.tabstop = 2 -- 2 space tabs
-opt.shiftwidth = 2 -- 2 space tabs
-opt.foldmethod = "indent" -- indent folding
+-- change directory to the location of current open buffer automatically (needed for persistence)
+opt.autochdir = false
+-- don't scroll all the way down
+opt.scrolloff = 8
+-- don't scroll all the way to the side
+opt.sidescrolloff = 8
+-- don't scroll all the way to the side
+opt.sidescroll = 5
+-- left side width
+opt.numberwidth = 1
+-- formatted text width
+opt.textwidth = 80
+-- 2 space tabs
+opt.softtabstop = 2
+-- 2 space tabs
+opt.tabstop = 2
+-- 2 space tabs
+opt.shiftwidth = 2
+-- manual folding
+opt.foldmethod = "manual"
+-- motions by default put cursor on start of line
 opt.startofline = true
+-- what is even this (causes checkhealth error if true)
 vim.g.loaded_perl_provider = 0
--- completion window transparency??
-vim.opt.pumblend = 0
