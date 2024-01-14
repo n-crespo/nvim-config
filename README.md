@@ -1,6 +1,10 @@
 
 # Neovim Configuration
 
+<a href="https://dotfyle.com/n-crespo/nvim-config"><img src="https://dotfyle.com/n-crespo/nvim-config/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/n-crespo/nvim-config"><img src="https://dotfyle.com/n-crespo/nvim-config/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/n-crespo/nvim-config"><img src="https://dotfyle.com/n-crespo/nvim-config/badges/plugin-manager?style=flat" /></a>
+
 My Neovim configuration based on [LazyVim](https://www.lazyvim.org), with added
 plugins and LSPs to extend its functionality. Every configuration was done with
 transparency in mind. 
