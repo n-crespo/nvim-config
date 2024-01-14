@@ -12,7 +12,7 @@ transparency in mind.
 My favorite things about this configuration are (in no particular order):
 
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
-* all my keymaps in `./lua/config/keymaps.lua`
+* all my keymaps in [here](./lua/config/keymaps.lua)
 * the ~25 ms startup time (more like 60ms in regular Windows)
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 * these plugins:
@@ -20,7 +20,7 @@ My favorite things about this configuration are (in no particular order):
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
   * [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
   * [mini.starter](https://github.com/echasnovski/mini.starter) (fast and minimal)
-  * [mini.tabline](https://github.com/echasnovski/mini.tabline)(fast and minimal)
+  * [mini.tabline](https://github.com/echasnovski/mini.tabline) (fast and minimal)
   * [highlight-undo](https://github.com/tzachar/highlight-undo.nvim) (surprisingly very useful)
   * [betterTerm](https://github.com/CRAG666/betterTerm.nvim) (better `:term`)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested neovim instances)(used with autojump and betterTerm)
