@@ -7,7 +7,7 @@ local opt = vim.opt
 -- pasting a bit slow. Using "unnamedplus" makes it instant, but then increases
 -- startup SUBSTANTIALLY (almost 900ms) (see :StartupTime --> clipboard.vim), so
 -- this is my current best solution. Also I had to remove my powershell profile
--- configuration (🥲) so it wouldn't take ten years to paste.
+-- configuration so it wouldn't take ten years to paste.
 
 -- NOTE: I fixed this! See the line below this note, where I removed the
 -- clipboard syncing entirely, and see the bottom of autocmds.lua to see the
@@ -38,7 +38,7 @@ opt.incsearch = true
 -- change directory to the location of current open buffer automatically (needed for persistence)
 opt.autochdir = false
 -- don't scroll all the way down
-opt.scrolloff = 8
+opt.scrolloff = 10
 -- don't scroll all the way to the side
 opt.sidescrolloff = 8
 -- don't scroll all the way to the side
