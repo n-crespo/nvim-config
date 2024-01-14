@@ -1,5 +1,7 @@
 local onedark = require("onedarkpro.helpers").get_colors("onedark_dark")
+
 local M = {}
+
 M.theme = function()
   local colors = {
     normal = onedark.blue,
