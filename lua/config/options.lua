@@ -1,5 +1,6 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+
 local opt = vim.opt
 
 -- BUG: This is a limitation of using neovim in WSL, and makes yanking and
@@ -12,21 +13,8 @@ local opt = vim.opt
 -- clipboard syncing entirely, and see the bottom of autocmds.lua to see the
 -- autocmds that sync the clipboard for me. Amazing.
 
-opt.clipboard = "" -- don't sync with system clipboard (see autocmds)
-
--- vim.g.clipboard = {
---   name = "WslClipboard",
---   copy = {
---     ["+"] = "clip.exe",
---     ["*"] = "clip.exe",
---   },
---   paste = {
---     ["+"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
---     ["*"] = "powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
---   },
---   cache_enabled = 1,
--- }
-
+-- don't sync with system clipboard (see autocmds)
+opt.clipboard = ""
 -- disable mouse
 opt.mouse = ""
 -- Hide * markup for bold and italics
@@ -71,3 +59,7 @@ opt.foldmethod = "manual"
 opt.startofline = true
 -- what is even this (causes checkhealth error if true)
 vim.g.loaded_perl_provider = 0
+-- add lualine themes to runtimepath
+vim.o.runtimepath = vim.o.runtimepath .. ",~/.config/nvim/lualine/themes"
+-- needed for cmp transparency
+vim.o.pumblend = 0
