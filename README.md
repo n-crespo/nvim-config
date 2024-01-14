@@ -5,7 +5,7 @@ My Neovim configuration based on [LazyVim](https://www.lazyvim.org), with added
 plugins and LSPs to extend its functionality. Every configuration was done with
 transparency in mind. 
 
-  ![start screen](./assets/starter.png)
+  ![start screen](./images/starter.png)
 
 ## Interesting Things
 
