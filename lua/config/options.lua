@@ -45,7 +45,8 @@ opt.splitright = true
 opt.swapfile = false
 -- don't wrap text by default
 opt.wrap = false
-opt.incsearch = true -- who knows
+-- who knows
+opt.incsearch = true
 -- change directory to the location of current open buffer automatically (needed for persistence)
 opt.autochdir = false
 -- don't scroll all the way down
