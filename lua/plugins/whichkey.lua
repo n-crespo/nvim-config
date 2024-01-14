@@ -41,7 +41,6 @@ return {
         ["<Leader>w"] = { name = "+Window" },
         ["<Leader>q"] = { name = "+Sessions" },
         ["<Leader>r"] = { name = "+R Markdown" },
-        ["<Leader>Rk"] = { name = "+R Knit" },
         ["<Leader>x"] = { name = "+Quickfix" },
         ["<Leader><Tab>"] = { name = "+Tab" },
         ["<Leader>"] = { name = "+Leader" },
