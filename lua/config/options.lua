@@ -57,9 +57,9 @@ opt.shiftwidth = 2
 opt.foldmethod = "manual"
 -- motions by default put cursor on start of line
 opt.startofline = true
+-- needed for cmp transparency
+opt.pumblend = 0
 -- what is even this (causes checkhealth error if true)
 vim.g.loaded_perl_provider = 0
 -- add lualine themes to runtimepath
 vim.o.runtimepath = vim.o.runtimepath .. ",~/.config/nvim/lualine/themes"
--- needed for cmp transparency
-vim.o.pumblend = 0
