@@ -12,7 +12,7 @@ transparency in mind.
 My favorite things about this configuration are (in no particular order):
 
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
-* all my keymaps in [here](./lua/config/keymaps.lua)
+* all my keymaps in [keymaps.lua](./lua/config/keymaps.lua)
 * the ~25 ms startup time (more like 60ms in regular Windows)
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 * these plugins:
@@ -27,13 +27,14 @@ My favorite things about this configuration are (in no particular order):
   * [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent + super customizable)
     * transparent everything
 * LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
-  * see `./lua/plugins/markdown.lua` and `./lua/plugins/markdowntable.lua` for an amazing markdown editing experience (no LSP needed)
+  * see [markdown.lua](./lua/plugins/markdown.lua) and [markdowntable.lua](./lua/plugins/markdowntable.lua) for an amazing markdown editing experience (no LSP needed)
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
 > lazyvim configuration which already comes with lots of plugins. You can see
 > these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also have
-> disabled some plugins that come with LazyVim in the `overrides.lua` file.
+> disabled some plugins that come with LazyVim in the
+> [overrides.lua](./lua/plugins/overrides.lua) file.
 
 
 ## Structure

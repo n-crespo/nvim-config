@@ -1,9 +1,11 @@
 return {
   -- auto format and align markdown tables
+  -- SEE ../config/autocmds.lua for autocmds that automate the use of this
+  -- plugin
   "dhruvasagar/vim-table-mode",
   ft = "markdown",
   config = function()
-    -- support for markdown table mode (this keymap is unneeded due to the autocmd I created) (see ../lua/config/autocmds.lua)
+    -- unneeded due to autocommand
     -- vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Table Mode [T]oggle" })
 
     -- these are dumb
