@@ -53,7 +53,7 @@ a plugin configuration. See below:
 <details>
   <summary><b>File Structure</b></summary>
 
-``` english
+``` a
 .
 ├── ftplugin
 │  └── java.lua
@@ -73,14 +73,23 @@ a plugin configuration. See below:
 
 </details>
 
-## Usage
 
-To use this configuration just clone the repo into your `~/.config/nvim` folder.
-If you don't know how to do that, you shouldn't be using this in the first
-place. Good place to start is kickstart.nvim.
+## Install Instructions
 
-If you're using Windows, stop. Use WSL.
+ > Install requires Neovim 0.9+. Always review the code before installing a configuration.
 
+Clone the repository and install the plugins:
+
+```sh
+git clone git@github.com:n-crespo/nvim-config ~/.config/n-crespo/nvim-config
+NVIM_APPNAME=n-crespo/nvim-config/ nvim --headless +"Lazy! sync" +qa
+```
+
+Open Neovim with this config:
+
+```sh
+NVIM_APPNAME=n-crespo/nvim-config/ nvim
+```
 ## TODO
 
 - [x] Fix transparent completion window
