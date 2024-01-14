@@ -5,7 +5,7 @@ return {
   -- 12 hour time because 'murica
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
-    opts.options.theme = require("transparent-theme").theme
+    opts.options.theme = require("transparent-lualine").theme
     opts.sections.lualine_z = {
       function()
         return " " .. os.date("%I:%M %p")
