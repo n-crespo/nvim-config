@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.tabline",
+  event = "LazyFile",
   version = false,
   config = function()
     require("mini.tabline").setup({

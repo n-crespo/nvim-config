@@ -1,6 +1,7 @@
 return -- Lazy
 {
   "2kabhishek/nerdy.nvim",
+  event = "LazyFile",
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-telescope/telescope.nvim",
