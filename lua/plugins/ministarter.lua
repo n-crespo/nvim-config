@@ -21,9 +21,18 @@ return {
           -- If `nil` (default), default items will be used (see |mini.starter|).
 
           items = {
-            { name = "Recent files", action = "Telescope oldfiles", section = "Telescope" },
-            { name = "Config", action = "lua require('lazyvim.util').telescope.config_files()()", section = "Config" },
+            {
+              name = "Explore",
+              action = "lua require('mini.files').open(vim.loop.cwd(), true)",
+              section = "Find",
+            },
+            { name = "Recent files", action = "Telescope oldfiles", section = "Find" },
             { name = "Lazy", action = "Lazy", section = "Config" },
+            {
+              name = "Config files",
+              action = "lua require('lazyvim.util').telescope.config_files()()",
+              section = "Config",
+            },
             { name = "Session restore", action = [[lua require("persistence").load()]], section = "Session" },
             { name = "Quit", action = "qa", section = "Built-in" },
           },
