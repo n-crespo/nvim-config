@@ -1,7 +1,7 @@
 return {
   -- support for R-markdown knitting
   "vim-pandoc/vim-rmarkdown",
-  -- event = "BufEnter *.Rmd",
+  event = "BufEnter *.Rmd",
   ft = { "rmd", "Rmd", "rmarkdown" },
   dependencies = {
     { "vim-pandoc/vim-pandoc-syntax" },

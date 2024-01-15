@@ -13,6 +13,11 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter", "BufLeave" }, {
   command = [[silent! TableModeToggle]],
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.Rmd" },
+  command = [[set ft=rmd]],
+})
+
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
   pattern = { "*" },
