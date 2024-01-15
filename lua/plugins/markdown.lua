@@ -13,7 +13,7 @@ return {
     )
 
     -- i'm not sure this does anything
-    vim.g.vim_markdown_math = 1
+    -- vim.g.vim_markdown_math = 1
     -- this does do something
     vim.g.vim_markdown_toc_autofit = 1
   end,
