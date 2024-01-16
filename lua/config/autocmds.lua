@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
 })
 
 -- auto toggle table mode when opening and closing markdown file
-vim.api.nvim_create_autocmd({ "FileType", "BufEnter", "BufLeave" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.md" },
   command = [[silent! TableModeToggle]],
 })
@@ -16,6 +16,11 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter", "BufLeave" }, {
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.Rmd" },
   command = [[set ft=rmd]],
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.md" },
+  command = [[set nowrap]],
 })
 
 -- sync with system clipboard on focus
