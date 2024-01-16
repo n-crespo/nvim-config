@@ -24,6 +24,8 @@ return {
     rmd = {
       fat_headline_upper_string = "▃",
       fat_headline_lower_string = "▀",
+      headline_highlights = false,
+      codeblock_highlight = false,
     },
   },
 }
