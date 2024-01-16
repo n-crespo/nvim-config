@@ -37,7 +37,7 @@ opt.wrap = false
 -- who knows
 opt.incsearch = true
 -- change directory to the location of current open buffer automatically (needed for persistence)
-opt.autochdir = true
+opt.autochdir = false
 -- don't scroll all the way down
 opt.scrolloff = 10
 -- don't scroll all the way to the side
