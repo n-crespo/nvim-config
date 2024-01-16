@@ -14,6 +14,7 @@ local opt = vim.opt
 -- autocmds that sync the clipboard for me. Amazing.
 
 -- don't sync with system clipboard (see autocmds)
+-- opt
 opt.clipboard = ""
 -- disable mouse
 opt.mouse = ""
@@ -36,7 +37,7 @@ opt.wrap = false
 -- who knows
 opt.incsearch = true
 -- change directory to the location of current open buffer automatically (needed for persistence)
-opt.autochdir = false
+opt.autochdir = true
 -- don't scroll all the way down
 opt.scrolloff = 10
 -- don't scroll all the way to the side
@@ -61,5 +62,3 @@ opt.startofline = true
 opt.pumblend = 0
 -- what is even this (causes checkhealth error if true)
 vim.g.loaded_perl_provider = 0
--- add lualine themes to runtimepath
-vim.o.runtimepath = vim.o.runtimepath .. ",~/.config/nvim/lualine/themes"
