@@ -10,10 +10,10 @@ return {
     enabled = false,
   },
   -- i know where i am i don't need a header to tell me
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    enabled = false,
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   enabled = false,
+  -- },
   -- i use mini starter
   {
     "nvimdev/dashboard-nvim",
