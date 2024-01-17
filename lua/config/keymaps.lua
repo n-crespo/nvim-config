@@ -88,3 +88,5 @@ vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true 
 
 -- yank with control C (shameful non native neovim keymap)
 vim.keymap.set("x", "<C-c>", "y", { desc = "Copy", silent = true })
+
+vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
