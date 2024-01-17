@@ -3,7 +3,7 @@ return {
   "vim-pandoc/vim-rmarkdown",
   event = "BufEnter *.Rmd",
   -- event = "LazyFile",
-  ft = { "rmd", "Rmd", "rmarkdown" },
+  ft = { "rmd" },
   dependencies = {
     { "vim-pandoc/vim-pandoc-syntax" },
   },
