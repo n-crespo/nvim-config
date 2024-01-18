@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = [[silent! TableModeToggle]],
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" }, {
   pattern = { "*.Rmd" },
   command = [[set ft=rmd]],
 })
