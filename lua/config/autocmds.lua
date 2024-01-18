@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
 
 -- auto toggle table mode when opening and closing markdown file
 vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
-  pattern = { "*.md" },
+  pattern = { "markdown" },
   callback = function()
     vim.cmd([[silent! TableModeToggle]])
     vim.cmd([[set nowrap]])
@@ -19,9 +19,10 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
 vim.api.nvim_create_autocmd(
   { "FileType", "BufRead", "BufEnter", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" },
   {
-    pattern = { "*.Rmd" },
+    pattern = { "rmarkdown" },
     callback = function()
       vim.cmd([[set ft=rmd]])
+      print("filetype set to rmd")
     end,
     -- command = [[set ft=rmd]],
   }
