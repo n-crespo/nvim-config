@@ -94,3 +94,6 @@ vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", s
 
 -- jumplist with backspace
 vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Back", silent = true })
+
+-- fzf
+vim.keymap.set("n", "<C-p>", "<C-q>nvim <C-t>", { desc = "fzf", remap = true })
