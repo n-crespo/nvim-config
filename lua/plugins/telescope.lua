@@ -12,19 +12,22 @@ return {
 
       -- set max file size for preview
       require("telescope").setup({
-        defaults = {
-          initial_mode = "insert",
-          preview = {
-            filesize_limit = 0.1, -- MB
+        opts = {
+          defaults = {
+            initial_mode = "insert",
+            preview = {
+              filesize_limit = 0.1, -- MB
+            },
+            theme = "ivy",
           },
-        },
-        extensions = {
-          fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "ignore_case", -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
+          extensions = {
+            fzf = {
+              fuzzy = true, -- false will only do exact matching
+              override_generic_sorter = true, -- override the generic sorter
+              override_file_sorter = true, -- override the file sorter
+              case_mode = "ignore_case", -- or "ignore_case" or "respect_case"
+              -- the default case_mode is "smart_case"
+            },
           },
         },
       })
@@ -55,6 +58,20 @@ return {
         defaults = {
           buffer_previewer_maker = new_maker,
         },
+        -- pickers = {
+        --   find_files = {
+        --     -- theme = "ivy",
+        --   },
+        --   git_files = {
+        --     -- theme = "ivy",
+        --   },
+        --   find_files = {
+        --     -- theme = "ivy",
+        --   },
+        --   buffer_previewer_maker = {
+        --     -- theme = "ivy",
+        --   },
+        -- },
       })
     end,
     keys = {

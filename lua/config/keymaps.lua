@@ -96,4 +96,4 @@ vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", s
 vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Back", silent = true })
 
 -- fzf
-vim.keymap.set("n", "<C-p>", "<C-q>cls<cr><C-o>", { desc = "fzf", remap = true })
+vim.keymap.set("n", "<C-p>", "<leader><leader>", { desc = "fzf", remap = true })
