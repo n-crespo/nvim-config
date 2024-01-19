@@ -65,7 +65,7 @@ return {
     au!
     au User MiniStarterOpened nmap <buffer> j <Cmd>lua MiniStarter.update_current_item('next')<CR>
     au User MiniStarterOpened nmap <buffer> k <Cmd>lua MiniStarter.update_current_item('prev')<CR>
-    au User MiniStarterOpened nmap <buffer> <C-p> <C-q><C-c>cls<cr><C-o>
+    au User MiniStarterOpened nmap <buffer> <C-p> <C-q>cls<cr><C-o>
     " au User MiniStarterOpened nmap <buffer> <C-n> <Cmd>Telescope file_browser<CR>
   augroup END
 ]])
