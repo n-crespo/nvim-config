@@ -77,7 +77,6 @@ a plugin configuration. See below:
 
 </details>
 
-
 ## Install Instructions
 
 > Install requires Neovim 0.9+. Always review the code before installing a configuration.
@@ -94,6 +93,7 @@ Open Neovim with this config:
 ```sh
 NVIM_APPNAME=n-crespo/nvim-config/ nvim
 ```
+
 ## TODO
 
 - [x] Fix transparent completion window
@@ -103,5 +103,3 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] `require({})` less
 - [x] transparent Lualine
 - [x] transparent LSP and save dialogues (bottom right)
-
-this is a test
