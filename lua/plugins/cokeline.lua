@@ -9,7 +9,6 @@ return {
   setup = function()
     local get_hex = require("cokeline.hlgroups").get_hl_attr
 
-    -- test
     require("cokeline").setup({
       default_hl = {
         fg = function(buffer)
