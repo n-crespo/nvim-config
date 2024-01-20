@@ -39,6 +39,10 @@ return {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
+  {
+    "echasnovski/mini.tabline",
+    enabled = false,
+  },
   -- {
   --   "lukas-reineke/headlines.nvim",
   --   enabled = false,
