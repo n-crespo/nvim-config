@@ -10,7 +10,7 @@ return {
       virtual_text = "bold", -- Style that is applied to virtual text
     },
     options = {
-      lualine_transparency = true,
+      lualine_transparency = true, -- unneeded due to custom lualine theme
       cursorline = false, -- Use cursorline highlighting?
       transparency = true, -- Use a transparent background?
       terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
