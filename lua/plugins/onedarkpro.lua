@@ -24,7 +24,7 @@ return {
       -- ["@text.emphasis"] = { italic = true },
       --@markup.quote.markdown
       ["@markup.italic.markdown_inline"] = { italic = true },
-      -- ["@markup.quote.markdown"] = { fg = "#757876" },
+      ["@markup.quote.markdown"] = { fg = "#808791" },
       -- ["@tag.html"] = { fg = "#89ca78" },
       ["@markup.list.checked.markdown"] = { bg = md_highlight },
       -- ["@text.todo.unchecked"] = { bg = md_highlight },
