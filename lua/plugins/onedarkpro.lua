@@ -1,8 +1,3 @@
--- -- transparent background
--- vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
--- vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
--- vim.api.nvim_set_hl(0, "FloatBorder", {bg = "none"})
--- vim.api.nvim_set_hl(0, "Pmenu", {bg = "none"})
 local md_highlight = "#14161a"
 return {
   -- theme of choice, transparent, italic comments, markdown italic support
@@ -40,6 +35,6 @@ return {
         TreeSitterContext = { bg = "#22272f" },
       },
     })
-    -- vim.cmd.colorscheme("onedark_dark")
+    vim.cmd.colorscheme("onedark_dark")
   end,
 }
