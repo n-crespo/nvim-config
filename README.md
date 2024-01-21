@@ -57,7 +57,7 @@ a plugin configuration. See below:
 <details>
   <summary><b>File Structure</b></summary>
 
-``` a
+```
 .
 ├── ftplugin
 │  └── java.lua
