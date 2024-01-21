@@ -16,6 +16,7 @@ return {
         starter.gen_hook.aligning("center", "center"),
       },
       evaluate_single = true,
+      silent = true,
       autoopen = true,
       -- footer = "                                " .. os.date("%A, %B %d, %Y %I:%M %p"),
       footer = os.date("%A, %B %d, %Y %I:%M %p"),
