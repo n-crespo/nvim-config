@@ -31,7 +31,7 @@ return {
   },
   -- this will never go away (Same with tokyo night for some reason)
   {
-    "catppuccin/nvim",
+    "catppuccin",
     enabled = false,
   },
   -- i use mini tabline
