@@ -21,8 +21,8 @@ return {
     },
   },
   keys = {
-    { "RK", "<cmd>RunFile float<cr>", desc = "Run Code" },
-    { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code" },
+    { "RK", "<cmd>RunFile float<cr>", desc = "Run Code" }, -- K --> up --> floating window
+    { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code" }, -- J --> down --> bottom split
   },
   config = function(_, opts)
     require("code_runner").setup(opts)
