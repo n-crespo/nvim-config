@@ -5,7 +5,7 @@ return {
   event = "LazyFile",
   config = true,
   opts = {
-    mode = "float",
+    mode = "term",
     startinsert = true,
     filetype = {
       python = "python3 -u",
