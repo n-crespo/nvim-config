@@ -100,3 +100,6 @@ vim.keymap.set("n", "<C-p>", "<leader><leader>", { desc = "fzf", remap = true })
 
 -- clear line
 vim.keymap.set("n", "X", "0D", { desc = "Clear Line", silent = true })
+
+-- unholy non-native vim keymap
+vim.keymap.set("n", "<C-f>", "/", { desc = "Search" })
