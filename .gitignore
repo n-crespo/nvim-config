@@ -8,5 +8,3 @@ foo.*
 data
 *.DS_Store
 lazy-lock.json
-spell/
-spell/*
