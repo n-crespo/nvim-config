@@ -26,8 +26,8 @@ return {
           -- { cursor = ".", texthl = "SmoothCursorBlue" },
           -- { cursor = ".", texthl = "SmoothCursorPurple" },
 
-          { cursor = "󰝥", texthl = "SmoothCursorAqua" },
-          { cursor = "󰝥", texthl = "SmoothCursorAqua" },
+          -- { cursor = "󰝥", texthl = "SmoothCursorAqua" },
+          -- { cursor = "󰝥", texthl = "SmoothCursorAqua" },
           { cursor = "●", texthl = "SmoothCursorAqua" },
           { cursor = "●", texthl = "SmoothCursorAqua" },
           { cursor = "•", texthl = "SmoothCursorAqua" },
