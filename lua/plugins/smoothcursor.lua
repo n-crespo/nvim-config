@@ -3,7 +3,7 @@ return {
   config = function()
     -- vim.fn.sign_define("smoothcursor_v", { text = " " })
     -- vim.fn.sign_define("smoothcursor_V", { text = "" })
-    vim.fn.sign_define("smoothcursor_i", { text = "󰗧" })
+    -- vim.fn.sign_define("smoothcursor_i", { text = "󰗧" })
     local onedark = require("onedarkpro.helpers").get_colors("onedark_dark")
     require("smoothcursor").setup({
       type = "exp", -- Cursor movement calculation method, choose "default", "exp" (exponential) or "matrix".
@@ -82,7 +82,7 @@ return {
       -- A value of "enter" means the position will be updated when entering the mode.
       -- A value of "leave" means the position will be updated when leaving the mode.
       -- `nil` = disabled
-      show_last_positions = "leave",
+      show_last_positions = nil,
     })
   end,
 }

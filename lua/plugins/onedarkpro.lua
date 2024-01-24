@@ -31,6 +31,7 @@ return {
       Headline = { bg = md_highlight },
       CodeBlock = { bg = md_highlight },
       SmoothCursorAqua = { fg = "#61afef" },
+      SmoothCursor = { fg = "#61afef" },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       TabLineSel = { bg = "#22272f", bold = true },
       MiniStatuslineModeNormal = { bg = "#22272f" },
