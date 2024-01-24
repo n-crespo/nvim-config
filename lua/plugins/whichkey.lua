@@ -42,6 +42,7 @@ return {
         ["<R>"] = { name = "+Run" },
         ["<Leader>q"] = { name = "+Sessions" },
         ["<Leader>r"] = { name = "+R Markdown" },
+        ["<Leader>rk"] = { name = "+Knit" },
         ["<Leader>x"] = { name = "+Quickfix" },
         ["<Leader><Tab>"] = { name = "+Tab" },
         ["<Leader>"] = { name = "+Leader" },

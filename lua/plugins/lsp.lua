@@ -4,6 +4,18 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+      -- nav buddy
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = { lsp = { auto_attach = true } },
+        keys = {
+          { "<leader>cs", "<cmd>Navbuddy<cr>", desc = "Navigate Code" },
+        },
+      },
     },
     opts = {
       diagnostics = {

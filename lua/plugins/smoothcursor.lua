@@ -75,7 +75,7 @@ return {
       priority = 1000, -- Set marker priority
       timeout = 3000, -- Timeout for animations in milliseconds
       threshold = 3, -- Animate only if cursor moves more than this many lines
-      disable_float_win = false, -- Disable in floating windows
+      disable_float_win = true, -- Disable in floating windows
       enabled_filetypes = nil, -- Enable only for specific file types, e.g., { "lua", "vim" }
       disabled_filetypes = nil, -- Disable for these file types, ignored if enabled_filetypes is set. e.g., { "TelescopePrompt", "NvimTree" }
       -- Show the position of the latest input mode positions.

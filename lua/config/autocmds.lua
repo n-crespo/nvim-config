@@ -1,11 +1,14 @@
--- when exiting telescope, always be in normal mode
-vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
-  callback = function(event)
-    if vim.bo[event.buf].filetype == "telescopeprompt" then
-      vim.api.nvim_exec2("silent! stopinsert!", {})
-    end
-  end,
-})
+-- -- when exiting telescope, always be in normal mode
+-- vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
+--   callback = function(event)
+--     if vim.bo[event.buf].filetype == "telescopeprompt" then
+--       -- vim.api.nvim_exec2("silent! stopinsert!", {})
+--       vim.api.nvim_input("<Esc>")
+--       vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#61afef" })
+--       vim.fn.sign_define("smoothcursor", { text = "" })
+--     end
+--   end,
+-- })
 
 -- auto toggle table mode when opening and closing markdown file
 vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {

@@ -44,3 +44,5 @@ return {
     vim.cmd.colorscheme("onedark_dark")
   end,
 }
+
+-- TelescopeBorderxxx guifg=#434852
