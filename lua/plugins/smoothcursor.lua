@@ -28,11 +28,11 @@ return {
 
           -- { cursor = "󰝥", texthl = "SmoothCursorAqua" },
           -- { cursor = "󰝥", texthl = "SmoothCursorAqua" },
-          { cursor = "●", texthl = "SmoothCursorAqua" },
+          -- { cursor = "●", texthl = "SmoothCursorAqua" },
           { cursor = "●", texthl = "SmoothCursorAqua" },
           { cursor = "•", texthl = "SmoothCursorAqua" },
           { cursor = ".", texthl = "SmoothCursorAqua" },
-          { cursor = ".", texthl = "SmoothCursorAqua" },
+          -- { cursor = ".", texthl = "SmoothCursorAqua" },
         },
         tail = { cursor = nil, texthl = "SmoothCursor" }, -- false to disable fancy tail
       },
