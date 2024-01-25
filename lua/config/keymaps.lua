@@ -57,9 +57,6 @@ vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc 
 -- open in system viewer (operating system)
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
--- nb sync (good night)
-vim.keymap.set("n", "<leader>gn", "<CMD>!nb sync<CR>", { desc = "Sync with nb" })
-
 -- delete and save to register
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
 vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
