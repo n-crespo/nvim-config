@@ -17,7 +17,7 @@ local opt = vim.opt
 -- opt
 opt.clipboard = ""
 -- disable mouse
-opt.mouse = "nv"
+opt.mouse = ""
 -- Hide * markup for bold and italics
 opt.conceallevel = 3
 -- Enable auto writes
