@@ -20,7 +20,7 @@ return {
         jdtls = {},
         jsonls = {},
         -- lua_ls = {},
-        marksman = {},
+        -- marksman = {},
         lua_ls = { enabled = false },
         r_language_server = {},
         ruff_lsp = {},
