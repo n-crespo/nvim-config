@@ -4,7 +4,7 @@ return {
   -- to create links, <tab> to fold headers, <leader>mc for table of contents
   "ixru/nvim-markdown",
   ft = "markdown",
-  keys = {
-    { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmr>set nonu<cr>", desc = "Table of Contents" },
-  },
+  -- keys = {
+  --   -- { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmr>set nonu<cr>", desc = "Table of Contents" },
+  -- },
 }
