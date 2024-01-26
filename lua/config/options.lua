@@ -62,5 +62,5 @@ opt.startofline = true
 opt.pumblend = 0
 -- what is even this (causes checkhealth error if true)
 vim.g.loaded_perl_provider = 0
-
+-- stop wrapping my text
 vim.g.wrap = false
