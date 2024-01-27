@@ -1,5 +1,6 @@
 -- status bar at bottom of screen
 -- 12 hour time because 'murica
+-- transparent bar because transparent is better
 return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
