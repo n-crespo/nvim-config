@@ -24,8 +24,8 @@ return {
       --@markup.quote.markdown
       ["@markup.italic.markdown_inline"] = { italic = true },
       ["@markup.quote.markdown"] = { fg = "#7f848e" },
-      ["@markup.list.unchecked.markdown"] = { bg = "#22272f" },
-      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil },
+      ["@markup.list.unchecked.markdown"] = { fg = "#ef696f" },
+      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil, bold = true },
       SmoothCursorAqua = { fg = "#61afef" },
       SmoothCursor = { fg = "#61afef" },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
