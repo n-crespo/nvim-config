@@ -1,6 +1,6 @@
+-- completion window configuration and set tab to cycle completions
+-- most is stolen from LazyVim's "tab-for-completion" docs page
 return {
-  -- completion window configuration and set tab to cycle completions
-  -- most is stolen from LazyVim's "tab-for-completion"
   {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
