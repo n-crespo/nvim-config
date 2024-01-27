@@ -1,12 +1,11 @@
+-- default LazyVim plugin
+-- config adds more keymaps, enables spelling, marks, registers
 return {
-  -- default LazyVim plugin
-  -- config adds more keymaps, enables spelling, marks, registers
   "folke/which-key.nvim",
   opts = function()
     return {
       window = {
         border = "rounded",
-        -- margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
       },
       plugins = {
@@ -32,11 +31,9 @@ return {
         ["<Leader>b"] = { name = "+Buffer" },
         ["<Leader>c"] = { name = "+Code" },
         ["<Leader>f"] = { name = "+Find" },
-        -- ["<Leader>gh"] = { name = "+Hunks" },
         ["<Leader>g"] = { name = "+Git" },
         ["<Leader>l"] = { name = "+Lazy" },
         ["<Leader>s"] = { name = "+Search" },
-        -- ["<Leader><tab>"] = { name = "+Tabs" },
         ["<Leader>u"] = { name = "+UI" },
         ["<Leader>w"] = { name = "+Window" },
         ["<R>"] = { name = "+Run" },
@@ -50,8 +47,6 @@ return {
         ["<Leader>gh"] = { name = "+Hunk" },
         ["<LocalLeader>"] = { name = "+Leader" },
         ["<Leader>o"] = { name = "+Open" },
-
-        ["<LocalLeader>s"] = { name = "+Search" },
         ["]"] = { name = "+next" },
         ["["] = { name = "+prev" },
       },
