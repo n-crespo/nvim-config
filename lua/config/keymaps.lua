@@ -33,14 +33,14 @@ vim.keymap.set(
   "n",
   "<leader>ci",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace Instances" }
+  { desc = "Replace instances" }
 )
 
 -- remove all other windows, same as :on or :only
-vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window Only" })
+vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window only" })
 
 -- window rotate
-vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window Rotate" })
+vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rotate" })
 
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
@@ -55,30 +55,30 @@ vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc 
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
 -- delete and save to register
-vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
-vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
+vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to register", silent = true })
+vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to register", silent = true })
 
 -- increment and decrements
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- select all
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" })
 
 -- Force save as sudo (for readonly files)
-vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force save", noremap = true, silent = true })
 
 -- THIS IS AWESOME (in insert mode, <c-L> auto-corrects the last misspelled word
-vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
+vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto correct", silent = true })
 
 -- delete all other buffers (body odor)
-vim.keymap.set("n", "<leader>bo", "<cmd>w<cr><cmd>%bd|e#|bd#<cr>", { desc = "Buffer Only", silent = true })
+vim.keymap.set("n", "<leader>bo", "<cmd>w<cr><cmd>%bd|e#|bd#<cr>", { desc = "Buffer only", silent = true })
 
 -- apply macro over selected region
-vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
+vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q macro", silent = true })
 
 -- cd to current buffer (replace autochdir)
-vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
+vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer locate", silent = true })
 
 -- jumplist with backspace
 vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Back", silent = true })
@@ -87,9 +87,13 @@ vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Back", silent = true })
 vim.keymap.set("n", "X", "0D", { desc = "Clear Line", silent = true })
 
 -- unholy non-native vim keymap
-vim.keymap.set("n", "<C-f>", "<leader>sb", { remap = true, desc = "Find Word" })
+vim.keymap.set("n", "<C-f>", "<leader>sb", { remap = true, desc = "Find word" })
 
 -- new buffer (vertical split)
-vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { remap = true, desc = "New Buffer" })
+vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { remap = true, desc = "New buffer" })
 
+-- pick from buffers
+vim.keymap.set("n", "<C-p>", "<leader>,", { remap = true, desc = "Pick buffer" })
+
+-- what is even this
 vim.keymap.del("n", "<leader>K")
