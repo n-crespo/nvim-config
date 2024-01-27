@@ -23,11 +23,6 @@ vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true, silent = true, desc =
 vim.keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste" })
 
--- adds <Control + backspace> and <Control + delete> to insert mode
-vim.keymap.set("i", "", "<C-w>", { silent = true })
-vim.keymap.set("i", "<C-Del>", "<C-o>de")
-vim.keymap.set("i", "<A-a>", "<C-o>A", { silent = true })
-
 -- replace all instances of word (without LSP)
 vim.keymap.set(
   "n",
