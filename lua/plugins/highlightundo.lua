@@ -1,5 +1,5 @@
+-- highlights whatever was just undone or redone
 return {
-  -- highlights whatever was just undone
   "tzachar/highlight-undo.nvim",
   event = "LazyFile",
   opts = {
