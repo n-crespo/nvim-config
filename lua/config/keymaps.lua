@@ -68,9 +68,6 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 -- Force save as sudo (for readonly files)
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
 
--- Force remove buffer (and split)
-vim.keymap.set("n", "<leader>bD", "<cmd>bd<cr>", { desc = "DELETE Buffer" })
-
 -- THIS IS AWESOME (in insert mode, <c-L> auto-corrects the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 
