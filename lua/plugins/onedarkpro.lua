@@ -20,17 +20,14 @@ return {
       undercurl = true,
     },
     highlights = {
-      -- ["@text.emphasis"] = { italic = true },
-      --@markup.quote.markdown
       ["@markup.italic.markdown_inline"] = { italic = true },
-      ["@markup.quote.markdown"] = { fg = "#7f848e" },
+      ["@markup.quote.markdown"] = { fg = "#969ba2" },
       ["@markup.list.unchecked.markdown"] = { fg = "#ef696f" },
       ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil, bold = true },
       SmoothCursorAqua = { fg = "#61afef" },
       SmoothCursor = { fg = "#61afef" },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
-      TabLineSel = { bg = "#22272f", bold = true },
-      MiniStatuslineModeNormal = { bg = "#22272f" },
+      TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       TreeSitterContext = { bg = "#22272f" },
     },

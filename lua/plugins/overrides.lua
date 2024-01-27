@@ -40,20 +40,6 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.tabline",
-    enabled = false,
-  },
-  -- {
-  --   "lukas-reineke/headlines.nvim",
-  --   enabled = false,
-  -- },
-
-  -- this breaks things
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   enabled = false,
-  -- },
-  {
     "folke/neoconf.nvim",
     enabled = false,
   },
