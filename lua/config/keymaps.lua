@@ -89,7 +89,7 @@ vim.keymap.set("n", "X", "0D", { desc = "Clear Line", silent = true })
 -- unholy non-native vim keymap
 vim.keymap.set("n", "<C-f>", "<leader>sb", { remap = true, desc = "Find Word" })
 
--- new buffer
-vim.keymap.set("n", "<C-n>", "<leader>fn", { remap = true, desc = "New Buffer" })
+-- new buffer (vertical split)
+vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { remap = true, desc = "New Buffer" })
 
 vim.keymap.del("n", "<leader>K")
