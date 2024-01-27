@@ -1,9 +1,6 @@
 return {
-  -- support for R-markdown knitting
+  -- support for R-markdown
   "vim-pandoc/vim-rmarkdown",
-  -- event = "LazyFile",
-  -- event = "BufEnter *.Rmd",
-  -- event = "LazyFile",
   ft = "rmd",
   dependencies = {
     { "vim-pandoc/vim-pandoc-syntax" },
@@ -25,11 +22,10 @@ return {
   },
   config = function()
     -- for some reason my r markdown files have a rmd filetpe, this just allows the
-    -- headlines plugin to work for them too (Disabled bc it makes things lag)
+    -- headlines plugin to work for them too
     require("headlines").setup({
       rmarkdown = require("headlines").config.rmd,
     })
-    -- note to future nicolas: headlines gives me better horizontal lines and
-    -- block quotes
+    -- note to future nicolas: headlines gives me better horizontal lines and block quotes
   end,
 }
