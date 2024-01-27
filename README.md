@@ -21,9 +21,9 @@ My favorite things about this configuration are (in no particular order):
 * these plugins:
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
+  * [flash.nvim](https://github.com/folke/flash.nvim) (super fast navigation)
+  * [cokeline](https://github.com/willothy/nvim-cokeline) (clean, hackable tabline)
   * [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
-  * [mini.starter](https://github.com/echasnovski/mini.starter) (fast and minimal)
-  * [mini.tabline](https://github.com/echasnovski/mini.tabline) (fast and minimal)
   * [highlight-undo](https://github.com/tzachar/highlight-undo.nvim) (surprisingly very useful)
   * [betterTerm](https://github.com/CRAG666/betterTerm.nvim) (better `:term`)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested neovim instances)(used with autojump and betterTerm)
