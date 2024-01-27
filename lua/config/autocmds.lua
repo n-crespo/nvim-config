@@ -31,7 +31,6 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
 })
 
 -- autocmd to change cursor style when changing modes
-
 local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "ModeChanged" }, {
   callback = function()
