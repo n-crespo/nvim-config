@@ -8,9 +8,9 @@ return {
   keys = {
     {
       "<leader>op",
-      ft = "markdown",
       "<cmd>MarkdownPreviewToggle<cr>",
-      desc = "Markdown Preview",
+      ft = "markdown",
+      desc = "Markdown preview",
     },
   },
   config = function()
