@@ -1,10 +1,9 @@
+-- install and manage language servers a lot easier
 return {
-  -- installing language servers
   "williamboman/mason.nvim",
   opts = {
     ui = {
-      -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-      border = "rounded",
+      border = "rounded", -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
 
       ---@since 1.0.0
       -- Width of the window. Accepts:
@@ -28,9 +27,7 @@ return {
       "flake8",
       "jdtls",
       "json-lsp",
-      "lua-language-server",
       "markdownlint",
-      -- "marksman",
       "mdformat",
       "pyright",
       "r-languageserver",
@@ -38,6 +35,8 @@ return {
       "shellcheck",
       "shfmt",
       "stylua",
+      -- "lua-language-server",
+      -- "marksman",
     },
   },
 }
