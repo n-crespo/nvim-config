@@ -1,5 +1,5 @@
 return {
-  -- unneeded due to mini files
+  -- mini files better
   {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = false,
@@ -9,11 +9,6 @@ return {
     "RRethy/vim-illuminate",
     enabled = false,
   },
-  -- i know where i am i don't need a header to tell me
-  -- {
-  --   "nvim-treesitter/nvim-treesitter-context",
-  --   enabled = false,
-  -- },
   -- i use mini starter
   {
     "nvimdev/dashboard-nvim",
@@ -29,16 +24,17 @@ return {
     "nvim-pack/nvim-spectre",
     enabled = false,
   },
-  -- this will never go away (Same with tokyo night for some reason)
+  -- i never use this
   {
     "catppuccin",
     enabled = false,
   },
-  -- i use mini tabline
+  -- i use cokeline
   {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
+  -- this is useless to me afaik
   {
     "folke/neoconf.nvim",
     enabled = false,
