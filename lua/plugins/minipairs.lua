@@ -1,7 +1,6 @@
 return {
   "echasnovski/mini.pairs",
   event = "InsertEnter",
-  opts = {},
   keys = {
     {
       "<leader>up",
