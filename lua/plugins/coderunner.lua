@@ -24,7 +24,4 @@ return {
     { "RK", "<cmd>RunFile float<cr>", desc = "Run Code in Float" }, -- K --> up --> floating window
     { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code in Term" }, -- J --> down --> bottom split
   },
-  config = function(_, opts)
-    require("code_runner").setup(opts)
-  end,
 }
