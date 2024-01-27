@@ -97,3 +97,8 @@ vim.keymap.set("n", "<C-p>", "<leader>,", { remap = true, desc = "Pick buffer" }
 
 -- what is even this
 vim.keymap.del("n", "<leader>K")
+-- these are dumb (made by markdown table plugin)
+vim.keymap.del("v", "<leader>T")
+vim.keymap.del("v", "<leader>tt")
+vim.keymap.del("n", "<leader>tt")
+vim.keymap.del("n", "<leader>tm")

@@ -1,13 +1,10 @@
+-- auto format and align markdown tables
+-- SEE ../config/autocmds.lua for autocmds that automate the use of this
+-- plugin
 return {
-  -- auto format and align markdown tables
-  -- SEE ../config/autocmds.lua for autocmds that automate the use of this
-  -- plugin
   "dhruvasagar/vim-table-mode",
   ft = "markdown",
   config = function()
-    -- unneeded due to autocommand
-    -- vim.keymap.set("n", "<leader>mt", "<CMD>TableModeToggle<CR>", { silent = true, desc = "Table Mode [T]oggle" })
-
     -- these are dumb
     vim.keymap.del("v", "<leader>T")
     vim.keymap.del("v", "<leader>tt")
