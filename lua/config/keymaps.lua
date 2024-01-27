@@ -42,9 +42,6 @@ vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Windo
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window Rotate" })
 
--- window window on the wall, tell me who is that windowest of them all
-vim.keymap.set("n", "<leader>ww", "<C-w><C-w>", { silent = true, desc = "Window Window" })
-
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
