@@ -2,17 +2,13 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- dependencies = {
-    --   { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-    -- },
     opts = {
       diagnostics = {
         float = {
           border = "rounded",
         },
       },
-      -- make sure mason installs these server
-      servers = {
+      servers = { -- make sure mason installs these server
         pyright = {},
         clangd = {},
         arduino_language_server = {},
