@@ -4,13 +4,13 @@
 -- centers c-d and c-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up" })
-vim.keymap.set("n", "<C-i>", "<C-i>zz", { noremap = true, desc = "Next jumplist" })
-vim.keymap.set("n", "<C-o>", "<C-o>zz", { noremap = true, desc = "Previous jumplist" })
+vim.keymap.set("n", "<C-i>", "<C-i>zz", { noremap = true, desc = "Next Jumplist" })
+vim.keymap.set("n", "<C-o>", "<C-o>zz", { noremap = true, desc = "Prev Jumplist" })
 vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
 
 -- centers search function
-vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next search result" })
-vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Previous search result" })
+vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
 
 -- allow changing and deleting without overriding current paste registers
 -- in other words automatically delete or change to the void register
@@ -47,45 +47,45 @@ vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc 
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
 -- delete and save to register
-vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to register", silent = true })
-vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to register", silent = true })
+vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
+vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
 
 -- increment and decrements
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- select all
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" })
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
 -- Force save as sudo (for readonly files)
-vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force save", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
 
--- THIS IS AWESOME (in insert mode, <c-L> auto-corrects the last misspelled word
-vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto correct", silent = true })
+-- in insert mode, <C-l> auto-corrects the last misspelled word (on files that don't block spellcheck)
+vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 
 -- delete all other buffers (body odor)
-vim.keymap.set("n", "<leader>bo", "<cmd>w<cr><cmd>%bd|e#|bd#<cr>", { desc = "Buffer only", silent = true })
+vim.keymap.set("n", "<leader>bo", "<cmd>w<cr><cmd>%bd|e#|bd#<cr>", { desc = "Buffer Only", silent = true })
 
 -- apply macro over selected region
-vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q macro", silent = true })
+vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
 
 -- cd to current buffer (replace autochdir)
-vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer locate", silent = true })
+vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
 
 -- jumplist with backspace
-vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Back", silent = true })
+vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Prev Jumplist", silent = true })
 
 -- clear line
 vim.keymap.set("n", "X", "0D", { desc = "Clear Line", silent = true })
 
 -- unholy non-native vim keymap
-vim.keymap.set("n", "<C-f>", "<leader>sb", { remap = true, desc = "Find word" })
+vim.keymap.set("n", "<C-f>", "<leader>sb", { remap = true, desc = "Find Word" })
 
 -- new buffer (vertical split)
-vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { remap = true, desc = "New buffer" })
+vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { remap = true, desc = "New Buffer" })
 
 -- pick from buffers
-vim.keymap.set("n", "<C-p>", "<leader>,", { remap = true, desc = "Pick buffer" })
+vim.keymap.set("n", "<C-p>", "<leader>,", { remap = true, desc = "Pick Buffer" })
 
 -- what is even this
 vim.keymap.del("n", "<leader>K")
