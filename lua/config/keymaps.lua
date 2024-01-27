@@ -83,14 +83,11 @@ vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", s
 -- jumplist with backspace
 vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Back", silent = true })
 
--- fzf
-vim.keymap.set("n", "<C-p>", "<leader><leader>", { desc = "fzf", remap = true })
-
 -- clear line
 vim.keymap.set("n", "X", "0D", { desc = "Clear Line", silent = true })
 
 -- unholy non-native vim keymap
-vim.keymap.set("n", "<C-f>", "<leader>sb", { remap = true, desc = "Search Buffer" })
+vim.keymap.set("n", "<C-f>", "<leader>sb", { remap = true, desc = "Find Word" })
 
 -- new buffer
 vim.keymap.set("n", "<C-n>", "<leader>fn", { remap = true, desc = "New Buffer" })
