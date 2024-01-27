@@ -1,6 +1,6 @@
+-- theme of choice, transparent, italic comments, custom highlights
 local md_highlight = "#14161a"
 return {
-  -- theme of choice, transparent, italic comments, markdown italic support
   "olimorris/onedarkpro.nvim",
   name = "onedarkpro",
   priority = 1000, -- Ensure it loads first
@@ -25,9 +25,7 @@ return {
       --@markup.quote.markdown
       ["@markup.italic.markdown_inline"] = { italic = true },
       ["@markup.quote.markdown"] = { fg = "#7f848e" },
-      -- ["@tag.html"] = { fg = "#89ca78" },
-      ["@markup.list.checked.markdown"] = { bg = md_highlight },
-      -- ["@text.todo.unchecked"] = { bg = md_highlight },
+      ["@markup.list.unchecked.markdown"] {bg = md_highlight},
       Headline = { bg = md_highlight },
       CodeBlock = { bg = md_highlight },
       SmoothCursorAqua = { fg = "#61afef" },
@@ -44,5 +42,3 @@ return {
     vim.cmd.colorscheme("onedark_dark")
   end,
 }
-
--- TelescopeBorderxxx guifg=#434852
