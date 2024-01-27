@@ -9,8 +9,8 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz", { noremap = true, desc = "Previous jumpl
 vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
 
 -- centers search function
-vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
-vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Previous Search Result" })
+vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next search result" })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Previous search result" })
 
 -- allow changing and deleting without overriding current paste registers
 -- in other words automatically delete or change to the void register
