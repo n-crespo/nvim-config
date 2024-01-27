@@ -101,4 +101,5 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] bordered floating terminal
 - [x] `require({})` less
 - [x] transparent Lualine
+- [ ] hello
 - [x] transparent LSP and save dialogues (bottom right)

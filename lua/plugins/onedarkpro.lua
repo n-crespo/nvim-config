@@ -1,5 +1,4 @@
 -- theme of choice, transparent, italic comments, custom highlights
-local md_highlight = "#14161a"
 return {
   "olimorris/onedarkpro.nvim",
   name = "onedarkpro",
@@ -25,9 +24,8 @@ return {
       --@markup.quote.markdown
       ["@markup.italic.markdown_inline"] = { italic = true },
       ["@markup.quote.markdown"] = { fg = "#7f848e" },
-      ["@markup.list.unchecked.markdown"] {bg = md_highlight},
-      Headline = { bg = md_highlight },
-      CodeBlock = { bg = md_highlight },
+      ["@markup.list.unchecked.markdown"] = { bg = "#22272f" },
+      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil },
       SmoothCursorAqua = { fg = "#61afef" },
       SmoothCursor = { fg = "#61afef" },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
