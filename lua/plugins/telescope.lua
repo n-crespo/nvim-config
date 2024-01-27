@@ -58,20 +58,6 @@ return {
         defaults = {
           buffer_previewer_maker = new_maker,
         },
-        -- pickers = {
-        --   find_files = {
-        --     -- theme = "ivy",
-        --   },
-        --   git_files = {
-        --     -- theme = "ivy",
-        --   },
-        --   find_files = {
-        --     -- theme = "ivy",
-        --   },
-        --   buffer_previewer_maker = {
-        --     -- theme = "ivy",
-        --   },
-        -- },
       })
     end,
     keys = {
