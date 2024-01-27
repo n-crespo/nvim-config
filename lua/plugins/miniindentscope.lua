@@ -1,6 +1,6 @@
+-- highlights current indentation level (indent blankline shows other lines)
+-- default LazyVim plugin, this config just removes the animation
 return {
-  -- highlights current indentation level (indent blankline shows other lines)
-  -- default LazyVim plugin, this config just removes the animation
   "echasnovski/mini.indentscope",
   event = "LazyFile",
   opts = {
