@@ -53,4 +53,8 @@ return {
   --   "folke/tokyonight.nvim",
   --   enabled = false,
   -- },
+  {
+    "folke/neoconf.nvim",
+    enabled = false,
+  },
 }
