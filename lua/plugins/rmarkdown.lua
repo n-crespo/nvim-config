@@ -1,10 +1,10 @@
 return {
   -- support for R-markdown knitting
   "vim-pandoc/vim-rmarkdown",
-  event = "LazyFile",
+  -- event = "LazyFile",
   -- event = "BufEnter *.Rmd",
   -- event = "LazyFile",
-  -- ft = { "rmd" },
+  ft = "rmd",
   dependencies = {
     { "vim-pandoc/vim-pandoc-syntax" },
   },
