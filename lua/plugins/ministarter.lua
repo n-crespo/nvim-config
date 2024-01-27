@@ -3,7 +3,6 @@ return {
   enabled = true,
   version = false,
   config = function()
-    -- Mini starter
     local status, starter = pcall(require, "mini.starter")
     if not status then
       return
@@ -36,13 +35,13 @@ return {
       --   [[             \__\/         \__\/         \__\/           ````                   \__\/         ]],
       -- }, "\n"),
 
-      header = table.concat({
-        [[  /\ \▔\___  ___/\   /()_ __ ___  ]],
-        [[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
-        [[/ /\  /  __/ (_) \ V /| | | | | | |]],
-        [[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
-        [[───────────────────────────────────]],
-      }, "\n"),
+      -- header = table.concat({
+      --   [[  /\ \▔\___  ___/\   /()_ __ ___  ]],
+      --   [[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
+      --   [[/ /\  /  __/ (_) \ V /| | | | | | |]],
+      --   [[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
+      --   [[───────────────────────────────────]],
+      -- }, "\n"),
 
       query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
       items = {

@@ -45,9 +45,6 @@ vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rota
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
--- center view port on Enter
-vim.keymap.set("n", "<CR>", "<cmd>noh<cr><esc>zz", { noremap = false, silent = true, desc = "Center" })
-
 -- open in windows system viewer (for WSL)
 vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" })
 
