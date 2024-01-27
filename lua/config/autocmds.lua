@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd(
     pattern = { "rmarkdown" },
     callback = function()
       vim.cmd([[set ft=rmd]])
-      -- print("filetype set to rmd")
     end,
   }
 )
