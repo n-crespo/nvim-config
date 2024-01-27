@@ -7,20 +7,11 @@ return {
       width_preview = 30,
     },
     options = {
-      permanent_delete = false,
-      -- Whether to use for editing directories
-      -- Disabled by default in LazyVim because neo-tree is used for that
+      permanent_delete = false, -- files are sent to ~/.local/share/nvim/mini.files/trash/
       use_as_default_explorer = true,
     },
   },
   keys = {
-    -- {
-    --   "<leader>fm",
-    --   function()
-    --     require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-    --   end,
-    --   desc = "Open mini.files (directory of current file)",
-    -- },
     {
       "<leader>e",
       function()
