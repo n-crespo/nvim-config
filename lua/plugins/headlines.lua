@@ -1,7 +1,7 @@
 return {
   -- highlight markdown headings and codeblocks (can get laggy)
   "lukas-reineke/headlines.nvim",
-  event = { "BufEnter *.md", "BufEnter *.Rmd" },
+  ft = { "md", "rmd" },
   opts = {
     markdown = {
       -- fat_headline_upper_string = "▃",
