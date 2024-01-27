@@ -1,5 +1,5 @@
+-- <leader>op (open preview) to open scroll-synchronized markdown preview window
 return {
-  -- <leader>op (open preview) to open scroll synchronized markdown preview window
   "iamcco/markdown-preview.nvim",
   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   build = function()

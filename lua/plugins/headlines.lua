@@ -2,7 +2,7 @@
 -- makes block quotes and horizontal lines look better (not so laggy)
 return {
   "lukas-reineke/headlines.nvim",
-  ft = { "md", "rmd" },
+  ft = { "markdown", "rmd" },
   opts = {
     markdown = {
       -- no glyph support, use this
