@@ -1,5 +1,6 @@
 return {
   "gen740/SmoothCursor.nvim",
+  event = "LazyFile",
   opts = {
     type = "exp", -- Cursor movement calculation method, choose "default", "exp" (exponential) or "matrix".
     cursor = "", -- Cursor shape (requires Nerd Font). Disabled in fancy mode.

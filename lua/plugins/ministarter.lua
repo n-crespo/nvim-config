@@ -1,5 +1,7 @@
 return {
   "echasnovski/mini.starter",
+  event = "VimEnter",
+  lazy = false,
   enabled = true,
   version = false,
   config = function()
