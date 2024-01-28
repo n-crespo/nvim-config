@@ -30,6 +30,7 @@ return {
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       TreeSitterContext = { bg = "#22272f" },
+      MiniStarterItemBullet = { fg = "#89ca78" },
     },
   },
   config = function(_, opts)
