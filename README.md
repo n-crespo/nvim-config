@@ -78,7 +78,7 @@ a plugin configuration. See below:
 
 ## Install Instructions
 
-> Install requires Neovim 0.9+. Always review the code before installing a configuration.
+> Install requires Neovim 0.9+. 
 
 Clone the repository and install the plugins:
 
