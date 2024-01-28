@@ -89,3 +89,5 @@ vim.keymap.set("n", "<C-p>", "<leader>,", { remap = true, desc = "Pick Buffer" }
 
 -- what is even this
 vim.keymap.del("n", "<leader>K")
+
+vim.keymap.set("n", "<C-m>", "<cmd>Lazy<cr>", { desc = "Lazy", silent = true })
