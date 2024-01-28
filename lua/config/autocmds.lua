@@ -1,10 +1,7 @@
 -- auto toggle table mode when opening and closing markdown file
-vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
-  pattern = { "markdown" },
-  callback = function()
-    vim.cmd([[silent! TableModeEnable]])
-    vim.cmd([[set nowrap]])
-  end,
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" }, {
+  pattern = "*.md",
+  command = [[nnoremap <buffer> <silent> <C-s> :TableModeRealign<CR>:w<CR>]],
 })
 
 vim.api.nvim_create_autocmd(
