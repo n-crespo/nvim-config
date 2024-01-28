@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
   pattern = { "markdown" },
   callback = function()
-    vim.cmd([[silent! TableModeToggle]])
+    vim.cmd([[silent! TableModeEnable]])
     vim.cmd([[set nowrap]])
   end,
 })
