@@ -31,6 +31,10 @@ return {
       LazyButton = { bg = "#22272f" },
       TreeSitterContext = { bg = "#22272f" },
       MiniStarterItemBullet = { fg = "#89ca78" },
+      TelescopeBorder = { fg = "#61afef" },
+      FloatBorder = { fg = "#61afef" },
+      VertSplit = { fg = "#61afef" },
+      -- WinSeparator = { fg = "#61afef" },
     },
   },
   config = function(_, opts)
