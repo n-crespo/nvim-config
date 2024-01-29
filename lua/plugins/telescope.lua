@@ -1,6 +1,6 @@
 -- fuzzy file finder and a whole lot more
 -- use <leader><leader> to find within a directory
--- <leader><leader> intelligently searches root directory and respets git
+-- <leader><leader> intelligently searches root directory and respects git
 -- previewer omits files that are too large or un-preview-able
 return {
   "telescope.nvim",

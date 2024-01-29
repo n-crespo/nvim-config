@@ -1,6 +1,7 @@
+-- auto create paired symbols like quotes and parenthesis
 return {
   "echasnovski/mini.pairs",
-  event = "InsertEnter",
+  event = "InsertEnter", -- only load plugin after insert mode is entered
   keys = {
     {
       "<leader>up",

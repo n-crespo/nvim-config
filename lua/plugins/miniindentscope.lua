@@ -2,7 +2,7 @@
 -- default LazyVim plugin, this config just removes the animation
 return {
   "echasnovski/mini.indentscope",
-  event = "LazyFile",
+  event = "LazyFile", -- only load plugin after a buffer has been opened
   opts = {
     exclude = {
       filetypes = { "better_term", "noice" },
@@ -14,7 +14,7 @@ return {
     },
     draw = {
       delay = 0,
-      animation = require("mini.indentscope").gen_animation.none(),
+      animation = require("mini.indentscope").gen_animation.none(), -- don't show an animation
     },
   },
 }

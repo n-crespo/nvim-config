@@ -1,3 +1,5 @@
+-- cursor animation beside line numbers, doesn't actually slow down cursor movement
+-- (animation helps during disorienting motions )
 return {
   "gen740/SmoothCursor.nvim",
   event = "LazyFile",

@@ -1,4 +1,4 @@
--- default LazyVim plugin
+-- default LazyVim plugin, adds floating window for remembering keymaps
 -- config adds more keymaps, enables spelling, marks, registers
 return {
   "folke/which-key.nvim",

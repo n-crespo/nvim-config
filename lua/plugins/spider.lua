@@ -1,4 +1,4 @@
--- w, e, and b, now respect camel case and ignore non-essential characters
+-- w, e, and b, now respect camel case/snake case/etc and ignore non-essential characters
 return {
   "chrisgrieser/nvim-spider",
   keys = {

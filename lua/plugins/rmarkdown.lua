@@ -1,7 +1,7 @@
+-- support for R-markdown
 return {
-  -- support for R-markdown
   "vim-pandoc/vim-rmarkdown",
-  ft = "rmd",
+  ft = "rmd", -- only load plugin in rmd files
   dependencies = {
     { "vim-pandoc/vim-pandoc-syntax" },
   },
@@ -26,6 +26,6 @@ return {
     require("headlines").setup({
       rmarkdown = require("headlines").config.rmd,
     })
-    -- note to future nicolas: headlines gives me better horizontal lines and block quotes
+    -- note to future self: headlines gives me better horizontal lines and block quotes
   end,
 }

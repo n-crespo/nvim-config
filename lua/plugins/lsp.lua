@@ -8,12 +8,15 @@ return {
           border = "rounded",
         },
       },
-      servers = { -- make sure mason installs these server
+      servers = {
+        arduino_language_server = {},
         pyright = {},
         clangd = {},
-        arduino_language_server = {},
         bashls = {},
-        jdtls = {},
+        jdtls = {}, -- java
+        black = {},
+        cbfmt = {}, -- markdown code block
+        flake8 = {},
         jsonls = {},
         lua_ls = { enabled = false }, -- i don't need this and it makes things laggy
         marksman = { enabled = false }, -- i don't need this and it makes things laggy

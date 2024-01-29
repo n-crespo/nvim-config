@@ -1,3 +1,4 @@
+-- starter page, simple and fast
 return {
   "echasnovski/mini.starter",
   event = "VimEnter",

@@ -1,3 +1,4 @@
+-- minimal tabline/bufferline/whatever you want to call it with sane defaults
 return {
   "willothy/nvim-cokeline",
   event = "LazyFile",

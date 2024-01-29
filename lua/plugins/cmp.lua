@@ -1,3 +1,4 @@
+-- this configuration just adds borders to the transparent completion windows
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",

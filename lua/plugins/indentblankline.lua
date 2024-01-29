@@ -1,3 +1,4 @@
+-- indent guides, pretty simple
 return {
   {
     "lukas-reineke/indent-blankline.nvim",

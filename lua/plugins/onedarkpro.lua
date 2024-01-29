@@ -1,4 +1,5 @@
--- theme of choice, transparent, italic comments, custom highlights
+-- theme of choice
+-- transparent, italic comments, custom highlights
 return {
   "olimorris/onedarkpro.nvim",
   name = "onedarkpro",
@@ -20,17 +21,17 @@ return {
       undercurl = true,
     },
     highlights = {
-      ["@markup.italic.markdown_inline"] = { italic = true },
-      ["@markup.quote.markdown"] = { fg = "#969ba2" },
-      ["@markup.list.unchecked.markdown"] = { fg = "#ef696f" },
-      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil, bold = true },
+      ["@markup.italic.markdown_inline"] = { italic = true }, -- italicize markdown italics
+      ["@markup.quote.markdown"] = { fg = "#969ba2" }, -- markdown block quotes
+      ["@markup.list.unchecked.markdown"] = { fg = "#ef696f" }, -- unchecked markdown checkbox
+      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil, bold = true }, -- checked markdown checkbox
       SmoothCursorAqua = { fg = "#61afef" },
       SmoothCursor = { fg = "#61afef" },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       TreeSitterContext = { bg = "#22272f" },
-      MiniStarterItemBullet = { fg = "#89ca78" },
+      MiniStarterItemBullet = { fg = "#89ca78" }, -- rectangles in starter screen
       TelescopeBorder = { fg = "#61afef" },
     },
   },

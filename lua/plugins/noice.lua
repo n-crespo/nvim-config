@@ -1,6 +1,6 @@
+-- default LazyVim plugin
+-- this config just adds borders to lsp hover (K)
 return {
-  -- default LazyVim plugin
-  -- this config just adds borders to lsp hover (K)
   "folke/noice.nvim",
   opts = {
     presets = {
@@ -13,7 +13,7 @@ return {
         },
       },
       popupmenu = {
-        scrollbar = false,
+        scrollbar = false, -- this doesn't seem to do anything
       },
     },
   },

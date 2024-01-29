@@ -1,5 +1,6 @@
--- highlight markdown headings and codeblocks (can make laggy scrolling),
--- makes block quotes and horizontal lines look better (not so laggy)
+-- adds highlighted markdown headings and codeblocks (can make laggy
+-- scrolling) (i disabled that)
+-- also makes block quotes and horizontal lines look better (not so laggy)
 return {
   "lukas-reineke/headlines.nvim",
   ft = { "markdown", "rmd" },

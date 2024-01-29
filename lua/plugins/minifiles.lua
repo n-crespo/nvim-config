@@ -1,3 +1,4 @@
+-- fast file system viewer, less intrusive oil.nvim
 return {
   "echasnovski/mini.files",
   opts = {
@@ -8,7 +9,7 @@ return {
     },
     options = {
       permanent_delete = false, -- files are sent to ~/.local/share/nvim/mini.files/trash/
-      use_as_default_explorer = true,
+      use_as_default_explorer = true, -- for nvim .
     },
   },
   keys = {

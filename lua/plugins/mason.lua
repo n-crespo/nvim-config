@@ -1,4 +1,4 @@
--- install and manage language servers a lot easier
+-- makes installing and managing language servers a lot easier
 return {
   "williamboman/mason.nvim",
   opts = {

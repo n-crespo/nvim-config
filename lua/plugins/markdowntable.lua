@@ -1,9 +1,8 @@
 -- auto format and align markdown tables
--- SEE ../config/autocmds.lua for autocmds that automate the use of this
--- plugin
+-- SEE ../config/autocmds.lua for autocmds that automate the use of this plugin
 return {
   "dhruvasagar/vim-table-mode",
-  ft = "markdown",
+  ft = "markdown", -- only load plugin when markdown file opens
   config = function()
     -- these are dumb
     vim.keymap.del("v", "<leader>T")

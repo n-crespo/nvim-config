@@ -1,3 +1,4 @@
+-- disables some plugins
 return {
   -- mini files better
   {

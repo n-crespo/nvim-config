@@ -1,6 +1,6 @@
+-- use R to run any file! very nice
+-- this overrides the vim native replace mode, which i never use
 return {
-  -- use R to run any file! very nice
-  -- this overrides the vim native replace mode, which i never use
   "CRAG666/code_runner.nvim",
   event = "LazyFile",
   config = true,

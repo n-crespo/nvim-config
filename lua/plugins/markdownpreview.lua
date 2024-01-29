@@ -1,7 +1,7 @@
 -- <leader>op (open preview) to open scroll-synchronized markdown preview window
 return {
   "iamcco/markdown-preview.nvim",
-  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
   build = function()
     vim.fn["mkdp#util#install"]()
   end,
