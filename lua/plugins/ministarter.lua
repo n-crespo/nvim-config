@@ -29,6 +29,7 @@ return {
       -- }, "\n"),
 
       header = "",
+
       query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
       items = {
         {
