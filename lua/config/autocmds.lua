@@ -2,6 +2,7 @@
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" }, {
   pattern = "*.md",
   callback = function()
+    vim.cmd([[setlocal nowrap]])
     vim.keymap.set(
       "n",
       "<C-s>",
