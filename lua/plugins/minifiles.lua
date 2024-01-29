@@ -1,6 +1,7 @@
 -- fast file system viewer, less intrusive oil.nvim
 return {
   "echasnovski/mini.files",
+  lazy = false,
   opts = {
     windows = {
       preview = true,
