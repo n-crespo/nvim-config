@@ -46,9 +46,32 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 if vim.g.neovide then
-  vim.o.guifont = "JetBrains Mono Nerd Font" -- text below applies for VimScript
+  vim.o.guifont = "JetBrainsMono Nerd Font" -- text below applies for VimScript
   vim.g.neovide_padding_top = 0
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
+
+  -- Helper function for transparency formatting
+  local alpha = function()
+    return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+  end
+  vim.g.neovide_transparency = 0.8
+  vim.g.transparency = 0
+  vim.g.neovide_background_color = "#0f1117" .. alpha()
+
+  vim.g.neovide_cursor_animate_command_line = true
+  vim.g.neovide_hide_mouse_when_typing = false
+  vim.g.neovide_window_blurred = true
+
+  vim.g.neovide_scale_factor = 0.8
+  local change_scale_factor = function(delta)
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  end
+  vim.keymap.set("n", "<C-=>", function()
+    change_scale_factor(1.25)
+  end)
+  vim.keymap.set("n", "<C-->", function()
+    change_scale_factor(1 / 1.25)
+  end)
 end
