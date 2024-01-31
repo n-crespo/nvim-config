@@ -3,7 +3,6 @@ return {
   "echasnovski/mini.starter",
   event = "VimEnter",
   lazy = false,
-  enabled = true,
   version = false,
   config = function()
     local status, starter = pcall(require, "mini.starter")
@@ -45,10 +44,10 @@ return {
         },
         {
           name = "Config files",
-          action = "lua require('lazyvim.util').telescope.config_files()()",
+          action = [[lua require('lazyvim.util').telescope.config_files()()]],
           section = " ",
         },
-        { name = "Session restore", action = [[lua require("persistence").load()]], section = " " },
+        { name = "Session restore", action = 'lua require("persistence").load()', section = " " },
         { name = "Lazy", action = "Lazy", section = " " },
         { name = "Quit", action = "qa", section = " " },
       },
