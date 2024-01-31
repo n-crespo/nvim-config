@@ -44,3 +44,11 @@ vim.g.loaded_perl_provider = 0 -- what is even this (causes checkhealth error if
 vim.g.wrap = false -- stop wrapping my text
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+if vim.g.neovide then
+  vim.o.guifont = "JetBrains Mono Nerd Font" -- text below applies for VimScript
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
+end
