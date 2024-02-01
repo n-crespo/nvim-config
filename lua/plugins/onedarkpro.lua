@@ -31,7 +31,8 @@ return {
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       TreeSitterContext = { bg = "#22272f" },
-      MiniStarterItemBullet = { fg = "#89ca78" }, -- rectangles in starter screen
+      -- MiniStarterItemBullet = { fg = "#89ca78" }, -- rectangles in starter screen
+      MiniStarterItemBullet = { fg = "#61afef" }, -- rectangles in starter screen
       TelescopeBorder = { fg = "#61afef" },
     },
   },

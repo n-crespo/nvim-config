@@ -5,4 +5,7 @@ vim.g.vim_markdown_toc_autofit = 1
 return {
   "ixru/nvim-markdown",
   ft = "markdown",
+  keys = {
+    { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmd>set nonu<cr>" },
+  },
 }
