@@ -15,12 +15,20 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
 vim.api.nvim_create_autocmd(
   { "FileType", "BufRead", "BufEnter", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" },
   {
-    pattern = { "rmarkdown" },
+    pattern = { "*.Rmd" },
     callback = function()
       vim.cmd([[set ft=rmd]])
     end,
   }
 )
+
+-- HACK: auto color pvs files like java files
+vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" }, {
+  pattern = { "*.pvs" },
+  callback = function()
+    vim.cmd([[set ft=java]])
+  end,
+})
 
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
