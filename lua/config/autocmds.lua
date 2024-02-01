@@ -22,13 +22,25 @@ vim.api.nvim_create_autocmd(
   }
 )
 
--- HACK: auto color pvs files like java files
+-- don't use lsp on pvs files
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
+  callback = function(opt)
+    if vim.fn.expand("%:e") == "pvs" then
+      vim.schedule(function()
+        vim.lsp.buf_detach_client(opt.buf, opt.data.client_id)
+      end)
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" }, {
   pattern = { "*.pvs" },
   callback = function()
     vim.cmd([[set ft=java]])
   end,
 })
+
+-- testing
 
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
