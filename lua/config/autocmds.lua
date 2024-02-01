@@ -34,27 +34,6 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
   command = [[call setreg("+", getreg("@"))]],
 })
 
--- autocmd to change cursor style when changing modes
-local autocmd = vim.api.nvim_create_autocmd
-autocmd({ "ModeChanged" }, {
-  callback = function()
-    local current_mode = vim.fn.mode()
-    if current_mode == "n" then
-      vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#61afef" })
-      vim.fn.sign_define("smoothcursor", { text = "" })
-    elseif current_mode == "v" then
-      vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#e5c07b" })
-      vim.fn.sign_define("smoothcursor", { text = "󰙒" })
-    elseif current_mode == "V" then
-      vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#e5c07b" })
-      vim.fn.sign_define("smoothcursor", { text = "󰒉" })
-    elseif current_mode == "i" then
-      vim.api.nvim_set_hl(0, "SmoothCursor", { fg = "#89ca78" })
-      vim.fn.sign_define("smoothcursor", { text = "󰗧" })
-    end
-  end,
-})
-
 -- make :W the same as :w
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 
