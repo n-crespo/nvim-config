@@ -12,4 +12,23 @@ return {
       end,
     },
   },
+  -- ignore these filetypes
+  init = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
+        "help",
+        "Trouble",
+        "trouble",
+        "lazy",
+        "mason",
+        "notify",
+        "better_term",
+        "toggleterm",
+        "lazyterm",
+      },
+      callback = function()
+        vim.b.miniindentscope_disable = true
+      end,
+    })
+  end,
 }
