@@ -54,3 +54,9 @@ autocmd({ "ModeChanged" }, {
     end
   end,
 })
+
+-- make :W the same as :w
+vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
+
+-- make :Q the same as :q
+vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })

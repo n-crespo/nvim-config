@@ -15,6 +15,7 @@ return {
   -- ignore these filetypes
   init = function()
     vim.api.nvim_create_autocmd("FileType", {
+      desc = "Disable indentscope for certain filetypes",
       pattern = {
         "help",
         "Trouble",

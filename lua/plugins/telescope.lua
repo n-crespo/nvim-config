@@ -55,12 +55,6 @@ return {
           buffer_previewer_maker = new_maker,
         },
       })
-
-      vim.keymap.del("n", "<leader>ss")
-      vim.keymap.del("n", "<leader>sG")
-      vim.keymap.del("n", "<leader>sS")
-      vim.keymap.del("n", "<leader>sT")
-      vim.keymap.del("n", "<leader>fb")
     end,
     keys = {
       {
@@ -70,6 +64,11 @@ return {
         end,
         desc = "Find Plugin File",
       },
+      { "<leader>ss", vim.NIL },
+      { "<leader>sG", vim.NIL },
+      { "<leader>sS", vim.NIL },
+      { "<leader>sT", vim.NIL },
+      { "<leader>sb", vim.NIL },
     },
   },
 }
