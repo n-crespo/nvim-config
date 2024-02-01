@@ -4,17 +4,12 @@ return {
   "echasnovski/mini.indentscope",
   event = "LazyFile", -- only load plugin after a buffer has been opened
   opts = {
-    exclude = {
-      filetypes = { "better_term", "noice" },
-    },
-    -- symbol = "▏",
-    symbol = "│",
-    options = {
-      try_as_border = true,
-    },
+    -- don't show an animation
     draw = {
       delay = 0,
-      animation = require("mini.indentscope").gen_animation.none(), -- don't show an animation
+      animation = function()
+        return 0
+      end,
     },
   },
 }

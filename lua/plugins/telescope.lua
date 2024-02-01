@@ -55,6 +55,12 @@ return {
           buffer_previewer_maker = new_maker,
         },
       })
+
+      vim.keymap.del("n", "<leader>ss")
+      vim.keymap.del("n", "<leader>sG")
+      vim.keymap.del("n", "<leader>sS")
+      vim.keymap.del("n", "<leader>sT")
+      vim.keymap.del("n", "<leader>fb")
     end,
     keys = {
       {

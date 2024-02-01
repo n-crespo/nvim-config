@@ -96,3 +96,14 @@ vim.keymap.del("n", "<leader>K")
 
 -- open file (use <Backspace> and <Tab> to navigate jump list)
 vim.keymap.set("n", "<C-o>", "<C-q><C-o>", { remap = true, desc = "Open File", silent = true })
+
+-- send buffer to vertical split (split left)
+vim.keymap.set("n", "<leader>sl", "<leader>|<C-h><S-h><C-l>", { remap = true, desc = "Send to Split", silent = true })
+
+-- unneeded
+vim.keymap.del("n", "<leader>bb")
+vim.keymap.del("n", "<leader>fT")
+vim.keymap.del("n", "<leader>ft")
+vim.keymap.del("n", "<leader>qd")
+vim.keymap.del("n", "<leader>qs")
+vim.keymap.del("n", "<leader>ub")

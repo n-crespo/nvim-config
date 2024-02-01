@@ -20,6 +20,7 @@ My favorite things about this configuration are (in no particular order):
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 * the following plugins:
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
+  * [origami](https://github.com/chrisgrieser/nvim-origami) (`h` and `l` for folding instead of `za`)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
   * [flash.nvim](https://github.com/folke/flash.nvim) (super fast navigation)
   * [cokeline](https://github.com/willothy/nvim-cokeline) (clean, hackable tabline that i didn't hack at all)
