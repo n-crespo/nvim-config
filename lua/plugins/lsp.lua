@@ -1,3 +1,5 @@
+local is_linux = package.config:sub(1, 1) == ":"
+print("is_linux is: ", is_linux)
 -- lsp configurations
 return {
   "neovim/nvim-lspconfig",
@@ -12,16 +14,17 @@ return {
       pyright = {},
       clangd = {},
       bashls = {},
-      jdtls = {}, -- java
+      -- jdtls = { enabled = package.config:sub(1, 1) == ":" }, -- java
+      jdtls = { enabled = is_linux }, -- java
       jsonls = {},
-      lua_ls = { enabled = false }, -- i don't need this and it makes things laggy
+      lua_ls = { enabled = not is_linux }, -- i don't need this and it makes things laggy
       marksman = { enabled = false }, -- i don't need this and it makes things laggy
       r_language_server = {},
       ruff_lsp = {},
     },
     setup = {
       jdtls = function()
-        return true -- avoid duplicate servers (??)
+        return is_linux -- avoid duplicate servers (??)
       end,
     },
   },

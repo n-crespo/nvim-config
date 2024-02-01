@@ -105,6 +105,12 @@ vim.keymap.set("n", "<C-o>", "<C-q><C-o>", { remap = true, desc = "Open File", s
 -- send buffer to vertical split (split left)
 vim.keymap.set("n", "<leader>v", "<leader>|<C-h><S-h><C-l>", { remap = true, desc = "Send to Split", silent = true })
 
+-- HACK: set filetype to java (for PVS highlighting)
+vim.keymap.set("n", "<leader>bj", "<cmd>set ft=java<cr>", { desc = "Set Filetype to Java", silent = true })
+
+-- other window
+vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
+
 -- unneeded
 vim.keymap.del("n", "<leader>bb")
 vim.keymap.del("n", "<leader>fT")
