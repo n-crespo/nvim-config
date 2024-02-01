@@ -93,3 +93,6 @@ vim.keymap.set("n", "<C-p>", "<leader>,", { remap = true, desc = "Pick Buffer" }
 
 -- what is even this
 vim.keymap.del("n", "<leader>K")
+
+-- open file (use <Backspace> and <Tab> to navigate jump list)
+vim.keymap.set("n", "<C-o>", "<C-q><C-o>", { remap = true, desc = "Open File", silent = true })
