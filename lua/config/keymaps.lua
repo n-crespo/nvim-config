@@ -103,7 +103,7 @@ vim.keymap.del("n", "<leader>K")
 vim.keymap.set("n", "<C-o>", "<C-q><C-o>", { remap = true, desc = "Open File", silent = true })
 
 -- send buffer to vertical split (split left)
-vim.keymap.set("n", "<leader>v", "<leader>|<C-h><S-h><C-l>", { remap = true, desc = "Send to Split", silent = true })
+vim.keymap.set("n", "<leader>sl", "<leader>|<C-h><S-h><C-l>", { remap = true, desc = "Send to Split", silent = true })
 
 -- other window
 vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
