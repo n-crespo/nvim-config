@@ -108,6 +108,9 @@ vim.keymap.set("n", "<leader>sl", "<leader>|<C-h><S-h><C-l>", { remap = true, de
 -- other window
 vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
 
+-- clear terminal
+vim.api.nvim_set_keymap("t", "<C-l>", "<C-l>", { noremap = true })
+
 -- unneeded
 vim.keymap.del("n", "<leader>bb")
 vim.keymap.del("n", "<leader>fT")

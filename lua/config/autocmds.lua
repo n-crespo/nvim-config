@@ -33,14 +33,13 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
   end,
 })
 
+-- hacky way to get colored pvs
 vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" }, {
   pattern = { "*.pvs" },
   callback = function()
     vim.cmd([[set ft=java]])
   end,
 })
-
--- testing
 
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
