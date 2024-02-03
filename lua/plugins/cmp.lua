@@ -15,7 +15,7 @@ return {
       documentation = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-        scrollbar = false,
+        scrollbar = true,
       },
     },
   },
