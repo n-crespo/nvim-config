@@ -1,5 +1,6 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.lang.python"
   ],
