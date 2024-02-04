@@ -2,6 +2,7 @@
 -- transparent, italic comments, custom highlights
 return {
   "olimorris/onedarkpro.nvim",
+  lazy = false,
   name = "onedarkpro",
   priority = 1000, -- Ensure it loads first
   opts = {
@@ -31,9 +32,11 @@ return {
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       TreeSitterContext = { bg = "#22272f" },
-      -- MiniStarterItemBullet = { fg = "#89ca78" }, -- rectangles in starter screen
-      MiniStarterItemBullet = { fg = "#61afef" }, -- rectangles in starter screen
       TelescopeBorder = { fg = "#61afef" },
+      MiniStarterItemBullet = { fg = "#61afef" },
+      MiniStarterItemPrefix = { fg = "#89ca78" },
+      MiniStarterItem = { fg = "#61afef" },
+      -- MiniStarterItem = { fg = "#ffffff" },
     },
   },
   config = function(_, opts)

@@ -113,7 +113,9 @@ vim.keymap.set("t", "<C-l>", "<C-l>", { noremap = true })
 
 -- full line navigation
 vim.keymap.set("n", "E", "g_", { desc = "End of line", silent = true })
+vim.keymap.set("v", "E", "g_", { desc = "End of line", silent = true })
 vim.keymap.set("n", "B", "_", { desc = "Start of line", silent = true })
+vim.keymap.set("v", "B", "_", { desc = "Start of line", silent = true })
 
 -- unneeded
 vim.keymap.del("n", "<leader>bb")
