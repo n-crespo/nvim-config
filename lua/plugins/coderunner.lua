@@ -17,7 +17,7 @@ return {
     float = {
       border = "rounded",
       close_key = "<ESC>",
-      blend = 10,
+      blend = 0,
     },
   },
   keys = {
