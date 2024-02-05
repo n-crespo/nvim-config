@@ -6,6 +6,6 @@ return {
   "ixru/nvim-markdown",
   ft = "markdown",
   keys = {
-    { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmd>set nonu<cr>" },
+    { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmd>set nonu<cr>", desc = "Table of Contents" },
   },
 }
