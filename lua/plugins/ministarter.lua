@@ -38,7 +38,7 @@ return {
           section = " ",
         },
         {
-          name = "Recent files",
+          name = "Old files",
           action = "Telescope oldfiles",
           section = " ",
         },

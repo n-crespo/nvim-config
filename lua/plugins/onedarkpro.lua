@@ -35,8 +35,6 @@ return {
       TelescopeBorder = { fg = "#61afef" },
       MiniStarterItemBullet = { fg = "#61afef" },
       MiniStarterItemPrefix = { fg = "#89ca78" },
-      MiniStarterItem = { fg = "#61afef" },
-      -- MiniStarterItem = { fg = "#ffffff" },
     },
   },
   config = function(_, opts)
