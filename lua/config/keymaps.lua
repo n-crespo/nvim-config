@@ -80,7 +80,7 @@ vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", s
 vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Prev Jumplist", silent = true })
 
 -- clear line
-vim.keymap.set("n", "X", "0D", { desc = "Clear Line", silent = true })
+vim.keymap.set("n", "X", "0D", { remap = true, desc = "Clear Line", silent = true })
 
 -- unholy non-native vim keymap
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find Word" })
