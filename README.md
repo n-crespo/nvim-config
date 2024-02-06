@@ -19,6 +19,7 @@ My favorite things about this configuration are (in no particular order):
 * the ~25 ms startup time (more like 60ms in regular Windows)
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 * the following plugins:
+  * [codeium](https://github.com/Exafunction/codeium.vim) (free and open source code completion) (installed with `:LazyExtras`)
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
   * [origami](https://github.com/chrisgrieser/nvim-origami) (`h` and `l` for folding instead of `za`)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
