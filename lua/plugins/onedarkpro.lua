@@ -31,6 +31,7 @@ return {
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
+      Headline = { bg = "#22272f" },
       TreeSitterContext = { bg = "#22272f" },
       TelescopeBorder = { fg = "#61afef" },
       MiniStarterItemBullet = { fg = "#61afef" },
