@@ -11,7 +11,7 @@ return {
       fat_headline_lower_string = "▀",
 
       -- these make markdown a lot slower if enabled
-      -- headline_highlights = true,
+      headline_highlights = false,
       codeblock_highlight = false,
     },
     rmd = {
