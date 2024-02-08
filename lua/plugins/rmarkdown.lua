@@ -18,7 +18,7 @@ return {
     -- R knit pdf
     { "<leader>rkp", [[<cmd>w<cr><cmd>RMarkdown pdf latex_engine="xelatex"<CR>]], desc = "Knit to pdf" },
     -- R knit html
-    { "<leader>rkh", [[<cmd>w<cr><cmd>RMarkdown html"xelatex"<CR>]], desc = "Knit to pdf" },
+    { "<leader>rkh", [[<cmd>w<cr><cmd>RMarkdown html<CR>]], desc = "Knit to pdf" },
   },
   config = function()
     -- for some reason my r markdown files have a rmd filetpe, this just allows the
