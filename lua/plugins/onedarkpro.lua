@@ -26,23 +26,12 @@ return {
       ["@markup.quote.markdown"] = { fg = "#969ba2" }, -- markdown block quotes
       ["@markup.list.unchecked.markdown"] = { fg = "#ef696f" }, -- unchecked markdown checkbox
       ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil, bold = true }, -- checked markdown checkbox
-
-      ["@markup.heading.1.markdown"] = { fg = "#d55fde", bold = true },
-      ["@markup.heading.1.marker.markdown"] = { fg = "#d55fde", bold = true },
-
-      ["@markup.heading.2.markdown"] = { fg = "#d55fde", bold = true },
-      ["@markup.heading.2.marker.markdown"] = { fg = "#d55fde", bold = true },
-
-      ["@markup.heading.3.markdown"] = { fg = "#d55fde", bold = true },
-      ["@markup.heading.3.marker.markdown"] = { fg = "#d55fde", bold = true },
-
       SmoothCursorAqua = { fg = "#61afef" },
       SmoothCursor = { fg = "#61afef" },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       Headline = { bg = "#22272f" },
-
       TreeSitterContext = { bg = "#22272f" },
       TelescopeBorder = { fg = "#61afef" },
       MiniStarterItemBullet = { fg = "#61afef" },
