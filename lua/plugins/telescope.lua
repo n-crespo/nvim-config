@@ -64,11 +64,11 @@ return {
         end,
         desc = "Find Plugin File",
       },
-      { "<leader>ss", vim.NIL },
-      { "<leader>sG", vim.NIL },
-      { "<leader>sS", vim.NIL },
-      { "<leader>sT", vim.NIL },
-      { "<leader>sb", vim.NIL },
+      {
+        "<leader>fo",
+        "<cmd>Telescope oldfiles<cr>",
+        desc = "Find Old Files",
+      },
     },
   },
 }
