@@ -89,12 +89,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { d
 vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { desc = "New Buffer" })
 
 -- pick from buffers
-vim.keymap.set(
-  "n",
-  "<C-p>",
-  "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-  { remap = true, desc = "Pick Buffer" }
-)
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope buffers<cr>", { remap = true, desc = "Pick Buffer" })
 
 -- what is even this
 vim.keymap.del("n", "<leader>K")
@@ -129,3 +124,5 @@ vim.keymap.del("n", "<leader>sG")
 vim.keymap.del("n", "<leader>sS")
 vim.keymap.del("n", "<leader>sT")
 vim.keymap.del("n", "<leader>sb")
+vim.keymap.del("n", "<leader>lÞ")
+vim.keymap.del("x", "<leader>lÞ")
