@@ -22,8 +22,6 @@ return {
       undercurl = true,
     },
     highlights = {
-      ["@markup.italic.markdown_inline"] = { italic = true }, -- italicize markdown italics
-      ["@markup.quote.markdown"] = { fg = "#969ba2" }, -- markdown block quotes
       ["@markup.list.unchecked.markdown"] = { fg = "#ef696f" }, -- unchecked markdown checkbox
       ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil, bold = true }, -- checked markdown checkbox
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
