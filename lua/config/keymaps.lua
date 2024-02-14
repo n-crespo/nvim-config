@@ -127,5 +127,5 @@ vim.keymap.del("n", "<leader>sb")
 vim.keymap.del("n", "<leader>lÞ")
 vim.keymap.del("x", "<leader>lÞ")
 
-vim.keymap.set("n", "<PageUp>", "<C-u>zz", { remap = true, silent = true })
-vim.keymap.set("n", "<PageDown>", "<C-d>zz", { remap = true, silent = true })
+vim.keymap.set("n", "<PageUp>", "<M-k>", { remap = true, silent = true })
+vim.keymap.set("n", "<PageDown>", "<M-j>", { remap = true, silent = true })
