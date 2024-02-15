@@ -28,6 +28,8 @@ return {
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       Headline = { bg = "#22272f" },
+      NoiceScrollbarThumb = { bg = "#22272f" },
+      NoiceScrollbar = { bg = nil },
       TreeSitterContext = { bg = "#22272f" },
       TelescopeBorder = { fg = "#61afef" },
       MiniStarterItemBullet = { fg = "#61afef" },
