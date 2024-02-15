@@ -133,3 +133,6 @@ vim.keymap.set("n", "<Up>", "<M-k>", { remap = true, silent = true })
 vim.keymap.set("n", "<Down>", "<M-j>", { remap = true, silent = true })
 vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
+
+-- kill buffer?
+vim.keymap.set("n", "<leader>k", "<cmd>bd<cr>", { silent = true, desc = "Close Buffer" })
