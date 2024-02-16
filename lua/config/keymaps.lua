@@ -130,7 +130,9 @@ vim.keymap.del("x", "<leader>lÞ")
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down
 vim.keymap.set("n", "<Up>", "<M-k>", { remap = true, silent = true })
+vim.keymap.set("v", "<Up>", "<M-k>", { remap = true, silent = true })
 vim.keymap.set("n", "<Down>", "<M-j>", { remap = true, silent = true })
+vim.keymap.set("v", "<Down>", "<M-j>", { remap = true, silent = true })
 vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 
