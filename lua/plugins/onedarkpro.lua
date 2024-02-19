@@ -27,6 +27,7 @@ return {
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
+      Visual = { bg = "#21272f" },
       Headline = { bg = "#22272f" },
       NoiceScrollbarThumb = { bg = "#22272f" },
       NoiceScrollbar = { bg = nil },
