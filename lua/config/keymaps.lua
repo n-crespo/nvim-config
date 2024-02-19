@@ -138,3 +138,11 @@ vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 
 -- kill buffer?
 vim.keymap.set("n", "<leader>k", "<cmd>bd<cr>", { silent = true, desc = "Close Buffer" })
+
+-- navigate tabs
+vim.keymap.set("n", "<leader>1", "1gt", { silent = true, desc = "Goto Tab 1" })
+vim.keymap.set("n", "<leader>2", "2gt", { silent = true, desc = "Goto Tab 2" })
+vim.keymap.set("n", "<leader>3", "3gt", { silent = true, desc = "Goto Tab 3" })
+vim.keymap.set("n", "<leader>4", "4gt", { silent = true, desc = "Goto Tab 4" })
+
+vim.keymap.set("n", "<leader>a", "<cmd>tabs<cr>", { silent = true, desc = "List Tabs" })
