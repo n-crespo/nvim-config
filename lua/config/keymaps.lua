@@ -140,9 +140,13 @@ vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 vim.keymap.set("n", "<leader>k", "<cmd>bd<cr>", { silent = true, desc = "Close Buffer" })
 
 -- navigate tabs
-vim.keymap.set("n", "<leader>1", "1gt", { silent = true, desc = "Goto Tab 1" })
-vim.keymap.set("n", "<leader>2", "2gt", { silent = true, desc = "Goto Tab 2" })
-vim.keymap.set("n", "<leader>3", "3gt", { silent = true, desc = "Goto Tab 3" })
-vim.keymap.set("n", "<leader>4", "4gt", { silent = true, desc = "Goto Tab 4" })
+vim.keymap.set("n", "<leader>1", "<leader>un1gt", { remap = true, silent = true, desc = "Goto Tab 1" })
+vim.keymap.set("n", "<leader>2", "<leader>un2gt", { remap = true, silent = true, desc = "Goto Tab 2" })
+vim.keymap.set("n", "<leader>3", "<leader>un3gt", { remap = true, silent = true, desc = "Goto Tab 3" })
+vim.keymap.set("n", "<leader>4", "<leader>un4gt", { remap = true, silent = true, desc = "Goto Tab 4" })
+vim.keymap.set("n", "<leader>5", "<leader>un5gt", { remap = true, silent = true, desc = "Goto Tab 5" })
 
-vim.keymap.set("n", "<leader>a", "<leader>un<cmd>tabs<cr>", { remap = true, silent = true, desc = "List Tabs" })
+-- vim.keymap.set("n", "<leader>a", "<leader>un<cmd>tabs<cr>", { remap = true, silent = true, desc = "List Tabs" })
+vim.keymap.set("n", "<leader>a", function()
+  vim.cmd("tabs")
+end, { silent = true, desc = "List Tabs" })
