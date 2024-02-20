@@ -145,4 +145,4 @@ vim.keymap.set("n", "<leader>2", "2gt", { silent = true, desc = "Goto Tab 2" })
 vim.keymap.set("n", "<leader>3", "3gt", { silent = true, desc = "Goto Tab 3" })
 vim.keymap.set("n", "<leader>4", "4gt", { silent = true, desc = "Goto Tab 4" })
 
-vim.keymap.set("n", "<leader>a", "<cmd>tabs<cr>", { silent = true, desc = "List Tabs" })
+vim.keymap.set("n", "<leader>a", "<leader>un<cmd>tabs<cr>", { remap = true, silent = true, desc = "List Tabs" })
