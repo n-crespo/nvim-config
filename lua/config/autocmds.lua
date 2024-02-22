@@ -12,15 +12,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
   end,
 })
 
-vim.api.nvim_create_autocmd(
-  { "FileType", "BufRead", "BufEnter", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" },
-  {
-    pattern = { "*.Rmd" },
-    callback = function()
-      vim.cmd([[set ft=rmd]])
-    end,
-  }
-)
+vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
+  pattern = { "*.Rmd" },
+  callback = function()
+    vim.cmd([[set ft=rmd]])
+  end,
+})
 
 -- don't use lsp on pvs files
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
@@ -34,7 +31,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 })
 
 -- hacky way to get colored pvs
-vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile", "BufAdd", "BufFilePost", "BufFilePre" }, {
+vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   pattern = { "*.pvs" },
   callback = function()
     vim.cmd([[set ft=java]])
