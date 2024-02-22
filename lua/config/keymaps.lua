@@ -150,3 +150,6 @@ vim.keymap.set("n", "<leader>5", "<leader>un5gt", { remap = true, silent = true,
 vim.keymap.set("n", "<leader>a", function()
   vim.cmd("tabs")
 end, { silent = true, desc = "List Tabs" })
+
+vim.keymap.set("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save", silent = true })
+vim.keymap.set({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
