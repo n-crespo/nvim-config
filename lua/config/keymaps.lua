@@ -133,7 +133,7 @@ vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 
 -- kill buffer
-vim.keymap.set("n", "<leader>k", "<cmd>bd<cr>", { silent = true, desc = "Close Buffer" })
+vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
 
 -- navigate tabs
 vim.keymap.set("n", "<leader>1", "<leader>un1gt", { remap = true, silent = true, desc = "Goto Tab 1" })
@@ -158,3 +158,5 @@ vim.keymap.set(
   '"`[" . strpart(getregtype(), 0, 1) . "`]"',
   { expr = true, replace_keycodes = false, desc = "Visually select changed text" }
 )
+vim.keymap.set("i", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
+vim.keymap.set("i", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through completion items" })
