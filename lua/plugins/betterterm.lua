@@ -2,7 +2,7 @@
 -- kinda like vscode... (shame)
 return {
   "CRAG666/betterTerm.nvim",
-  event = "VeryLazy",
+  event = "LazyFile",
   opts = function()
     -- yucky require statement (as per the docs)
     local betterTerm = require("betterTerm")
