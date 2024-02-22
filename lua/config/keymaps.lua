@@ -153,3 +153,9 @@ end, { silent = true, desc = "List Tabs" })
 
 vim.keymap.set("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save", silent = true })
 vim.keymap.set({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
+vim.keymap.set(
+  "n",
+  "gV",
+  '"`[" . strpart(getregtype(), 0, 1) . "`]"',
+  { expr = true, replace_keycodes = false, desc = "Visually select changed text" }
+)
