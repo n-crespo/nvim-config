@@ -58,3 +58,7 @@ vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 
 -- make :Q the same as :q
 vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })
+
+-- dont show [Process exited 0] command when terminal is closed
+-- (just send a key when that event is heard)
+vim.cmd([[au TermClose * call feedkeys("i")]])
