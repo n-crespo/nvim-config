@@ -60,5 +60,10 @@ vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })
 
 -- dont show [Process exited 0] command when terminal is closed
--- (just send a key when that event is heard)
-vim.cmd([[au TermClose * call feedkeys("i")]])
+-- (just send a key when that event is heard) AMAZING
+vim.api.nvim_create_autocmd({ "FileType", "TermClose" }, {
+  pattern = { "Term_1" }, -- this only works because i only ever have one terminal
+  callback = function()
+    vim.cmd([[call feedkeys('i')]])
+  end,
+})
