@@ -9,8 +9,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
       "<cmd>TableModeRealign<cr><cmd>w<cr>",
       { desc = "Save and Format File", buffer = true, silent = true }
     )
-    vim.keymap.set("i", "<C-j>", "<C-n>", { buffer = true, remap = false, desc = "Cycle through completion items" })
-    vim.keymap.set("i", "<C-k>", "<C-p>", { buffer = true, remap = false, desc = "Cycle through completion items" })
   end,
 })
 
