@@ -35,8 +35,9 @@ vim.keymap.set(
   { desc = "Replace instances" }
 )
 
--- remove all other windows, same as :on or :only
-vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window only" })
+-- window and buffer only (delete all other windows/buffers)
+vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window only" }) -- remove all other windows, same as :on or :only
+vim.keymap.set("n", "<leader>bo", "<cmd>w<cr><cmd>%bd|e#|bd#<cr>", { desc = "Buffer Only", silent = true }) -- delete all other buffers (body odor)
 
 -- window rotate
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rotate" })
@@ -44,11 +45,9 @@ vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rota
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
--- open in windows system viewer (for WSL)
-vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" })
-
--- open in system viewer (operating system)
-vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
+-- open
+vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" }) -- in windows system viewer
+vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" }) -- in default system viewer (operating system)
 
 -- delete and save to register
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
@@ -66,9 +65,6 @@ vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save"
 
 -- in insert mode, <C-l> auto-corrects the last misspelled word (on files that don't block spellcheck)
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
-
--- delete all other buffers (body odor)
-vim.keymap.set("n", "<leader>bo", "<cmd>w<cr><cmd>%bd|e#|bd#<cr>", { desc = "Buffer Only", silent = true })
 
 -- apply macro over selected region
 vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
@@ -112,7 +108,7 @@ vim.keymap.set("v", "E", "g_", { desc = "End of line", silent = true })
 vim.keymap.set("n", "B", "_", { desc = "Start of line", silent = true })
 vim.keymap.set("v", "B", "_", { desc = "Start of line", silent = true })
 
--- unneeded
+-- unneeded (created by which-key)
 vim.keymap.del("n", "<leader>bb")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>ft")
@@ -128,7 +124,7 @@ vim.keymap.del("n", "<leader>lÞ")
 vim.keymap.del("x", "<leader>lÞ")
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
--- LWin+u and d are mapped to page up and page down
+-- LWin+u and d are mapped to page up and page down (via autohotkey)
 vim.keymap.set("n", "<Up>", "<M-k>", { remap = true, silent = true })
 vim.keymap.set("v", "<Up>", "<M-k>", { remap = true, silent = true })
 vim.keymap.set("n", "<Down>", "<M-j>", { remap = true, silent = true })
@@ -136,7 +132,7 @@ vim.keymap.set("v", "<Down>", "<M-j>", { remap = true, silent = true })
 vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 
--- kill buffer?
+-- kill buffer
 vim.keymap.set("n", "<leader>k", "<cmd>bd<cr>", { silent = true, desc = "Close Buffer" })
 
 -- navigate tabs
@@ -146,13 +142,16 @@ vim.keymap.set("n", "<leader>3", "<leader>un3gt", { remap = true, silent = true,
 vim.keymap.set("n", "<leader>4", "<leader>un4gt", { remap = true, silent = true, desc = "Goto Tab 4" })
 vim.keymap.set("n", "<leader>5", "<leader>un5gt", { remap = true, silent = true, desc = "Goto Tab 5" })
 
--- vim.keymap.set("n", "<leader>a", "<leader>un<cmd>tabs<cr>", { remap = true, silent = true, desc = "List Tabs" })
+-- list tabs
 vim.keymap.set("n", "<leader>a", function()
   vim.cmd("tabs")
 end, { silent = true, desc = "List Tabs" })
 
+-- smart save
 vim.keymap.set("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save", silent = true })
 vim.keymap.set({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
+
+-- select last changed/yanked text
 vim.keymap.set(
   "n",
   "gV",
