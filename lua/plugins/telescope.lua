@@ -20,24 +20,6 @@ return {
         -- the default case_mode is "smart_case"
       },
     },
-  },
-  opts = {
-    defaults = {
-      preview = {
-        filesize_limit = 0.5, -- MB
-      },
-      mappings = {
-        i = {
-          ["<esc>"] = actions.close,
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
-        },
-      },
-    },
-    config = function(_, opts)
-      require("telescope").setup(opts)
-      require("telescope").load_extension("fzf")
-    end,
     keys = {
       {
         "<leader>fp",
@@ -53,4 +35,22 @@ return {
       },
     },
   },
+  opts = {
+    defaults = {
+      preview = {
+        filesize_limit = 0.5, -- MB
+      },
+      mappings = {
+        i = {
+          ["<esc>"] = actions.close,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous,
+        },
+      },
+    },
+  },
+  config = function(_, opts)
+    require("telescope").setup(opts)
+    require("telescope").load_extension("fzf")
+  end,
 }
