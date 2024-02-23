@@ -24,7 +24,6 @@ return {
         end)
 
         if not success then
-          -- An error occurred, fallback to alternative code
           require("mini.files").open(vim.loop.cwd(), true)
         end
       end,
