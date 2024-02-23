@@ -10,8 +10,6 @@ return {
   config = function()
     vim.cmd([[let g:vim_markdown_math = 1]])
     vim.g.vim_markdown_toc_autofit = 1
-    vim.keymap.del("i", "<C-k>")
     vim.cmd([[imap <Plug> <Plug>Markdown_CreateLink]])
-    vim.keymap.set("i", "<C-k>", "<C-p>", { remap = true, desc = "Prev Completion" })
   end,
 }
