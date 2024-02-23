@@ -148,7 +148,7 @@ vim.keymap.set("n", "<leader>a", function()
 end, { silent = true, desc = "List Tabs" })
 
 -- smart save
-vim.keymap.set("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save", silent = true })
+vim.keymap.set("n", "<C-S>", "<Cmd>silent! update<CR>", { desc = "Save", silent = true })
 vim.keymap.set({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
 
 -- select last changed/yanked text
