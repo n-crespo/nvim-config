@@ -14,20 +14,21 @@ return {
     },
   },
   keys = {
+    -- open mini.files with current buffer's directory, if error is thrown
+    -- fallback to cwd
     {
       "<leader>e",
       function()
-        require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        local success, result = pcall(function()
+          return require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end)
+
+        if not success then
+          -- An error occurred, fallback to alternative code
+          require("mini.files").open(vim.loop.cwd(), true)
+        end
       end,
       desc = "Explore",
-    },
-    -- below is unneeded due to autochdir option (see ../config/options.lua)
-    {
-      "<leader>E",
-      function()
-        require("mini.files").open(vim.loop.cwd(), true)
-      end,
-      desc = "Explore!",
     },
   },
   config = function(_, opts)
