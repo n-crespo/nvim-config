@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "O
 
 -- delete and save to register
 vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Register", silent = true })
-vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
+-- vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Register", silent = true })
 
 -- increment and decrements
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
