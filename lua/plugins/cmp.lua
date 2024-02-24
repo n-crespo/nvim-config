@@ -9,12 +9,12 @@ return {
     window = {
       completion = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+        winhighlight = "Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
         scrollbar = false,
       },
       documentation = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+        winhighlight = "Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
         scrollbar = true,
       },
     },
