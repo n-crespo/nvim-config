@@ -28,6 +28,8 @@ return {
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       Visual = { bg = "#21272f" },
+      CmpItemMenu = { fg = "#61afef" },
+      -- FloatBorder = { fg = "#61afef" },
       Headline = { bg = "#22272f" },
       NoiceScrollbarThumb = { bg = "#22272f" },
       NoiceScrollbar = { bg = nil },
