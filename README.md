@@ -6,7 +6,7 @@
 <a href="https://dotfyle.com/n-crespo/nvim-config"><img src="https://dotfyle.com/n-crespo/nvim-config/badges/plugin-manager?style=flat" /></a>
 
 My Neovim configuration based on [LazyVim](https://www.lazyvim.org), with added plugins and LSPs to extend its
-functionality. Every configuration was done with transparency in mind. 
+functionality. Every configuration was done with transparency in mind.
 
   ![start screen](./images/starter.png)
 
@@ -40,7 +40,6 @@ My favorite things about this configuration are (in no particular order):
 > have disabled some plugins that come with LazyVim in the
 > [overrides.lua](./lua/plugins/overrides.lua) file.
 
-
 ## Structure
 
 This configuration is structured so that:
@@ -55,7 +54,7 @@ its file. See below:
 <details>
   <summary><b>File Structure</b></summary>
 
-```
+```txt
 .
 ├── ftplugin
 │  ├── java.lua
@@ -78,7 +77,7 @@ its file. See below:
 
 ## Install Instructions
 
-> Install requires Neovim 0.9+. 
+> Install requires Neovim 0.9+.
 
 Clone the repository and install the plugins:
 
