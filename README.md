@@ -1,4 +1,3 @@
-
 # Neovim Configuration
 
 <a href="https://dotfyle.com/n-crespo/nvim-config"><img src="https://dotfyle.com/n-crespo/nvim-config/badges/plugins?style=flat" /></a>
