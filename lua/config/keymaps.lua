@@ -160,3 +160,6 @@ vim.keymap.set(
 )
 vim.keymap.set("i", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
 vim.keymap.set("i", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through completion items" })
+
+vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
+vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through completion items" })
