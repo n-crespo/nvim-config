@@ -22,16 +22,16 @@ return {
       undercurl = true,
     },
     highlights = {
-      ["@markup.list.unchecked.markdown"] = { fg = "#ef696f" }, -- unchecked markdown checkbox
-      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = nil, bold = true }, -- checked markdown checkbox
+      ["@markup.list.unchecked.markdown"] = { fg = "#ef696f", bg = "#22272f" },
+      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = "#22272f" },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
       LazyButton = { bg = "#22272f" },
       Visual = { bg = "#21272f" },
       CmpItemMenu = { fg = "#61afef" },
-      -- FloatBorder = { fg = "#61afef" },
       Headline = { bg = "#22272f" },
       NoiceScrollbarThumb = { bg = "#22272f" },
+      -- Visual = { bg = nil },
       NoiceScrollbar = { bg = nil },
       TreeSitterContext = { bg = "#22272f" },
       TelescopeBorder = { fg = "#61afef" },
