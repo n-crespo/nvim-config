@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
   end,
 })
 
+-- fix rmarkdown filetype (use rmd)
 vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   pattern = { "*.Rmd" },
   callback = function()
@@ -19,6 +20,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   end,
 })
 
+-- enable inlay hints for cpp files
 vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufEnter" }, {
   pattern = { "*.cpp" },
   callback = function()
