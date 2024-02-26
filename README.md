@@ -15,22 +15,21 @@ My favorite things about this configuration are (in no particular order):
 
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
 * the keymaps in [keymaps.lua](./lua/config/keymaps.lua)
-* the ~25 ms startup time (more like 60ms in regular Windows)
+* the ~30 ms startup time
   * see the last 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 * the following plugins:
   * [codeium](https://github.com/Exafunction/codeium.vim) (free and open source code completion) (installed with `:LazyExtras`)
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
-  * [origami](https://github.com/chrisgrieser/nvim-origami) (`h` and `l` for folding instead of `za`)
   * [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
-  * [flash.nvim](https://github.com/folke/flash.nvim) (super fast navigation)
   * [cokeline](https://github.com/willothy/nvim-cokeline) (clean, hackable tabline that i didn't hack at all)
   * [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
   * [highlight-undo](https://github.com/tzachar/highlight-undo.nvim) (surprisingly very useful)
   * [betterTerm](https://github.com/CRAG666/betterTerm.nvim) (better `:term`)
   * [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested nvim instances, amazing when used with autojump and betterTerm)
   * [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
-* LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
+* the LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
   * see [markdown.lua](./lua/plugins/markdown.lua) and [markdowntable.lua](./lua/plugins/markdowntable.lua) for an amazing markdown editing experience (no LSP needed)
+* I have successfully replaced \<C-n\> and \<C-p\> with \<C-j\> and \<C-k\> *everywhere*
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I
@@ -51,13 +50,12 @@ This configuration is structured so that:
 its file. See below:
 
 <details>
-  <summary><b>File Structure</b></summary>
+  <summary><b>All Relevant File Structure</b></summary>
 
 ```txt
 .
 ├── ftplugin
-│  ├── java.lua
-│  └── markdown.lua
+│  └── java.lua
 ├── lua
 │  ├── config
 │  │  ├── autocmds.lua
