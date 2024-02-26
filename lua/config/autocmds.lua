@@ -66,9 +66,8 @@ vim.api.nvim_create_autocmd({ "FileType", "TermClose" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
+  pattern = { "TelescopePrompt" },
   callback = function(event)
-    if vim.bo[event.buf].filetype == "TelescopePrompt" then
-      vim.api.nvim_exec2("silent! stopinsert!", {})
-    end
+    vim.api.nvim_exec2("silent! stopinsert!", {})
   end,
 })
