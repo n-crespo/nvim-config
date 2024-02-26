@@ -39,8 +39,8 @@ require("lazy").setup({
   -- install = { colorscheme = { "onedark_dark" } },
   checker = { enabled = true }, --   automatically check for plugin updates
   performance = {
+    -- disable some rtp plugins
     rtp = {
-      -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
         "matchit",
