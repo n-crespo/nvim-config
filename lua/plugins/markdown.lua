@@ -10,6 +10,6 @@ return {
   config = function()
     vim.cmd([[let g:vim_markdown_math = 1]])
     vim.g.vim_markdown_toc_autofit = 1
-    vim.cmd([[imap <Plug> <Plug>Markdown_CreateLink]])
+    vim.cmd([[map <Plug> <Plug>Markdown_Fold]])
   end,
 }
