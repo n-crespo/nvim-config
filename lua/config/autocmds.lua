@@ -19,6 +19,14 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufEnter" }, {
+  pattern = { "*.cpp" },
+  callback = function()
+    require("clangd_extensions.inlay_hints").setup_autocmd()
+    require("clangd_extensions.inlay_hints").set_inlay_hints()
+  end,
+})
+
 -- don't use lsp on pvs files
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   callback = function(opt)
