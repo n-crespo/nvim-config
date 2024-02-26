@@ -31,7 +31,6 @@ return {
       CmpItemMenu = { fg = "#61afef" },
       Headline = { bg = "#22272f" },
       NoiceScrollbarThumb = { bg = "#22272f" },
-      -- Visual = { bg = nil },
       NoiceScrollbar = { bg = nil },
       TreeSitterContext = { bg = "#22272f" },
       TelescopeBorder = { fg = "#61afef" },
