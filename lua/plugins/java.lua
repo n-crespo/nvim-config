@@ -4,9 +4,6 @@ return {
   dependencies = {
     "nvim-java/lua-async-await",
     "nvim-java/nvim-java-core",
-    "nvim-java/nvim-java-test",
-    "nvim-java/nvim-java-dap",
-    "mfussenegger/nvim-dap",
     {
       "williamboman/mason.nvim",
       opts = {
@@ -18,11 +15,3 @@ return {
     },
   },
 }
-
--- ○ lua-async-await  nvim-java
--- ○ nvim-dap  nvim-java
--- ○ nvim-dap-python  <leader>dPt  <leader>dPc  nvim-dap
--- ○ nvim-java
--- ○ nvim-java-core  nvim-java
--- ○ nvim-java-dap  nvim-java
--- ○ nvim-java-test  nvim-java
