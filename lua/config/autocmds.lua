@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
       "<cmd>TableModeRealign<cr><cmd>w<cr>",
       { desc = "Save and Format File", buffer = true, silent = true }
     )
+    vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
   end,
 })
 
@@ -75,6 +76,7 @@ vim.api.nvim_create_autocmd({ "FileType", "TermClose" }, {
   end,
 })
 
+-- always enter normal mode when leaving telescope prompt
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
   pattern = { "TelescopePrompt" },
   callback = function(event)

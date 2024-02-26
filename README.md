@@ -29,7 +29,7 @@ My favorite things about this configuration are (in no particular order):
   * [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
 * the LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
   * see [markdown.lua](./lua/plugins/markdown.lua) and [markdowntable.lua](./lua/plugins/markdowntable.lua) for an amazing markdown editing experience (no LSP needed)
-* I have successfully replaced \<C-n\> and \<C-p\> with \<C-j\> and \<C-k\> *everywhere*
+* I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` *everywhere*
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I
@@ -98,3 +98,18 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] `require({})` less
 - [x] transparent Lualine
 - [x] transparent LSP and save dialogues (bottom right)
+- [x] `<C-j>` and `<C-k>` for cycling completions
+  - [x] in Telescope
+  - [x] in command line popup
+  - [x] in code completions
+- [x] image previews in telescope
+- [x] delete buffers through telescope
+- [x] Fix Shift+Tab in markdown files
+- [x] fix completion window highlights
+- [x] fix mini.files path not found errors
+- [x] escape to close telescope immediately
+- [x] fix `[Process exited 0]` when quit terminal
+- [x] fix `<Tab>` keymap conflicts due to markdown plugin
+- [x] vertical lualine separators?
+- [ ] fuzzy finding in command mode?
+- [ ] better spell check for markdown (ignore inline html + links)
