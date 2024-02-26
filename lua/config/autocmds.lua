@@ -1,3 +1,15 @@
+-- sync with system clipboard on focus
+vim.api.nvim_create_autocmd({ "FocusGained" }, {
+  pattern = { "*" },
+  command = [[call setreg("@", getreg("+"))]],
+})
+
+-- sync with system clipboard on focus
+vim.api.nvim_create_autocmd({ "FocusLost" }, {
+  pattern = { "*" },
+  command = [[call setreg("+", getreg("@"))]],
+})
+
 -- auto toggle table mode when opening and closing markdown file
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" }, {
   pattern = "*.md",
@@ -47,18 +59,6 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   callback = function()
     vim.cmd([[set ft=java]])
   end,
-})
-
--- sync with system clipboard on focus
-vim.api.nvim_create_autocmd({ "FocusGained" }, {
-  pattern = { "*" },
-  command = [[call setreg("@", getreg("+"))]],
-})
-
--- sync with system clipboard on focus
-vim.api.nvim_create_autocmd({ "FocusLost" }, {
-  pattern = { "*" },
-  command = [[call setreg("+", getreg("@"))]],
 })
 
 -- make :W the same as :w

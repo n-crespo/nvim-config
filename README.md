@@ -16,7 +16,7 @@ My favorite things about this configuration are (in no particular order):
 * the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
 * the keymaps in [keymaps.lua](./lua/config/keymaps.lua)
 * the ~30 ms startup time
-  * see the last 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
+  * see the first 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 * the following plugins:
   * [codeium](https://github.com/Exafunction/codeium.vim) (free and open source code completion) (installed with `:LazyExtras`)
   * [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
@@ -40,14 +40,9 @@ My favorite things about this configuration are (in no particular order):
 
 ## Structure
 
-This configuration is structured so that:
-
-1) Vim specific configurations are in the
-  `./lua/config/` folder  in the same way preconfigured LazyVim is structured, and
-
-2) All plugin configurations are in the `./lua/plugins/` folder, with each
-   plugin having its own file. This way, I can remove a plugin by just deleting
-its file. See below:
+This configuration is structured so that all plugin configurations are in the
+`./lua/plugins/` folder, with each plugin having its own file. This way, I can
+remove a plugin by just deleting its file. See below:
 
 <details>
   <summary><b>All Relevant File Structure</b></summary>
