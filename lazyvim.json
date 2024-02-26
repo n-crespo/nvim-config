@@ -3,9 +3,8 @@
     "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.lang.clangd",
-    "lazyvim.plugins.extras.lang.markdown",
-    "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.java",
+    "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.python-semshi",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],

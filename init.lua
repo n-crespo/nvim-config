@@ -1,2 +1,2 @@
 require("config.lazy")
-require("mini.files") -- needed for nvim .
+-- require("mini.files") -- needed for nvim .
