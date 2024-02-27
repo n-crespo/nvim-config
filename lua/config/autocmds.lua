@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   pattern = { "*.pvs" },
   callback = function()
-    vim.cmd([[set ft=java]])
+    vim.cmd([[set ft=c]])
   end,
 })
 

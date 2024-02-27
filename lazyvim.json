@@ -1,12 +1,10 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.java",
     "lazyvim.plugins.extras.lang.python",
-    "lazyvim.plugins.extras.lang.python-semshi",
-    "lazyvim.plugins.extras.util.mini-hipatterns"
+    "lazyvim.plugins.extras.lang.python-semshi"
   ],
   "news": {
     "NEWS.md": "2123"
