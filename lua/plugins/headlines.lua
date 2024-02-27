@@ -19,7 +19,7 @@ return {
       fat_headline_upper_string = "▃",
       fat_headline_lower_string = "▀",
 
-      -- these make markdown a lot slower if enabled
+      -- these make rmarkdown a lot slower if enabled
       headline_highlights = false,
       codeblock_highlight = false,
     },

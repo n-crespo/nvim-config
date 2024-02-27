@@ -4,11 +4,10 @@ return {
   "echasnovski/mini.indentscope",
   event = "LazyFile", -- only load plugin after a buffer has been opened
   opts = {
-    -- don't show an animation
     draw = {
       delay = 0,
       animation = function()
-        return 0
+        return 0 -- don't show an animation
       end,
     },
   },

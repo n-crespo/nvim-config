@@ -4,7 +4,6 @@ return {
   "CRAG666/betterTerm.nvim",
   event = "VeryLazy",
   opts = function()
-    -- yucky require statement (as per the docs)
     local betterTerm = require("betterTerm")
     vim.keymap.set({ "n", "t" }, "<C-q>", betterTerm.open, { desc = "Open terminal" })
   end,

@@ -12,12 +12,6 @@ return {
           winblend = 0,
         },
       },
-      -- hover = {
-      --   scrollbar = false,
-      -- },
-      -- popupmenu = {
-      --   scrollbar = false, -- this doesn't seem to do anything
-      -- },
     },
   },
 }

@@ -1,7 +1,7 @@
 -- fuzzy file finder and a whole lot more
--- use <leader><leader> to find within a directory
--- <leader><leader> intelligently searches root directory and respects git
--- previewer omits files that are too large or un-preview-able
+-- use <leader><leader> to find within a directory (respects git)
+-- previewer omits files that are too large or un-preview-able, catimg for
+-- images
 local actions = require("telescope.actions")
 return {
   "telescope.nvim",

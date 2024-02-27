@@ -1,43 +1,35 @@
 -- disables some plugins
 return {
-  -- mini files better
   {
-    "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim", -- mini files better
     enabled = false,
   },
-  -- what is even the point of this plugin
   {
-    "RRethy/vim-illuminate",
+    "RRethy/vim-illuminate", -- this is useless
     enabled = false,
   },
-  -- i use mini starter
   {
-    "nvimdev/dashboard-nvim",
+    "nvimdev/dashboard-nvim", -- i use mini starter
     enabled = false,
   },
-  -- im not thaaat deep into python development
   {
-    "linux-cultist/venv-selector.nvim",
+    "linux-cultist/venv-selector.nvim", -- im not thaaat deep into python development
     enabled = false,
   },
-  -- i never use this
   {
-    "nvim-pack/nvim-spectre",
+    "nvim-pack/nvim-spectre", -- too risky, no undo
     enabled = false,
   },
-  -- i never use this
   {
-    "catppuccin",
+    "catppuccin", -- i don't use this
     enabled = false,
   },
-  -- i use cokeline
   {
-    "akinsho/bufferline.nvim",
+    "akinsho/bufferline.nvim", -- i use cokeline
     enabled = false,
   },
-  -- this is useless to me afaik
   {
-    "folke/neoconf.nvim",
+    "folke/neoconf.nvim", -- this is useless to me afaik
     enabled = false,
   },
 }

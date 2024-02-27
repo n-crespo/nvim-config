@@ -17,19 +17,8 @@ return {
       evaluate_single = true,
       silent = true,
       autoopen = true,
-      -- footer = os.date("%A, %B %d, %Y %I:%M %p"),
       footer = "",
-
-      -- header = table.concat({
-      --   [[  /\ \▔\___  ___/\   /()_ __ ___  ]],
-      --   [[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
-      --   [[/ /\  /  __/ (_) \ V /| | | | | | |]],
-      --   [[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
-      --   [[───────────────────────────────────]],
-      -- }, "\n"),
-
       header = "",
-
       query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
       items = {
         {

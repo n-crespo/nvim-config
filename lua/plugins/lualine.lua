@@ -1,4 +1,4 @@
--- status bar at bottom of screen
+-- status line
 -- 12 hour time because 'murica
 -- transparent bar because transparent is better
 return {
