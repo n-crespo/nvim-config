@@ -40,6 +40,7 @@ opt.smartindent = true -- indent smartly
 opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
+opt.spelloptions = "noplainbuffer"
 vim.g.loaded_perl_provider = 0 -- what is even this (causes checkhealth error if true)
 vim.g.wrap = false -- stop wrapping my text
 vim.g.mapleader = " "

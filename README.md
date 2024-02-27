@@ -106,5 +106,4 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix `[Process exited 0]` when quit terminal
 - [x] fix `<Tab>` keymap conflicts due to markdown plugin
 - [x] vertical lualine separators?
-- [ ] fuzzy finding in command mode?
 - [ ] better spell check for markdown (ignore inline html + links)
