@@ -49,8 +49,6 @@ remove a plugin by just deleting its file. See below:
 
 ```txt
 .
-├── ftplugin
-│  └── java.lua
 ├── lua
 │  ├── config
 │  │  ├── autocmds.lua
@@ -106,4 +104,4 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix `[Process exited 0]` when quit terminal
 - [x] fix `<Tab>` keymap conflicts due to markdown plugin
 - [x] vertical lualine separators?
-- [ ] better spell check for markdown (ignore inline html + links)
+- [ ] better spell check for markdown (ignore inline html + links + code blocks)
