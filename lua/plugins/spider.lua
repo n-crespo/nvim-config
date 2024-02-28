@@ -1,11 +1,18 @@
 -- w, e, and b, now respect camel case/snake case/etc and ignore non-essential characters
 return {
   "chrisgrieser/nvim-spider",
-  keys = {
-    { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
-    { "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" } },
-    { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
-    { "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" } },
-    { "ge", "<cmd>lua require('spider').motion('ge')<CR>", mode = { "n", "o", "x" } },
-  },
+  config = function()
+    vim.keymap.set({ "n", "o", "x" }, "w", function()
+      require("spider").motion("w")
+    end)
+    vim.keymap.set({ "n", "o", "x" }, "e", function()
+      require("spider").motion("e")
+    end)
+    vim.keymap.set({ "n", "o", "x" }, "b", function()
+      require("spider").motion("b")
+    end)
+    vim.keymap.set({ "n", "o", "x" }, "ge", function()
+      require("spider").motion("ge")
+    end)
+  end,
 }
