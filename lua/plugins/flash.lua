@@ -17,6 +17,13 @@ return {
     label = {
       uppercase = false,
     },
+    modes = {
+      -- options used when flash is activated through
+      -- `f`, `F`, `t`, `T`, `;` and `,` motions
+      char = {
+        enabled = false,
+      },
+    },
   },
   keys = {
     {
@@ -27,6 +34,14 @@ return {
       end,
       desc = "Flash",
     },
-    { "S", nil }, -- tsactions
+    {
+      "f", -- use default f
+      nil,
+      mode = { "n", "x", "o" },
+    },
+    {
+      "S", -- used for ts-actions
+      nil,
+    },
   },
 }
