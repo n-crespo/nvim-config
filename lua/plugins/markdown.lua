@@ -12,6 +12,5 @@ return {
     vim.g.vim_markdown_toc_autofit = 1
     vim.cmd([[map zh <Plug>Markdown_Fold]])
     vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
-    -- vim.cmd([[map <Plug> <Plug>Markdown_FollowLink]])
   end,
 }

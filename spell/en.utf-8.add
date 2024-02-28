@@ -136,3 +136,14 @@ lualine
 keymap
 MDS
 sync
+filetype
+YAML
+TOML
+toml
+JSON
+json
+Setex
+Atx
+quickfix
+TOC
+url
