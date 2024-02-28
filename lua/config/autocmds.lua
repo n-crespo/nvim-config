@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
       { desc = "Save and Format File", buffer = true, silent = true }
     )
     vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
+    vim.keymap.set("i", "*", "**<left>", { buffer = true, silent = true })
   end,
 })
 
