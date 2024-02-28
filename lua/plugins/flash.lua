@@ -12,5 +12,6 @@ return {
       end,
       desc = "Flash",
     },
+    { "S", nil }, -- tsactions
   },
 }
