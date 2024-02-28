@@ -1,6 +1,7 @@
 -- w, e, and b respect pascalCase/CamelCase/snake_case/etc and ignore non-essential characters
 return {
   "chrisgrieser/nvim-spider",
+  event = "LazyFile",
   keys = {
     {
       "e",
