@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
     )
     vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
     vim.keymap.set("i", "*", "**<left>", { buffer = true, silent = true })
+    vim.cmd([[ownsyntax on]]) -- for some inline latex rendering (see markdown.lua)
   end,
 })
 

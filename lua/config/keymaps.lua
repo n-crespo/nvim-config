@@ -121,3 +121,5 @@ vim.keymap.set(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace instances" }
 )
+
+vim.keymap.set("n", "<C-;>", ":")
