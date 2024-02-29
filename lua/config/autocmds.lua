@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
 })
 
 -- auto toggle table mode when opening and closing markdown file
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
   pattern = "*.md",
   callback = function()
     vim.cmd([[setlocal nowrap]])
@@ -22,6 +22,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufRead", "BufNewFile" },
     vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
     vim.keymap.set("i", "*", "**<left>", { buffer = true, silent = true })
     vim.cmd([[ownsyntax on]]) -- for some inline latex rendering (see markdown.lua)
+    vim.cmd([[set cole=2]])
   end,
 })
 
