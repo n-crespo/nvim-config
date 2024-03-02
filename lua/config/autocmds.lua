@@ -8,25 +8,12 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
   command = [[call setreg("+", getreg("@"))]],
 })
 
--- -- auto toggle table mode when opening and closing markdown file
--- vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
---   pattern = "*.md",
---   callback = function()
---     vim.cmd([[setlocal nowrap]])
---     vim.keymap.set(
---       "n",
---       "<C-s>",
---       "<cmd>TableModeRealign<cr><cmd>w<cr>",
---       { desc = "Save and Format File", buffer = true, silent = true }
---     )
---     vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
---     vim.keymap.set("i", "*", "**<left>", { buffer = true, silent = true })
---     vim.cmd([[ownsyntax on]]) -- for some inline latex rendering (see markdown.lua)
---     vim.cmd([[set cole=2]])
---     vim.cmd([[set spelllang=en]])
---     vim.cmd([[set spell]])
---   end,
--- })
+-- never wrap my code. Please. Stop it.
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  callback = function()
+    vim.cmd([[set nowrap]])
+  end,
+})
 
 -- don't use lsp on pvs files
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
