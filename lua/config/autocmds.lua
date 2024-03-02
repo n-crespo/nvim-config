@@ -8,40 +8,25 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
   command = [[call setreg("+", getreg("@"))]],
 })
 
--- auto toggle table mode when opening and closing markdown file
-vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
-  pattern = "*.md",
-  callback = function()
-    vim.cmd([[setlocal nowrap]])
-    vim.keymap.set(
-      "n",
-      "<C-s>",
-      "<cmd>TableModeRealign<cr><cmd>w<cr>",
-      { desc = "Save and Format File", buffer = true, silent = true }
-    )
-    vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
-    vim.keymap.set("i", "*", "**<left>", { buffer = true, silent = true })
-    vim.cmd([[ownsyntax on]]) -- for some inline latex rendering (see markdown.lua)
-    vim.cmd([[set cole=2]])
-  end,
-})
-
--- fix rmarkdown filetype (use rmd)
-vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
-  pattern = { "*.Rmd" },
-  callback = function()
-    vim.cmd([[set ft=rmd]])
-  end,
-})
-
--- enable inlay hints for cpp files
-vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufEnter" }, {
-  pattern = { "*.cpp" },
-  callback = function()
-    require("clangd_extensions.inlay_hints").setup_autocmd()
-    require("clangd_extensions.inlay_hints").set_inlay_hints()
-  end,
-})
+-- -- auto toggle table mode when opening and closing markdown file
+-- vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
+--   pattern = "*.md",
+--   callback = function()
+--     vim.cmd([[setlocal nowrap]])
+--     vim.keymap.set(
+--       "n",
+--       "<C-s>",
+--       "<cmd>TableModeRealign<cr><cmd>w<cr>",
+--       { desc = "Save and Format File", buffer = true, silent = true }
+--     )
+--     vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
+--     vim.keymap.set("i", "*", "**<left>", { buffer = true, silent = true })
+--     vim.cmd([[ownsyntax on]]) -- for some inline latex rendering (see markdown.lua)
+--     vim.cmd([[set cole=2]])
+--     vim.cmd([[set spelllang=en]])
+--     vim.cmd([[set spell]])
+--   end,
+-- })
 
 -- don't use lsp on pvs files
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
@@ -68,7 +53,7 @@ vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 -- make :Q the same as :q
 vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })
 
--- dont show [Process exited 0] command when terminal is closed
+-- don't show [Process exited 0] command when terminal is closed
 -- (just send a key when that event is heard) AMAZING
 vim.api.nvim_create_autocmd({ "FileType", "TermClose" }, {
   -- default name of better_term terminal is "Term_1"
