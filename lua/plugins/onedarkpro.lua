@@ -22,8 +22,9 @@ return {
       undercurl = true,
     },
     highlights = {
-      ["@markup.list.unchecked.markdown"] = { fg = "#ef696f", bg = "#22272f" },
-      ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = "#22272f" },
+      -- ["@markup.list.unchecked.markdown"] = { fg = "#ef696f", bg = "#22272f" },
+      ["@markup.list.checked.markdown"] = { bg = nil },
+      ["@markup.list.marked.markdown"] = { bg = nil },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
       TabLineSel = { bg = "#22272f" }, -- cokeline
