@@ -3,17 +3,7 @@
 
 local opt = vim.opt
 
--- BUG: This is a limitation of using neovim in WSL, and makes yanking and
--- pasting a bit slow. Using "unnamedplus" makes it instant, but then increases
--- startup SUBSTANTIALLY (almost 900ms) (see :StartupTime --> clipboard.vim), so
--- this is my current best solution. Also I had to remove my powershell profile
--- configuration so it wouldn't take ten years to paste.
-
--- NOTE: I fixed this! See the line below this note, where I removed the
--- clipboard syncing entirely, and see the bottom of autocmds.lua to see the
--- autocmds that sync the clipboard for me. Amazing.
-
-opt.clipboard = "" -- don't sync with system clipboard (see autocmds)
+opt.clipboard = "" -- don't sync with system clipboard (see autocmds.lua for WSL clipboard support)
 opt.mouse = "" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
@@ -25,7 +15,7 @@ opt.swapfile = false -- don't make backup swap files
 opt.wrap = false -- don't wrap text by default
 opt.incsearch = true -- who knows
 opt.autochdir = false -- change directory to the location of current open buffer automatically (needed for persistence)
-opt.scrolloff = 10 -- don't scroll all the way down
+opt.scrolloff = 9999 -- don't scroll all the way down
 opt.sidescrolloff = 0 -- don't scroll all the way to the side
 opt.sidescroll = 0 -- don't scroll all the way to the side
 opt.numberwidth = 1 -- left side width
