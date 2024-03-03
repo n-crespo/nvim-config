@@ -34,6 +34,17 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   end,
 })
 
+-- vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
+--   pattern = { "*.md" },
+--   callback = function()
+--     vim.cmd([[
+--     syntax match QuoteConceal "^>" conceal cchar=┃
+--     syntax match todoConceal '\v(\s+)?-\s\[\s\]'hs=e-4 conceal cchar=󰄱
+--     syntax match doneTodoConceal /\v\s*- \[x\]/ conceal cchar=󰄲
+--     ]])
+--   end,
+-- })
+
 -- make :W the same as :w
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 

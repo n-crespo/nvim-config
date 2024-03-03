@@ -3,6 +3,7 @@
 -- also makes block quotes and horizontal lines look better (not so laggy)
 return {
   "lukas-reineke/headlines.nvim",
+  enabled = false,
   ft = { "markdown", "rmd" },
   opts = {
     markdown = {

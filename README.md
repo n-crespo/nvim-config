@@ -67,7 +67,7 @@ remove a plugin by just deleting its file. See below:
 
 ## Install Instructions
 
-> Install requires Neovim 0.9+.
+>  Install requires Neovim 0.9+.
 
 Clone the repository and install the plugins:
 
@@ -105,3 +105,4 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix `<Tab>` keymap conflicts due to markdown plugin
 - [x] vertical lualine separators?
 - [ ] better spell check for markdown (ignore inline html + links + code blocks)
+- [ ] this is a misspsleleled word
