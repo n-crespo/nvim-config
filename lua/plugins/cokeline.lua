@@ -1,6 +1,7 @@
 -- minimal tabline/bufferline/whatever you want to call it with sane defaults
 return {
   "willothy/nvim-cokeline",
+  enabled = false,
   event = "LazyFile",
   dependencies = {
     "nvim-lua/plenary.nvim", -- Required for v0.4.0+

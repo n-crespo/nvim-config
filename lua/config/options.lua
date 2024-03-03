@@ -33,6 +33,7 @@ opt.ignorecase = true -- casing in search
 opt.spelloptions = "camel"
 opt.spelllang = "en"
 opt.wrap = false
+opt.showtabline = 2 -- always show tabline
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.wrap = false -- stop wrapping my text

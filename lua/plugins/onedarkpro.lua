@@ -35,6 +35,8 @@ return {
       TreeSitterContext = { bg = "#22272f" },
       MiniStarterItemBullet = { fg = "#61afef" },
       MiniStarterItemPrefix = { fg = "#89ca78" },
+      TabLine = { bg = "#22272f" },
+      -- TabLineFill = { guifg = "#21272f" },
     },
   },
   config = function(_, opts)
