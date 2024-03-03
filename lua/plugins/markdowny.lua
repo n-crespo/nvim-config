@@ -9,6 +9,6 @@ return {
     vim.keymap.set("v", "<C-i>", "<cmd>lua require('markdowny').italic()<cr>gv", { silent = true, buffer = 0 })
     vim.keymap.set("n", "<C-i>", "V<C-i>", { remap = true, silent = true, buffer = 0 })
     vim.keymap.set("v", "<C-e>", "<cmd>lua require('markdowny').code()<cr>gv", { silent = true, buffer = 0 })
-    vim.keymap.set("n", "<C-e>", "v$<C-e>gv", { remap = true, silent = true, buffer = 0 })
+    vim.keymap.set("n", "<C-e>", "<C-e>v$", { silent = true, remap = true, buffer = 0 })
   end,
 }

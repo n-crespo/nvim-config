@@ -1,3 +1,4 @@
+-- this is kinda buggy
 return {
   "jbyuki/nabla.nvim",
   lazy = true,
@@ -8,7 +9,7 @@ return {
   config = function()
     require("nabla").enable_virt({
       autogen = true,
-      silent = false,
+      silent = true,
     })
   end,
 }

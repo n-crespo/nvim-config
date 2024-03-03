@@ -8,6 +8,9 @@ return {
       width_focus = 30,
       width_preview = 30,
     },
+    mappings = {
+      go_in_plus = "<CR>",
+    },
     options = {
       permanent_delete = false, -- files are sent to ~/.local/share/nvim/mini.files/trash/
       use_as_default_explorer = true, -- for nvim .
