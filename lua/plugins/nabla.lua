@@ -8,7 +8,7 @@ return {
   config = function()
     require("nabla").enable_virt({
       autogen = true,
-      silent = true,
+      silent = false,
     })
   end,
 }
