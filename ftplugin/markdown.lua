@@ -1,9 +1,3 @@
-vim.cmd([[ownsyntax on]])
-vim.cmd([[setlocal cole=2]])
-vim.cmd([[setlocal spelllang=en]])
-vim.cmd([[setlocal nowrap!]])
-vim.cmd([[setlocal spell]])
-
 vim.keymap.set(
   "n",
   "<C-s>",
