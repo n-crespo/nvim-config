@@ -1,8 +1,8 @@
 vim.cmd([[ownsyntax on]])
-vim.cmd([[set cole=2]])
-vim.cmd([[set spelllang=en]])
-vim.cmd([[set nowrap!]])
-vim.cmd([[set spell]])
+vim.cmd([[setlocal cole=2]])
+vim.cmd([[setlocal spelllang=en]])
+vim.cmd([[setlocal nowrap!]])
+vim.cmd([[setlocal spell]])
 
 vim.keymap.set(
   "n",
