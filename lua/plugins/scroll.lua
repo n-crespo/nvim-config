@@ -1,5 +1,11 @@
 return {
   "Aasim-A/scrollEOF.nvim",
   event = { "CursorMoved", "WinScrolled" },
-  opts = {},
+  opts = {
+    disabled_filetypes = {
+      "minifiles",
+      "better_term",
+      "lazyterm",
+    },
+  },
 }
