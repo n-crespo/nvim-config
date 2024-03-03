@@ -3,7 +3,7 @@
 -- but good
 return {
   "n-crespo/nvim-markdown",
-  enabled = false,
+  enabled = true,
   ft = "markdown",
   keys = {
     { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmd>set nonu<cr>", desc = "Table of Contents" },
