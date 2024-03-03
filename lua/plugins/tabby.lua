@@ -11,7 +11,7 @@ return {
       -- current_tab = 'TabLineSel',
       current_tab = { fg = "#F8FBF6", bg = "#434852", style = "italic" },
       tab = "TabLine",
-      win = { fg = "#F8FBF6", bg = "#434852", style = "italic" },
+      win = { fg = "#F8FBF6", bg = "#22272f", style = "italic" },
       tail = "TabLine",
     }
 
@@ -38,11 +38,11 @@ return {
         -- shows list of windows in tab
         line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
           return {
-            line.sep("", theme.win, theme.fill),
+            line.sep("", win.is_current() and theme.current_tab or theme.win, theme.fill),
             win.is_current() and "" or "",
             win.buf_name(),
-            line.sep("", theme.win, theme.fill),
-            hl = theme.win,
+            line.sep("", win.is_current() and theme.current_tab or theme.win, theme.fill),
+            hl = win.is_current() and theme.current_tab or theme.win,
             margin = " ",
           }
         end),
