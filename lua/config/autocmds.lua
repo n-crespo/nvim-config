@@ -37,6 +37,8 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
 -- make :W the same as :w
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 
+vim.api.nvim_create_user_command("E", "e", { nargs = 0 })
+
 -- make :Q the same as :q
 vim.api.nvim_create_user_command("Q", "q", { nargs = 0 })
 
