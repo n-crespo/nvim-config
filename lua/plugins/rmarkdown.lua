@@ -2,7 +2,18 @@
 return {
   "vim-pandoc/vim-rmarkdown",
   ft = { "rmd", "rmarkdown" }, -- only load plugin in rmd files
-  dependencies = { "vim-pandoc/vim-pandoc-syntax" },
+  dependencies = {
+    { "vim-pandoc/vim-pandoc-syntax" },
+    {
+      "folke/which-key.nvim",
+      opts = {
+        defaults = {
+          ["<Leader>r"] = { name = "+r markdown" },
+          ["<Leader>rk"] = { name = "+knit" },
+        },
+      },
+    },
+  },
   keys = {
     { "<leader>rb", [[i```{r}<cr>```<esc>O]], desc = "R Code Block" }, -- R markdown code block
     {

@@ -2,6 +2,14 @@
 return {
   "iamcco/markdown-preview.nvim",
   cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
+  dependencies = {
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<Leader>o"] = { name = "+open" },
+      },
+    },
+  },
   build = function()
     vim.fn["mkdp#util#install"]()
   end,

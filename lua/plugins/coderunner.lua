@@ -3,6 +3,14 @@
 return {
   "CRAG666/code_runner.nvim",
   event = "LazyFile",
+  dependencies = {
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<R>"] = { name = "+Run" },
+      },
+    },
+  },
   config = true,
   opts = {
     mode = "term",

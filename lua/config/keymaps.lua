@@ -54,8 +54,8 @@ vim.keymap.del("n", "<leader>K")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>sb")
-vim.keymap.del("n", "<leader>lÞ")
-vim.keymap.del("x", "<leader>lÞ")
+-- vim.keymap.del("n", "<leader>lÞ")
+-- vim.keymap.del("x", "<leader>lÞ")
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)

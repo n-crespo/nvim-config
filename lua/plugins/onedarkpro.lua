@@ -29,8 +29,8 @@ return {
       TabLineSel = { bg = "#22272f" }, -- cokeline
       Visual = { bg = "#21272f" },
       Headline = { bg = "#22272f" },
-      NoiceScrollbarThumb = { bg = "#22272f" },
-      NoiceScrollbar = { bg = "#434852" },
+      NoiceScrollbar = { bg = "#22272f" },
+      NoiceScrollbarThumb = { bg = "#434852" },
       TreeSitterContext = { bg = "#22272f" },
       MiniStarterItemBullet = { fg = "#61afef" },
       MiniStarterItemPrefix = { fg = "#89ca78" },
