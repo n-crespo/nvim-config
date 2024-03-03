@@ -12,7 +12,6 @@ return {
       current_tab = { fg = "#F8FBF6", bg = "#434852", style = "italic" },
       tab = "TabLine",
       win = { fg = "#F8FBF6", bg = "#434852", style = "italic" },
-      win_inactive = "TabLine",
       tail = "TabLine",
     }
 
@@ -39,11 +38,11 @@ return {
         -- shows list of windows in tab
         line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
           return {
-            hl = win.is_current() and theme.win or theme.win_inactive,
-            line.sep("", hl, theme.fill),
+            line.sep("", theme.win, theme.fill),
             win.is_current() and "" or "",
             win.buf_name(),
-            line.sep("", hl, theme.fill),
+            line.sep("", theme.win, theme.fill),
+            hl = theme.win,
             margin = " ",
           }
         end),
