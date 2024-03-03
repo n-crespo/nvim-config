@@ -1,5 +1,5 @@
 return {
-  "antonk52/markdowny.nvim",
+  "n-crespo/markdowny.nvim",
   ft = "markdown",
   config = function()
     require("markdowny").setup({ filetypes = { "markdown", "txt" } })
@@ -9,6 +9,7 @@ return {
     vim.keymap.set("v", "<C-i>", "<cmd>lua require('markdowny').italic()<cr>gv", { silent = true, buffer = 0 })
     vim.keymap.set("n", "<C-i>", "V<C-i>", { remap = true, silent = true, buffer = 0 })
     vim.keymap.set("v", "<C-e>", "<cmd>lua require('markdowny').code()<cr>gv", { silent = true, buffer = 0 })
-    vim.keymap.set("n", "<C-e>", "<C-e>v$", { silent = true, remap = true, buffer = 0 })
+    vim.keymap.set("v", "<C-m>", "<cmd>lua require('markdowny').math()<cr>gv", { silent = true, buffer = 0 })
+    vim.keymap.set("n", "<C-m>", "I$<esc>A$", { silent = true, buffer = true })
   end,
 }
