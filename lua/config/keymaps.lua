@@ -37,8 +37,8 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
 -- unholy non-native vim keymap
 vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find Word" })
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope buffers<cr>", { remap = true, desc = "Pick Buffer" })
-vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { desc = "New Buffer" })
+-- vim.keymap.set("n", "<C-p>", "<cmd>Telescope buffers<cr>", { remap = true, desc = "Pick Buffer" })
+-- vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { desc = "New Buffer" })
 
 -- full line navigation
 vim.keymap.set("n", "E", "g_", { desc = "End of line", silent = true })
@@ -121,3 +121,15 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<C-;>", ":")
 vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
+
+vim.keymap.set({ "n", "t", "v" }, "<C-x>", "<cmd>tabnext<cr>") -- mapped to <C-Tab> through alacritty
+vim.keymap.set({ "n", "t", "v" }, "<C-p>", "<cmd>tabprev<cr>") -- mapped to <C-S-Tab> through alacritty
+
+vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
+vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
+
+vim.keymap.set("n", "<C-n>", "<Cmd>tabnew<cr>")
+vim.keymap.del("n", "<C-w>Þ") -- to remove delay
+vim.keymap.set("n", "<C-w>", "<cmd>tabclose<cr>")
+vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>")
+vim.keymap.set("n", "t", "<cmd>tabnew<cr>")
