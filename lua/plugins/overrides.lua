@@ -32,4 +32,8 @@ return {
     "folke/neoconf.nvim", -- this is useless to me afaik
     enabled = false,
   },
+  {
+    "echasnovski/mini.surround",
+    enabled = false,
+  },
 }
