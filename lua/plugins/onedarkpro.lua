@@ -24,17 +24,14 @@ return {
     highlights = {
       ["@markup.list.unchecked.markdown"] = { fg = "#ef696f", bg = "#22272f" },
       ["@markup.list.checked.markdown"] = { fg = "#89ca78", bg = "#22272f" },
-      ["@markup.quote.markdown"] = { italic = true },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
-      TabLineSel = { bg = "#22272f", bold = true }, -- cokeline
+      TabLineSel = { bg = "#22272f" }, -- cokeline
       Visual = { bg = "#21272f" },
-      CmpItemMenu = { fg = "#61afef" },
       Headline = { bg = "#22272f" },
       NoiceScrollbarThumb = { bg = "#22272f" },
       NoiceScrollbar = { bg = "#434852" },
       TreeSitterContext = { bg = "#22272f" },
-      TelescopeBorder = { fg = "#61afef" },
       MiniStarterItemBullet = { fg = "#61afef" },
       MiniStarterItemPrefix = { fg = "#89ca78" },
     },
