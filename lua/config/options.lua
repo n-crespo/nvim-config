@@ -39,3 +39,4 @@ vim.g.loaded_perl_provider = 0
 vim.g.wrap = false -- stop wrapping my text
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.vim_markdown_toc_autofit = 1

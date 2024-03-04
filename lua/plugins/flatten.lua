@@ -4,6 +4,7 @@
 return {
   "willothy/flatten.nvim",
   lazy = false, -- Ensure that it runs first to minimize delay when opening file from terminal
+  event = "TermOpen",
   priority = 1001,
   opts = {
     window = {

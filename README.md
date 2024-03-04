@@ -11,9 +11,8 @@ functionality. Every configuration was done with transparency in mind.
 
 ## Interesting Things
 
-My favorite things about this configuration are (in no particular order):
+Some interesting things in this config are:
 
-- the 90% of [LazyVim](https://www.lazyvim.org) that I don't have disabled
 - the keymaps in [keymaps.lua](./lua/config/keymaps.lua)
 - the ~30 ms startup time
   - see the first 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
@@ -21,15 +20,12 @@ My favorite things about this configuration are (in no particular order):
   - [codeium](https://github.com/Exafunction/codeium.vim) (free and open source code completion) (installed with `:LazyExtras`)
   - [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
   - [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
-  - [cokeline](https://github.com/willothy/nvim-cokeline) (clean, hackable tabline that i didn't hack at all)
-  - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (with an instant animation)
-  - [highlight-undo](https://github.com/tzachar/highlight-undo.nvim) (surprisingly very useful)
-  - [betterTerm](https://github.com/CRAG666/betterTerm.nvim) (better `:term`)
   - [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested nvim instances, amazing when used with autojump and betterTerm)
   - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
 - the LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
-  - see [markdown.lua](./lua/plugins/markdown.lua) and [markdowntable.lua](./lua/plugins/markdowntable.lua) for an amazing markdown editing experience (no LSP needed)
+  - see `markdown.lua`, `markdownpreview.lua`, `markdowny.lua`, and `markdowntable.lua` for markdown (no LSP needed)
 - I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` *everywhere*
+- Mt 
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I
@@ -113,7 +109,8 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
     - [x] done
     - [x] not done
   - [x] bullet points
-  - [x] block quotes
+  - [x] single line quotes
+  - [ ] block quotes
 - [x] format visual selection in markdown (bold + italic)
 - [x] code block insertion in insert mode (see: [markdowny](./lua/plugins/markdowny.lua) fork)
 - [ ] better markdown latex previews [nabla](./lua/plugins/nabla.lua)

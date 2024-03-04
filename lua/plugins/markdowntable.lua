@@ -2,6 +2,7 @@
 -- SEE ../config/autocmds.lua for autocmds that automate the use of this plugin
 return {
   "dhruvasagar/vim-table-mode",
+  lazy = true,
   ft = "markdown", -- only load plugin when markdown file opens
   config = function()
     -- these are dumb

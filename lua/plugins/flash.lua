@@ -3,42 +3,23 @@ return {
   enabled = true,
   event = "VeryLazy",
   opts = {
-    -- labels = "abcdefghijklmnopqrstuvwxyz",
-    labels = "asdfghjklqwertyuiopzxcvbnm",
     search = {
       multi_window = false,
     },
     jump = {
-      -- clear highlight after jump
-      nohlsearch = true,
-      -- automatically jump when there is only one match
-      autojump = false,
+      nohlsearch = true, -- clear highlight after jump
+      autojump = false, -- automatically jump when there is only one match
     },
     label = {
       uppercase = false,
     },
     modes = {
-      -- options used when flash is activated through
-      -- `f`, `F`, `t`, `T`, `;` and `,` motions
-      char = {
+      char = { -- `f`, `F`, `t`, `T`, `;` and `,` motions
         enabled = false,
       },
     },
   },
   keys = {
-    {
-      mode = { "n", "x", "o" },
-      "s",
-      function()
-        require("flash").jump()
-      end,
-      desc = "Flash",
-    },
-    {
-      mode = { "n", "x", "o" },
-      "f", -- use default f
-      nil,
-    },
     {
       mode = { "n", "x", "o" },
       "S", -- used for ts-actions
