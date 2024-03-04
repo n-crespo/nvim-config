@@ -104,4 +104,16 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix `[Process exited 0]` when quit terminal
 - [x] fix `<Tab>` keymap conflicts due to markdown plugin
 - [x] vertical lualine separators?
-- [ ] better spell check for markdown (ignore inline html + links + code blocks)
+- [x] better spell check for markdown (ignore inline html + links + code blocks)
+- [x] window labels when split buffers
+- [x] better tab management
+- [x] better close/open tab mappings
+- [x] conceal chars in markdown
+  - [x] checkboxes
+    - [x] done
+    - [x] not done
+  - [x] bullet points
+  - [x] block quotes
+- [x] format visual selection in markdown (bold + italic)
+- [x] code block insertion in insert mode (see: [markdowny](./lua/plugins/markdowny.lua) fork)
+- [ ] better markdown latex previews [nabla](./lua/plugins/nabla.lua)

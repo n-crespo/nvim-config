@@ -67,6 +67,7 @@ vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 -- cd to current buffer (replace autochdir)
 vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
 vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
+vim.keymap.set("n", "<leader>K", "<cmd>tabclose<cr>", { remap = true, silent = true, desc = "Close Tab" })
 
 -- navigate and list tabs
 vim.keymap.set("n", "<leader>a", function()
@@ -120,7 +121,7 @@ vim.keymap.set(
   { desc = "Replace instances" }
 )
 vim.keymap.set("n", "<C-;>", ":")
-vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
 
 vim.keymap.set({ "n", "t", "v" }, "<C-x>", "<cmd>tabnext<cr>") -- mapped to <C-Tab> through alacritty
 vim.keymap.set({ "n", "t", "v" }, "<C-p>", "<cmd>tabprev<cr>") -- mapped to <C-S-Tab> through alacritty

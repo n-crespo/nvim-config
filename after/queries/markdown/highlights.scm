@@ -2,7 +2,7 @@
 
 ; this breaks without that ^ (why? who knows)
 
-; replace checboxes with nice looking boxes
+; replace checkboxes with nice looking boxes
 ([
   (task_list_marker_checked)
   ] @markup.list.checked (#set! conceal "󰄲"))
@@ -17,6 +17,7 @@
 
 
 ; BUG: this breaks things (will hide indented/nested bullets)
+
 ; ((block_continuation) @markup.quote
 ;                       (#set! "priority" 0)
 ;                       (#set! conceal "▏" ))
@@ -30,8 +31,7 @@
 ;(#set! conceal "•" ))
 ;
 
-; if you want rounded bullet: replace conceal char with • and uncomment offset
-; lines
+; if you want rounded bullet: replace conceal char with • and uncomment offset lines
 ([(list_marker_plus) (list_marker_star)]
   @markup.list
   ; (#offset! @markup.list 0 0 0 -1)
