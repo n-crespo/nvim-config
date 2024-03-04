@@ -113,4 +113,4 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
   - [ ] block quotes
 - [x] format visual selection in markdown (bold + italic)
 - [x] code block insertion in insert mode (see: [markdowny](./lua/plugins/markdowny.lua) fork)
-- [ ] better markdown latex previews [nabla](./lua/plugins/nabla.lua)
+- [x] better markdown latex previews [nabla](./lua/plugins/nabla.lua)
