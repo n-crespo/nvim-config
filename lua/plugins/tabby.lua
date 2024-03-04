@@ -54,4 +54,12 @@ return {
       }
     end)
   end,
+  keys = {
+
+    {
+      "<leader>n",
+      ":TabRename ",
+      silent = false,
+    },
+  },
 }

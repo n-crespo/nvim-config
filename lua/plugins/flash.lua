@@ -27,19 +27,20 @@ return {
   },
   keys = {
     {
-      "s",
       mode = { "n", "x", "o" },
+      "s",
       function()
         require("flash").jump()
       end,
       desc = "Flash",
     },
     {
+      mode = { "n", "x", "o" },
       "f", -- use default f
       nil,
-      mode = { "n", "x", "o" },
     },
     {
+      mode = { "n", "x", "o" },
       "S", -- used for ts-actions
       nil,
     },
