@@ -5,9 +5,9 @@ return {
   "n-crespo/nvim-markdown",
   lazy = true,
   ft = "markdown",
-  keys = {
-    { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmd>set nonu<cr>", desc = "Table of Contents" },
-  },
+  -- keys = {
+  --   { "<leader>t", "<cmd>Toc<cr><cmd>set nornu<cr><cmd>set nonu<cr>", desc = "Table of Contents" },
+  -- },
   config = function()
     vim.cmd([[map zh <Plug>Markdown_Fold]])
     vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])

@@ -1,6 +1,7 @@
 -- this is kinda buggy
 return {
   "jbyuki/nabla.nvim",
+  enabled = false, --- this is so unreliable, rather just use mkp
   lazy = true,
   ft = "markdown",
   keys = {
@@ -9,7 +10,8 @@ return {
   config = function()
     require("nabla").enable_virt({
       autogen = true,
-      silent = true,
+      silent = false,
+      align_center = true,
     })
   end,
 }

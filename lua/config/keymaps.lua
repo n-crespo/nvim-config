@@ -139,3 +139,5 @@ vim.keymap.set("n", "<C-w>", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<S-w>", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "t", "<cmd>tabnew<cr>")
+
+vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })

@@ -9,9 +9,10 @@ return {
       fill = { fg = "#f2e9de", bg = nil, style = "italic" },
       head = "TabLine",
       -- current_tab = 'TabLineSel',
-      current_tab = { fg = "#F8FBF6", bg = "#434852", style = "italic" },
+      -- current_tab = { fg = "#F8FBF6", bg = "#22272f", style = "italic" },
+      current_tab = { fg = "#ffffff", bg = "#22272f", style = "italic" },
       tab = "TabLine",
-      win = { fg = "#F8FBF6", bg = "#22272f", style = "italic" },
+      win = { fg = "#abb2bf", bg = "#22272f", style = "italic" },
       tail = "TabLine",
     }
 
