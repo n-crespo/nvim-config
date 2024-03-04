@@ -6,6 +6,7 @@ return {
     exclude = {
       filetypes = {
         "better_term",
+        "lazy",
       },
     },
   },
