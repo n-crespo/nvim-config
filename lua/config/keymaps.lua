@@ -136,5 +136,6 @@ vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
 vim.keymap.set("n", "<C-n>", "<Cmd>tabnew<cr>")
 vim.keymap.del("n", "<C-w>Þ") -- to remove delay
 vim.keymap.set("n", "<C-w>", "<cmd>tabclose<cr>")
+vim.keymap.set("n", "<S-w>", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "t", "<cmd>tabnew<cr>")
