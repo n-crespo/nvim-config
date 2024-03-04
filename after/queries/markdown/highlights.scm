@@ -9,7 +9,7 @@
 
 ([
   (task_list_marker_unchecked)
-  ] @markup.list.unchecked (#set! conceal ""))
+  ] @markup.list.unchecked (#set! conceal "󰄱"))
 
 ; this works but only for the first line of the block quote
 ((block_quote_marker)

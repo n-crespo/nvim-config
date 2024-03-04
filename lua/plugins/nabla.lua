@@ -4,7 +4,7 @@ return {
   lazy = true,
   ft = "markdown",
   keys = {
-    { "<leader>cp", "<cmd>lua require('nabla').popup({ border='rounded' })<cr>", desc = "Preview Equation" },
+    { "<leader>p", "<cmd>lua require('nabla').popup({ border='rounded' })<cr>", desc = "Preview Equation" },
   },
   config = function()
     require("nabla").enable_virt({
