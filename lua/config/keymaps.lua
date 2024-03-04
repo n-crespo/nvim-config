@@ -36,7 +36,11 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
 -- unholy non-native vim keymap
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find Word" })
+vim.keymap.set("n", "<C-f>", function()
+  require("telescope.builtin").current_buffer_fuzzy_find(
+    require("telescope.themes").get_dropdown({ winblend = 0, previewer = false })
+  )
+end, { desc = "Find Word" })
 -- vim.keymap.set("n", "<C-p>", "<cmd>Telescope buffers<cr>", { remap = true, desc = "Pick Buffer" })
 -- vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { desc = "New Buffer" })
 
