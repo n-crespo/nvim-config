@@ -25,7 +25,7 @@ return {
     enabled = false,
   },
   {
-    "akinsho/bufferline.nvim", -- i use cokeline
+    "akinsho/bufferline.nvim", -- i use tabby
     enabled = false,
   },
   {
