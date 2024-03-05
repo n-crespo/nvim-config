@@ -38,14 +38,15 @@ return {
         },
         {
           name = "Session restore",
-          action = function()
-            local success, result = pcall(function()
-              return require("mini.sessions").read()
-            end)
-            if not success then
-              print("No session found")
-            end
-          end,
+          -- action = function()
+          --   local success, result = pcall(function()
+          --     return require("mini.sessions").read()
+          --   end)
+          --   if not success then
+          --     print("No session found")
+          --   end
+          -- end,
+          action = 'lua require("persistence").load()',
           section = " ",
         },
         { name = "Lazy", action = "Lazy", section = " " },
