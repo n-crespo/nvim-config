@@ -35,5 +35,12 @@ return {
       "<cmd>Telescope oldfiles<cr>",
       desc = "Find Old Files",
     },
+    -- vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands<cr>", { silent = true, desc = "Commands" })
+    {
+      "<leader>;",
+      "<Cmd>Telescope commands<cr>",
+      desc = "Commands",
+      silent = true,
+    },
   },
 }
