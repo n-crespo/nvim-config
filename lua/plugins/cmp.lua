@@ -10,7 +10,7 @@ return {
       completion = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         winhighlight = "Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-        scrollbar = false,
+        scrollbar = true,
       },
       documentation = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
