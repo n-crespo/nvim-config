@@ -25,7 +25,7 @@ Some interesting things in this config are:
 - the LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
   - see `markdown.lua`, `markdownpreview.lua`, `markdowny.lua`, and `markdowntable.lua` for markdown (no LSP needed)
 - I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` *everywhere*
-- Mt 
+- custom markdown highlights for bullets, checkboxes, and inline quotes
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I
