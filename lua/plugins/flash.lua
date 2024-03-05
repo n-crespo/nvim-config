@@ -17,6 +17,9 @@ return {
       char = { -- `f`, `F`, `t`, `T`, `;` and `,` motions
         enabled = false,
       },
+      search = {
+        enabled = false,
+      },
     },
   },
   keys = {

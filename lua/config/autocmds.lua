@@ -40,6 +40,9 @@ vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 -- make :E the same as :e
 vim.api.nvim_create_user_command("E", "e", { nargs = 0 })
 
+-- make :Q the same as :qa
+vim.api.nvim_create_user_command("Q", "qa", { nargs = 0 })
+
 -- don't show [Process exited 0] command when terminal is closed
 -- (just send a key when that event is heard) AMAZING
 vim.api.nvim_create_autocmd({ "FileType", "TermClose" }, {
