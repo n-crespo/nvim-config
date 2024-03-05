@@ -79,3 +79,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.fn.setpos(".", save_cursor)
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  pattern = { "*.md" },
+  callback = function()
+    vim.cmd([[
+  ownsyntax on
+  set spelllang=en
+  setlocal spell
+  setlocal nowrap
+  ]])
+  end,
+})
