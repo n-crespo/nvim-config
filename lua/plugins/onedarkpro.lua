@@ -22,7 +22,6 @@ return {
       undercurl = true,
     },
     highlights = {
-      -- ["@markup.list.unchecked.markdown"] = { fg = "#ef696f", bg = "#22272f" },
       ["@markup.list.checked.markdown"] = { bg = nil },
       ["@markup.list.marked.markdown"] = { bg = nil },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
