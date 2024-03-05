@@ -14,6 +14,6 @@ vim.keymap.set("n", "<leader>m", function()
   vim.cmd([[
   ownsyntax on
   set spelllang=en
-  set spell
+  setlocal spell
 ]])
 end, { desc = "Preview Math", silent = true, buffer = true })
