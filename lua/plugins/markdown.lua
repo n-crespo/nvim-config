@@ -13,4 +13,18 @@ return {
     vim.cmd([[map zh <Plug>Markdown_Fold]])
     vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
   end,
+  init = function()
+    -- for markdown math viewing
+    vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+      pattern = { "*.md" },
+      callback = function()
+        vim.cmd([[
+          ownsyntax on
+          set spelllang=en
+          setlocal spell
+          setlocal nowrap
+        ]])
+      end,
+    })
+  end,
 }
