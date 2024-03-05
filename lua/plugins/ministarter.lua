@@ -36,7 +36,18 @@ return {
           action = [[lua require('lazyvim.util').telescope.config_files()()]],
           section = " ",
         },
-        { name = "Session restore", action = 'lua require("persistence").load()', section = " " },
+        {
+          name = "Session restore",
+          action = function()
+            local success, result = pcall(function()
+              return require("mini.sessions").read()
+            end)
+            if not success then
+              print("No session found")
+            end
+          end,
+          section = " ",
+        },
         { name = "Lazy", action = "Lazy", section = " " },
         { name = "Quit", action = "qa", section = " " },
       },
