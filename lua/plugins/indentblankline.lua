@@ -7,6 +7,7 @@ return {
       filetypes = {
         "better_term",
         "lazy",
+        "noice",
       },
     },
   },
