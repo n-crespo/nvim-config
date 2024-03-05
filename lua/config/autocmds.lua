@@ -58,6 +58,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
   end,
 })
 
+-- disable mini-indent scope in terminal and documentation hover
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "better_term", "noice" },
   callback = function()
@@ -77,12 +78,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+-- i don't think this works
+vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter", "BufEnter" }, {
   pattern = { "noice" },
   callback = function()
     vim.cmd([[
     setlocal scrolloff=8
-    setlocal nowrap
+    set nowrap
     ]])
   end,
 })
