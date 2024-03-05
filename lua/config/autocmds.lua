@@ -70,3 +70,10 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
     vim.api.nvim_exec2("silent! stopinsert!", {})
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "better_term" },
+  callback = function()
+    vim.b.miniindentscope_disable = true
+  end,
+})

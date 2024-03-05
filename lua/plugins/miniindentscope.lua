@@ -11,14 +11,5 @@ return {
       end,
     },
   },
-  -- ignore these filetypes
-  init = function()
-    vim.api.nvim_create_autocmd("FileType", {
-      desc = "Disable indentscope for certain filetypes",
-      pattern = { "better_term", "lazy" },
-      callback = function()
-        vim.b.miniindentscope_disable = true
-      end,
-    })
-  end,
+  -- see autocmds.lua for filetype overrides
 }
