@@ -8,7 +8,7 @@ return {
     -- custom lualine seperator characters |
     -- opts.options.component_separators = { left = "⟩", right = "⟨" }
     -- opts.options.section_separators = { left = " ", right = " " }
-    opts.options.theme = require("transparentlualine").theme
+    -- opts.options.theme = require("transparentlualine").theme
     opts.sections.lualine_z = {
       function()
         return " " .. os.date("%I:%M %p")
