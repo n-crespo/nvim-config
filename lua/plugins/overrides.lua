@@ -32,8 +32,4 @@ return {
     "folke/neoconf.nvim", -- this is useless to me afaik
     enabled = false,
   },
-  -- {
-  --   "folke/persistence.nvim",
-  --   enabled = false,
-  -- },
 }
