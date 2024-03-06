@@ -41,7 +41,7 @@ This configuration is structured so that all plugin configurations are in the
 remove a plugin by just deleting its file. See below:
 
 <details>
-  <summary><b>All Relevant File Structure</b></summary>
+  <summary><b>Relevant File Structure</b></summary>
 
 ```txt
 .
@@ -113,4 +113,10 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
   - [ ] block quotes
 - [x] format visual selection in markdown (bold + italic)
 - [x] code block insertion in insert mode (see: [markdowny](./lua/plugins/markdowny.lua) fork)
-- [x] better markdown latex previews [nabla](./lua/plugins/nabla.lua)
+- [x] better markdown latex previews
+- [ ] command line completion (probably going to skip this one...)
+  - [x] `:Telescope commands` (`<leader>:`)
+- [x] smaller cmp window
+- [x] deal with trailing white space better (auto command)
+- [x] better spelling?
+- [ ] differentiate windows from tabs in tabby
