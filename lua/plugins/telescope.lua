@@ -42,5 +42,17 @@ return {
       desc = "Commands",
       silent = true,
     },
+    {
+      "<C-o>",
+      function()
+        local theme = require("telescope.themes").get_ivy()
+        -- theme["find_command"] = opts.find_command
+        theme["layout_config"]["height"] = 19
+        require("telescope.builtin").find_files(theme)
+        -- require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
+      end,
+      silent = true,
+      desc = "Find Files",
+    },
   },
 }
