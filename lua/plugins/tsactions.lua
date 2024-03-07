@@ -1,16 +1,19 @@
 return {
   "ckolkey/ts-node-action",
-  lazy = false,
-  -- event = "VeryLazy",
+  event = "LazyFile",
   dependencies = { "nvim-treesitter" },
   opts = {},
-  setup = function()
-    vim.keymap.del("n", "S")
-    vim.keymap.set("n", "S", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+  config = function()
+    require("ts-node-action").setup({})
+    vim.keymap.set("n", "m", function()
+      local save_cursor = vim.fn.getpos(".")
+      pcall(function()
+        require("ts-node-action").node_action()
+      end)
+      vim.fn.setpos(".", save_cursor)
+    end, {
+      desc = "Node Action",
+    })
+    vim.cmd([[echo 'keymap set']])
   end,
-  keys = {
-    "S",
-    "<cmd>lua require('ts-node-action').node_action()<cr>",
-    desc = "Trigger Node Action",
-  },
 }
