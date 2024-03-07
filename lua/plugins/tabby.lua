@@ -4,12 +4,6 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local theme = {
-      -- fill = "TabLineFill",
-      -- Also you can do this:
-      --fg = "#F8FBF6"
-      -- current_tab = 'TabLineSel',
-      -- current_tab = { fg = "#ffffff", bg = "#22272f", style = "italic" },
-      -- win = { fg = "#abb2bf", bg = "#22272f", style = "italic" },
       head = "TabLine",
       fill = { fg = "#f2e9de", bg = nil, style = "italic" },
       current_tab = { fg = "#f2e9de", bg = "#3b3b3b", style = "italic" },
