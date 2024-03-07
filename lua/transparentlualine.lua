@@ -10,8 +10,8 @@ M.theme = function()
     insert = onedark.green,
     command = onedark.purple,
     innerbg = nil,
-    outerbg = "#22272f",
-    darkgray = "#16161d",
+    outerbg = "#141414",
+    darkgray = "#1616d",
     gray = "#abb2bf",
   }
 
