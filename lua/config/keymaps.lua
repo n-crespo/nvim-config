@@ -155,4 +155,4 @@ vim.keymap.set("n", "t", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })
 vim.keymap.set("i", "<C-j>", "<C-n>")
 
-vim.keymap.set("n", "<leader>wl", "<cmr>windo wincmd L<cr>", { desc = "Send to Vertical Split" })
+vim.keymap.set("n", "<leader>wl", "<cmd>windo wincmd L<cr>", { desc = "Send to Vertical Split" })
