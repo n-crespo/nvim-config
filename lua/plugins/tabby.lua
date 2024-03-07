@@ -6,13 +6,14 @@ return {
     local theme = {
       -- fill = "TabLineFill",
       -- Also you can do this:
-      fill = { fg = "#f2e9de", bg = nil, style = "italic" },
-      head = "TabLine",
+      --fg = "#F8FBF6"
       -- current_tab = 'TabLineSel',
-      -- current_tab = { fg = "#F8FBF6", bg = "#22272f", style = "italic" },
-      current_tab = { fg = "#ffffff", bg = "#22272f", style = "italic" },
+      -- current_tab = { fg = "#ffffff", bg = "#22272f", style = "italic" },
+      -- win = { fg = "#abb2bf", bg = "#22272f", style = "italic" },
+      head = "TabLine",
+      fill = { fg = "#f2e9de", bg = nil, style = "italic" },
+      current_tab = { fg = "#f2e9de", bg = "#3b3b3b", style = "italic" },
       tab = "TabLine",
-      win = { fg = "#abb2bf", bg = "#22272f", style = "italic" },
       tail = "TabLine",
     }
 

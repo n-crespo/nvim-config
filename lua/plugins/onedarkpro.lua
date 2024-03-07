@@ -2,7 +2,9 @@
 -- transparent, italic comments, custom highlights
 return {
   "olimorris/onedarkpro.nvim",
-  lazy = false,
+  -- enabled = false,
+  -- lazy = false,
+  event = "LazyFile",
   name = "onedarkpro",
   priority = 1000, -- Ensure it loads first
   opts = {
@@ -37,8 +39,13 @@ return {
       TabLine = { bg = "#22272f" },
     },
   },
-  config = function(_, opts)
+  setup = function(_, opts)
     require("onedarkpro").setup(opts)
-    vim.cmd.colorscheme("onedark_dark")
+    require("lualine").setup({
+      options = {
+        theme = require("transparentlualine").theme,
+      },
+    })
+    -- vim.cmd.colorscheme("onedark_dark")
   end,
 }

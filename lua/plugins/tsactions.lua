@@ -1,9 +1,11 @@
 return {
   "ckolkey/ts-node-action",
-  event = "LazyFile",
+  lazy = false,
+  -- event = "VeryLazy",
   dependencies = { "nvim-treesitter" },
   opts = {},
-  config = function()
+  setup = function()
+    vim.keymap.del("n", "S")
     vim.keymap.set("n", "S", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
   end,
   keys = {
