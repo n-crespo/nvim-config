@@ -11,6 +11,9 @@ return {
       tail = { bg = "#141414" },
     }
     require("tabby.tabline").set(function(line)
+      function tab_name(tab)
+        return string.gsub(tab, "%[..%]", "")
+      end
       return {
         {
           { "  ", hl = theme.head },
@@ -22,7 +25,8 @@ return {
             line.sep("", hl, theme.fill),
             tab.is_current() and "" or "",
             -- tab.number(),
-            tab.name(),
+            tab_name(tab.name()),
+            -- vim.api.nvim_tabpage_get_number(tabid),
             -- tab.close_btn(''), -- show a close button
             line.sep("", hl, theme.fill),
             hl = hl,
@@ -44,7 +48,7 @@ return {
         end),
         {
           line.sep("", theme.tail, theme.fill),
-          { "  ", hl = theme.tail },
+          { " ", hl = theme.tail },
         },
         hl = theme.fill,
       }
