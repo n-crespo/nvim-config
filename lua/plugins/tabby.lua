@@ -26,7 +26,6 @@ return {
             tab.is_current() and "" or "",
             -- tab.number(),
             tab_name(tab.name()),
-            -- vim.api.nvim_tabpage_get_number(tabid),
             -- tab.close_btn(''), -- show a close button
             line.sep("", hl, theme.fill),
             hl = hl,
