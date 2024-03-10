@@ -1,4 +1,4 @@
-local onedark = require("onedarkpro.helpers").get_colors("onedark_dark")
+-- local onedark = require("onedarkpro.helpers").get_colors("onedark_dark")
 
 local dgray = "#22272f"
 local M = {}
