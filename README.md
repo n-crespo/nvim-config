@@ -23,7 +23,7 @@ Some interesting things in this config are:
   - [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested nvim instances, amazing when used with autojump and betterTerm)
   - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
 - the LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
-  - see `markdown.lua`, `markdownpreview.lua`, `markdowny.lua`, and `markdowntable.lua` for markdown (no LSP needed)
+  - see `markdown.lua`, `markdownpreview.lua`, and `markdowntable.lua` for markdown (no LSP needed)
 - I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` *everywhere*
 - custom markdown highlights for bullets, checkboxes, and inline quotes
 
@@ -112,7 +112,7 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
   - [x] single line quotes
   - [ ] block quotes
 - [x] format visual selection in markdown (bold + italic)
-- [x] code block insertion in insert mode (see: [markdowny](./lua/plugins/markdowny.lua) fork)
+- [x] code block insertion in insert mode
 - [x] better markdown latex previews
 - [ ] command line completion (probably going to skip this one...)
   - [x] `:Telescope commands` (`<leader>:`)
