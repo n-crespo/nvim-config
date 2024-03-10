@@ -12,10 +12,10 @@ return {
     "nvimdev/dashboard-nvim", -- i use mini starter
     enabled = false,
   },
-  {
-    "linux-cultist/venv-selector.nvim", -- im not thaaat deep into python development
-    enabled = false,
-  },
+  -- {
+  --   "linux-cultist/venv-selector.nvim", -- im not thaaat deep into python development
+  --   enabled = false,
+  -- },
   {
     "nvim-pack/nvim-spectre", -- too risky, no undo
     enabled = false,

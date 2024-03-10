@@ -31,8 +31,8 @@ vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Paste Register", si
 vim.keymap.set("n", "X", "0D", { remap = true, desc = "Clear Line", silent = true })
 
 -- increment and decrements
-vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
-vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "+", "<C-a>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "-", "<C-x>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
 -- unholy non-native vim keymap
