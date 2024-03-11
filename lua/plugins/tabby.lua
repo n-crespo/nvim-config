@@ -4,11 +4,11 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local theme = {
-      head = { bg = "#22272f", fg = "#f2e9de" },
+      head = { bg = "#22272f", fg = "#abb2bf" },
       fill = { fg = "#f2e9de", bg = nil, style = "italic" },
       current_tab = { fg = "#f2e9de", bg = "#22272f", style = "italic" },
-      tab = { bg = "#141414" },
-      tail = { bg = "#22272f", fg = "#f2e9de" },
+      tab = { bg = "#141414", fg = "#abb2bf" },
+      tail = { bg = "#22272f", fg = "#abb2bf" },
     }
     require("tabby.tabline").set(function(line)
       function tab_name(tab)
