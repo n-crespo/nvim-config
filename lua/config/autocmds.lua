@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
 
 -- disable mini-indent scope in terminal and documentation hover
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "better_term", "noice" },
+  pattern = { "better_term", "noice", "man" },
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
