@@ -24,6 +24,7 @@ return {
     highlights = {
       ["@markup.list.checked.markdown"] = { bg = nil },
       ["@markup.list.marked.markdown"] = { bg = nil },
+      ["@markup.link.label.markdown_inline"] = { fg = "#61afef", underline = true },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
       TabLineSel = { bg = "#22272f" }, -- cokeline
