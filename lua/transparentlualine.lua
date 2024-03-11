@@ -17,8 +17,8 @@ M.theme = function()
     command = dgray,
     innerbg = nil,
     outerbg = "#141414",
-    darkgray = "#f2e9de",
-    gray = "#f2e9de",
+    darkgray = "#abb2bf",
+    gray = "#abb2bf",
   }
 
   return {
