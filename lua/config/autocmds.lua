@@ -34,6 +34,17 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   end,
 })
 
+-- close code runner with q
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "crunner*",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+
 -- make :W the same as :w
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 
