@@ -34,12 +34,11 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   end,
 })
 
--- close code runner with q
+-- Close Code Runner buffers with 'q'
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "crunner*",
-  },
+  pattern = { "crunner_*" },
   callback = function(event)
+    vim.cmd([[echo 'crunner detected']])
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
