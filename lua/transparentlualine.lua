@@ -1,15 +1,8 @@
--- local onedark = require("onedarkpro.helpers").get_colors("onedark_dark")
-
 local dgray = "#22272f"
 local M = {}
 
 M.theme = function()
   local colors = {
-    -- normal = onedark.blue,
-    -- visual = onedark.yellow,
-    -- replace = onedark.red,
-    -- insert = onedark.green,
-    -- command = onedark.purple,
     normal = dgray,
     visual = dgray,
     replace = dgray,
