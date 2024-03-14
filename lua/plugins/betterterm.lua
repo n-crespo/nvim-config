@@ -3,8 +3,21 @@
 return {
   "CRAG666/betterTerm.nvim",
   event = "VeryLazy",
-  opts = function()
-    local betterTerm = require("betterTerm")
-    vim.keymap.set({ "n", "t" }, "<C-q>", betterTerm.open, { desc = "Open terminal" })
-  end,
+  keys = {
+    {
+      "<C-q>",
+      function()
+        require("betterTerm").open()
+      end,
+      mode = { "n", "t" },
+    },
+    {
+      "<C-o>",
+      function()
+        require("betterTerm").open()
+        vim.cmd([[call feedkeys("\<C-o>")]])
+      end,
+      mode = "n",
+    },
+  },
 }
