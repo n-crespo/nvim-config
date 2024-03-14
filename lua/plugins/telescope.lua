@@ -54,5 +54,14 @@ return {
       silent = true,
       desc = "Find Files",
     },
+    -- {
+    --   "<C-f>",
+    --   function()
+    --     require("telescope.builtin").current_buffer_fuzzy_find(
+    --       require("telescope.themes").get_dropdown({ winblend = 0, previewer = false })
+    --     )
+    --   end,
+    --   desc = "Find Word",
+    -- },
   },
 }

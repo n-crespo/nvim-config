@@ -2,9 +2,6 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
-  dependencies = {
-    "hrsh7th/cmp-emoji",
-  },
   opts = {
     window = {
       completion = {
@@ -22,7 +19,7 @@ return {
     },
     mapping = require("cmp").mapping.preset.insert({
       ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Insert }),
-      ["<C-l>"] = require("cmp").mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ["<C-l>"] = require("cmp").mapping.confirm({ select = true }), -- Set `select` to `false` to only confirm explicitly selected items.
       ["<CR>"] = nil,
     }),
   },

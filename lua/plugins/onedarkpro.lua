@@ -11,19 +11,14 @@ return {
       virtual_text = "bold", -- Style that is applied to virtual text
     },
     options = {
-      lualine_transparency = true, -- unneeded due to custom lualine theme
-      cursorline = false, -- Use cursorline highlighting?
       transparency = true, -- Use a transparent background?
-      terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-      highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
       bold = true,
       italic = true,
       underline = true,
       undercurl = true,
     },
     highlights = {
-      ["@markup.list.checked.markdown"] = { bg = nil },
-      ["@markup.list.marked.markdown"] = { bg = nil },
+      ["@markup.list.checked.markdown"] = { bg = nil }, -- otherwise its pink
       ["@markup.link.label.markdown_inline"] = { fg = "#61afef", underline = true },
       WhichKeyFloat = { bg = nil }, -- transparent whichkey
       FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
