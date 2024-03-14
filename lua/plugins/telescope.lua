@@ -42,26 +42,5 @@ return {
       desc = "Commands",
       silent = true,
     },
-    -- { -- unholy nonnative vim keybind
-    --   "<C-o>",
-    --   function()
-    --     local theme = require("telescope.themes").get_ivy()
-    --     -- theme["find_command"] = opts.find_command
-    --     theme["layout_config"]["height"] = 19
-    --     require("telescope.builtin").find_files(theme)
-    --     -- require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
-    --   end,
-    --   silent = true,
-    --   desc = "Find Files",
-    -- },
-    -- {
-    --   "<C-f>",
-    --   function()
-    --     require("telescope.builtin").current_buffer_fuzzy_find(
-    --       require("telescope.themes").get_dropdown({ winblend = 0, previewer = false })
-    --     )
-    --   end,
-    --   desc = "Find Word",
-    -- },
   },
 }
