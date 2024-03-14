@@ -1,8 +1,6 @@
 -- center big motions
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up" })
-vim.keymap.set("n", "<C-i>", "<C-i>zz", { noremap = true, desc = "Next Jumplist" })
--- vim.keymap.set("n", "<C-o>", "<C-o>zz", { noremap = true, desc = "Prev Jumplist" })
+vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
+vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up" })
 vim.keymap.set("n", "}", "}zz", { noremap = true })
 vim.keymap.set("n", "{", "{zz", { noremap = true })
 vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
@@ -41,14 +39,10 @@ vim.keymap.set("n", "<C-f>", function()
     require("telescope.themes").get_dropdown({ winblend = 0, previewer = false })
   )
 end, { desc = "Find Word" })
--- vim.keymap.set("n", "<C-p>", "<cmd>Telescope buffers<cr>", { remap = true, desc = "Pick Buffer" })
--- vim.keymap.set("n", "<C-n>", "<cmd>vnew<cr>", { desc = "New Buffer" })
 
 -- full line navigation
-vim.keymap.set("n", "E", "g_", { desc = "End of line", silent = true })
-vim.keymap.set("v", "E", "g_", { desc = "End of line", silent = true })
-vim.keymap.set("n", "B", "_", { desc = "Start of line", silent = true })
-vim.keymap.set("v", "B", "_", { desc = "Start of line", silent = true })
+vim.keymap.set({ "n", "v" }, "E", "$", { desc = "End of line", silent = true })
+vim.keymap.set({ "n", "v" }, "B", "_", { desc = "Start of line", silent = true })
 
 -- unneeded
 vim.keymap.del("n", "<leader>bb")
@@ -61,10 +55,8 @@ vim.keymap.del("n", "<leader>sb")
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
-vim.keymap.set("n", "<Up>", "<M-k>", { remap = true, silent = true })
-vim.keymap.set("v", "<Up>", "<M-k>", { remap = true, silent = true })
-vim.keymap.set("n", "<Down>", "<M-j>", { remap = true, silent = true })
-vim.keymap.set("v", "<Down>", "<M-j>", { remap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
 vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 
@@ -107,9 +99,10 @@ vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save"
 
 -- in insert mode, <C-l> auto-corrects the last misspelled word (on files that don't block spellcheck)
 -- vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
--- <C-l> to accept top cmp suggestion
-vim.keymap.set("i", "<C-l>", "<Right>")
-vim.keymap.set("i", "<C-h>", "<Left>")
+
+-- insert mode navigating
+-- vim.keymap.set("i", "<C-l>", "<Right>")
+-- vim.keymap.set("i", "<C-h>", "<Left>")
 
 -- apply macro over selected region
 vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })

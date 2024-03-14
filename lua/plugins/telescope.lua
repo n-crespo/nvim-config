@@ -42,7 +42,7 @@ return {
       desc = "Commands",
       silent = true,
     },
-    {
+    { -- unholy nonnative vim keybind
       "<C-o>",
       function()
         local theme = require("telescope.themes").get_ivy()
