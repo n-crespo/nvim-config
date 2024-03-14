@@ -15,6 +15,7 @@ return {
         transparency = true, -- Use a transparent background?
       },
       highlights = {
+        ["@markup.list.checked.markdown"] = { bg = nil }, -- otherwise its pink
         ["@markup.link.label.markdown_inline"] = { fg = "#61afef", underline = true },
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
@@ -27,6 +28,7 @@ return {
         MiniStarterItemBullet = { fg = "#61afef" },
         MiniStarterItemPrefix = { fg = "#89ca78" },
         TabLine = { bg = "#22272f" },
+        NotifyBackground = { bg = "#22272f" }, -- needed bc of transparency
       },
     })
     require("lualine").setup({ options = {

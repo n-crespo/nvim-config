@@ -119,5 +119,4 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] smaller cmp window
 - [x] deal with trailing white space better (auto command)
 - [x] better spelling?
-- [ ] differentiate windows from tabs in tabby
 - [x] telescope layout/open files picker

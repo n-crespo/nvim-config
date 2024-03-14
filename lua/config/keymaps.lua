@@ -149,3 +149,10 @@ vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other 
 vim.keymap.set("i", "<C-j>", "<C-n>")
 
 vim.keymap.set("n", "<leader>wl", "<cmd>windo wincmd L<cr>", { desc = "Send to Vertical Split" })
+
+-- vim.keymap.del("n", "<leader>qd")
+-- vim.keymap.del("n", "<leader>ql")
+vim.keymap.del("n", "<leader>qq")
+-- vim.keymap.del("n", "<leader>qs")
+vim.keymap.del("n", "<leader>qÞ")
+vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Close Buffer", silent = true })
