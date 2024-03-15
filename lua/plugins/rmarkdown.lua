@@ -16,6 +16,6 @@ return {
   },
   keys = {
     { "<leader>rkp", [[<cmd>w<cr><cmd>RMarkdown pdf latex_engine="xelatex"<CR>]], desc = "Knit to pdf" }, -- R knit pdf
-    { "<leader>rkh", [[<cmd>w<cr><cmd>RMarkdown html<CR>]], desc = "Knit to pdf" }, -- R knit html
+    { "<leader>rkh", [[<cmd>w<cr><cmd>RMarkdown html<CR>]], desc = "Knit to html" }, -- R knit html
   },
 }
