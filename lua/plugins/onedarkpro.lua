@@ -25,6 +25,8 @@ return {
         NoiceScrollbar = { bg = "#22272f" },
         NoiceScrollbarThumb = { bg = "#434852" },
         TreeSitterContext = { bg = "#22272f" },
+        TreesitterContextLineNumber = { fg = "#f2e9de" },
+        -- TreesitterContextBottom = { sp = "#22272f", underline = true },
         MiniStarterItemBullet = { fg = "#61afef" },
         MiniStarterItemPrefix = { fg = "#89ca78" },
         TabLine = { bg = "#22272f" },

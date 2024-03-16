@@ -6,10 +6,12 @@
 ([
   (task_list_marker_checked)
   ] @markup.list.checked (#set! conceal "󰄲"))
+  ; ] @markup.list.checked (#set! conceal ""))
 
 ([
   (task_list_marker_unchecked)
   ] @markup.list.unchecked (#set! conceal "󰄱"))
+  ; ] @markup.list.unchecked (#set! conceal ""))
 
 ; this works but only for the first line of the block quote
 ((block_quote_marker)
@@ -49,3 +51,13 @@
   @markup.list
   (#eq? @markup.list "-")
   (#set! conceal "◾"))
+
+; (
+;   ([
+;     (list_marker_star)
+;     (list_marker_plus)
+;     (list_marker_minus)
+;   ]) @markdown_list_marker
+;   (#offset! @markdown_list_marker 0 0 0 -1)
+;   (#set! conceal "◾")
+; )
