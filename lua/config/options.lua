@@ -24,7 +24,6 @@ opt.softtabstop = 2 -- 2 space tabs
 opt.tabstop = 2 -- 2 space tabs
 opt.shiftwidth = 2 -- 2 space tabs
 opt.foldmethod = "manual" -- manual folding
-opt.startofline = true -- motions by default put cursor on start of line
 opt.pumblend = 0 -- needed for cmp transparency
 opt.smartindent = true -- indent smartly
 opt.breakindent = true -- indent smartly

@@ -101,3 +101,13 @@ vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter", "BufEnter" }, {
     ]])
   end,
 })
+
+-- don't center motions in mini.files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "minifiles" },
+  callback = function()
+    vim.keymap.set("n", "G", "G", { buffer = true })
+    vim.keymap.set("n", "<C-d>", "<C-d>", { buffer = true })
+    vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true })
+  end,
+})

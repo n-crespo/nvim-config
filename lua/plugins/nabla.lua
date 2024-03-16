@@ -1,7 +1,7 @@
 -- this is kinda buggy
 return {
   "jbyuki/nabla.nvim",
-  enabled = false, --- this is so unreliable, rather just use mkp
+  enabled = true, --- this is so unreliable, rather just use mkp
   lazy = true,
   ft = "markdown",
   keys = {
