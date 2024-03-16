@@ -26,6 +26,7 @@ opt.shiftwidth = 2 -- 2 space tabs
 opt.foldmethod = "manual" -- manual folding
 opt.pumblend = 0 -- needed for cmp transparency
 opt.smartindent = true -- indent smartly
+opt.startofline = true
 opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
