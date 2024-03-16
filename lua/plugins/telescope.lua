@@ -3,7 +3,15 @@
 -- previewer omits files that are too large or un-preview-able, catimg for
 -- images
 local actions = require("telescope.actions")
+-- local gfh_actions = require("telescope").extensions.git_file_history.actions
 return {
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "isak102/telescope-git-file-history.nvim",
+      dependencies = { "tpope/vim-fugitive" },
+    },
+  },
   "telescope.nvim",
   event = "VeryLazy",
   opts = {
@@ -21,6 +29,18 @@ return {
         },
       },
     },
+    -- extensions = {
+    --   git_file_history = {
+    --     mappings = {
+    --       i = {
+    --         ["<C-g>"] = gfh_actions.open_in_browser,
+    --       },
+    --       n = {
+    --         ["<C-g>"] = gfh_actions.open_in_browser,
+    --       },
+    --     },
+    --   },
+    -- },
   },
   keys = {
     {
@@ -43,4 +63,10 @@ return {
       silent = true,
     },
   },
+  config = function(_, opts)
+    require("telescope").setup(opts)
+    require("lazyvim.util").on_load("telescope.nvim", function()
+      require("telescope").load_extension("git_file_history")
+    end)
+  end,
 }
