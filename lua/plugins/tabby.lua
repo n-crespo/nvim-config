@@ -6,7 +6,7 @@ return {
     local theme = {
       head = { bg = "#141414", fg = "#abb2bf" },
       fill = { fg = "#f2e9de", bg = nil, style = "italic" },
-      current_tab = { fg = "#f2e9de", bg = "#22272f", style = "italic" },
+      current_tab = { fg = "#f2e9de", bg = "#22272f", style = "bold" },
       tab = { bg = "#141414", fg = "#abb2bf" },
       tail = { bg = "#141414", fg = "#abb2bf" },
     }

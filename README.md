@@ -118,5 +118,5 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
   - [x] `:Telescope commands` (`<leader>:`)
 - [x] smaller cmp window
 - [x] deal with trailing white space better (auto command)
-- [x] better spelling?
+- [x] better spelling? (`spell.lua`)
 - [x] telescope layout/open files picker
