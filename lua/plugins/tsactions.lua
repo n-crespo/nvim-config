@@ -6,7 +6,7 @@ return {
   config = function()
     require("ts-node-action").setup({})
     vim.keymap.set("n", "m", function()
-      localsave_cursor = vim.fn.getpos(".")
+      local save_cursor = vim.fn.getpos(".")
       pcall(function()
         require("ts-node-action").node_action()
       end)

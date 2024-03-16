@@ -22,7 +22,7 @@ Some interesting things in this config are:
   - [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
   - [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested nvim instances, amazing when used with autojump and betterTerm)
   - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
-- the LSP and formatter support for R-markdown, C++, Java, and Python (mostly thanks to LazyVim)
+- the LSP and formatter support for R-Markdown, C++, Java, and Python (mostly thanks to LazyVim)
   - see `markdown.lua`, `markdownpreview.lua`, and `markdowntable.lua` for markdown (no LSP needed)
 - I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` *everywhere*
 - custom markdown highlights for bullets, checkboxes, and inline quotes

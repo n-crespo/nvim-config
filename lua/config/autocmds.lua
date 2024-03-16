@@ -1,4 +1,3 @@
--- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
   pattern = { "*" },
   command = [[call setreg("@", getreg("+"))]],
@@ -75,6 +74,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "better_term", "noice", "man" },
   callback = function()
+    ---@diagnostic disable-next-line: inject-field
     vim.b.miniindentscope_disable = true
   end,
 })

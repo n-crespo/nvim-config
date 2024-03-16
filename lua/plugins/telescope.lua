@@ -42,6 +42,13 @@ return {
     --   },
     -- },
   },
+  config = function(_, opts)
+    require("telescope").setup(opts)
+    require("lazyvim.util").on_load("telescope.nvim", function()
+      require("telescope").load_extension("git_file_history")
+      vim.keymap.set("n", "<C-g>", "<cmd>Telescope git_file_history<cr>", { desc = "Git File History" })
+    end)
+  end,
   keys = {
     {
       "<leader>fp",
@@ -63,10 +70,4 @@ return {
       silent = true,
     },
   },
-  config = function(_, opts)
-    require("telescope").setup(opts)
-    require("lazyvim.util").on_load("telescope.nvim", function()
-      require("telescope").load_extension("git_file_history")
-    end)
-  end,
 }
