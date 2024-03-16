@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd({ "FileType", "TermClose" }, {
 -- always enter normal mode when leaving telescope prompt
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
   pattern = { "TelescopePrompt" },
-  callback = function(event)
+  callback = function()
     vim.api.nvim_exec2("silent! stopinsert!", {})
   end,
 })
