@@ -1,3 +1,5 @@
+-- super nice spell checking plugin, auto corrects words while typing and
+-- extends functionality of builtin spell checker
 return {
   event = "LazyFile",
   "preservim/vim-litecorrect",
@@ -8,7 +10,7 @@ return {
     \ 'maybe': ['mabye'],
     \ 'medieval': ['medival', 'mediaeval', 'medevil'],
     \ 'then': ['hten'],
-    \ 'shouldn't: ['shouldnt'],
+    \ "shouldn\'t": ['shouldnt'],
     \ }
     augroup litecorrect
     autocmd!
