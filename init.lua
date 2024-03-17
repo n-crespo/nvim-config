@@ -1,1 +1,33 @@
 require("config.lazy")
+--
+-- -- Normal, Folded, SignColumn, Statusline and Tabline
+-- vim.cmd("highlight Normal guibg=none")
+-- vim.cmd("highlight NormalNC guibg=none")
+-- vim.cmd("highlight NormalFloat guibg=none ")
+-- vim.cmd("highlight Folded guibg=none")
+-- vim.cmd("highlight SignColumn guibg=none")
+-- vim.cmd("highlight StatusLine guibg=none ")
+-- vim.cmd("highlight TabLine guibg=none")
+-- vim.cmd("highlight Float guibg=none")
+-- vim.cmd("highlight FloatBorder guibg=none")
+-- vim.cmd("highlight WhichKeyFloat guibg=none")
+-- vim.cmd("highlight FlashCurrent guibg=#e5c07b guifg=#212121")
+-- vim.cmd("hi Visual guibg=#22272f")
+-- vim.cmd("highlight NoiceScrollbar guibg=#22272f")
+-- vim.cmd("highlight NoiceScrollbarThumb guibg=#434852")
+-- vim.cmd("highlight TreeSitterContext guibg=#22272f")
+-- vim.cmd("highlight TreesitterContextLineNumber guifg=#f2e9de")
+-- vim.cmd("highlight MiniStarterItemBullet guifg=#61afef")
+-- vim.cmd("highlight MiniStarterItemPrefix guifg=#89ca78")
+-- vim.cmd("highlight NotifyBackground guibg=#22272f")
+-- vim.cmd("highlight CmpPmenu guibg=none")
+-- vim.cmd("highlight LineNr guibg=none")
+-- vim.cmd("hi SignColumn guibg=none")
+-- vim.cmd("hi GitSignsAdd guibg=none")
+-- vim.cmd("hi GitSignsChange guibg=none")
+-- vim.cmd("hi GitSignsDelete guibg=none")
+-- vim.cmd("hi TelescopeBorder guifg=#434852")
+-- vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#434852", bold = true })
+--
+-- -- ["@markup.list.checked.markdown"] = { bg = nil }, -- otherwise its pink
+-- -- ["@markup.link.label.markdown_inline"] = { fg = "#61afef", underline = true },
