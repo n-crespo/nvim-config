@@ -13,6 +13,7 @@ return {
       },
       options = {
         transparency = true, -- Use a transparent background?
+        lualine_transparency = true,
       },
       highlights = {
         ["@markup.list.checked.markdown"] = { bg = nil }, -- otherwise its pink

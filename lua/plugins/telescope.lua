@@ -3,7 +3,6 @@
 -- previewer omits files that are too large or un-preview-able, catimg for
 -- images
 local actions = require("telescope.actions")
--- local gfh_actions = require("telescope").extensions.git_file_history.actions
 return {
   dependencies = {
     "nvim-telescope/telescope.nvim",
@@ -29,18 +28,6 @@ return {
         },
       },
     },
-    -- extensions = {
-    --   git_file_history = {
-    --     mappings = {
-    --       i = {
-    --         ["<C-g>"] = gfh_actions.open_in_browser,
-    --       },
-    --       n = {
-    --         ["<C-g>"] = gfh_actions.open_in_browser,
-    --       },
-    --     },
-    --   },
-    -- },
   },
   config = function(_, opts)
     require("telescope").setup(opts)
@@ -62,7 +49,6 @@ return {
       "<cmd>Telescope oldfiles<cr>",
       desc = "Find Old Files",
     },
-    -- vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands<cr>", { silent = true, desc = "Commands" })
     {
       "<leader>;",
       "<Cmd>Telescope commands<cr>",
