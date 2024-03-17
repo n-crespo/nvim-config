@@ -141,7 +141,7 @@ vim.keymap.set("n", "<C-w>", function()
   end
 end)
 
-vim.keymap.set("n", "<S-w>", "<cmd>tabclose<cr>")
+-- vim.keymap.set("n", "<S-w>", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "t", "<cmd>tabnew<cr>")
 
