@@ -6,13 +6,28 @@ return {
     local theme = {
       head = { bg = nil, fg = "#abb2bf" },
       fill = { fg = "#f2e9de", bg = nil, style = "italic" },
-      current_tab = { fg = "#f2e9de", bg = "#141414", style = "bold" },
-      tab = { bg = nil, fg = "#abb2bf" },
+      focused = { fg = "#22272f", bg = nil },
+      unfocused = { fg = "#141414", bg = nil },
+      current_tab = { fg = "#abb2bf", bg = "#22272f", style = "bold" },
+      tab = { bg = "#141414", fg = "#abb2bf" },
       tail = { bg = "#141414", fg = "#abb2bf" },
     }
     require("tabby.tabline").set(function(line)
       function TabName(tab)
         return string.gsub(tab, "%[..%]", "")
+      end
+      local win_is_modified = function(win)
+        return vim.bo[win.buf().id].modified
+      end
+
+      local tab_is_modified = function(tab)
+        tab.wins().foreach(function(win)
+          -- return win.file_icon()
+          if win_is_modified(win) then
+            return true
+          end
+        end)
+        return false
       end
       return {
         -- {
@@ -21,13 +36,16 @@ return {
         -- },
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.tab
+          local sephl = tab.is_current() and theme.focused or theme.unfocused
+          -- local modified = tab_is_modified(tab) and "" or ""
           return {
-            line.sep("", hl, theme.fill),
-            tab.is_current() and "" or "",
-            tab.number(),
+            line.sep("", hl, sephl),
+            -- tab.is_current() and "" or "",
+            tab.number() .. ":",
             TabName(tab.name()),
+            -- modified,
             -- tab.close_btn(''), -- show a close button
-            line.sep("", hl, theme.fill),
+            line.sep("", hl, sephl),
             hl = hl,
             margin = " ",
           }
@@ -36,12 +54,15 @@ return {
         -- shows list of windows in tab
         line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
           local hl = win.is_current() and theme.current_tab or theme.tab
+          local sephl = win.is_current() and theme.focused or theme.unfocused
+          local modified = win_is_modified(win) and "" or ""
           return {
-            line.sep("", hl, theme.fill),
+            line.sep("", hl, sephl),
             win.file_icon(),
             -- win.is_current() and "" or "",
             win.buf_name(),
-            line.sep("", hl, theme.fill),
+            modified,
+            line.sep("", hl, sephl),
             hl = hl,
             margin = " ",
           }

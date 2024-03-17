@@ -19,23 +19,17 @@ return {
         ["@markup.link.label.markdown_inline"] = { fg = "#61afef", underline = true },
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
-        TabLineSel = { bg = "#22272f" }, -- cokeline
-        Visual = { bg = "#21272f" },
+        Visual = { bg = "#22272f" },
         Headline = { bg = "#22272f" },
         NoiceScrollbar = { bg = "#22272f" },
         NoiceScrollbarThumb = { bg = "#434852" },
         TreeSitterContext = { bg = "#22272f" },
         TreesitterContextLineNumber = { fg = "#f2e9de" },
-        -- TreesitterContextBottom = { sp = "#22272f", underline = true },
         MiniStarterItemBullet = { fg = "#61afef" },
         MiniStarterItemPrefix = { fg = "#89ca78" },
-        TabLine = { bg = "#22272f" },
         NotifyBackground = { bg = "#22272f" }, -- needed bc of transparency
       },
     })
-    require("lualine").setup({ options = {
-      theme = require("transparentlualine").theme,
-    } })
     vim.cmd.colorscheme("onedark_dark")
   end,
 }
