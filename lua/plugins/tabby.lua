@@ -11,9 +11,9 @@ return {
       tail = { bg = "#141414", fg = "#abb2bf" },
     }
     require("tabby.tabline").set(function(line)
-      function tab_name(tab)
-        return string.gsub(tab, "%[..%]", "")
-      end
+      -- function tab_name(tab)
+      --   return string.gsub(tab, "%[..%]", "")
+      -- end
       return {
         {
           { "  ", hl = theme.head },
@@ -54,11 +54,11 @@ return {
       }
     end)
   end,
-  keys = {
-    {
-      "<leader>n",
-      ":TabRename ",
-      silent = false,
-    },
-  },
+  -- keys = {
+  --   {
+  --     "<leader>n",
+  --     ":TabRename ",
+  --     silent = false,
+  --   },
+  -- },
 }
