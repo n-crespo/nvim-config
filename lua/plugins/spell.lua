@@ -13,8 +13,9 @@ return {
     \ "shouldn\'t": ['shouldnt'],
     \ }
     augroup litecorrect
-    autocmd!
-    autocmd filetype markdown call litecorrect#init(user_dict)
+      autocmd!
+      autocmd filetype markdown call litecorrect#init(user_dict)
+      autocmd FileType rmd, rmarkdown call litecorrect#init()
     augroup end
     ]])
   end,

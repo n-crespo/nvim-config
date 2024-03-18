@@ -15,11 +15,11 @@ return {
   end,
   init = function()
     -- for markdown math viewing
-    vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+    vim.api.nvim_create_autocmd({ "FileType", "BufReadPost" }, {
       pattern = { "*.md" },
       callback = function()
         vim.cmd([[
-          ownsyntax on
+          " ownsyntax on
           set spelllang=en
           setlocal spell
           setlocal nowrap
