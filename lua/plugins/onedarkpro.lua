@@ -15,6 +15,9 @@ return {
         transparency = true, -- Use a transparent background?
         lualine_transparency = true,
       },
+      plugins = {
+        lualine = false,
+      },
       highlights = {
         ["@markup.list.checked.markdown"] = { bg = nil }, -- otherwise its pink
         ["@markup.link.label.markdown_inline"] = { fg = "#61afef", underline = true },

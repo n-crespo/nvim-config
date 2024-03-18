@@ -29,7 +29,6 @@ opt.startofline = true
 opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
-opt.spelloptions = "camel"
 opt.spelllang = "en"
 opt.showtabline = 2 -- always show tabline
 vim.g.loaded_ruby_provider = 0
