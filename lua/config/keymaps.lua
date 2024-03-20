@@ -50,8 +50,6 @@ vim.keymap.del("n", "<leader>K")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>sb")
--- vim.keymap.del("n", "<leader>lÞ")
--- vim.keymap.del("x", "<leader>lÞ")
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
@@ -100,10 +98,6 @@ vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save"
 -- in insert mode, <C-l> auto-corrects the last misspelled word (on files that don't block spellcheck)
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 
--- insert mode navigating
--- vim.keymap.set("i", "<C-l>", "<Right>")
--- vim.keymap.set("i", "<C-h>", "<Left>")
-
 -- apply macro over selected region
 vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
 
@@ -143,16 +137,12 @@ end)
 
 -- vim.keymap.set("n", "<S-w>", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>")
-vim.keymap.set("n", "t", "<cmd>tabnew<cr>")
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })
 vim.keymap.set("i", "<C-j>", "<C-n>")
 
 vim.keymap.set("n", "<leader>wl", "<cmd>windo wincmd L<cr>", { desc = "Send to Vertical Split" })
 
--- vim.keymap.del("n", "<leader>qd")
--- vim.keymap.del("n", "<leader>ql")
 vim.keymap.del("n", "<leader>qq")
--- vim.keymap.del("n", "<leader>qs")
 vim.keymap.del("n", "<leader>qÞ")
-vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Close Buffer", silent = true })
+vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent = true })
