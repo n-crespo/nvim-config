@@ -21,14 +21,15 @@ return {
       end
 
       local tab_is_modified = function(tab)
+        local modified = false
         tab.wins().foreach(function(win)
-          -- return win.file_icon()
           if win_is_modified(win) then
-            return true
+            modified = true
           end
         end)
-        return false
+        return modified
       end
+
       return {
         -- {
         --   { "     ", hl = theme.head },
@@ -37,13 +38,13 @@ return {
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.tab
           local sephl = tab.is_current() and theme.focused or theme.unfocused
-          -- local modified = tab_is_modified(tab) and "" or ""
+          local modified = tab_is_modified(tab) and "" or ""
           return {
             line.sep("", hl, sephl),
             -- tab.is_current() and "" or "",
             tab.number() .. ":",
             TabName(tab.name()),
-            -- modified,
+            modified,
             -- tab.close_btn(''), -- show a close button
             line.sep("", hl, sephl),
             hl = hl,
