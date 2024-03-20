@@ -14,7 +14,7 @@ return {
   config = true,
   opts = {
     mode = "term",
-    startinsert = false,
+    startinsert = true,
     filetype = {
       python = "python3 -u",
     },

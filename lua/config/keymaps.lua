@@ -31,7 +31,7 @@ vim.keymap.set("n", "X", "0D", { remap = true, desc = "Clear Line", silent = tru
 -- increment and decrements
 vim.keymap.set({ "n", "v" }, "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "-", "<C-x>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
+vim.keymap.set("n", "<C-a>", "ggyG", { desc = "Select All" })
 
 -- unholy non-native vim keymap
 vim.keymap.set("n", "<C-f>", function()
