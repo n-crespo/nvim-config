@@ -33,5 +33,6 @@ return {
     { "R", "<cmd>RunFile term<cr>", desc = "Run Code" }, -- K --> up --> floating window
     { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code in Term" }, -- J --> down --> bottom split
     { "RL", "<cmd>RunFile term<cr><cmd>windo wincmd L<cr>", desc = "Run Code in Term" }, -- J --> down --> bottom split
+    { "RQ", "<cmd>RunClose<cr>", desc = "Run Code in Term" }, -- close runner
   },
 }
