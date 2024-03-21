@@ -10,7 +10,7 @@ return {
       unfocused = { fg = "#141414", bg = nil },
       current_tab = { fg = "#abb2bf", bg = "#22272f", style = "bold" },
       tab = { bg = "#141414", fg = "#abb2bf" },
-      tail = { bg = "#141414", fg = "#abb2bf" },
+      tail = { bg = nil, fg = "#abb2bf" },
     }
     require("tabby.tabline").set(function(line)
       function TabName(tab)
@@ -31,22 +31,23 @@ return {
       end
 
       return {
-        -- {
-        --   { "     ", hl = theme.head },
-        --   line.sep("", theme.head, theme.fill),
-        -- },
+        {
+          line.sep(" ", theme.tail, theme.fill),
+          { "", hl = theme.head },
+          line.sep(" ", theme.tail, theme.fill),
+        },
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.tab
           local sephl = tab.is_current() and theme.focused or theme.unfocused
           local modified = tab_is_modified(tab) and "" or ""
           return {
-            line.sep("", hl, sephl),
+            line.sep("", hl, sephl),
             -- tab.is_current() and "" or "",
             tab.number() .. ":",
             TabName(tab.name()),
             modified,
             -- tab.close_btn(''), -- show a close button
-            line.sep("", hl, sephl),
+            line.sep("", hl, sephl),
             hl = hl,
             margin = " ",
           }
@@ -58,20 +59,21 @@ return {
           local sephl = win.is_current() and theme.focused or theme.unfocused
           local modified = win_is_modified(win) and "" or ""
           return {
-            line.sep("", hl, sephl),
+            line.sep("", hl, sephl),
             win.file_icon(),
             -- win.is_current() and "" or "",
             win.buf_name(),
             modified,
-            line.sep("", hl, sephl),
+            line.sep("", hl, sephl),
             hl = hl,
             margin = " ",
           }
         end),
-        -- {
-        --   line.sep(" ", theme.tail, theme.fill),
-        --   { " ", hl = theme.tail },
-        -- },
+        {
+          line.sep(" ", theme.tail, theme.fill),
+          { "", hl = theme.tail },
+          line.sep(" ", theme.tail, theme.fill),
+        },
         hl = theme.fill,
       }
     end)

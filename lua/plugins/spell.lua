@@ -15,7 +15,7 @@ return {
     augroup litecorrect
       autocmd!
       autocmd filetype markdown call litecorrect#init(user_dict)
-      autocmd FileType rmd, rmarkdown call litecorrect#init()
+      " autocmd FileType rmd, rmarkdown call litecorrect#init(user_dict)
     augroup end
     ]])
   end,

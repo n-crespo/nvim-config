@@ -1,7 +1,7 @@
 -- support for R-markdown
 return {
   "vim-pandoc/vim-rmarkdown",
-  ft = { "rmd", "rmarkdown" }, -- only load plugin in rmd files
+  ft = { "rmarkdown" }, -- only load plugin in rmd files
   dependencies = {
     { "vim-pandoc/vim-pandoc-syntax" },
     {
