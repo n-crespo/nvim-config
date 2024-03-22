@@ -17,7 +17,7 @@ require("lazy").setup({
     -- version = "*",  try installing the latest stable version for plugins that support semver
   },
   ui = {
-    border = "rounded",
+    border = "single",
     size = {
       width = 0.8,
       height = 0.8,
