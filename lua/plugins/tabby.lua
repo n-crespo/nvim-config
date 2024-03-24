@@ -32,16 +32,16 @@ return {
       end
 
       return {
-        {
-          { "  ", hl = theme.head },
-          -- line.sep(" ", theme.head, theme.fill),
-        },
+        -- {
+        --   { "  ", hl = theme.head },
+        --   -- line.sep(" ", theme.head, theme.fill),
+        -- },
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.transparent
           local sephl = tab.is_current() and theme.focused or theme.transparent
           local modified = tab_is_modified(tab) and "" or ""
-          local sep1 = tab.is_current() and line.sep(" ", hl, sephl) or " "
-          local sep2 = tab.is_current() and line.sep(" ", hl, sephl) or " "
+          local sep1 = tab.is_current() and line.sep("█", hl, sephl) or " "
+          local sep2 = tab.is_current() and line.sep("█", hl, sephl) or " "
           return {
             sep1,
             -- tab.is_current() and "" or "",
@@ -49,7 +49,7 @@ return {
             TabName(tab.name()),
             modified,
             -- tab.close_btn(''), -- show a close button
-            -- sep2,
+            sep2,
             hl = hl,
             margin = " ",
           }
@@ -60,14 +60,15 @@ return {
           local hl = win.is_current() and theme.current_tab or theme.transparent
           local sephl = win.is_current() and theme.focused or theme.transparent
           local modified = win_is_modified(win) and "" or ""
-          local sep1 = win.is_current() and line.sep(" ", hl, sephl) or " "
-          local sep2 = win.is_current() and line.sep(" ", hl, sephl) or " "
+          local sep1 = win.is_current() and line.sep("█", hl, sephl) or " "
+          local sep2 = win.is_current() and line.sep("█", hl, sephl) or " "
           return {
             sep1,
             win.file_icon(),
             -- win.is_current() and "" or "",
             win.buf_name(),
             modified,
+            sep2,
             hl = hl,
             margin = " ",
           }
