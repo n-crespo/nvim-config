@@ -41,7 +41,7 @@ return {
           local sephl = tab.is_current() and theme.focused or theme.transparent
           local modified = tab_is_modified(tab) and "" or ""
           local sep1 = tab.is_current() and line.sep("", hl, sephl) or ""
-          local sep2 = tab.is_current() and line.sep("", hl, sephl) or " "
+          local sep2 = tab.is_current() and line.sep("", hl, sephl) or ""
           return {
             sep1,
             -- tab.is_current() and "" or "",
