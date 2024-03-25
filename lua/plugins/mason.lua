@@ -20,7 +20,7 @@ return {
       "json-lsp",
       "markdownlint",
       "mdformat",
-      "pyright",
+      "basedpyright",
       "r-languageserver",
       "ruff-lsp",
       "shellcheck",

@@ -17,6 +17,13 @@ return {
       function TabName(tab)
         return string.gsub(tab, "%[..%]", "")
       end
+
+      function TabIcon(tab)
+        tab.wins().foreach(function(win)
+          return win.file_icon()
+        end)
+      end
+
       local win_is_modified = function(win)
         return vim.bo[win.buf().id].modified
       end
@@ -45,8 +52,9 @@ return {
           return {
             sep1,
             -- tab.is_current() and "" or "",
-            tab.number() .. ":",
-            TabName(tab.name()),
+            tab.number(),
+            -- TabIcon(tab),
+            -- TabName(tab.name()),
             modified,
             -- tab.close_btn(''), -- show a close button
             sep2,
