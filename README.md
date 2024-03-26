@@ -110,13 +110,15 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
     - [x] not done
   - [x] bullet points
   - [x] single line quotes
-  - [ ] block quotes
+  - [x] block quotes (back to using headlines.nvim)
 - [x] format visual selection in markdown (bold + italic)
 - [x] code block insertion in insert mode
 - [x] better markdown latex previews
-- [ ] command line completion (probably going to skip this one...)
+- [x] command line completion (probably going to skip this one...)
   - [x] `:Telescope commands` (`<leader>:`)
 - [x] smaller cmp window
 - [x] deal with trailing white space better (auto command)
 - [x] better spelling? (`spell.lua`)
 - [x] telescope layout/open files picker
+- [x] inline image previews in markdown (switched to kitty)
+- [x] headlines but not slow (kitty again)
