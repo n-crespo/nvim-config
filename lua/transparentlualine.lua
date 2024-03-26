@@ -9,7 +9,7 @@ M.theme = function()
     insert = dgray,
     command = dgray,
     innerbg = nil,
-    outerbg = "#141414",
+    outerbg = "#121621",
     darkgray = "#abb2bf",
     gray = "#abb2bf",
   }
