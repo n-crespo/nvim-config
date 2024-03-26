@@ -54,7 +54,7 @@ return {
             -- tab.is_current() and "" or "",
             tab.number(),
             -- TabIcon(tab),
-            -- TabName(tab.name()),
+            TabName(tab.name()),
             modified,
             -- tab.close_btn(''), -- show a close button
             sep2,

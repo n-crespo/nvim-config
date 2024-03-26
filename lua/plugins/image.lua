@@ -1,5 +1,8 @@
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 return {
   "3rd/image.nvim",
+  ft = { "markdown", "rmarkdown", "norg" },
   opts = {
     backend = "kitty",
     integrations = {
@@ -20,6 +23,7 @@ return {
     },
     max_width = nil,
     max_height = nil,
+    kitty_method = "normal",
     max_width_window_percentage = nil,
     max_height_window_percentage = 50,
     window_overlap_clear_enabled = false, -- toggles images when windows are overlapped
@@ -28,4 +32,9 @@ return {
     tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
     hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" }, -- render image files as images when opened
   },
+  config = function(_, opts)
+    package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+    package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+    require("image").setup(opts)
+  end,
 }

@@ -63,7 +63,7 @@ remove a plugin by just deleting its file. See below:
 
 ## Install Instructions
 
->  Install requires Neovim 0.9+.
+> Install requires Neovim 0.9+.
 
 Clone the repository and install the plugins:
 
