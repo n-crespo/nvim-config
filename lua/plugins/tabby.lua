@@ -8,7 +8,6 @@ return {
       transparent = { bg = nil, fg = nil },
       fill = { fg = "#f2e9de", bg = nil, style = "italic" },
       focused = { fg = "#22272f", bg = nil, style = "italic" },
-      unfocused = { fg = nil, bg = nil },
       current_tab = { fg = "#abb2bf", bg = "#22272f", style = "bold" },
       tab = { bg = "#22272f", fg = "#abb2bf" },
       tail = { bg = "#22272f", fg = "#abb2bf" },
@@ -39,25 +38,27 @@ return {
       end
 
       return {
-        -- {
-        --   { "  ", hl = theme.head },
-        --   -- line.sep(" ", theme.head, theme.fill),
-        -- },
+        {
+          { "  ", hl = theme.head },
+          line.sep("", theme.head, theme.fill),
+        },
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.transparent
           local sephl = tab.is_current() and theme.focused or theme.transparent
           local modified = tab_is_modified(tab) and "" or ""
-          local sep1 = tab.is_current() and line.sep("", hl, sephl) or ""
-          local sep2 = tab.is_current() and line.sep("", hl, sephl) or ""
+          local sepright = tab.is_current() and line.sep("", hl, sephl) or " "
+          local sepleft = tab.is_current() and line.sep("", hl, sephl) or " "
+          -- local sep1 = tab.is_current() and line.sep("", hl, sephl) or ""
+          -- local sep2 = tab.is_current() and line.sep("", hl, sephl) or ""
           return {
-            sep1,
+            sepleft,
             -- tab.is_current() and "" or "",
             tab.number(),
             -- TabIcon(tab),
             TabName(tab.name()),
             modified,
             -- tab.close_btn(''), -- show a close button
-            sep2,
+            sepright,
             hl = hl,
             margin = " ",
           }
@@ -68,23 +69,23 @@ return {
           local hl = win.is_current() and theme.current_tab or theme.transparent
           local sephl = win.is_current() and theme.focused or theme.transparent
           local modified = win_is_modified(win) and "" or ""
-          local sep1 = win.is_current() and line.sep("", hl, sephl) or ""
-          local sep2 = win.is_current() and line.sep("", hl, sephl) or ""
+          local sepright = win.is_current() and line.sep("", hl, sephl) or " "
+          local sepleft = win.is_current() and line.sep("", hl, sephl) or " "
           return {
-            sep1,
+            sepleft,
             win.file_icon(),
             -- win.is_current() and "" or "",
             win.buf_name(),
             modified,
-            sep2,
+            sepright,
             hl = hl,
             margin = " ",
           }
         end),
-        -- {
-        --   line.sep("", theme.tail, theme.fill),
-        --   { "  ", hl = theme.tail },
-        -- },
+        {
+          line.sep("", theme.tail, theme.fill),
+          { "  ", hl = theme.tail },
+        },
         hl = theme.fill,
       }
     end)
