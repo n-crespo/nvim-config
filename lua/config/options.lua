@@ -38,4 +38,4 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.vim_markdown_toc_autofit = 1
 vim.g.lazyvim_python_lsp = "basedpyright"
-vim.g.lazygit_theme = true
+vim.g.lazygit_config = true

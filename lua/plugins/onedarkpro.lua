@@ -25,6 +25,7 @@ return {
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
         Visual = { bg = "#22272f" },
+        CursorLine = { bg = "#22272f" },
         Headline = { bg = "#22272f" },
         NoiceScrollbar = { bg = "#22272f" },
         CodeBlock = { bg = "#22272f" },
