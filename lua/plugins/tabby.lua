@@ -5,7 +5,7 @@ return {
   config = function()
     local theme = {
       head = { bg = "#22272f", fg = "#abb2bf" },
-      transparent = { bg = nil, fg = nil },
+      transparent = { bg = "#121621", fg = nil },
       fill = { fg = "#f2e9de", bg = nil, style = "italic" },
       focused = { fg = "#22272f", bg = nil, style = "italic" },
       current_tab = { fg = "#abb2bf", bg = "#22272f", style = "bold" },

@@ -2,6 +2,7 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 return {
   "3rd/image.nvim",
+  enabled = false,
   ft = { "markdown", "rmarkdown", "rmd", "norg" },
   opts = {
     backend = "kitty",
