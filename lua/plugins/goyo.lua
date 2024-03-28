@@ -4,7 +4,7 @@ return {
   keys = {
     {
       "<leader>ug",
-      "<cmd>Goyo 85<cr>",
+      "<cmd>Goyo<cr>",
       silent = true,
       desc = "Goyo",
     },
@@ -13,6 +13,8 @@ return {
     vim.cmd([[
 
     function! s:goyo_enter()
+    Goyo 86
+    set rnu
     set scrolloff=999
     echo 'hello'
     lua require("lualine").hide()
