@@ -7,7 +7,7 @@ return {
     max_width = 200,
     max_height = 40,
     fps = 60,
-    render = "compact",
+    render = "default",
     stages = "slide",
     timeout = 4000,
     top_down = true,
