@@ -25,7 +25,10 @@ return {
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
         Visual = { bg = "#22272f" },
+        Normal = { bg = "#121621" },
         Headline = { bg = "#22272f" },
+        SignColumnNC = { bg = "#121621" },
+        SignColumn = { bg = "#121621" },
         NoiceScrollbar = { bg = "#22272f" },
         CodeBlock = { bg = "#22272f" },
         MiniFilesHiglight = { bg = "#000000" },
