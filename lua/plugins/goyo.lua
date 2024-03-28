@@ -16,7 +16,6 @@ return {
     Goyo 86
     set rnu
     set scrolloff=999
-    echo 'hello'
     lua require("lualine").hide()
     endfunction
 
