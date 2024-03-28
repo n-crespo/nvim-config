@@ -14,7 +14,7 @@ return {
 
     function! s:goyo_enter()
     Goyo 86
-    set rnu
+    set nu
     set scrolloff=999
     lua require("lualine").hide()
     endfunction
