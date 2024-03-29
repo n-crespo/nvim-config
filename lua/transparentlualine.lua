@@ -1,4 +1,4 @@
-local dgray = "#22272f"
+local dgray = "#3a486d"
 local M = {}
 
 M.theme = function()
@@ -9,7 +9,7 @@ M.theme = function()
     insert = dgray,
     command = dgray,
     innerbg = nil,
-    outerbg = "#121621",
+    outerbg = "#262f47",
     darkgray = "#abb2bf",
     gray = "#abb2bf",
   }

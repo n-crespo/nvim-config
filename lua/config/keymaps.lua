@@ -127,6 +127,7 @@ vim.keymap.set("n", "<C-n>", "<Cmd>tabnew<cr>")
 vim.keymap.del("n", "<C-w>Þ") -- to remove delay
 
 vim.keymap.set("n", "<C-w>", function()
+  ---@diagnostic disable-next-line: unused-local
   local success, result = pcall(function()
     vim.cmd("tabclose")
   end)

@@ -31,15 +31,14 @@ return {
         SignColumn = { bg = "#121621" },
         NoiceScrollbar = { bg = "#22272f" },
         CodeBlock = { bg = "#22272f" },
-        InclineNormal = { bg = "#22272f" },
-        InclineNormalNC = { bg = "#22272f" },
         MiniFilesHiglight = { bg = "#000000" },
         NoiceScrollbarThumb = { bg = "#434852" },
-        -- TreeSitterContext = { bg = "#22272f" },
         TreesitterContextLineNumber = { fg = "#f2e9de" },
         MiniStarterItemBullet = { fg = "#61afef" },
         MiniStarterItemPrefix = { fg = "#89ca78" },
         NotifyBackground = { bg = "#22272f" }, -- needed bc of transparency
+        InclineNormal = { bg = "#262f47" },
+        InclineNormalNC = { bg = "#262f47" },
       },
     })
     vim.cmd.colorscheme("onedark_dark")
