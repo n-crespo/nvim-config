@@ -119,3 +119,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   group = "cmdwin_treesitter",
   desc = "Disable treesitter's incremental selection in Command-line window",
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  command = "set showtabline=0",
+})

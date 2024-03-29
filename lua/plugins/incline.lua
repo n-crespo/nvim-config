@@ -1,8 +1,8 @@
 return {
   "b0o/incline.nvim",
-  -- "" and "",
   event = "LazyFile",
   config = function()
+    vim.g.showtabline = 0
     local devicons = require("nvim-web-devicons")
     require("incline").setup({
       render = function(props)
@@ -46,11 +46,12 @@ return {
           return label
         end
 
+        local modified = vim.bo[props.buf].modified and "  " or ""
         return {
           { get_diagnostic_label() },
           { get_git_diff() },
           { (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" },
-          { filename .. "", gui = vim.bo[props.buf].modified and "bold,italic" or "bold" },
+          { filename .. "" .. modified },
           -- { "┊  " .. vim.api.nvim_win_get_number(props.win), group = "DevIconWindows" },
         }
       end,
