@@ -1,6 +1,7 @@
 return {
   "nanozuki/tabby.nvim",
   event = "VimEnter",
+  enabled = false,
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local theme = {
@@ -22,70 +23,31 @@ return {
           return win.file_icon()
         end)
       end
-
-      local win_is_modified = function(win)
-        return vim.bo[win.buf().id].modified
-      end
-
-      local tab_is_modified = function(tab)
-        local modified = false
-        tab.wins().foreach(function(win)
-          if win_is_modified(win) then
-            modified = true
-          end
-        end)
-        return modified
-      end
-
       return {
         {
           { "  ", hl = theme.head },
-          line.sep("", theme.head, theme.fill),
+          line.sep(" ", theme.head, theme.fill),
         },
         line.tabs().foreach(function(tab)
           local hl = tab.is_current() and theme.current_tab or theme.transparent
           local sephl = tab.is_current() and theme.focused or theme.transparent
-          local modified = tab_is_modified(tab) and "" or ""
-          local sepright = tab.is_current() and line.sep("", hl, sephl) or " "
-          local sepleft = tab.is_current() and line.sep("", hl, sephl) or " "
+          local sepright = tab.is_current() and line.sep(" ", hl, sephl) or " "
+          local sepleft = tab.is_current() and line.sep(" ", hl, sephl) or " "
           -- local sep1 = tab.is_current() and line.sep("", hl, sephl) or ""
           -- local sep2 = tab.is_current() and line.sep("", hl, sephl) or ""
           return {
-            sepleft,
-            -- tab.is_current() and "" or "",
+            -- sepleft,
+            tab.is_current() and " " or " ",
             tab.number(),
             -- TabIcon(tab),
-            TabName(tab.name()),
-            modified,
-            -- tab.close_btn(''), -- show a close button
-            sepright,
+            -- TabName(tab.name()),
+            -- sepright,
+            " ",
             hl = hl,
             margin = " ",
           }
         end),
         line.spacer(),
-        -- shows list of windows in tab
-        -- line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-        --   local hl = win.is_current() and theme.current_tab or theme.transparent
-        --   local sephl = win.is_current() and theme.focused or theme.transparent
-        --   local modified = win_is_modified(win) and "" or ""
-        --   local sepright = win.is_current() and line.sep("", hl, sephl) or " "
-        --   local sepleft = win.is_current() and line.sep("", hl, sephl) or " "
-        --   return {
-        --     sepleft,
-        --     win.file_icon(),
-        --     -- win.is_current() and "" or "",
-        --     win.buf_name(),
-        --     modified,
-        --     sepright,
-        --     hl = hl,
-        --     margin = " ",
-        --   }
-        -- end),
-        -- {
-        --   line.sep("", theme.tail, theme.fill),
-        --   { "  ", hl = theme.tail },
-        -- },
         hl = theme.fill,
       }
     end)
