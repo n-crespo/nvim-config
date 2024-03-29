@@ -30,6 +30,7 @@ opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
 opt.spelllang = "en"
+opt.scroll = 15
 -- opt.showtabline = 0 -- always show tabline
 vim.g.showtabline = 0
 vim.g.loaded_ruby_provider = 0

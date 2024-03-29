@@ -122,3 +122,5 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] telescope layout/open files picker
 - [x] inline image previews in markdown (switched to kitty)
 - [x] headlines but not slow (kitty again)
+- [x] window labels (incline)
+- [x] symbol outline/table of contents (trouble v3)

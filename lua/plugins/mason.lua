@@ -26,8 +26,8 @@ return {
       "shellcheck",
       "shfmt",
       "stylua",
-      -- "lua-language-server",
-      -- "marksman",
+      "lua-language-server",
+      "marksman",
     },
   },
 }
