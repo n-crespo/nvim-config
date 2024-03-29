@@ -1,7 +1,6 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.codeium",
-    "lazyvim.plugins.extras.editor.mini-diff",
     "lazyvim.plugins.extras.editor.mini-move",
     "lazyvim.plugins.extras.editor.trouble-v3",
     "lazyvim.plugins.extras.lang.clangd",
