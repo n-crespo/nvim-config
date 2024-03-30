@@ -117,8 +117,8 @@ vim.keymap.set(
 vim.keymap.set("n", "<C-;>", ":")
 vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
 
-vim.keymap.set({ "n", "t", "v" }, "<C-x>", "<cmd>tabnext<cr>") -- mapped to <C-Tab> through alacritty
-vim.keymap.set({ "n", "t", "v" }, "<C-p>", "<cmd>tabprev<cr>") -- mapped to <C-S-Tab> through alacritty
+-- vim.keymap.set({ "n", "t", "v" }, "<C-x>", "<cmd>tabnext<cr>") -- mapped to <C-Tab> through alacritty
+-- vim.keymap.set({ "n", "t", "v" }, "<C-p>", "<cmd>tabprev<cr>") -- mapped to <C-S-Tab> through alacritty
 
 vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
 vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
