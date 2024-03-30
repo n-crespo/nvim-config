@@ -24,7 +24,7 @@ Some interesting things in this config are:
   - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
 - the LSP and formatter support for R-Markdown, C++, Java, and Python (mostly thanks to LazyVim)
   - see `markdown.lua`, `markdownpreview.lua`, and `markdowntable.lua` for markdown (no LSP needed)
-- I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` *everywhere*
+- I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` _everywhere_
 - custom markdown highlights for bullets, checkboxes, and inline quotes
 
 > [!Note]
