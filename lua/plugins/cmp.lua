@@ -3,6 +3,11 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   opts = {
+    view = {
+      entries = {
+        follow_cursor = true,
+      },
+    },
     window = {
       completion = {
         -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
