@@ -147,3 +147,6 @@ vim.keymap.set("n", "<leader>wl", "<cmd>windo wincmd L<cr>", { desc = "Send to V
 vim.keymap.del("n", "<leader>qq")
 vim.keymap.del("n", "<leader>qÞ")
 vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent = true })
+
+vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Make Executable" })
+-- vim.keymap.set("n", "Q", "<nop>", { silent = true })
