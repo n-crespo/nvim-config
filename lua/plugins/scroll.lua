@@ -1,5 +1,6 @@
 return {
   "Aasim-A/scrollEOF.nvim",
+  enabled = true,
   -- event = { "CursorMoved", "WinScrolled" },
   event = "LazyFile",
   opts = {
