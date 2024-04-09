@@ -37,8 +37,8 @@ return {
         MiniStarterItemBullet = { fg = "#61afef" },
         MiniStarterItemPrefix = { fg = "#89ca78" },
         NotifyBackground = { bg = "#22272f" }, -- needed bc of transparency
-        InclineNormal = { bg = "#3a486d" },
-        InclineNormalNC = { bg = "#3a486d" },
+        InclineNormal = { bg = "#262f47" },
+        InclineNormalNC = { bg = "#262f47" },
       },
     })
     vim.cmd.colorscheme("onedark_dark")

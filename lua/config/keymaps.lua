@@ -122,6 +122,8 @@ vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+", { noremap = true, silent = true,
 
 vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
 vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
+vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
+vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
 
 vim.keymap.set("n", "<C-n>", "<Cmd>tabnew<cr>")
 vim.keymap.del("n", "<C-w>Þ") -- to remove delay
@@ -149,4 +151,5 @@ vim.keymap.del("n", "<leader>qÞ")
 vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent = true })
 
 vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Make Executable" })
+vim.keymap.set("n", "<C-,>", "<cmd>e $MYVIMRC<cr>", { desc = "Edit vimrc", silent = true })
 -- vim.keymap.set("n", "Q", "<nop>", { silent = true })
