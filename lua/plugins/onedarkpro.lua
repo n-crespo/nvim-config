@@ -7,6 +7,7 @@ return {
   name = "onedarkpro",
   priority = 1000, -- Ensure it loads first
   config = function()
+    local bg_color = "#0d1117"
     require("onedarkpro").setup({
       styles = { -- For example, to apply bold and italic, use "bold,italic"
         comments = "italic", -- Style that is applied to comments
@@ -25,10 +26,10 @@ return {
         WhichKeyFloat = { bg = nil }, -- transparent whichkey
         FlashCurrent = { bg = "#e5c07b", fg = "#212121" },
         Visual = { bg = "#22272f" },
-        Normal = { bg = "#121621" },
+        Normal = { bg = bg_color },
         Headline = { bg = "#22272f" },
-        SignColumnNC = { bg = "#121621" },
-        SignColumn = { bg = "#121621" },
+        SignColumnNC = { bg = bg_color },
+        SignColumn = { bg = bg_color },
         NoiceScrollbar = { bg = "#22272f" },
         CodeBlock = { bg = "#22272f" },
         MiniFilesHiglight = { bg = "#000000" },
