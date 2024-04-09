@@ -49,7 +49,7 @@ return {
         local modified = vim.bo[props.buf].modified and "  " or ""
         return {
           { get_diagnostic_label() },
-          { get_git_diff() },
+          -- { get_git_diff() },
           { (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" },
           { filename .. "" .. modified },
           -- { "┊  " .. vim.api.nvim_win_get_number(props.win), group = "DevIconWindows" },
