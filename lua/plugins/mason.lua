@@ -11,15 +11,13 @@ return {
     ensure_installed = {
       "arduino-language-server",
       "bash-language-server",
-      "black",
-      "cbfmt",
+      "black", -- python
+      "cbfmt", -- markdown code block formatter
       "clang-format",
       "clangd",
       "flake8",
       "jdtls",
       "json-lsp",
-      "markdownlint",
-      "mdformat",
       "basedpyright",
       "r-languageserver",
       "ruff-lsp",
@@ -28,6 +26,7 @@ return {
       "stylua",
       "lua-language-server",
       "marksman",
+      "prettier",
     },
   },
 }
