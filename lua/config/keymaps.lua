@@ -152,4 +152,5 @@ vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent =
 
 vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Make Executable" })
 vim.keymap.set("n", "<C-,>", "<cmd>e $MYVIMRC<cr>", { desc = "Edit vimrc", silent = true })
+vim.keymap.set("n", "<leader>\\", "<leader>|", { remap = true, silent = true, desc = "Vertical Split" })
 -- vim.keymap.set("n", "Q", "<nop>", { silent = true })

@@ -31,8 +31,8 @@ return {
   keys = {
     { "RK", "<cmd>RunFile float<cr>", desc = "Run Code in Float" }, -- K --> up --> floating window
     { "R", "<cmd>RunFile term<cr>", desc = "Run Code" }, -- K --> up --> floating window
-    { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code in Term" }, -- J --> down --> bottom split
-    { "RL", "<cmd>RunFile term<cr><cmd>windo wincmd L<cr>", desc = "Run Code in Term" }, -- J --> down --> bottom split
-    { "RQ", "<cmd>RunClose<cr>", desc = "Run Code in Term" }, -- close runner
+    { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code Below" }, -- J --> down --> bottom split
+    { "RL", "<cmd>RunFile term<cr><cmd>windo wincmd H<cr>", desc = "Run Code on Left" }, -- J --> down --> bottom split
+    { "RQ", "<cmd>RunClose<cr>", desc = "Close Runner" }, -- close runner
   },
 }
