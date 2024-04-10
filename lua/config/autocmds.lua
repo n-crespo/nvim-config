@@ -1,3 +1,4 @@
+-- sync clipboard with system clipboard automagically without slowing startup
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
   pattern = { "*" },
   command = [[call setreg("@", getreg("+"))]],
@@ -11,6 +12,13 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   callback = function()
     vim.cmd([[set nowrap]])
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
+  pattern = "Mentorship-Hour-Log.md",
+  callback = function()
+    vim.cmd([[setlocal conceallevel=0]])
   end,
 })
 
