@@ -53,10 +53,15 @@ vim.keymap.del("n", "<leader>sb")
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
-vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
-vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
-vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
+local path = os.getenv("HOME") -- Get the user's home directory
+if string.sub(path, 1, 6) == "/Users" then
+  print("Keymaps not set, MacOS detected")
+else
+  vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
+  vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
+  vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
+  vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
+end
 
 -- cd to current buffer (replace autochdir)
 vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
