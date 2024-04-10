@@ -128,6 +128,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   desc = "Disable treesitter's incremental selection in Command-line window",
 })
 
+-- for some reaason the showtabline = 0 in options.lua is overriden somewhere....
 vim.api.nvim_create_autocmd("BufEnter", {
   command = "set showtabline=0",
 })
