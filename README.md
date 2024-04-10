@@ -123,3 +123,6 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] inline image previews in markdown (switched to kitty)
 - [x] headlines but not slow (kitty again)
 - [x] window labels (incline)
+- [x] fix MacOS scrolling
+  - [x] System specific settings in lua
+- [x] find tabline replacement

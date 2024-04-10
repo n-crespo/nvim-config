@@ -159,3 +159,5 @@ vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR>", { silent = true, desc =
 vim.keymap.set("n", "<C-,>", "<cmd>e $MYVIMRC<cr>", { desc = "Edit vimrc", silent = true })
 vim.keymap.set("n", "<leader>\\", "<leader>|", { remap = true, silent = true, desc = "Vertical Split" })
 -- vim.keymap.set("n", "Q", "<nop>", { silent = true })
+
+vim.keymap.set("n", "z-", "z-kj", { silent = true, desc = "Bottom line" })
