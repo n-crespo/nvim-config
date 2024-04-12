@@ -8,13 +8,12 @@ return {
       },
     },
     servers = {
-      basedpyright = {},
       clangd = {},
       jdtls = { enabled = true }, -- java
       lua_ls = { enabled = false }, -- i don't need this and it makes things laggy
       marksman = { enabled = false }, -- i don't need this and it makes things laggy
       r_language_server = {},
-      ruff_lsp = {}, -- for python
+      ruff_lsp = { enabled = false }, -- for python
     },
     setup = {
       jdtls = function()

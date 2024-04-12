@@ -161,3 +161,5 @@ vim.keymap.set("n", "<leader>\\", "<leader>|", { remap = true, silent = true, de
 -- vim.keymap.set("n", "Q", "<nop>", { silent = true })
 
 vim.keymap.set("n", "z-", "z-kj", { silent = true, desc = "Bottom line" })
+
+vim.api.nvim_set_keymap("n", "<leader>X", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Permissions" })
