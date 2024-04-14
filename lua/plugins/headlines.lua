@@ -20,5 +20,21 @@ return {
       require("headlines").setup(opts)
       require("headlines").refresh()
     end)
+
+    vim.g.toggle_codeblock_bg = false
+    function ToggleCodeblockBackground()
+      if vim.g.toggle_codeblock_bg then
+        vim.cmd("hi Codeblock guibg=nil")
+      else
+        vim.cmd("hi Codeblock guibg=#22272f")
+      end
+      vim.g.toggle_codeblock_bg = not vim.g.toggle_codeblock_bg
+    end
+    vim.api.nvim_set_keymap(
+      "n",
+      "<leader>tb",
+      ":lua ToggleCodeblockBackground()<CR>",
+      { noremap = true, silent = true, desc = "Toggle codeblock background" }
+    )
   end,
 }
