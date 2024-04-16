@@ -14,6 +14,7 @@ return {
       marksman = { enabled = false }, -- i don't need this and it makes things laggy
       r_language_server = {},
       ruff_lsp = { enabled = false }, -- for python
+      asm_lsp = {},
     },
     setup = {
       jdtls = function()
