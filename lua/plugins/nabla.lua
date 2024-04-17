@@ -7,10 +7,10 @@ return {
     { "<leader>p", "<cmd>lua require('nabla').popup({ border='single' })<cr>", desc = "Preview Equation" },
   },
   config = function()
-    require("nabla").enable_virt({
-      autogen = true,
-      silent = false,
-      align_center = true,
-    })
+    -- require("nabla").enable_virt({
+    --   autogen = true,
+    --   silent = false,
+    --   align_center = true,
+    -- })
   end,
 }
