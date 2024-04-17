@@ -56,7 +56,10 @@ vim.keymap.del("n", "<leader>sb")
 local path = os.getenv("HOME") -- Get the user's home directory
 if string.sub(path, 1, 6) == "/Users" then
   vim.notify("Keymaps not set, MacOS detected")
+  vim.keymap.set("n", "<leader>ow", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
+  vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 else
+  vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" })
   vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
   vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
   vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
