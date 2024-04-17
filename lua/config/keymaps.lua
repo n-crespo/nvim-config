@@ -55,7 +55,7 @@ vim.keymap.del("n", "<leader>sb")
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
 local path = os.getenv("HOME") -- Get the user's home directory
 if string.sub(path, 1, 6) == "/Users" then
-  print("Keymaps not set, MacOS detected")
+  vim.notify("Keymaps not set, MacOS detected")
 else
   vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
   vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
@@ -65,19 +65,15 @@ end
 
 -- cd to current buffer (replace autochdir)
 vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
+-- close buffer (soft) (preserve split)
 vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
-vim.keymap.set("n", "<leader>K", "<cmd>tabclose<cr>", { remap = true, silent = true, desc = "Close Tab" })
 
 -- navigate and list tabs
 vim.keymap.set("n", "<leader>a", function()
   vim.cmd("tabs")
 end, { silent = true, desc = "List Tabs" })
--- vim.keymap.set("n", "<leader>1", "<leader>un1gt", { remap = true, silent = true, desc = "Goto Tab 1" })
--- vim.keymap.set("n", "<leader>2", "<leader>un2gt", { remap = true, silent = true, desc = "Goto Tab 2" })
--- vim.keymap.set("n", "<leader>3", "<leader>un3gt", { remap = true, silent = true, desc = "Goto Tab 3" })
--- vim.keymap.set("n", "<leader>4", "<leader>un4gt", { remap = true, silent = true, desc = "Goto Tab 4" })
--- vim.keymap.set("n", "<leader>5", "<leader>un5gt", { remap = true, silent = true, desc = "Goto Tab 5" })
 
+-- completion cycling
 vim.keymap.set("i", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
 vim.keymap.set("i", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through completion items" })
 vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
@@ -119,12 +115,14 @@ vim.keymap.set(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace instances" }
 )
+
 vim.keymap.set("n", "<C-;>", ":")
-vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
 
--- vim.keymap.set({ "n", "t", "v" }, "<C-x>", "<cmd>tabnext<cr>") -- mapped to <C-Tab> through alacritty
--- vim.keymap.set({ "n", "t", "v" }, "<C-p>", "<cmd>tabprev<cr>") -- mapped to <C-S-Tab> through alacritty
+-- paste from system clipboard
+vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.keymap.set("c", "<C-v>", "<C-r>+")
 
+-- tab navigation (true tabs)
 vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
 vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
 vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
@@ -133,6 +131,7 @@ vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Pr
 vim.keymap.set("n", "<C-n>", "<Cmd>tabnew<cr>")
 vim.keymap.del("n", "<C-w>Þ") -- to remove delay
 
+-- close current tab, if last tab open, quit completely
 vim.keymap.set("n", "<C-w>", function()
   ---@diagnostic disable-next-line: unused-local
   local success, result = pcall(function()
@@ -143,23 +142,29 @@ vim.keymap.set("n", "<C-w>", function()
   end
 end)
 
--- vim.keymap.set("n", "<S-w>", "<cmd>tabclose<cr>")
-vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>")
+vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>") -- i use <C-n> more tbh
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })
-vim.keymap.set("i", "<C-j>", "<C-n>")
 
-vim.keymap.set("n", "<leader>wl", "<cmd>windo wincmd L<cr>", { desc = "Send to Vertical Split" })
-
+-- whichkey garbage
 vim.keymap.del("n", "<leader>qq")
 vim.keymap.del("n", "<leader>qÞ")
+
+-- :bd
 vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent = true })
 
-vim.keymap.set("n", "<leader>x", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Make Executable" })
+-- settings keymap (init.lua)
 vim.keymap.set("n", "<C-,>", "<cmd>e $MYVIMRC<cr>", { desc = "Edit vimrc", silent = true })
+
+-- vertical split
 vim.keymap.set("n", "<leader>\\", "<leader>|", { remap = true, silent = true, desc = "Vertical Split" })
--- vim.keymap.set("n", "Q", "<nop>", { silent = true })
 
+-- zb but respect scrollEOF plugin
 vim.keymap.set("n", "z-", "z-kj", { silent = true, desc = "Bottom line" })
+vim.keymap.set("n", "zb", "zbkj", { silent = true, desc = "Bottom line" })
 
-vim.api.nvim_set_keymap("n", "<leader>X", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Permissions" })
+-- grant permissions
+vim.keymap.set("n", "<leader>X", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Permissions" })
+
+-- insert mode
+vim.keymap.set("i", "<C-h>", "<left>") -- navigation
