@@ -173,9 +173,9 @@ vim.keymap.set("n", "<leader>X", "<Cmd>!chmod +x %<CR>", { silent = true, desc =
 vim.keymap.set("i", "<C-h>", "<left>") -- navigation
 
 -- media control buttons (don't send keypresses)
-vim.keymap.set({ "i", "n" }, "", "") -- volume up
-vim.keymap.set({ "i", "n" }, "", "") -- volume down
-vim.keymap.set({ "i", "n" }, "", "") -- mute
-vim.keymap.set({ "i", "n" }, "", "") -- mute
-vim.keymap.set({ "i", "n" }, "", "") -- prev
-vim.keymap.set({ "i", "n" }, "", "") -- skip
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume up
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume down
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- prev
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
