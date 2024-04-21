@@ -1,12 +1,11 @@
 -- this is kinda buggy
 return {
   "jbyuki/nabla.nvim",
-  enabled = true, --- this is so unreliable, rather just use mkp
   ft = "markdown",
   keys = {
     { "<leader>p", "<cmd>lua require('nabla').popup({ border='single' })<cr>", desc = "Preview Equation" },
   },
-  config = function()
+  config = function() --- this is so unreliable, rather just use mkp
     -- require("nabla").enable_virt({
     --   autogen = true,
     --   silent = false,
