@@ -26,6 +26,8 @@ return {
       "lua-language-server",
       "marksman",
       "prettier",
+      "typescript-language-server",
+      "eslint-lsp",
     },
   },
 }

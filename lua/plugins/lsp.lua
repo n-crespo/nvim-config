@@ -15,6 +15,8 @@ return {
       r_language_server = {},
       ruff_lsp = { enabled = false }, -- for python
       asm_lsp = {},
+      eslint = {},
+      tsserver = {},
     },
     setup = {
       jdtls = function()
