@@ -21,11 +21,12 @@ return {
       },
       mappings = {
         i = {
-          ["<esc>"] = actions.close,
+          ["<ESC>"] = actions.close,
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
-          ["<c-d>"] = actions.delete_buffer,
-          ["<c-n>"] = actions.select_tab,
+          ["<C-d>"] = actions.delete_buffer,
+          ["<C-n>"] = actions.select_tab,
+          ["<C-Space>"] = actions.select_tab,
         },
       },
     },
