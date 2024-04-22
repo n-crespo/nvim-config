@@ -77,7 +77,7 @@ if vim.go.bg == 'dark' then
   c_macroBg0     = '#0d0c0c'
   c_macroBg1     = '#181616'
   c_macroBg2     = '#201d1d'
-  c_macroBg3     = '#282727'
+  c_macroBg3     = '#181616' -- changed from #282727 to fix box in lualine
   c_macroBg4     = '#393836'
   c_macroBg5     = '#625e5a'
   c_macroBlue0   = '#658594'
