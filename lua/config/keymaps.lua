@@ -131,7 +131,7 @@ vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
 vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
 
-vim.keymap.set("n", "<C-n>", "<Cmd>tabnew<cr>")
+-- vim.keymap.set("n", "<C-n>", "<Cmd>tabnew<cr>")
 vim.keymap.del("n", "<C-w>Þ") -- to remove delay
 
 -- close current tab, if last tab open, quit completely

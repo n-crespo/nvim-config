@@ -40,6 +40,7 @@ return {
         NotifyBackground = { bg = "#22272f" }, -- needed bc of transparency
         InclineNormal = { bg = "#262f47" },
         InclineNormalNC = { bg = "#262f47" },
+        VM_Cursor = { bg = "#89ca78" },
       },
     })
     vim.cmd.colorscheme("onedark_dark")
