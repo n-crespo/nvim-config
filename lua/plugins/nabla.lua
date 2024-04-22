@@ -1,7 +1,6 @@
 -- this is kinda buggy
 return {
   "jbyuki/nabla.nvim",
-  ft = "markdown",
   keys = {
     { "<leader>p", "<cmd>lua require('nabla').popup({ border='single' })<cr>", desc = "Preview Equation" },
   },
