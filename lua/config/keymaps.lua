@@ -179,3 +179,5 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- prev
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
+
+vim.keymap.set("n", "<C-space>", "<cmd>tabnew<cr>")
