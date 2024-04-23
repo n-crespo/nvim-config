@@ -11,5 +11,14 @@ return {
       end,
     },
   },
-  -- see autocmds.lua for filetype overrides
+  init = function()
+    -- disable mini-indent scope in terminal and documentation hover
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "better_term", "noice", "man" },
+      callback = function()
+        ---@diagnostic disable-next-line: inject-field
+        vim.b.miniindentscope_disable = true
+      end,
+    })
+  end,
 }

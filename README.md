@@ -126,3 +126,5 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix MacOS scrolling
   - [x] System specific settings in lua
 - [x] find tabline replacement
+- [x] Conceal dollar signs in markdown math
+- [x] multi-cursors

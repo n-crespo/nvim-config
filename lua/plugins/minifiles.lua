@@ -66,5 +66,15 @@ return {
         require("lazyvim.util").lsp.on_rename(event.data.from, event.data.to)
       end,
     })
+
+    -- don't center motions in mini.files
+    vim.api.nvim_create_autocmd({ "FileType" }, {
+      pattern = { "minifiles" },
+      callback = function()
+        vim.keymap.set("n", "G", "G", { buffer = true })
+        vim.keymap.set("n", "<C-d>", "<C-d>", { buffer = true })
+        vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true })
+      end,
+    })
   end,
 }

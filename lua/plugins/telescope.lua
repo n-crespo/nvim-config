@@ -43,6 +43,14 @@ return {
 
       vim.keymap.set("n", "<leader>j", t.extensions.zoxide.list)
     end)
+
+    -- always enter normal mode when leaving telescope prompt
+    vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
+      pattern = { "TelescopePrompt" },
+      callback = function()
+        vim.api.nvim_exec2("silent! stopinsert!", {})
+      end,
+    })
   end,
   keys = {
     {

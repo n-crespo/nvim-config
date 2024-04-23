@@ -13,6 +13,12 @@ return {
     vim.g.vim_markdown_math = 1
     vim.cmd([[map zh <Plug>Markdown_Fold]])
     vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
+    vim.keymap.set(
+      "n",
+      "<leader>m",
+      "<cmd>setlocal syn=markdown<cr>",
+      { silent = false, desc = "Conceal Math", buffer = true }
+    )
   end,
   init = function()
     -- for markdown math viewing
@@ -20,10 +26,7 @@ return {
       pattern = { "*.md" },
       callback = function()
         vim.cmd([[
-          " ownsyntax on
-          set spelllang=en
-          setlocal spell
-          setlocal nowrap
+        setlocal syn=markdown
         ]])
       end,
     })
