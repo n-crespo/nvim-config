@@ -132,3 +132,11 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
 vim.api.nvim_create_autocmd("BufEnter", {
   command = "set showtabline=0",
 })
+
+-- don't center motions in mini.files
+vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
+  pattern = { "markdown" },
+  callback = function()
+    vim.cmd([[setlocal syn=markdown]])
+  end,
+})
