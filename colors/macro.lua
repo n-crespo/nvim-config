@@ -77,7 +77,7 @@ if vim.go.bg == 'dark' then
   c_macroBg0     = '#0d0c0c'
   c_macroBg1     = '#181616'
   c_macroBg2     = '#201d1d'
-  c_macroBg3     = '#181616' -- changed from #282727 to fix box in lualine
+  c_macroBg3     = vim.g.dark_bg and '#0d0c0c' or '#181616' -- changed from #282727 to fix box in lualine
   c_macroBg4     = '#393836'
   c_macroBg5     = '#625e5a'
   c_macroBlue0   = '#658594'
@@ -172,7 +172,9 @@ local hlgroups = {
   MsgArea = { fg = c_macroFg1 },
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
-  Normal = { bg = c_macroBg1, fg = c_macroFg0 },
+
+  Normal = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg0 },
+
   NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
   Pmenu = { bg = c_macroBg3, fg = c_macroFg1 },
@@ -539,5 +541,21 @@ for hlgroup_name, hlgroup_attr in pairs(hlgroups) do
   vim.api.nvim_set_hl(0, hlgroup_name, hlgroup_attr)
 end
 -- }}}1
+
+vim.g.dark_bg = true
+function ToggleDarkBackground()
+  if vim.g.dark_bg then
+    vim.cmd("hi Normal guibg=#0d0c0c")
+  else
+    vim.cmd("hi Normal guibg=#181616")
+  end
+  vim.g.dark_bg = not vim.g.dark_bg
+end
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-m>",
+  ":lua ToggleDarkBackground()<CR>",
+  { noremap = true, silent = true, desc = "Toggle dark background" }
+)
 
 -- !vim:ts=2:sw=2:sts=2:fdm=marker:fdl=0
