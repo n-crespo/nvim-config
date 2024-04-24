@@ -46,6 +46,6 @@ return {
         -- MultiCursor = { bg = "#89ca78" },
       },
     })
-    vim.cmd.colorscheme("onedark_dark")
+    -- vim.cmd.colorscheme("onedark_dark")
   end,
 }
