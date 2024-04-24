@@ -181,3 +181,9 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- prev
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
 vim.keymap.set("n", "<C-space>", "<cmd>tabnew<cr>")
+
+vim.keymap.set("n", "<leader>1", "<cmd>tabn 1<cr>", { silent = true, desc = "Tab 1" })
+vim.keymap.set("n", "<leader>2", "<cmd>tabn 2<cr>", { silent = true, desc = "Tab 2" })
+vim.keymap.set("n", "<leader>3", "<cmd>tabn 3<cr>", { silent = true, desc = "Tab 3" })
+vim.keymap.set("n", "<leader>4", "<cmd>tabn 4<cr>", { silent = true, desc = "Tab 4" })
+vim.keymap.set("n", "<leader>5", "<cmd>tabn 5<cr>", { silent = true, desc = "Tab 5" })
