@@ -506,6 +506,12 @@ local hlgroups = {
   StatusLineHeader = { bg = c_macroBg5, fg = c_macroFg1 },
   StatusLineHeaderModified = { bg = c_macroRed, fg = c_macroBg1 },
 
+  -- miinifiles
+  MiniFilesNormal = { bg = Normal },
+  MiniFilesTitle = { bg = Normal },
+  MiniFilesTitleFocused = { bg = Normal },
+  MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
+
   -- }}}
 }
 -- }}}1
@@ -541,21 +547,5 @@ for hlgroup_name, hlgroup_attr in pairs(hlgroups) do
   vim.api.nvim_set_hl(0, hlgroup_name, hlgroup_attr)
 end
 -- }}}1
-
-vim.g.dark_bg = true
-function ToggleDarkBackground()
-  if vim.g.dark_bg then
-    vim.cmd("hi Normal guibg=#0d0c0c")
-  else
-    vim.cmd("hi Normal guibg=#181616")
-  end
-  vim.g.dark_bg = not vim.g.dark_bg
-end
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-m>",
-  ":lua ToggleDarkBackground()<CR>",
-  { noremap = true, silent = true, desc = "Toggle dark background" }
-)
 
 -- !vim:ts=2:sw=2:sts=2:fdm=marker:fdl=0
