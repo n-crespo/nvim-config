@@ -226,7 +226,7 @@ local hlgroups = {
   Directory = { fg = c_macroBlue1 },
   EndOfBuffer = { fg = c_macroBg1 },
   ErrorMsg = { fg = c_lotusRed1 },
-  FloatBorder = { bg = c_macroBg0, fg = c_sumiInk6 },
+  FloatBorder = { bg = nil, fg = c_sumiInk6 },
   FloatFooter = { bg = c_macroBg0, fg = c_macroBg5 },
   FloatTitle = { bg = c_macroBg0, fg = c_macroGray2, bold = true },
   FoldColumn = { fg = c_macroBg5 },
@@ -608,4 +608,4 @@ for hlgroup_name, hlgroup_attr in pairs(hlgroups) do
 end
 -- }}}1
 
--- vim:ts=2:sw=2:sts=2:fdm=marker:fdl=0
+-- !vim:ts=2:sw=2:sts=2:fdm=marker:fdl=0
