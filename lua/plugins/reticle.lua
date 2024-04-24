@@ -11,6 +11,7 @@ return {
         "commandline",
         "term",
         "lazyterm",
+        "telescope",
         "noice",
         "better_term",
         "minifiles",
