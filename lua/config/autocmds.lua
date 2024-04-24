@@ -66,11 +66,3 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd("BufEnter", {
   command = "set showtabline=0",
 })
-
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-  pattern = { "qf" },
-  callback = function()
-    vim.keymap.set("n", "<C-s>", "<cmd>cgetbuffer<cr><cmd>set ma<cr>", { silent = true, buffer = true })
-    vim.notify("keymap set!")
-  end,
-})

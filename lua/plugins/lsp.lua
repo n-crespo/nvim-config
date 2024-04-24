@@ -17,6 +17,7 @@ return {
       asm_lsp = {},
       eslint = {},
       tsserver = {},
+      cssls = {},
     },
     setup = {
       jdtls = function()

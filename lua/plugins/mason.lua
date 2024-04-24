@@ -28,6 +28,7 @@ return {
       "prettier",
       "typescript-language-server",
       "eslint-lsp",
+      "css-lsp",
     },
   },
 }
