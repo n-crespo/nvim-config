@@ -14,7 +14,7 @@ return {
   init = function()
     -- disable mini-indent scope in terminal and documentation hover
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "better_term", "noice", "man" },
+      pattern = { "better_term", "noice", "man", "lazy" },
       callback = function()
         ---@diagnostic disable-next-line: inject-field
         vim.b.miniindentscope_disable = true
