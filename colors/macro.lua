@@ -507,11 +507,19 @@ local hlgroups = {
   StatusLineHeader = { bg = c_macroBg5, fg = c_macroFg1 },
   StatusLineHeaderModified = { bg = c_macroRed, fg = c_macroBg1 },
 
-  -- miinifiles
+  -- mini.files
   MiniFilesNormal = { bg = Normal },
   MiniFilesTitle = { bg = Normal },
   MiniFilesTitleFocused = { bg = Normal },
   MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
+
+  -- incline
+  InclineNormal = { bg = c_macroBg4, bold = false },
+  InclineNormalNC = { bg = c_macroBg4, bold = false },
+
+  -- mini.starter
+  MiniStarterItemBullet = { fg = c_sumiInk6 },
+  MiniStarterItemPrefix = { fg = c_macroRed },
 
   -- }}}
 }
