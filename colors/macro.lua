@@ -174,8 +174,9 @@ local hlgroups = {
   NonText = { fg = c_macroBg5 },
 
   Normal = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg0 },
+  NormalFloat = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg0 },
 
-  NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
+  -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
   Pmenu = { bg = c_macroBg3, fg = c_macroFg1 },
   PmenuSbar = { bg = c_macroBg4 },
