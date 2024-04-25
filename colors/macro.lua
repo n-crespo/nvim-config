@@ -462,7 +462,7 @@ local hlgroups = {
   -- telescope
   TelescopeBorder = { bg = c_macroBg1, fg = c_sumiInk6 },
   TelescopeMatching = { fg = c_macroRed, bold = true },
-  TelescopeNormal = { fg = c_macroFg2, bg = c_macroBg2 },
+  TelescopeNormal = { fg = c_macroFg2, bg = c_macroBg1 },
   TelescopeResultsClass = { link = "Structure" },
   TelescopeResultsField = { link = "@variable.member" },
   TelescopeResultsMethod = { link = "Function" },
