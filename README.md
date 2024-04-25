@@ -128,3 +128,7 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] find tabline replacement
 - [x] Conceal dollar signs in markdown math
 - [x] multi-cursors
+- [x] better theme (less red, reserve for errors)
+  - [x] easily customizable
+  - [x] Treesitter support
+  - [x] highlight misspelled words red/underlined
