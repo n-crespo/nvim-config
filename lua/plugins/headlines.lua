@@ -21,7 +21,7 @@ return {
       require("headlines").refresh()
     end)
 
-    vim.g.toggle_codeblock_bg = false
+    vim.g.toggle_codeblock_bg = true
     function ToggleCodeblockBackground()
       if vim.g.toggle_codeblock_bg then
         vim.cmd("hi Codeblock guibg=nil")
