@@ -524,6 +524,9 @@ local hlgroups = {
   -- custom line highlight for permanently highlighting particular lines
   LineHighlight = { link = "Visual" },
 
+  -- mini.indentscope
+  MiniIndentscopeSymbol = { fg = c_macroOrange0 },
+
   -- }}}
 }
 -- }}}1
