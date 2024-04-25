@@ -4,7 +4,7 @@ return {
   opts = {
     diagnostics = {
       float = {
-        border = "none",
+        border = "single",
       },
     },
     servers = {
