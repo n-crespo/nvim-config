@@ -525,7 +525,11 @@ local hlgroups = {
   LineHighlight = { link = "Visual" },
 
   -- mini.indentscope
-  MiniIndentscopeSymbol = { fg = c_macroOrange0 },
+  MiniIndentscopeSymbol = { fg = c_sumiInk6 },
+
+  --noice
+  NoicePopup = { bg = c_macroBg4 },
+  NoicePopupmenuSelected = { bg = c_macroBg4 },
 
   -- }}}
 }
