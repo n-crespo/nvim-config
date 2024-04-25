@@ -16,8 +16,8 @@ vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true, silent = true, desc =
 vim.keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste" })
 
-vim.keymap.set("n", "<leader>wo", [[:only <CR>]], { silent = true, desc = "Window only" })
-vim.keymap.set("n", "<leader>bo", "<cmd>w<cr><cmd>%bd|e#|bd#<cr>", { desc = "Buffer Only", silent = true }) -- delete all other buffers (body odor)
+vim.keymap.set("n", "<leader>wo", ":only <CR>", { silent = true, desc = "Window only" })
+vim.keymap.set("n", "<leader>bo", "<cmd>w | %bd | e# | bd#<cr>", { desc = "Buffer Only", silent = true }) -- delete all other buffers (body odor)
 
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rotate" })
 vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
@@ -54,6 +54,7 @@ vim.keymap.del("n", "<leader>sb")
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
 local path = os.getenv("HOME") -- Get the user's home directory
+---@diagnostic disable-next-line: param-type-mismatch
 if string.sub(path, 1, 6) == "/Users" then
   vim.notify("Keymaps not set, MacOS detected")
   vim.keymap.set("n", "<leader>ow", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
@@ -187,3 +188,44 @@ vim.keymap.set("n", "<leader>2", "<cmd>tabn 2<cr>", { silent = true, desc = "Tab
 vim.keymap.set("n", "<leader>3", "<cmd>tabn 3<cr>", { silent = true, desc = "Tab 3" })
 vim.keymap.set("n", "<leader>4", "<cmd>tabn 4<cr>", { silent = true, desc = "Tab 4" })
 vim.keymap.set("n", "<leader>5", "<cmd>tabn 5<cr>", { silent = true, desc = "Tab 5" })
+
+local function getVisualSelectionRange()
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+  local i = math.min(start_line, end_line)
+  local j = math.max(start_line, end_line)
+  local selection = "["
+  while i < j do
+    selection = selection .. i .. ", "
+    i = i + 1
+  end
+  selection = selection .. j .. "]"
+  return selection
+end
+
+function DoFunnyHighlight(highlight)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+  local selection = getVisualSelectionRange()
+  if highlight ~= nil then
+    vim.cmd("call matchaddpos('" .. highlight .. "'," .. selection .. ")")
+  end
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+end
+
+-- bug: the below `< and `> only update when exiting visual mode. this is why
+-- the doFunnyHighlight must be called exists and must be called twice
+vim.keymap.set(
+  "v",
+  "<leader>h",
+  "<cmd>lua DoFunnyHighlight()<cr><esc>v<cmd>lua DoFunnyHighlight('LineHighlight')<cr>",
+  { desc = "Highlight selection", silent = true }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>h",
+  ":call matchadd('LineHighlight', '\\%'.line('.').'l')<cr>",
+  { desc = "Highlight current line", silent = true }
+)
+
+vim.keymap.set("n", "<leader>H", ":call clearmatches()<cr>", { desc = "Clear line highlight", silent = true })
