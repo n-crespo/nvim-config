@@ -4,7 +4,7 @@ return {
   event = "LspAttach",
   opts = {
     ui = {
-      border = "rounded",
+      border = "single",
       width = 0.8,
       height = 0.8,
     },
@@ -12,7 +12,6 @@ return {
       "arduino-language-server",
       "bash-language-server",
       "black", -- python
-      "cbfmt", -- markdown code block formatter
       "clang-format",
       "clangd",
       "flake8",
@@ -24,7 +23,6 @@ return {
       "shfmt",
       "stylua",
       "lua-language-server",
-      "marksman",
       "prettier",
       "typescript-language-server",
       "eslint-lsp",
