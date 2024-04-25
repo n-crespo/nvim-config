@@ -508,9 +508,9 @@ local hlgroups = {
   StatusLineHeaderModified = { bg = c_macroRed, fg = c_macroBg1 },
 
   -- mini.files
-  MiniFilesNormal = { bg = Normal },
-  MiniFilesTitle = { bg = Normal },
-  MiniFilesTitleFocused = { bg = Normal },
+  MiniFilesNormal = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1 },
+  MiniFilesTitle = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg2 },
+  MiniFilesTitleFocused = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg2 },
   MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
 
   -- incline
@@ -520,6 +520,9 @@ local hlgroups = {
   -- mini.starter
   MiniStarterItemBullet = { fg = c_sumiInk6 },
   MiniStarterItemPrefix = { fg = c_macroRed },
+
+  -- custom line highlight for permanently highlighting particular lines
+  LineHighlight = { link = "Visual" },
 
   -- }}}
 }
