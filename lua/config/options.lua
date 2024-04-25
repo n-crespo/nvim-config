@@ -40,3 +40,4 @@ vim.g.maplocalleader = " "
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazygit_config = true -- use custom layzgit config for icons/stuff
 vim.g.dark_bg = false -- custom option for custom 'macro' theme
+vim.g.python3_host_prog = "/usr/bin/python3"
