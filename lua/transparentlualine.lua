@@ -1,4 +1,4 @@
-local azbg = "#201d1d"
+local azbg = "#393836"
 
 local M = {}
 
@@ -10,7 +10,7 @@ M.theme = function()
     insert = azbg,
     command = azbg,
     innerbg = nil,
-    bybg = "#0d0c0c",
+    bybg = "#201d1d",
     darkgray = "#b4b3a7",
     gray = "#b4b3a7",
   }
