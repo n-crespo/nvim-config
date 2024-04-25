@@ -10,9 +10,6 @@ return {
         opts = {
           enable_chat = true,
         },
-        config = function(_, opts)
-          require("codeium").setup(opts)
-        end,
       },
     },
   },
