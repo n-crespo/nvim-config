@@ -32,8 +32,4 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     enabled = false,
   },
-  {
-    "lukas-reineke/headlines.nvim",
-    enabled = false,
-  },
 }
