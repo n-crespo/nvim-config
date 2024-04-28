@@ -18,7 +18,8 @@ require("lazy").setup({
   },
   ui = {
     size = { width = 0.8, height = 0.8 },
-    backdrop = 75,
+    border = "single",
+    backdrop = 100,
     wrap = false,
   },
   -- don't show message on config change/reload
