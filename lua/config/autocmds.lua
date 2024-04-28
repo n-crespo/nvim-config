@@ -66,3 +66,23 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd("BufEnter", {
   command = "set showtabline=0",
 })
+
+-- don't show [Process exited 0] command when terminal is closed
+-- (just send a key when that event is heard) AMAZING
+vim.api.nvim_create_autocmd("TermClose", {
+  command = "call feedkeys('i')",
+})
+
+-- remove line numbers and auto enter terminal
+vim.cmd([[
+" Terminal Buffer
+function! TerminalSettings()
+  setlocal nonumber
+  setlocal norelativenumber
+  normal a
+endfunction
+augroup terminal
+  autocmd!
+  autocmd TermOpen * call TerminalSettings()
+augroup END
+]])
