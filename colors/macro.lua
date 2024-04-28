@@ -278,6 +278,8 @@ local hlgroups = {
   ["@markup.heading.4.marker.markdown"] = { link = "Delimiter" },
   ["@markup.heading.5.marker.markdown"] = { link = "Delimiter" },
   ["@markup.heading.6.marker.markdown"] = { link = "Delimiter" },
+  -- ["@markup.markdown_inline"] = { fg = c_macroFg0 },
+  ["@markup.strikethrough.markdown_inline"] = { strikethrough = true },
   ["@comment.todo.checked"] = { fg = c_macroAsh },
   ["@comment.todo.unchecked"] = { fg = c_macroRed },
   ["@markup.link.label.markdown_inline"] = { link = "htmlLink" },
