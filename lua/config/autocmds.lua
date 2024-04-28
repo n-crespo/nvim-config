@@ -70,10 +70,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- don't show [Process exited 0] command when terminal is closed
 -- (just send a key when that event is heard) AMAZING
 vim.api.nvim_create_autocmd("TermClose", {
-  command = "call feedkeys('i')",
+  command = "call feedkeys('\\')",
+  -- send backslashes (any key works) when terminal is quit, most other keys
+  -- (like i or a) will trigger their respective function in after returning to
+  -- the non-terminal buffer after quitting lazygit with lazyvim's special
+  -- terminal (<leader>gg)
 })
 
--- remove line numbers and auto enter terminal
+-- remove line numbers and auto enter terminal on TermOpen
 vim.cmd([[
 " Terminal Buffer
 function! TerminalSettings()
