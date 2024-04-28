@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   end,
 })
 
+-- don't conceal my hour log table
 vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   pattern = "Mentorship-Hour-Log.md",
   callback = function()
