@@ -252,6 +252,7 @@ local hlgroups = {
   ["@markup.list"] = { fg = c_macroTeal },
   ["@string.escape"] = { fg = c_macroOrange0 },
   ["@string.regexp"] = { fg = c_macroOrange0 },
+  ["@string.special.url.comment"] = { fg = c_macroTeal, underline = true },
   ["@markup.link.label.symbol"] = { fg = c_macroFg0 },
   ["@tag.attribute"] = { fg = c_macroFg0 },
   ["@tag.delimiter"] = { fg = c_macroGray1 },
