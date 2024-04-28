@@ -4,7 +4,7 @@
 local opt = vim.opt
 
 opt.clipboard = "" -- don't sync with system clipboard (see autocmds.lua for WSL clipboard support)
-opt.mouse = "" -- disable mouse
+opt.mouse = "a" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
 opt.cursorline = true -- don't highlight current line (transparent background)
