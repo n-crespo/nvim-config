@@ -43,7 +43,7 @@ remove a plugin by just deleting its file. See below:
 <details>
   <summary><b>Relevant File Structure</b></summary>
 
-```txt
+```
 .
 ├── lua
 │  ├── config

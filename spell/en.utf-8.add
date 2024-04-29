@@ -135,7 +135,6 @@ Blacksburg
 lualine
 keymap
 MDS
-sync
 filetype
 YAML
 TOML
@@ -170,9 +169,6 @@ img
 href
 frac
 leaderkey
-sync
-sync
-sync
 somthingg/!
 nabla
 markdowny
@@ -191,7 +187,6 @@ YCSD
 Py
 Multivariable
 JSA
-sync
 ok
 Gaelan
 Birthdate
@@ -222,3 +217,4 @@ num
 GCD
 TODO's
 cus
+sync
