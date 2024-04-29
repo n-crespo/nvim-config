@@ -71,12 +71,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- don't show [Process exited 0] command when terminal is closed
 -- (just send a key when that event is heard) AMAZING
 vim.api.nvim_create_autocmd("TermClose", {
-  command = "if &filetype != 'crunner' | call feedkeys('\\') | endif",
-  -- send backslashes (any key works) when terminal is quit, most other keys
-  -- (like i or a) will trigger their respective function in after returning to
-  -- the non-terminal buffer after quitting lazygit with lazyvim's special
-  -- terminal (<leader>gg). HOWEVER, I don't want code runner terminals to auto
-  -- close, so I account for that with an if statement.
+  command = "if &filetype != 'crunner' | call feedkeys('\\\\<Nop>') | endif",
+  -- send <nop> when terminal is quit, most other keys (like i or a) will
+  -- trigger their respective function after returning to the non-terminal
+  -- buffer after quitting lazygit with lazyvim's special terminal (<leader>gg).
+  -- HOWEVER, I don't want code runner terminals to auto close, so I account for
+  -- that with an if statement.
 })
 
 -- remove line numbers and auto enter terminal on TermOpen
