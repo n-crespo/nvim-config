@@ -39,6 +39,7 @@ return {
   keys = {
     { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code Below" }, -- J --> down --> bottom split
     { "RL", "<cmd>RunFile term<cr><cmd>windo wincmd H<cr>", desc = "Run Code on Left" }, -- J --> down --> bottom split
+    { "RQ", "<cmd>RunClose<cr>", desc = "Close Runner" }, -- J --> down --> bottom split
   },
   init = function()
     -- Close Code Runner buffers with 'q'
