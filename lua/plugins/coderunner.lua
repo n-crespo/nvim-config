@@ -37,26 +37,14 @@ return {
     },
   },
   keys = {
-    {
-      "RB", -- run in better term
-      function()
-        require("betterTerm").send(require("code_runner.commands").get_filetype_command(), 1, false)
-      end,
-      desc = "Run Code",
-    },
     { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code Below" }, -- J --> down --> bottom split
     { "RL", "<cmd>RunFile term<cr><cmd>windo wincmd H<cr>", desc = "Run Code on Left" }, -- J --> down --> bottom split
-
-    -- vim.keymap.set("n", "<leader>e", function()
-    --   require("betterTerm").send(require("code_runner.commands").get_filetype_command(), 1, false)
-    -- end, { desc = "Excute File" }),
   },
   init = function()
     -- Close Code Runner buffers with 'q'
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "crunner",
       callback = function(event)
-        vim.cmd([[echo 'crunner detected']])
         vim.bo[event.buf].buflisted = false
         vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
       end,
