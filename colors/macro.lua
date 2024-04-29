@@ -266,6 +266,7 @@ local hlgroups = {
   ["@comment.info"] = { bg = c_waveAqua0, fg = c_waveBlue0, bold = true },
   ["@markup.quote"] = { link = "@variable.parameter" },
   ["@markup.strong"] = { bold = true },
+  ["@markup.italic.markdown_inline"] = { italic = true },
   ["@markup.heading"] = { link = "Function" },
   ["@markup.heading.1.markdown"] = { fg = c_macroRed },
   ["@markup.heading.2.markdown"] = { fg = c_macroRed },
