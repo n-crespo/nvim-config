@@ -3,19 +3,20 @@
 ; this breaks without that ^ (why? who knows)
 
 ; replace checkboxes with nice looking boxes
+;
 ([
   (task_list_marker_checked)
   ] @markup.list.checked (#set! conceal "󰄲"))
   ; ] @markup.list.checked (#set! conceal ""))
-
 ([
   (task_list_marker_unchecked)
   ] @markup.list.unchecked (#set! conceal "󰄱"))
+
   ; ] @markup.list.unchecked (#set! conceal ""))
 
 ; this works but only for the first line of the block quote
-((block_quote_marker)
- @markup.quote (#set! conceal "▏" ))
+; ((block_quote_marker)
+;  @markup.quote (#set! conceal "▏" ))
 
 
 ; BUG: this breaks things (will hide indented/nested bullets)

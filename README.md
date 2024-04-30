@@ -7,7 +7,7 @@
 My Neovim configuration based on [LazyVim](https://www.lazyvim.org), with added plugins and LSPs to extend its
 functionality. Every configuration was done with transparency in mind.
 
-  ![start screen](./images/image.png)
+![start screen](./images/image.png)
 
 ## Interesting Things
 
@@ -24,7 +24,7 @@ Some interesting things in this config are:
   - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
 - the LSP and formatter support for R-Markdown, C++, Java, and Python (mostly thanks to LazyVim)
   - see `markdown.lua`, `markdownpreview.lua`, and `markdowntable.lua` for markdown (no LSP needed)
-- I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` *everywhere*
+- I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` _everywhere_
 - custom markdown highlights for bullets, checkboxes, and inline quotes
 
 > [!Note]
@@ -43,7 +43,7 @@ remove a plugin by just deleting its file. See below:
 <details>
   <summary><b>Relevant File Structure</b></summary>
 
-```txt
+```
 .
 ├── lua
 │  ├── config
@@ -63,7 +63,7 @@ remove a plugin by just deleting its file. See below:
 
 ## Install Instructions
 
->  Install requires Neovim 0.9+.
+> Install requires Neovim 0.9+.
 
 Clone the repository and install the plugins:
 
@@ -110,13 +110,25 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
     - [x] not done
   - [x] bullet points
   - [x] single line quotes
-  - [ ] block quotes
+  - [x] block quotes (back to using headlines.nvim)
 - [x] format visual selection in markdown (bold + italic)
 - [x] code block insertion in insert mode
 - [x] better markdown latex previews
-- [ ] command line completion (probably going to skip this one...)
+- [x] command line completion (probably going to skip this one...)
   - [x] `:Telescope commands` (`<leader>:`)
 - [x] smaller cmp window
 - [x] deal with trailing white space better (auto command)
 - [x] better spelling? (`spell.lua`)
 - [x] telescope layout/open files picker
+- [x] inline image previews in markdown (switched to kitty)
+- [x] headlines but not slow (kitty again)
+- [x] window labels (incline)
+- [x] fix MacOS scrolling
+  - [x] System specific settings in lua
+- [x] find tabline replacement
+- [x] Conceal dollar signs in markdown math
+- [x] multi-cursors
+- [x] better theme (less red, reserve for errors)
+  - [x] easily customizable
+  - [x] Treesitter support
+  - [x] highlight misspelled words red/underlined

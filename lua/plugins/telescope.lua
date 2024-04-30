@@ -21,11 +21,12 @@ return {
       },
       mappings = {
         i = {
-          ["<esc>"] = actions.close,
+          ["<ESC>"] = actions.close,
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
-          ["<c-d>"] = actions.delete_buffer,
-          ["<c-n>"] = actions.select_tab,
+          ["<C-d>"] = actions.delete_buffer,
+          ["<C-n>"] = actions.select_tab,
+          ["<C-Space>"] = actions.select_tab,
         },
       },
     },
@@ -33,9 +34,23 @@ return {
   config = function(_, opts)
     require("telescope").setup(opts)
     require("lazyvim.util").on_load("telescope.nvim", function()
+      local t = require("telescope")
       require("telescope").load_extension("git_file_history")
       vim.keymap.set("n", "<C-g>", "<cmd>Telescope git_file_history<cr>", { desc = "Git File History" })
+
+      local z_utils = require("telescope._extensions.zoxide.utils")
+      t.load_extension("zoxide")
+
+      vim.keymap.set("n", "<leader>j", t.extensions.zoxide.list)
     end)
+
+    -- always enter normal mode when leaving telescope prompt
+    vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
+      pattern = { "TelescopePrompt" },
+      callback = function()
+        vim.api.nvim_exec2("silent! stopinsert!", {})
+      end,
+    })
   end,
   keys = {
     {

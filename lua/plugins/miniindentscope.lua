@@ -11,5 +11,25 @@ return {
       end,
     },
   },
-  -- see autocmds.lua for filetype overrides
+  init = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
+        "help",
+        "alpha",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "trouble",
+        "lazy",
+        "mason",
+        "notify",
+        "toggleterm",
+        "lazyterm",
+        "better_term",
+      },
+      callback = function()
+        vim.b.miniindentscope_disable = true
+      end,
+    })
+  end,
 }
