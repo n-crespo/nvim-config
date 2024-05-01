@@ -28,7 +28,7 @@ local c_macroBg0
 local c_macroBg1
 local c_macroBg2
 local c_macroBg3
-local c_macroBg4
+local selection_light_gray
 local c_macroBg5
 local c_macroBlue0
 local c_macroBlue1
@@ -62,54 +62,54 @@ local c_winterRed
 local c_winterYellow
 
 if vim.go.bg == 'dark' then
-  c_autumnGreen  = '#76946a'
-  c_autumnRed    = '#c34043'
-  c_autumnYellow = '#dca561'
-  c_carpYellow   = '#c8ae81'
-  c_katanaGray   = '#717c7c'
-  c_lotusBlue    = '#9fb5c9'
-  c_lotusGray    = '#716e61'
-  c_lotusRed0    = '#d7474b'
-  c_lotusRed1    = '#e84444'
-  c_lotusRed2    = '#d9a594'
-  c_macroAqua    = '#95aeac'
-  c_macroAsh     = '#626462'
-  c_macroBg0     = '#0d0c0c'
-  c_macroBg1     = '#181616'
-  c_macroBg2     = '#201d1d'
-  c_macroBg3     = vim.g.dark_bg and '#0d0c0c' or '#181616' -- changed from #282727 to fix box in lualine
-  c_macroBg4     = '#393836'
-  c_macroBg5     = '#625e5a'
-  c_macroBlue0   = '#658594'
-  c_macroBlue1   = '#8ba4b0'
-  c_macroFg0     = '#c5c9c5'
-  c_macroFg1     = '#b4b3a7'
-  c_macroFg2     = '#a09f95'
-  c_macroGray0   = '#a6a69c'
-  c_macroGray1   = '#9e9b93'
-  c_macroGray2   = '#7a8382'
-  c_macroGreen0  = '#87a987'
-  c_macroGreen1  = '#8a9a7b'
-  c_macroOrange0 = '#b6927b'
-  c_macroOrange1 = '#b98d7b'
-  c_macroPink    = '#a292a3'
-  c_macroRed     = '#c4746e'
-  c_macroTeal    = '#949fb5'
-  c_macroViolet  = '#8992a7'
-  c_roninYellow  = '#ff9e3b'
-  c_springBlue   = '#7fb4ca'
-  c_springGreen  = '#98bb6c'
-  c_springViolet = '#938aa9'
-  c_sumiInk6     = '#54546d'
-  c_waveAqua0    = '#6a9589'
-  c_waveAqua1    = '#7aa89f'
-  c_waveBlue0    = '#223249'
-  c_waveBlue1    = '#2d4f67'
-  c_waveRed      = '#e46876'
-  c_winterBlue   = '#252535'
-  c_winterGreen  = '#2e322d'
-  c_winterRed    = '#43242b'
-  c_winterYellow = '#322e29'
+  c_autumnGreen            = '#76946a'
+  c_autumnRed              = '#c34043'
+  c_autumnYellow           = '#dca561'
+  c_carpYellow             = '#c8ae81'
+  c_katanaGray             = '#717c7c'
+  c_lotusBlue              = '#9fb5c9'
+  c_lotusGray              = '#716e61'
+  c_lotusRed0              = '#d7474b'
+  c_lotusRed1              = '#e84444'
+  c_lotusRed2              = '#d9a594'
+  c_macroAqua              = '#95aeac'
+  c_macroAsh               = '#626462'
+  c_macroBg0               = '#0d0c0c'
+  c_macroBg1               = '#181616'
+  c_macroBg2               = '#201d1d'
+  c_macroBg3               = vim.g.dark_bg and '#0d0c0c' or '#181616' -- changed from #282727 to fix box in lualine
+  selection_light_gray     = '#393836'
+  c_macroBg5               = '#625e5a'
+  c_macroBlue0             = '#658594'
+  c_macroBlue1             = '#8ba4b0'
+  c_macroFg0               = '#c5c9c5'
+  c_macroFg1               = '#b4b3a7'
+  c_macroFg2               = '#a09f95'
+  c_macroGray0             = '#a6a69c'
+  c_macroGray1             = '#9e9b93'
+  c_macroGray2             = '#7a8382'
+  c_macroGreen0            = '#87a987'
+  c_macroGreen1            = '#8a9a7b'
+  c_macroOrange0           = '#b6927b'
+  c_macroOrange1           = '#b98d7b'
+  c_macroPink              = '#a292a3'
+  c_macroRed               = '#c4746e'
+  c_macroTeal              = '#949fb5'
+  c_macroViolet            = '#8992a7'
+  c_roninYellow            = '#ff9e3b'
+  c_springBlue             = '#7fb4ca'
+  c_springGreen            = '#98bb6c'
+  c_springViolet           = '#938aa9'
+  c_sumiInk6               = '#54546d'
+  c_waveAqua0              = '#6a9589'
+  c_waveAqua1              = '#7aa89f'
+  c_waveBlue0              = '#223249'
+  c_waveBlue1              = '#2d4f67'
+  c_waveRed                = '#e46876'
+  c_winterBlue             = '#252535'
+  c_winterGreen            = '#2e322d'
+  c_winterRed              = '#43242b'
+  c_winterYellow           = '#322e29'
 end
 -- stylua: ignore end
 -- }}}
@@ -125,7 +125,7 @@ if vim.go.bg == 'dark' then
   vim.g.terminal_color_5  = c_macroPink
   vim.g.terminal_color_6  = c_macroAqua
   vim.g.terminal_color_7  = c_macroFg1
-  vim.g.terminal_color_8  = c_macroBg4
+  vim.g.terminal_color_8  = selection_light_gray
   vim.g.terminal_color_9  = c_waveRed
   vim.g.terminal_color_10 = c_macroGreen0
   vim.g.terminal_color_11 = c_autumnYellow
@@ -145,7 +145,7 @@ local hlgroups = {
   ColorColumn = { bg = c_macroBg2 },
   Conceal = { bold = true, fg = c_macroGray2 },
   CurSearch = { link = "IncSearch" },
-  Cursor = { bg = c_macroFg0, fg = c_macroBg1 },
+  Cursor = { bg = "#89ca78", fg = c_macroBg1 },
   CursorColumn = { link = "CursorLine" },
   CursorIM = { link = "Cursor" },
   CursorLine = { bg = c_macroBg2 },
@@ -153,7 +153,7 @@ local hlgroups = {
   DebugPC = { bg = c_winterRed },
   DiffAdd = { bg = c_winterGreen },
   DiffChange = { bg = c_winterBlue },
-  DiffDelete = { fg = c_macroBg4 },
+  DiffDelete = { fg = selection_light_gray },
   DiffText = { bg = c_sumiInk6 },
   Directory = { fg = c_macroBlue1 },
   EndOfBuffer = { fg = c_macroBg1 },
@@ -166,7 +166,7 @@ local hlgroups = {
   Ignore = { link = "NonText" },
   IncSearch = { bg = c_carpYellow, fg = c_waveBlue0 },
   LineNr = { fg = c_macroBg5 },
-  MatchParen = { bg = c_macroBg4 },
+  MatchParen = { bg = selection_light_gray },
   ModeMsg = { fg = c_macroRed, bold = true },
   MoreMsg = { fg = c_macroBlue0 },
   MsgArea = { fg = c_macroFg1 },
@@ -179,12 +179,12 @@ local hlgroups = {
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
   Pmenu = { bg = c_macroBg3, fg = c_macroFg1 },
-  PmenuSbar = { bg = c_macroBg4 },
-  PmenuSel = { bg = c_macroBg4, fg = "NONE" },
+  PmenuSbar = { bg = selection_light_gray },
+  PmenuSel = { bg = selection_light_gray, fg = "NONE" },
   PmenuThumb = { bg = c_macroBg5 },
   Question = { link = "MoreMsg" },
   QuickFixLine = { bg = c_macroBg3 },
-  Search = { bg = c_macroBg4 },
+  Search = { bg = selection_light_gray },
   SignColumn = { fg = c_macroGray2 },
   SpellBad = { fg = c_lotusRed0, underdashed = true },
   SpellCap = { underdashed = true },
@@ -195,20 +195,20 @@ local hlgroups = {
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
   TabLine = { link = "StatusLineNC" },
   TabLineFill = { link = "Normal" },
-  TabLineSel = { link = "StatusLine" },
+  TabLineSel = { link = "Visual" },
   TermCursor = { fg = c_macroBg1, bg = c_macroRed },
   TermCursorNC = { fg = c_macroBg1, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },
   Underlined = { fg = c_macroTeal, underline = true },
   VertSplit = { link = "WinSeparator" },
-  Visual = { bg = c_macroBg4 },
+  Visual = { bg = selection_light_gray },
   VisualNOS = { link = "Visual" },
   WarningMsg = { fg = c_roninYellow },
-  Whitespace = { fg = c_macroBg4 },
+  Whitespace = { fg = selection_light_gray },
   WildMenu = { link = "Pmenu" },
   WinBar = { bg = "NONE", fg = c_macroFg1 },
   WinBarNC = { link = "WinBar" },
-  WinSeparator = { fg = c_macroBg4 },
+  WinSeparator = { fg = selection_light_gray },
   lCursor = { link = "Cursor" },
   -- }}}2
 
@@ -518,8 +518,8 @@ local hlgroups = {
   MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
 
   -- incline
-  InclineNormal = { bg = c_macroBg4, bold = false },
-  InclineNormalNC = { bg = c_macroBg4, bold = false },
+  InclineNormal = { bg = selection_light_gray, bold = false },
+  InclineNormalNC = { bg = selection_light_gray, bold = false },
 
   -- mini.starter
   MiniStarterItemBullet = { fg = c_sumiInk6 },
@@ -531,9 +531,12 @@ local hlgroups = {
   -- mini.indentscope
   MiniIndentscopeSymbol = { fg = c_sumiInk6 },
 
-  --noice
-  NoicePopup = { bg = nil },
-  NoicePopupmenuSelected = { bg = c_macroBg4 },
+  -- --noice
+  -- NoicePopup = { bg = nil },
+  -- NoicePopupmenuSelected = { bg = selection_light_gray },
+  -- NoicePopupmenu = { bg = selection_light_gray },
+  -- NoicepopupmenuMatch = { fg = c_macroRed, bold = true },
+  NoicePopupmenuSelected = { bg = selection_light_gray, underline = true },
 
   -- }}}
 }
@@ -552,7 +555,7 @@ if vim.go.bg == "light" then
   hlgroups.Pmenu = { bg = c_macroBg0, fg = c_macroFg1 }
   hlgroups.PmenuSbar = { bg = c_macroBg2 }
   hlgroups.PmenuSel = { bg = c_macroFg0, fg = c_macroBg0 }
-  hlgroups.PmenuThumb = { bg = c_macroBg4 }
+  hlgroups.PmenuThumb = { bg = selection_light_gray }
   hlgroups.Search = { bg = c_macroBg3 }
   hlgroups.StatusLine = { bg = c_macroBg0 }
   hlgroups.StatusLineGitAdded = { bg = c_macroBg0, fg = c_macroGreen1 }
