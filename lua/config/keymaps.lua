@@ -231,3 +231,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>H", ":call clearmatches()<cr>", { desc = "Clear line highlight", silent = true })
 
 vim.keymap.set("n", "gb", "<leader>ghb", { remap = true, silent = true, desc = "Blame Line" })
+
+vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
