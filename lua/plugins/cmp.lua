@@ -21,15 +21,16 @@ return {
     window = {
       completion = {
         -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-        winhighlight = "Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+        winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
         scrollbar = true,
       },
       documentation = {
         -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-        winhighlight = "Normal:CmpPmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpCompletionBorder,CursorLine:PmenuSel,Search:None",
         scrollbar = true,
+        wrap = false,
       },
     },
     -- mapping = require("cmp").mapping.preset.insert({

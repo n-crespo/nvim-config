@@ -50,7 +50,7 @@ local c_roninYellow
 local c_springBlue
 local c_springGreen
 local c_springViolet
-local c_sumiInk6
+local border_purple_ink
 local c_waveAqua0
 local c_waveAqua1
 local c_waveBlue0
@@ -75,7 +75,7 @@ if vim.go.bg == 'dark' then
   c_macroAqua              = '#95aeac'
   c_macroAsh               = '#626462'
   c_macroBg0               = '#0d0c0c'
-  normal_bg               = '#181616'
+  normal_bg                = '#181616'
   c_macroBg2               = '#201d1d'
   c_macroBg3               = vim.g.dark_bg and '#0d0c0c' or '#181616' -- changed from #282727 to fix box in lualine
   selection_light_gray     = '#393836'
@@ -100,7 +100,7 @@ if vim.go.bg == 'dark' then
   c_springBlue             = '#7fb4ca'
   c_springGreen            = '#98bb6c'
   c_springViolet           = '#938aa9'
-  c_sumiInk6               = '#54546d'
+  border_purple_ink        = '#54546d'
   c_waveAqua0              = '#6a9589'
   c_waveAqua1              = '#7aa89f'
   c_waveBlue0              = '#223249'
@@ -154,11 +154,11 @@ local hlgroups = {
   DiffAdd = { bg = c_winterGreen },
   DiffChange = { bg = c_winterBlue },
   DiffDelete = { fg = selection_light_gray },
-  DiffText = { bg = c_sumiInk6 },
+  DiffText = { bg = border_purple_ink },
   Directory = { fg = c_macroBlue1 },
   EndOfBuffer = { fg = normal_bg },
   ErrorMsg = { fg = c_lotusRed1 },
-  FloatBorder = { bg = nil, fg = c_sumiInk6 },
+  FloatBorder = { bg = nil, fg = border_purple_ink },
   FloatFooter = { bg = c_macroBg0, fg = c_macroBg5 },
   FloatTitle = { bg = c_macroBg0, fg = c_macroGray2, bold = true },
   FoldColumn = { fg = c_macroBg5 },
@@ -409,7 +409,7 @@ local hlgroups = {
   -- nvim-cmp
   CmpPmenu = { bg = "#201d1d" },
   CmpCompletion = { link = "Pmenu" },
-  CmpCompletionBorder = { bg = normal_bg, fg = c_waveBlue0 },
+  CmpCompletionBorder = { bg = nil, fg = border_purple_ink },
   CmpCompletionSbar = { link = "PmenuSbar" },
   CmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
   CmpCompletionThumb = { link = "PmenuThumb" },
@@ -447,7 +447,7 @@ local hlgroups = {
 
   -- gitsigns
   GitSignsAdd = { fg = c_autumnGreen },
-  GitSignsChange = { fg = c_sumiInk6 },
+  GitSignsChange = { fg = border_purple_ink },
   GitSignsDelete = { fg = c_lotusRed0 },
   GitSignsDeletePreview = { bg = c_winterRed },
 
@@ -465,7 +465,7 @@ local hlgroups = {
   fugitiveUntrackedModifier = { fg = c_macroAqua },
 
   -- telescope
-  TelescopeBorder = { bg = normal_bg, fg = c_sumiInk6 },
+  TelescopeBorder = { bg = normal_bg, fg = border_purple_ink },
   TelescopeMatching = { fg = c_macroRed, bold = true },
   TelescopeNormal = { fg = c_macroFg2, bg = normal_bg },
   TelescopeResultsClass = { link = "Structure" },
@@ -481,8 +481,8 @@ local hlgroups = {
   DapUIBreakpointsDisabledLine = { link = "Comment" },
   DapUIBreakpointsInfo = { fg = c_macroBlue0 },
   DapUIBreakpointsPath = { link = "Directory" },
-  DapUIDecoration = { fg = c_sumiInk6 },
-  DapUIFloatBorder = { fg = c_sumiInk6 },
+  DapUIDecoration = { fg = border_purple_ink },
+  DapUIFloatBorder = { fg = border_purple_ink },
   DapUILineNumber = { fg = c_macroTeal },
   DapUIModifiedValue = { bold = true, fg = c_macroTeal },
   DapUIPlayPause = { fg = c_macroGreen1 },
@@ -523,14 +523,14 @@ local hlgroups = {
   InclineNormalNC = { bg = selection_light_gray, bold = false },
 
   -- mini.starter
-  MiniStarterItemBullet = { fg = c_sumiInk6 },
+  MiniStarterItemBullet = { fg = border_purple_ink },
   MiniStarterItemPrefix = { fg = c_macroRed },
 
   -- custom line highlight for permanently highlighting particular lines
   LineHighlight = { link = "Visual" },
 
   -- mini.indentscope
-  MiniIndentscopeSymbol = { fg = c_sumiInk6 },
+  MiniIndentscopeSymbol = { fg = border_purple_ink },
 
   -- --noice
   NoicePopupmenuSelected = { bg = selection_light_gray },
