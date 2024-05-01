@@ -21,6 +21,7 @@ return {
         "Trouble",
         "trouble",
         "lazy",
+        "noice",
         "mason",
         "notify",
         "toggleterm",
