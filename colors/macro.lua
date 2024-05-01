@@ -25,7 +25,7 @@ local c_lotusRed2
 local c_macroAqua
 local c_macroAsh
 local c_macroBg0
-local c_macroBg1
+local normal_bg
 local c_macroBg2
 local c_macroBg3
 local selection_light_gray
@@ -75,7 +75,7 @@ if vim.go.bg == 'dark' then
   c_macroAqua              = '#95aeac'
   c_macroAsh               = '#626462'
   c_macroBg0               = '#0d0c0c'
-  c_macroBg1               = '#181616'
+  normal_bg               = '#181616'
   c_macroBg2               = '#201d1d'
   c_macroBg3               = vim.g.dark_bg and '#0d0c0c' or '#181616' -- changed from #282727 to fix box in lualine
   selection_light_gray     = '#393836'
@@ -145,7 +145,7 @@ local hlgroups = {
   ColorColumn = { bg = c_macroBg2 },
   Conceal = { bold = true, fg = c_macroGray2 },
   CurSearch = { link = "IncSearch" },
-  Cursor = { bg = "#89ca78", fg = c_macroBg1 },
+  Cursor = { bg = "#89ca78", fg = normal_bg },
   CursorColumn = { link = "CursorLine" },
   CursorIM = { link = "Cursor" },
   CursorLine = { bg = c_macroBg2 },
@@ -156,7 +156,7 @@ local hlgroups = {
   DiffDelete = { fg = selection_light_gray },
   DiffText = { bg = c_sumiInk6 },
   Directory = { fg = c_macroBlue1 },
-  EndOfBuffer = { fg = c_macroBg1 },
+  EndOfBuffer = { fg = normal_bg },
   ErrorMsg = { fg = c_lotusRed1 },
   FloatBorder = { bg = nil, fg = c_sumiInk6 },
   FloatFooter = { bg = c_macroBg0, fg = c_macroBg5 },
@@ -173,7 +173,7 @@ local hlgroups = {
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
 
-  Normal = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg0 },
+  Normal = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg0 },
   NormalFloat = { bg = nil, fg = c_macroFg0 },
 
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
@@ -196,8 +196,8 @@ local hlgroups = {
   TabLine = { link = "StatusLineNC" },
   TabLineFill = { link = "Normal" },
   TabLineSel = { link = "Visual" },
-  TermCursor = { fg = c_macroBg1, bg = c_macroRed },
-  TermCursorNC = { fg = c_macroBg1, bg = c_macroAsh },
+  TermCursor = { fg = normal_bg, bg = c_macroRed },
+  TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },
   Underlined = { fg = c_macroTeal, underline = true },
   VertSplit = { link = "WinSeparator" },
@@ -407,8 +407,9 @@ local hlgroups = {
 
   -- Plugins {{{2
   -- nvim-cmp
+  CmpPmenu = { bg = "#201d1d" },
   CmpCompletion = { link = "Pmenu" },
-  CmpCompletionBorder = { bg = c_waveBlue0, fg = c_waveBlue1 },
+  CmpCompletionBorder = { bg = normal_bg, fg = c_waveBlue0 },
   CmpCompletionSbar = { link = "PmenuSbar" },
   CmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
   CmpCompletionThumb = { link = "PmenuThumb" },
@@ -464,9 +465,9 @@ local hlgroups = {
   fugitiveUntrackedModifier = { fg = c_macroAqua },
 
   -- telescope
-  TelescopeBorder = { bg = c_macroBg1, fg = c_sumiInk6 },
+  TelescopeBorder = { bg = normal_bg, fg = c_sumiInk6 },
   TelescopeMatching = { fg = c_macroRed, bold = true },
-  TelescopeNormal = { fg = c_macroFg2, bg = c_macroBg1 },
+  TelescopeNormal = { fg = c_macroFg2, bg = normal_bg },
   TelescopeResultsClass = { link = "Structure" },
   TelescopeResultsField = { link = "@variable.member" },
   TelescopeResultsMethod = { link = "Function" },
@@ -509,12 +510,12 @@ local hlgroups = {
   StatusLineGitChanged = { bg = c_macroBg3, fg = c_carpYellow },
   StatusLineGitRemoved = { bg = c_macroBg3, fg = c_macroRed },
   StatusLineHeader = { bg = c_macroBg5, fg = c_macroFg1 },
-  StatusLineHeaderModified = { bg = c_macroRed, fg = c_macroBg1 },
+  StatusLineHeaderModified = { bg = c_macroRed, fg = normal_bg },
 
   -- mini.files
-  MiniFilesNormal = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1 },
-  MiniFilesTitle = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg2 },
-  MiniFilesTitleFocused = { bg = vim.g.dark_bg and c_macroBg0 or c_macroBg1, fg = c_macroFg2 },
+  MiniFilesNormal = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg },
+  MiniFilesTitle = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg2 },
+  MiniFilesTitleFocused = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg2 },
   MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
 
   -- incline
@@ -532,12 +533,7 @@ local hlgroups = {
   MiniIndentscopeSymbol = { fg = c_sumiInk6 },
 
   -- --noice
-  -- NoicePopup = { bg = nil },
-  -- NoicePopupmenuSelected = { bg = selection_light_gray },
-  -- NoicePopupmenu = { bg = selection_light_gray },
-  -- NoicepopupmenuMatch = { fg = c_macroRed, bold = true },
-  NoicePopupmenuSelected = { bg = selection_light_gray, underline = true },
-
+  NoicePopupmenuSelected = { bg = selection_light_gray },
   -- }}}
 }
 -- }}}1
