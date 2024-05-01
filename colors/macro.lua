@@ -179,7 +179,7 @@ local hlgroups = {
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
   Pmenu = { bg = c_macroBg3, fg = c_macroFg1 },
-  PmenuSbar = { bg = selection_light_gray },
+  PmenuSbar = { bg = "#201d1d" },
   PmenuSel = { bg = selection_light_gray, fg = "NONE" },
   PmenuThumb = { bg = c_macroBg5 },
   Question = { link = "MoreMsg" },
@@ -406,11 +406,17 @@ local hlgroups = {
   -- }}}
 
   -- Plugins {{{2
+
+  --noice
+  NoicePopupmenuSelected = { bg = selection_light_gray },
+  NoiceScrollBar = { bg = normal_bg },
+
   -- nvim-cmp
   CmpPmenu = { bg = "#201d1d" },
   CmpCompletion = { link = "Pmenu" },
   CmpCompletionBorder = { bg = nil, fg = border_purple_ink },
-  CmpCompletionSbar = { link = "PmenuSbar" },
+  -- CmpCompletionSbar = { link = "PmenuSbar" },
+  CmpCompletionSbar = { fg = "#201d1d" },
   CmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
   CmpCompletionThumb = { link = "PmenuThumb" },
   CmpDocumentation = { link = "NormalFloat" },
@@ -531,9 +537,6 @@ local hlgroups = {
 
   -- mini.indentscope
   MiniIndentscopeSymbol = { fg = border_purple_ink },
-
-  -- --noice
-  NoicePopupmenuSelected = { bg = selection_light_gray },
   -- }}}
 }
 -- }}}1
