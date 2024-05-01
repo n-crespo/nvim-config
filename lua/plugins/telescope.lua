@@ -26,7 +26,6 @@ return {
           ["<C-k>"] = actions.move_selection_previous,
           ["<C-d>"] = actions.delete_buffer,
           ["<C-u>"] = false,
-          ["<C-n>"] = actions.select_tab,
           ["<C-Space>"] = actions.select_tab,
         },
       },
