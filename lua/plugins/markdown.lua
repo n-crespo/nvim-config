@@ -1,6 +1,5 @@
 -- Use <enter> to follow markdown links (or hyperlinks), <C-k> in insert mode
--- to create links, <zh> to fold headers. Good. Kinda buggy and not maintained
--- but good
+-- to create links, <zh> to fold headers.
 return {
   "n-crespo/nvim-markdown",
   lazy = true,
@@ -27,7 +26,7 @@ return {
       callback = function()
         vim.cmd([[
         setlocal syn=markdown
-        ]])
+        ]]) -- this will enable concealing inline math + some latex symbols
       end,
     })
   end,
