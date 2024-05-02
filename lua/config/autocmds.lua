@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   pattern = "Mentorship-Hour-Log.md",
   callback = function()
     vim.cmd([[setlocal conceallevel=0]])
+    vim.cmd([[setlocal textwidth=0]])
   end,
 })
 
