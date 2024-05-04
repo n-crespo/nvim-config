@@ -8,6 +8,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "isak102/telescope-git-file-history.nvim",
+      enabled = false,
       event = "LazyFile",
       dependencies = { "tpope/vim-fugitive" },
     },
@@ -35,8 +36,8 @@ return {
     require("telescope").setup(opts)
     require("lazyvim.util").on_load("telescope.nvim", function()
       local t = require("telescope")
-      require("telescope").load_extension("git_file_history")
-      vim.keymap.set("n", "<C-g>", "<cmd>Telescope git_file_history<cr>", { desc = "Git File History" })
+      -- require("telescope").load_extension("git_file_history")
+      -- vim.keymap.set("n", "<C-g>", "<cmd>Telescope git_file_history<cr>", { desc = "Git File History" })
 
       local z_utils = require("telescope._extensions.zoxide.utils")
       t.load_extension("zoxide")

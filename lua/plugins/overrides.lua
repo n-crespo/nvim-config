@@ -32,4 +32,8 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     enabled = false,
   },
+  {
+    "Exafunction/codeium.nvim",
+    enabled = false,
+  },
 }
