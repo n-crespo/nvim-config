@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd({ "FocusLost" }, {
 })
 
 -- never wrap my code. Please. Stop it.
-vim.api.nvim_create_autocmd({ "BufRead" }, {
+vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     vim.cmd([[set nowrap]])
   end,
