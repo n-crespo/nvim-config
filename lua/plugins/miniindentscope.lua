@@ -27,6 +27,7 @@ return {
         "toggleterm",
         "lazyterm",
         "better_term",
+        "checkhealth",
       },
       callback = function()
         vim.b.miniindentscope_disable = true
