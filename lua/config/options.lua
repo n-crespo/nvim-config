@@ -4,7 +4,7 @@
 local opt = vim.opt
 
 opt.clipboard = "" -- don't sync with system clipboard (see autocmds.lua for WSL clipboard support)
-opt.mouse = "a" -- disable mouse
+opt.mouse = "" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
 opt.cursorline = true -- don't highlight current line (transparent background)
@@ -31,7 +31,7 @@ opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
 opt.spelllang = "en" -- spell in english pls
 opt.scroll = 15 -- this gets overriden somewhere (folke...)
-vim.g.showtabline = 0 -- this doesn't work????? (bruh) (autocmd.lua)
+opt.showtabline = 0
 vim.g.loaded_ruby_provider = 0 -- never use these
 vim.g.loaded_perl_provider = 0 -- never use these
 vim.g.wrap = false -- stop wrapping my text
