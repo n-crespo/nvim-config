@@ -26,7 +26,7 @@ return {
       if vim.g.toggle_codeblock_bg then
         vim.cmd("hi Codeblock guibg=nil")
       else
-        vim.cmd("hi Codeblock guibg=#22272f")
+        vim.cmd("hi Codeblock guibg=#201d1d")
       end
       vim.g.toggle_codeblock_bg = not vim.g.toggle_codeblock_bg
     end
