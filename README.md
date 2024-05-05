@@ -17,15 +17,20 @@ Some interesting things in this config are:
 - the ~30 ms startup time
   - see the first 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 - the following plugins:
-  - [codeium](https://github.com/Exafunction/codeium.vim) (free and open source code completion) (installed with `:LazyExtras`)
+  - [my custom color scheme](./colors/macro.lua)
+    - 90% stolen from [Bekaboo](https://github.com/Bekaboo/nvim/blob/master/colors/macro.lua), 10% my own
+    - inspired by kanagwa-dragon and mellifluous
+    - intentionally avoids the use of bright red and yellow (reserved for errors)
   - [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
-  - [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim)
-  - [flatten.nvim](https://github.com/willothy/flatten.nvim) (no more nested nvim instances, amazing when used with autojump and betterTerm)
-  - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim) (transparent everything + super customizable)
+  - [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim, with added git integration and dotfiles toggle)
+  - [flatten.nvim](https://github.com/willothy/flatten.nvim) (stops nested nvim instances, amazing when used with autojump and betterTerm)
+  - [peek.nvim](https://github.com/toppair/peek.nvim) (a fairly simple markdown preview plugin that works well with WSL)
+  - [reticle.nvim](https://github.com/tummetott/reticle.nvim) (improved cursor line)
+  - [codeium](https://github.com/Exafunction/codeium.vim) (free and open source code completion) (installed with `:LazyExtras`)
 - the LSP and formatter support for R-Markdown, C++, Java, and Python (mostly thanks to LazyVim)
-  - see `markdown.lua`, `markdownpreview.lua`, and `markdowntable.lua` for markdown (no LSP needed)
+  - see `markdown.lua`, `peek.lua`, and `markdowntable.lua` for markdown editing (no LSP needed)
 - I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` _everywhere_
-- custom markdown highlights for bullets, checkboxes, and inline quotes
+- my custom markdown highlights for bullets and checkboxes in markdown
 
 > [!Note]
 > Many of the plugins I use are not visible in `lua/plugins/` because I
