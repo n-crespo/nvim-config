@@ -38,14 +38,6 @@ return {
         },
         {
           name = "Session restore",
-          -- action = function()
-          --   local success, result = pcall(function()
-          --     return require("mini.sessions").read()
-          --   end)
-          --   if not success then
-          --     print("No session found")
-          --   end
-          -- end,
           action = 'lua require("persistence").load()',
           section = " ",
         },
@@ -53,13 +45,12 @@ return {
         { name = "Quit", action = "qa", section = " " },
       },
     })
-
-    --     vim.cmd([[
-    --   augroup MiniStarterJK
-    --     au!
-    --     au User MiniStarterOpened nmap <buffer> j <Cmd>lua MiniStarter.update_current_item('next')<CR>
-    --     au User MiniStarterOpened nmap <buffer> k <Cmd>lua MiniStarter.update_current_item('prev')<CR>
-    --   augroup END
-    -- ]])
+    vim.cmd([[
+      augroup MiniStarterJK
+        au!
+        au User MiniStarterOpened nmap <buffer> j <Cmd>lua MiniStarter.update_current_item('next')<CR>
+        au User MiniStarterOpened nmap <buffer> k <Cmd>lua MiniStarter.update_current_item('prev')<CR>
+      augroup END
+    ]])
   end,
 }
