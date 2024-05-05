@@ -64,20 +64,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
--- for some reaason the showtabline = 0 in options.lua is overriden somewhere....
-vim.api.nvim_create_autocmd("BufEnter", {
-  command = "set showtabline=0",
-})
-
 -- don't show [Process exited 0] command when terminal is closed
--- (just send a key when that event is heard) AMAZING
-vim.api.nvim_create_autocmd("TermClose", {
-  command = "if &filetype != 'crunner' | call feedkeys('\\\\<Nop>') | endif",
-  -- send <nop> when terminal is quit, most other keys (like i or a) will
-  -- trigger their respective function after returning to the non-terminal
-  -- buffer after quitting lazygit with lazyvim's special terminal (<leader>gg).
-  -- HOWEVER, I don't want code runner terminals to auto close, so I account for
-  -- that with an if statement.
+-- (just send a key when that event is heard) (exclude code runner)
+vim.api.nvim_create_autocmd({ "TermClose" }, {
+  callback = function()
+    if vim.bo.filetype ~= "crunner" and vim.bo.buftype ~= "lazyterm" then
+      vim.api.nvim_feedkeys("i", "n", true)
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+    end
+  end,
 })
 
 -- remove line numbers and auto enter terminal on TermOpen
