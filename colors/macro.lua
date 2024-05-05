@@ -173,7 +173,7 @@ local hlgroups = {
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
 
-  Normal = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg0 },
+  Normal = { fg = c_macroFg0 },
   NormalFloat = { bg = nil, fg = c_macroFg0 },
 
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
