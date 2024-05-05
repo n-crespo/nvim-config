@@ -74,8 +74,10 @@ vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, de
 
 -- navigate and list tabs
 vim.keymap.set("n", "<leader>a", function()
-  vim.cmd("tabs")
-end, { silent = true, desc = "List Tabs" })
+  local current_value = vim.o.showtabline
+  local new_value = (current_value == 0) and 2 or 0
+  vim.cmd("set showtabline=" .. new_value)
+end, { silent = true, desc = "Toggle Tabline" })
 
 -- completion cycling
 vim.keymap.set("i", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
@@ -234,3 +236,10 @@ vim.keymap.set("n", "gb", "<leader>ghb", { remap = true, silent = true, desc = "
 
 vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+vim.keymap.set("i", "<C-/>", function()
+  local save_cursor = vim.fn.getpos(".")
+  pcall(function()
+    require("mini.comment").toggle()
+  end)
+  vim.fn.setpos(".", save_cursor)
+end, { remap = true, desc = "Comment out line" })
