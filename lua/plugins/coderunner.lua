@@ -1,7 +1,7 @@
 -- use R to run any file! very nice
 -- this overrides the vim native replace mode, which i never use
 return {
-  "n-crespo/code_runner.nvim",
+  "CRAG666/code_runner.nvim",
   event = "LazyFile",
   dependencies = {
     "folke/which-key.nvim",
