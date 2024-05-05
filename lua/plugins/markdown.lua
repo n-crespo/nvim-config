@@ -25,7 +25,7 @@ return {
       pattern = { "*.md" },
       callback = function()
         vim.cmd([[
-        setlocal syn=markdown
+        setlocal syn=markdown | setlocal nowrap
         ]]) -- this will enable concealing inline math + some latex symbols
       end,
     })
