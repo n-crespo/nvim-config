@@ -230,6 +230,13 @@ vim.keymap.set(
   { desc = "Replace instances" }
 )
 
+vim.keymap.set(
+  "n",
+  "<leader>cI",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left>]],
+  { desc = "Replace instances with confirmation" }
+)
+
 -- : (easier to hit when using in combination with <C-k>)
 vim.keymap.set({ "n", "v" }, "<C-;>", ":")
 
