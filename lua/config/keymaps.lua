@@ -90,7 +90,7 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 local path = os.getenv("HOME") -- Get the user's home directory
 ---@diagnostic disable-next-line: param-type-mismatch
 if string.sub(path, 1, 6) == "/Users" then
-  vim.notify("Keymaps not set, MacOS detected")
+  -- vim.notify("Keymaps not set, MacOS detected")
   vim.keymap.set("n", "<leader>ow", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
   vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 else

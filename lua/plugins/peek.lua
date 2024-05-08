@@ -4,17 +4,28 @@ return {
   event = { "VeryLazy" },
   build = "deno task --quiet build:fast",
   config = function()
-    require("peek").setup({
-      auto_load = true, -- whether to automatically load preview when entering another markdown buffer
-      close_on_bdelete = false, -- close preview window on buffer delete
-      syntax = true, -- enable syntax highlighting, affects performance
-      theme = "dark",
-      update_on_change = true,
-      app = { "/mnt/c/Program Files/Mercury/mercury.exe", "--new-window" }, -- 'webview', 'browser', string or a table of strings explained below
-    })
+    local path = os.getenv("HOME")
+    ---@diagnostic disable-next-line: param-type-mismatch
+    if string.sub(path, 1, 6) == "/Users" then
+      require("peek").setup({
+        auto_load = true,
+        close_on_bdelete = false,
+        syntax = true,
+        theme = "dark",
+        update_on_change = true,
+      })
+    else
+      require("peek").setup({
+        auto_load = true,
+        close_on_bdelete = false,
+        syntax = true,
+        theme = "dark",
+        update_on_change = true,
+        app = { "/mnt/c/Program Files/Mercury/mercury.exe", "--new-window" }, -- 'webview', 'browser', string or a table of strings explained below
+      })
+    end
     vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
     vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-    -- vim.keymap.set("n", "<leader>op", require("peek").open, { desc = "Open Peek Preview", buffer = true })
   end,
   keys = {
     { "<leader>op", "<cmd>PeekOpen<cr>", desc = "Open Peek Preview", buffer = true },
