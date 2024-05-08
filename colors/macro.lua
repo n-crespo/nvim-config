@@ -259,7 +259,6 @@ local hlgroups = {
   ["@markup.link.label.symbol"] = { fg = c_macroFg0 },
   ["@tag.attribute"] = { fg = c_macroFg0 },
   ["@tag.delimiter"] = { fg = c_macroGray1 },
-  ["@comment.error"] = { bg = c_lotusRed1, fg = c_macroFg0, bold = true },
   ["@diff.plug"] = { fg = c_autumnGreen },
   ["@diff.minus"] = { fg = c_autumnRed },
   ["@markup.emphasis"] = { italic = true },
@@ -289,7 +288,9 @@ local hlgroups = {
   ["@comment.todo.unchecked"] = { fg = c_macroRed },
   ["@markup.link.label.markdown_inline"] = { link = "htmlLink" },
   ["@markup.link.url.markdown_inline"] = { link = "htmlString" },
-  ["@comment.warning"] = { bg = c_roninYellow, fg = c_waveBlue0, bold = true },
+  -- below are overriden by todo-comments
+  -- ["@comment.error"] = { bg = c_lotusRed1, fg = c_macroFg0, bold = true },
+  -- ["@comment.warning"] = { bg = c_roninYellow, fg = c_waveBlue0, bold = true },
   ["@variable"] = { fg = c_macroFg0 },
   ["@variable.builtin"] = { fg = c_macroRed, italic = true },
   -- }}}
