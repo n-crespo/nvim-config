@@ -16,7 +16,7 @@ return {
     mode = "term",
     startinsert = false,
     filetype = {
-      python = "python -u '$dir/$fileName'",
+      python = "python3 -u '$dir/$fileName'",
       javascript = "node",
       java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
       cpp = {

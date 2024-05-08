@@ -40,7 +40,7 @@ vim.keymap.set(
 -- --------------------------------------- WINDOWS AND BUFFERS -------------------------------------
 
 -- delete all other {something} (tab, buffer, window)
-vim.keymap.set("n", "<leader>wo", ":only <CR>", { silent = true, desc = "Window only" })
+vim.keymap.set("n", "<leader>wo", "<cmd>only <CR>", { silent = true, desc = "Window only" })
 vim.keymap.set("n", "<leader>bo", "<cmd>w | %bd | e# | bd#<cr>", { desc = "Buffer Only", silent = true })
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })
 
@@ -57,8 +57,11 @@ vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, de
 -- close buffer (not soft) (don't preserve split)
 vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent = true })
 
--- vertical split
+-- splits
 vim.keymap.set("n", "<leader>\\", "<leader>|", { remap = true, silent = true, desc = "Vertical Split" })
+-- vim.keymap.set("n", "\\", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
+vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
+vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 
 -- window resizing (<C-up> and <C-down> are used by multicursor)
 vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })

@@ -20,7 +20,7 @@ return {
         end
       end,
       -- "<cmd>setlocal syn=markdown<cr>",
-      { silent = false, desc = "Conceal Math", buffer = true }
+      { silent = false, desc = "Conceal Math" }
     )
   end,
 }
