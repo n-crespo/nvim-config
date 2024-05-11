@@ -18,7 +18,7 @@ return {
     filetype = {
       python = "python3 -u '$dir/$fileName'",
       javascript = "node",
-      java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+      java = "cd $dir && javac $fileName -d bin/ && java -cp $dir/bin/ $fileNameWithoutExt",
       cpp = {
         "cd $dir &&",
         "g++ $fileName",
