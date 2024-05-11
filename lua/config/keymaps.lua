@@ -254,3 +254,14 @@ vim.keymap.set({ "n", "v" }, "B", "_", { desc = "Start of line", silent = true }
 
 -- follow links better
 vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = "Follow Link" })
+
+local function toggle_fold()
+  if vim.fn.col(".") == 1 and vim.bo.filetype ~= "minifiles" then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("za", true, true, true), "n", true)
+  else
+    vim.cmd("normal! h")
+  end
+end
+
+vim.keymap.set("n", "h", toggle_fold, { desc = "Toggle fold" })
+vim.keymap.set("n", "`", "za")
