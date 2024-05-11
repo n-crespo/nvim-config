@@ -287,7 +287,7 @@ local hlgroups = {
   ["@comment.todo.checked"] = { fg = c_macroAsh },
   ["@comment.todo.unchecked"] = { fg = c_macroRed },
   ["@markup.link.label.markdown_inline"] = { link = "htmlLink" },
-  ["@markup.link.url.markdown_inline"] = { link = "htmlString" },
+  ["@markup.link.url.markdown_inline"] = { fg = c_macroAsh, underline = true },
   -- below are overriden by todo-comments
   -- ["@comment.error"] = { bg = c_lotusRed1, fg = c_macroFg0, bold = true },
   -- ["@comment.warning"] = { bg = c_roninYellow, fg = c_waveBlue0, bold = true },
