@@ -33,9 +33,9 @@ return {
         wrap = false,
       },
     },
-    -- mapping = require("cmp").mapping.preset.insert({
-    --   ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Insert }),
-    --   ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Insert }),
-    -- }),
+    mapping = require("cmp").mapping.preset.insert({
+      ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Insert }),
+      ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Insert }),
+    }),
   },
 }

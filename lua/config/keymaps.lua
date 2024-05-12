@@ -139,9 +139,7 @@ vim.keymap.set("n", "<leader>5", "<cmd>tabn 5<cr>", { silent = true, desc = "Tab
 
 -- --------------------------------- INSERT MODE + COMPLETION -------------------------------------
 
--- completion cycling
-vim.keymap.set("i", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
-vim.keymap.set("i", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through completion items" })
+-- completion cycling in command mode
 vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
 vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through completion items" })
 

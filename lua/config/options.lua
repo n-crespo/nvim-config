@@ -43,6 +43,11 @@ vim.g.dark_bg = false -- custom option for custom 'macro' theme
 vim.g.python3_host_prog = "/usr/bin/python3"
 
 vim.cmd([[
+set complete=
+set completeopt=
+]])
+
+vim.cmd([[
 function! MyTabLine()
   let s = ''
   for i in range(tabpagenr('$'))
