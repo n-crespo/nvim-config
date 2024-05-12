@@ -42,6 +42,15 @@ vim.g.lazygit_config = true -- use custom layzgit config for icons/stuff
 vim.g.dark_bg = false -- custom option for custom 'macro' theme
 vim.g.python3_host_prog = "/usr/bin/python3"
 
+-- if windows:
+-- vim.cmd([[
+-- let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
+-- let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
+-- let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+-- let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
+-- set shellquote= shellxquote=
+-- ]])
+
 vim.cmd([[
 set complete=
 set completeopt=

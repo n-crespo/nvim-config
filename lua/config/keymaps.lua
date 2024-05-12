@@ -223,6 +223,10 @@ vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true 
 -- clear terminal (overriding <C-l> for window navigation)
 vim.keymap.set("t", "<C-l>", "<C-l>", { noremap = true })
 
+-- restore original terminal keymap behavior
+vim.keymap.set("t", "<C-h>", "<C-h>", { noremap = true })
+vim.keymap.set("t", "<C-j>", "<C-j>", { noremap = true })
+
 -- replace all instances of word (without LSP)
 vim.keymap.set(
   "n",

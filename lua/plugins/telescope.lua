@@ -26,6 +26,9 @@ return {
           ["<C-k>"] = actions.move_selection_previous,
           ["<C-d>"] = actions.delete_buffer,
           ["<C-u>"] = false,
+          ["<C-h>"] = function() -- for windows
+            vim.cmd([[normal! bcw ]])
+          end,
           ["<C-Space>"] = actions.select_tab,
         },
       },
