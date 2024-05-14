@@ -187,7 +187,7 @@ local hlgroups = {
   Search = { bg = selection_light_gray },
   SignColumn = { fg = c_macroGray2 },
   SpellBad = { fg = c_lotusRed0, underdashed = true },
-  SpellCap = { underdashed = true },
+  SpellCap = { underdashed = false },
   SpellLocal = { underdashed = true },
   SpellRare = { underdashed = true },
   StatusLine = { bg = c_macroBg3, fg = c_macroFg1 },

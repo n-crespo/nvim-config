@@ -267,3 +267,5 @@ end
 
 vim.keymap.set("n", "h", toggle_fold, { desc = "Toggle fold" })
 vim.keymap.set("n", "`", "za")
+
+vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
