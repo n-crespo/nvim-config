@@ -13,9 +13,10 @@ return {
     vim.cmd([[
 
     function! s:goyo_enter()
-    Goyo 86
-    set nu
-    set scrolloff=999
+    Goyo 90
+    setlocal nonu
+    setlocal nornu
+    setlocal scrolloff=999
     lua require("lualine").hide()
     endfunction
 
