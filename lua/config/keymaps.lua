@@ -68,14 +68,29 @@ vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window 
 vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 
 -- --------------------------------------- KEYMAP DELETIONGS ---------------------------------------
--- unneeded LazyVim garbage
+-- unneeded LazyVim keymaps
 vim.keymap.del("n", "<leader>bb")
 vim.keymap.del("n", "<leader>K")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>sb")
+vim.keymap.del("n", "<leader>fb")
+vim.keymap.del("n", "<leader>fg")
+vim.keymap.del("n", "<leader>fr")
+vim.keymap.del("n", "<leader>fR")
 vim.keymap.del("n", "<leader>qq")
 vim.keymap.del("n", "<leader>qÞ")
+vim.keymap.del("n", "<leader>sg")
+vim.keymap.del("n", "<leader>sC")
+-- vim.keymap.del("n", "<leader><Tab>")
+vim.keymap.del("n", "<leader><Tab><Tab>")
+vim.keymap.del("n", "<leader><Tab>[")
+vim.keymap.del("n", "<leader><Tab>]")
+vim.keymap.del("n", "<leader><Tab>d")
+vim.keymap.del("n", "<leader><Tab>f")
+vim.keymap.del("n", "<leader><Tab>l")
+vim.keymap.del("n", "<leader>bD")
+
 vim.keymap.del("n", "<C-w>Þ") -- to remove whichkey delay
 
 -- media control buttons (don't send keypresses)
@@ -238,7 +253,7 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>cI",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left>]],
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]],
   { desc = "Replace instances with confirmation" }
 )
 
@@ -268,5 +283,5 @@ vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = 
 -- vim.keymap.set("n", "h", toggle_fold, { desc = "Toggle fold" })
 
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
-
 vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
+vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
