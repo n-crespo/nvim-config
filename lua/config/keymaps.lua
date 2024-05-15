@@ -285,3 +285,4 @@ vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = 
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
+vim.keymap.set("n", "<leader>m", "<cmd>tabnew<cr><cmd>e #<cr>")
