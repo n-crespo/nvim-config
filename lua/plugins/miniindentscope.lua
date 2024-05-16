@@ -28,6 +28,7 @@ return {
         "lazyterm",
         "better_term",
         "checkhealth",
+        "csv",
       },
       callback = function()
         vim.b.miniindentscope_disable = true

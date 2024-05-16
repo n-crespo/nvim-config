@@ -8,6 +8,7 @@ return {
         "better_term",
         "lazy",
         "noice",
+        "csv",
       },
     },
   },
