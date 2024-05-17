@@ -5,10 +5,6 @@ return {
     enabled = false,
   },
   {
-    "RRethy/vim-illuminate", -- this is useless
-    enabled = false,
-  },
-  {
     "nvimdev/dashboard-nvim", -- i use mini starter
     enabled = false,
   },

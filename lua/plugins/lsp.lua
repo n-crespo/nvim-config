@@ -8,6 +8,9 @@ return {
         border = "single",
       },
     },
+    document_highlight = {
+      enabled = false,
+    },
     servers = {
       clangd = {},
       jdtls = { enabled = true }, -- java
