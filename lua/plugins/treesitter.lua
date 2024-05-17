@@ -4,6 +4,14 @@ return {
     incremental_selection = {
       enable = false,
     },
+    ensure_installed = {
+      "csv",
+      "bash",
+      "yaml",
+      "xml",
+      "vimdoc",
+      "latex",
+    },
   },
   init = function()
     vim.api.nvim_create_augroup("cmdwin_treesitter", { clear = true })
