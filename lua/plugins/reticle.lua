@@ -14,7 +14,6 @@ return {
         "telescope",
         "noice",
         "better_term",
-        "minifiles",
         "notify",
       },
     },
