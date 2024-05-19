@@ -29,6 +29,8 @@ return {
           ["<C-h>"] = function() -- for windows
             vim.cmd([[normal! bcw ]])
           end,
+          ["<C-l>"] = actions.select_horizontal,
+          ["<C-x>"] = false,
           ["<C-Space>"] = actions.select_tab,
         },
       },

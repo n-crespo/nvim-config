@@ -2,8 +2,8 @@
 --
 vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
 vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up" })
-vim.keymap.set("n", "}", "}zz", { noremap = true })
-vim.keymap.set("n", "{", "{zz", { noremap = true })
+-- vim.keymap.set("n", "}", "}zz", { noremap = true })
+-- vim.keymap.set("n", "{", "{zz", { noremap = true })
 vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
@@ -211,6 +211,7 @@ vim.keymap.set("n", "zb", "zbkj", { silent = true, desc = "Bottom line" })
 
 -- git blame
 vim.keymap.set("n", "gb", "<leader>ghb", { remap = true, silent = true, desc = "Blame Line" })
+vim.keymap.set("n", "gp", "<leader>ghp", { remap = true, silent = true, desc = "Blame Line" })
 
 -- unholy non-native vim keymap for find in buffer
 vim.keymap.set("n", "<C-f>", function()
@@ -225,7 +226,7 @@ end, { desc = "Find Word" })
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
 
 -- grant permissions
-vim.keymap.set("n", "<leader>X", "<Cmd>!chmod +x %<CR>", { silent = true, desc = "Permissions" })
+vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Permissions" })
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
@@ -272,19 +273,10 @@ vim.keymap.set({ "n", "v" }, "B", "_", { desc = "Start of line", silent = true }
 -- follow links better
 vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = "Follow Link" })
 
--- local function toggle_fold()
---   if vim.fn.col(".") == 1 and vim.bo.filetype ~= "minifiles" then
---     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("za", true, true, true), "n", true)
---   else
---     vim.cmd("normal! h")
---   end
--- end
---
--- vim.keymap.set("n", "h", toggle_fold, { desc = "Toggle fold" })
-
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
 vim.keymap.set("n", "<leader>m", "<cmd>tabnew<cr><cmd>e #<cr>")
+vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" })
 
 vim.keymap.set("s", "<BS>", "<C-O>s")
