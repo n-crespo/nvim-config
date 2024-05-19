@@ -2,7 +2,7 @@
 -- transparent, italic comments, custom highlights
 return {
   "olimorris/onedarkpro.nvim",
-  enabled = true,
+  enabled = false,
   lazy = false,
   name = "onedarkpro",
   priority = 1000, -- Ensure it loads first
