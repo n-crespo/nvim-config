@@ -280,3 +280,5 @@ vim.keymap.set("n", "<leader>m", "<cmd>tabnew<cr><cmd>e #<cr>", { desc = "Maximi
 vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" })
 
 vim.keymap.set("s", "<BS>", "<C-O>s")
+
+vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr>", { desc = "Terminal Split" })
