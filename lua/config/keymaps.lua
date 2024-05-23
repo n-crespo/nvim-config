@@ -118,7 +118,7 @@ elseif vim.fn.has("wsl") then
   vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 end
 
--- --------------------------------- TAB RELATED STUFF START ----------------------------
+-- --------------------------------- TAB RELATED STUFF --------------------------------------------
 -- toggle tabline
 vim.keymap.set("n", "<leader>a", function()
   local current_value = vim.o.showtabline
