@@ -105,13 +105,11 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
-local path = os.getenv("HOME") -- Get the user's home directory
----@diagnostic disable-next-line: param-type-mismatch
-if string.sub(path, 1, 6) == "/Users" then
+if vim.fn.has("mac") then
   -- vim.notify("Keymaps not set, MacOS detected")
   vim.keymap.set("n", "<leader>ow", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
   vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
-else
+elseif vim.fn.has("wsl") then
   vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" })
   vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
   vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })

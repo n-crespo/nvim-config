@@ -4,9 +4,7 @@ return {
   event = { "VeryLazy" },
   build = "deno task --quiet build:fast",
   config = function()
-    local path = os.getenv("HOME")
-    ---@diagnostic disable-next-line: param-type-mismatch
-    if string.sub(path, 1, 6) == "/Users" then
+    if vim.fn.has("mac") then
       require("peek").setup({
         auto_load = true,
         close_on_bdelete = false,

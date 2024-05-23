@@ -3,19 +3,23 @@
 
 local opt = vim.opt
 
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-vim.g.clipboard = {
-  name = "xclip-wsl",
-  copy = {
-    ["+"] = { "xclip", "-quiet", "-i", "-selection", "clipboard" },
-    ["*"] = { "xclip", "-quiet", "-i", "-selection", "primary" },
-  },
-  paste = {
-    ["+"] = { "xclip", "-o", "-selection", "clipboard" },
-    ["*"] = { "xclip", "-o", "-selection", "primary" },
-  },
-  cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
-}
+if vim.fn.has("mac") then
+  opt.clipboard = "unnamedplus"
+else
+  opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+  vim.g.clipboard = {
+    name = "xclip-wsl",
+    copy = {
+      ["+"] = { "xclip", "-quiet", "-i", "-selection", "clipboard" },
+      ["*"] = { "xclip", "-quiet", "-i", "-selection", "primary" },
+    },
+    paste = {
+      ["+"] = { "xclip", "-o", "-selection", "clipboard" },
+      ["*"] = { "xclip", "-o", "-selection", "primary" },
+    },
+    cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
+  }
+end
 
 opt.mouse = "" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
