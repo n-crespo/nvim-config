@@ -1,8 +1,8 @@
 return {
   "nvim-cmp",
-  enabled = vim.fn.has("wsl") or vim.fn.has("mac"),
   dependencies = {
     "Exafunction/codeium.nvim",
+    enabled = vim.fn.has("wsl") or vim.fn.has("mac"),
     cmd = "Codeium",
     build = ":Codeium Auth",
     opts = {
