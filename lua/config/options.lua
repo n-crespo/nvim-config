@@ -3,9 +3,7 @@
 
 local opt = vim.opt
 
-if vim.fn.has("mac") then
-  opt.clipboard = "unnamedplus"
-else
+if vim.fn.has("wsl") then
   opt.clipboard:append("unnamedplus") -- use system clipboard as default register
   vim.g.clipboard = {
     name = "xclip-wsl",
@@ -19,6 +17,8 @@ else
     },
     cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
   }
+elseif vim.fn.has("mac") or vim.fn.has("win32") then
+  opt.clipboard = "unnamedplus"
 end
 
 opt.mouse = "" -- disable mouse

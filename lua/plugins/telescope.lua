@@ -40,8 +40,11 @@ return {
     require("telescope").setup(opts)
     require("lazyvim.util").on_load("telescope.nvim", function()
       local t = require("telescope")
-      require("telescope").load_extension("git_file_history")
-      vim.keymap.set("n", "<C-g>", "<cmd>Telescope git_file_history<cr>", { desc = "Git File History" })
+
+      if not vim.fn.has("wsl") then
+        require("telescope").load_extension("git_file_history")
+        vim.keymap.set("n", "<C-g>", "<cmd>Telescope git_file_history<cr>", { desc = "Git File History" })
+      end
 
       local z_utils = require("telescope._extensions.zoxide.utils")
       t.load_extension("zoxide")
