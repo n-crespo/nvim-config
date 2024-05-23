@@ -282,3 +282,4 @@ vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" }
 vim.keymap.set("s", "<BS>", "<C-O>s")
 
 vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr>", { desc = "Terminal Split" })
+vim.keymap.set("i", "<C-/>", "<C-o>gcc", { remap = true, desc = "Comment Line" })
