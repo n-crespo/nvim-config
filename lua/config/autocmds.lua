@@ -1,13 +1,3 @@
--- sync clipboard with system clipboard automagically without slowing startup
-vim.api.nvim_create_autocmd({ "FocusGained" }, {
-  pattern = { "*" },
-  command = [[call setreg("@", getreg("+"))]],
-})
-vim.api.nvim_create_autocmd({ "FocusLost" }, {
-  pattern = { "*" },
-  command = [[call setreg("+", getreg("@"))]],
-})
-
 -- never wrap my code. Please. Stop it.
 vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
