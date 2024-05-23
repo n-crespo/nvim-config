@@ -105,17 +105,15 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
-if vim.fn.has("mac") then
-  -- vim.notify("Keymaps not set, MacOS detected")
-  vim.keymap.set("n", "<leader>ow", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
-  vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
-elseif vim.fn.has("wsl") then
-  vim.keymap.set("n", "<leader>ow", "<cmd>!wsl-open %<cr>", { silent = true, desc = "Open in Windows System Viewer" })
+if vim.fn.has("wsl") or vim.fn.has("win32") then
   vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
   vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
   vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
   vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
   vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
+elseif vim.fn.has("mac") then
+  -- vim.notify("Keymaps not set, MacOS detected")
+  vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 end
 
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
