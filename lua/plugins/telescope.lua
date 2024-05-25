@@ -4,16 +4,13 @@
 -- images
 local actions = require("telescope.actions")
 return {
-  dependencies = {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "isak102/telescope-git-file-history.nvim",
-      event = "LazyFile",
-      dependencies = { "tpope/vim-fugitive" },
-    },
-  },
   "telescope.nvim",
   event = "VeryLazy",
+  dependencies = {
+    "isak102/telescope-git-file-history.nvim",
+    event = "LazyFile",
+    dependencies = { "tpope/vim-fugitive" },
+  },
   opts = {
     defaults = {
       preview = {
@@ -41,7 +38,7 @@ return {
     require("lazyvim.util").on_load("telescope.nvim", function()
       local t = require("telescope")
 
-      if not vim.fn.has("wsl") then
+      if vim.fn.has("unix") then
         require("telescope").load_extension("git_file_history")
         vim.keymap.set("n", "<C-g>", "<cmd>Telescope git_file_history<cr>", { desc = "Git File History" })
       end
