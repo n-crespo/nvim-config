@@ -30,7 +30,7 @@ Some interesting things in this config are:
 - I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` _everywhere_
 - my custom markdown highlights for bullets and checkboxes in markdown
 
-> [!Note]
+> [!NOTE]
 > Many of the plugins I use are not visible in `lua/plugins/` because I
 > use the LazyVim distribution which already comes with lots of plugins. You can
 > see these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also
