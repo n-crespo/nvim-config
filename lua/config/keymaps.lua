@@ -131,7 +131,7 @@ vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
 
 -- close current tab, if last tab open, quit completely
-vim.keymap.set("n", "<C-w>", function()
+vim.keymap.set("n", "<leader>q", function()
   ---@diagnostic disable-next-line: unused-local
   local success, result = pcall(function()
     vim.cmd("tabclose")
