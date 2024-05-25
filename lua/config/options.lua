@@ -4,24 +4,24 @@
 local opt = vim.opt
 
 if vim.fn.has("win32") then
-  opt.clipboard = "unnamedplus"
+	opt.clipboard = "unnamedplus"
 elseif vim.fn.has("wsl") then
-  opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-  vim.g.clipboard = {
-    name = "xclip-wsl",
-    copy = {
-      ["+"] = { "xclip", "-quiet", "-i", "-selection", "clipboard" },
-      ["*"] = { "xclip", "-quiet", "-i", "-selection", "primary" },
-    },
-    paste = {
-      ["+"] = { "xclip", "-o", "-selection", "clipboard" },
-      ["*"] = { "xclip", "-o", "-selection", "primary" },
-    },
-    cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
-  }
-  vim.notify("wsl clipboard workign")
+	opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+	vim.g.clipboard = {
+		name = "xclip-wsl",
+		copy = {
+			["+"] = { "xclip", "-quiet", "-i", "-selection", "clipboard" },
+			["*"] = { "xclip", "-quiet", "-i", "-selection", "primary" },
+		},
+		paste = {
+			["+"] = { "xclip", "-o", "-selection", "clipboard" },
+			["*"] = { "xclip", "-o", "-selection", "primary" },
+		},
+		cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
+	}
+	vim.notify("wsl clipboard workign")
 elseif vim.fn.has("mac") or vim.fn.has("win32") then
-  opt.clipboard = "unnamedplus"
+	opt.clipboard = "unnamedplus"
 end
 
 opt.mouse = "" -- disable mouse
@@ -50,8 +50,8 @@ opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
 opt.spelllang = "en" -- spell in english pls
-opt.scroll = 15 -- this gets overriden somewhere (folke...)
-opt.showtabline = 0
+opt.scroll = 15
+opt.showtabline = 1
 vim.g.loaded_ruby_provider = 0 -- never use these
 vim.g.loaded_perl_provider = 0 -- never use these
 vim.g.wrap = false -- stop wrapping my text
