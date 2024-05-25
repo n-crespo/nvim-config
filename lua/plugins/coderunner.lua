@@ -3,16 +3,9 @@
 return {
   "CRAG666/code_runner.nvim",
   event = "LazyFile",
-  dependencies = {
-    "folke/which-key.nvim",
-    opts = {
-      defaults = {
-        ["<R>"] = { name = "+Run" },
-      },
-    },
-  },
   config = true,
   opts = {
+    project_path = vim.fn.expand("~/.config/nvim/project_manager.json"),
     mode = "term",
     startinsert = false,
     filetype = {
@@ -26,6 +19,14 @@ return {
         "/tmp/$fileNameWithoutExt",
       },
     },
+    project = {
+      ["~/grade%-12/csa/2/AmusementPark/src/.-"] = {
+        name = "Amusement Park",
+        description = "Amusement Park Game",
+        -- javac */java -d bin/ && java -cp bin/ src.Main
+        command = "rjall",
+      },
+    },
     term = {
       position = "bot", -- horiz, top, vert
       size = 18,
@@ -37,8 +38,8 @@ return {
     },
   },
   keys = {
-    { "RJ", "<cmd>RunFile term<cr>", desc = "Run Code Below" }, -- J --> down --> bottom split
-    { "RL", "<cmd>RunFile term<cr><cmd>windo wincmd H<cr>", desc = "Run Code on Left" }, -- J --> down --> bottom split
+    { "RJ", "<cmd>RunCode term<cr>", desc = "Run Code Below" }, -- J --> down --> bottom split
+    { "RL", "<cmd>RunCode term<cr><cmd>windo wincmd H<cr>", desc = "Run Code on Left" }, -- J --> down --> bottom split
     { "RQ", "<cmd>RunClose<cr>", desc = "Close Runner" }, -- J --> down --> bottom split
   },
   init = function()
