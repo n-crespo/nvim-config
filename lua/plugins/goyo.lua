@@ -1,6 +1,7 @@
 return {
   "junegunn/goyo.vim",
   cmd = "Goyo",
+  lazy = true,
   keys = {
     {
       "<leader>ug",
