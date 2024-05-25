@@ -12,6 +12,7 @@ return {
       ["<leader>t"] = { name = "+tab" },
       ["<leader>o"] = { name = "+open" },
       ["<leader>gh"] = { name = "+hunks" },
+      ["<R>"] = { name = "+run" },
     },
   },
 }
