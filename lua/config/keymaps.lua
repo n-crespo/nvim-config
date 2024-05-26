@@ -279,3 +279,4 @@ vim.keymap.set("s", "<BS>", "<C-O>s")
 
 vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr>", { desc = "Terminal Split" })
 vim.keymap.set("i", "<C-/>", "<C-o>gcc", { remap = true, desc = "Comment Line" })
+vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
