@@ -17,8 +17,7 @@ Some interesting things in this config are:
 - the ~30 ms startup time (lazy load everything)
   - see the first 2 auto commands in [here](./lua/config/autocmds.lua) to speed up WSL
 - [my custom color scheme](./colors/macro.lua)
-  - 90% stolen from [Bekaboo](https://github.com/Bekaboo/nvim/blob/master/colors/macro.lua), 10% my own
-  - inspired by kanagwa-dragon and mellifluous
+  - 90% stolen from [this dude](https://github.com/Bekaboo/nvim/blob/master/colors/macro.lua), 10% my own
   - intentionally avoids the use of bright red and yellow (reserved for errors)
 - [spider](https://github.com/chrisgrieser/nvim-spider) (better `w`, `e`, and `b`)
 - [mini.files](https://github.com/echasnovski/mini.files) (less intrusive version of oil.nvim, with added git integration and dotfiles toggle)
@@ -30,12 +29,11 @@ Some interesting things in this config are:
 - I have successfully replaced `<C-n>` and `<C-p>` with `<C-j>` and `<C-k>` _everywhere_
 - my custom markdown highlights for bullets and checkboxes in markdown
 
-> [!NOTE]
-> Many of the plugins I use are not visible in `lua/plugins/` because I
-> use the LazyVim distribution which already comes with lots of plugins. You can
-> see these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also
-> have disabled some plugins that come with LazyVim in the
-> [overrides.lua](./lua/plugins/overrides.lua) file.
+> [!NOTE]\
+> Many of the plugins I use are not visible in `lua/plugins/` because I use the
+> LazyVim distribution which already comes with lots of plugins. You can see
+> these in the [LazyVim repo](https://github.com/LazyVim/LazyVim). I also have disabled some plugins that come with
+> LazyVim in the [overrides.lua](./lua/plugins/overrides.lua) file.
 
 ## Structure
 
@@ -47,19 +45,31 @@ remove a plugin by just deleting its file. See below:
   <summary><b>Relevant File Structure</b></summary>
 
 ```
-.
-├── lua
-│  ├── config
-│  │  ├── autocmds.lua
-│  │  ├── keymaps.lua
-│  │  ├── lazy.lua
-│  │  └── options.lua
-│  ├── plugins
-│  │  ├── {plugin}.lua
-│  │  └── ...
-│  └── transparentlualine.lua
-├── init.lua
-└── README.md
+ .
+├──  after
+│  ├──  ftplugin
+│  │  └──  {filetype}.lua
+│  └──  queries
+│     └──  markdown
+│        └──  highlights.scm
+├──  colors
+│  └──  macro.lua
+├──  lua
+│  ├──  config
+│  │  ├──  autocmds.lua
+│  │  ├──  keymaps.lua
+│  │  ├──  lazy.lua
+│  │  └──  options.lua
+│  └──  plugins
+│     └──  {plugin}.lua
+├──  queries
+│  └──  markdown
+│     └──  textobjects.scm
+├──  syntax
+│  ├──  markdown.vim
+│  └──  qf.vim
+├──  init.lua
+└──  README.md
 ```
 
 </details>
@@ -70,14 +80,14 @@ remove a plugin by just deleting its file. See below:
 
 Clone the repository and install the plugins:
 
-```sh
+```
 git clone git@github.com:n-crespo/nvim-config ~/.config/n-crespo/nvim-config
 NVIM_APPNAME=n-crespo/nvim-config/ nvim --headless +"Lazy! sync" +qa
 ```
 
 Open Neovim with this config:
 
-```sh
+```
 NVIM_APPNAME=n-crespo/nvim-config/ nvim
 ```
 
@@ -135,3 +145,5 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
   - [x] easily customizable
   - [x] Treesitter support
   - [x] highlight misspelled words red/underlined
+- [x] fix R for running files
+- [x] fix markdown preview in WSL
