@@ -1,6 +1,7 @@
 -- default LazyVim plugin, adds floating window for remembering keymaps
 return {
   "folke/which-key.nvim",
+  enabled = true,
   opts = {
     window = {
       border = "rounded",
