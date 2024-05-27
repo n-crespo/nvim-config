@@ -9,10 +9,6 @@ return {
     enabled = false,
   },
   {
-    "nvim-pack/nvim-spectre", -- too risky, no undo
-    enabled = false,
-  },
-  {
     "catppuccin", -- i don't use this
     enabled = false,
   },
