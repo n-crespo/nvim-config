@@ -4,14 +4,13 @@ return {
   build = "deno task --quiet build:fast",
   config = function()
     if vim.fn.has("wsl") then
-      vim.notify("hello")
       require("peek").setup({
         auto_load = true,
         close_on_bdelete = false,
         syntax = true,
         theme = "dark",
         update_on_change = true,
-        app = { "/mnt/c/Program Files/Mercury/mercury.exe", "--new-window", "--kiosk" }, -- 'webview', 'browser', string or a table of strings explained below
+        app = { "/mnt/c/Program Files/Mozilla Firefox/firefox.exe", "--new-window", "--kiosk" }, -- 'webview', 'browser', string or a table of strings explained below
       })
     else
       require("peek").setup({
