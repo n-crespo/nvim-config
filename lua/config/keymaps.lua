@@ -118,11 +118,11 @@ end
 
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
 -- toggle tabline
-vim.keymap.set("n", "<leader>a", function()
-  local current_value = vim.o.showtabline
-  local new_value = (current_value == 0) and 2 or 0
-  vim.cmd("set showtabline=" .. new_value)
-end, { silent = true, desc = "Toggle Tabline" })
+-- vim.keymap.set("n", "<leader>a", function()
+--   local current_value = vim.o.showtabline
+--   local new_value = (current_value == 0) and 2 or 0
+--   vim.cmd("set showtabline=" .. new_value)
+-- end, { silent = true, desc = "Toggle Tabline" })
 
 -- true tab navigation
 vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
