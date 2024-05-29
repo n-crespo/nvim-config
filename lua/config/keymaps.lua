@@ -130,17 +130,6 @@ vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
 vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
 
--- close current tab, if last tab open, quit completely
-vim.keymap.set("n", "<S-W>", function()
-  ---@diagnostic disable-next-line: unused-local
-  local success, result = pcall(function()
-    vim.cmd("tabclose")
-  end)
-  if not success then
-    vim.cmd("qa")
-  end
-end)
-
 vim.keymap.set("n", "<C-space>", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "<leader>1", "<cmd>tabn 1<cr>", { silent = true, desc = "Tab 1" })
 vim.keymap.set("n", "<leader>2", "<cmd>tabn 2<cr>", { silent = true, desc = "Tab 2" })
@@ -272,7 +261,6 @@ vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = 
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
-vim.keymap.set("n", "<leader>m", "<cmd>tabnew<cr><cmd>e #<cr>", { desc = "Maximize Window" })
 vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" })
 vim.keymap.set("s", "<BS>", "<C-O>s")
 
@@ -280,3 +268,4 @@ vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr>", { desc = "Terminal Split
 vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
 
 vim.keymap.set("n", "<C-S-?>", ":normal gcc<CR><DOWN>", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("v", "<C-S-?>", ":normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
