@@ -46,5 +46,36 @@ return {
       desc = "Commands",
       silent = true,
     },
+    {
+      "<leader>lr",
+      function()
+        local telescope = require("telescope")
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
+
+        local pickers = require("telescope.pickers")
+        local finders = require("telescope.finders")
+        local conf = require("telescope.config").values
+        pickers
+          .new(opts, {
+            prompt_title = "Plugins",
+            finder = finders.new_table({
+              results = require("config.utils").pluginNames(),
+            }),
+            sorter = conf.generic_sorter(opts),
+
+            attach_mappings = function(prompt_bufnr, _)
+              actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                vim.cmd("Lazy reload " .. selection[1])
+              end)
+              return true
+            end,
+          })
+          :find()
+      end,
+      desc = "Reload Plugin",
+    },
   },
 }

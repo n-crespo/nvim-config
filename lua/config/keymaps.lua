@@ -280,3 +280,33 @@ vim.keymap.set("s", "<BS>", "<C-O>s")
 vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr>", { desc = "Terminal Split" })
 vim.keymap.set("i", "<C-/>", "<C-o>gcc", { remap = true, desc = "Comment Line" })
 vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
+
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
+local conf = require("telescope.config").values
+
+vim.keymap.set("n", "<leader>lr", function(opts)
+  opts = opts or {}
+  pickers
+    .new(opts, {
+      prompt_title = "Plugins",
+      finder = finders.new_table({
+        results = require("config.utils").pluginNames(),
+      }),
+      sorter = conf.generic_sorter(opts),
+
+      attach_mappings = function(prompt_bufnr, _)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          local selection = action_state.get_selected_entry()
+          vim.cmd("Lazy reload " .. selection[1])
+        end)
+        return true
+      end,
+    })
+    :find()
+end, { desc = "[L]azy [R]eload plugin of choice" })
