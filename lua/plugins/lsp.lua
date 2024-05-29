@@ -14,7 +14,7 @@ return {
     servers = {
       clangd = {},
       jdtls = { enabled = true }, -- java
-      lua_ls = { enabled = false }, -- i don't need this and it makes things laggy
+      lua_ls = { enabled = true }, -- i don't need this and it makes things laggy
       marksman = { enabled = false }, -- i don't need this and it makes things laggy
       r_language_server = {},
       ruff_lsp = { enabled = false }, -- for python

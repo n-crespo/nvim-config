@@ -45,7 +45,7 @@ remove a plugin by just deleting its file. See below:
   <summary><b>Relevant File Structure</b></summary>
 
 ```
- .
+ ~/.config/nvim/
 ├──  after
 │  ├──  ftplugin
 │  │  └──  {filetype}.lua

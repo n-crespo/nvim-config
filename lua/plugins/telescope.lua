@@ -29,6 +29,13 @@ return {
   },
   keys = {
     {
+      "<space><space>",
+      function()
+        require("telescope").extensions.smart_open.smart_open()
+      end,
+      desc = "Smart Open",
+    },
+    {
       "<leader>fp",
       function()
         require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
