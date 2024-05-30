@@ -49,7 +49,7 @@ return {
     },
     {
       "<leader>;",
-      "<Cmd>Telescope commands<cr>",
+      "<cmd>Telescope commands<cr>",
       desc = "Commands",
       silent = true,
     },
