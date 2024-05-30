@@ -34,9 +34,9 @@ return {
       },
     },
     mapping = require("cmp").mapping.preset.insert({
-      ["<CR>"] = function()
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, true, true), "n", true)
-      end,
+      ["<CR>"] = {
+        i = require("cmp").config.disable,
+      },
       ["<C-CR>"] = require("cmp").mapping.confirm({ select = false }),
       ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Insert }),
       ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Insert }),
