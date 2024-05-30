@@ -1,6 +1,7 @@
 return {
   "R-nvim/R.nvim",
   ft = { "r", "rmarkdown", "rmd" },
+  lazy = true,
   opts = {
     -- Create a table with the options to be passed to setup()
     R_args = { "--quiet", "--no-save" },
@@ -14,7 +15,6 @@ return {
       "RMakeAll",
       "RMakePDFKb",
       "RQuartoPreview",
-      -- "RMakePDFK",
       "RBibTeXK",
       "RBibTeX",
       "RQuartoStop",
@@ -48,7 +48,7 @@ return {
       "RDSendChunk",
       "RNRightPart",
       "RSendMotion",
-      "RSendSelection",
+      -- "RSendSelection",
       "RSendLAndOpenNewOne",
       "RSendMBlock",
       "RNextRChunk",
@@ -58,7 +58,7 @@ return {
       "RDSendParagraph",
       "RViewDFs",
       "RDputObj",
-      "RDSendLine",
+      -- "RDSendLine",
       "RPipe",
     },
     hook = {
@@ -67,7 +67,7 @@ return {
         -- of files supported by R.nvim. This is an
         -- opportunity to create mappings local to buffers.
         vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine", { buffer = true })
-        vim.keymap.del("i", "<space>,", { buffer = true }) -- RPipe not being deleted properly
+        vim.keymap.del("i", "<Space>,", { buffer = true }) -- RPipe not being deleted properly
         vim.keymap.set("v", "<Enter>", "<Plug>RSendSelection", { buffer = true })
 
         -- Increase the width of which-key to handle the longer r-nvim descriptions
