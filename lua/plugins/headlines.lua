@@ -21,6 +21,7 @@ return {
       require("headlines").refresh()
     end)
 
+    -- codeblock background toggle keymap
     vim.g.toggle_codeblock_bg = true
     function ToggleCodeblockBackground()
       if vim.g.toggle_codeblock_bg then

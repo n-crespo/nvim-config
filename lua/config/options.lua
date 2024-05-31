@@ -21,7 +21,7 @@ elseif vim.fn.has("mac") or vim.fn.has("win32") then
   opt.clipboard = "unnamedplus"
 end
 
-opt.mouse = "a" -- disable mouse
+opt.mouse = "n" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
 opt.cursorline = true -- don't highlight current line (transparent background)
