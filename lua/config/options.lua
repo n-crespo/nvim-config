@@ -3,25 +3,22 @@
 
 local opt = vim.opt
 
-if vim.fn.has("win32") then
-	opt.clipboard = "unnamedplus"
-elseif vim.fn.has("wsl") then
-	opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-	vim.g.clipboard = {
-		name = "xclip-wsl",
-		copy = {
-			["+"] = { "xclip", "-quiet", "-i", "-selection", "clipboard" },
-			["*"] = { "xclip", "-quiet", "-i", "-selection", "primary" },
-		},
-		paste = {
-			["+"] = { "xclip", "-o", "-selection", "clipboard" },
-			["*"] = { "xclip", "-o", "-selection", "primary" },
-		},
-		cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
-	}
-	vim.notify("wsl clipboard workign")
+if vim.fn.has("wsl") then
+  opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+  vim.g.clipboard = {
+    name = "xclip-wsl",
+    copy = {
+      ["+"] = { "xclip", "-quiet", "-i", "-selection", "clipboard" },
+      ["*"] = { "xclip", "-quiet", "-i", "-selection", "primary" },
+    },
+    paste = {
+      ["+"] = { "xclip", "-o", "-selection", "clipboard" },
+      ["*"] = { "xclip", "-o", "-selection", "primary" },
+    },
+    cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
+  }
 elseif vim.fn.has("mac") or vim.fn.has("win32") then
-	opt.clipboard = "unnamedplus"
+  opt.clipboard = "unnamedplus"
 end
 
 opt.mouse = "" -- disable mouse
@@ -62,14 +59,16 @@ vim.g.lazygit_config = true -- use custom layzgit config for icons/stuff
 vim.g.dark_bg = false -- custom option for custom 'macro' theme
 vim.g.python3_host_prog = "/usr/bin/python3"
 
--- if windows:
--- vim.cmd([[
--- let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
--- let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
--- let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
--- let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
--- set shellquote= shellxquote=
--- ]])
+if vim.fn.has("win32") and not vim.fn.has("wsl") then
+  vim.notify("windows detected")
+  vim.cmd([[
+    let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
+    let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
+    let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+    let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
+    set shellquote= shellxquote=
+  ]])
+end
 
 vim.cmd([[
 set complete=
