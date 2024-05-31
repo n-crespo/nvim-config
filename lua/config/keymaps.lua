@@ -269,3 +269,10 @@ vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
 
 vim.keymap.set("n", "<C-S-?>", ":normal gcc<CR><DOWN>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("v", "<C-S-?>", ":normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+
+vim.keymap.set("n", "<ScrollWheelUp>", "2<C-y>")
+vim.keymap.set("n", "<ScrollWheelDown>", "2<C-e>")
+vim.keymap.set("i", "<ScrollWheelUp>", "2<C-y>")
+vim.keymap.set("i", "<ScrollWheelDown>", "2<C-e>")
+vim.keymap.set("v", "<ScrollWheelUp>", "2<C-y>")
+vim.keymap.set("v", "<ScrollWheelDown>", "2<C-e>")
