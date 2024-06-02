@@ -69,28 +69,38 @@ vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Windo
 
 -- --------------------------------------- KEYMAP DELETIONGS ---------------------------------------
 -- unneeded LazyVim keymaps
-vim.keymap.del("n", "<leader>bb")
-vim.keymap.del("n", "<leader>K")
-vim.keymap.del("n", "<leader>fT")
-vim.keymap.del("n", "<leader>ft")
-vim.keymap.del("n", "<leader>sb")
-vim.keymap.del("n", "<leader>fb")
-vim.keymap.del("n", "<leader>fg")
-vim.keymap.del("n", "<leader>fr")
-vim.keymap.del("n", "<leader>fR")
-vim.keymap.del("n", "<leader>qq")
-vim.keymap.del("n", "<leader>qÞ")
-vim.keymap.del("n", "<leader>sG")
-vim.keymap.del("n", "<leader>sg")
-vim.keymap.del("n", "<leader>sC")
+-- make a list of strings
+local delete_and_clean_keys = {
+  "<leader>bb",
+  "<leader>K",
+  "<leader>fT",
+  "<leader>ft",
+  "<leader>sb",
+  "<leader>fb",
+  "<leader>fg",
+  "<leader>fr",
+  "<leader>fR",
+  "<leader>qq",
+  "<leader>qÞ",
+  "<leader>sG",
+  "<leader>sg",
+  "<leader>sC",
+  "<leader><Tab><Tab>",
+  "<leader><Tab>[",
+  "<leader><Tab>]",
+  "<leader><Tab>d",
+  "<leader><Tab>f",
+  "<leader><Tab>l",
+  "<leader>bD",
+}
+
+for _, key in ipairs(delete_and_clean_keys) do
+  vim.keymap.del("n", key)
+  vim.keymap.set("n", key, "<Nop>")
+end
+
 -- vim.keymap.del("n", "<leader><Tab>")
-vim.keymap.del("n", "<leader><Tab><Tab>")
-vim.keymap.del("n", "<leader><Tab>[")
-vim.keymap.del("n", "<leader><Tab>]")
-vim.keymap.del("n", "<leader><Tab>d")
-vim.keymap.del("n", "<leader><Tab>f")
-vim.keymap.del("n", "<leader><Tab>l")
-vim.keymap.del("n", "<leader>bD")
+-- vim.keymap.del("n", "<leader>sg")
 
 vim.keymap.del("n", "<C-w>Þ") -- to remove whichkey delay
 
