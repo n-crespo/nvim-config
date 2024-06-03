@@ -1,3 +1,48 @@
+-- --------------------------------------- KEYMAP DELETIONGS ---------------------------------------
+-- unneeded LazyVim keymaps
+-- make a list of strings
+local delete_and_clean_keys = {
+  "<leader>bb",
+  "<leader>K",
+  "<leader>fT",
+  "<leader>ft",
+  "<leader>sb",
+  "<leader>fb",
+  "<leader>fg",
+  "<leader>fr",
+  "<leader>fR",
+  "<leader>qq",
+  "<leader>qÞ",
+  "<leader>sG",
+  "<leader>sg",
+  "<leader>sC",
+  "<leader><Tab><Tab>",
+  "<leader><Tab>[",
+  "<leader><Tab>]",
+  "<leader><Tab>d",
+  "<leader><Tab>f",
+  "<leader><Tab>l",
+  "<leader>bD",
+}
+
+for _, key in ipairs(delete_and_clean_keys) do
+  vim.keymap.del("n", key)
+  vim.keymap.set("n", key, "<Nop>")
+end
+
+-- vim.keymap.del("n", "<leader><Tab>")
+-- vim.keymap.del("n", "<leader>sg")
+
+vim.keymap.del("n", "<C-w>Þ") -- to remove whichkey delay
+
+-- media control buttons (don't send keypresses)
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume up
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume down
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- prev
+vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
+
 -- --------------------------------------- CENTERING MOTIONS ---------------------------------------
 --
 vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
@@ -66,51 +111,6 @@ vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc =
 -- window resizing (<C-up> and <C-down> are used by multicursor)
 vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-
--- --------------------------------------- KEYMAP DELETIONGS ---------------------------------------
--- unneeded LazyVim keymaps
--- make a list of strings
-local delete_and_clean_keys = {
-  "<leader>bb",
-  "<leader>K",
-  "<leader>fT",
-  "<leader>ft",
-  "<leader>sb",
-  "<leader>fb",
-  "<leader>fg",
-  "<leader>fr",
-  "<leader>fR",
-  "<leader>qq",
-  "<leader>qÞ",
-  "<leader>sG",
-  "<leader>sg",
-  "<leader>sC",
-  "<leader><Tab><Tab>",
-  "<leader><Tab>[",
-  "<leader><Tab>]",
-  "<leader><Tab>d",
-  "<leader><Tab>f",
-  "<leader><Tab>l",
-  "<leader>bD",
-}
-
-for _, key in ipairs(delete_and_clean_keys) do
-  vim.keymap.del("n", key)
-  vim.keymap.set("n", key, "<Nop>")
-end
-
--- vim.keymap.del("n", "<leader><Tab>")
--- vim.keymap.del("n", "<leader>sg")
-
-vim.keymap.del("n", "<C-w>Þ") -- to remove whichkey delay
-
--- media control buttons (don't send keypresses)
-vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume up
-vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume down
-vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
-vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
-vim.keymap.set({ "i", "n" }, "", "<Nop>") -- prev
-vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
 -- --------------------------------- OS SPECIFIC KEYMAPS -------------------------------------------
 
