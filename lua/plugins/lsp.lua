@@ -22,6 +22,7 @@ return {
       eslint = {},
       tsserver = {},
       cssls = {},
+      gopls = {},
     },
     setup = {
       jdtls = function()
