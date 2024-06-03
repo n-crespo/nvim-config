@@ -148,4 +148,4 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix R for running files
 - [x] fix markdown preview in WSL
 - [x] BETTER R-MARKDOWN goodness my last solution was bad
-- [ ] better plugin reloading
+- [x] better plugin reloading (`<leader>R`)
