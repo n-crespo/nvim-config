@@ -2,6 +2,8 @@
 -- unneeded LazyVim keymaps
 -- make a list of strings
 local delete_and_clean_keys = {
+  "<leader>-",
+  "<leader>\\",
   "<leader>bb",
   "<leader>K",
   "<leader>fT",
@@ -103,7 +105,7 @@ vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, de
 vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent = true })
 
 -- splits
-vim.keymap.set("n", "<leader>\\", "<leader>|", { remap = true, silent = true, desc = "Vertical Split" })
+-- vim.keymap.set("n", "<leader>\\", "<leader>|", { remap = true, silent = true, desc = "Vertical Split" })
 -- vim.keymap.set("n", "\\", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc = "Vertical Split" })
