@@ -14,6 +14,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.b.miniindentscope_disable = true
+  end,
+})
+
 -- don't use lsp on pvs files
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   callback = function(opt)
