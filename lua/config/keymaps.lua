@@ -240,6 +240,11 @@ vim.keymap.set("t", "<C-l>", "<C-l>", { noremap = true })
 -- restore original terminal keymap behavior
 vim.keymap.set("t", "<C-k>", "<C-k>", { noremap = true })
 vim.keymap.set("t", "<C-j>", "<C-j>", { noremap = true })
+vim.keymap.set({ "t", "n" }, "<C-S-H>", "<cmd>wincmd h<cr>", { noremap = true })
+vim.keymap.set({ "t", "n" }, "<C-S-L>", "<cmd>wincmd l<cr>", { noremap = true })
+vim.keymap.set({ "t", "n" }, "<C-S-J>", "<cmd>wincmd j<cr>", { noremap = true }) -- this doesn't work
+vim.keymap.set({ "t", "n" }, "<S-NL>", "<cmd>wincmd j<cr>", { noremap = true }) -- this does?
+vim.keymap.set({ "t", "n" }, "<C-S-K>", "<cmd>wincmd k<cr>", { noremap = true })
 
 -- replace all instances of word (without LSP)
 vim.keymap.set(
