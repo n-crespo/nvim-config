@@ -111,6 +111,8 @@ vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc =
 vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 
+-- vim.keymap.set("n", "<C-S-")
+
 -- --------------------------------- OS SPECIFIC KEYMAPS -------------------------------------------
 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
@@ -157,47 +159,48 @@ vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through comp
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 
 -- --------------------------------- PERMANENT HIGHLIGHTING -------------------------------------
+-- this is cool but i never use it
 
-local function getVisualSelectionRange()
-  local start_line = vim.fn.line("'<")
-  local end_line = vim.fn.line("'>")
-  local i = math.min(start_line, end_line)
-  local j = math.max(start_line, end_line)
-  local selection = "["
-  while i < j do
-    selection = selection .. i .. ", "
-    i = i + 1
-  end
-  selection = selection .. j .. "]"
-  return selection
-end
-
-function DoFunnyHighlight(highlight)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
-  local selection = getVisualSelectionRange()
-  if highlight ~= nil then
-    vim.cmd("call matchaddpos('" .. highlight .. "'," .. selection .. ")")
-  end
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
-end
+-- local function getVisualSelectionRange()
+--   local start_line = vim.fn.line("'<")
+--   local end_line = vim.fn.line("'>")
+--   local i = math.min(start_line, end_line)
+--   local j = math.max(start_line, end_line)
+--   local selection = "["
+--   while i < j do
+--     selection = selection .. i .. ", "
+--     i = i + 1
+--   end
+--   selection = selection .. j .. "]"
+--   return selection
+-- end
+--
+-- function DoFunnyHighlight(highlight)
+--   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+--   local selection = getVisualSelectionRange()
+--   if highlight ~= nil then
+--     vim.cmd("call matchaddpos('" .. highlight .. "'," .. selection .. ")")
+--   end
+--   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+-- end
 
 -- bug: the below `< and `> only update when exiting visual mode. this is why
 -- the doFunnyHighlight must be called exists and must be called twice
-vim.keymap.set(
-  "v",
-  "<leader>h",
-  "<cmd>lua DoFunnyHighlight()<cr><esc>v<cmd>lua DoFunnyHighlight('LineHighlight')<cr>",
-  { desc = "Highlight selection", silent = true }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>h",
-  ":call matchadd('LineHighlight', '\\%'.line('.').'l')<cr>",
-  { desc = "Highlight current line", silent = true }
-)
-
-vim.keymap.set("n", "<leader>H", ":call clearmatches()<cr>", { desc = "Clear line highlight", silent = true })
+-- vim.keymap.set(
+--   "v",
+--   "<leader>h",
+--   "<cmd>lua DoFunnyHighlight()<cr><esc>v<cmd>lua DoFunnyHighlight('LineHighlight')<cr>",
+--   { desc = "Highlight selection", silent = true }
+-- )
+--
+-- vim.keymap.set(
+--   "n",
+--   "<leader>h",
+--   ":call matchadd('LineHighlight', '\\%'.line('.').'l')<cr>",
+--   { desc = "Highlight current line", silent = true }
+-- )
+--
+-- vim.keymap.set("n", "<leader>H", ":call clearmatches()<cr>", { desc = "Clear line highlight", silent = true })
 
 -- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
 

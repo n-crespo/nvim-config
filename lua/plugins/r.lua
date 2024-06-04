@@ -67,8 +67,10 @@ return {
         -- of files supported by R.nvim. This is an
         -- opportunity to create mappings local to buffers.
         vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine", { buffer = true })
-        vim.keymap.del("i", "<Space>,", { buffer = true }) -- RPipe not being deleted properly
+        -- vim.keymap.del("i", "<Space>,", { buffer = true }) -- RPipe not being deleted properly
         vim.keymap.set("v", "<Enter>", "<Plug>RSendSelection", { buffer = true })
+        -- override default mapping to my own
+        vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Paste Register", silent = true, buffer = true })
 
         -- Increase the width of which-key to handle the longer r-nvim descriptions
         local wk = require("which-key")
