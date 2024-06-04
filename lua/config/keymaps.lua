@@ -28,7 +28,6 @@ local delete_and_clean_keys = {
 
 for _, key in ipairs(delete_and_clean_keys) do
   vim.keymap.del("n", key)
-  vim.keymap.set("n", key, "<Nop>")
 end
 
 -- vim.keymap.del("n", "<leader><Tab>")
