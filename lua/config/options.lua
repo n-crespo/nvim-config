@@ -58,6 +58,7 @@ vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazygit_config = true -- use custom layzgit config for icons/stuff
 vim.g.dark_bg = false -- custom option for custom 'macro' theme
 vim.g.python3_host_prog = "/usr/bin/python3"
+vim.g.lazyvim_prettier_needs_config = false
 
 if vim.fn.has("win32") and not vim.fn.has("wsl") then
   vim.notify("windows detected")
