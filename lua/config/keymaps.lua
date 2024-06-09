@@ -245,7 +245,6 @@ vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-del
 vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" })
 vim.keymap.set("s", "<BS>", "<C-O>s")
 
-vim.keymap.set("n", "<leader>T", "<cmd>vsp | term<cr>", { desc = "Terminal Split" })
 vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
 
 vim.keymap.set("n", "<C-S-?>", ":normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
