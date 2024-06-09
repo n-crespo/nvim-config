@@ -57,7 +57,11 @@ vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rota
 vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
 
 -- cd to current buffer (replace autochdir)
-vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
+-- vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
+vim.keymap.set("n", "<leader>bl", function()
+  vim.cmd([[cd %:h]])
+  vim.notify(vim.fn.getcwd(), vim.log.levels.INFO, { title = "New Working Directory" })
+end, { desc = "New Current Working Directory", silent = true })
 
 -- close buffer (soft) (preserve split)
 vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
