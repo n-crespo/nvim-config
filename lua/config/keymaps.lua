@@ -1,40 +1,3 @@
--- --------------------------------------- KEYMAP DELETIONGS ---------------------------------------
--- unneeded LazyVim keymaps
--- make a list of strings
-local delete_and_clean_keys = {
-  "<leader>-",
-  "<leader>bb",
-  "<leader>K",
-  "<leader>fT",
-  "<leader>ft",
-  "<leader>sb",
-  "<leader>fb",
-  "<leader>fg",
-  "<leader>fr",
-  "<leader>fR",
-  "<leader>qq",
-  "<leader>qÞ",
-  "<leader>sG",
-  "<leader>sg",
-  "<leader>sC",
-  "<leader><Tab><Tab>",
-  "<leader><Tab>[",
-  "<leader><Tab>]",
-  "<leader><Tab>d",
-  "<leader><Tab>f",
-  "<leader><Tab>l",
-  "<leader>bD",
-}
-
-for _, key in ipairs(delete_and_clean_keys) do
-  vim.keymap.del("n", key)
-end
-
--- vim.keymap.del("n", "<leader><Tab>")
--- vim.keymap.del("n", "<leader>sg")
-
-vim.keymap.del("n", "<C-w>Þ") -- to remove whichkey delay
-
 -- media control buttons (don't send keypresses)
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume up
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- volume down
@@ -87,7 +50,7 @@ vim.keymap.set(
 -- delete all other {something} (tab, buffer, window)
 vim.keymap.set("n", "<leader>wo", "<cmd>only <CR>", { silent = true, desc = "Window only" })
 vim.keymap.set("n", "<leader>bo", "<cmd>w | %bd | e# | bd#<cr>", { desc = "Buffer Only", silent = true })
-vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })
+-- vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })
 
 -- needed because I override <C-w>
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rotate" })
