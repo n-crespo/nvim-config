@@ -22,17 +22,17 @@ return {
       query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
       items = {
         {
-          name = "Explore",
+          name = "explore",
           action = "lua require('mini.files').open(vim.loop.cwd(), true)",
           section = " ",
         },
         {
-          name = "Old files",
+          name = "old files",
           action = "Telescope oldfiles",
           section = " ",
         },
         {
-          name = "Config files",
+          name = "config files",
           action = [[lua require('lazyvim.util').telescope.config_files()()]],
           section = " ",
         },
@@ -41,8 +41,8 @@ return {
           action = 'lua require("persistence").load()',
           section = " ",
         },
-        { name = "Lazy", action = "Lazy", section = " " },
-        { name = "Quit", action = "qa", section = " " },
+        { name = "lazy", action = "Lazy", section = " " },
+        { name = "quit", action = "qa", section = " " },
       },
     })
     -- vim.cmd([[
