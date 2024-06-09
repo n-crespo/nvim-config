@@ -16,21 +16,22 @@ return {
       use_as_default_explorer = true, -- for nvim .
     },
   },
-  keys = {
-    -- open mini.files with current buffer's directory, if error is thrown
-    -- fallback to cwd
-    {
-      "<leader>e",
-      function()
-        local success, result = pcall(function()
-          return require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-        end)
+  -- open mini.files with current buffer's directory, if error is thrown fallback to cwd
+  keys = function()
+    return {
+      {
+        "<leader>e",
+        function()
+          local success, result = pcall(function()
+            return require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+          end)
 
-        if not success then
-          require("mini.files").open(vim.loop.cwd(), true)
-        end
-      end,
-      desc = "Explore",
-    },
-  },
+          if not success then
+            require("mini.files").open(vim.loop.cwd(), true)
+          end
+        end,
+        desc = "Explore",
+      },
+    }
+  end,
 }

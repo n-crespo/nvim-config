@@ -1,8 +1,9 @@
 return {
   "folke/persistence.nvim",
   keys = {
-    { "<leader>qs", nil },
-    { "<leader>ql", nil },
-    { "<leader>qd", nil },
+    { "<leader>qs", false },
+    { "<leader>ql", false },
+    { "<leader>qd", false },
+    { "<leader>q", "<cmd>bd<cr>" },
   },
 }

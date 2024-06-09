@@ -26,7 +26,7 @@ return {
     {
       mode = { "n", "x", "o" },
       "S", -- used for ts-actions
-      nil,
+      false,
     },
   },
 }
