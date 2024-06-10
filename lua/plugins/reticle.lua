@@ -15,6 +15,7 @@ return {
         "noice",
         "better_term",
         "notify",
+        "toggleterm",
       },
     },
   },
