@@ -1,4 +1,4 @@
--- this configuration just adds borders to the transparent completion windows
+-- this configuration just adds borders to the transparent completion windows an
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
@@ -34,10 +34,13 @@ return {
       },
     },
     mapping = require("cmp").mapping.preset.insert({
-      ["<CR>"] = {
+      ["<C-n>"] = {
         i = require("cmp").config.disable,
       },
-      ["<C-CR>"] = require("cmp").mapping.confirm({ select = false }),
+      ["<C-p>"] = {
+        i = require("cmp").config.disable,
+      },
+      -- ["<CR>"] = require("cmp").mapping.confirm({ select = false }),
       ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Insert }),
       ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Insert }),
     }),
