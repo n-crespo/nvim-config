@@ -31,11 +31,16 @@ return {
       end
       vim.g.toggle_codeblock_bg = not vim.g.toggle_codeblock_bg
     end
-    vim.api.nvim_set_keymap(
-      "n",
-      "<leader>tb",
-      ":lua ToggleCodeblockBackground()<CR>",
-      { noremap = true, silent = true, desc = "Toggle codeblock background" }
-    )
   end,
+  keys = {
+    {
+      "<leader>tb",
+      function()
+        ToggleCodeblockBackground()
+      end,
+      desc = "Toggle codeblock background",
+      ft = { "markdown", "rmd", "rmarkdown", "norg", "org" },
+      silent = true,
+    },
+  },
 }
