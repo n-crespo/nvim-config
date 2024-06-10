@@ -25,6 +25,6 @@ return {
     vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
   end,
   keys = {
-    { "<leader>op", "<cmd>PeekOpen<cr>", desc = "Open Peek Preview", buffer = true },
+    { "<leader>op", "<cmd>PeekOpen<cr>", desc = "Open Peek Preview", buffer = true, ft = "markdown" },
   },
 }
