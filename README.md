@@ -149,3 +149,10 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix markdown preview in WSL
 - [x] BETTER R-MARKDOWN goodness my last solution was bad
 - [x] better plugin reloading (`<leader>R`)
+- [x] better cmp ghost text accepting
+- [x] faster codeium in completion window
+- [x] cleaner lualine
+- [x] differentiate accepting AI suggesting and LSP suggestions
+  - [x] `<C-CR>` for AI, `<CR>` for LSP
+  - [x] `<C-j>` and `<C-k>` for cycling LSP completions, `<C-N>` and `<C-P>` for
+        cycling AI completions
