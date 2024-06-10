@@ -61,7 +61,7 @@ vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = tr
 vim.keymap.set("n", "<leader>bl", function()
   vim.cmd([[cd %:h]])
   vim.notify(vim.fn.getcwd(), vim.log.levels.INFO, { title = "New Working Directory" })
-end, { desc = "New Current Working Directory", silent = true })
+end, { desc = "Buffer Locate", silent = true })
 
 -- close buffer (soft) (preserve split)
 vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
