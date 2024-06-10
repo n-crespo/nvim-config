@@ -39,7 +39,6 @@ opt.textwidth = 80 -- formatted text width
 opt.softtabstop = 2 -- 2 space tabs
 opt.tabstop = 2 -- 2 space tabs
 opt.shiftwidth = 2 -- 2 space tabs
-opt.foldmethod = "manual" -- manual folding
 opt.pumblend = 0 -- needed for cmp transparency
 opt.smartindent = true -- indent smartly
 opt.startofline = true
@@ -55,20 +54,18 @@ vim.g.wrap = false -- stop wrapping my text
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.lazyvim_python_lsp = "pyright"
-vim.g.lazygit_config = true -- use custom layzgit config for icons/stuff
-vim.g.dark_bg = false -- custom option for custom 'macro' theme
 vim.g.python3_host_prog = "/usr/bin/python3"
-vim.g.lazyvim_prettier_needs_config = false
 
 if vim.fn.has("win32") and not vim.fn.has("wsl") then
   vim.notify("windows detected")
-  vim.cmd([[
-    let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
-    let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
-    let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
-    let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
-    set shellquote= shellxquote=
-  ]])
+  LazyVim.terminal.setup("pwsh")
+  -- vim.cmd([[
+  --   let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
+  --   let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
+  --   let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+  --   let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
+  --   set shellquote= shellxquote=
+  -- ]])
 end
 
 vim.cmd([[

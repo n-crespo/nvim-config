@@ -84,7 +84,6 @@ return {
       end,
       desc = "Reload Plugin",
     },
-
     { "<leader>sb", false },
     { "<leader>sg", false },
     { "<leader>sa", false },
