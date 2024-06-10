@@ -26,6 +26,8 @@ return {
     { "<leader><Tab>l", nil },
     { "<leader><Tab>l", nil },
     { "<leader>-", nil },
+    { "<leader>w-", nil },
+    { "<leader>w|", nil },
     { "<leader>|", nil },
     { "<leader>bb", nil },
     { "<leader>bD", nil },
