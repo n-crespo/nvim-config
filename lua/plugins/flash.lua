@@ -23,10 +23,10 @@ return {
     },
   },
   keys = {
-    {
-      mode = { "n", "x", "o" },
-      "S", -- used for ts-actions
-      false,
-    },
+    -- {
+    --   mode = { "n", "x", "o" },
+    --   "S", -- used for ts-actions
+    --   false,
+    -- },
   },
 }
