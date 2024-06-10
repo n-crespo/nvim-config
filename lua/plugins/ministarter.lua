@@ -37,7 +37,7 @@ return {
           section = " ",
         },
         {
-          name = "Session restore",
+          name = "session restore",
           action = 'lua require("persistence").load()',
           section = " ",
         },
