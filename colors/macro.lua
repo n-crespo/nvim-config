@@ -541,6 +541,7 @@ local hlgroups = {
 
   -- mini.indentscope
   MiniIndentscopeSymbol = { fg = border_purple_ink },
+  NeoCodeiumSuggestion = { fg = "#626462", bg = nil },
   -- }}}
 }
 -- }}}1
