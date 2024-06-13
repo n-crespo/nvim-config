@@ -2,7 +2,6 @@
 return {
   "echasnovski/mini.starter",
   event = "VimEnter",
-  lazy = false,
   version = false,
   config = function()
     local status, starter = pcall(require, "mini.starter")
@@ -33,7 +32,7 @@ return {
         },
         {
           name = "config files",
-          action = [[lua require('lazyvim.util').telescope.config_files()()]],
+          action = LazyVim.pick.config_files(),
           section = " ",
         },
         {
@@ -45,6 +44,26 @@ return {
         { name = "quit", action = "qa", section = " " },
       },
     })
+
+    -- close Lazy and re-open when starter is ready
+    if vim.o.filetype == "lazy" then
+      vim.cmd.close()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniStarterOpened",
+        callback = function()
+          require("lazy").show()
+        end,
+      })
+    end
+
+    vim.api.nvim_create_autocmd("BufEnter", {
+      callback = function()
+        if vim.bo.filetype == "starter" then
+          vim.cmd([[setlocal showtabline=0]])
+        end
+      end,
+    })
+
     vim.cmd([[
       augroup MiniStarterJK
         au!
