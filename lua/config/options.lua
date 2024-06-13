@@ -4,6 +4,7 @@
 local opt = vim.opt
 
 if vim.fn.has("wsl") then
+  ---@diagnostic disable-next-line: undefined-field
   opt.clipboard:append("unnamedplus") -- use system clipboard as default register
   vim.g.clipboard = {
     name = "xclip-wsl",
@@ -47,7 +48,7 @@ opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
 opt.spelllang = "en" -- spell in english pls
 opt.scroll = 15
-opt.showtabline = 1
+opt.showtabline = 0
 vim.g.loaded_ruby_provider = 0 -- never use these
 vim.g.loaded_perl_provider = 0 -- never use these
 vim.g.wrap = false -- stop wrapping my text
@@ -59,49 +60,9 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 if vim.fn.has("win32") and not vim.fn.has("wsl") then
   vim.notify("windows detected")
   LazyVim.terminal.setup("pwsh")
-  -- vim.cmd([[
-  --   let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
-  --   let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
-  --   let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
-  --   let &shellpipe  = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
-  --   set shellquote= shellxquote=
-  -- ]])
 end
 
 vim.cmd([[
 set complete=
 set completeopt=
-]])
-
-vim.cmd([[
-function! MyTabLine()
-  let s = ''
-  for i in range(tabpagenr('$'))
-    " select the highlighting
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
-    endif
-
-    " set the tab page number (for mouse clicks)
-    let s .= '%' . (i + 1) . 'T'
-
-    " the label is made by MyTabLabel()
-    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-  endfor
-
-  " after the last tab fill with TabLineFill and reset tab page nr
-  let s .= '%#TabLineFill#%T'
-
-  return s
-endfunction
-
-function! MyTabLabel(n)
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  return bufname(buflist[winnr - 1])
-endfunction
-
-set tabline=%!MyTabLine()
 ]])
