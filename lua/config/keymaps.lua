@@ -6,16 +6,21 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- mute
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- prev
 vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
--- --------------------------------------- CENTERING MOTIONS ---------------------------------------
---
+-- --------------------------------------- BETTER MOTIONS ---------------------------------------
+
 vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", { noremap = true, desc = "Go Down" })
 vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up" })
--- vim.keymap.set("n", "}", "}zz", { noremap = true })
--- vim.keymap.set("n", "{", "{zz", { noremap = true })
 vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
 vim.keymap.set("n", "<BS>", "<C-o>zz", { desc = "Prev Jumplist", silent = true })
+
+-- don't let cursor fly around when using J
+vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
+
+-- full line navigation (i never use E and B)
+vim.keymap.set({ "n", "v" }, "E", "$", { desc = "End of line", silent = true })
+vim.keymap.set({ "n", "v" }, "B", "_", { desc = "Start of line", silent = true })
 
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
@@ -46,6 +51,9 @@ vim.keymap.set(
 )
 
 -- --------------------------------------- WINDOWS AND BUFFERS -------------------------------------
+
+-- leader
+vim.keymap.set("n", "\\", "<C-w>", { desc = "Window Split" })
 
 -- delete all other {something} (tab, buffer, window)
 vim.keymap.set("n", "<leader>wo", "<cmd>only <CR>", { silent = true, desc = "Window only" })
@@ -126,6 +134,12 @@ vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through comp
 
 -- in insert mode auto-correct the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
+vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
+vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
+vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
+
+-- backspace to clear snippets
+vim.keymap.set("s", "<BS>", "<C-O>s")
 
 -- --------------------------------- PERMANENT HIGHLIGHTING -------------------------------------
 -- this is cool but i never use it
@@ -187,6 +201,8 @@ vim.keymap.set("n", "<C-f>", function()
   )
 end, { desc = "Find Word" })
 
+vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" })
+
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 
 -- Force save as sudo (for readonly files)
@@ -195,13 +211,7 @@ vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save"
 -- grant permissions
 vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Permissions" })
 
--- ------------------------------------- MISC KEYMAPS ----------------------------------------------
-
--- don't let cursor fly around when using J
-vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
-
--- apply macro over selected region
-vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
+-- --------------------------------- TERMINAL KEYMAPS-----------------------------------------------
 
 -- clear terminal (overriding <C-l> for window navigation)
 vim.keymap.set("t", "<C-l>", "<C-l>", { noremap = true })
@@ -214,6 +224,11 @@ vim.keymap.set({ "t", "n" }, "<C-S-L>", "<cmd>wincmd l<cr>", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<C-S-J>", "<cmd>wincmd j<cr>", { noremap = true }) -- this doesn't work
 vim.keymap.set({ "t", "n" }, "<S-NL>", "<cmd>wincmd j<cr>", { noremap = true }) -- this does?
 vim.keymap.set({ "t", "n" }, "<C-S-K>", "<cmd>wincmd k<cr>", { noremap = true })
+
+-- ------------------------------------- MISC KEYMAPS ----------------------------------------------
+
+-- apply macro over selected region
+vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
 
 -- replace all instances of word (without LSP)
 vim.keymap.set(
@@ -231,28 +246,18 @@ vim.keymap.set(
 )
 
 -- : (easier to hit when using in combination with <C-k>)
-vim.keymap.set({ "n", "v" }, "<C-;>", ":")
+vim.keymap.set({ "n", "v" }, "<C-;>", ":", { noremap = true, silent = true, desc = "Commmand Mode" })
 
 -- increment and decrement with plus and minus (since I override <C-a>)
 vim.keymap.set({ "n", "v" }, "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "-", "<C-x>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
--- full line navigation (i never use E and B)
-vim.keymap.set({ "n", "v" }, "E", "$", { desc = "End of line", silent = true })
-vim.keymap.set({ "n", "v" }, "B", "_", { desc = "Start of line", silent = true })
-
 -- follow links better
 vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = "Follow Link" })
 
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
-vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
-vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
-vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" })
-vim.keymap.set("s", "<BS>", "<C-O>s")
-
-vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
 
 vim.keymap.set("n", "<C-S-?>", ":normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("v", "<C-S-?>", ":normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("n", "\\", "<C-w>", { desc = "Window Split" })
+vim.keymap.set("n", "<C-S-R>", "<cmd>redraw<cr>", { desc = "Redraw Screen", silent = true })
