@@ -6,7 +6,7 @@ return {
       mode = "tabs",
       show_buffer_close_icons = false,
       show_duplicate_prefix = true,
-      -- always_show_bufferline = true,
+      always_show_bufferline = false,
       show_close_icon = false,
       color_icons = true,
       style_preset = require("bufferline").style_preset.no_italic, -- or bufferline.style_preset.minimal,
