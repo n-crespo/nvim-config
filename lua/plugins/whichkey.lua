@@ -34,5 +34,10 @@ return {
     { "<leader>ft", nil },
     { "<leader>fT", nil },
     { "<leader>qq", nil },
+    { "<leader>gl", nil },
+    { "<leader>gL", nil },
+    { "<leader>gc", nil },
+    { "<leader>gG", nil },
+    { "<leader>ghD", nil },
   },
 }
