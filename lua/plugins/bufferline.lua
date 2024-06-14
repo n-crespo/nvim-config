@@ -6,30 +6,22 @@ return {
       mode = "tabs",
       show_buffer_close_icons = false,
       show_duplicate_prefix = true,
+      -- always_show_bufferline = true,
       show_close_icon = false,
       color_icons = true,
       style_preset = require("bufferline").style_preset.no_italic, -- or bufferline.style_preset.minimal,
-      -- style_preset = {
-      --   require("bufferline").style_preset.no_italic,
-      -- },
       numbers = function(opts)
         return string.format("%s", opts.raise(opts.ordinal))
       end,
       separator_style = "thin",
       custom_filter = function(buf_number, buf_numbers)
-        -- filter out filetypes you don't want to see
-        if vim.bo[buf_number].filetype ~= "minifiles" then
-          return false
+        local filtered = { "minifiles", "toggleterm", "starter", "lazy" }
+        for _, value in ipairs(filtered) do
+          if vim.bo[buf_number].filetype ~= value then
+            return false
+          end
         end
-        if vim.bo[buf_number].filetype ~= "toggleterm" then
-          return false
-        end
-        if vim.bo[buf_number].filetype ~= "starter" then
-          return false
-        end
-        if vim.bo[buf_number].filetype ~= "lazy" then
-          return false
-        end
+        return true
       end,
     },
   },
