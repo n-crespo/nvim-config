@@ -258,6 +258,26 @@ vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = 
 
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 
-vim.keymap.set("n", "<C-S-?>", ":normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("v", "<C-S-?>", ":normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("n", "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("v", "<C-S-?>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("i", "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("n", "<C-S-R>", "<cmd>redraw<cr>", { desc = "Redraw Screen", silent = true })
+
+-- ------------------------------------- ABBREVIATIONS --------------------------------------------
+
+-- note: these will work in every filetype
+local abbrevations = {
+  { "dont", "don't" },
+  { "shouldnt", "shouldn't" },
+  { "cant", "can't" },
+  { "wont", "won't" },
+  { "wouldnt", "wouldn't" },
+  { "seperate", "separate" },
+  { "teh", "the" },
+  { "thats", "that's" },
+  { "itll", "it'll" },
+  { "its", "it's" },
+}
+for _, v in ipairs(abbrevations) do
+  vim.cmd(string.format("iabbrev %s %s", v[1], v[2]))
+end
