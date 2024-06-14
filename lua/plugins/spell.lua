@@ -1,9 +1,8 @@
 -- super nice spell checking plugin, auto corrects words while typing and
 -- extends functionality of builtin spell checker
 return {
-  event = "LazyFile",
   "preservim/vim-litecorrect",
-
+  ft = { "markdown" },
   config = function()
     vim.cmd([[
     let user_dict = {
