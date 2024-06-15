@@ -7,8 +7,8 @@ return {
       open = "alternate",
     },
     callbacks = {
-      post_open = function()
-        -- require("toggleterm").toggle_all()
+      pre_open = function()
+        require("toggleterm").toggle()
       end,
     },
   },
