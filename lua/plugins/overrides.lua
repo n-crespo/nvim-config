@@ -12,10 +12,10 @@ return {
     "catppuccin", -- i don't use this
     enabled = false,
   },
-  -- {
-  --   "akinsho/bufferline.nvim", -- i use tabby
-  --   enabled = false,
-  -- },
+  {
+    "akinsho/bufferline.nvim", -- i use tabby
+    enabled = false,
+  },
   {
     "folke/neoconf.nvim", -- this is useless to me afaik
     enabled = false,
