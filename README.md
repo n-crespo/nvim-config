@@ -156,3 +156,6 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
   - [x] `<C-CR>` for AI, `<CR>` for LSP
   - [x] `<C-j>` and `<C-k>` for cycling LSP completions
   - [x] `<C-n>` and `<C-p>` for cycling AI completions
+- [x] better tabline
+  - [x] use separate tab pages
+  - [x] diagnostic info
