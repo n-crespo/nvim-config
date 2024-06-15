@@ -14,12 +14,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function()
-    vim.b.miniindentscope_disable = true
-  end,
-})
-
 -- don't use lsp on pvs files
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   callback = function(opt)
@@ -59,20 +53,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.fn.setpos(".", save_cursor)
   end,
 })
-
--- remove line numbers and auto enter terminal on TermOpen
-vim.cmd([[
-" Terminal Buffer
-function! TerminalSettings()
-  setlocal nonumber
-  setlocal norelativenumber
-  normal a
-endfunction
-augroup terminal
-  autocmd!
-  autocmd TermOpen * call TerminalSettings()
-augroup END
-]])
 
 -- always enter normal mode when leaving telescope prompt
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
