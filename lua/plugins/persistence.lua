@@ -9,6 +9,6 @@ return {
     { "<leader>qs", false },
     { "<leader>ql", false },
     { "<leader>qd", false },
-    { "<leader>q", "<cmd>bd<cr>" },
+    { "<leader>q", "<C-W>c" },
   },
 }

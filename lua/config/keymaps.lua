@@ -74,7 +74,8 @@ end, { desc = "Buffer Locate", silent = true })
 vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
 
 -- close buffer (not soft) (don't preserve split)
-vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit", silent = true })
+-- vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit", silent = true })
+vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "quit", silent = true })
 
 -- splits
 -- vim.keymap.set("n", "\\", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
