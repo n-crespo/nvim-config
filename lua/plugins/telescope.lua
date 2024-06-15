@@ -98,5 +98,6 @@ return {
     { "<leader>fr", false },
     { "<leader>fR", false },
     { "<leader>sC", false },
+    { "<leader>,", false },
   },
 }

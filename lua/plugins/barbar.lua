@@ -2,8 +2,24 @@ return {
   "romgrk/barbar.nvim",
   event = "LazyFile",
   dependencies = {
-    "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-    "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+    "tiagovla/scope.nvim",
+    opts = {
+      hooks = {
+        pre_tab_leave = function()
+          vim.api.nvim_exec_autocmds("User", { pattern = "ScopeTabLeavePre" })
+        end,
+        post_tab_enter = function()
+          vim.api.nvim_exec_autocmds("User", { pattern = "ScopeTabEnterPost" })
+        end,
+      },
+    },
+    config = function(_, opts)
+      require("scope").setup(opts)
+      require("telescope").load_extension("scope")
+    end,
+    keys = {
+      { "<leader>,", "<cmd>Telescope scope buffers<cr>", desc = "Search buffers" },
+    },
   },
   init = function()
     vim.g.barbar_auto_setup = false
