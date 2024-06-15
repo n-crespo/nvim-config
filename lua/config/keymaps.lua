@@ -114,8 +114,8 @@ end
 -- end, { silent = true, desc = "Toggle Tabline" })
 
 -- true tab navigation
-vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
-vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
+-- vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
+-- vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
 vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
 
@@ -225,6 +225,25 @@ vim.keymap.set({ "t", "n" }, "<C-S-J>", "<cmd>wincmd j<cr>", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<S-NL>", "<cmd>wincmd j<cr>", { noremap = true }) -- this does?
 vim.keymap.set({ "t", "n" }, "<C-S-K>", "<cmd>wincmd k<cr>", { noremap = true })
 
+-- ------------------------------------- ABBREVIATIONS --------------------------------------------
+
+-- note: these will work in every filetype
+local abbrevations = {
+  { "dont", "don't" },
+  { "shouldnt", "shouldn't" },
+  { "cant", "can't" },
+  { "wont", "won't" },
+  { "wouldnt", "wouldn't" },
+  { "seperate", "separate" },
+  { "teh", "the" },
+  { "thats", "that's" },
+  { "itll", "it'll" },
+  { "its", "it's" },
+}
+for _, v in ipairs(abbrevations) do
+  vim.cmd(string.format("iabbrev %s %s", v[1], v[2]))
+end
+
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
 -- apply macro over selected region
@@ -262,22 +281,3 @@ vim.keymap.set("n", "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comme
 vim.keymap.set("v", "<C-S-?>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("i", "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("n", "<C-S-R>", "<cmd>redraw<cr>", { desc = "Redraw Screen", silent = true })
-
--- ------------------------------------- ABBREVIATIONS --------------------------------------------
-
--- note: these will work in every filetype
-local abbrevations = {
-  { "dont", "don't" },
-  { "shouldnt", "shouldn't" },
-  { "cant", "can't" },
-  { "wont", "won't" },
-  { "wouldnt", "wouldn't" },
-  { "seperate", "separate" },
-  { "teh", "the" },
-  { "thats", "that's" },
-  { "itll", "it'll" },
-  { "its", "it's" },
-}
-for _, v in ipairs(abbrevations) do
-  vim.cmd(string.format("iabbrev %s %s", v[1], v[2]))
-end
