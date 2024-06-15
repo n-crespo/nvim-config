@@ -25,10 +25,9 @@ return {
     vim.g.barbar_auto_setup = false
   end,
   opts = {
-    auto_hide = 1,
     tabpages = true,
     highlight_inactive_file_icons = true,
-    separator_at_end = false,
+    no_name_title = "[New Buffer]",
     icons = {
       diagnostics = {
         [vim.diagnostic.severity.ERROR] = { enabled = true, icon = " " },
@@ -41,19 +40,19 @@ return {
         changed = { enabled = true, icon = "~" },
         deleted = { enabled = true, icon = "-" },
       },
+
+      separator_at_end = false,
+      preset = "default",
     },
-    version = "^1.0.0", -- optional: only update when a new 1.x version is released
-    keys = {
-      {
-        "<S-H>",
-        "<cmd>BufferPrevious<cr>",
-        desc = "Previous buffer",
-      },
-      {
-        "<S-L>",
-        "<cmd>BufferNext<cr>",
-        desc = "Next buffer",
-      },
-    },
+  },
+  keys = {
+    { "<S-H>", "<cmd>BufferPrevious<cr>", desc = "Previous buffer" },
+    { "<S-L>", "<cmd>BufferNext<cr>", desc = "Next buffer" },
+    { "<C-p>", "<cmd>BufferPick<cr>", desc = "Pick buffer" },
+    { "<C-S-T>", "<cmd>BufferRestore<cr>", desc = "Restore buffer" },
+    { "<leader>bo", "<cmd>BufferCloseAllButCurrent<cr>", desc = "Close all but current buffer" },
+    { "<leader>k", "<cmd>BufferClose<cr>", desc = "Close buffer" },
+    { "<A-,>", "<cmd>BufferMovePrevious<cr>", desc = "Move buffer left" },
+    { "<A-.>", "<cmd>BufferMoveNext<cr>", desc = "Move buffer right" },
   },
 }

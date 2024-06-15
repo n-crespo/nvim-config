@@ -50,22 +50,19 @@ vim.keymap.set(
   { expr = true, replace_keycodes = false, desc = "Visually select changed text" }
 )
 
--- --------------------------------------- WINDOWS AND BUFFERS -------------------------------------
+-- --------------------------------------- WINDOWS BUFFERS AND TABS --------------------------------
 
 -- leader
 vim.keymap.set("n", "\\", "<C-w>", { desc = "Window Split" })
 
 -- delete all other {something} (tab, buffer, window)
 vim.keymap.set("n", "<leader>wo", "<cmd>only <CR>", { silent = true, desc = "Window only" })
-vim.keymap.set("n", "<leader>bo", "<cmd>w | %bd | e# | bd#<cr>", { desc = "Buffer Only", silent = true })
--- vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other tabs", silent = true })
 
 -- needed because I override <C-w>
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rotate" })
 vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
 
 -- cd to current buffer (replace autochdir)
--- vim.keymap.set("n", "<leader>bl", "<cmd>cd %:h<cr>", { desc = "Buffer Locate", silent = true })
 vim.keymap.set("n", "<leader>bl", function()
   vim.cmd([[cd %:h]])
   vim.notify(vim.fn.getcwd(), vim.log.levels.INFO, {
@@ -77,7 +74,7 @@ end, { desc = "Buffer Locate", silent = true })
 vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
 
 -- close buffer (not soft) (don't preserve split)
-vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit Buffer", silent = true })
+vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit", silent = true })
 
 -- splits
 -- vim.keymap.set("n", "\\", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
@@ -87,8 +84,6 @@ vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc =
 -- window resizing (<C-up> and <C-down> are used by multicursor)
 vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-
--- vim.keymap.set("n", "<C-S-")
 
 -- --------------------------------- OS SPECIFIC KEYMAPS -------------------------------------------
 
@@ -106,16 +101,7 @@ elseif vim.fn.has("mac") then
 end
 
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
--- toggle tabline
--- vim.keymap.set("n", "<leader>a", function()
---   local current_value = vim.o.showtabline
---   local new_value = (current_value == 0) and 2 or 0
---   vim.cmd("set showtabline=" .. new_value)
--- end, { silent = true, desc = "Toggle Tabline" })
 
--- true tab navigation
--- vim.keymap.set("n", "<S-L>", "<cmd>tabnext<cr>")
--- vim.keymap.set("n", "<S-H>", "<cmd>tabprev<cr>")
 vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
 
@@ -140,50 +126,6 @@ vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-del
 
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>s")
-
--- --------------------------------- PERMANENT HIGHLIGHTING -------------------------------------
--- this is cool but i never use it
-
--- local function getVisualSelectionRange()
---   local start_line = vim.fn.line("'<")
---   local end_line = vim.fn.line("'>")
---   local i = math.min(start_line, end_line)
---   local j = math.max(start_line, end_line)
---   local selection = "["
---   while i < j do
---     selection = selection .. i .. ", "
---     i = i + 1
---   end
---   selection = selection .. j .. "]"
---   return selection
--- end
---
--- function DoFunnyHighlight(highlight)
---   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
---   local selection = getVisualSelectionRange()
---   if highlight ~= nil then
---     vim.cmd("call matchaddpos('" .. highlight .. "'," .. selection .. ")")
---   end
---   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
--- end
-
--- bug: the below `< and `> only update when exiting visual mode. this is why
--- the doFunnyHighlight must be called exists and must be called twice
--- vim.keymap.set(
---   "v",
---   "<leader>h",
---   "<cmd>lua DoFunnyHighlight()<cr><esc>v<cmd>lua DoFunnyHighlight('LineHighlight')<cr>",
---   { desc = "Highlight selection", silent = true }
--- )
---
--- vim.keymap.set(
---   "n",
---   "<leader>h",
---   ":call matchadd('LineHighlight', '\\%'.line('.').'l')<cr>",
---   { desc = "Highlight current line", silent = true }
--- )
---
--- vim.keymap.set("n", "<leader>H", ":call clearmatches()<cr>", { desc = "Clear line highlight", silent = true })
 
 -- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
 
@@ -277,7 +219,6 @@ vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = 
 
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 
-vim.keymap.set("n", "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
+-- toggling comments
+vim.keymap.set({ "n", "i" }, "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("v", "<C-S-?>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("i", "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("n", "<C-S-R>", "<cmd>redraw<cr>", { desc = "Redraw Screen", silent = true })
