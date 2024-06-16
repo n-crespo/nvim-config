@@ -68,7 +68,6 @@ return {
         -- opportunity to create mappings local to buffers.
         vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine", { buffer = true })
         vim.keymap.set("v", "<Enter>", "<Plug>RSendSelection", { buffer = true })
-        vim.keymap.del("i", "<Space>,", { buffer = true })
         -- override default mapping to my own
         vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Paste Register", silent = true, buffer = true })
 
@@ -88,4 +87,14 @@ return {
     },
     pdfviewer = "",
   },
+  keys = function()
+    -- only activates when first buffer is opened
+    vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+      pattern = { "r", "rmd" },
+      callback = function()
+        vim.keymap.del("i", "<Space>,", { buffer = true })
+        vim.notify("space keymap deleted")
+      end,
+    })
+  end,
 }
