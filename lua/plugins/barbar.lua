@@ -17,9 +17,6 @@ return {
       require("scope").setup(opts)
       require("telescope").load_extension("scope")
     end,
-    keys = {
-      { "<leader>,", "<cmd>Telescope scope buffers<cr>", desc = "Search buffers" },
-    },
   },
   init = function()
     vim.g.barbar_auto_setup = false
