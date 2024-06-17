@@ -5,10 +5,12 @@ return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = function(_, opts)
-    -- opts.options.component_separators = { left = "⟩", right = "⟨" }
+    opts.options.component_separators = { left = "⟩", right = "⟨" }
+    -- opts.options.component_separators = { left = "", right = "" }
+    -- opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "▌", right = "▐" }
-    opts.options.section_separators = { left = "", right = "" }
-    opts.options.component_separators = { left = "", right = "" }
+    -- opts.options.section_separators = { left = "", right = "" }
+    -- opts.options.section_separators = { left = "", right = "" }
     opts.options.theme = require("transparentlualine").theme
     opts.options.disabled_filetypes = {
       statusline = { "starter" },
