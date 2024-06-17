@@ -13,5 +13,12 @@ return {
         },
       },
     },
+    lsp = {
+      documentation = {
+        opts = {
+          win_options = { wrap = false },
+        },
+      },
+    },
   },
 }
