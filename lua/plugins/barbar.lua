@@ -43,9 +43,9 @@ return {
     },
   },
   keys = {
+    -- { "<C-p>", "<cmd>BufferPick<cr>", desc = "Pick buffer" },
     { "<S-H>", "<cmd>BufferPrevious<cr>", desc = "Previous buffer" },
     { "<S-L>", "<cmd>BufferNext<cr>", desc = "Next buffer" },
-    { "<C-p>", "<cmd>BufferPick<cr>", desc = "Pick buffer" },
     { "<C-S-T>", "<cmd>BufferRestore<cr>", desc = "Restore buffer" },
     { "<leader>bo", "<cmd>BufferCloseAllButCurrent<cr>", desc = "Close all but current buffer" },
     { "<leader>k", "<cmd>BufferClose<cr>", desc = "Close buffer" },
