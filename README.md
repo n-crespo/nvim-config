@@ -159,3 +159,8 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] better tabline
   - [x] use separate tab pages
   - [x] diagnostic info
+- [x] remove windows newline chars on save (^M)
+  - [x] `<C-S-S>`
+- [x] properly delete `RPipe` keymap from R.nvim plugin
+- [x] STOP WRAPPING DOCUMENTATION FLOATING WINDOWS _please_ (FINALLY GOT THIS WORKING)
+  - [x] see [`noice.nvim`](./lua/plugins/noice.lua)
