@@ -223,3 +223,10 @@ vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 -- toggling comments
 vim.keymap.set({ "n", "i" }, "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("v", "<C-S-?>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+
+-- clean ^Ms (windows newlines)
+vim.keymap.set("n", "<C-S-S>", function()
+  vim.cmd([[silent! %s/\r//g]])
+  vim.cmd([[w]])
+  vim.notify("Cleaned all newline characters!", vim.log.levels.INFO, { title = "File Saved" })
+end, { remap = false, desc = "Clean ^M", silent = true })
