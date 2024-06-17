@@ -15,7 +15,6 @@ return {
     },
     config = function(_, opts)
       require("scope").setup(opts)
-      require("telescope").load_extension("scope")
     end,
   },
   init = function()
