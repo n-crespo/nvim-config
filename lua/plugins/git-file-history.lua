@@ -1,6 +1,6 @@
 return {
   "isak102/telescope-git-file-history.nvim",
-  enabled = vim.fn.has("unix"), -- only load on unix
+  enabled = vim.fn.has("unix") == 1, -- only load on unix
   event = "LazyFile",
   dependencies = { "tpope/vim-fugitive" },
   config = function()
