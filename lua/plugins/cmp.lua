@@ -34,12 +34,8 @@ return {
       },
     },
     mapping = require("cmp").mapping.preset.insert({
-      ["<C-n>"] = {
-        i = require("cmp").config.disable,
-      },
-      ["<C-p>"] = {
-        i = require("cmp").config.disable,
-      },
+      ["<C-n>"] = { i = require("cmp").config.disable },
+      ["<C-p>"] = { i = require("cmp").config.disable },
       -- ["<CR>"] = require("cmp").mapping.confirm({ select = false }),
       ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Insert }),
       ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Insert }),
