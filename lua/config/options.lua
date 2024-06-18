@@ -3,7 +3,8 @@
 
 local opt = vim.opt
 
-if vim.fn.has("wsl") then
+--- for some reason this doesn't work unless I specify `== 1`???
+if vim.fn.has("wsl") == 1 then
   ---@diagnostic disable-next-line: undefined-field
   opt.clipboard:append("unnamedplus") -- use system clipboard as default register
   vim.g.clipboard = {
@@ -18,7 +19,7 @@ if vim.fn.has("wsl") then
     },
     cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
   }
-elseif vim.fn.has("mac") or vim.fn.has("win32") then
+elseif vim.fn.has("mac") == 1 or vim.fn.has("win32") == 1 then
   opt.clipboard = "unnamedplus"
 end
 
