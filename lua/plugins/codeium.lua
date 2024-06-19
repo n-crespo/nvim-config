@@ -5,6 +5,7 @@ return {
   },
   dependencies = {
     "monkoose/neocodeium",
+    enabled = vim.fn.has("win32") == 0, -- don't enable in windows
     event = "VeryLazy",
     opts = {
       show_label = false,
