@@ -29,11 +29,17 @@ return {
   },
   keys = {
     {
-      "<space><space>",
+      "<leader><space>",
       function()
-        require("telescope").extensions.smart_open.smart_open()
+        if vim.fn.has("unix") == 1 then
+          require("telescope").extensions.smart_open.smart_open()
+        else
+          local builtin = require("telescope.builtin")
+          local utils = require("telescope.utils")
+          builtin.find_files({ cwd = utils.buffer_dir() })
+        end
       end,
-      desc = "Smart Open",
+      desc = "Smart Open/Find Files",
     },
     {
       "<leader>fp",
