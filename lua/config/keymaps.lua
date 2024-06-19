@@ -121,9 +121,9 @@ vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through comp
 
 -- in insert mode auto-correct the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
-vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { desc = "Redo" })
-vim.keymap.set("i", "<C-z>", "<C-o>u", { desc = "Undo" })
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
+vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
+vim.keymap.set("n", "<M-BS>", "<NOP>", { desc = "Clear Line" })
 
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>s")
