@@ -31,6 +31,6 @@ return {
     { "<C-S-Q>", "<cmd>ToggleTerm direction=vertical<cr>", desc = "ToggleTerm vertical", mode = { "n", "t" } },
     { "<C-Q>", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "ToggleTerm horizontal", mode = { "n", "t" } },
     { "<C-/>", "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float", mode = { "n", "t" } },
-    { "<C-p>", "<C-q><C-d><C-p>", remap = true }, -- zoxide ji -- use <C-d> to quit the current thing
+    { "<C-p>", "<C-q><C-p>", remap = true }, -- zoxide ji -- use <C-d> to quit the current thing
   },
 }
