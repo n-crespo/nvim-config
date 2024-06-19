@@ -1,5 +1,6 @@
 return {
   "danielfalk/smart-open.nvim",
+  enabled = vim.fn.has("win32") == 0, -- disable on windows
   -- branch = "0.2.x",
   event = "VeryLazy",
   opts = {
@@ -8,6 +9,9 @@ return {
   },
   config = function()
     require("telescope").load_extension("smart_open")
+    vim.keymap.set("n", "<leader><space>", function()
+      require("telescope").extensions.smart_open.smart_open()
+    end, { desc = "Smart Open" })
   end,
   dependencies = {
     "kkharji/sqlite.lua",

@@ -29,19 +29,6 @@ return {
   },
   keys = {
     {
-      "<leader><space>",
-      function()
-        if vim.fn.has("unix") == 1 then
-          require("telescope").extensions.smart_open.smart_open()
-        else
-          local builtin = require("telescope.builtin")
-          local utils = require("telescope.utils")
-          builtin.find_files({ cwd = utils.buffer_dir() })
-        end
-      end,
-      desc = "Smart Open/Find Files",
-    },
-    {
       "<leader>fp",
       function()
         require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
