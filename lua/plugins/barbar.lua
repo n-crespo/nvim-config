@@ -24,6 +24,7 @@ return {
     tabpages = true,
     highlight_inactive_file_icons = true,
     no_name_title = "[New Buffer]",
+    separator_at_end = true,
     icons = {
       diagnostics = {
         [vim.diagnostic.severity.ERROR] = { enabled = true, icon = " " },
@@ -36,8 +37,6 @@ return {
         changed = { enabled = true, icon = "~" },
         deleted = { enabled = true, icon = "-" },
       },
-
-      separator_at_end = false,
       preset = "default",
     },
   },
