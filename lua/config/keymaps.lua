@@ -61,7 +61,7 @@ vim.keymap.set("n", "<leader>a", function()
   vim.o.showtabline = vim.o.showtabline == 0 and 2 or 0
 end, { desc = "Show Tabline" })
 
--- what i want tabline to show:
+vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- leader
 vim.keymap.set("n", "\\", "<C-w>", { desc = "Window Split" })
@@ -135,6 +135,7 @@ vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
 vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
 vim.keymap.set("n", "<M-BS>", "<NOP>", { desc = "Clear Line" })
+vim.keymap.set("i", "<S-CR>", "<esc>o", { remap = false })
 
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>s")
@@ -197,6 +198,11 @@ local abbrevations = {
 for _, v in ipairs(abbrevations) do
   vim.cmd(string.format("iabbrev %s %s", v[1], v[2]))
 end
+
+vim.cmd("cnoreabbrev W  w")
+vim.cmd("cnoreabbrev Set  set")
+vim.cmd("cnoreabbrev Wq wq")
+vim.cmd("cnoreabbrev WQ wq")
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
