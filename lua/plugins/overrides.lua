@@ -13,15 +13,11 @@ return {
     enabled = false,
   },
   {
-    "akinsho/bufferline.nvim", -- i use tabby
+    "akinsho/bufferline.nvim",
     enabled = false,
   },
   {
     "folke/neoconf.nvim", -- this is useless to me afaik
     enabled = false,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    enabled = true,
   },
 }
