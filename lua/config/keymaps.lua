@@ -118,7 +118,7 @@ end
 vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
 
-vim.keymap.set("n", "<C-space>", "<cmd>tabnew<cr>")
+vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
 vim.keymap.set("n", "<leader>1", "<cmd>tabn 1<cr>", { silent = true, desc = "Tab 1" })
 vim.keymap.set("n", "<leader>2", "<cmd>tabn 2<cr>", { silent = true, desc = "Tab 2" })
 vim.keymap.set("n", "<leader>3", "<cmd>tabn 3<cr>", { silent = true, desc = "Tab 3" })
@@ -201,6 +201,7 @@ for _, v in ipairs(abbrevations) do
 end
 
 vim.cmd("cnoreabbrev W  w")
+vim.cmd("cnoreabbrev E  e")
 vim.cmd("cnoreabbrev Set  set")
 vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev WQ wq")
