@@ -167,3 +167,7 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] fix cmp overriding config
 - [x] good tabline solution
 - [x] tab indicator in lualine!
+  - [x] bold for active tab
+  - [x] properly colored icons
+  - [x] re-ordering
+  - [x] no plugin !
