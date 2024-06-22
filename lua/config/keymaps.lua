@@ -13,7 +13,6 @@ vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz", { noremap = true, desc = "Go Up
 vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
-vim.keymap.set("n", "<BS>", "<C-o>zz", { desc = "Prev Jumplist", silent = true })
 
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
@@ -96,6 +95,8 @@ vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc =
 -- window resizing (<C-up> and <C-down> are used by multicursor)
 vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+
+vim.keymap.set("n", "<leader>bo", ":%bd|e#<cr>", { desc = "Buffer Only", silent = true })
 
 -- --------------------------------- OS SPECIFIC KEYMAPS -------------------------------------------
 
@@ -236,11 +237,14 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 -- follow links better
 vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = "Follow Link" })
 
-vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
+vim.keymap.set("n", "<Tab>", "za", { desc = "Toggle fold" }) -- i don't use marks
 
 -- toggling comments
 vim.keymap.set({ "n", "i" }, "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("v", "<C-S-?>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+
+vim.keymap.set({ "n", "i" }, "<C-.>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("v", "<C-.>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
 
 -- clean ^Ms (windows newlines)
 vim.keymap.set("n", "<C-S-S>", function()
