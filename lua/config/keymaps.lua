@@ -55,11 +55,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>", { desc = "Previous Tab" })
 vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
--- toggle tabline
-vim.keymap.set("n", "<leader>a", function()
-  vim.o.showtabline = vim.o.showtabline == 0 and 2 or 0
-end, { desc = "Show Tabline" })
-
 vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- leader
