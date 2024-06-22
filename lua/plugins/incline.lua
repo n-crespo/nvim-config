@@ -5,6 +5,9 @@ return {
     vim.g.showtabline = 0
     local devicons = require("nvim-web-devicons")
     require("incline").setup({
+      hide = {
+        cursorline = "focused_win",
+      },
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
         if filename == "" then
@@ -29,11 +32,12 @@ return {
           return label
         end
 
-        local modified = vim.bo[props.buf].modified and "  " or ""
+        local modified = vim.bo[props.buf].modified
+
         return {
           { get_diagnostic_label() },
           { (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" },
-          { filename .. "" .. modified },
+          { filename .. "", gui = modified and "bold" or "none" },
         }
       end,
     })
