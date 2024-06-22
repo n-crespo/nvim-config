@@ -10,36 +10,6 @@ return {
       dependencies = { "rafamadriz/friendly-snippets" },
     },
   },
-  opts = function(_, opts)
-    opts.snippet = {
-      expand = function(item)
-        return LazyVim.cmp.expand(item.body)
-      end,
-    }
-    if LazyVim.has("nvim-snippets") then
-      table.insert(opts.sources, { name = "snippets" })
-    end
-  end,
-  keys = {
-    {
-      "<Tab>",
-      function()
-        return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
-      end,
-      expr = true,
-      silent = true,
-      mode = { "i", "s" },
-    },
-    {
-      "<S-Tab>",
-      function()
-        return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
-      end,
-      expr = true,
-      silent = true,
-      mode = { "i", "s" },
-    },
-  },
   config = function()
     local cmp = require("cmp")
     local formatting = {
@@ -54,9 +24,9 @@ return {
     }
 
     local sources = cmp.config.sources({
+      { name = "snippets" },
       { name = "nvim_lsp" },
       { name = "path" },
-    }, {
       { name = "buffer" },
     })
 
@@ -69,10 +39,11 @@ return {
     end
 
     local mapping = {
+      ["<C-e>"] = { i = require("cmp").mapping.abort() },
       ["<C-n>"] = require("cmp").config.disable,
       ["<C-p>"] = require("cmp").config.disable,
-      ["<C-j>"] = next,
-      ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Insert }),
+      ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
+      ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
       ["<S-CR>"] = require("cmp").config.disable,
       ["<CR>"] = LazyVim.cmp.confirm({ select = true }),
       -- ["<CR>"] = require("cmp").mapping.confirm({ select = false }),
@@ -94,11 +65,18 @@ return {
       },
     }
 
+    local snippet = {
+      expand = function(item)
+        return LazyVim.cmp.expand(item.body)
+      end,
+    }
+
     cmp.setup({
       formatting = formatting,
       mapping = mapping,
       sources = sources,
       window = window,
+      snippet = LazyVim.has("nvim-snippets") and snippet or nil,
       experimental = {
         ghost_text = false,
       },
@@ -110,4 +88,24 @@ return {
       },
     })
   end,
+  keys = {
+    {
+      "<Tab>",
+      function()
+        return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
+      end,
+      expr = true,
+      silent = true,
+      mode = { "i", "s" },
+    },
+    {
+      "<S-Tab>",
+      function()
+        return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
+      end,
+      expr = true,
+      silent = true,
+      mode = { "i", "s" },
+    },
+  },
 }
