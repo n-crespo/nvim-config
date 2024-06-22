@@ -164,3 +164,6 @@ NVIM_APPNAME=n-crespo/nvim-config/ nvim
 - [x] properly delete `RPipe` keymap from R.nvim plugin
 - [x] STOP WRAPPING DOCUMENTATION FLOATING WINDOWS _please_ (FINALLY GOT THIS WORKING)
   - [x] see [`noice.nvim`](./lua/plugins/noice.lua)
+- [x] fix cmp overriding config
+- [x] good tabline solution
+- [x] tab indicator in lualine!
