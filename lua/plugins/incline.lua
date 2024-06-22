@@ -5,6 +5,11 @@ return {
     vim.g.showtabline = 0
     local devicons = require("nvim-web-devicons")
     require("incline").setup({
+      window = {
+        options = {
+          buftype = "nofile",
+        },
+      },
       hide = {
         cursorline = "focused_win",
       },
