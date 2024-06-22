@@ -17,7 +17,6 @@ return {
     }
 
     opts.sections.lualine_x = {
-      -- stylua: ignore
       {
         function()
           local tabs = {}
@@ -29,9 +28,9 @@ return {
             local bufname = vim.fn.bufname(bufnr)
             local name = vim.fn.fnamemodify(bufname, ":t")
             local icon, color =
-            require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
+              require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
             if name == "" then
-              name = "Empty"  -- Set name to "Empty" if it is empty
+              name = "Empty" -- Set name to "Empty" if it is empty
             end
 
             local highlight_group = "LualineTabInactive"
@@ -40,7 +39,7 @@ return {
             end
 
             -- this is quite disgusting innit
-      local tab_display = string.format("[%%#%s#%s%%#%s# %s%%*]", color, icon, highlight_group, name)
+            local tab_display = string.format("[%%#%s#%s%%#%s# %s%%*]", color, icon, highlight_group, name)
             table.insert(tabs, tab_display)
           end
           return table.concat(tabs, " ")
