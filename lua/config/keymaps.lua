@@ -52,6 +52,17 @@ vim.keymap.set(
 
 -- --------------------------------------- WINDOWS BUFFERS AND TABS --------------------------------
 
+-- tab navigation
+vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+
+-- toggle tabline
+vim.keymap.set("n", "<leader>a", function()
+  vim.o.showtabline = vim.o.showtabline == 0 and 2 or 0
+end, { desc = "Show Tabline" })
+
+-- what i want tabline to show:
+
 -- leader
 vim.keymap.set("n", "\\", "<C-w>", { desc = "Window Split" })
 
