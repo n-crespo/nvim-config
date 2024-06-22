@@ -19,7 +19,7 @@
 ;  @markup.quote (#set! conceal "▏" ))
 
 
-; BUG: this breaks things (will hide indented/nested bullets)
+; bug: this breaks things (will hide indented/nested bullets)
 
 ; ((block_continuation) @markup.quote
 ;                       (#set! "priority" 0)

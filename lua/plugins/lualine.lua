@@ -15,7 +15,6 @@ return {
     opts.options.disabled_filetypes = {
       statusline = { "starter" },
     }
-
     opts.sections.lualine_x = {
       {
         function()
@@ -50,24 +49,7 @@ return {
           return vim.fn.tabpagenr("$") > 1
         end,
       },
-      -- -- the below show the most recently type command (for some reason)
-      -- {
-      --   function()
-      --     return require("noice").api.status.command.get()
-      --   end,
-      --   cond = function()
-      --     return package.loaded["noice"] and require("noice").api.status.command.has()
-      --   end,
-      --   color = function()
-      --     return LazyVim.ui.fg("Statement")
-      --   end,
-      -- },
-      -- -- stylua: ignore
-      -- {
-      --   function() return require("noice").api.status.mode.get() end,
-      --   cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-      --   color = function() return LazyVim.ui.fg("Constant") end,
-      -- },
+      -- note: see lazyvim config for section that shows last key press
       {
         require("lazy.status").updates,
         cond = require("lazy.status").has_updates,
@@ -82,4 +64,32 @@ return {
       end,
     }
   end,
+  keys = {
+    {
+      "<A-,>",
+      function()
+        local current_tab = vim.fn.tabpagenr()
+        if current_tab == 1 then
+          vim.cmd("tabmove")
+        else
+          vim.cmd("-tabmove")
+        end
+        require("lualine").refresh()
+      end,
+      desc = "Move Tab Left",
+    },
+    {
+      "<A-;>",
+      function()
+        local current_tab = vim.fn.tabpagenr()
+        if current_tab == vim.fn.tabpagenr("$") then
+          vim.cmd("0tabmove")
+        else
+          vim.cmd("+tabmove")
+        end
+        require("lualine").refresh()
+      end,
+      desc = "Move Tab Right",
+    },
+  },
 }
