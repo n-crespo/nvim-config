@@ -26,10 +26,19 @@ return {
             local bufnr = vim.fn.winbufnr(winid)
             local bufname = vim.fn.bufname(bufnr)
             local name = vim.fn.fnamemodify(bufname, ":t")
+
+            if name == "fish;#toggleterm#1" then
+              name = "fish"
+            end
+
             local icon, color =
               require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
             if name == "" then
               name = "Empty" -- Set name to "Empty" if it is empty
+            end
+
+            if name == "lazygit" then
+              icon = require("nvim-web-devicons").get_icon_by_filetype("fish")
             end
 
             local highlight_group = "LualineTabInactive"
@@ -45,9 +54,9 @@ return {
         end,
         separator = " ",
         padding = { left = 0, right = 1 },
-        cond = function()
-          return vim.fn.tabpagenr("$") > 1
-        end,
+        -- cond = function()
+        --   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
+        -- end,
       },
       -- note: see lazyvim config for section that shows last key press
       {
