@@ -172,6 +172,7 @@ local hlgroups = {
   MsgArea = { fg = c_macroFg1 },
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
+  SnippetTabstop = { link = "Snippet" },
 
   Normal = { fg = c_macroFg0 },
   NormalFloat = { bg = nil, fg = c_macroFg0 },
@@ -546,8 +547,8 @@ local hlgroups = {
   NeoCodeiumSuggestion = { fg = "#454745", bg = nil },
 
   -- lualine tab pages
-  LualineTabInactive = { fg = c_macroFg1 },
-  LualineTabActive = { fg = c_roninYellow, bold = true },
+  LualineTabInactive = { fg = c_macroAsh },
+  LualineTabActive = { fg = c_macroFg1, bold = true, underline = true },
   -- }}}
 }
 -- }}}1
