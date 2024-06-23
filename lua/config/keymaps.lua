@@ -110,8 +110,10 @@ end
 
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
 
-vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
-vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
+-- vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
+-- vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
+
+vim.keymap.set("n", "<C-Tab>", "<C-i>zz", { remap = false, silent = true, desc = "Prev Jumplist" })
 
 vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
 vim.keymap.set("n", "<leader>1", "<cmd>tabn 1<cr>", { silent = true, desc = "Tab 1" })
@@ -233,7 +235,7 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 -- follow links better
 vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = "Follow Link" })
 
-vim.keymap.set("n", "<Tab>", "za", { desc = "Toggle fold" }) -- i don't use marks
+vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 
 -- toggling comments
 vim.keymap.set({ "n", "i" }, "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
