@@ -548,7 +548,11 @@ local hlgroups = {
 
   -- lualine tab pages
   LualineTabInactive = { fg = c_macroAsh },
-  LualineTabActive = { fg = c_macroFg1, bold = true, underline = true },
+  LualineTabActive = {
+    fg = c_macroFg1,
+    bold = true,
+    underline = false,
+  },
   -- }}}
 }
 -- }}}1
