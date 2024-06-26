@@ -79,3 +79,19 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
+  pattern = { "*.cf", "*.cfm" },
+  callback = function()
+    vim.cmd([[set syntax=cf]])
+    vim.cmd([[set filetype=cf]])
+  end,
+})
+
+vim.cmd([[
+augroup MarkdownCfSyntax
+    autocmd!
+    autocmd FileType markdown syntax include @markdownCf syntax/cf.vim
+    autocmd FileType markdown syntax region markdownCodeBlockCf start="```cf" end="```" contains=@markdownCf
+augroup END
+]])
