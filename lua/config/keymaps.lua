@@ -136,7 +136,7 @@ vim.keymap.set("n", "<M-BS>", "<NOP>", { desc = "Clear Line" })
 vim.keymap.set("i", "<S-CR>", "<esc>o", { remap = false })
 
 -- backspace to clear snippets
-vim.keymap.set("s", "<BS>", "<C-O>s")
+vim.keymap.set("s", "<BS>", "<C-O>c")
 
 -- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
 
