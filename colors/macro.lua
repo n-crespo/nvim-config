@@ -526,8 +526,10 @@ local hlgroups = {
   -- mini.files
   MiniFilesNormal = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg },
   MiniFilesTitle = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg2 },
+  MiniFilesDirectory = { fg = c_macroBlue1 },
   MiniFilesTitleFocused = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg2 },
   MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
+  MiniFilesBorder = { link = "FloatBorder" },
 
   -- incline
   InclineNormal = { bg = selection_light_gray, bold = false },
