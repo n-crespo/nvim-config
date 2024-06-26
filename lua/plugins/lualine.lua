@@ -47,7 +47,16 @@ return {
             end
 
             -- this is quite disgusting innit
-            local tab_display = string.format("[%%#%s#%s%%#%s# %s%%*]", color, icon, highlight_group, name)
+            -- local tab_display = string.format("%%#%s#[%s%%#%s# %s]%%*", color, icon, highlight_group, name)
+            local tab_display = string.format(
+              "%%#%s#[%%#%s#%s %%#%s#%s%%#%s#]",
+              highlight_group,
+              color,
+              icon,
+              highlight_group,
+              name,
+              highlight_group
+            )
             table.insert(tabs, tab_display)
           end
           return table.concat(tabs, " ")
