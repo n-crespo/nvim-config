@@ -241,6 +241,9 @@ vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 vim.keymap.set({ "n", "i" }, "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("v", "<C-S-?>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
 
+vim.keymap.set({ "n", "i" }, "<M-/>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("v", "<M-/>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+
 vim.keymap.set({ "n", "i" }, "<C-.>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
 vim.keymap.set("v", "<C-.>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
 
