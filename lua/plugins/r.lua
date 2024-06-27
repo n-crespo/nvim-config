@@ -34,6 +34,8 @@ return {
       "RSendLine",
       "RSendAllFun",
       "RSendCurrentFun",
+      "RFormatNumbers",
+      "RFormatSubsetting",
       "RSendChain",
       "RNLeftPart",
       "RNLeftPart",
