@@ -8,8 +8,8 @@ return {
         color = "#519aba",
         name = "RMarkdown",
       },
-      ["cf"] = {
-        icon = "",
+      ["cfm"] = {
+        icon = "",
         color = "#7fb0ff",
         name = "ColdFusion",
       },
