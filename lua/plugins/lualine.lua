@@ -13,7 +13,7 @@ return {
     opts.options.section_separators = { left = "", right = "" }
     opts.options.theme = require("transparentlualine").theme
     opts.options.disabled_filetypes = {
-      statusline = { "starter" },
+      statusline = { "ministarter" },
     }
     opts.sections.lualine_x = {
       {
