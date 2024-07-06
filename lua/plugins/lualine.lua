@@ -5,6 +5,7 @@ return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = function(_, opts)
+    local icons = LazyVim.config.icons
     opts.options.component_separators = { left = "⟩", right = "⟨" }
     -- opts.options.component_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
@@ -14,6 +15,12 @@ return {
     opts.options.theme = require("transparentlualine").theme
     opts.options.disabled_filetypes = {
       statusline = { "ministarter" },
+    }
+
+    opts.sections.lualine_c = {
+      LazyVim.lualine.root_dir(),
+      { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+      { LazyVim.lualine.pretty_path() },
     }
     opts.sections.lualine_x = {
       {
@@ -41,6 +48,7 @@ return {
               icon = require("nvim-web-devicons").get_icon_by_filetype("fish")
             end
 
+            -- NOTE: this is a note
             local highlight_group = "LualineTabInactive"
             if i == current_tab then
               highlight_group = "LualineTabActive"
@@ -75,6 +83,19 @@ return {
           return LazyVim.ui.fg("Special")
         end,
       },
+    }
+    opts.sections.lualine_y = {
+      {
+        "diagnostics",
+        symbols = {
+          error = icons.diagnostics.Error,
+          warn = icons.diagnostics.Warn,
+          info = icons.diagnostics.Info,
+          hint = icons.diagnostics.Hint,
+        },
+      },
+      -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
+      -- { "location", padding = { left = 0, right = 1 } },
     }
     opts.sections.lualine_z = {
       function()
