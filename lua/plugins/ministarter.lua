@@ -57,5 +57,19 @@ return {
 
     local starter = require("mini.starter")
     starter.setup(config)
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyVimStarted",
+      callback = function(ev)
+        local stats = require("lazy").stats()
+        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        local pad_footer = string.rep(" ", 8)
+        starter.config.footer = " " .. stats.loaded .. "/" .. stats.count .. " ⚡" .. ms .. "ms"
+        -- INFO: based on @echasnovski's recommendation (thanks a lot!!!)
+        if vim.bo[ev.buf].filetype == "ministarter" then
+          pcall(starter.refresh)
+        end
+      end,
+    })
   end,
 }
