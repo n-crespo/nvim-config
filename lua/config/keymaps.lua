@@ -202,6 +202,7 @@ vim.cmd("cnoreabbrev E  e")
 vim.cmd("cnoreabbrev Set  set")
 vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev WQ wq")
+vim.cmd("cnoreabbrev Q qa")
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
