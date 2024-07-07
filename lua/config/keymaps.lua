@@ -191,7 +191,6 @@ local abbrevations = {
   { "teh", "the" },
   { "thats", "that's" },
   { "itll", "it'll" },
-  { "its", "it's" },
 }
 for _, v in ipairs(abbrevations) do
   vim.cmd(string.format("iabbrev %s %s", v[1], v[2]))
