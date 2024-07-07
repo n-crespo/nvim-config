@@ -48,7 +48,6 @@ return {
               icon = require("nvim-web-devicons").get_icon_by_filetype("fish")
             end
 
-            -- NOTE: this is a note
             local highlight_group = "LualineTabInactive"
             if i == current_tab then
               highlight_group = "LualineTabActive"
@@ -75,7 +74,6 @@ return {
         --   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
         -- end,
       },
-      -- note: see lazyvim config for section that shows last key press
       {
         require("lazy.status").updates,
         cond = require("lazy.status").has_updates,
