@@ -1,3 +1,10 @@
+-- never wrap my code. Please. Stop it.
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  callback = function()
+    vim.cmd([[set nowrap]])
+  end,
+})
+
 -- remove all trailing whitespace on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
