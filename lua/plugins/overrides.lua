@@ -16,12 +16,4 @@ return {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
-  {
-    "folke/neoconf.nvim", -- this is useless to me afaik
-    enabled = false,
-  },
-  -- {
-  --   "folke/neodev.nvim",
-  --   enabled = false,
-  -- },
 }
