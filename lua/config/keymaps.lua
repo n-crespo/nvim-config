@@ -152,9 +152,32 @@ vim.keymap.set("n", "<C-f>", function()
   require("telescope.builtin").current_buffer_fuzzy_find(
     require("telescope.themes").get_dropdown({ winblend = 0, previewer = false })
   )
-end, { desc = "Find Word" })
+end, { desc = "find word" })
 
-vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "Git Preview" })
+vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "git preview" })
+
+vim.keymap.set(
+  "x",
+  "'",
+  [[:s/\%V\(.*\)\%V/'\1'/ <CR><cmd>noh<cr>]],
+  { desc = "Surround selection with '", silent = true }
+)
+vim.keymap.set(
+  "x",
+  '"',
+  [[:s/\%V\(.*\)\%V/"\1"/ <CR><cmd>noh<cr>]],
+  { desc = 'Surround selection with "', silent = true }
+)
+vim.keymap.set(
+  "x",
+  "*",
+  [[:s/\%V\(.*\)\%V/*\1*/ <CR><cmd>noh<cr>]],
+  { desc = "Surround selection with *", silent = true }
+)
+
+-- vim.keymap.set("n", "<leader>s*", [[:s/\<<C-r><C-w>\>/*<C-r><C-w>\*/ <CR>]], { desc = "Surround word with *" })
+-- vim.keymap.set("n", '<leader>s"', [[:s/\<<C-r><C-w>\>/"<C-r><C-w>\"/ <CR>]], { desc = 'Surround word with "' })
+-- vim.keymap.set("n", "<leader>s'", [[:s/\<<C-r><C-w>\>/'<C-r><C-w>\'/ <CR>]], { desc = "Surround word with '" })
 
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 
