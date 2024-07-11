@@ -5,24 +5,50 @@ return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = function(_, opts)
-    local icons = LazyVim.config.icons
-    opts.options.component_separators = { left = "⟩", right = "⟨" }
     -- opts.options.component_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "▌", right = "▐" }
     -- opts.options.section_separators = { left = "", right = "" }
+    local icons = LazyVim.config.icons
+    opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
     opts.options.theme = require("transparentlualine").theme
     opts.options.disabled_filetypes = {
       statusline = { "ministarter" },
     }
-
     opts.sections.lualine_c = {
       LazyVim.lualine.root_dir(),
       { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
       { LazyVim.lualine.pretty_path() },
+      {
+        "diagnostics",
+        symbols = {
+          error = icons.diagnostics.Error,
+          warn = icons.diagnostics.Warn,
+          info = icons.diagnostics.Info,
+          hint = icons.diagnostics.Hint,
+        },
+      },
+      {
+        function()
+          local reg = vim.fn.reg_recording()
+          if reg == "" then
+            return ""
+          end -- not recording
+          return "@" .. reg
+        end,
+      },
     }
     opts.sections.lualine_x = {
+      {
+        require("lazy.status").updates,
+        cond = require("lazy.status").has_updates,
+        color = function()
+          return LazyVim.ui.fg("Special")
+        end,
+      },
+    }
+    opts.sections.lualine_y = {
       {
         function()
           local tabs = {}
@@ -73,24 +99,6 @@ return {
         -- cond = function()
         --   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
         -- end,
-      },
-      {
-        require("lazy.status").updates,
-        cond = require("lazy.status").has_updates,
-        color = function()
-          return LazyVim.ui.fg("Special")
-        end,
-      },
-    }
-    opts.sections.lualine_y = {
-      {
-        "diagnostics",
-        symbols = {
-          error = icons.diagnostics.Error,
-          warn = icons.diagnostics.Warn,
-          info = icons.diagnostics.Info,
-          hint = icons.diagnostics.Hint,
-        },
       },
       -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
       -- { "location", padding = { left = 0, right = 1 } },
