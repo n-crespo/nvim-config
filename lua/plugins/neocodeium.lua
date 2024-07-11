@@ -62,7 +62,7 @@ return {
     {
       "<C-p>",
       function()
-        require("neocodeium").cycle_or_complete(10)
+        require("neocodeium").cycle_or_complete(-1)
       end,
       mode = "i",
     },
