@@ -18,8 +18,8 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" 
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
 -- full line navigation (i never use E and B)
-vim.keymap.set({ "n", "v" }, "E", "$", { desc = "End of line", silent = true })
-vim.keymap.set({ "n", "v" }, "B", "_", { desc = "Start of line", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "B", "_", { desc = "Start of line", silent = true })
 
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
@@ -261,17 +261,11 @@ vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = 
 vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 
 -- toggling comments
-vim.keymap.set({ "n", "i" }, "<C-S-?>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("v", "<C-S-?>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set({ "n", "i" }, "<C-/>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("v", "<C-/>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
 
-vim.keymap.set({ "n", "i" }, "<C-S-/>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("v", "<C-S-/>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
-
-vim.keymap.set({ "n", "i" }, "<M-/>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("v", "<M-/>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
-
-vim.keymap.set({ "n", "i" }, "<C-.>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("v", "<C-.>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set({ "n", "i" }, "<C-_>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
+vim.keymap.set("v", "<C-_>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
 
 -- clean ^Ms (windows newlines)
 vim.keymap.set("n", "<C-S-S>", function()
