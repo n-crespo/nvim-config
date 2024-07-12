@@ -180,6 +180,12 @@ vim.keymap.set(
   [[:s/\%V\(.*\)\%V/_\1_/ <CR><cmd>noh<cr>]],
   { desc = "Surround selection with *", silent = true }
 )
+vim.keymap.set(
+  "x",
+  "q",
+  [[:s/\%V\(.*\)\%V/"\1"/ <CR><cmd>noh<cr>]],
+  { desc = "Surround selection with *", silent = true }
+)
 
 -- vim.keymap.set("n", "<leader>s*", [[:s/\<<C-r><C-w>\>/*<C-r><C-w>\*/ <CR>]], { desc = "Surround word with *" })
 -- vim.keymap.set("n", '<leader>s"', [[:s/\<<C-r><C-w>\>/"<C-r><C-w>\"/ <CR>]], { desc = 'Surround word with "' })
