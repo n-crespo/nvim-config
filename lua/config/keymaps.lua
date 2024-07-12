@@ -174,6 +174,12 @@ vim.keymap.set(
   [[:s/\%V\(.*\)\%V/*\1*/ <CR><cmd>noh<cr>]],
   { desc = "Surround selection with *", silent = true }
 )
+vim.keymap.set(
+  "x",
+  "_",
+  [[:s/\%V\(.*\)\%V/_\1_/ <CR><cmd>noh<cr>]],
+  { desc = "Surround selection with *", silent = true }
+)
 
 -- vim.keymap.set("n", "<leader>s*", [[:s/\<<C-r><C-w>\>/*<C-r><C-w>\*/ <CR>]], { desc = "Surround word with *" })
 -- vim.keymap.set("n", '<leader>s"', [[:s/\<<C-r><C-w>\>/"<C-r><C-w>\"/ <CR>]], { desc = 'Surround word with "' })
@@ -248,7 +254,6 @@ vim.keymap.set(
 
 -- : (easier to hit when using in combination with <C-k>)
 vim.keymap.set({ "n", "v" }, "<C-;>", ":", { remap = true, silent = false, desc = "Commmand Mode" })
-vim.keymap.set({ "n", "v" }, "<C-x>", ":", { remap = true, silent = false, desc = "Commmand Mode" }) -- alacritty giving me problems
 
 -- increment and decrement with plus and minus (since I override <C-a>)
 vim.keymap.set({ "n", "v" }, "+", "<C-a>", { noremap = true, silent = true })

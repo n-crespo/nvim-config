@@ -1,4 +1,5 @@
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
+vim.keymap.set("i", "<Tab>", "<C-t>", { buffer = true, silent = true })
 vim.keymap.set("i", "<C-e>", "```<cr><cr>```<up><up>", { buffer = true, silent = true })
 vim.cmd([[ setlocal commentstring=<!--\ %s\ --> ]])
 vim.keymap.set("i", "$", "$$<left>", { remap = false, silent = true, buffer = true })
@@ -12,5 +13,3 @@ vim.cmd([[inoreabbrev <buffer> pe <!-- prettier-ignore-end -->]])
 
 vim.keymap.set("x", "<C-b>", "c****<esc>hP", { buffer = true })
 vim.keymap.set("x", "<C-i>", "c**<esc>P", { buffer = true })
-vim.keymap.set("n", "<C-b>", "gsaiw*", { remap = true, buffer = true })
-vim.keymap.set("n", "<C-i>", "gsaiw_", { remap = true, buffer = true })
