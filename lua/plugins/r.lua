@@ -68,17 +68,15 @@ return {
         -- This is an opportunity to create mappings local to buffers.
         vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine", { buffer = true })
         vim.keymap.set("v", "<Enter>", "<Plug>RSendSelection", { buffer = true })
-        vim.keymap.del("i", "<Space>,", { buffer = true })
+        -- vim.keymap.del("i", "<Space>,", { buffer = true })
         vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Paste Register", silent = true, buffer = true })
 
         -- Increase the width of which-key to handle the longer r-nvim descriptions local wk = require("which-key")
         -- Workaround from https://github.com/folke/which-key.nvim/issues/514#issuecomment-1987286901
-        require("which-key").register({
-          ["<localleader>"] = {
-            c = { name = "+code/chunks", ["🚫"] = "which_key_ignore" },
-            r = { name = "+r", ["🚫"] = "which_key_ignore" },
-            v = { name = "+view", ["🚫"] = "which_key_ignore" },
-          },
+        require("which-key").add({
+          { "<leader>c", group = "code/chunks" },
+          { "<leader>r", group = "r general" },
+          { "<leader>v", group = "view" },
         })
       end,
     },

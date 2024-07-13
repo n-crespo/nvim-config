@@ -2,19 +2,30 @@
 return {
   "folke/which-key.nvim",
   lazy = false,
-  enabled = true,
   opts = {
     show_help = false,
     ignore_missing = false,
-    window = {
+    plugins = {
+      marks = false,
+    },
+    win = {
       border = "rounded",
       padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
     },
-    defaults = {
+    spec = {
       mode = { "n" },
-      ["<leader>t"] = { name = "+tab" },
-      ["<leader>o"] = { name = "+open" },
-      ["<R>"] = { name = "+run" },
+      { "<leader>t", group = "+tab" },
+      { "<leader>o", group = "+open" },
+      { "<R>", group = "run", icon = "" },
+    },
+    modes = {
+      n = true, -- Normal mode
+      i = false, -- Insert mode
+      x = false, -- Visual mode
+      s = true, -- Select mode
+      o = true, -- Operator pending mode
+      t = true, -- Terminal mode
+      c = true, -- Command mode
     },
   },
   keys = {
