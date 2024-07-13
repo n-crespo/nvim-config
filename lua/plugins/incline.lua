@@ -26,7 +26,7 @@ return {
         return {
           -- { get_diagnostic_label() },
           { (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" },
-          { filename .. "", gui = modified and "bold" or "none" },
+          { (filename .. (modified and " " or "")), gui = modified and "bold" or "none" },
         }
       end,
     })
