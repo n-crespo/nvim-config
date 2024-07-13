@@ -76,7 +76,7 @@ vim.keymap.set("n", "<leader>bl", function()
 end, { desc = "Buffer Locate", silent = true })
 
 -- close buffer (soft) (preserve split)
-vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
+-- vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
 
 -- close buffer (not soft) (don't preserve split)
 -- vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit", silent = true })
