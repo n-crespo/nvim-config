@@ -12,31 +12,34 @@ return {
   },
   config = function()
     local cmp = require("cmp")
+
     local formatting = {
-      format = function(_, item)
-        local icons = require("lazyvim.config").icons.kinds
+      format = function(entry, item)
+        local icons = LazyVim.config.icons.kinds
         if icons[item.kind] then
           item.kind = icons[item.kind] .. item.kind
         end
-        item.menu = ""
+
+        local widths = {
+          abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+          menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+        }
+
+        for key, width in pairs(widths) do
+          if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+            item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+          end
+        end
+
         return item
       end,
     }
-
     local sources = cmp.config.sources({
       { name = "snippets" },
       { name = "nvim_lsp" },
       { name = "path" },
       { name = "buffer" },
     })
-
-    local next = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end
 
     local mapping = {
       ["<C-e>"] = { i = require("cmp").mapping.abort() },
