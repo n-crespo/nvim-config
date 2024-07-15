@@ -5,6 +5,8 @@
 -- License:      GPL-3.0
 -- Last Updated: Wed Mar  6 11:08:58 PM CST 2024
 
+-- NOTE; this intentionally avoids the use of bright red and yellow (reserved for errors)
+
 -- Clear hlgroups and set colors_name {{{
 vim.cmd.hi("clear")
 vim.g.colors_name = "macro"

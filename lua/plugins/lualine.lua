@@ -35,7 +35,7 @@ return {
           if reg == "" then
             return ""
           end -- not recording
-          return "@" .. reg
+          return "recording @" .. reg
         end,
       },
     }
