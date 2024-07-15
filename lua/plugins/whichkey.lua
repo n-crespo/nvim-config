@@ -4,17 +4,17 @@ return {
   lazy = false,
   opts = {
     show_help = false,
-    ignore_missing = false,
     plugins = {
       marks = false,
     },
     win = {
+      no_overlap = false,
       border = "rounded",
       padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
     },
     spec = {
       mode = { "n" },
-      { "<leader>t", group = "+tab" },
+      -- { "<leader>t", group = "+tab" },
       { "<leader>o", group = "+open" },
       { "<R>", group = "run", icon = "" },
     },

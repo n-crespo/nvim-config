@@ -1,3 +1,4 @@
+-- NOTE; this is for the reload plugin keymaps
 local M = {}
 
 function M.pluginNames()
