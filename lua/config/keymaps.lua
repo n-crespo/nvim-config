@@ -57,9 +57,6 @@ vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
 vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
--- leader
-vim.keymap.set("n", "\\", "<C-w>", { desc = "Window Split" })
-
 -- delete all other {something} (tab, buffer, window)
 vim.keymap.set("n", "<leader>wo", "<cmd>only <CR>", { silent = true, desc = "Window only" })
 
