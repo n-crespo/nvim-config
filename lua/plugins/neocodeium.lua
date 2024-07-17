@@ -51,6 +51,7 @@ return {
         ToggleCodeium()
       end,
       mode = { "n", "i" },
+      desc = "Toggle Codeium",
     },
     {
       "<C-n>",
