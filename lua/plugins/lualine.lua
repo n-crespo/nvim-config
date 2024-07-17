@@ -5,19 +5,20 @@ return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = function(_, opts)
+    local icons = LazyVim.config.icons
     -- opts.options.component_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
-    local icons = LazyVim.config.icons
+    -- opts.options.section_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "▌", right = "▐" }
     opts.options.component_separators = { left = "", right = "" }
     opts.options.theme = require("transparentlualine").theme
-    opts.options.disabled_filetypes = {
-      statusline = { "ministarter" },
+    opts.options.disabled_filetypes = { statusline = { "ministarter" } }
+    opts.sections.lualine_b = {
+      LazyVim.lualine.root_dir(),
     }
     opts.sections.lualine_c = {
-      LazyVim.lualine.root_dir(),
       { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
       { LazyVim.lualine.pretty_path() },
       {
@@ -48,6 +49,8 @@ return {
         end,
       },
     }
+    -- NOTE this could have potentially been done with the "tabs" lualine
+    -- component rather than doing it manually buuuuut
     opts.sections.lualine_y = {
       {
         function()
