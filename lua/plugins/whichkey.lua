@@ -3,6 +3,10 @@ return {
   "folke/which-key.nvim",
   lazy = false,
   opts = {
+    filter = function(mapping)
+      -- exclude mappings without a description
+      return mapping.desc and mapping.desc ~= ""
+    end,
     show_help = false,
     plugins = {
       marks = false,
