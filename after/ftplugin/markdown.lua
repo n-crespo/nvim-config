@@ -11,5 +11,6 @@ vim.keymap.set("n", "<leader>cs", "<cmd>Toc<cr><cmd>set nonu nornu<cr>", { buffe
 vim.cmd([[inoreabbrev <buffer> ps <!-- prettier-ignore-start -->]])
 vim.cmd([[inoreabbrev <buffer> pe <!-- prettier-ignore-end -->]])
 
-vim.keymap.set("x", "<C-b>", "c****<esc>hP", { buffer = true })
-vim.keymap.set("x", "<C-i>", "c**<esc>P", { buffer = true })
+-- NOTE these save to the `r` register arbitrarily as to not clog up system clipboard
+vim.keymap.set("x", "<C-b>", '"rc****<esc>h"rP', { buffer = true })
+vim.keymap.set("x", "<C-i>", '"rc**<esc>"rP', { buffer = true })
