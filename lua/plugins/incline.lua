@@ -5,11 +5,7 @@ return {
     vim.g.showtabline = 0
     local devicons = require("nvim-web-devicons")
     require("incline").setup({
-      window = {
-        options = {
-          buftype = "nofile",
-        },
-      },
+      window = { options = { buftype = "nofile" } },
       hide = {
         cursorline = "focused_win",
       },
@@ -30,7 +26,7 @@ return {
             end
           end
           if #label > 0 then
-            table.insert(label, { "│ " })
+            table.insert(label, { " " })
           end
           return label
         end
