@@ -3,7 +3,6 @@ return {
   event = "LazyFile",
   config = function()
     vim.g.showtabline = 0
-    local devicons = require("nvim-web-devicons")
     require("incline").setup({
       window = {
         -- placement = { vertical = "top", horizontal = "center" },
@@ -21,7 +20,7 @@ return {
           filename = "[No Name]"
         end
 
-        local ft_icon, ft_color = devicons.get_icon_color(filename)
+        local ft_icon, ft_color = require("nvim-web-devicons").get_icon_color(filename)
 
         local modified = vim.bo[props.buf].modified
 
