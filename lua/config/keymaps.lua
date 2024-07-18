@@ -21,6 +21,9 @@ vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better
 vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true })
 vim.keymap.set({ "n", "v", "o" }, "B", "_", { desc = "Start of line", silent = true })
 
+vim.keymap.set("n", "j", "j")
+vim.keymap.set("n", "k", "k")
+
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
 -- allow changing and deleting without overriding current paste registers
