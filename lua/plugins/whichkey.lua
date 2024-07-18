@@ -22,15 +22,15 @@ return {
       { "<leader>o", group = "+open" },
       { "<R>", group = "run", icon = "" },
     },
-    modes = {
-      n = true, -- Normal mode
-      i = false, -- Insert mode
-      x = false, -- Visual mode
-      s = true, -- Select mode
-      o = true, -- Operator pending mode
-      t = false, -- Terminal mode
-      c = true, -- Command mode
-    },
+    -- modes = {
+    --   n = true, -- Normal mode
+    --   i = false, -- Insert mode
+    --   x = false, -- Visual mode
+    --   s = true, -- Select mode
+    --   o = true, -- Operator pending mode
+    --   t = false, -- Terminal mode
+    --   c = true, -- Command mode
+    -- },
   },
   keys = {
     { "<leader>K", nil },
