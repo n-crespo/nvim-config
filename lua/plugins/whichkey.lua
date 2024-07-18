@@ -28,7 +28,7 @@ return {
       x = false, -- Visual mode
       s = true, -- Select mode
       o = true, -- Operator pending mode
-      t = true, -- Terminal mode
+      t = false, -- Terminal mode
       c = true, -- Command mode
     },
   },
