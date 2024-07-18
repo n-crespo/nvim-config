@@ -285,3 +285,10 @@ vim.keymap.set("n", "<C-S-S>", function()
   vim.cmd([[w]])
   vim.notify("Cleaned all newline characters!", vim.log.levels.INFO, { title = "File Saved" })
 end, { remap = false, desc = "Clean ^M", silent = true })
+
+-- get word count of current file
+vim.keymap.set("n", "<C-S-C>", function()
+  vim.notify("" .. vim.fn.wordcount().words, vim.log.levels.INFO, {
+    title = "Word Count",
+  })
+end)
