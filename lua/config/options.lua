@@ -56,7 +56,7 @@ vim.g.wrap = false -- stop wrapping my text
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.lazyvim_python_lsp = "pyright"
-vim.g.python3_host_prog = "/usr/bin/python3"
+vim.g.python3_host_prog = "/home/linuxbrew/.linuxbrew/bin/python3"
 
 if vim.fn.has("win32") == 1 then
   LazyVim.terminal.setup("pwsh")
