@@ -194,7 +194,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
 
 -- grant permissions
-vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Permissions" })
+vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Grant Permissions" })
 
 -- --------------------------------- TERMINAL KEYMAPS-----------------------------------------------
 
