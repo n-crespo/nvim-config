@@ -5,7 +5,13 @@ return {
     vim.g.showtabline = 0
     local devicons = require("nvim-web-devicons")
     require("incline").setup({
-      window = { options = { buftype = "nofile" } },
+      window = {
+        -- placement = { vertical = "top", horizontal = "center" },
+        options = { buftype = "nofile", wrap = false },
+        margin = { horizontal = 0, vertical = 1 },
+        overlap = { tabline = false, winbar = false },
+        width = "fit",
+      },
       hide = {
         cursorline = "focused_win",
       },
@@ -15,30 +21,15 @@ return {
           filename = "[No Name]"
         end
 
-        local function get_diagnostic_label()
-          local icons = { error = " ", warn = " ", info = " ", hint = " " }
-          local label = {}
-
-          for severity, icon in pairs(icons) do
-            local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
-            if n > 0 then
-              table.insert(label, { n .. " ", group = "DiagnosticSign" .. severity })
-            end
-          end
-          if #label > 0 then
-            table.insert(label, { " " })
-          end
-          return label
-        end
-
         local ft_icon, ft_color = devicons.get_icon_color(filename)
 
         local modified = vim.bo[props.buf].modified
 
         return {
-          { get_diagnostic_label() },
+          -- { get_diagnostic_label() },
           { (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" },
-          { (filename .. (modified and " " or "")), gui = modified and "bold" or "none" },
+          { filename, gui = modified and "bold" or "none" },
+          { modified and " " or "" },
         }
       end,
     })

@@ -209,8 +209,8 @@ local hlgroups = {
   WarningMsg = { fg = c_roninYellow },
   Whitespace = { fg = selection_light_gray },
   WildMenu = { link = "Pmenu" },
-  WinBar = { bg = "NONE", fg = c_macroFg1 },
-  WinBarNC = { link = "WinBar" },
+  WinBar = { bg = c_macroBg2, fg = c_macroFg0 },
+  WinBarNC = { bg = c_macroBg2, fg = c_macroFg1 },
   WinSeparator = { fg = selection_light_gray },
   lCursor = { link = "Cursor" },
   -- }}}2
@@ -534,8 +534,8 @@ local hlgroups = {
   MiniFilesBorder = { link = "FloatBorder" },
 
   -- incline
-  InclineNormal = { bg = selection_light_gray, bold = false },
-  InclineNormalNC = { bg = selection_light_gray, bold = false },
+  InclineNormal = { bg = "#201D1D", bold = false },
+  InclineNormalNC = { bg = "#201D1D", bold = false },
 
   -- mini.starter
   MiniStarterItemBullet = { fg = border_purple_ink },
