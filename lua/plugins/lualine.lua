@@ -8,10 +8,10 @@ return {
     local icons = LazyVim.config.icons
     -- opts.options.component_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
-    -- opts.options.section_separators = { left = "", right = "" }
+    opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
-    opts.options.section_separators = { left = "▌", right = "▐" }
+    -- opts.options.section_separators = { left = "▌", right = "▐" }
     opts.options.component_separators = { left = "", right = "" }
     opts.options.theme = require("transparentlualine").theme
     opts.options.disabled_filetypes = { statusline = { "ministarter" } }
