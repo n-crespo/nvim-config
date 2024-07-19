@@ -103,9 +103,9 @@ return {
         end,
         separator = " ",
         padding = { left = 0, right = 1 },
-        cond = function()
-          return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
-        end,
+        -- cond = function()
+        --   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
+        -- end,
       },
       -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
       -- { "location", padding = { left = 0, right = 1 } },

@@ -24,12 +24,12 @@ return {
         },
         {
           name = "old files",
-          action = "Telescope oldfiles",
+          action = "lua LazyVim.pick('oldfiles')()",
           section = " ",
         },
         {
           name = "config files",
-          action = LazyVim.pick.config_files(),
+          action = "lua LazyVim.pick.config_files()()",
           section = " ",
         },
         {
@@ -63,7 +63,7 @@ return {
       callback = function(ev)
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        local pad_footer = string.rep(" ", 8)
+        -- local pad_footer = string.rep(" ", 8)
         starter.config.footer = " " .. stats.loaded .. "/" .. stats.count .. " ⚡" .. ms .. "ms"
         -- INFO; based on @echasnovski's recommendation (thanks a lot!!!)
         if vim.bo[ev.buf].filetype == "ministarter" then
