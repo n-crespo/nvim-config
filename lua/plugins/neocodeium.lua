@@ -1,6 +1,7 @@
 return {
   "monkoose/neocodeium",
   enabled = vim.fn.has("win32") == 0, -- don't enable in windows
+  -- enabled = false,
   event = "InsertEnter",
   opts = {
     show_label = false,
