@@ -1,7 +1,6 @@
 return {
   "monkoose/neocodeium",
-  enabled = vim.fn.has("win32") == 0, -- don't enable in windows
-  -- enabled = false,
+  enabled = vim.fn.has("win34") == 0, -- don't enable in windows
   event = "InsertEnter",
   opts = {
     show_label = false,
@@ -15,16 +14,18 @@ return {
     },
   },
   config = function(_, opts)
-    vim.g.neocodeium_enabled = true
+    vim.g.neocodeium_enabled = false
     require("neocodeium").setup(opts)
+    vim.cmd("NeoCodeium disable")
+
     function ToggleCodeium()
       vim.g.neocodeium_enabled = not vim.g.neocodeium_enabled
       if not vim.g.neocodeium_enabled then
-        vim.notify("Disabled Codeium", vim.log.levels.WARN, { title = "Codeium" })
+        vim.notify("Disabled Codeium", vim.log.levels.WARN, { title = "AI Suggestions" })
         require("neocodeium").clear()
         vim.cmd("NeoCodeium disable")
       else
-        vim.notify("Enabled Codeium", vim.log.levels.INFO, { title = "Codeium" })
+        vim.notify("Enabled Codeium", vim.log.levels.INFO, { title = "AI Suggestions" })
         require("neocodeium").cycle_or_complete()
         vim.cmd("NeoCodeium enable")
       end
@@ -64,7 +65,7 @@ return {
     {
       "<C-p>",
       function()
-        require("neocodeium").cycle_or_complete(-1)
+        require("neocodeium").cycle_or_complete(1)
       end,
       mode = "i",
     },
