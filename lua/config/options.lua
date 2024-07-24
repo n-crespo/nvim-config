@@ -24,7 +24,7 @@ local opt = vim.opt
 -- end
 
 opt.clipboard = "unnamedplus" -- sync with system clipboard
-opt.mouse = "" -- disable mouse
+opt.mouse = "a" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
 opt.cursorline = true -- don't highlight current line (transparent background)
