@@ -10,8 +10,8 @@ return {
     },
     mappings = {
       go_in_plus = "<CR>",
-      go_in_horizontal = "_",
-      go_in_vertical = "|",
+      go_in_horizontal_plus = "_",
+      go_in_vertical_plus = "|",
     },
     options = {
       permanent_delete = false, -- files are sent to ~/.local/share/nvim/mini.files/trash/
