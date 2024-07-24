@@ -553,11 +553,9 @@ local hlgroups = {
 
   -- lualine tab pages
   LualineTabInactive = { fg = c_macroAsh },
-  LualineTabActive = {
-    fg = c_macroFg1,
-    bold = true,
-    underline = false,
-  },
+  LualineTabActive = { fg = c_macroFg1, bold = true, underline = false },
+  RenderMarkdownCode = { bg = c_macroBg2 },
+  -- RenderMarkdownCodeInline = { link = "@markup.raw.markdown_inline" },
   -- }}}
 }
 -- }}}1
