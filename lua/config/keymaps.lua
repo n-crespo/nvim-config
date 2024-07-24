@@ -96,8 +96,8 @@ vim.keymap.set("n", "<leader>bo", ":%bd|e#<cr>", { desc = "Buffer Only", silent 
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
 if vim.fn.has("wsl") or vim.fn.has("win32") then
   vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
-  vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
-  vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
+  -- vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
+  -- vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
   vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
   vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
 elseif vim.fn.has("mac") then
@@ -209,6 +209,8 @@ vim.keymap.set({ "t", "n" }, "<C-S-L>", "<cmd>wincmd l<cr>", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<C-S-J>", "<cmd>wincmd j<cr>", { noremap = true }) -- this doesn't work
 vim.keymap.set({ "t", "n" }, "<S-NL>", "<cmd>wincmd j<cr>", { noremap = true }) -- this does?
 vim.keymap.set({ "t", "n" }, "<C-S-K>", "<cmd>wincmd k<cr>", { noremap = true })
+
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- ------------------------------------- ABBREVIATIONS --------------------------------------------
 
