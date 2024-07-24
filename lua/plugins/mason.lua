@@ -18,7 +18,6 @@ return {
       "jdtls",
       "json-lsp",
       "r-languageserver",
-      -- "ruff-lsp",
       "shellcheck",
       "shfmt",
       "stylua",
