@@ -1,15 +1,61 @@
 -- fuzzy file finder and a whole lot more
 -- use <leader><leader> to find within a directory (respects git)
--- previewer omits files that are too large or un-preview-able, catimg for
--- images
+-- shows file name before path
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "TelescopeResults",
+  callback = function(ctx)
+    vim.api.nvim_buf_call(ctx.buf, function()
+      vim.fn.matchadd("TelescopeParent", "\t\t.*$")
+      vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+    end)
+  end,
+})
+
+local function filenameFirst(_, path)
+  local tail = vim.fs.basename(path)
+  local parent = vim.fs.dirname(path)
+  if parent == "." then
+    return tail
+  end
+  return string.format("%s\t\t%s", tail, parent)
+end
+
+require("telescope").setup({
+  pickers = {
+    find_files = {
+      path_display = filenameFirst,
+    },
+  },
+})
 return {
   "telescope.nvim",
   event = "VeryLazy",
   opts = {
+    pickers = {
+      oldfiles = { path_display = filenameFirst },
+      find_files = { path_display = filenameFirst },
+    },
     defaults = {
-      preview = {
-        filesize_limit = 0.5, -- MB
+      selection_strategy = "reset",
+      sorting_strategy = "descending",
+      layout_strategy = "horizontal",
+      -- layout_strategy = "vertical",
+      layout_config = {
+        height = 0.9,
+        prompt_position = "bottom",
+        horizontal = {
+          mirror = false,
+        },
+        vertical = {
+          mirror = false,
+        },
       },
+      -- layout_config = { height = 0.95 },
+      preview = { filesize_limit = 0.5 }, -- this is in MB
+      border = {},
+      -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       mappings = {
         i = {
           ["<ESC>"] = require("telescope.actions").close,
@@ -38,6 +84,15 @@ return {
             -- api.nvim_set_current_win(winid)
           end,
         },
+      },
+    },
+    extensions = {
+      fzf = {
+        fuzzy = true, -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        -- override_file_sorter = true, -- override the file sorter
+        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+        -- the default case_mode is "smart_case"
       },
     },
   },
