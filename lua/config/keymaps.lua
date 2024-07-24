@@ -272,7 +272,7 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 -- follow links better
 vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = "Follow Link" })
 
-vim.keymap.set("n", "`", "za", { desc = "Toggle fold" }) -- i don't use marks
+vim.keymap.set({ "n", "v" }, "`", "za", { desc = "Toggle fold" }) -- i don't use marks
 
 -- toggling comments
 vim.keymap.set({ "n", "i" }, "<C-/>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
