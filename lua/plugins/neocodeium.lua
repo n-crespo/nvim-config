@@ -21,11 +21,11 @@ return {
     function ToggleCodeium()
       vim.g.neocodeium_enabled = not vim.g.neocodeium_enabled
       if not vim.g.neocodeium_enabled then
-        vim.notify("Disabled Codeium", vim.log.levels.WARN, { title = "AI Suggestions" })
+        -- vim.notify("Disabled Codeium", vim.log.levels.WARN, { title = "AI Suggestions" })
         require("neocodeium").clear()
         vim.cmd("NeoCodeium disable")
       else
-        vim.notify("Enabled Codeium", vim.log.levels.INFO, { title = "AI Suggestions" })
+        -- vim.notify("Enabled Codeium", vim.log.levels.INFO, { title = "AI Suggestions" })
         require("neocodeium").cycle_or_complete()
         vim.cmd("NeoCodeium enable")
       end
@@ -43,6 +43,7 @@ return {
       "<C-a>",
       function()
         ToggleCodeium()
+        require("lualine").refresh()
       end,
 
       mode = "i",
@@ -51,6 +52,7 @@ return {
       "<C-S-A>",
       function()
         ToggleCodeium()
+        require("lualine").refresh()
       end,
       mode = { "n", "i" },
       desc = "Toggle Codeium",
