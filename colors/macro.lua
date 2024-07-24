@@ -488,6 +488,7 @@ local hlgroups = {
   TelescopeResultsVariable = { link = "@variable" },
   TelescopeSelection = { link = "Visual" },
   TelescopeTitle = { fg = c_macroGray2 },
+  TelescopePromptBorder = { link = "TelescopeBorder" },
 
   -- nvim-dap-ui
   DapUIBreakpointsCurrentLine = { bold = true, fg = c_macroFg0 },
