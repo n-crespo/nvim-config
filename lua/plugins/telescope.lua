@@ -43,7 +43,6 @@ return {
       -- layout_strategy = "vertical",
       layout_config = {
         height = 0.9,
-        prompt_position = "bottom",
         horizontal = {
           mirror = false,
         },
