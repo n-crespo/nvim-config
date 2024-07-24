@@ -8,13 +8,15 @@
     "lazyvim.plugins.extras.lang.java",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.r",
+    "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.ui.mini-indentscope",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "news": {
-    "NEWS.md": "6296"
+    "NEWS.md": "6520"
   },
   "version": 6
 }
+
