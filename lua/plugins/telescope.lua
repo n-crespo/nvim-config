@@ -40,7 +40,6 @@ return {
       selection_strategy = "reset",
       sorting_strategy = "descending",
       layout_strategy = "horizontal",
-      -- layout_strategy = "vertical",
       layout_config = {
         height = 0.9,
         horizontal = {
@@ -50,13 +49,22 @@ return {
           mirror = false,
         },
       },
-      -- layout_config = { height = 0.95 },
       preview = { filesize_limit = 0.5 }, -- this is in MB
       border = {},
-      -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       mappings = {
         i = {
+          -- these don't rly work
+          ["<C-z>"] = function()
+            vim.cmd("undo")
+          end,
+          ["<C-S-Z>"] = function()
+            vim.cmd("redo")
+          end,
+          ["<C-y>"] = function()
+            vim.cmd("redo")
+          end,
+          -- these do work
           ["<ESC>"] = require("telescope.actions").close,
           ["<C-j>"] = require("telescope.actions").move_selection_next,
           ["<C-k>"] = require("telescope.actions").move_selection_previous,
