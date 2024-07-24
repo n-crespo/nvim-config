@@ -230,12 +230,15 @@ for _, v in ipairs(abbrevations) do
   vim.cmd(string.format("iabbrev %s %s", v[1], v[2]))
 end
 
-vim.cmd("cnoreabbrev W  w")
-vim.cmd("cnoreabbrev E  e")
 vim.cmd("cnoreabbrev Set  set")
 vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev WQ wq")
-vim.cmd("cnoreabbrev Q qa")
+
+vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
+vim.api.nvim_create_user_command("E", "e", { nargs = 0 })
+vim.api.nvim_create_user_command("Q", "qa", { nargs = 0 })
+vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
+vim.api.nvim_create_user_command("WQ", "wq", { nargs = 0 })
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
