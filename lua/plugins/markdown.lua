@@ -28,7 +28,7 @@ return {
       code = {
         sign = false,
         width = "full",
-        right_pad = 1,
+        -- right_pad = 1,
       },
       heading = {
         sign = false,
@@ -36,6 +36,11 @@ return {
       },
       quote = {
         icon = "┃",
+      },
+      bullet = {
+        -- icons = { "●", "○", "◆", "◇" },
+        -- icons = { "◉", "○", "✸", "✿" },
+        icons = { "", "○", "▪", "▫" },
       },
     },
     ft = { "markdown", "norg", "rmd", "org" },
