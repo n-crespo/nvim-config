@@ -71,32 +71,28 @@ vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "wrap",
   callback = function()
     if vim.opt.wrap:get() then
+      vim.wo.cursorline = false
       vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true, buffer = true })
       vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true, buffer = true })
     else
+      vim.wo.cursorline = true
       vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true, buffer = true })
       vim.keymap.set({ "n", "v", "o" }, "B", "0", { desc = "Start of line", silent = true, buffer = true })
     end
   end,
 })
--- Check the wrap option on startup
-vim.api.nvim_create_autocmd("BufEnter", {
-  once = false,
+-- make sure this is also checked on startup and hide cursorline if markdown file
+vim.api.nvim_create_autocmd("BufRead", {
+  -- once = false,
   callback = function()
     if vim.opt.wrap:get() then
+      vim.wo.cursorline = false
       vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true, buffer = true })
       vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true, buffer = true })
     else
+      vim.wo.cursorline = true
       vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true, buffer = true })
       vim.keymap.set({ "n", "v", "o" }, "B", "0", { desc = "Start of line", silent = true, buffer = true })
     end
   end,
 })
-
-vim.cmd([[
-augroup MarkdownCfSyntax
-    autocmd!
-    autocmd FileType markdown syntax include @markdownCf syntax/cf.vim
-    autocmd FileType markdown syntax region markdownCodeBlockCf start="```cf" end="```" contains=@markdownCf
-augroup END
-]])
