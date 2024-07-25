@@ -18,8 +18,8 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" 
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
 -- full line navigation (i never use E and B)
-vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true })
-vim.keymap.set({ "n", "v", "o" }, "B", "_", { desc = "Start of line", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true })
 
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
