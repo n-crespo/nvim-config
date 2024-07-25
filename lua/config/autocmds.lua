@@ -71,7 +71,6 @@ vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "wrap",
   callback = function()
     if vim.opt.wrap:get() then
-      vim.wo.cursorline = false
       vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true, buffer = true })
       vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true, buffer = true })
     else
@@ -81,16 +80,14 @@ vim.api.nvim_create_autocmd("OptionSet", {
     end
   end,
 })
--- make sure this is also checked on startup and hide cursorline if markdown file
+-- make sure this is also checked on startup
 vim.api.nvim_create_autocmd("BufRead", {
   -- once = false,
   callback = function()
     if vim.opt.wrap:get() then
-      vim.wo.cursorline = false
       vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true, buffer = true })
       vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true, buffer = true })
     else
-      vim.wo.cursorline = true
       vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true, buffer = true })
       vim.keymap.set({ "n", "v", "o" }, "B", "0", { desc = "Start of line", silent = true, buffer = true })
     end

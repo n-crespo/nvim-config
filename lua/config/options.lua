@@ -28,6 +28,7 @@ opt.mouse = "a" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
 opt.cursorline = true -- don't highlight current line (transparent background)
+opt.cursorlineopt = "number,screenline" -- cursorline respects wrapped lines
 opt.rnu = true -- relative line numbers
 opt.splitbelow = true -- self explanatory
 opt.splitright = true -- self explanatory
