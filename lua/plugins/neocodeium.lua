@@ -27,6 +27,7 @@ return {
     function ToggleCodeiumInsert()
       ToggleCodeiumNormal()
       if vim.g.neocodeium_enabled then
+        vim.cmd([[NeoCodeium enable]])
         require("neocodeium").cycle_or_complete()
       else
         require("neocodeium").clear()
