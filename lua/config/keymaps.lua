@@ -34,8 +34,8 @@ vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste"
 vim.keymap.set("n", "X", "0D", { remap = true, desc = "Clear Line", silent = true })
 
 -- delete to register
-vim.keymap.set("v", "<leader>d", "ygvd", { desc = "Delete to Paste Register", silent = true })
-vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Paste Register", silent = true })
+vim.keymap.set("v", "<leader>d", '"+d', { desc = "Cut", silent = true, remap = false })
+vim.keymap.set("n", "<leader>d", '"+dd', { desc = "Cut", silent = true })
 
 -- paste from system clipboard
 vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
@@ -95,7 +95,7 @@ vim.keymap.set("n", "<leader>bo", ":%bd|e#<cr>", { desc = "Buffer Only", silent 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
 if vim.fn.has("wsl") or vim.fn.has("win32") then
-  vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
+  vim.keymap.set("n", "<leader>os", "<cmd>silent !wsl-open %<cr>", { silent = true, desc = "Open in System Viewer" })
   -- vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
   -- vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
   vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
@@ -191,10 +191,10 @@ vim.keymap.set(
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 
 -- Force save as sudo (for readonly files)
-vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save File", noremap = true, silent = true })
 
 -- grant permissions
-vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Grant Permissions" })
+vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Grant File Permissions" })
 
 -- --------------------------------- TERMINAL KEYMAPS-----------------------------------------------
 
