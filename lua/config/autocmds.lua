@@ -39,10 +39,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 -- don't conceal my hour log table
 vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   pattern = "Mentorship-Hour-Log.md",
-  callback = function()
-    vim.cmd([[setlocal conceallevel=0]])
-    vim.cmd([[setlocal textwidth=0]])
-  end,
+  command = "setlocal conceallevel=0 textwidth=0",
 })
 
 -- don't use lsp on pvs files
@@ -59,19 +56,43 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 -- hacky way to get colored pvs
 vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   pattern = { "*.pvs" },
-  callback = function()
-    vim.cmd([[set ft=c]])
-  end,
+  command = "set ft=c",
 })
 
 -- for coldfusion syntax highlighting
 vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   pattern = { "*.cf", "*.cfm" },
+  command = "set syntax=cf filetype=cf",
+})
+
+-- use E and B for going to start/end of line,
+-- but change depending on if wrap is set
+vim.api.nvim_create_autocmd("OptionSet", {
+  pattern = "wrap",
   callback = function()
-    vim.cmd([[set syntax=cf]])
-    vim.cmd([[set filetype=cf]])
+    if vim.opt.wrap:get() then
+      vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true, buffer = true })
+      vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true, buffer = true })
+    else
+      vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true, buffer = true })
+      vim.keymap.set({ "n", "v", "o" }, "B", "0", { desc = "Start of line", silent = true, buffer = true })
+    end
   end,
 })
+-- Check the wrap option on startup
+vim.api.nvim_create_autocmd("BufEnter", {
+  once = false,
+  callback = function()
+    if vim.opt.wrap:get() then
+      vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true, buffer = true })
+      vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true, buffer = true })
+    else
+      vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true, buffer = true })
+      vim.keymap.set({ "n", "v", "o" }, "B", "0", { desc = "Start of line", silent = true, buffer = true })
+    end
+  end,
+})
+
 vim.cmd([[
 augroup MarkdownCfSyntax
     autocmd!

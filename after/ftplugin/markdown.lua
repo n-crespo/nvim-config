@@ -19,3 +19,11 @@ vim.cmd([[inoreabbrev <buffer> pe <!-- prettier-ignore-end -->]])
 -- NOTE these save to the `r` register arbitrarily as to not clog up system clipboard
 vim.keymap.set("x", "<C-b>", '"rc****<esc>h"rP', { buffer = true })
 vim.keymap.set("x", "<C-i>", '"rc**<esc>"rP', { buffer = true })
+
+vim.cmd([[
+augroup MarkdownCfSyntax
+    autocmd!
+    autocmd FileType markdown syntax include @markdownCf syntax/cf.vim
+    autocmd FileType markdown syntax region markdownCodeBlockCf start="```cf" end="```" contains=@markdownCf
+augroup END
+]])
