@@ -1,10 +1,12 @@
 return {
   "monkoose/neocodeium",
   enabled = vim.fn.has("win34") == 0, -- don't enable in windows
-  event = "InsertEnter",
   opts = {
-    show_label = false,
-    silent = true,
+    max_lines = 500, -- restrict num of lines read from non-focused buffers
+    enabled = false, -- don't enable on start
+    manual = false, -- require <C-n>? nah
+    show_label = false, -- thing next to line numbers
+    silent = false, -- notification when server is started
     filetypes = {
       help = false,
       gitcommit = false,
@@ -16,46 +18,68 @@ return {
   config = function(_, opts)
     vim.g.neocodeium_enabled = false
     require("neocodeium").setup(opts)
-    vim.cmd("NeoCodeium disable")
 
-    function ToggleCodeium()
+    function ToggleCodeiumNormal()
       vim.g.neocodeium_enabled = not vim.g.neocodeium_enabled
-      if not vim.g.neocodeium_enabled then
-        -- vim.notify("Disabled Codeium", vim.log.levels.WARN, { title = "AI Suggestions" })
-        require("neocodeium").clear()
-        vim.cmd("NeoCodeium disable")
-      else
-        -- vim.notify("Enabled Codeium", vim.log.levels.INFO, { title = "AI Suggestions" })
+      require("lualine").refresh()
+    end
+
+    function ToggleCodeiumInsert()
+      ToggleCodeiumNormal()
+      if vim.g.neocodeium_enabled then
         require("neocodeium").cycle_or_complete()
-        vim.cmd("NeoCodeium enable")
+      else
+        require("neocodeium").clear()
       end
     end
+
+    -- only start the codeium server if toggle is on AND in insert mode.
+    -- disable server once insert mode is left
+    vim.api.nvim_create_autocmd("InsertEnter", {
+      callback = function()
+        if vim.g.neocodeium_enabled then
+          vim.cmd([[NeoCodeium enable]])
+        end
+      end,
+    })
+    vim.api.nvim_create_autocmd("InsertLeave", {
+      callback = function()
+        vim.cmd([[NeoCodeium disable]])
+      end,
+    })
   end,
   keys = {
+    -- in normal mode
+    {
+      "<C-S-A>",
+      function()
+        ToggleCodeiumNormal()
+      end,
+      mode = "n",
+      desc = "Toggle Codeium",
+    },
+    -- in insert mode
+    {
+      "<C-S-A>",
+      function()
+        ToggleCodeiumInsert()
+      end,
+      mode = "i",
+      desc = "Toggle Codeium",
+    },
+    {
+      "<C-a>",
+      function()
+        ToggleCodeiumInsert()
+      end,
+      mode = "i",
+    },
     {
       "<C-CR>",
       function()
         require("neocodeium").accept()
       end,
       mode = { "i" },
-    },
-    {
-      "<C-a>",
-      function()
-        ToggleCodeium()
-        require("lualine").refresh()
-      end,
-
-      mode = "i",
-    },
-    {
-      "<C-S-A>",
-      function()
-        ToggleCodeium()
-        require("lualine").refresh()
-      end,
-      mode = { "n", "i" },
-      desc = "Toggle Codeium",
     },
     {
       "<C-n>",
