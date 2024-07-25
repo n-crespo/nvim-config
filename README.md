@@ -5,18 +5,18 @@ functionality.
 
 ![start screen](./images/image.png)
 
-## Interesting Things
+## Cool Things
 
-Some interesting things in this config are:
+Some cool things in this config are:
 
-- my [custom lualine component](./lua/plugins/lualine.lua) that replaces the tabline (see `opts.sections.lualine_x`)
+- my [custom tabline lualine component](./lua/plugins/lualine.lua) (see `opts.sections.lualine_x`)
 - [mini.files](https://github.com/echasnovski/mini.files)
 - [nvim-spider](https://github.com/chrisgrieser/nvim-spider) - better `w`, `e`, and `b`
-- [smart-open.nvim](https://github.com/danielfalk/smart-open.nvim)
-- my [custom markdown bullets/checkboxes](./after/queries/markdown/highlights.scm)
 - [(not) my color scheme](./colors/macro.lua)
 - [flatten.nvim](https://github.com/willothy/flatten.nvim)
 - [all my auto commands](./lua/config/autocmds.lua)
+- [this markdown config](./lua/plugins/markdown.lua) (mostly LazyVim)
+- my [auto commands](./lua/config/autocmds.lua)
   - only show cursor line in active window
   - remove trailing white space on save
 
@@ -27,9 +27,10 @@ Some interesting things in this config are:
 
 ## Install Instructions
 
+> [!WARNING]
 > Install requires Neovim 0.9+.
 
-Clone the repository and install the plugins: [link](./lua/plugins/plugin.lu)
+Clone the repository and install the plugins:
 
 ```
 git clone git@github.com:n-crespo/nvim-config ~/.config/n-crespo/nvim-config
