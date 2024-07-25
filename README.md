@@ -29,7 +29,7 @@ Some interesting things in this config are:
 
 > Install requires Neovim 0.9+.
 
-Clone the repository and install the plugins:
+Clone the repository and install the plugins: [link](./lua/plugins/plugin.lu)
 
 ```
 git clone git@github.com:n-crespo/nvim-config ~/.config/n-crespo/nvim-config

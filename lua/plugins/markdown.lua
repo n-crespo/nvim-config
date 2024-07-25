@@ -34,6 +34,9 @@ return {
         sign = false,
         icons = {},
       },
+      quote = {
+        icon = "┃",
+      },
     },
     ft = { "markdown", "norg", "rmd", "org" },
     config = function(_, opts)
