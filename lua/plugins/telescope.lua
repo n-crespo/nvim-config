@@ -2,6 +2,7 @@
 -- use <leader><leader> to find within a directory (respects git)
 -- shows file name before path
 
+-- this is for showing file name before path
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "TelescopeResults",
   callback = function(ctx)
@@ -11,7 +12,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end)
   end,
 })
-
 local function filenameFirst(_, path)
   local tail = vim.fs.basename(path)
   local parent = vim.fs.dirname(path)
@@ -21,13 +21,6 @@ local function filenameFirst(_, path)
   return string.format("%s\t\t%s", tail, parent)
 end
 
-require("telescope").setup({
-  pickers = {
-    find_files = {
-      path_display = filenameFirst,
-    },
-  },
-})
 return {
   "telescope.nvim",
   event = "VeryLazy",
@@ -121,6 +114,12 @@ return {
       "<leader>;",
       "<cmd>Telescope commands<cr>",
       desc = "Commands",
+      silent = true,
+    },
+    {
+      "<leader>gf",
+      "<cmd>Telescope git_bcommits<cr>",
+      desc = "Git File History",
       silent = true,
     },
     {
