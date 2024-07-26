@@ -3,6 +3,11 @@
 return {
   "folke/noice.nvim",
   opts = {
+    commands = {
+      last = {
+        opts = { border = "single" },
+      },
+    },
     presets = {
       lsp_doc_border = true,
     },
