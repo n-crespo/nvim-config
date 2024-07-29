@@ -21,6 +21,23 @@ vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better
 vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true })
 vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true })
 
+-- go to visual end of line unless wrap is disabled!!
+vim.keymap.set({ "n", "v", "o" }, "E", function()
+  if vim.opt.wrap:get() then
+    vim.cmd("normal! g$")
+  else
+    vim.cmd("normal! $")
+  end
+end, { desc = "End of line", silent = true })
+
+vim.keymap.set({ "n", "v", "o" }, "B", function()
+  if vim.opt.wrap:get() then
+    vim.cmd("normal! g0")
+  else
+    vim.cmd("normal! 0")
+  end
+end, { desc = "Start of line", silent = true })
+
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
 -- allow changing and deleting without overriding current paste registers
