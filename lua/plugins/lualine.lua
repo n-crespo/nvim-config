@@ -12,7 +12,9 @@ return {
     -- opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
-    opts.options.section_separators = { left = "", right = "" }
+    -- component_separators = { left = '', right = ''}
+    opts.options.section_separators = { left = "", right = "" }
+    -- opts.options.section_separators = { left = "", right = "" }
     opts.options.theme = require("transparentlualine").theme
     opts.options.disabled_filetypes = { statusline = { "ministarter" } }
     opts.sections.lualine_a = {
