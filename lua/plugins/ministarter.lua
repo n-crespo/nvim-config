@@ -64,7 +64,7 @@ return {
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         -- local pad_footer = string.rep(" ", 8)
-        starter.config.footer = " " .. stats.loaded .. "/" .. stats.count .. " ⚡" .. ms .. "ms"
+        starter.config.footer = " " .. stats.loaded .. "/" .. stats.count -- ..  " ⚡" .. ms .. "ms"
         -- INFO; based on @echasnovski's recommendation (thanks a lot!!!)
         if vim.bo[ev.buf].filetype == "ministarter" then
           pcall(starter.refresh)
