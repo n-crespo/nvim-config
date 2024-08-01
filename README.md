@@ -20,7 +20,7 @@ Some cool things in this config are:
   - only show cursor line in active window
   - remove trailing white space on save
 
-> [!NOTE]\
+> [!NOTE]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
 > LazyVim distribution which already comes with lots of plugins. I have disabled
 > some plugins that come with LazyVim in the [overrides.lua](./lua/plugins/overrides.lua) file.
