@@ -64,3 +64,24 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   pattern = { "*.cf", "*.cfm" },
   command = "set syntax=cf filetype=cf",
 })
+
+vim.api.nvim_create_autocmd("OptionSet", {
+  pattern = "wrap",
+  callback = function()
+    if vim.opt.wrap:get() then
+      vim.cmd("setlocal tw=0")
+    else
+      vim.cmd("setlocal tw=80")
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.opt.wrap:get() then
+      vim.cmd("setlocal tw=0")
+    else
+      vim.cmd("setlocal tw=80")
+    end
+  end,
+})
