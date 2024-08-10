@@ -311,3 +311,5 @@ vim.keymap.set("n", "<C-S-C>", function()
     title = "Word Count",
   })
 end)
+
+vim.keymap.set("n", "<leader>n", "<cmd>redir! > ~/.config/nvim/logs.txt<cr>", { silent = true })
