@@ -1,2 +1,1 @@
-setlocal nornu
-setlocal nonu
+setlocal nornu nonu
