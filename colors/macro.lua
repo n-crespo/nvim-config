@@ -155,7 +155,7 @@ local hlgroups = {
   DebugPC = { bg = c_winterRed },
   DiffAdd = { bg = c_winterGreen },
   DiffChange = { bg = c_winterBlue },
-  DiffDelete = { fg = selection_light_gray },
+  DiffDelete = { bg = selection_light_gray },
   DiffText = { bg = border_purple_ink },
   Directory = { fg = c_macroBlue1 },
   EndOfBuffer = { fg = normal_bg },
