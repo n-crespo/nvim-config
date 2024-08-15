@@ -351,6 +351,11 @@ local hlgroups = {
   DiagnosticVirtualTextHint = { bg = c_winterGreen, fg = c_macroAqua },
   DiagnosticVirtualTextInfo = { bg = c_winterBlue, fg = c_macroBlue1 },
   DiagnosticVirtualTextWarn = { bg = c_winterYellow, fg = c_carpYellow },
+  DiagnosticUnnecessary = {
+    fg = c_macroAsh,
+    sp = c_macroAqua,
+    undercurl = true,
+  },
   -- }}}
 
   -- Filetype {{{2
@@ -558,32 +563,6 @@ local hlgroups = {
   -- RenderMarkdownCodeInline = { link = "@markup.raw.markdown_inline" },
   -- }}}
 }
--- }}}1
-
--- Highlight group overrides {{{1
-if vim.go.bg == "light" then
-  hlgroups.CursorLine = { bg = c_macroBg2 }
-  hlgroups.DiagnosticSignWarn = { fg = c_autumnYellow }
-  hlgroups.DiagnosticUnderlineWarn = { sp = c_autumnYellow, undercurl = true }
-  hlgroups.DiagnosticVirtualTextWarn = { bg = c_winterYellow, fg = c_autumnYellow }
-  hlgroups.DiagnosticWarn = { fg = c_autumnYellow }
-  hlgroups.IncSearch = { bg = c_autumnYellow, fg = c_macroBg0, bold = true }
-  hlgroups.Keyword = { fg = c_macroRed }
-  hlgroups.ModeMsg = { fg = c_macroRed, bold = true }
-  hlgroups.Pmenu = { bg = c_macroBg0, fg = c_macroFg1 }
-  hlgroups.PmenuSbar = { bg = c_macroBg2 }
-  hlgroups.PmenuSel = { bg = c_macroFg0, fg = c_macroBg0 }
-  hlgroups.PmenuThumb = { bg = selection_light_gray }
-  hlgroups.Search = { bg = c_macroBg3 }
-  hlgroups.StatusLine = { bg = c_macroBg0 }
-  hlgroups.StatusLineGitAdded = { bg = c_macroBg0, fg = c_macroGreen1 }
-  hlgroups.StatusLineGitChanged = { bg = c_macroBg0, fg = c_autumnYellow }
-  hlgroups.StatusLineGitRemoved = { bg = c_macroBg0, fg = c_macroRed }
-  hlgroups.StatusLineHeader = { bg = c_macroFg0, fg = c_macroBg0 }
-  hlgroups.StatusLineHeaderModified = { bg = c_macroRed, fg = c_macroBg0 }
-  hlgroups.Visual = { bg = c_macroBg3 }
-  hlgroups["@variable.parameter"] = { link = "Identifier" }
-end
 -- }}}1
 
 -- Set highlight groups {{{1
