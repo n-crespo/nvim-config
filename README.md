@@ -1,7 +1,7 @@
 # Neovim Configuration
 
-My Neovim configuration based on [LazyVim](https://www.lazyvim.org), with added plugins and LSPs to extend its
-functionality.
+My Neovim configuration based on [LazyVim](https://www.lazyvim.org), with added
+plugins and to extend functionality.
 
 ![start screen](./images/image.png)
 
