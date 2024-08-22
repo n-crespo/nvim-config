@@ -10,6 +10,9 @@ return {
     show_help = false,
     plugins = {
       marks = false,
+      spelling = {
+        enabled = false,
+      },
     },
     win = {
       no_overlap = false,
