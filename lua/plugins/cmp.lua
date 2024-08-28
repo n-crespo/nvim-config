@@ -75,6 +75,11 @@ return {
     }
 
     cmp.setup({
+      ---@diagnostic disable-next-line: missing-fields
+      performance = {
+        debounce = 0, -- default is 60ms
+        throttle = 0, -- default is 30ms
+      },
       formatting = formatting,
       mapping = mapping,
       sources = sources,
