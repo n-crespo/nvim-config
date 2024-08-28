@@ -1,5 +1,6 @@
 return {
-  "hrsh7th/nvim-cmp",
+  "yioneko/nvim-cmp",
+  branch = "perf",
   event = "InsertEnter",
   dependencies = {
     {
@@ -14,7 +15,7 @@ return {
     local cmp = require("cmp")
 
     local formatting = {
-      format = function(entry, item)
+      format = function(_, item)
         local icons = LazyVim.config.icons.kinds
         if icons[item.kind] then
           item.kind = icons[item.kind] .. item.kind
@@ -49,6 +50,8 @@ return {
       ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
       ["<S-CR>"] = require("cmp").config.disable,
       ["<CR>"] = LazyVim.cmp.confirm({ select = true }),
+      -- ["<c-u>"] = cmp.mapping.scroll_docs(-4),
+      -- ["<c-d>"] = cmp.mapping.scroll_docs(4),
       -- ["<CR>"] = require("cmp").mapping.confirm({ select = false }),
     }
 
