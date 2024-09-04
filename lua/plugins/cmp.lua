@@ -44,12 +44,12 @@ return {
 
     local mapping = {
       ["<C-e>"] = { i = require("cmp").mapping.abort() },
-      ["<C-n>"] = require("cmp").config.disable,
-      ["<C-p>"] = require("cmp").config.disable,
       ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
       ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
       ["<S-CR>"] = require("cmp").config.disable,
       ["<CR>"] = LazyVim.cmp.confirm({ select = true }),
+      -- ["<C-n>"] = require("cmp").config.disable,
+      -- ["<C-p>"] = require("cmp").config.disable,
       -- ["<c-u>"] = cmp.mapping.scroll_docs(-4),
       -- ["<c-d>"] = cmp.mapping.scroll_docs(4),
       -- ["<CR>"] = require("cmp").mapping.confirm({ select = false }),
@@ -100,6 +100,7 @@ return {
     })
   end,
   keys = {
+
     {
       "<Tab>",
       function()
