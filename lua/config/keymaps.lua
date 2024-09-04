@@ -311,6 +311,10 @@ vim.keymap.set("n", "<C-S-C>", function()
     title = "Word Count",
   })
 end)
+
+vim.keymap.set("n", "<leader>a", "<cmd>=require('neocodeium').visible()<cr>", { silent = false, desc = "AI Active" })
+vim.keymap.set("i", "<C-S-A>", "<cmd>=require('neocodeium').visible()<cr>", { silent = false, desc = "AI Active" })
+
 -- z=
 local spell_on_choice = vim.schedule_wrap(function(_, idx)
   if type(idx) == "number" then
