@@ -6,6 +6,35 @@ return {
   {
     'monkoose/neocodeium',
     event = 'VeryLazy',
+    opts = {
+      -- Enable NeoCodeium on startup
+      enabled = true,
+      -- Path to a custom Codeium server binary (you can download one from:
+      -- https://github.com/Exafunction/codeium/releases)
+      bin = nil,
+      -- When set to `true`, autosuggestions are disabled.
+      -- Use `require'neodecodeium'.cycle_or_complete()` to show suggestions manually
+      manual = false,
+      -- Information about the API server to use
+      show_label = true,
+      -- Set to `true` to enable suggestions debounce
+      debounce = false,
+      -- Maximum number of lines parsed from loaded buffers (current buffer always fully parsed)
+      -- Set to `0` to disable parsing non-current buffers (may lower suggestion quality)
+      -- Set it to `-1` to parse all lines
+      max_lines = 10000,
+      -- Set to `true` to disable some non-important messages, like "NeoCodeium: server started..."
+      silent = false,
+      -- Set to `false` to disable suggestions in buffers with specific filetypes
+      filetypes = {
+        help = false,
+        gitcommit = false,
+        gitrebase = false,
+        ['.'] = false,
+      },
+      -- List of directories and files to detect workspace root directory for codeium chat
+      root_dir = { '.bzr', '.git', '.hg', '.svn', '_FOSSIL_', 'package.json' },
+    },
     config = function()
       local neocodeium = require 'neocodeium'
       neocodeium.setup()
@@ -42,24 +71,33 @@ return {
           vim.keymap.set('n', '<C-u>', '<C-u>', { buffer = true })
         end,
       })
-      return {
-        {
-          '<leader>e',
-          function()
-            local success, result = pcall(function()
-              return require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
-            end)
-
-            if not success then
-              require('mini.files').open(vim.loop.cwd(), true)
-            end
-          end,
-          desc = 'Explore',
-        },
-      }
+      -- return {
+      --   {
+      --     '<leader>e',
+      --     function()
+      --       local success, result = pcall(function()
+      --         return require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
+      --       end)
+      --
+      --       if not success then
+      --         require('mini.files').open(vim.loop.cwd(), true)
+      --       end
+      --     end,
+      --     desc = 'Explore',
+      --   },
+      -- }
     end,
     config = function(_, opts)
       require('mini.files').setup(opts)
+
+      vim.keymap.set('n', '<leader>e', function()
+        -- local success, result = pcall(function()
+        require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
+        -- end)
+        -- if not success then
+        --   require('mini.files').open(vim.loop.cwd(), true)
+        -- end
+      end)
 
       local show_dotfiles = true
       local filter_show = function(fs_entry)
