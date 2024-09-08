@@ -10,6 +10,12 @@ return {
       },
       dependencies = { "rafamadriz/friendly-snippets" },
     },
+    {
+      "Exafunction/codeium.nvim",
+      cmd = "Codeium",
+      build = ":Codeium Auth",
+      opts = {},
+    },
   },
   config = function()
     local cmp = require("cmp")
@@ -40,6 +46,7 @@ return {
       { name = "nvim_lsp" },
       { name = "path" },
       { name = "buffer" },
+      { name = "codeium", group_index = 1, priority = 0 },
     })
 
     local mapping = {

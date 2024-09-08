@@ -1,7 +1,7 @@
 return {
   "monkoose/neocodeium",
   -- enabled = vim.fn.has("win34") == 0, -- don't enable in windows
-  enabled = true,
+  enabled = false,
   event = "InsertEnter",
   -- opts = {
   --   max_lines = 500, -- restrict num of lines read from non-focused buffers
