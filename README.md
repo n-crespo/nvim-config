@@ -25,6 +25,20 @@ Some cool things in this config are:
 > LazyVim distribution which already comes with lots of plugins. I have disabled
 > some plugins that come with LazyVim in the [overrides.lua](./lua/plugins/overrides.lua) file.
 
+## Dependencies
+
+> [!NOTE]
+> see [my dotfiles](www.github.com/n-crespo/dotfiles) for full system requirements
+
+- gcc
+- python
+- clang
+- node
+- go
+- ripgrep
+- lazygit
+- wslu (if using WSL)
+
 ## Install Instructions
 
 > [!WARNING]
