@@ -24,6 +24,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
+      render_modes = { "n", "c", "i", "v", "V", "\x16" },
       file_types = { "markdown", "norg", "rmd", "org" },
       code = {
         sign = false,

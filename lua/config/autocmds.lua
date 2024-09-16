@@ -85,3 +85,47 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end,
 })
+
+-- Create an autogroup for markdown-specific settings
+vim.api.nvim_create_augroup("MarkdownConceal", { clear = true })
+
+-- Use ModeChanged to toggle conceallevel based on mode transitions
+vim.api.nvim_create_autocmd("ModeChanged", {
+  group = "MarkdownConceal",
+  pattern = "*:i", -- Entering insert mode
+  callback = function()
+    if vim.bo.filetype == "markdown" then
+      vim.opt_local.conceallevel = 0
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  group = "MarkdownConceal",
+  pattern = "i:*", -- Leaving insert mode
+  callback = function()
+    if vim.bo.filetype == "markdown" then
+      vim.opt_local.conceallevel = 2
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  group = "MarkdownConceal",
+  pattern = "*:[vV\x16]", -- Entering visual, visual line, or visual block mode
+  callback = function()
+    if vim.bo.filetype == "markdown" then
+      vim.opt_local.conceallevel = 0
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+  group = "MarkdownConceal",
+  pattern = "[vV\x16]:*", -- Leaving visual, visual line, or visual block mode
+  callback = function()
+    if vim.bo.filetype == "markdown" then
+      vim.opt_local.conceallevel = 2
+    end
+  end,
+})
