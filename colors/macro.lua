@@ -555,6 +555,7 @@ local hlgroups = {
 
   -- neocodeium
   NeoCodeiumSuggestion = { fg = "#454745", bg = nil },
+  NeoCodeiumLabel = { fg = c_macroFg0, bg = c_macroBg2 },
 
   -- lualine tab pages
   LualineTabInactive = { fg = c_macroAsh },
