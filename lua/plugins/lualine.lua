@@ -54,19 +54,6 @@ return {
           return LazyVim.ui.fg("Special")
         end,
       },
-      {
-        function()
-          if vim.g.neocodeium_enabled then
-            return "󰘦 "
-          else
-            return ""
-          end
-        end,
-        cond = vim.g.neocodeium_enabled,
-        color = function()
-          return LazyVim.ui.fg("Special")
-        end,
-      },
     }
     -- NOTE this could have potentially been done with the "tabs" lualine
     -- component rather than doing it manually buuuuut
