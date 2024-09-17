@@ -59,58 +59,61 @@ return {
     -- component rather than doing it manually buuuuut
     opts.sections.lualine_y = {
       {
-        function()
-          local tabs = {}
-          local current_tab = vim.fn.tabpagenr()
-          for i = 1, vim.fn.tabpagenr("$") do
-            local winnr = vim.fn.tabpagewinnr(i)
-            local winid = vim.fn.win_getid(winnr, i)
-            local bufnr = vim.fn.winbufnr(winid)
-            local bufname = vim.fn.bufname(bufnr)
-            local name = vim.fn.fnamemodify(bufname, ":t")
+        "tabs",
+        tab_max_length = 40, -- Maximum width of each tab.
+        max_length = 1000000, -- Maximum width of tabs component.
 
-            if name == "fish;#toggleterm#1" then
-              name = "fish"
-            end
+        mode = 1, -- Show only the tab name (no tab number)
+        path = 0, -- Just shows the filename
+        tabs_color = {
+          active = "lualinetabactive", -- Custom highlight group for active tab
+          inactive = "lualinetabinactive", -- Custom highlight group for inactive tab
+        },
+        show_modified_status = true, -- Shows a symbol if the file is modified
+        symbols = {
+          modified = "[+]",
+        },
+        fmt = function(name, context)
+          -- Get buffer number and name for the current tab
+          local buflist = vim.fn.tabpagebuflist(context.tabnr)
+          local winnr = vim.fn.tabpagewinnr(context.tabnr)
+          local bufnr = buflist[winnr]
+          local bufname = vim.fn.bufname(bufnr)
+          local short_name = vim.fn.fnamemodify(bufname, ":t")
 
-            local icon, color =
-              require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
-            if name == "" then
-              name = "Empty" -- Set name to "Empty" if it is empty
-            end
-
-            if name == "lazygit" then
-              icon = require("nvim-web-devicons").get_icon_by_filetype("fish")
-            end
-
-            local highlight_group = "LualineTabInactive"
-            if i == current_tab then
-              highlight_group = "LualineTabActive"
-            end
-
-            -- this is quite disgusting innit
-            -- local tab_display = string.format("%%#%s#[%s%%#%s# %s]%%*", color, icon, highlight_group, name)
-            local tab_display = string.format(
-              "%%#%s#[%%#%s#%s %%#%s#%s%%#%s#]",
-              highlight_group,
-              color,
-              icon,
-              highlight_group,
-              name,
-              highlight_group
-            )
-            table.insert(tabs, tab_display)
+          -- Handle custom naming
+          if short_name == "fish;#toggleterm#1" then
+            short_name = "fish"
           end
-          return table.concat(tabs, " ")
+          if short_name == "" then
+            short_name = "empty"
+          end
+          if short_name == "lazygit" then
+            local icon, icon_color = require("nvim-web-devicons").get_icon_by_filetype("fish")
+            short_name = "%#" .. icon_color .. "#" .. icon .. "%*" .. " lazygit"
+          else
+            -- Add icon based on file type and retain its color
+            local icon, icon_color =
+              require("nvim-web-devicons").get_icon(short_name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
+            short_name = "%#" .. icon_color .. "#" .. icon .. "%*" .. " " .. short_name
+          end
+
+          -- Mark modified files
+          local modified = vim.fn.getbufvar(bufnr, "&mod")
+          if modified == 1 then
+            short_name = short_name .. " [+]"
+          end
+
+          -- Apply custom highlight groups for active and inactive tabs
+          if context.current then
+            -- Active tab: apply active color highlight
+            return "%#lualinetabactive#" .. short_name .. "%*"
+          else
+            -- Inactive tab: apply inactive color highlight
+            return "%#lualinetabinactive#" .. short_name .. "%*"
+          end
         end,
-        separator = " ",
-        padding = { left = 0, right = 1 },
-        -- cond = function()
-        --   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
-        -- end,
       },
-      -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
-      -- { "location", padding = { left = 0, right = 1 } },
     }
     opts.sections.lualine_z = {
       function()
