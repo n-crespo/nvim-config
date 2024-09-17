@@ -59,61 +59,74 @@ return {
     -- component rather than doing it manually buuuuut
     opts.sections.lualine_y = {
       {
-        "tabs",
-        tab_max_length = 40, -- Maximum width of each tab.
-        max_length = 1000000, -- Maximum width of tabs component.
+        function()
+          local tabs = {}
+          local current_tab = vim.fn.tabpagenr()
+          local name_count = {}
+          local tab_paths = {}
 
-        mode = 1, -- Show only the tab name (no tab number)
-        path = 0, -- Just shows the filename
-        tabs_color = {
-          active = "lualinetabactive", -- Custom highlight group for active tab
-          inactive = "lualinetabinactive", -- Custom highlight group for inactive tab
-        },
-        show_modified_status = true, -- Shows a symbol if the file is modified
-        symbols = {
-          modified = "[+]",
-        },
-        fmt = function(name, context)
-          -- Get buffer number and name for the current tab
-          local buflist = vim.fn.tabpagebuflist(context.tabnr)
-          local winnr = vim.fn.tabpagewinnr(context.tabnr)
-          local bufnr = buflist[winnr]
-          local bufname = vim.fn.bufname(bufnr)
-          local short_name = vim.fn.fnamemodify(bufname, ":t")
+          -- -- Track occurrences of the same file name and store full path
+          -- name_count[short_name] = (name_count[short_name] or 0) + 1
+          -- tab_paths[i] = { name = short_name, path = bufname }
 
-          -- Handle custom naming
-          if short_name == "fish;#toggleterm#1" then
-            short_name = "fish"
-          end
-          if short_name == "" then
-            short_name = "empty"
-          end
-          if short_name == "lazygit" then
-            local icon, icon_color = require("nvim-web-devicons").get_icon_by_filetype("fish")
-            short_name = "%#" .. icon_color .. "#" .. icon .. "%*" .. " lazygit"
-          else
-            -- Add icon based on file type and retain its color
+          -- Resolve name conflicts and build the tab display
+          for i = 1, vim.fn.tabpagenr("$") do
+            -- i need these
+            local winnr = vim.fn.tabpagewinnr(i)
+            local winid = vim.fn.win_getid(winnr, i)
+            local bufnr = vim.fn.winbufnr(winid)
+            local bufname = vim.fn.bufname(bufnr)
+
+            -- these are actually useful
+            local filename = vim.fn.fnamemodify(bufname, ":t")
+            local full_path = vim.fn.fnamemodify(bufname, ":p") -- Full path of the file
+
+            if filename == "" then
+              filename = "Scratch"
+            end
+
+            -- TODO: Improve this algorithm for unique tab names
+            -- If more than one tab shares the same short name, add part of the path
+            if name_count[filename] > 1 then
+              -- Add enough of the path to distinguish the tabs
+              local unique_part = vim.fn.pathshorten(vim.fn.fnamemodify(bufname, ":~:."))
+              filename = unique_part .. "/" .. filename
+            end
+
+            -- Get icon and color for the buffer
             local icon, icon_color =
-              require("nvim-web-devicons").get_icon(short_name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
-            short_name = "%#" .. icon_color .. "#" .. icon .. "%*" .. " " .. short_name
+              require("nvim-web-devicons").get_icon(filename, vim.fn.fnamemodify(bufname, ":e"), { default = true })
+            if filename == "lazygit" then
+              icon = require("nvim-web-devicons").get_icon_by_filetype("fish")
+            end
+
+            -- Highlight groups for active and inactive tabs
+            local highlight_group = "LualineTabInactive"
+            if i == current_tab then
+              highlight_group = "LualineTabActive"
+            end
+
+            -- Format tab display: icon + name, with correct highlight groups
+            local tab_display = string.format(
+              "%%#%s#[%%#%s#%s %%#%s#%s%%#%s#]",
+              highlight_group,
+              icon_color,
+              icon,
+              highlight_group,
+              filename,
+              highlight_group
+            )
+
+            table.insert(tabs, tab_display)
           end
 
-          -- Mark modified files
-          local modified = vim.fn.getbufvar(bufnr, "&mod")
-          if modified == 1 then
-            short_name = short_name .. " [+]"
-          end
-
-          -- Apply custom highlight groups for active and inactive tabs
-          if context.current then
-            -- Active tab: apply active color highlight
-            return "%#lualinetabactive#" .. short_name .. "%*"
-          else
-            -- Inactive tab: apply inactive color highlight
-            return "%#lualinetabinactive#" .. short_name .. "%*"
-          end
+          return table.concat(tabs, " ")
         end,
+        separator = " ",
+        padding = { left = 0, right = 1 },
       },
+      -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
+      -- { "location", padding = { left = 0, right = 1 } },
     }
     opts.sections.lualine_z = {
       function()
