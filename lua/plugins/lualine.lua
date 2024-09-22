@@ -38,6 +38,31 @@ return {
       },
       {
         function()
+          local symbols = {
+            status = {
+              [0] = "󰚩 ", -- Enabled
+              [1] = "󱙺 ", -- Disabled Globally
+              [2] = "󱚧 ", -- Disabled for Buffer
+              [3] = "󱚧 ", -- Disabled for Buffer filetype
+              [4] = "󱚧 ", -- Disabled for Buffer with enabled function
+              [5] = "󱚧 ", -- Disabled for Buffer encoding
+            },
+            server_status = {
+              [0] = "󰣺 ", -- Connected
+              [1] = "󰣻 ", -- Connecting
+              [2] = "󰣽 ", -- Disconnected
+            },
+          }
+
+          local status, server_status = require("neocodeium").get_status()
+          return symbols.status[status] .. symbols.server_status[server_status]
+        end,
+        color = function()
+          return LazyVim.ui.fg("Special")
+        end,
+      },
+      {
+        function()
           local reg = vim.fn.reg_recording()
           if reg == "" then
             return ""
@@ -56,74 +81,58 @@ return {
       },
     }
     -- NOTE this could have potentially been done with the "tabs" lualine
-    -- component rather than doing it manually buuuuut
+    -- component rather than doing it manually buuuuut the builtin one is weird
     opts.sections.lualine_y = {
       {
         function()
           local tabs = {}
           local current_tab = vim.fn.tabpagenr()
-          local name_count = {}
-          local tab_paths = {}
-
-          -- -- Track occurrences of the same file name and store full path
-          -- name_count[short_name] = (name_count[short_name] or 0) + 1
-          -- tab_paths[i] = { name = short_name, path = bufname }
-
-          -- Resolve name conflicts and build the tab display
           for i = 1, vim.fn.tabpagenr("$") do
-            -- i need these
             local winnr = vim.fn.tabpagewinnr(i)
             local winid = vim.fn.win_getid(winnr, i)
             local bufnr = vim.fn.winbufnr(winid)
             local bufname = vim.fn.bufname(bufnr)
+            local name = vim.fn.fnamemodify(bufname, ":t")
 
-            -- these are actually useful
-            local filename = vim.fn.fnamemodify(bufname, ":t")
-            local full_path = vim.fn.fnamemodify(bufname, ":p") -- Full path of the file
-
-            if filename == "" then
-              filename = "Scratch"
+            if name == "fish;#toggleterm#1" then
+              name = "fish"
             end
 
-            -- TODO: Improve this algorithm for unique tab names
-            -- If more than one tab shares the same short name, add part of the path
-            if name_count[filename] > 1 then
-              -- Add enough of the path to distinguish the tabs
-              local unique_part = vim.fn.pathshorten(vim.fn.fnamemodify(bufname, ":~:."))
-              filename = unique_part .. "/" .. filename
+            local icon, color =
+              require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
+            if name == "" then
+              name = "Empty" -- Set name to "Empty" if it is empty
             end
 
-            -- Get icon and color for the buffer
-            local icon, icon_color =
-              require("nvim-web-devicons").get_icon(filename, vim.fn.fnamemodify(bufname, ":e"), { default = true })
-            if filename == "lazygit" then
+            if name == "lazygit" then
               icon = require("nvim-web-devicons").get_icon_by_filetype("fish")
             end
 
-            -- Highlight groups for active and inactive tabs
             local highlight_group = "LualineTabInactive"
             if i == current_tab then
               highlight_group = "LualineTabActive"
             end
 
-            -- Format tab display: icon + name, with correct highlight groups
+            -- this is quite disgusting innit
+            -- local tab_display = string.format("%%#%s#[%s%%#%s# %s]%%*", color, icon, highlight_group, name)
             local tab_display = string.format(
               "%%#%s#[%%#%s#%s %%#%s#%s%%#%s#]",
               highlight_group,
-              icon_color,
+              color,
               icon,
               highlight_group,
-              filename,
+              name,
               highlight_group
             )
-
             table.insert(tabs, tab_display)
           end
-
           return table.concat(tabs, " ")
         end,
         separator = " ",
         padding = { left = 0, right = 1 },
+        -- cond = function()
+        --   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
+        -- end,
       },
       -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
       -- { "location", padding = { left = 0, right = 1 } },
