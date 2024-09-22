@@ -57,11 +57,6 @@ vim.g.loaded_python3_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.lazyvim_python_lsp = "pyright"
--- vim.g.python3_host_prog = "/home/linuxbrew/.linuxbrew/bin/python3"
-
-if vim.fn.has("win32") == 1 then
-  LazyVim.terminal.setup("pwsh")
-end
 
 vim.cmd([[
 set complete=
