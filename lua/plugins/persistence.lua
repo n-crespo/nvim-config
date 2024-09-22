@@ -9,6 +9,7 @@ return {
     { "<leader>qs", false },
     { "<leader>ql", false },
     { "<leader>qd", false },
+    { "<leader>qS", false },
     { "<leader>q", "<C-W>c" },
   },
 }

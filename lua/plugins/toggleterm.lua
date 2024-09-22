@@ -32,6 +32,5 @@ return {
     { "<C-Q>", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal Terminal", mode = { "n", "t" } },
     { "<C-S-Q>", "<cmd>ToggleTerm direction=float<cr>", desc = "Floating Terminal", mode = { "n", "t" } },
     { "<C-S-/>", "<cmd>ToggleTerm direction=float<cr>", desc = "Floating Terminal", mode = { "n", "t" } },
-    { "<C-p>", "<C-q><C-p>", remap = true }, -- zoxide ji -- use <C-d> to quit the current thing
   },
 }
