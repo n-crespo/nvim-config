@@ -49,7 +49,6 @@ opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
 opt.spelllang = "en" -- spell in english pls
-opt.scroll = 15
 opt.showtabline = 0
 vim.g.loaded_ruby_provider = 0 -- never use these
 vim.g.loaded_perl_provider = 0 -- never use these
