@@ -89,9 +89,6 @@ vim.keymap.set("n", "<leader>bl", function()
   })
 end, { desc = "Buffer Locate", silent = true })
 
--- close buffer (soft) (preserve split)
--- vim.keymap.set("n", "<leader>k", "<leader>bd", { remap = true, silent = true, desc = "Close Buffer" })
-
 -- close buffer (not soft) (don't preserve split)
 -- vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit", silent = true })
 vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "quit", silent = true })
@@ -112,22 +109,15 @@ vim.keymap.set("n", "<leader>bo", ":%bd|e#<cr>", { desc = "Buffer Only", silent 
 -- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
 -- LWin+u and d are mapped to page up and page down (via autohotkey)
 if vim.fn.has("wsl") or vim.fn.has("win32") then
-  vim.keymap.set("n", "<leader>os", "<cmd>silent !wsl-open %<cr>", { silent = true, desc = "Open in System Viewer" })
+  vim.keymap.set("n", "<leader>os", "<cmd>silent !open %<cr>", { silent = true, desc = "Open in System Viewer" })
   -- vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
   -- vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
   vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
   vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
-elseif vim.fn.has("mac") then
-  -- vim.notify("Keymaps not set, MacOS detected")
-  vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 end
+vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
-
--- vim.keymap.set("n", "<C-Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next Tab" })
--- vim.keymap.set("n", "<C-S-Tab>", "<cmd>tabprev<cr>", { silent = true, desc = "Previous Tab" })
-
-vim.keymap.set("n", "<C-Tab>", "<C-i>zz", { remap = false, silent = true, desc = "Prev Jumplist" })
 
 vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
 vim.keymap.set("n", "<leader>1", "<cmd>tabn 1<cr>", { silent = true, desc = "Tab 1" })
