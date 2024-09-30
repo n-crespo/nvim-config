@@ -332,3 +332,4 @@ local spell_select = function()
   vim.ui.select(vim.fn.spellsuggest(cword, vim.o.lines), { prompt = "Change " .. cword .. " to:" }, spell_on_choice)
 end
 vim.keymap.set("n", "z=", spell_select, { desc = "Show spelling suggestions" })
+vim.keymap.set("n", "<leader>fs", "1z=", { noremap = true, silent = true, desc = "Fix Spelling under cursor" })
