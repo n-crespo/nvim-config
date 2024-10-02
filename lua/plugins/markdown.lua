@@ -41,7 +41,7 @@ return {
       bullet = {
         -- icons = { "●", "○", "◆", "◇" },
         -- icons = { "◉", "○", "✸", "✿" },
-        icons = { "", "○", "▪", "▫" },
+        icons = { "", "○", "◆", "◇" },
       },
     },
     ft = { "markdown", "norg", "rmd", "org" },
