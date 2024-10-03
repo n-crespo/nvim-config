@@ -15,7 +15,7 @@ return {
       java = "cd $dir && javac $fileName -d bin/ && java -cp $dir/bin/ $fileNameWithoutExt",
       cpp = {
         "cd $dir &&",
-        "g++ $fileName",
+        "clang++ $fileName",
         "-o /tmp/$fileNameWithoutExt &&",
         "/tmp/$fileNameWithoutExt",
       },
@@ -49,6 +49,12 @@ return {
         vim.bo[event.buf].buflisted = false
         vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
         vim.opt_local.scrolloff = 0
+      end,
+    })
+    vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+      pattern = "crunner",
+      callback = function()
+        vim.cmd([[norm gg]])
       end,
     })
   end,
