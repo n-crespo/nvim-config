@@ -105,7 +105,9 @@ return {
             end
 
             if name == "lazygit" then
-              icon = require("nvim-web-devicons").get_icon_by_filetype("fish")
+              icon = "󰊢"
+            elseif name == "fish" then
+              icon = ""
             end
 
             local highlight_group = "LualineTabInactive"
