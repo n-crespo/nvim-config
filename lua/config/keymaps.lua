@@ -333,3 +333,6 @@ local spell_select = function()
 end
 vim.keymap.set("n", "z=", spell_select, { desc = "Show spelling suggestions" })
 vim.keymap.set("n", "<leader>fs", "1z=", { noremap = true, silent = true, desc = "Fix Spelling under cursor" })
+
+-- reopen closed buffer/window
+vim.keymap.set("n", "<C-S-T>", "<cmd>vsp | e #<cr>", { desc = "Re-open last buffer" })
