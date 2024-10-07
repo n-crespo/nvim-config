@@ -27,8 +27,8 @@ Some cool things in this config are:
 
 ## Dependencies
 
-> [!NOTE]
-> see [my dotfiles](www.github.com/n-crespo/dotfiles) for full system requirements
+> [!WARNING]
+> see [my dotfiles](https://www.github.com/n-crespo/dotfiles) for full system requirements
 
 - gcc
 - python
