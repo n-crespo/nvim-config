@@ -1,6 +1,6 @@
 return {
-  "yioneko/nvim-cmp",
-  branch = "perf",
+  "iguanacucumber/magazine.nvim",
+  name = "nvim-cmp",
   event = "InsertEnter",
   dependencies = {
     {
