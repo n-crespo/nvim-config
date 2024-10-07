@@ -28,7 +28,7 @@ return {
       file_types = { "markdown", "norg", "rmd", "org" },
       code = {
         sign = false,
-        width = "full",
+        width = "block",
         -- right_pad = 1,
       },
       heading = {
