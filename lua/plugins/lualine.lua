@@ -94,20 +94,16 @@ return {
             local bufname = vim.fn.bufname(bufnr)
             local name = vim.fn.fnamemodify(bufname, ":t")
 
-            if name == "fish;#toggleterm#1" then
-              name = "fish"
-            end
-
             local icon, color =
               require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
+
             if name == "" then
               name = "Empty" -- Set name to "Empty" if it is empty
-            end
-
-            if name == "lazygit" then
-              icon = "󰊢"
-            elseif name == "fish" then
+            elseif name == "fish;#toggleterm#1" then
+              name = "fish"
               icon = ""
+            elseif name == "lazygit" then
+              icon = "󰊢"
             end
 
             local highlight_group = "LualineTabInactive"
