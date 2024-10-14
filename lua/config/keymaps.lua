@@ -17,10 +17,6 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" 
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
--- full line navigation (i never use E and B)
-vim.keymap.set({ "n", "v", "o" }, "E", "g$", { desc = "End of line", silent = true })
-vim.keymap.set({ "n", "v", "o" }, "B", "g0", { desc = "Start of line", silent = true })
-
 -- go to visual end of line unless wrap is disabled!!
 vim.keymap.set({ "n", "v", "o" }, "E", function()
   if vim.opt.wrap:get() then
@@ -32,9 +28,9 @@ end, { desc = "End of line", silent = true })
 
 vim.keymap.set({ "n", "v", "o" }, "B", function()
   if vim.opt.wrap:get() then
-    vim.cmd("normal! g0")
+    vim.cmd("normal! g^")
   else
-    vim.cmd("normal! 0")
+    vim.cmd("normal! ^")
   end
 end, { desc = "Start of line", silent = true })
 
