@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
   command = "set syntax=cf filetype=cf",
 })
 
+-- enable text width only when wrap is disabled
 vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "wrap",
   callback = function()
@@ -75,7 +76,6 @@ vim.api.nvim_create_autocmd("OptionSet", {
     end
   end,
 })
-
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     if vim.opt.wrap:get() then
@@ -86,6 +86,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+-- cycle quickfix list while inside qf window
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function(event)
