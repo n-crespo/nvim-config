@@ -2,14 +2,13 @@
 -- this config just adds borders to lsp hover (K)
 return {
   "folke/noice.nvim",
+  -- this is needed cus borders break as of right now...
+  commit = "0783e22",
   opts = {
     commands = {
       last = {
         opts = { border = "single" },
       },
-    },
-    presets = {
-      lsp_doc_border = true,
     },
     views = {
       mini = {
@@ -21,7 +20,9 @@ return {
     lsp = {
       documentation = {
         opts = {
+          border = { style = "single", padding = { 0, 1 } },
           win_options = { wrap = false },
+          lang = "markdown",
         },
       },
     },
