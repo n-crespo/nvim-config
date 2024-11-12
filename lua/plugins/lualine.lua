@@ -100,7 +100,7 @@ return {
             if name == "" then
               name = "Empty" -- Set name to "Empty" if it is empty
             elseif name == "fish;#toggleterm#1" then
-              name = "fish"
+              name = "terminal"
               icon = ""
             elseif name == "lazygit" then
               icon = "󰊢"
