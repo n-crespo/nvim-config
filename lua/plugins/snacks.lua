@@ -1,32 +1,44 @@
 return {
   "folke/snacks.nvim",
+  event = "VeryLazy",
   opts = {
     notifier = {
       enabled = true,
       style = "fancy",
     },
-    words = {
-      enabled = false,
+    notification = {
+      {
+        border = "single",
+        zindex = 100,
+        ft = "markdown",
+        wo = {
+          winblend = 5,
+          wrap = false,
+          conceallevel = 2,
+        },
+        bo = { filetype = "snacks_notif" },
+      },
+      history = {
+        border = "single",
+      },
     },
-    statuscolumn = {
-      enabled = true,
-      left = { "mark", "sign" }, -- priority of signs on the left (high to low)
-      right = { "fold", "git" }, -- priority of signs on the right (high to low)
-      folds = {
-        open = false, -- show open fold icons
-        git_hl = false, -- use Git Signs hl for fold icons
-      },
-      git = {
-        -- patterns to match Git signs
-        patterns = { "GitSign", "MiniDiffSign" },
-      },
-      refresh = 50, -- refresh at most every 50ms
+    statuscolumn = { enabled = false },
+    words = { enabled = false },
+    terminal = { enabled = false },
+  },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+    Snacks.config.style("notification.history", {
+      border = "single",
+    })
+  end,
+  keys = {
+    {
+      "<leader>m",
+      function()
+        Snacks.notifier.show_history({ border = "single" })
+      end,
+      desc = "Message History",
     },
   },
-  -- keys = {
-  --   {
-  --     "<leader>snh",
-  --     Snacks.notifier.show_history(),
-  --   },
-  -- },
 }
