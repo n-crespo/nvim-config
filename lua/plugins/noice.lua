@@ -2,9 +2,8 @@
 -- this config just adds borders to lsp hover (K)
 return {
   "folke/noice.nvim",
-  -- this is needed cus borders break as of right now...
-  commit = "0783e22",
   opts = {
+    notify = { enabled = false },
     commands = {
       last = {
         opts = { border = "single" },
