@@ -45,23 +45,16 @@ return {
       },
     },
     ft = { "markdown", "norg", "rmd", "org" },
-    config = function(_, opts)
-      require("render-markdown").setup(opts)
-      LazyVim.toggle.map("<leader>um", {
-        name = "Render Markdown",
-        get = function()
-          return require("render-markdown.state").enabled
+    keys = {
+      {
+        "<leader>um",
+        function()
+          require("render-markdown").toggle()
         end,
-        set = function(enabled)
-          local m = require("render-markdown")
-          if enabled then
-            m.enable()
-          else
-            m.disable()
-          end
-        end,
-      })
-    end,
+        mode = { "n", "v" },
+        desc = "Render Markdown",
+      },
+    },
   },
   {
     "iamcco/markdown-preview.nvim",
