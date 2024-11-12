@@ -45,16 +45,20 @@ return {
       },
     },
     ft = { "markdown", "norg", "rmd", "org" },
-    keys = {
-      {
-        "<leader>um",
-        function()
-          require("render-markdown").toggle()
-        end,
-        mode = { "n", "v" },
-        desc = "Render Markdown",
-      },
-    },
+    config = function(_, opts)
+      require("render-markdown").setup(opts)
+      vim.keymap.set("n", "<leader>um", require("render-markdown").toggle)
+    end,
+    -- keys = {
+    --   {
+    --     "<leader>um",
+    --     function()
+    --       require("render-markdown").toggle()
+    --     end,
+    --     mode = { "n", "v" },
+    --     desc = "Render Markdown",
+    --   },
+    -- },
   },
   {
     "iamcco/markdown-preview.nvim",
