@@ -51,6 +51,7 @@ return {
         vim.opt_local.scrolloff = 0
       end,
     })
+    -- go to top of buffer when runner is opened
     vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
       pattern = "crunner",
       callback = function()
