@@ -144,8 +144,7 @@ vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
 vim.keymap.set("n", "zb", "zbkj", { silent = true, desc = "Bottom line" })
 
 -- git blame
-vim.keymap.set("n", "gb", "<leader>ghb", { remap = true, silent = true, desc = "Blame Line" })
-vim.keymap.set("n", "gp", "<leader>ghp", { remap = true, silent = true, desc = "Blame Line" })
+vim.keymap.set("n", "gb", "<leader>gb", { remap = true, silent = true, desc = "Blame Line" })
 
 -- unholy non-native vim keymap for find in buffer
 vim.keymap.set("n", "<C-f>", function()
