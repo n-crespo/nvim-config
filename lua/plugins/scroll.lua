@@ -8,6 +8,7 @@ return {
       "minifiles-help",
       "better_term",
       "lazyterm",
+      "snacks_terminal",
     },
   },
 }
