@@ -1,5 +1,5 @@
 return {
-  "folke/snacks.nvim",
+  "n-crespo/snacks.nvim",
   event = "VeryLazy",
   opts = {
     notifier = {
@@ -50,7 +50,9 @@ return {
       pattern = "snacks_terminal",
       once = true,
       callback = function()
-        vim.cmd([[tunmap <esc><esc>]])
+        -- vim.cmd([[tunmap <esc><esc>]])
+        vim.cmd([[tmap <buffer> <esc> <esc> ]])
+        -- vim.cmd([[tunmap <esc>]])
       end,
     })
   end,
