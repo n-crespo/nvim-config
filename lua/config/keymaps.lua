@@ -282,7 +282,7 @@ vim.keymap.set({ "n", "v" }, "`", function()
   -- Get the fold level of the current line
   local foldlevel = vim.fn.foldlevel(line)
   if foldlevel == 0 then
-    vim.notify("No fold found", vim.log.levels.INFO)
+    vim.notify("No fold found", vim.log.levels.WARN, { title = "Fold" })
   else
     vim.cmd("normal! za")
   end
