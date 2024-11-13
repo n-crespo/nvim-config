@@ -28,8 +28,8 @@ return {
       enabled = true,
       keys = {
         term_normal = {
-          "<esc>",
-          "<esc",
+          "<esc><esc>",
+          nil,
           mode = "t",
           expr = true,
           desc = "Double escape to normal mode",
@@ -39,17 +39,18 @@ return {
   },
   config = function(_, opts)
     require("snacks").setup(opts)
+
+    -- single border in <leader>m
     Snacks.config.style("notification.history", {
       border = "single",
     })
+
+    -- remove double escaped
     vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
       pattern = "snacks_terminal",
-      -- once = true,
+      once = true,
       callback = function()
-        -- vim.cmd([[tmap <esc> <esc>]])
-        vim.keymap.set("t", "<esc>", function()
-          vim.cmd([[echo "hello"]])
-        end, { buffer = true, desc = "normal escape" })
+        vim.cmd([[tunmap <esc><esc>]])
       end,
     })
   end,
