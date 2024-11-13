@@ -1,5 +1,5 @@
 return {
-  "n-crespo/snacks.nvim",
+  "folke/snacks.nvim",
   event = "VeryLazy",
   opts = {
     notifier = {
@@ -27,13 +27,7 @@ return {
     terminal = {
       enabled = true,
       keys = {
-        term_normal = {
-          "<esc><esc>",
-          nil,
-          mode = "t",
-          expr = true,
-          desc = "Double escape to normal mode",
-        },
+        term_normal = {},
       },
     },
   },
@@ -43,17 +37,6 @@ return {
     -- single border in <leader>m
     Snacks.config.style("notification.history", {
       border = "single",
-    })
-
-    -- remove double escaped
-    vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
-      pattern = "snacks_terminal",
-      once = true,
-      callback = function()
-        -- vim.cmd([[tunmap <esc><esc>]])
-        vim.cmd([[tmap <buffer> <esc> <esc> ]])
-        -- vim.cmd([[tunmap <esc>]])
-      end,
     })
   end,
   keys = {

@@ -51,6 +51,7 @@ opt.ignorecase = true -- casing in search
 opt.spelllang = "en" -- spell in english pls
 opt.showtabline = 0
 opt.cmdheight = 0 -- no cmdline on bottom of screen
+opt.timeoutlen = 100
 vim.g.loaded_ruby_provider = 0 -- never use these
 vim.g.loaded_perl_provider = 0 -- never use these
 vim.g.loaded_python3_provider = 0
