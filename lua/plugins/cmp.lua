@@ -55,20 +55,4 @@ return {
       },
     }
   end,
-
-  -- local window = {
-  --   completion = {
-  --     -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  --     -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-  --     winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
-  --     scrollbar = true,
-  --   },
-  --   documentation = {
-  --     -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  --     border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-  --     winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpCompletionBorder,CursorLine:PmenuSel,Search:None",
-  --     scrollbar = true,
-  --     wrap = false,
-  --   },
-  -- }
 }

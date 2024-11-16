@@ -182,7 +182,7 @@ local hlgroups = {
 
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
-  Pmenu = { bg = c_macroBg3, fg = c_macroFg1 },
+  Pmenu = { bg = c_macroBg2, fg = c_macroFg1 },
   PmenuSbar = { bg = "#201d1d" },
   PmenuSel = { bg = selection_light_gray, fg = "NONE" },
   PmenuThumb = { bg = c_macroBg5 },
