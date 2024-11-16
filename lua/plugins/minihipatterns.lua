@@ -13,21 +13,42 @@ local alpha_hex_color = function(_, match)
   return MiniHipatterns.compute_hex_color_group(hex, "bg")
 end
 
+local blend_with_background = function(color, alpha)
+  -- Terminal's background color (adjust as needed)
+  local bg_color = { r = 0, g = 0, b = 0 } -- Assuming black background
+
+  -- Parse the input RGB color
+  local r = tonumber(color:sub(2, 3), 16)
+  local g = tonumber(color:sub(4, 5), 16)
+  local b = tonumber(color:sub(6, 7), 16)
+
+  -- Blend RGB with background using the alpha value
+  local blended_r = math.floor(r * alpha + bg_color.r * (1 - alpha))
+  local blended_g = math.floor(g * alpha + bg_color.g * (1 - alpha))
+  local blended_b = math.floor(b * alpha + bg_color.b * (1 - alpha))
+
+  -- Return the blended color as a hex string
+  return string.format("#%02X%02X%02X", blended_r, blended_g, blended_b)
+end
+
 local rgb_color = function(_, match)
   -- Extract RGB and alpha components
   local r, g, b, a = match:match("rgb%((%d+)%s+(%d+)%s+(%d+)%s*/%s*(%d+)%%%)")
-  if not (r and g and b) then
+  if not (r and g and b and a) then
     return nil
   end
 
-  -- Format RGB into hex
+  -- Convert RGB to hex
   local hex = string.format("#%02X%02X%02X", tonumber(r), tonumber(g), tonumber(b))
 
-  -- Calculate the alpha percentage (currently ignored for simplicity)
-  local alpha = tonumber(a) or 100 -- Default to 100% if no alpha is provided
+  -- Convert alpha percentage to a scale of 0 to 1
+  local alpha = tonumber(a) / 100
 
-  -- Return the highlight group based on the RGB color
-  return MiniHipatterns.compute_hex_color_group(hex, "bg")
+  -- Blend with the terminal's background color
+  local blended_hex = blend_with_background(hex, alpha)
+
+  -- Return the highlight group with the blended color
+  return MiniHipatterns.compute_hex_color_group(blended_hex, "bg")
 end
 
 return {
