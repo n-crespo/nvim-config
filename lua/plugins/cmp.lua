@@ -20,6 +20,11 @@ return {
     --   format_kinds(entry, item) -- add icons
     --   -- return require("magazine").formatter(entry, item)
     -- end
+
+    opts.performance = {
+      debounce = 0,
+      throttle = 0,
+    }
     opts.mapping = {
       ["<C-e>"] = { i = require("cmp").mapping.abort() },
       ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
@@ -37,18 +42,16 @@ return {
         follow_cursor = true,
       },
     }
+
     opts.window = {
       completion = {
-        border = "single",
-        -- scrollbar = false,
-        winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
+        border = "none",
+        winhighlight = "Normal:CmpCompletion,FloatBorder:CmpDocumentationBorder,CursorLine:PmenuSel,Search:None",
       },
-    }
-    opts.window = {
       documentation = {
         border = "single",
-        -- scrollbar = false,
         winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpCompletionBorder,CursorLine:PmenuSel,Search:None",
+        wrap = false,
       },
     }
   end,

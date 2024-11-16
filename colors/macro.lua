@@ -161,6 +161,7 @@ local hlgroups = {
   EndOfBuffer = { fg = normal_bg },
   ErrorMsg = { fg = c_lotusRed1 },
   FloatBorder = { bg = nil, fg = border_purple_ink },
+  CompletionBorder = { bg = nil, fg = c_macroBg2 },
   FloatFooter = { bg = c_macroBg0, fg = c_macroBg5 },
   FloatTitle = { bg = c_macroBg0, fg = c_macroGray2, bold = true },
   FoldColumn = { fg = c_macroBg5 },
@@ -424,7 +425,7 @@ local hlgroups = {
   NoiceScrollBar = { bg = normal_bg },
 
   -- nvim-cmp
-  CmpPmenu = { bg = "#201d1d" },
+  CmpPmenu = { fg = c_macroBg2, bg = nil },
   CmpCompletion = { link = "Pmenu" },
   CmpCompletionBorder = { bg = nil, fg = border_purple_ink },
   -- CmpCompletionSbar = { link = "PmenuSbar" },
@@ -432,7 +433,7 @@ local hlgroups = {
   CmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
   CmpCompletionThumb = { link = "PmenuThumb" },
   CmpDocumentation = { link = "NormalFloat" },
-  CmpDocumentationBorder = { link = "FloatBorder" },
+  CmpDocumentationBorder = { link = "CompletionBorder" },
   CmpItemAbbr = { fg = c_macroFg2 },
   CmpItemAbbrDeprecated = { fg = c_macroAsh, strikethrough = true },
   CmpItemAbbrMatch = { fg = c_macroRed },
