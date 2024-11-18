@@ -17,17 +17,24 @@ return {
       },
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-        if filename == "" then
-          filename = "[No Name]"
-        end
+        local filetype = vim.bo[props.buf].filetype
 
-        local ft_icon, ft_color = require("nvim-web-devicons").get_icon_color(filename)
+        local ft_icon, ft_color, _ = MiniIcons.get("filetype", filetype)
+        -- print("ft_icon:", ft_icon, "ft_color:", ft_color, "filename:", filename)
 
         local modified = vim.bo[props.buf].modified
 
+        local hl = vim.api.nvim_get_hl(0, { name = ft_color })
+
+        -- Convert RGB to HEX for foreground and background
+        local fg_hex = hl.fg and string.format("#%06x", hl.fg) or "none"
+        local bg_hex = hl.bg and string.format("#%06x", hl.bg) or "none"
+
+        -- print("Foreground:", fg_hex)
+        -- print("Background:", bg_hex)
+
         return {
-          -- { get_diagnostic_label() },
-          { (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" },
+          { (ft_icon or "") .. " ", guifg = fg_hex, guibg = "none" },
           { filename, gui = modified and "bold" or "none" },
           { modified and " " or "" },
         }
