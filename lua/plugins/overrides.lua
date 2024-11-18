@@ -5,10 +5,6 @@ return {
     enabled = false,
   },
   {
-    "nvimdev/dashboard-nvim", -- i use mini starter
-    enabled = false,
-  },
-  {
     "catppuccin", -- i don't use this
     enabled = false,
   },
