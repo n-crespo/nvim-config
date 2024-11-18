@@ -13,7 +13,6 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    optional = true,
     opts = {
       formatters_by_ft = {
         ["markdown"] = { "prettier" },
@@ -49,15 +48,5 @@ return {
       require("render-markdown").setup(opts)
       vim.keymap.set("n", "<leader>um", require("render-markdown").toggle)
     end,
-    -- keys = {
-    --   {
-    --     "<leader>um",
-    --     function()
-    --       require("render-markdown").toggle()
-    --     end,
-    --     mode = { "n", "v" },
-    --     desc = "Render Markdown",
-    --   },
-    -- },
   },
 }
