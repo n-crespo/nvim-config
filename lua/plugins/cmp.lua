@@ -1,5 +1,5 @@
 return {
-  "iguanacucumber/magazine.nvim",
+  "hrsh7th/nvim-cmp",
   name = "nvim-cmp",
   event = "InsertEnter",
   dependencies = {
@@ -26,7 +26,15 @@ return {
       throttle = 0,
     }
     opts.mapping = {
-      ["<C-e>"] = { i = require("cmp").mapping.abort() },
+      ["<C-e>"] = {
+        i = function()
+          if require("cmp").visible() then
+            require("cmp").close()
+          else
+            require("cmp").complete()
+          end
+        end,
+      },
       ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
       ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
       ["<S-CR>"] = require("cmp").config.disable,
