@@ -558,6 +558,12 @@ local hlgroups = {
   NeoCodeiumSuggestion = { fg = "#454745", bg = nil },
   NeoCodeiumLabel = { fg = c_macroFg0, bg = c_macroBg2 },
 
+  -- treesitter context
+  TreesitterContextBottom = { underline = false, bg = c_macroBg2, sp = border_purple_ink },
+  TreesitterContextLineNumberBottom = { underline = false, bg = c_macroBg2, sp = border_purple_ink },
+  TreesitterContext = { bg = c_macroBg2 },
+  TreesitterContextLineNumber = { bg = c_macroBg2, fg = border_purple_ink },
+
   -- lualine tab pages
   LualineTabInactive = { fg = c_macroAsh },
   LualineTabActive = { fg = c_macroFg1, bold = false, underline = false },

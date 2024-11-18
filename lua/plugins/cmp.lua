@@ -32,11 +32,9 @@ return {
       ["<S-CR>"] = require("cmp").config.disable,
       ["<CR>"] = LazyVim.cmp.confirm({ select = true }),
     }
-    opts.experimental = vim.list_extend(opts.experimental or {}, {
-      ghost_text = {
-        hl_group = "CmpGhostText",
-      },
-    })
+    opts.experimental = {
+      ghost_text = false,
+    }
     opts.view = {
       entries = {
         follow_cursor = true,
