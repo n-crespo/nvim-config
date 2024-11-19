@@ -102,6 +102,9 @@ return {
             elseif name == "fish;#toggleterm#1" then
               name = "terminal"
               icon = ""
+            elseif name == "fish" then
+              icon = ""
+              color = "blue"
             elseif name == "lazygit" then
               icon = "󰊢"
             end
