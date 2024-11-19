@@ -4,12 +4,12 @@ return {
   opts = {
     notifier = {
       enabled = true,
-      style = "fancy",
     },
     notification = {
       {
         border = "single",
         zindex = 100,
+        sort = { "added" },
         ft = "markdown",
         wo = {
           winblend = 5,
@@ -26,6 +26,13 @@ return {
     words = { enabled = false },
     terminal = {
       enabled = true,
+      win = {
+        style = "terminal",
+        winbar = "1",
+      },
+      wo = {
+        winbar = "",
+      },
       keys = {
         term_normal = {},
       },
@@ -47,5 +54,14 @@ return {
       end,
       desc = "Message History",
     },
+    {
+      "<C-q>",
+      function()
+        Snacks.terminal.toggle()
+      end,
+      desc = "Toggle Terminal",
+      mode = { "n", "t" },
+    },
+    -- <C-.>, <C-S-/>
   },
 }
