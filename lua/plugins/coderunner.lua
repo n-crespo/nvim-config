@@ -27,6 +27,11 @@ return {
         -- javac */java -d bin/ && java -cp bin/ src.Main
         command = "rjall",
       },
+      ["~/college/cs31/proj5/.-"] = {
+        name = "Project 5",
+        description = "Project 5",
+        command = "clang++ *.cpp -o /tmp/a.out && /tmp/a.out",
+      },
     },
     term = {
       position = "bot", -- horiz, top, vert
