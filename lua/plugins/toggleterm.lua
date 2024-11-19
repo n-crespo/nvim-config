@@ -1,5 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
+  enabled = false,
   event = "VeryLazy",
   version = "*",
   opts = {--[[ things you want to change go here]]
@@ -14,6 +15,7 @@ return {
     highlights = {
       FloatBorder = { link = "FloatBorder" },
     },
+    open_mapping = [[<c-q>]], -- or { [[<c-\>]], [[<c-¥>]] } if you also use a Japanese keyboard.
     shading_factor = "0", -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
     start_in_insert = true,
     insert_mappings = false, -- whether or not the open mapping applies in insert mode
