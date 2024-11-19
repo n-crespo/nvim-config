@@ -212,8 +212,6 @@ vim.keymap.set({ "t", "n" }, "<C-S-J>", "<cmd>wincmd j<cr>", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<S-NL>", "<cmd>wincmd j<cr>", { noremap = true }) -- this does?
 vim.keymap.set({ "t", "n" }, "<C-S-K>", "<cmd>wincmd k<cr>", { noremap = true })
 
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
-
 -- ------------------------------------- ABBREVIATIONS --------------------------------------------
 
 -- note: these will work in every filetype
