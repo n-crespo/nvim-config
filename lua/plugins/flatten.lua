@@ -8,7 +8,7 @@ return {
     },
     callbacks = {
       pre_open = function()
-        require("toggleterm").toggle()
+        require("snacks").terminal.toggle()
       end,
     },
   },
