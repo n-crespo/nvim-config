@@ -153,7 +153,8 @@ vim.keymap.set("n", "<C-f>", function()
   )
 end, { desc = "find word" })
 
-vim.keymap.set("n", "gp", "<leader>ghp>", { remap = true, desc = "git preview" })
+-- git hunks
+vim.keymap.set("n", "gp", "<leader>ghp", { remap = true, desc = "git preview" })
 
 vim.keymap.set(
   "x",
