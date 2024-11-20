@@ -153,6 +153,10 @@ vim.keymap.set("n", "<C-f>", function()
   )
 end, { desc = "find word" })
 
+-- move lines up and down (mini.move)
+vim.keymap.set("n", "<C-n>", "<M-j>", { remap = true, silent = true })
+vim.keymap.set("n", "<C-p>", "<M-k>", { remap = true, silent = true })
+
 -- git hunks
 vim.keymap.set("n", "gp", "<leader>ghp", { remap = true, desc = "git preview" })
 
