@@ -16,7 +16,7 @@ return {
     opts.options.section_separators = { left = "", right = "" }
     -- opts.options.section_separators = { left = "", right = "" }
     opts.options.theme = require("transparentlualine").theme
-    opts.options.disabled_filetypes = { statusline = { "ministarter" } }
+    opts.options.disabled_filetypes = { statusline = { "snacks_dashboard" } }
     opts.sections.lualine_a = {
       { "mode" },
     }
@@ -99,12 +99,9 @@ return {
 
             if name == "" then
               name = "Empty" -- Set name to "Empty" if it is empty
-            elseif name == "fish;#toggleterm#1" then
-              name = "terminal"
-              icon = ""
             elseif name == "fish" then
               icon = ""
-              color = "blue"
+              name = "terminal"
             elseif name == "lazygit" then
               icon = "󰊢"
             end

@@ -12,6 +12,7 @@ return {
         "lazy",
         "noice",
         "csv",
+        "snacks_dashboard",
       },
     },
   },
