@@ -2,17 +2,10 @@ return {
   "folke/snacks.nvim",
   event = "VeryLazy",
   opts = {
-    styles = {
-      blame_line = { border = "single" },
-    },
+    styles = { blame_line = { border = "single" } },
     dashboard = {
       width = 45,
-      autokeys = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
-      -- These settings are used by some built-in sections
       preset = {
-        -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
-        ---@type fun(cmd:string, opts:table)|nil
-        pick = nil,
         keys = {
           { icon = " ", key = "e", desc = "Explore", action = "<leader>e" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
@@ -27,42 +20,23 @@ return {
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
-        -- Used by the `header` section
         header = [[
  ┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
  │  .  ││  .__││  .  ││  │  ││  ││  .  .  │
  └──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
         ]],
-        -- header = "hello nicolas",
       },
-      -- item field formatters
       sections = {
         { section = "header" },
         { section = "keys", gap = 1, padding = 1 },
         -- { section = "startup" },
       },
     },
-    notifier = {
-      enabled = true,
-    },
     notification = {
-      {
-        border = "single",
-        zindex = 100,
-        sort = { "added" },
-        ft = "markdown",
-        wo = {
-          winblend = 5,
-          wrap = false,
-          conceallevel = 2,
-        },
-        bo = { filetype = "snacks_notif" },
-      },
-      history = {
-        border = "single",
-      },
+      border = "single",
+      sort = { "added" },
+      history = { border = "single" },
     },
-    statuscolumn = { enabled = false },
     words = { enabled = false },
     terminal = {
       enabled = true,
@@ -70,12 +44,7 @@ return {
         style = "terminal",
         winbar = "1",
       },
-      wo = {
-        winbar = "",
-      },
-      keys = {
-        term_normal = {},
-      },
+      wo = { winbar = "" },
     },
   },
   config = function(_, opts)
