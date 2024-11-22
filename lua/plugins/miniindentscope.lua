@@ -28,6 +28,7 @@ return {
         "crunner",
         "lspinfo",
         "snacks_terminal",
+        "snacks_dashboard",
       },
       callback = function()
         vim.b.miniindentscope_disable = true
