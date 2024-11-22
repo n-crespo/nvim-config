@@ -6,6 +6,7 @@ return {
       blame_line = { border = "single" },
     },
     dashboard = {
+      width = 45,
       autokeys = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
       -- These settings are used by some built-in sections
       preset = {
@@ -28,10 +29,9 @@ return {
         },
         -- Used by the `header` section
         header = [[
-                  ——
- .————— .—————  —————..——.——.|——|.————————.
- |  .  ||  —__||  _  ||  |  ||  ||  .  .  |
- '——'——''—————''—————' '———' '——''——'——'——'
+ ┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
+ │  .  ││  .__││  .  ││  │  ││  ││  .  .  │
+ └──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
         ]],
         -- header = "hello nicolas",
       },
