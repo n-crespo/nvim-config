@@ -8,31 +8,12 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
 -- --------------------------------------- BETTER MOTIONS ---------------------------------------
 
--- Function to perform the custom <C-d> behavior
-local function scroll_down_with_centering()
-  -- Save current cursor position
-  local cur_pos = vim.fn.line(".")
-
-  -- Perform the default <C-d> behavior (scroll down half a page)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-d>", true, true, true), "n", false)
-
-  -- Get the total number of lines in the buffer
-  local line_count = vim.fn.line("$")
-  local half_page = vim.o.lines / 2
-
-  -- Check if the cursor is near the bottom of the buffer
-  if cur_pos <= line_count - half_page then
-    -- If not near the bottom, center the current line
-    vim.cmd("normal! zz")
-  end
-end
-
--- Map <C-d> to the custom function
-vim.api.nvim_set_keymap("n", "<C-d>", "", { noremap = true, callback = scroll_down_with_centering })
-vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
-vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
-vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
-
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Half Page Down" })
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Half Page Up" })
+-- vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
+-- vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
+-- vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
+--
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
 
