@@ -100,17 +100,6 @@ vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Windo
 
 -- vim.keymap.set("n", "<leader>bo", ":%bd|e#<cr>", { desc = "Buffer Only", silent = true })
 
--- --------------------------------- OS SPECIFIC KEYMAPS -------------------------------------------
-
--- these are used because LWin+j, k, h, and l are mapped to the arrow keys and
--- LWin+u and d are mapped to page up and page down (via autohotkey)
-if vim.fn.has("wsl") or vim.fn.has("win32") then
-  vim.keymap.set("n", "<leader>os", "<cmd>silent !open %<cr>", { silent = true, desc = "Open in System Viewer" })
-  -- vim.keymap.set({ "n", "v" }, "<Up>", "<M-k>", { remap = true, silent = true })
-  -- vim.keymap.set({ "n", "v" }, "<Down>", "<M-j>", { remap = true, silent = true })
-  vim.keymap.set("n", "<PageUp>", "<C-u>zz", { silent = true })
-  vim.keymap.set("n", "<PageDown>", "<C-d>zz", { silent = true })
-end
 vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
 
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
