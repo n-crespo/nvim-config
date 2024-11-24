@@ -544,13 +544,6 @@ local hlgroups = {
   InclineNormal = { bg = "#201D1D", bold = false },
   InclineNormalNC = { bg = "#201D1D", bold = false },
 
-  -- mini.starter
-  MiniStarterItemBullet = { fg = border_purple_ink },
-  MiniStarterItemPrefix = { fg = c_macroRed },
-
-  -- custom line highlight for permanently highlighting particular lines
-  LineHighlight = { link = "Visual" },
-
   -- mini.indentscope
   MiniIndentscopeSymbol = { fg = border_purple_ink },
 
