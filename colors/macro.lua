@@ -540,6 +540,9 @@ local hlgroups = {
   MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
   MiniFilesBorder = { link = "FloatBorder" },
 
+  -- scrollbar
+  ScrollbarHandle = { bg = selection_light_gray },
+
   -- incline
   InclineNormal = { bg = "#201D1D", bold = false },
   InclineNormalNC = { bg = "#201D1D", bold = false },
