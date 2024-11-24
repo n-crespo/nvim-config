@@ -542,7 +542,7 @@ local hlgroups = {
 
   -- scrollbar
   ScrollbarHandle = { bg = selection_light_gray },
-  ScrollbarCursor = { fg = "#2F2C76" },
+  ScrollbarCursor = { fg = "#ffffff" },
 
   -- incline
   InclineNormal = { bg = "#201D1D", bold = false },
