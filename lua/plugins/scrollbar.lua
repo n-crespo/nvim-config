@@ -97,6 +97,8 @@ return {
         "snacks_notif",
         "minifiles",
         "treesitter_context",
+        "TelescopePrompt",
+        "TelescopeResults",
       },
       handlers = {
         cursor = true,
