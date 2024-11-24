@@ -5,6 +5,84 @@ return {
     require("scrollbar").setup({
       hide_if_all_visible = true, -- Hides everything if all lines are visible
       throttle_ms = 100,
+      marks = {
+        Error = {
+          text = { "◆" },
+          priority = 2,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "DiagnosticVirtualTextError",
+        },
+        Warn = {
+          text = { "◆" },
+          priority = 3,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "DiagnosticVirtualTextWarn",
+        },
+        Info = {
+          text = { "◆" },
+          priority = 4,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "DiagnosticVirtualTextInfo",
+        },
+        Hint = {
+          text = { "◆" },
+          priority = 5,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "DiagnosticVirtualTextHint",
+        },
+        Misc = {
+          text = { "◆" },
+          priority = 6,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "Normal",
+        },
+        GitAdd = {
+          text = "+",
+          priority = 7,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "GitSignsAdd",
+        },
+        GitChange = {
+          text = "~",
+          priority = 7,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "GitSignsChange",
+        },
+        GitDelete = {
+          text = "-",
+          priority = 7,
+          gui = nil,
+          color = nil,
+          cterm = nil,
+          color_nr = nil, -- cterm
+          highlight = "GitSignsDelete",
+        },
+        Cursor = {
+          priority = 1,
+          highlight = "ScrollbarCursor",
+        },
+      },
       handle = {
         text = " ",
         blend = 0, -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
@@ -18,15 +96,15 @@ return {
         "snacks_terminal",
         "snacks_notif",
         "minifiles",
+        "treesitter_context",
       },
       handlers = {
-        cursor = false,
+        cursor = true,
         diagnostic = true,
         gitsigns = true, -- Requires gitsigns
       },
     })
     require("gitsigns").setup()
-    require("scrollbar.handlers.gitsigns").setup()
 
     local function prevent_overscroll(cmd)
       local cur_pos = vim.fn.line(".")
