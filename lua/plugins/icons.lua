@@ -7,5 +7,8 @@ return {
       Rmd = { glyph = "", hl = "MiniIconsBlue" },
       rmd = { glyph = "", hl = "MiniIconsBlue" },
     },
+    extension = {
+      h = { glyph = "󰙲", hl = "MiniIconsBlue" },
+    },
   },
 }
