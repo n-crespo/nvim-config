@@ -20,7 +20,7 @@ return {
       documentation = {
         opts = {
           border = { style = "single", padding = { 0, 1 } },
-          win_options = { wrap = false },
+          win_options = { wrap = true },
           lang = "markdown",
         },
       },
