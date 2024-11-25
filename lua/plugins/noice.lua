@@ -10,11 +10,8 @@ return {
       },
     },
     views = {
-      mini = {
-        win_options = {
-          winblend = 0,
-        },
-      },
+      -- transparent lsp progress window
+      mini = { win_options = { winblend = 0 } },
     },
     lsp = {
       documentation = {
