@@ -99,6 +99,8 @@ return {
         "treesitter_context",
         "TelescopePrompt",
         "TelescopeResults",
+        "cmp_menu",
+        "cmp_docs",
       },
       handlers = {
         cursor = true,
