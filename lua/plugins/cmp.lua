@@ -20,6 +20,15 @@ return {
     --   format_kinds(entry, item) -- add icons
     --   -- return require("magazine").formatter(entry, item)
     -- end
+    local format = opts.formatting.format
+
+    opts.formatting = {
+      format = function(entry, item)
+        format(entry, item)
+        item.menu = nil
+        return item
+      end,
+    }
 
     opts.performance = {
       debounce = 0,
