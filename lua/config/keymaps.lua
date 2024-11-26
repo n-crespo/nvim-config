@@ -120,19 +120,14 @@ vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through comp
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
 vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
-vim.keymap.set("n", "<M-BS>", "<NOP>", { desc = "Clear Line" })
 vim.keymap.set("i", "<S-CR>", "<esc>o", { remap = false })
-
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
 
 -- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
 
--- zb but respect scrollEOF plugin
-vim.keymap.set("n", "zb", "zbkj", { silent = true, desc = "Bottom line" })
-
 -- git blame
-vim.keymap.set("n", "gb", "<leader>gb", { remap = true, silent = true, desc = "Blame Line" })
+vim.keymap.set("n", "gb", "<leader>ghb", { remap = true, silent = true, desc = "Blame Line" })
 
 -- unholy non-native vim keymap for find in buffer
 vim.keymap.set("n", "<C-f>", function()
