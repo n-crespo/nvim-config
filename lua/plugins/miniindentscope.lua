@@ -34,5 +34,6 @@ return {
         vim.b.miniindentscope_disable = true
       end,
     })
+    vim.cmd([[au BufEnter * lua vim.b.miniindentscope_disable = vim.bo.buftype ~= '']])
   end,
 }
