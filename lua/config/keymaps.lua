@@ -274,13 +274,6 @@ vim.keymap.set({ "n", "v" }, "`", function()
   end
 end, { desc = "Toggle fold" })
 
--- toggling comments
-vim.keymap.set({ "n", "i" }, "<C-/>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("v", "<C-/>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
-
-vim.keymap.set({ "n", "i" }, "<C-_>", "<cmd>normal gcc<CR>", { desc = "[/] Toggle comment line", silent = true })
-vim.keymap.set("v", "<C-_>", "<cmd>normal gcc<CR>gv", { desc = "[/] Toggle comment line", silent = true })
-
 -- clean ^Ms (windows newlines)
 vim.keymap.set("n", "<C-S-S>", function()
   vim.cmd([[silent! %s/\r//g]])
