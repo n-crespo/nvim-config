@@ -8,11 +8,11 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
 -- --------------------------------------- BETTER MOTIONS ---------------------------------------
 
--- vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Half Page Down" })
--- vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Half Page Up" })
--- vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
--- vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
--- vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Half Page Down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Half Page Up" })
+vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "End of File" })
+vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
 --
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })

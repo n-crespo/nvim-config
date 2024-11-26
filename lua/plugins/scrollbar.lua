@@ -110,23 +110,23 @@ return {
     })
     require("gitsigns").setup()
 
-    local function prevent_overscroll(cmd)
-      local cur_pos = vim.fn.line(".")
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(cmd, true, true, true), "n", false)
-
-      local line_count = vim.fn.line("$")
-      local half_page = vim.o.lines / 2
-
-      if cur_pos <= line_count - half_page then
-        vim.cmd("normal! zz")
-      end
-    end
-
-    vim.keymap.set("n", "<C-d>", function()
-      prevent_overscroll("<C-d>")
-    end, { noremap = true })
-    vim.keymap.set("n", "<C-u>", function()
-      prevent_overscroll("<C-u>")
-    end, { noremap = true })
+    -- local function prevent_overscroll(cmd)
+    --   local cur_pos = vim.fn.line(".")
+    --   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(cmd, true, true, true), "n", false)
+    --
+    --   local line_count = vim.fn.line("$")
+    --   local half_page = vim.o.lines / 2
+    --
+    --   if cur_pos <= line_count - half_page then
+    --     vim.cmd("normal! zz")
+    --   end
+    -- end
+    --
+    -- vim.keymap.set("n", "<C-d>", function()
+    --   prevent_overscroll("<C-d>")
+    -- end, { noremap = true })
+    -- vim.keymap.set("n", "<C-u>", function()
+    --   prevent_overscroll("<C-u>")
+    -- end, { noremap = true })
   end,
 }
