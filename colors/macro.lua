@@ -545,8 +545,8 @@ local hlgroups = {
   ScrollbarCursor = { fg = "#ffffff" },
 
   -- incline
-  InclineNormal = { bg = "#201D1D", bold = false },
-  InclineNormalNC = { bg = "#201D1D", bold = false },
+  InclineNormal = { bg = "#201D1D", bold = true, fg = "#898686" },
+  InclineNormalNC = { bg = "#201D1D", bold = true, fg = "#898686" },
 
   -- mini.indentscope
   MiniIndentscopeSymbol = { fg = border_purple_ink },
@@ -563,7 +563,7 @@ local hlgroups = {
 
   -- lualine tab pages
   LualineTabInactive = { fg = c_macroAsh },
-  LualineTabActive = { fg = c_macroFg1, bold = false, underline = false },
+  LualineTabActive = { fg = "#C5c9c5", bold = false, underline = false },
   RenderMarkdownCode = { bg = c_macroBg2 },
   -- RenderMarkdownCodeInline = { link = "@markup.raw.markdown_inline" },
   -- }}}

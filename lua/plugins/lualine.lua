@@ -1,3 +1,6 @@
+-- do
+--   return {}
+-- end
 -- status line
 -- 12 hour time because 'murica
 -- transparent bar because transparent is better
@@ -21,10 +24,12 @@ return {
       { "mode" },
     }
 
-    opts.sections.lualine_b = {}
+    opts.sections.lualine_b = {
+      LazyVim.lualine.root_dir(),
+    }
 
     opts.sections.lualine_c = {
-      LazyVim.lualine.root_dir(),
+      -- LazyVim.lualine.root_dir(),
       { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
       { LazyVim.lualine.pretty_path() },
       {
@@ -79,10 +84,6 @@ return {
           return LazyVim.ui.fg("Special")
         end,
       },
-    }
-    -- NOTE this could have potentially been done with the "tabs" lualine
-    -- component rather than doing it manually buuuuut the builtin one is weird
-    opts.sections.lualine_y = {
       {
         function()
           local tabs = {}
@@ -132,13 +133,33 @@ return {
         --   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
         -- end,
       },
-      -- { "progress", separator = " ", padding = { left = 1, right = 0 } },
-      -- { "location", padding = { left = 0, right = 1 } },
+    }
+    -- NOTE this could have potentially been done with the "tabs" lualine
+    -- component rather than doing it manually buuuuut the builtin one is weird
+    opts.sections.lualine_y = {
+      {
+        "progress",
+        separator = " ",
+        padding = { left = 1, right = 0 },
+        color = { fg = "#949894" },
+      },
+      {
+        "location",
+        separator = " ",
+        padding = { left = 0, right = 1 },
+        color = { fg = "#949894" },
+      },
+      {
+        " ",
+      },
     }
     opts.sections.lualine_z = {
-      function()
-        return "  " .. tostring(os.date("%I:%M %p")):gsub("^%s*0", "") -- remove leading 0 and convert to string
-      end,
+      {
+        function()
+          return "󱑎 " .. tostring(os.date("%I:%M %p")):gsub("^%s*0", "") -- remove leading 0 and convert to string
+        end,
+        color = { bold = true },
+      },
     }
   end,
   keys = {
