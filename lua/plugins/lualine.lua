@@ -1,6 +1,3 @@
--- do
---   return {}
--- end
 -- status line
 -- 12 hour time because 'murica
 -- transparent bar because transparent is better

@@ -545,8 +545,8 @@ local hlgroups = {
   ScrollbarCursor = { fg = "#ffffff" },
 
   -- incline
-  InclineNormal = { bg = "#201D1D", bold = true, fg = "#898686" },
-  InclineNormalNC = { bg = "#201D1D", bold = true, fg = "#898686" },
+  InclineNormal = { bg = "#201D1D", bold = true, fg = "#afadad" },
+  InclineNormalNC = { bg = "#201D1D", bold = true, fg = "#afadad" },
 
   -- mini.indentscope
   MiniIndentscopeSymbol = { fg = border_purple_ink },
