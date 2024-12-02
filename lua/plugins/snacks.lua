@@ -63,13 +63,6 @@ return {
   end,
   keys = {
     {
-      "<leader>m",
-      function()
-        Snacks.notifier.show_history({ border = "single" })
-      end,
-      desc = "Message History",
-    },
-    {
       "<C-q>",
       function()
         Snacks.terminal.toggle()
