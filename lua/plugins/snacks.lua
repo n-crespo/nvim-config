@@ -46,6 +46,12 @@ return {
       },
       wo = { winbar = "" },
     },
+    rename = {
+      enabled = true,
+    },
+    scratch = {
+      enabled = true,
+    },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
