@@ -18,7 +18,9 @@ return {
         opts = {
           border = { style = "single", padding = { 0, 1 } },
           win_options = { wrap = true },
-          lang = "markdown",
+          position = {
+            row = 2,
+          },
         },
       },
     },
