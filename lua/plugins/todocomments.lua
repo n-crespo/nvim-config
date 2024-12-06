@@ -3,7 +3,7 @@ return {
   opts = {
     highlight = {
       comments_only = false,
-      multiline = false,
+      multiline = true,
     },
     keywords = {
       TODO = {
