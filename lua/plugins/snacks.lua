@@ -3,6 +3,9 @@ return {
   event = "VeryLazy",
   opts = {
     styles = { blame_line = { border = "single" } },
+    quickfile = {
+      enabled = true,
+    },
     dashboard = {
       width = 45,
       preset = {
@@ -38,7 +41,12 @@ return {
       sort = { "added" },
       history = { border = "single" },
     },
-    words = { enabled = false },
+    words = {
+      enabled = true,
+      modes = {},
+      notify_jump = true,
+      notify_end = true,
+    },
     terminal = {
       enabled = true,
       win = {
