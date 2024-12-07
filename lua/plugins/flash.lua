@@ -8,7 +8,7 @@ return {
     },
     jump = {
       nohlsearch = true, -- clear highlight after jump
-      autojump = false, -- automatically jump when there is only one match
+      autojump = true, -- automatically jump when there is only one match
     },
     label = {
       uppercase = false,
