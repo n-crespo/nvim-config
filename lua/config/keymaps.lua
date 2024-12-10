@@ -307,3 +307,11 @@ vim.keymap.set("n", "<leader>fs", "1z=", { noremap = true, silent = true, desc =
 
 -- reopen closed buffer/window
 vim.keymap.set("n", "<C-S-T>", "<cmd>vsp | e #<cr>", { desc = "Re-open last buffer" })
+
+-- Block insert in line visual mode
+vim.keymap.set("x", "I", function()
+  return vim.fn.mode() == "V" and "^<C-v>I" or "I"
+end, { expr = true })
+vim.keymap.set("x", "A", function()
+  return vim.fn.mode() == "V" and "$<C-v>A" or "A"
+end, { expr = true })
