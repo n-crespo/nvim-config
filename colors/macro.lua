@@ -428,7 +428,6 @@ local hlgroups = {
   CmpPmenu = { fg = c_macroBg2, bg = nil },
   CmpCompletion = { link = "Pmenu" },
   CmpCompletionBorder = { bg = nil, fg = border_purple_ink },
-  -- CmpCompletionSbar = { link = "PmenuSbar" },
   CmpCompletionSbar = { fg = "#201d1d" },
   CmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
   CmpCompletionThumb = { link = "PmenuThumb" },
@@ -470,18 +469,13 @@ local hlgroups = {
   GitSignsDelete = { fg = c_lotusRed0 },
   GitSignsDeletePreview = { bg = c_winterRed },
 
-  -- fugitive
+  -- diff
   DiffAdded = { fg = c_autumnGreen },
   DiffChanged = { fg = c_autumnYellow },
   DiffDeleted = { fg = c_autumnRed },
   DiffNewFile = { fg = c_autumnGreen },
   DiffOldFile = { fg = c_autumnRed },
   DiffRemoved = { fg = c_autumnRed },
-  fugitiveHash = { link = "gitHash" },
-  fugitiveHeader = { link = "Title" },
-  fugitiveStagedModifier = { fg = c_autumnGreen },
-  fugitiveUnstagedModifier = { fg = c_autumnYellow },
-  fugitiveUntrackedModifier = { fg = c_macroAqua },
 
   -- telescope
   TelescopeBorder = { bg = normal_bg, fg = border_purple_ink },
@@ -539,10 +533,6 @@ local hlgroups = {
   MiniFilesTitleFocused = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg2 },
   MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
   MiniFilesBorder = { link = "FloatBorder" },
-
-  -- scrollbar
-  ScrollbarHandle = { bg = selection_light_gray },
-  ScrollbarCursor = { fg = "#ffffff" },
 
   -- incline
   InclineNormal = { bg = "#201D1D", bold = true, fg = "#afadad" },
