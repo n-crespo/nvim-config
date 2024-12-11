@@ -6,6 +6,7 @@ return {
     quickfile = {
       enabled = true,
     },
+    statuscolumn = { enabled = false },
     dashboard = {
       width = 45,
       preset = {
@@ -24,11 +25,11 @@ return {
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
-        header = [[
-┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
-│  .  ││  .__││  .  ││  │  ││  ││  .  .  │
-└──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
-        ]],
+        header = ([[
+          ┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
+          │  .  ││  .__││  .  ││  │  ││  ││  .  .  │
+          └──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
+        ]]):gsub("^%s+", ""):gsub("\n%s+", "\n"),
       },
       sections = {
         { section = "header", padding = 1 },
@@ -63,14 +64,18 @@ return {
     indent = {
       enabled = true,
       indent = { enabled = true },
-      scope = { enabled = true, animate = { enabled = false } },
+      scope = {
+        enabled = true,
+        animate = { enabled = false },
+      },
     },
     zen = { enabled = true },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
 
-    -- single border in <leader>m
+    -- single border in <leader>n
+    ---@diagnostic disable-next-line: missing-fields
     Snacks.config.style("notification.history", {
       border = "single",
     })
