@@ -2,7 +2,7 @@
 -- default LazyVim plugin, this config just removes the animation
 return {
   "echasnovski/mini.indentscope",
-  enabled = true,
+  enabled = false,
   event = "LazyFile", -- only load plugin after a buffer has been opened
   opts = {
     draw = {
