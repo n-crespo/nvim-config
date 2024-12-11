@@ -25,13 +25,13 @@ return {
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         header = [[
- ┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
- │  .  ││  .__││  .  ││  │  ││  ││  .  .  │
- └──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
+┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
+│  .  ││  .__││  .  ││  │  ││  ││  .  .  │
+└──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
         ]],
       },
       sections = {
-        { section = "header" },
+        { section = "header", padding = 1 },
         { section = "keys", gap = 1, padding = 1 },
         -- { section = "startup" },
       },
@@ -44,15 +44,12 @@ return {
     words = {
       enabled = true,
       modes = {},
-      notify_jump = true,
-      notify_end = true,
     },
+    animate = { enabled = true, easing = "linear", fps = 120 },
+    input = { enabled = true },
     terminal = {
       enabled = true,
-      win = {
-        style = "terminal",
-        winbar = "1",
-      },
+      win = { style = "terminal", winbar = "1" },
       wo = { winbar = "" },
     },
     rename = {
@@ -61,14 +58,14 @@ return {
     scratch = {
       enabled = true,
     },
-
+    git = { enabled = true },
+    gitbrowse = { enabled = true },
     indent = {
       enabled = true,
-      indent = {
-        enabled = true, --char = "╎",
-      },
+      indent = { enabled = true },
       scope = { enabled = true, animate = { enabled = false } },
     },
+    zen = { enabled = true },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
@@ -88,5 +85,19 @@ return {
       mode = { "n", "t" },
     },
     -- <C-.>, <C-S-/>
+    {
+      "<leader>z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
+    },
+    {
+      "<leader>Z",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
+    },
   },
 }
