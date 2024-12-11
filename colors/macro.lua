@@ -548,8 +548,9 @@ local hlgroups = {
   InclineNormal = { bg = "#201D1D", bold = true, fg = "#afadad" },
   InclineNormalNC = { bg = "#201D1D", bold = true, fg = "#afadad" },
 
-  -- mini.indentscope
-  MiniIndentscopeSymbol = { fg = border_purple_ink },
+  -- snacks indent
+  SnacksIndent = { fg = selection_light_gray },
+  SnacksIndentScope = { fg = border_purple_ink },
 
   -- neocodeium
   NeoCodeiumSuggestion = { fg = "#454745", bg = nil },

@@ -61,6 +61,14 @@ return {
     scratch = {
       enabled = true,
     },
+
+    indent = {
+      enabled = true,
+      indent = {
+        enabled = true, --char = "╎",
+      },
+      scope = { enabled = true, animate = { enabled = false } },
+    },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
