@@ -126,9 +126,6 @@ vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
 
 -- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
 
--- git blame
-vim.keymap.set("n", "gb", "<leader>ghb", { remap = true, silent = true, desc = "Blame Line" })
-
 -- unholy non-native vim keymap for find in buffer
 vim.keymap.set("n", "<C-f>", function()
   require("telescope.builtin").current_buffer_fuzzy_find(
