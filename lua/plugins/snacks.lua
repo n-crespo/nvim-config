@@ -46,7 +46,7 @@ return {
       enabled = true,
       modes = {},
     },
-    animate = { enabled = true, easing = "linear", fps = 120 },
+    animate = { enabled = false, easing = "linear", fps = 120 },
     input = { enabled = true },
     terminal = {
       enabled = true,
@@ -64,10 +64,8 @@ return {
     indent = {
       enabled = true,
       indent = { enabled = true },
-      scope = {
-        enabled = true,
-        animate = { enabled = false },
-      },
+      scope = { enabled = true },
+      animate = { enabled = false },
     },
     zen = { enabled = true },
   },
