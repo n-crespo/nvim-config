@@ -15,11 +15,11 @@ return {
       clangd = {},
       jdtls = { enabled = true }, -- java
       lua_ls = { enabled = true }, -- i don't need this and it makes things laggy
-      r_language_server = {},
-      eslint = {},
+      -- r_language_server = {},
+      -- eslint = {},
       ruff_lsp = { enabled = false },
       tsserver = {},
-      cssls = {},
+      -- cssls = {},
       gopls = {},
     },
     setup = {
