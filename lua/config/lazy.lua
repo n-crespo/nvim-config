@@ -7,26 +7,23 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-  spec = (function()
-    local plugins = {
-      { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-      { import = "plugins" },
-    }
-    --   { import = "lazyvim.plugins.extras.coding.mini-surround" },
-    --   { import = "lazyvim.plugins.extras.editor.mini-move" },
-    --   { import = "lazyvim.plugins.extras.formatting.prettier" },
-    --   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-    --   { import = "lazyvim.plugins.extras.util.dot" },
-    -- }
-    -- if vim.fn.has("win32") == 0 then
-    --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.clangd" })
-    --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.python" })
-    --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.r" })
-    --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.java" })
-    --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.typescript" })
-    -- end
-    return plugins
-  end)(),
+  spec = {
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "plugins" },
+  },
+  --   { import = "lazyvim.plugins.extras.coding.mini-surround" },
+  --   { import = "lazyvim.plugins.extras.editor.mini-move" },
+  --   { import = "lazyvim.plugins.extras.formatting.prettier" },
+  --   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
+  --   { import = "lazyvim.plugins.extras.util.dot" },
+  -- }
+  -- if vim.fn.has("win32") == 0 then
+  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.clangd" })
+  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.python" })
+  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.r" })
+  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.java" })
+  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.typescript" })
+  -- end
   defaults = {
     lazy = true,
     version = false, -- always use the latest git commit
