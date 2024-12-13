@@ -3,6 +3,7 @@
 -- transparent bar because transparent is better
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = not vim.g.started_by_firenvim,
   event = { "BufReadPre", "BufNewFile" },
   opts = function(_, opts)
     local icons = LazyVim.config.icons
