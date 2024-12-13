@@ -59,6 +59,7 @@ vim.g.loaded_python3_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.lazyvim_python_lsp = "pyright"
+vim.g.snacks_animate = false
 
 vim.cmd([[
 set complete=
