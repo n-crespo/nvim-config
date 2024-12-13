@@ -1,6 +1,7 @@
 return {
   "b0o/incline.nvim",
   event = "LazyFile",
+  enabled = not vim.g.started_by_firenvim,
   config = function()
     vim.g.showtabline = 0
     require("incline").setup({
