@@ -16,7 +16,6 @@ return {
       "yaml",
       "xml",
       "vimdoc",
-      "latex",
     },
   },
 }
