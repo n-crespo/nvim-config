@@ -135,22 +135,9 @@ return {
     -- NOTE this could have potentially been done with the "tabs" lualine
     -- component rather than doing it manually buuuuut the builtin one is weird
     opts.sections.lualine_y = {
-      -- scrollbar progress indicator
       {
-        function()
-          -- local sbar_chars = { "▔", "🮂", "🮃", "🮑", "🮒", "▃", "▂", "▁" }
-          -- local sbar_chars = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
-          local sbar_chars = { "█", "▇", "▆", "▅", "▄", "▃", "▂", "▁" }
-
-          local cur_line = vim.api.nvim_win_get_cursor(0)[1]
-          local lines = vim.api.nvim_buf_line_count(0)
-
-          local i = math.floor((cur_line - 1) / lines * #sbar_chars) + 1
-          local sbar = string.rep(sbar_chars[i], 2)
-
-          return sbar
-        end,
-        color = { fg = "#353131" },
+        "progress",
+        color = { fg = "#949894" },
       },
     }
     opts.sections.lualine_z = {
