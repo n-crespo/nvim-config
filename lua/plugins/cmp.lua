@@ -1,3 +1,6 @@
+do
+  return {}
+end
 return {
   "hrsh7th/nvim-cmp",
   name = "nvim-cmp",
