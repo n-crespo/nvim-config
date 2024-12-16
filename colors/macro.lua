@@ -329,8 +329,8 @@ local hlgroups = {
   LspCodeLens = { fg = c_macroAsh },
   LspInfoBorder = { link = "FloatBorder" },
   LspReferenceRead = { link = "LspReferenceText" },
-  LspReferenceText = { bg = c_winterYellow },
-  LspReferenceWrite = { bg = c_winterYellow, underline = true },
+  LspReferenceText = { bg = nil },
+  LspReferenceWrite = { bg = nil, underline = false },
   LspSignatureActiveParameter = { fg = c_roninYellow },
   -- }}}
 
