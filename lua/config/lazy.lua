@@ -6,24 +6,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+local lang_extras = {}
+if not vim.fn.has("win32") then
+  table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.clangd" })
+  table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.python" })
+  table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.r" })
+  table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.java" })
+  table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.typescript" })
+end
+
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
+    -- lang_extras,
   },
-  --   { import = "lazyvim.plugins.extras.coding.mini-surround" },
-  --   { import = "lazyvim.plugins.extras.editor.mini-move" },
-  --   { import = "lazyvim.plugins.extras.formatting.prettier" },
-  --   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-  --   { import = "lazyvim.plugins.extras.util.dot" },
-  -- }
-  -- if vim.fn.has("win32") == 0 then
-  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.clangd" })
-  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.python" })
-  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.r" })
-  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.java" })
-  --   table.insert(plugins, { import = "lazyvim.plugins.extras.lang.typescript" })
-  -- end
   defaults = {
     lazy = true,
     version = false, -- always use the latest git commit
