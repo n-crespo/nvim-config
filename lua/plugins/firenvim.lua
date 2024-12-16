@@ -6,6 +6,7 @@ return {
     if vim.g.started_by_firenvim then
       vim.o.laststatus = 0
       vim.opt.guifont = "JetBrainsMono Nerd Font"
+      vim.opt.cursorline = false
     end
   end,
 }
