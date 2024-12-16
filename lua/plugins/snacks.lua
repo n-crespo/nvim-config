@@ -45,7 +45,7 @@ return {
     },
     words = {
       enabled = true,
-      modes = {},
+      modes = { "n" },
     },
     animate = { enabled = false, easing = "linear", fps = 120 },
     input = { enabled = true },
