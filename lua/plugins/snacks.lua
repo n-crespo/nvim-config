@@ -58,7 +58,7 @@ return {
       enabled = true,
     },
     scratch = {
-      enabled = true,
+      enabled = false,
     },
     git = { enabled = true },
     gitbrowse = { enabled = true },
