@@ -61,7 +61,7 @@ return {
           return symbols.status[status] .. symbols.server_status[server_status]
         end,
         color = function()
-          return LazyVim.ui.fg("Special")
+          return { fg = Snacks.util.color("Special") }
         end,
       },
       {
@@ -79,7 +79,7 @@ return {
         require("lazy.status").updates,
         cond = require("lazy.status").has_updates,
         color = function()
-          return LazyVim.ui.fg("Special")
+          return { fg = Snacks.util.color("Special") }
         end,
       },
       {
