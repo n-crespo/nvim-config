@@ -7,15 +7,7 @@
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.ui.treesitter-context",
-    "lazyvim.plugins.extras.vscode",
-    "lazyvim.plugins.extras.util.dot",
-    "lazyvim.plugins.extras.dap.core",
-    "lazyvim.plugins.extras.lang.clangd",
-    "lazyvim.plugins.extras.lang.java",
-    "lazyvim.plugins.extras.lang.python",
-    "lazyvim.plugins.extras.lang.r",
-    "lazyvim.plugins.extras.lang.tailwind",
-    "lazyvim.plugins.extras.lang.typescript"
+    "lazyvim.plugins.extras.vscode"
   ],
   "install_version": 7,
   "news": {
@@ -23,4 +15,3 @@
   },
   "version": 8
 }
-
