@@ -1,6 +1,6 @@
 return {
   "glacambre/firenvim",
-  lazy = true,
+  lazy = false,
   build = ":call firenvim#install(0)",
   module = false,
   config = function()
@@ -14,7 +14,24 @@ return {
       opt.signcolumn = "no"
       opt.foldcolumn = "0"
       opt.laststatus = 0
-      vim.keymap.set("i", "<CR>", "<cmd>wq<cr>", { buffer = true })
+      vim.api.nvim_set_keymap("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<CR>", {})
+      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+        pattern = "github.com_*.txt",
+        command = "set filetype=markdown",
+      })
     end
+    vim.g.firenvim_config = {
+      localSettings = {
+        [".*"] = {
+          takeover = "never",
+        },
+        ["https?://(?:www\\.)?github\\.com/.*"] = {
+          cmdline = "neovim",
+          content = "text",
+          priority = 0,
+          selector = "textarea",
+        },
+      },
+    }
   end,
 }
