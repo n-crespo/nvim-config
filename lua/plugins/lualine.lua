@@ -150,7 +150,7 @@ return {
 
           return sbar
         end,
-        color = { fg = "#949894" },
+        color = { fg = "#353131" },
       },
     }
     opts.sections.lualine_z = {
