@@ -1,6 +1,6 @@
 return {
   "folke/persistence.nvim",
-  enabled = not vim.fn.has("win32"),
+  enabled = vim.fn.has("win32") == 0,
   opts = {
     pre_save = function()
       vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" })
