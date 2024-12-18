@@ -28,6 +28,7 @@ return {
     pickers = {
       oldfiles = { path_display = filenameFirst },
       find_files = { path_display = filenameFirst },
+      custom_grep = { path_display = filenameFirst },
     },
     defaults = {
       selection_strategy = "reset",
@@ -87,6 +88,20 @@ return {
     },
   },
   keys = {
+    { "<leader>sb", false },
+    { "<leader>sg", false },
+    { "<leader>sa", false },
+    { "<leader>sc", false },
+    { "<leader>sm", false },
+    { '<leader>s"', false },
+    { "<leader>sq", false },
+    { "<leader>sG", false },
+    { "<leader>fb", false },
+    { "<leader>sl", false },
+    { "<leader>fg", false },
+    { "<leader>fr", false },
+    { "<leader>fR", false },
+    { "<leader>sC", false },
     {
       "<leader>fp",
       function()
@@ -110,6 +125,11 @@ return {
       "<cmd>Telescope git_bcommits<cr>",
       desc = "Git File History",
       silent = true,
+    },
+    {
+      "<leader>sf",
+      require("filtered-search"),
+      desc = "Filtered Search",
     },
     {
       "<leader>R",
@@ -141,19 +161,5 @@ return {
       end,
       desc = "Reload Plugin",
     },
-    { "<leader>sb", false },
-    { "<leader>sg", false },
-    { "<leader>sa", false },
-    { "<leader>sc", false },
-    { "<leader>sm", false },
-    { '<leader>s"', false },
-    { "<leader>sq", false },
-    { "<leader>sG", false },
-    { "<leader>fb", false },
-    { "<leader>sl", false },
-    { "<leader>fg", false },
-    { "<leader>fr", false },
-    { "<leader>fR", false },
-    { "<leader>sC", false },
   },
 }
