@@ -134,13 +134,6 @@ vim.keymap.set("n", "<C-f>", function()
   )
 end, { desc = "find word" })
 
--- move lines up and down (mini.move)
-vim.keymap.set({ "n", "v" }, "<C-n>", "<M-j>", { remap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<C-p>", "<M-k>", { remap = true, silent = true })
-
--- git hunks
-vim.keymap.set("n", "gp", "<leader>ghp", { remap = true, desc = "git preview" })
-
 vim.keymap.set(
   "x",
   "'",
@@ -171,10 +164,6 @@ vim.keymap.set(
   [[:s/\%V\(.*\)\%V/"\1"/ <CR><cmd>noh<cr>]],
   { desc = "Surround selection with quotes", silent = true }
 )
-
--- vim.keymap.set("n", "<leader>s*", [[:s/\<<C-r><C-w>\>/*<C-r><C-w>\*/ <CR>]], { desc = "Surround word with *" })
--- vim.keymap.set("n", '<leader>s"', [[:s/\<<C-r><C-w>\>/"<C-r><C-w>\"/ <CR>]], { desc = 'Surround word with "' })
--- vim.keymap.set("n", "<leader>s'", [[:s/\<<C-r><C-w>\>/'<C-r><C-w>\'/ <CR>]], { desc = "Surround word with '" })
 
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 

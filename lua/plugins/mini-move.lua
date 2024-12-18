@@ -1,12 +1,12 @@
 return {
-
   "echasnovski/mini.move",
   event = "VeryLazy",
-  keys = {
-    {
-      "<C-n>",
-      "<M-j>",
-      modes = { "n", "v" },
+  opts = {
+    mappings = {
+      down = "<C-n>",
+      up = "<C-p>",
+      line_down = "<C-n>",
+      line_up = "<C-p>",
     },
   },
 }
