@@ -127,11 +127,6 @@ return {
       silent = true,
     },
     {
-      "<leader>sf",
-      require("filtered-search"),
-      desc = "Filtered Search",
-    },
-    {
       "<leader>R",
       function()
         local actions = require("telescope.actions")
