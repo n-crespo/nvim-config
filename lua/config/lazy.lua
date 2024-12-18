@@ -7,7 +7,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 local lang_extras = {}
-if not vim.fn.has("win32") then
+if not LazyVim.is_win() then
   table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.clangd" })
   table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.python" })
   table.insert(lang_extras, { import = "lazyvim.plugins.extras.lang.r" })
