@@ -2,7 +2,12 @@ return {
   "folke/snacks.nvim",
   event = "VeryLazy",
   opts = {
-    styles = { blame_line = { border = "single" } },
+    styles = {
+      blame_line = { border = "single" },
+      terminal = {
+        wo = { winbar = "" },
+      },
+    },
     quickfile = {
       enabled = true,
     },
@@ -49,17 +54,9 @@ return {
     },
     animate = { enabled = false, easing = "linear", fps = 120 },
     input = { enabled = true },
-    terminal = {
-      enabled = true,
-      win = { style = "terminal", winbar = "1" },
-      wo = { winbar = "" },
-    },
-    rename = {
-      enabled = true,
-    },
-    scratch = {
-      enabled = false,
-    },
+    terminal = { enabled = true },
+    rename = { enabled = true },
+    scratch = { enabled = false },
     git = { enabled = true },
     gitbrowse = { enabled = true },
     indent = {
