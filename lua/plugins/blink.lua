@@ -22,6 +22,7 @@ return {
     },
     keymap = {
       ["<CR>"] = { "select_and_accept", "fallback" },
+      ["<S-CR>"] = {},
       ["<C-e>"] = { "hide", "show", "fallback" },
       -- used by neocodeium
       ["<C-n>"] = {},

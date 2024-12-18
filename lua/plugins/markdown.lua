@@ -9,6 +9,8 @@ return {
       vim.g.vim_markdown_math = false
       vim.cmd([[map zh <Plug>Markdown_Fold]])
       vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
+      vim.cmd([[imap <S-CR> <Plug>Markdown_NewLineBelow]])
+      vim.cmd([[map o <Plug>Markdown_NewLineBelow]])
     end,
   },
   {
@@ -28,7 +30,6 @@ return {
       code = {
         sign = false,
         width = "block",
-        -- right_pad = 1,
       },
       heading = {
         sign = false,
@@ -44,9 +45,14 @@ return {
       },
     },
     ft = { "markdown", "norg", "rmd", "org" },
-    config = function(_, opts)
-      require("render-markdown").setup(opts)
-      vim.keymap.set("n", "<leader>um", require("render-markdown").toggle)
-    end,
+    keys = {
+      {
+        "<leader>um",
+        function()
+          require("render-markdown").toggle()
+        end,
+        desc = "Toggle Markdown Preview",
+      },
+    },
   },
 }
