@@ -23,13 +23,13 @@ return {
     }
 
     opts.sections.lualine_b = {
-      LazyVim.lualine.root_dir(),
+      ---@diagnostic disable-next-line: assign-type-mismatch
+      LazyVim.lualine.root_dir({ cwd = true }),
     }
-
     opts.sections.lualine_c = {
       -- LazyVim.lualine.root_dir(),
       { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-      { LazyVim.lualine.pretty_path() },
+      { LazyVim.lualine.pretty_path({ relative = "root" }) },
       {
         "diagnostics",
         symbols = {

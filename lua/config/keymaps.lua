@@ -120,25 +120,19 @@ vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through comp
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
 vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
-vim.keymap.set("i", "<S-CR>", "<esc>o", { remap = false })
+-- vim.keymap.set("i", "<S-CR>", "<esc>o", { remap = false })
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
 
 -- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
 
 -- unholy non-native vim keymap for find in buffer
+-- because of the timing of some requires, this doesnt work in plugins/telescope.lua
 vim.keymap.set("n", "<C-f>", function()
   require("telescope.builtin").current_buffer_fuzzy_find(
     require("telescope.themes").get_dropdown({ winblend = 0, previewer = false })
   )
 end, { desc = "find word" })
-
--- move lines up and down (mini.move)
-vim.keymap.set({ "n", "v" }, "<C-n>", "<M-j>", { remap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<C-p>", "<M-k>", { remap = true, silent = true })
-
--- git hunks
-vim.keymap.set("n", "gp", "<leader>ghp", { remap = true, desc = "git preview" })
 
 vim.keymap.set(
   "x",
@@ -170,10 +164,6 @@ vim.keymap.set(
   [[:s/\%V\(.*\)\%V/"\1"/ <CR><cmd>noh<cr>]],
   { desc = "Surround selection with quotes", silent = true }
 )
-
--- vim.keymap.set("n", "<leader>s*", [[:s/\<<C-r><C-w>\>/*<C-r><C-w>\*/ <CR>]], { desc = "Surround word with *" })
--- vim.keymap.set("n", '<leader>s"', [[:s/\<<C-r><C-w>\>/"<C-r><C-w>\"/ <CR>]], { desc = 'Surround word with "' })
--- vim.keymap.set("n", "<leader>s'", [[:s/\<<C-r><C-w>\>/'<C-r><C-w>\'/ <CR>]], { desc = "Surround word with '" })
 
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 

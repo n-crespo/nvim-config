@@ -62,7 +62,7 @@ vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_picker = "telescope"
 vim.g.snacks_animate = false
 
-if vim.fn.has("win32") == 1 then
+if LazyVim.is_win() then
   LazyVim.terminal.setup("pwsh")
 end
 
