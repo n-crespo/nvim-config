@@ -97,7 +97,8 @@ return {
               require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
 
             if name == "" then
-              name = "Empty" -- Set name to "Empty" if it is empty
+              name = "" -- Set name to "Empty" if it is empty
+              icon = ""
             elseif name == "fish" then
               icon = ""
               name = "terminal"
