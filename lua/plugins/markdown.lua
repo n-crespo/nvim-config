@@ -7,7 +7,6 @@ return {
     config = function()
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_math = false
-      vim.g.disable_create_link_fallback = true
       vim.cmd([[map <buffer> zh <Plug>Markdown_Fold]])
       vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
       vim.cmd([[imap <buffer> <S-CR> <Plug>Markdown_NewLineBelow]])
