@@ -8,6 +8,7 @@ return {
         wo = { winbar = "" },
       },
       notification_history = { border = "single" },
+      notification = { winblend = 100 },
     },
     quickfile = {
       enabled = true,
