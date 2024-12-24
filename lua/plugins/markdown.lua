@@ -33,7 +33,11 @@ return {
       },
       heading = {
         sign = false,
-        icons = {},
+        position = "inline",
+        border = true,
+        left_pad = 1,
+        right_pad = 1,
+        width = "block",
       },
       quote = {
         icon = "┃",
