@@ -21,6 +21,7 @@ return {
       rgb_fn = true, -- CSS rgb() and rgba() functions
       hsl_fn = true, -- CSS hsl() and hsla() functions
       RGB = false, -- #RGB hex codes
+      RGBA = false,
     },
   },
 }
