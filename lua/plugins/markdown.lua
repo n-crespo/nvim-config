@@ -35,10 +35,11 @@ return {
       heading = {
         sign = false,
         position = "inline",
-        border = true,
+        border = false,
         left_pad = 1,
         right_pad = 1,
         width = "block",
+        icons = {},
       },
       quote = {
         icon = "┃",
