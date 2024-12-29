@@ -340,7 +340,7 @@ local hlgroups = {
   htmlTitle = { link = "Title" },
 
   -- Markdown
-  markdownBold = { bold = true, fg = c_lotusRed1 },
+  markdownBold = { bold = true },
   markdownBoldItalic = { bold = true, italic = true },
   markdownCode = { fg = c_macroGreen1 },
   markdownCodeBlock = { fg = c_macroGreen1 },
@@ -504,7 +504,6 @@ local hlgroups = {
   LualineTabInactive = { fg = c_macroAsh },
   LualineTabActive = { fg = "#C5c9c5", bold = false, underline = false },
   RenderMarkdownCode = { bg = c_macroBg2 },
-  RenderMarkdownInlineHighlight = { bg = "#ffe536", fg = "#000000", bold = true },
   -- RenderMarkdownCodeInline = { link = "@markup.raw.markdown_inline" },
   -- }}}
 }
