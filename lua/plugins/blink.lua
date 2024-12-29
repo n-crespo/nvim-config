@@ -28,7 +28,7 @@ return {
       ["<C-n>"] = {},
       ["<C-p>"] = {},
       ["<C-j>"] = { "select_next" },
-      ["<C-k>"] = { "select_prev", "fallback" },
+      ["<C-k>"] = { "select_prev" },
     },
   },
 }
