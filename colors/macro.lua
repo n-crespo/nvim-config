@@ -137,7 +137,7 @@ local hlgroups = {
   QuickFixLine = { bg = c_macroBg3 },
   Search = { bg = selection_light_gray },
   SignColumn = { fg = c_macroGray2 },
-  SpellBad = { fg = c_lotusRed0, underdashed = true, bg = c_lotusGray },
+  SpellBad = { fg = c_lotusRed0, underdashed = true },
   SpellCap = { underdashed = true },
   SpellLocal = { underdashed = true },
   SpellRare = { underdashed = true },
@@ -340,7 +340,7 @@ local hlgroups = {
   htmlTitle = { link = "Title" },
 
   -- Markdown
-  markdownBold = { bold = true, fg = c_lotusRed1 },
+  markdownBold = { bold = true, fg = c_carpYellow },
   markdownBoldItalic = { bold = true, italic = true },
   markdownCode = { fg = c_macroGreen1 },
   markdownCodeBlock = { fg = c_macroGreen1 },
@@ -504,7 +504,6 @@ local hlgroups = {
   LualineTabInactive = { fg = c_macroAsh },
   LualineTabActive = { fg = "#C5c9c5", bold = false, underline = false },
   RenderMarkdownCode = { bg = c_macroBg2 },
-  RenderMarkdownInlineHighlight = { bg = "#ffe536", fg = "#000000", bold = true },
   -- RenderMarkdownCodeInline = { link = "@markup.raw.markdown_inline" },
   -- }}}
 }
