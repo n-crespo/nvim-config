@@ -63,7 +63,12 @@ return {
       scope = { enabled = true },
       animate = { enabled = false },
     },
-    zen = { enabled = true },
+    zen = {
+      enabled = true,
+      toggles = {
+        dim = false,
+      },
+    },
   },
   keys = {
     {
