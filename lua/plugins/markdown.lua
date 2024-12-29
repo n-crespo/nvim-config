@@ -4,6 +4,7 @@ return {
   {
     "n-crespo/nvim-markdown",
     ft = "markdown",
+    branch = "follow-anchor-links",
     config = function()
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_math = false
@@ -33,6 +34,11 @@ return {
       },
       heading = {
         sign = false,
+        position = "inline",
+        border = false,
+        left_pad = 1,
+        right_pad = 1,
+        width = "block",
         icons = {},
       },
       quote = {

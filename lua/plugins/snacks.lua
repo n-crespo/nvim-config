@@ -7,6 +7,8 @@ return {
       terminal = {
         wo = { winbar = "" },
       },
+      notification_history = { border = "single" },
+      notification = { winblend = 100 },
     },
     quickfile = {
       enabled = true,
@@ -43,11 +45,7 @@ return {
         -- { section = "startup" },
       },
     },
-    notification = {
-      border = "single",
-      sort = { "added" },
-      history = { border = "single" },
-    },
+    notification = { sort = { "added" } },
     words = {
       enabled = true,
       modes = { "n" },
@@ -67,15 +65,6 @@ return {
     },
     zen = { enabled = true },
   },
-  config = function(_, opts)
-    require("snacks").setup(opts)
-
-    -- single border in <leader>n
-    ---@diagnostic disable-next-line: missing-fields
-    Snacks.config.style("notification.history", {
-      border = "single",
-    })
-  end,
   keys = {
     {
       "<C-q>",

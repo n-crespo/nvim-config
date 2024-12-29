@@ -51,7 +51,9 @@ return {
           ["<ESC>"] = require("telescope.actions").close, -- don't enter normal mode
           ["<C-j>"] = require("telescope.actions").move_selection_next,
           ["<C-k>"] = require("telescope.actions").move_selection_previous,
-          ["<C-d>"] = require("telescope.actions").delete_buffer,
+          ["<C-d>"] = function(prompt_bufnr)
+            local _, _ = pcall(require("telescope.actions").delete_buffer, prompt_bufnr)
+          end,
           ["<C-u>"] = false,
           ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
           ["<C-h>"] = function() -- for windows
@@ -124,6 +126,16 @@ return {
       "<leader>gf",
       "<cmd>Telescope git_bcommits<cr>",
       desc = "Git File History",
+      silent = true,
+    },
+    {
+      "<leader>gs",
+      function()
+        pcall(function()
+          require("telescope.builtin").git_status({ cwd = vim.fn.expand("%:p:h") })
+        end)
+      end,
+      desc = "Git Status",
       silent = true,
     },
     {
