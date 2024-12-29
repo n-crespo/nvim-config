@@ -137,7 +137,7 @@ local hlgroups = {
   QuickFixLine = { bg = c_macroBg3 },
   Search = { bg = selection_light_gray },
   SignColumn = { fg = c_macroGray2 },
-  SpellBad = { fg = c_lotusRed0, underdashed = true, bg = c_lotusGray },
+  SpellBad = { fg = c_lotusRed0, underdashed = true },
   SpellCap = { underdashed = true },
   SpellLocal = { underdashed = true },
   SpellRare = { underdashed = true },
