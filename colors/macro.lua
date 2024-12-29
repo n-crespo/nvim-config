@@ -3,7 +3,7 @@
 -- Author:       Bekaboo <kankefengjing@gmail.com>
 -- Maintainer:   Bekaboo <kankefengjing@gmail.com>
 -- License:      GPL-3.0
--- Last Updated: Wed Mar  6 11:08:58 PM CST 2024
+-- Last Updated: 2024-12-29 13:30
 
 -- NOTE; this intentionally avoids the use of bright red and yellow (reserved for errors)
 
@@ -12,132 +12,79 @@ vim.cmd.hi("clear")
 vim.g.colors_name = "macro"
 -- }}}
 
--- Palette {{{
+-- {{{
 -- stylua: ignore start
-local c_autumnGreen
-local c_autumnRed
-local c_autumnYellow
-local c_carpYellow
-local c_katanaGray
-local c_lotusBlue
-local c_lotusGray
-local c_lotusRed0
-local c_lotusRed1
-local c_lotusRed2
-local c_macroAqua
-local c_macroAsh
-local c_macroBg0
-local normal_bg
-local c_macroBg2
-local c_macroBg3
-local selection_light_gray
-local c_macroBg5
-local c_macroBlue0
-local c_macroBlue1
-local c_macroFg0
-local c_macroFg1
-local c_macroFg2
-local c_macroGray0
-local c_macroGray1
-local c_macroGray2
-local c_macroGreen0
-local c_macroGreen1
-local c_macroOrange0
-local c_macroOrange1
-local c_macroPink
-local c_macroRed
-local c_macroTeal
-local c_macroViolet
-local c_roninYellow
-local c_springBlue
-local c_springGreen
-local c_springViolet
-local border_purple_ink
-local c_waveAqua0
-local c_waveAqua1
-local c_waveBlue0
-local c_waveBlue1
-local c_waveRed
-local c_winterBlue
-local c_winterGreen
-local c_winterRed
-local c_winterYellow
-
-if vim.go.bg == 'dark' then
-  c_autumnGreen            = '#76946a'
-  c_autumnRed              = '#c34043'
-  c_autumnYellow           = '#dca561'
-  c_carpYellow             = '#c8ae81'
-  c_katanaGray             = '#717c7c'
-  c_lotusBlue              = '#9fb5c9'
-  c_lotusGray              = '#716e61'
-  c_lotusRed0              = '#d7474b'
-  c_lotusRed1              = '#e84444'
-  c_lotusRed2              = '#d9a594'
-  c_macroAqua              = '#95aeac'
-  c_macroAsh               = '#626462'
-  c_macroBg0               = '#0d0c0c'
-  normal_bg                = '#181616'
-  c_macroBg2               = '#201d1d'
-  c_macroBg3               = vim.g.dark_bg and '#0d0c0c' or '#181616' -- changed from #282727 to fix box in lualine
-  selection_light_gray     = '#393836'
-  c_macroBg5               = '#625e5a'
-  c_macroBlue0             = '#658594'
-  c_macroBlue1             = '#8ba4b0'
-  c_macroFg0               = '#c5c9c5'
-  c_macroFg1               = '#b4b3a7'
-  c_macroFg2               = '#a09f95'
-  c_macroGray0             = '#a6a69c'
-  c_macroGray1             = '#9e9b93'
-  c_macroGray2             = '#7a8382'
-  c_macroGreen0            = '#87a987'
-  c_macroGreen1            = '#8a9a7b'
-  c_macroOrange0           = '#b6927b'
-  c_macroOrange1           = '#b98d7b'
-  c_macroPink              = '#a292a3'
-  c_macroRed               = '#c4746e'
-  c_macroTeal              = '#949fb5'
-  c_macroViolet            = '#8992a7'
-  c_roninYellow            = '#ff9e3b'
-  c_springBlue             = '#7fb4ca'
-  c_springGreen            = '#98bb6c'
-  c_springViolet           = '#938aa9'
-  border_purple_ink        = '#54546d'
-  c_waveAqua0              = '#6a9589'
-  c_waveAqua1              = '#7aa89f'
-  c_waveBlue0              = '#223249'
-  c_waveBlue1              = '#2d4f67'
-  c_waveRed                = '#e46876'
-  c_winterBlue             = '#252535'
-  c_winterGreen            = '#2e322d'
-  c_winterRed              = '#43242b'
-  c_winterYellow           = '#322e29'
-end
+local c_autumnGreen          = "#76946a"
+local c_autumnRed            = "#c34043"
+local c_autumnYellow         = "#dca561"
+local c_carpYellow           = "#c8ae81"
+local c_katanaGray           = "#717c7c"
+local c_lotusBlue            = "#9fb5c9"
+local c_lotusGray            = "#716e61"
+local c_lotusRed0            = "#d7474b"
+local c_lotusRed1            = "#e84444"
+local c_lotusRed2            = "#d9a594"
+local c_macroAqua            = "#95aeac"
+local c_macroAsh             = "#626462"
+local c_macroBg0             = "#0d0c0c"
+local normal_bg              = "#181616"
+local c_macroBg2             = "#201d1d"
+local c_macroBg3             = "#0d0c0c" -- changed from #282727 to fix box in lualine
+local selection_light_gray   = "#393836"
+local c_macroBg5             = "#625e5a"
+local c_macroBlue0           = "#658594"
+local c_macroBlue1           = "#8ba4b0"
+local c_macroFg0             = "#c5c9c5"
+local c_macroFg1             = "#b4b3a7"
+local c_macroFg2             = "#a09f95"
+local c_macroGray0           = "#a6a69c"
+local c_macroGray1           = "#9e9b93"
+local c_macroGray2           = "#7a8382"
+local c_macroGreen0          = "#87a987"
+local c_macroGreen1          = "#8a9a7b"
+local c_macroOrange0         = "#b6927b"
+local c_macroOrange1         = "#b98d7b"
+local c_macroPink            = "#a292a3"
+local c_macroRed             = "#c4746e"
+local c_macroTeal            = "#949fb5"
+local c_macroViolet          = "#8992a7"
+local c_roninYellow          = "#ff9e3b"
+local c_springBlue           = "#7fb4ca"
+local c_springGreen          = "#98bb6c"
+local c_springViolet         = "#938aa9"
+local border_purple_ink      = "#54546d"
+local c_waveAqua0            = "#6a9589"
+local c_waveAqua1            = "#7aa89f"
+local c_waveBlue0            = "#223249"
+local c_waveBlue1            = "#2d4f67"
+local c_waveRed              = "#e46876"
+local c_winterBlue           = "#252535"
+local c_winterGreen          = "#2e322d"
+local c_winterRed            = "#43242b"
+local c_winterYellow         = "#322e29"
 -- stylua: ignore end
 -- }}}
 
 -- Terminal colors {{{
 -- stylua: ignore start
-if vim.go.bg == 'dark' then
-  vim.g.terminal_color_0  = c_macroBg0
-  vim.g.terminal_color_1  = c_macroRed
-  vim.g.terminal_color_2  = c_macroGreen1
-  vim.g.terminal_color_3  = c_carpYellow
-  vim.g.terminal_color_4  = c_macroBlue1
-  vim.g.terminal_color_5  = c_macroPink
-  vim.g.terminal_color_6  = c_macroAqua
-  vim.g.terminal_color_7  = c_macroFg1
-  vim.g.terminal_color_8  = selection_light_gray
-  vim.g.terminal_color_9  = c_waveRed
-  vim.g.terminal_color_10 = c_macroGreen0
-  vim.g.terminal_color_11 = c_autumnYellow
-  vim.g.terminal_color_12 = c_springBlue
-  vim.g.terminal_color_13 = c_springViolet
-  vim.g.terminal_color_14 = c_waveAqua1
-  vim.g.terminal_color_15 = c_macroFg0
-  vim.g.terminal_color_16 = c_macroOrange0
-  vim.g.terminal_color_17 = c_macroOrange1
-end
+vim.g.terminal_color_0  = c_macroBg0
+vim.g.terminal_color_1  = c_macroRed
+vim.g.terminal_color_2  = c_macroGreen1
+vim.g.terminal_color_3  = c_carpYellow
+vim.g.terminal_color_4  = c_macroBlue1
+vim.g.terminal_color_5  = c_macroPink
+vim.g.terminal_color_6  = c_macroAqua
+vim.g.terminal_color_7  = c_macroFg1
+vim.g.terminal_color_8  = selection_light_gray
+vim.g.terminal_color_9  = c_waveRed
+vim.g.terminal_color_10 = c_macroGreen0
+vim.g.terminal_color_11 = c_autumnYellow
+vim.g.terminal_color_12 = c_springBlue
+vim.g.terminal_color_13 = c_springViolet
+vim.g.terminal_color_14 = c_waveAqua1
+vim.g.terminal_color_15 = c_macroFg0
+vim.g.terminal_color_16 = c_macroOrange0
+vim.g.terminal_color_17 = c_macroOrange1
 -- stylua: ignore end
 --- }}}
 
@@ -190,7 +137,7 @@ local hlgroups = {
   QuickFixLine = { bg = c_macroBg3 },
   Search = { bg = selection_light_gray },
   SignColumn = { fg = c_macroGray2 },
-  SpellBad = { fg = c_lotusRed0, underdashed = true },
+  SpellBad = { fg = c_lotusRed0, underdashed = true, bg = c_lotusGray },
   SpellCap = { underdashed = true },
   SpellLocal = { underdashed = true },
   SpellRare = { underdashed = true },
@@ -253,7 +200,7 @@ local hlgroups = {
   ["@nospell.latex"] = { fg = "#8ba4b0" },
   ["@markup.math.latex"] = { fg = "#8ba4b0" },
   ["@operator.latex"] = { fg = "#c4746e" },
-  ["@variable.parameter"] = { fg = c_macroGray0 },
+  -- ["@variable.parameter"] = { fg = c_macroGray0 },
   ["@punctuation.bracket"] = { fg = c_macroGray1 },
   ["@punctuation.delimiter"] = { fg = c_macroGray1 },
   ["@markup.list"] = { fg = c_macroTeal },
@@ -263,15 +210,16 @@ local hlgroups = {
   ["@markup.link.label.symbol"] = { fg = c_macroFg0 },
   ["@tag.attribute"] = { fg = c_macroFg0 },
   ["@tag.delimiter"] = { fg = c_macroGray1 },
-  ["@diff.plug"] = { fg = c_autumnGreen },
-  ["@diff.minus"] = { fg = c_autumnRed },
+  ["@diff.delta"] = { link = "DiffChanged" },
+  ["@diff.minus"] = { link = "DiffRemoved" },
+  ["@diff.plus"] = { link = "DiffAdded" },
   ["@markup.emphasis"] = { italic = true },
   ["@markup.environment"] = { link = "Keyword" },
   ["@markup.environment.name"] = { link = "String" },
   ["@markup.raw"] = { link = "String" },
   ["@comment.info"] = { bg = c_waveAqua0, fg = c_waveBlue0, bold = true },
   ["@markup.quote"] = { link = "@variable.parameter" },
-  ["@markup.strong"] = { bold = true },
+  ["@markup.strong"] = { link = "markdownBold" },
   ["@markup.italic.markdown_inline"] = { italic = true },
   ["@markup.heading"] = { link = "Function" },
   ["@markup.heading.1.markdown"] = { fg = c_macroRed },
@@ -319,7 +267,7 @@ local hlgroups = {
   ["@lsp.typemod.operator.controlFlow"] = { link = "@keyword.exception" },
   ["@lsp.typemod.operator.injected"] = { link = "Operator" },
   ["@lsp.typemod.string.injected"] = { link = "String" },
-  ["@lsp.typemod.variable.defaultLibrary"] = { link = "Special" },
+  ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
   ["@lsp.typemod.variable.global"] = { link = "Constant" },
   ["@lsp.typemod.variable.injected"] = { link = "@variable" },
   ["@lsp.typemod.variable.static"] = { link = "Constant" },
@@ -392,7 +340,7 @@ local hlgroups = {
   htmlTitle = { link = "Title" },
 
   -- Markdown
-  markdownBold = { bold = true },
+  markdownBold = { bold = true, fg = c_lotusRed1 },
   markdownBoldItalic = { bold = true, italic = true },
   markdownCode = { fg = c_macroGreen1 },
   markdownCodeBlock = { fg = c_macroGreen1 },
@@ -556,6 +504,7 @@ local hlgroups = {
   LualineTabInactive = { fg = c_macroAsh },
   LualineTabActive = { fg = "#C5c9c5", bold = false, underline = false },
   RenderMarkdownCode = { bg = c_macroBg2 },
+  RenderMarkdownInlineHighlight = { bg = "#ffe536", fg = "#000000", bold = true },
   -- RenderMarkdownCodeInline = { link = "@markup.raw.markdown_inline" },
   -- }}}
 }
