@@ -1,6 +1,7 @@
 return {
   "saghen/blink.cmp",
   opts = {
+    sources = { min_keyword_length = 1 },
     completion = {
       ghost_text = {
         enabled = false,
