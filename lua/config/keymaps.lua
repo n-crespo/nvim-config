@@ -208,6 +208,7 @@ end
 vim.cmd("cnoreabbrev Set  set")
 vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev WQ wq")
+vim.cmd("cnoreabbrev X LazyExtras")
 
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 vim.api.nvim_create_user_command("E", "e", { nargs = 0 })
