@@ -3,6 +3,7 @@ return {
   lazy = false,
   build = ":call firenvim#install(0)",
   module = false,
+  enabled = false,
   config = function()
     if vim.g.started_by_firenvim then
       local opt = vim.opt
