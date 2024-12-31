@@ -1,10 +1,15 @@
 return {
   "saghen/blink.cmp",
   opts = {
-    sources = { min_keyword_length = 1 },
+    sources = {
+      min_keyword_length = vim.bo.filetype == "markdown" and 1 or 0,
+    },
     completion = {
       ghost_text = {
         enabled = false,
+      },
+      keyword = {
+        exclude_from_prefix_regex = "",
       },
       menu = {
         draw = {

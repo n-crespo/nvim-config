@@ -23,7 +23,7 @@ return {
       "stylua",
       "lua-language-server",
       "prettier",
-      "typescript-language-server",
+      -- "typescript-language-server",
       -- "eslint-lsp",
       -- "css-lsp",
     },
