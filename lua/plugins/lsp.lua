@@ -1,5 +1,5 @@
 -- lsp configurations
-require("lspconfig.ui.windows").default_options.border = "single"
+-- require("lspconfig.ui.windows").default_options.border = "single"
 return {
   "neovim/nvim-lspconfig",
   opts = {
@@ -8,19 +8,13 @@ return {
         border = "single",
       },
     },
+    ui = {
+      default_options = {
+        border = "single",
+      },
+    },
     document_highlight = {
       enabled = false,
-    },
-    servers = {
-      clangd = {},
-      jdtls = { enabled = true }, -- java
-      lua_ls = { enabled = true }, -- i don't need this and it makes things laggy
-      -- r_language_server = {},
-      -- eslint = {},
-      ruff_lsp = { enabled = false },
-      ts_ls = {},
-      -- cssls = {},
-      gopls = {},
     },
     setup = {
       jdtls = function()
