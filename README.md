@@ -9,7 +9,7 @@ plugins and to extend functionality.
 
 Some cool things in this config are:
 
-- my [custom tabline lualine component](./lua/plugins/lualine.lua#L86) (see `opts.sections.lualine_x`)
+- my [custom lualine tab component](./lua/plugins/lualine.lua#L86) (see `opts.sections.lualine_x`)
 - [mini.files](https://github.com/echasnovski/mini.files)
 - [nvim-spider](https://github.com/chrisgrieser/nvim-spider) - better `w`, `e`, and `b`
 - [(not) my color scheme](./colors/macro.lua)
