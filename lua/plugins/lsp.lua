@@ -18,7 +18,7 @@ return {
       -- r_language_server = {},
       -- eslint = {},
       ruff_lsp = { enabled = false },
-      tsserver = {},
+      ts_ls = {},
       -- cssls = {},
       gopls = {},
     },
