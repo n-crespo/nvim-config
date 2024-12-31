@@ -18,7 +18,6 @@ return {
       use_as_default_explorer = true, -- for nvim .
     },
   },
-  -- open mini.files with current buffer's directory, if error is thrown fallback to cwd
   keys = function()
     -- don't center motions in mini.files
     vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -30,6 +29,7 @@ return {
       end,
     })
     return {
+      -- open mini.files in current buffer's directory, if error is thrown fallback to cwd
       {
         "<leader>e",
         function()
