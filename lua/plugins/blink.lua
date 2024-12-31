@@ -1,17 +1,12 @@
 return {
   "saghen/blink.cmp",
   opts = {
-    sources = {
-      min_keyword_length = vim.bo.filetype == "markdown" and 1 or 0,
-    },
     completion = {
       ghost_text = {
         enabled = false,
       },
-      keyword = {
-        exclude_from_prefix_regex = "",
-      },
       menu = {
+        auto_show = true,
         draw = {
           columns = {
             { "label", "label_description", gap = 1 },
@@ -27,8 +22,21 @@ return {
       },
     },
     keymap = {
-      ["<CR>"] = { "select_and_accept", "fallback" },
+      ["<Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        "snippet_forward",
+        "fallback",
+      },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
       ["<S-CR>"] = {},
+      ["<CR>"] = {},
+
       ["<C-e>"] = { "hide", "show", "fallback" },
       -- used by neocodeium
       ["<C-n>"] = {},
