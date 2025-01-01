@@ -1,3 +1,4 @@
+--NOTE: This doesn't really work super well
 local M = {}
 
 local state = {
@@ -32,6 +33,8 @@ local function open_floating_terminal(opts)
     vim.bo[buf].bufhidden = "hide" -- Set bufhidden to "hide"
   end
 
+  state.floating.buf = buf
+
   -- Set up the window configuration
   local win_config = {
     relative = "editor",
@@ -44,6 +47,7 @@ local function open_floating_terminal(opts)
   }
 
   local win = vim.api.nvim_open_win(buf, true, win_config)
+  state.floating.win = win
 
   -- Optional: Double escape to normal mode
   local esc_timer
@@ -59,7 +63,7 @@ local function open_floating_terminal(opts)
       esc_timer:start(200, 0, function() end)
     end
   end, {
-    buffer = state.floating.buf,
+    buffer = buf,
     desc = "Double escape to normal mode",
   })
 
@@ -68,7 +72,7 @@ local function open_floating_terminal(opts)
       vim.api.nvim_win_hide(state.floating.win)
     end
   end, {
-    buffer = vim.api.nvim_buf_is_valid(state.floating.buf) and state.floating.buf or true,
+    buffer = buf,
     noremap = true,
     silent = true,
     desc = "Hide Terminal",
@@ -82,13 +86,13 @@ end
 local toggle_terminal = function(opts)
   opts = opts or {}
   if not vim.api.nvim_win_is_valid(state.floating.win) then
-    vim.notify("creating a new terminal...")
+    -- vim.notify("creating a new terminal...")
     state.floating = open_floating_terminal({ buf = state.floating.buf, position = opts.position or "center" })
     if vim.bo[state.floating.buf].buftype ~= "terminal" then
       vim.cmd.terminal()
     end
   else
-    vim.notify("hiding the terminal...")
+    -- vim.notify("hiding the terminal...")
     vim.api.nvim_win_hide(state.floating.win)
   end
 end
