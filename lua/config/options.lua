@@ -61,6 +61,7 @@ vim.g.maplocalleader = " "
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_picker = "telescope"
 vim.g.snacks_animate = false
+vim.g.trouble_lualine = false
 
 if LazyVim.is_win() then
   LazyVim.terminal.setup("pwsh")
