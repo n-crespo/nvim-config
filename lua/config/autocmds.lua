@@ -115,3 +115,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end
   end,
 })
+
+-- change working dir to root fo git repo
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function(ctx)
+    local bufname = vim.api.nvim_buf_get_name(ctx.buf)
+    local root = vim.fs.find({ ".git", "Makefile" }, { upward = true, path = vim.fs.dirname(bufname) })[1]
+    if root then
+      local root_dir = vim.fs.dirname(root)
+      vim.uv.chdir(root_dir)
+    end
+  end,
+})
