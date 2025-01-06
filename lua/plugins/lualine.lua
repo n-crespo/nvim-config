@@ -18,7 +18,7 @@ return {
   opts = function()
     local opts = {
       options = {
-        theme = require("transparentlualine").theme,
+        theme = require("lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         -- section_separators = { left = "", right = "" },
         -- component_separators = { left = " ", right = "" }
