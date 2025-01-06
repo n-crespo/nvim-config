@@ -33,7 +33,7 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { { "mode" } },
+        lualine_a = { {} },
         ---@diagnostic disable-next-line: assign-type-mismatch
         lualine_b = { LazyVim.lualine.root_dir({ cwd = true }) },
         lualine_c = {
@@ -149,10 +149,10 @@ return {
         },
         lualine_z = {
           {
-            function()
-              return "󱑎 " .. tostring(os.date("%I:%M %p")):gsub("^%s*0", "") -- remove leading 0 and convert to string
-            end,
-            color = { bold = true },
+            -- function()
+            --   return "󱑎 " .. tostring(os.date("%I:%M %p")):gsub("^%s*0", "") -- remove leading 0 and convert to string
+            -- end,
+            -- color = { bold = true },
           },
         },
       },
