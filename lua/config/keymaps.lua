@@ -168,7 +168,12 @@ vim.keymap.set(
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 
 -- Force save as sudo (for readonly files)
-vim.keymap.set("n", "<leader>W", "<cmd>w !sudo tee %<cr>", { desc = "Force Save File", noremap = true, silent = true })
+vim.keymap.set(
+  "n",
+  "<leader>W",
+  "<cmd>silent! w !sudo tee %<cr>",
+  { desc = "Force Save File", noremap = true, silent = true }
+)
 
 -- grant permissions
 vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Grant File Permissions" })
