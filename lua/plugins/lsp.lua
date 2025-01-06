@@ -1,5 +1,4 @@
 -- lsp configurations
--- require("lspconfig.ui.windows").default_options.border = "single"
 return {
   "neovim/nvim-lspconfig",
   opts = {
@@ -16,10 +15,10 @@ return {
     document_highlight = {
       enabled = false,
     },
-    setup = {
-      jdtls = function()
-        return true -- avoid duplicate servers (??)
-      end,
-    },
+    -- setup = {
+    -- jdtls = function()
+    --   return true -- avoid duplicate servers (??)
+    -- end,
+    -- },
   },
 }
