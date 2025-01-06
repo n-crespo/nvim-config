@@ -19,6 +19,7 @@ Some cool things in this config are:
 - my [auto commands](./lua/config/autocmds.lua)
   - only show cursor line in active window
   - remove trailing white space on save
+- around 35ms startup time
 
 > [!NOTE]
 > Many of the plugins I use are not visible in `lua/plugins/` because I use the
