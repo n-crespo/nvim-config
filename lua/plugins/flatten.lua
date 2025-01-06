@@ -1,6 +1,7 @@
 return {
   "willothy/flatten.nvim",
   enabled = true,
+  priority = 99999,
   commit = "7605dec",
   config = true,
   lazy = false,
