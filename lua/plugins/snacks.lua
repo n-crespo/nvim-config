@@ -10,9 +10,7 @@ return {
       notification_history = { border = "single" },
       notification = { winblend = 100 },
     },
-    quickfile = {
-      enabled = true,
-    },
+    quickfile = { enabled = true },
     statuscolumn = { enabled = false },
     dashboard = {
       enabled = not vim.g.started_by_firenvim,
@@ -52,7 +50,10 @@ return {
     },
     animate = { enabled = false, easing = "linear", fps = 120 },
     input = { enabled = true },
-    terminal = { enabled = true },
+    terminal = {
+      enabled = true,
+      win = { keys = { nav_l = "<C-l>" } },
+    },
     rename = { enabled = true },
     scratch = { enabled = false },
     git = { enabled = true },
