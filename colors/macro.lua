@@ -147,7 +147,7 @@ local hlgroups = {
   TabLine = { link = "StatusLineNC" },
   TabLineFill = { link = "Normal" },
   TabLineSel = { link = "Visual" },
-  TermCursor = { fg = normal_bg, bg = c_macroRed },
+  TermCursor = { fg = normal_bg, bg = "#89ca78" },
   TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },
   Underlined = { fg = c_macroTeal, underline = true },
