@@ -31,7 +31,11 @@ return {
       file_types = { "markdown", "norg", "rmd", "org" },
       code = {
         sign = false,
-        width = "full",
+        width = "block",
+        position = "left",
+        style = "full",
+        language_name = false,
+        right_pad = 2,
       },
       heading = {
         sign = false,
