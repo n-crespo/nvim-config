@@ -67,8 +67,6 @@ return {
         -- This function will be called at the FileType event of files supported by R.nvim.
         -- This is an opportunity to create mappings local to buffers.
         vim.keymap.set("n", "<CR>", "<Plug>RDSendLine", { buffer = true })
-        vim.api.nvim_buf_set_keymap(0, "n", "<Enter>", "<Plug>RDSendLine", {})
-        vim.keymap.set("v", "<CR>", "<Plug>RSendSelection", { buffer = true })
         vim.keymap.set("n", "<leader>d", "yydd", { desc = "Delete to Paste Register", silent = true, buffer = true })
 
         -- Increase the width of which-key to handle the longer r-nvim descriptions local wk = require("which-key")
