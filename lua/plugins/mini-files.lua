@@ -14,7 +14,7 @@ return {
       go_in_vertical_plus = "|",
     },
     options = {
-      permanent_delete = true, -- files are sent to ~/.local/share/nvim/mini.files/trash/
+      permanent_delete = false, -- files are sent to ~/.local/share/nvim/mini.files/trash/
       use_as_default_explorer = true, -- for nvim .
     },
   },
@@ -49,6 +49,7 @@ return {
     require("mini.files").setup(opts)
 
     local show_dotfiles = true
+    ---@diagnostic disable-next-line: unused-local
     local filter_show = function(fs_entry)
       return true
     end
