@@ -21,4 +21,11 @@ return {
     -- end,
     -- },
   },
+  keys = {
+    {
+      "<C-k>",
+      false,
+      mode = "i",
+    },
+  },
 }
