@@ -77,10 +77,18 @@ vim.keymap.set("n", "<leader>wo", "<cmd>only <CR>", { silent = true, desc = "Win
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rotate" })
 vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
 
--- cd to current buffer (replace autochdir)
+-- cd to root dir of current buffer (replace autochdir)
 vim.keymap.set("n", "<leader>bl", function()
-  vim.cmd([[cd %:h]])
-  vim.notify(vim.fn.getcwd(), vim.log.levels.INFO, {
+  local bufname = vim.api.nvim_buf_get_name(0)
+  local root = vim.fs.find({ ".git", "Makefile" }, { upward = true, path = vim.fs.dirname(bufname) })[1]
+  local root_dir = root and vim.fs.dirname(root)
+
+  if root then
+    vim.uv.chdir(root_dir)
+  else
+    vim.cmd([[cd %:h]])
+  end
+  vim.notify(root_dir or vim.fn.getcwd(), vim.log.levels.INFO, {
     title = "Buffer Locate",
   })
 end, { desc = "Buffer Locate", silent = true })
