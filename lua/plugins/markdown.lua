@@ -50,9 +50,7 @@ return {
         -- icons = { "◉", "○", "✸", "✿" },
         icons = { "", "○", "◆", "◇" },
       },
-      indent = {
-        enabled = true,
-      },
+      indent = { enabled = false },
     },
     ft = { "markdown", "norg", "rmd", "org" },
     keys = {
