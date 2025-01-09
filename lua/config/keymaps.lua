@@ -34,6 +34,9 @@ vim.keymap.set({ "n", "v", "o" }, "B", function()
   end
 end, { desc = "Start of line", silent = true })
 
+vim.keymap.set("n", "<ScrollWheelUp>", "<C-y>")
+vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
+
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
 -- allow changing and deleting without overriding current paste registers
