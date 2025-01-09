@@ -3,7 +3,7 @@ return {
   event = "InsertEnter",
   enabled = not LazyVim.is_win(),
   opts = {
-    max_lines = 500, -- restrict num of lines read from non-focused buffers
+    max_lines = 200, -- restrict num of lines read from non-focused buffers
     enabled = false, -- don't enable on start
     manual = false, -- require <C-n>? nah
     show_label = false, -- thing next to line numbers
