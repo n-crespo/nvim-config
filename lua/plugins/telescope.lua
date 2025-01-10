@@ -104,6 +104,17 @@ return {
     { "<leader>fr", false },
     { "<leader>fR", false },
     { "<leader>sC", false },
+    { "<leader>fF", false },
+    {
+      "<leader>ff",
+      require("telescope.builtin").find_files,
+      desc = "Find in CWD",
+    },
+    {
+      "<leader>fw",
+      require("telescope.builtin").live_grep,
+      desc = "Find Word in CWD",
+    },
     {
       "<leader>fp",
       function()
