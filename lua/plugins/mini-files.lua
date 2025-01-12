@@ -33,13 +33,9 @@ return {
       {
         "<leader>e",
         function()
-          local success, result = pcall(function()
-            return require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-          end)
-
-          if not success then
-            require("mini.files").open(vim.loop.cwd(), true)
-          end
+          local MiniFiles = require("mini.files")
+          MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+          MiniFiles.reveal_cwd()
         end,
         desc = "Explore",
       },
