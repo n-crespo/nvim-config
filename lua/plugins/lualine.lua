@@ -1,6 +1,7 @@
 -- status line
 -- 12 hour time because 'murica
 -- transparent bar because transparent is better
+vim.g.trouble_lualine = false
 return {
   "nvim-lualine/lualine.nvim",
   enabled = not vim.g.started_by_firenvim,

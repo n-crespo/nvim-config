@@ -1,4 +1,5 @@
 -- lsp configurations
+vim.g.lazyvim_python_lsp = "pyright"
 return {
   "neovim/nvim-lspconfig",
   opts = function(_, opts)

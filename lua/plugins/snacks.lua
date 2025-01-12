@@ -1,7 +1,9 @@
+vim.g.snacks_animate = false
 return {
   "folke/snacks.nvim",
   event = "VeryLazy",
   opts = {
+    profiler = { enabled = false },
     styles = {
       blame_line = { border = "single" },
       terminal = {
@@ -72,6 +74,9 @@ return {
     },
   },
   keys = {
+    { "<space>dph", nil },
+    { "<space>dps", nil },
+    { "<space>dpp", nil },
     {
       "<C-q>",
       function()

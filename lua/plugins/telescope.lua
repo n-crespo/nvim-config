@@ -3,6 +3,7 @@
 -- shows file name before path
 
 -- this is for showing file name before path
+vim.g.lazyvim_picker = "telescope"
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "TelescopeResults",
   callback = function(ctx)
