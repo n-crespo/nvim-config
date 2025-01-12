@@ -4,7 +4,6 @@
 vim.g.trouble_lualine = false
 return {
   "nvim-lualine/lualine.nvim",
-  enabled = not vim.g.started_by_firenvim,
   -- event = { "BufReadPre", "BufNewFile" },
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus

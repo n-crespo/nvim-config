@@ -11,7 +11,6 @@ return {
     filetype = {
       python = "python3 -u '$dir/$fileName'",
       javascript = "node",
-      html = "cd $dir && live-server --browser=/mnt/c/Program\\ Files/Mozilla\\ Firefox/firefox.exe",
       java = "cd $dir && javac $fileName -d bin/ && java -cp $dir/bin/ $fileNameWithoutExt",
       cpp = {
         "cd $dir &&",

@@ -1,11 +1,8 @@
 -- default LazyVim plugin
 -- this config just adds borders to lsp hover (K)
 
--- disable noice when using firenvim in browser
-
 return {
   "folke/noice.nvim",
-  enabled = not vim.g.started_by_firenvim,
   opts = {
     notify = { enabled = false },
     commands = {

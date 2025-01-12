@@ -15,7 +15,6 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = false },
     dashboard = {
-      enabled = not vim.g.started_by_firenvim,
       width = 45,
       preset = {
         keys = {

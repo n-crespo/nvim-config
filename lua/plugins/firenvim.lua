@@ -1,3 +1,8 @@
+-- old fire.nvim config
+do
+  return {}
+end
+
 return {
   "glacambre/firenvim",
   lazy = false,

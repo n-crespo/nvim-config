@@ -14,7 +14,6 @@ return {
       },
     },
   },
-  enabled = not vim.g.started_by_firenvim,
   opts = {
     window = {
       -- placement = { vertical = "top", horizontal = "center" },
