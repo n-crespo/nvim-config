@@ -6,9 +6,7 @@ return {
     profiler = { enabled = false },
     styles = {
       blame_line = { border = "single" },
-      terminal = {
-        wo = { winbar = "" },
-      },
+      terminal = { wo = { winbar = "" } },
       notification_history = { border = "single" },
       notification = { winblend = 100 },
     },
@@ -73,9 +71,9 @@ return {
     },
   },
   keys = {
-    { "<space>dph", nil },
-    { "<space>dps", nil },
-    { "<space>dpp", nil },
+    { "<leader>dph", nil },
+    { "<leader>dps", nil },
+    { "<leader>dpp", nil },
     {
       "<C-q>",
       function()
