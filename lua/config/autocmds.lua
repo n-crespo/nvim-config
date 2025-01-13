@@ -42,29 +42,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   command = "setlocal conceallevel=0 textwidth=0",
 })
 
--- -- don't use lsp on pvs files
--- vim.api.nvim_create_autocmd({ "LspAttach" }, {
---   callback = function(opt)
---     if vim.fn.expand("%:e") == "pvs" then
---       vim.schedule(function()
---         -- vim.lsp.buf_detach_client(opt.buf, opt.data.client_id)
---         vim.cmd([[LspStop]])
---       end)
---     end
---   end,
--- })
---
 -- hacky way to get colored pvs
--- vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
---   pattern = { "*.pvs" },
---   command = "set ft=c | LspStop",
--- })
-
--- for coldfusion syntax highlighting
 vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
-  pattern = { "*.cf", "*.cfm" },
-  command = "set syntax=cf filetype=cf",
+  pattern = { "*.pvs" },
+  command = "set ft=pvs",
 })
+-- use c highlighting for pvs filetype
+vim.treesitter.language.register("c", "pvs")
 
 -- enable text width only when wrap is disabled
 vim.api.nvim_create_autocmd("OptionSet", {
@@ -77,6 +61,8 @@ vim.api.nvim_create_autocmd("OptionSet", {
     end
   end,
 })
+
+-- only use text width of 80 when wrap is disabled
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     if vim.opt.wrap:get() then
