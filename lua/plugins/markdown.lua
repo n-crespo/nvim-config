@@ -29,6 +29,7 @@ return {
     opts = {
       render_modes = { "n", "c", "i", "v", "V", "\x16", "t", "o" },
       file_types = { "markdown", "norg", "rmd", "org" },
+      latex = { enabled = false },
       code = {
         sign = false,
         width = "block",
