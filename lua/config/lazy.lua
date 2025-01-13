@@ -32,7 +32,6 @@ require("lazy").setup({
     backdrop = 100,
     wrap = false,
   },
-  rocks = { hererocks = false },
   -- don't show message on config change/reload
   change_detection = { notify = false },
   checker = { enabled = true }, --   automatically check for plugin updates
