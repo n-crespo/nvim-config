@@ -1,6 +1,6 @@
 return {
   "benlubas/wrapping-paper.nvim",
-  event = "LazyFile",
+  ft = "markdown",
   keys = {
     {
       "<leader>wp",
