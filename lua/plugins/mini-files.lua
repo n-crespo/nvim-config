@@ -34,8 +34,15 @@ return {
         "<leader>e",
         function()
           local MiniFiles = require("mini.files")
-          MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-          MiniFiles.reveal_cwd()
+
+          local success, _ = pcall(function()
+            MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+            MiniFiles.reveal_cwd()
+          end)
+
+          if not success then
+            require("mini.files").open(vim.uv.cwd(), true)
+          end
         end,
         desc = "Explore",
       },
