@@ -1,6 +1,36 @@
 return {
   "monkoose/neocodeium",
   event = "InsertEnter",
+  dependencies = {
+    "nvim-lualine/lualine.nvim",
+    event = "InsertEnter",
+    opts = function(_, opts)
+      table.insert(opts.sections.lualine_c, 3, {
+        function()
+          local symbols = {
+            status = {
+              [0] = "󰚩 ", -- Enabled
+              [1] = "󱙺 ", -- Disabled Globally
+              [2] = "󱚧 ", -- Disabled for Buffer
+              [3] = "󱚧 ", -- Disabled for Buffer filetype
+              [4] = "󱚧 ", -- Disabled for Buffer with enabled function
+              [5] = "󱚧 ", -- Disabled for Buffer encoding
+            },
+            server_status = {
+              [0] = "󰣺 ", -- Connected
+              [1] = "󰣻 ", -- Connecting
+              [2] = "󰣽 ", -- Disconnected
+            },
+          }
+          local status, server_status = require("neocodeium").get_status()
+          return symbols.status[status] .. symbols.server_status[server_status]
+        end,
+        color = function()
+          return { fg = Snacks.util.color("Special") }
+        end,
+      })
+    end,
+  },
   enabled = not LazyVim.is_win(),
   opts = {
     max_lines = 200, -- restrict num of lines read from non-focused buffers
