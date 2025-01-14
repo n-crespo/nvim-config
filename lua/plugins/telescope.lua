@@ -22,6 +22,14 @@ local function filenameFirst(_, path)
   return string.format("%s\t\t%s", tail, parent)
 end
 
+-- always enter normal mode when leaving telescope prompt
+vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
+  pattern = { "TelescopePrompt" },
+  callback = function()
+    vim.api.nvim_exec2("silent! stopinsert!", {})
+  end,
+})
+
 return {
   "telescope.nvim",
   event = "VeryLazy",

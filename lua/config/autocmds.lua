@@ -10,14 +10,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
--- always enter normal mode when leaving telescope prompt
-vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
-  pattern = { "TelescopePrompt" },
-  callback = function()
-    vim.api.nvim_exec2("silent! stopinsert!", {})
-  end,
-})
-
 -- show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
   callback = function()
