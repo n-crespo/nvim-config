@@ -24,7 +24,6 @@ local opt = vim.opt
 -- end
 
 -- opt.autochdir = true -- Change working directory to current file
-opt.clipboard = "unnamedplus" -- sync with system clipboard
 opt.mouse = "a" -- disable mouse
 opt.conceallevel = 2 -- Hide * markup for bold and italics
 opt.autowrite = true -- Enable auto writes
