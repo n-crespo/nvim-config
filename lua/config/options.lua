@@ -3,6 +3,36 @@
 
 local opt = vim.opt
 
+opt.cursorlineopt = "number,screenline" -- cursorline respects wrapped lines
+opt.relativenumber = false
+opt.swapfile = false -- don't make backup swap files
+opt.incsearch = true -- who knows
+opt.scrolloff = 15 -- don't scroll all the way down
+opt.sidescrolloff = 7 -- don't scroll all the way to the side
+opt.sidescroll = 0 -- don't scroll all the way to the side
+opt.numberwidth = 1 -- left side width
+opt.textwidth = 80 -- formatted text width
+opt.softtabstop = 2 -- 2 space tabs
+opt.pumblend = 0 -- needed for cmp transparency
+opt.startofline = true
+opt.breakindent = true -- indent smartly
+opt.smartcase = true -- casing in search
+opt.ignorecase = true -- casing in search
+opt.spelllang = "en" -- spell in english pls
+opt.showtabline = 0
+opt.cmdheight = 0 -- no cmdline on bottom of screen
+opt.wrap = false
+vim.g.loaded_ruby_provider = 0 -- never use these
+vim.g.loaded_perl_provider = 0 -- never use these
+vim.g.loaded_python3_provider = 0
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+-- opt.autochdir = true -- this breaks things
+
+if LazyVim.is_win() then
+  LazyVim.terminal.setup("pwsh")
+end
+
 -- --- for some reason this doesn't work unless I specify `== 1`???
 -- if vim.fn.has("wsl") == 1 then
 --   ---@diagnostic disable-next-line: undefined-field
@@ -22,47 +52,3 @@ local opt = vim.opt
 -- elseif vim.fn.has("mac") == 1 or vim.fn.has("win32") == 1 then
 --   opt.clipboard = "unnamedplus"
 -- end
-
--- opt.autochdir = true -- Change working directory to current file
-opt.mouse = "a" -- disable mouse
-opt.conceallevel = 2 -- Hide * markup for bold and italics
-opt.autowrite = true -- Enable auto writes
-opt.cursorline = true -- don't highlight current line (transparent background)
-opt.cursorlineopt = "number,screenline" -- cursorline respects wrapped lines
-opt.rnu = false -- relative line numbers
-opt.splitbelow = true -- self explanatory
-opt.splitright = true -- self explanatory
-opt.swapfile = false -- don't make backup swap files
-opt.incsearch = true -- who knows
-opt.scrolloff = 15 -- don't scroll all the way down
-opt.sidescrolloff = 0 -- don't scroll all the way to the side
-opt.sidescroll = 0 -- don't scroll all the way to the side
-opt.numberwidth = 1 -- left side width
-opt.textwidth = 80 -- formatted text width
-opt.softtabstop = 2 -- 2 space tabs
-opt.tabstop = 2 -- 2 space tabs
-opt.shiftwidth = 2 -- 2 space tabs
-opt.pumblend = 0 -- needed for cmp transparency
-opt.smartindent = true -- indent smartly
-opt.startofline = true
-opt.breakindent = true -- indent smartly
-opt.smartcase = true -- casing in search
-opt.ignorecase = true -- casing in search
-opt.spelllang = "en" -- spell in english pls
-opt.showtabline = 0
-opt.cmdheight = 0 -- no cmdline on bottom of screen
-opt.wrap = false
-vim.g.loaded_ruby_provider = 0 -- never use these
-vim.g.loaded_perl_provider = 0 -- never use these
-vim.g.loaded_python3_provider = 0
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-if LazyVim.is_win() then
-  LazyVim.terminal.setup("pwsh")
-end
-
-vim.cmd([[
-set complete=
-set completeopt=
-]])
