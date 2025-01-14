@@ -137,14 +137,6 @@ vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
 
 -- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
 
--- unholy non-native vim keymap for find in buffer
--- because of the timing of some requires, this doesnt work in plugins/telescope.lua
--- vim.keymap.set("n", "<C-f>", function()
---   require("telescope.builtin").current_buffer_fuzzy_find(
---     require("telescope.themes").get_dropdown({ winblend = 0, previewer = false })
---   )
--- end, { desc = "find word" })
-
 vim.keymap.set(
   "x",
   "'",
