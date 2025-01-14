@@ -51,7 +51,7 @@ return {
     input = { enabled = true },
     terminal = {
       enabled = true,
-      win = { keys = { nav_l = "<C-l>" } },
+      win = { keys = { nav_l = "<C-l>", nav_j = "<C-j>", nav_k = "<C-k>" } },
     },
     rename = { enabled = true },
     scratch = { enabled = false },
