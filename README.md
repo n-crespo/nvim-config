@@ -9,13 +9,18 @@ plugins and to extend functionality.
 
 Some cool things in this config are:
 
-- my [custom lualine tab component](./lua/plugins/lualine.lua#95) (see `opts.sections.lualine_x`)
-- [mini.files](https://github.com/echasnovski/mini.files)
-- [nvim-spider](https://github.com/chrisgrieser/nvim-spider) - better `w`, `e`, and `b`
-- [(not) my color scheme](./colors/macro.lua)
+- my [custom tabline](./lua/custom/tabline.lua)
+- my [mini.files config](https://github.com/echasnovski/mini.files)
+- better `w`, `e`, and `b` with [nvim-spider](https://github.com/chrisgrieser/nvim-spider)
+- my (borrowed/extended) [color scheme](./colors/macro.lua)
 - [flatten.nvim](https://github.com/willothy/flatten.nvim)
+  - super useful when used with the Snacks terminal + zoxide + fzf
 - [all my auto commands](./lua/config/autocmds.lua)
-- [this markdown config](./lua/plugins/markdown.lua) (mostly LazyVim)
+  - remove trailing white space on save
+  - only show cursor line in active window
+- [my markdown config](./lua/plugins/markdown.lua)
+  - follow all types of links with Enter
+  - render things nicely, generate TOC, etc
 - my [auto commands](./lua/config/autocmds.lua)
   - only show cursor line in active window
   - remove trailing white space on save
