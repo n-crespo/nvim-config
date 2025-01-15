@@ -22,7 +22,7 @@ return {
               [2] = "󰣽 ", -- Disconnected
             },
           }
-          local status, server_status = require("neocodeium").get_status()
+          local status, server_status = require("lualine_require").require("neocodeium").get_status()
           return symbols.status[status] .. symbols.server_status[server_status]
         end,
         color = function()
@@ -59,7 +59,7 @@ return {
     })
 
     -- when in insert mode, toggle completion only
-    function ToggleCodeiumInsert()
+    function ToggleCodeiumCompletion()
       local plugin, _ = require("neocodeium").get_status()
       if plugin > 0 then -- (completion is disabled)
         vim.cmd([[NeoCodeium enable]])
@@ -72,7 +72,7 @@ return {
     end
 
     -- when in normal mode, keymap toggle servers
-    function ToggleCodeium()
+    function ToggleCodeiumServer()
       local _, server = require("neocodeium").get_status()
       if server == 2 then
         vim.cmd([[NeoCodeium enable]])
@@ -84,8 +84,8 @@ return {
     end
 
     -- allow user to use :lua ToggleCodeium()
-    _G.ToggleCodeiumInsert = ToggleCodeiumInsert
-    _G.ToggleCodeium = ToggleCodeium
+    _G.ToggleCodeiumCompletion = ToggleCodeiumCompletion
+    _G.ToggleCodeiumServer = ToggleCodeiumServer
 
     -- start codeium when entering insert mode (FOR THE FIRST TIME)
     vim.api.nvim_create_autocmd("InsertEnter", {
@@ -100,7 +100,7 @@ return {
     {
       "<C-S-A>",
       function()
-        ToggleCodeium()
+        ToggleCodeiumServer()
       end,
       mode = "n",
       desc = "Toggle Codeium",
@@ -109,7 +109,7 @@ return {
     {
       "<C-S-A>",
       function()
-        ToggleCodeiumInsert()
+        ToggleCodeiumCompletion()
       end,
       mode = "i",
       desc = "Toggle Codeium",
