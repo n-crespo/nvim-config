@@ -23,7 +23,6 @@ return {
     spec = {
       mode = { "n" },
       -- { "<leader>t", group = "+tab" },
-      { "<leader>o", group = "+open" },
       { "<R>", group = "run", icon = "" },
     },
     -- modes = {

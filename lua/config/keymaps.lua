@@ -73,13 +73,6 @@ vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
 vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
--- delete all other {something} (tab, buffer, window)
-vim.keymap.set("n", "<leader>wo", "<cmd>only <CR>", { silent = true, desc = "Window only" })
-
--- needed because I override <C-w>
-vim.keymap.set("n", "<leader>wr", "<C-w>r", { silent = true, desc = "Window rotate" })
-vim.keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Other Window", silent = true })
-
 -- cd to root dir of current buffer (replace autochdir)
 vim.keymap.set("n", "<leader>bl", function()
   local bufname = vim.api.nvim_buf_get_name(0)
@@ -96,77 +89,35 @@ vim.keymap.set("n", "<leader>bl", function()
   })
 end, { desc = "Buffer Locate", silent = true })
 
--- close buffer (not soft) (don't preserve split)
--- vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "quit", silent = true })
-vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "quit", silent = true })
+-- vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "Close Window", silent = true })
 
 -- splits
--- vim.keymap.set("n", "\\", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 
--- window resizing (<C-up> and <C-down> are used by multicursor)
-vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-
--- vim.keymap.set("n", "<leader>bo", ":%bd|e#<cr>", { desc = "Buffer Only", silent = true })
-
-vim.keymap.set("n", "<leader>os", "<cmd>!open %<cr>", { silent = true, desc = "Open in System Viewer" })
+vim.keymap.set("n", "<leader>o", "<cmd>silent! !open %<cr>", { desc = "Open Buffer in System Viewer" })
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
 
 vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
-vim.keymap.set("n", "<leader>1", "<cmd>tabn 1<cr>", { silent = true, desc = "Tab 1" })
-vim.keymap.set("n", "<leader>2", "<cmd>tabn 2<cr>", { silent = true, desc = "Tab 2" })
-vim.keymap.set("n", "<leader>3", "<cmd>tabn 3<cr>", { silent = true, desc = "Tab 3" })
-vim.keymap.set("n", "<leader>4", "<cmd>tabn 4<cr>", { silent = true, desc = "Tab 4" })
-vim.keymap.set("n", "<leader>5", "<cmd>tabn 5<cr>", { silent = true, desc = "Tab 5" })
+vim.keymap.set("n", "<leader>1", "<cmd>silent! tabn 1<cr>", { silent = true, desc = "Tab 1" })
+vim.keymap.set("n", "<leader>2", "<cmd>silent! tabn 2<cr>", { silent = true, desc = "Tab 2" })
+vim.keymap.set("n", "<leader>3", "<cmd>silent! tabn 3<cr>", { silent = true, desc = "Tab 3" })
+vim.keymap.set("n", "<leader>4", "<cmd>silent! tabn 4<cr>", { silent = true, desc = "Tab 4" })
+vim.keymap.set("n", "<leader>5", "<cmd>silent! tabn 5<cr>", { silent = true, desc = "Tab 5" })
 
 -- --------------------------------- INSERT MODE + COMPLETION -------------------------------------
 
 -- completion cycling in command mode
-vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true, desc = "Cycle through completion items" })
-vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Cycle through completion items" })
+vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true, desc = "Next completion items" })
+vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Prev completion items" })
 
 -- in insert mode auto-correct the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
+
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
 vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
--- vim.keymap.set("i", "<S-CR>", "<esc>o", { remap = false })
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
-
--- --------------------------------- PLUGIN SPECIFIC KEYMAPS ---------------------------------------
-
-vim.keymap.set(
-  "x",
-  "'",
-  [[:s/\%V\(.*\)\%V/'\1'/ <CR><cmd>noh<cr>]],
-  { desc = "Surround selection with '", silent = true }
-)
-vim.keymap.set(
-  "x",
-  '"',
-  [[:s/\%V\(.*\)\%V/"\1"/ <CR><cmd>noh<cr>]],
-  { desc = 'Surround selection with "', silent = true }
-)
-vim.keymap.set(
-  "x",
-  "*",
-  [[:s/\%V\(.*\)\%V/*\1*/ <CR><cmd>noh<cr>]],
-  { desc = "Surround selection with *", silent = true }
-)
-vim.keymap.set(
-  "x",
-  "_",
-  [[:s/\%V\(.*\)\%V/_\1_/ <CR><cmd>noh<cr>]],
-  { desc = "Surround selection with _", silent = true }
-)
-vim.keymap.set(
-  "x",
-  "q",
-  [[:s/\%V\(.*\)\%V/"\1"/ <CR><cmd>noh<cr>]],
-  { desc = "Surround selection with quotes", silent = true }
-)
 
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 
@@ -180,20 +131,6 @@ vim.keymap.set(
 
 -- grant permissions
 vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Grant File Permissions" })
-
--- --------------------------------- TERMINAL KEYMAPS-----------------------------------------------
-
--- clear terminal (overriding <C-l> for window navigation)
-vim.keymap.set("t", "<C-l>", "<C-l>", { noremap = true })
-
--- restore original terminal keymap behavior
-vim.keymap.set("t", "<C-k>", "<C-k>", { noremap = true })
-vim.keymap.set("t", "<C-j>", "<C-j>", { noremap = true })
-vim.keymap.set({ "t", "n" }, "<C-S-H>", "<cmd>wincmd h<cr>", { noremap = true })
-vim.keymap.set({ "t", "n" }, "<C-S-L>", "<cmd>wincmd l<cr>", { noremap = true })
-vim.keymap.set({ "t", "n" }, "<C-S-J>", "<cmd>wincmd j<cr>", { noremap = true }) -- this doesn't work
-vim.keymap.set({ "t", "n" }, "<S-NL>", "<cmd>wincmd j<cr>", { noremap = true }) -- this does?
-vim.keymap.set({ "t", "n" }, "<C-S-K>", "<cmd>wincmd k<cr>", { noremap = true })
 
 -- ------------------------------------- ABBREVIATIONS --------------------------------------------
 
@@ -300,9 +237,6 @@ local spell_select = function()
 end
 vim.keymap.set("n", "z=", spell_select, { desc = "Show spelling suggestions" })
 vim.keymap.set("n", "<leader>fs", "1z=", { noremap = true, silent = true, desc = "Fix Spelling under cursor" })
-
--- reopen closed buffer/window
-vim.keymap.set("n", "<C-S-T>", "<cmd>vsp | e #<cr>", { desc = "Re-open last buffer" })
 
 -- Block insert in line visual mode
 vim.keymap.set("x", "I", function()
