@@ -119,13 +119,6 @@ return {
     { "<leader>sC", false },
     { "<leader>fF", false },
     {
-      "<leader>ff",
-      function()
-        require("telescope.builtin").find_files({ prompt_title = "Files in CWD" })
-      end,
-      desc = "Find in CWD",
-    },
-    {
       "<leader>fh",
       LazyVim.pick("files"),
       desc = "Find Files (Here)",
@@ -133,21 +126,21 @@ return {
     {
       "<leader><leader>",
       function()
-        require("telescope.builtin").find_files({ prompt_title = "Files In CWD" })
+        require("telescope.builtin").find_files({ prompt_title = "Find Files (cwd)" })
       end,
       desc = "Find Files in CWD",
     },
     {
       "<leader>ff",
       function()
-        require("telescope.builtin").find_files({ prompt_title = "Files in CWD" })
+        require("telescope.builtin").find_files({ prompt_title = "Find Files (cwd)" })
       end,
-      desc = "Find Files in CWD",
+      desc = "Find Files (cwd)",
     },
     {
       "<leader>fw",
       require("telescope.builtin").live_grep,
-      desc = "Find Word in CWD",
+      desc = "Find Word (cwd)",
     },
     {
       "<leader>fp",
@@ -169,7 +162,9 @@ return {
     },
     {
       "<leader>gf",
-      "<cmd>Telescope git_bcommits<cr>",
+      function()
+        require("telescope.builtin").git_bcommits({ cwd = vim.fn.expand("%:p:h") })
+      end,
       desc = "Git File History",
       silent = true,
     },
@@ -196,7 +191,7 @@ return {
           .new(opts, {
             prompt_title = "Plugins",
             finder = finders.new_table({
-              results = require("config.utils").pluginNames(),
+              results = require("custom.utils").pluginNames(),
             }),
             sorter = conf.generic_sorter(opts),
 
