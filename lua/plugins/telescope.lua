@@ -38,6 +38,10 @@ return {
       oldfiles = { path_display = filenameFirst },
       find_files = { path_display = filenameFirst },
       custom_grep = { path_display = filenameFirst },
+      git_files = { path_display = filenameFirst },
+      live_grep = {
+        layout_strategy = "vertical",
+      },
     },
     defaults = {
       selection_strategy = "reset",
@@ -116,8 +120,29 @@ return {
     { "<leader>fF", false },
     {
       "<leader>ff",
-      require("telescope.builtin").find_files,
+      function()
+        require("telescope.builtin").find_files({ prompt_title = "Files in CWD" })
+      end,
       desc = "Find in CWD",
+    },
+    {
+      "<leader>fh",
+      LazyVim.pick("files"),
+      desc = "Find Files (Here)",
+    },
+    {
+      "<leader><leader>",
+      function()
+        require("telescope.builtin").find_files({ prompt_title = "Files In CWD" })
+      end,
+      desc = "Find Files in CWD",
+    },
+    {
+      "<leader>ff",
+      function()
+        require("telescope.builtin").find_files({ prompt_title = "Files in CWD" })
+      end,
+      desc = "Find Files in CWD",
     },
     {
       "<leader>fw",
