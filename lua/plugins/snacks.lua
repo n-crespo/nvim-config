@@ -98,6 +98,22 @@ return {
       desc = "Toggle Floating Terminal",
       mode = { "n", "t" },
     },
+    {
+      "<C-S-Q>",
+      function()
+        Snacks.terminal.toggle("fish", {
+          win = {
+            position = "float",
+            height = 0.8,
+            width = 0.8,
+            border = "single",
+          },
+          -- cwd = vim.loop.cwd(),
+        })
+      end,
+      desc = "Toggle Floating Terminal",
+      mode = { "n", "t" },
+    },
     -- <C-.>, <C-S-/>
     {
       "<leader>z",
