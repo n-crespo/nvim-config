@@ -27,7 +27,7 @@ return {
   },
   config = function(_, opts)
     require("colorizer").setup(opts)
-    vim.api.nvim_create_user_command("recolor", "lua require('colorizer').reload_all_buffers()", { nargs = 0 })
+    vim.api.nvim_create_user_command("REcolor", "lua require('colorizer').reload_all_buffers()", { nargs = 0 })
   end,
   keys = {
     {
