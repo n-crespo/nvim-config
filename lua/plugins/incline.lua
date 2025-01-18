@@ -37,7 +37,6 @@ return {
       return {
         ft_icon and { (ft_icon or "") .. " ", group = ft_color, guibg = "none" } or "",
         { filename, gui = modified and "bold" or "none" },
-        { modified and " " or "" },
       }
     end,
   },
