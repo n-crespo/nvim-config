@@ -1,19 +1,17 @@
+-- this is a custom tabline component for lualinne.
+-- (vim-style "tabs", see :h tabs)
 local M = {}
 
 M.tabline = function()
-  -- NOTE this could have potentially been done with the "tabs" lualine
+  -- this could have potentially been done with the "tabs" lualine
   -- component rather than doing it manually buuuuut the builtin one is weird
   local tabs = {}
-  local current_tab = vim.fn.tabpagenr()
   for i = 1, vim.fn.tabpagenr("$") do
-    local winnr = vim.fn.tabpagewinnr(i)
-    local winid = vim.fn.win_getid(winnr, i)
-    local bufnr = vim.fn.winbufnr(winid)
-    local bufname = vim.fn.bufname(bufnr)
-    local name = vim.fn.fnamemodify(bufname, ":t")
+    local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
+    local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
 
-    local icon, color =
-      require("nvim-web-devicons").get_icon(name, vim.fn.fnamemodify(bufname, ":e"), { default = true })
+    local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+    local icon, color = require("mini.icons").get("filetype", filetype)
 
     if name == "" then
       name = ""
@@ -23,14 +21,12 @@ M.tabline = function()
       name = "terminal"
     elseif name == "lazygit" then
       icon = "󰊢"
+      color = "GitSignsDelete"
     end
 
-    local highlight_group = "LualineTabInactive"
-    if i == current_tab then
-      highlight_group = "LualineTabActive"
-    end
+    local highlight_group = i == vim.fn.tabpagenr() and "LualineActiveTab" or "LualineTabInactive"
 
-    -- this is quite disgusting innit
+    -- there's gotta be a better way to do this but it works now sooo
     local tab_display = string.format(
       "%%#%s#[%%#%s#%s %%#%s#%s%%#%s#]",
       highlight_group,
@@ -45,8 +41,11 @@ M.tabline = function()
   return table.concat(tabs, " ")
 end
 
+-- the following can be added after "require"ing this file so that the tabline
+-- is only shown when there are more than 1 tab
+
 -- cond = function()
---   return vim.fn.tabpagenr("$") > 1 --- show only when more than 1 tab
+--   return vim.fn.tabpagenr("$") > 1
 -- end,
 
 return M
