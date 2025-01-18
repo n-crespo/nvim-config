@@ -74,3 +74,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<C-p>", "<cmd>cN<CR>zz<cmd>wincmd p<CR>", opts)
   end,
 })
+vim.api.nvim_create_autocmd({ "WinResized" }, {
+  desc = "Updates scrolloff on startup and when window is resized",
+  group = vim.api.nvim_create_augroup("smart-scrolloff", { clear = true }),
+  callback = function()
+    local scrolloffPercentage = 0.3
+    vim.opt.scrolloff = math.floor(vim.o.lines * scrolloffPercentage)
+  end,
+})
