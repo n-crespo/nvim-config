@@ -25,4 +25,18 @@ return {
       RGBA = false,
     },
   },
+  config = function(_, opts)
+    require("colorizer").setup(opts)
+    vim.api.nvim_create_user_command("recolor", "lua require('colorizer').reload_all_buffers()", { nargs = 0 })
+  end,
+  keys = {
+    {
+      "<leader>sc",
+      function()
+        require("colorizer").attach_to_buffer(0)
+        vim.notify("Colorizer toggled", vim.log.levels.INFO)
+      end,
+      desc = "Start/Toggle Colorizer",
+    },
+  },
 }
