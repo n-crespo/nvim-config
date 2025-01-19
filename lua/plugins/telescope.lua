@@ -88,6 +88,7 @@ return {
             vim.keymap.set("n", "<Tab>", function()
               vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", prompt_win))
             end, { buffer = bufnr })
+            vim.keymap.set("n", "<Esc>", "<Tab><Esc>", { buffer = bufnr, remap = true })
             vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", winid))
             vim.keymap.set({ "n", "v", "o" }, "E", "$", { desc = "End of line", silent = true, buffer = true })
             vim.keymap.set({ "n", "v", "o" }, "B", "0", { desc = "Start of line", silent = true, buffer = true })
