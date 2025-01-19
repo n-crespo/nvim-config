@@ -24,7 +24,7 @@ M.tabline = function()
       color = "GitSignsDelete"
     end
 
-    local highlight_group = i == vim.fn.tabpagenr() and "LualineActiveTab" or "LualineTabInactive"
+    local highlight_group = i == vim.fn.tabpagenr() and "LualineTabActive" or "LualineTabInactive"
 
     -- there's gotta be a better way to do this but it works now sooo
     local tab_display = string.format(

@@ -438,31 +438,31 @@ local hlgroups = {
   TelescopeTitle = { fg = c_macroGray2 },
   TelescopePromptBorder = { link = "TelescopeBorder" },
 
-  -- nvim-dap-ui
-  DapUIBreakpointsCurrentLine = { bold = true, fg = c_macroFg0 },
-  DapUIBreakpointsDisabledLine = { link = "Comment" },
-  DapUIBreakpointsInfo = { fg = c_macroBlue0 },
-  DapUIBreakpointsPath = { link = "Directory" },
-  DapUIDecoration = { fg = border_purple_ink },
-  DapUIFloatBorder = { fg = border_purple_ink },
-  DapUILineNumber = { fg = c_macroTeal },
-  DapUIModifiedValue = { bold = true, fg = c_macroTeal },
-  DapUIPlayPause = { fg = c_macroGreen1 },
-  DapUIRestart = { fg = c_macroGreen1 },
-  DapUIScope = { link = "Special" },
-  DapUISource = { fg = c_macroRed },
-  DapUIStepBack = { fg = c_macroTeal },
-  DapUIStepInto = { fg = c_macroTeal },
-  DapUIStepOut = { fg = c_macroTeal },
-  DapUIStepOver = { fg = c_macroTeal },
-  DapUIStop = { fg = c_lotusRed0 },
-  DapUIStoppedThread = { fg = c_macroTeal },
-  DapUIThread = { fg = c_macroFg0 },
-  DapUIType = { link = "Type" },
-  DapUIUnavailable = { fg = c_macroAsh },
-  DapUIWatchesEmpty = { fg = c_lotusRed0 },
-  DapUIWatchesError = { fg = c_lotusRed0 },
-  DapUIWatchesValue = { fg = c_macroFg0 },
+  -- -- nvim-dap-ui
+  -- DapUIBreakpointsCurrentLine = { bold = true, fg = c_macroFg0 },
+  -- DapUIBreakpointsDisabledLine = { link = "Comment" },
+  -- DapUIBreakpointsInfo = { fg = c_macroBlue0 },
+  -- DapUIBreakpointsPath = { link = "Directory" },
+  -- DapUIDecoration = { fg = border_purple_ink },
+  -- DapUIFloatBorder = { fg = border_purple_ink },
+  -- DapUILineNumber = { fg = c_macroTeal },
+  -- DapUIModifiedValue = { bold = true, fg = c_macroTeal },
+  -- DapUIPlayPause = { fg = c_macroGreen1 },
+  -- DapUIRestart = { fg = c_macroGreen1 },
+  -- DapUIScope = { link = "Special" },
+  -- DapUISource = { fg = c_macroRed },
+  -- DapUIStepBack = { fg = c_macroTeal },
+  -- DapUIStepInto = { fg = c_macroTeal },
+  -- DapUIStepOut = { fg = c_macroTeal },
+  -- DapUIStepOver = { fg = c_macroTeal },
+  -- DapUIStop = { fg = c_lotusRed0 },
+  -- DapUIStoppedThread = { fg = c_macroTeal },
+  -- DapUIThread = { fg = c_macroFg0 },
+  -- DapUIType = { link = "Type" },
+  -- DapUIUnavailable = { fg = c_macroAsh },
+  -- DapUIWatchesEmpty = { fg = c_lotusRed0 },
+  -- DapUIWatchesError = { fg = c_lotusRed0 },
+  -- DapUIWatchesValue = { fg = c_macroFg0 },
 
   -- lazy.nvim
   LazyProgressTodo = { fg = c_macroBg5 },
@@ -475,16 +475,16 @@ local hlgroups = {
   StatusLineHeaderModified = { bg = c_macroRed, fg = normal_bg },
 
   -- mini.files
-  MiniFilesNormal = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg },
-  MiniFilesTitle = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg2 },
+  MiniFilesNormal = { bg = nil },
+  MiniFilesTitle = { bg = nil, fg = c_macroFg2 },
   MiniFilesDirectory = { fg = c_macroBlue1 },
-  MiniFilesTitleFocused = { bg = vim.g.dark_bg and c_macroBg0 or normal_bg, fg = c_macroFg2 },
-  MiniFilesCursorLine = { bg = vim.g.dark_bg and c_macroBg2 or c_macroBg0 },
+  MiniFilesTitleFocused = { bg = nil, fg = c_macroFg2 },
+  MiniFilesCursorLine = { bg = c_macroBg0 },
   MiniFilesBorder = { link = "FloatBorder" },
 
   -- incline
-  -- InclineNormal = { bg = "#201D1D", bold = true, fg = "#afadad" },
-  -- InclineNormalNC = { bg = "#201D1D", bold = true, fg = "#afadad" },
+  InclineNormal = { bg = "#201D1D", bold = true, fg = "#afadad" },
+  InclineNormalNC = { bg = "#201D1D", bold = true, fg = "#afadad" },
 
   -- snacks indent
   SnacksIndent = { fg = selection_light_gray },
@@ -502,7 +502,7 @@ local hlgroups = {
 
   -- lualine tab pages
   LualineTabInactive = { fg = c_macroAsh },
-  LualineTabActive = { fg = "#C5c9c5", bold = false, underline = false },
+  LualineTabActive = { fg = c_macroFg0 },
 
   -- render markdown
   RenderMarkdownCode = { bg = c_macroBg2 },
