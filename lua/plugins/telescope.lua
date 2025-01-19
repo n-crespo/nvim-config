@@ -69,6 +69,9 @@ return {
           end,
           ["<C-u>"] = false,
           ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
+          ["<C-CR>"] = function()
+            require("telescope.builtin").resume()
+          end,
           ["<C-h>"] = function() -- for windows
             vim.cmd([[normal! bcw ]])
           end,
