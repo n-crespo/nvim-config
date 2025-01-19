@@ -3,6 +3,15 @@
 return {
   "CRAG666/code_runner.nvim",
   event = "LazyFile",
+  dependencies = {
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        mode = { "n" },
+        { "R", "<cmd>RunCode<cr>", desc = "Run Code" },
+      },
+    },
+  },
   config = true,
   opts = {
     project_path = vim.fn.expand("~/.config/nvim/project_manager.json"),
@@ -36,14 +45,7 @@ return {
       position = "bot", -- horiz, top, vert
       size = 18,
     },
-    float = {
-      border = "single",
-      close_key = "<ESC>",
-      blend = 0,
-    },
-  },
-  keys = {
-    { "R", "<cmd>RunCode<cr>", desc = "Run Code" },
+    float = { border = "single", close_key = "<ESC>", blend = 0 },
   },
   init = function()
     -- Close Code Runner buffers with 'q'
