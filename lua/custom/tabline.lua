@@ -16,7 +16,7 @@ M.tabline = function()
     if name == "" then
       name = ""
       icon = ""
-    elseif name == "fish" then
+    elseif name == "fish" or filetype == "snacks_terminal" then
       icon = ""
       name = "terminal"
     elseif name == "lazygit" then
