@@ -3,7 +3,6 @@ return {
   "folke/snacks.nvim",
   event = "VeryLazy",
   opts = {
-    profiler = { enabled = false },
     styles = {
       blame_line = { border = "single" },
       terminal = { wo = { winbar = "" } },
@@ -69,11 +68,19 @@ return {
         dim = false,
       },
     },
+    debug = {
+      enabled = false,
+    },
+    profiler = {
+      startup = {
+        event = "",
+      },
+    },
   },
   keys = {
-    { "<leader>dph", nil },
-    { "<leader>dps", nil },
-    { "<leader>dpp", nil },
+    { "<leader>dph", false, desc = "which_key_ignore", hidden = true },
+    { "<leader>dps", false, desc = "which_key_ignore", hidden = true },
+    { "<leader>dpp", false, desc = "which_key_ignore", hidden = true },
     {
       "<C-q>",
       function()
@@ -103,6 +110,7 @@ return {
       function()
         Snacks.terminal.toggle("fish", {
           win = {
+            relative = "editor",
             position = "float",
             height = 0.8,
             width = 0.8,

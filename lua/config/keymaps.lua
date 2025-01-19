@@ -38,10 +38,10 @@ vim.keymap.set("n", "<ScrollWheelUp>", "<C-y>")
 vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
 
 -- <C-S-J> as  <C-j>
-vim.keymap.set("n", "<C-S-H>", "<cmd>wincmd h<cr>")
-vim.keymap.set("n", "<S-NL>", "<cmd>wincmd j<cr>")
-vim.keymap.set("n", "<C-S-K>", "<cmd>wincmd k<cr>")
-vim.keymap.set("n", "<C-S-L>", "<cmd>wincmd l<cr>")
+-- vim.keymap.set({ "n", "t" }, "<C-S-H>", "<cmd>wincmd h<cr>")
+-- vim.keymap.set({ "n", "t" }, "<S-NL>", "<cmd>wincmd j<cr>")
+vim.keymap.set({ "n", "t" }, "<C-S-K>", "<cmd>wincmd k<cr>")
+vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
@@ -251,3 +251,6 @@ end, { expr = true })
 vim.keymap.set("x", "A", function()
   return vim.fn.mode() == "V" and "$<C-v>A" or "A"
 end, { expr = true })
+
+vim.keymap.del("n", "<leader>dpp")
+vim.keymap.del("n", "<leader>dph")

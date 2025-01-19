@@ -21,9 +21,12 @@ return {
       padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
     },
     spec = {
-      mode = { "n" },
+      mode = { "n", "v" },
       -- { "<leader>t", group = "+tab" },
       { "<R>", group = "run", icon = "" },
+      { "<leader>dph", hidden = true },
+      { "<leader>dpp", hidden = true },
+      { "<leader>d", proxy = false },
     },
     -- modes = {
     --   n = true, -- Normal mode
@@ -52,5 +55,6 @@ return {
     { "<leader>ft", nil },
     { "<leader>fT", nil },
     { "<leader>qq", nil },
+    { "<leader>dp", nil, hidden = true },
   },
 }

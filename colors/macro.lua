@@ -35,7 +35,7 @@ local c_macroBg5             = "#625e5a"
 local c_macroBlue0           = "#658594"
 local c_macroBlue1           = "#8ba4b0"
 local c_macroFg0             = "#c5c9c5"
-local c_macroFg1             = "#b4b3a7"
+local c_macroFg1             = "#b4b3a7" -- NOTE: this one
 local c_macroFg2             = "#a09f95"
 local c_macroGray0           = "#a6a69c"
 local c_macroGray1           = "#9e9b93"
@@ -108,7 +108,7 @@ local hlgroups = {
   EndOfBuffer = { fg = normal_bg },
   ErrorMsg = { fg = c_lotusRed1 },
   FloatBorder = { bg = nil, fg = border_purple_ink },
-  CompletionBorder = { bg = nil, fg = c_macroBg2 },
+  CompletionBorder = { bg = nil, fg = border_purple_ink },
   FloatFooter = { bg = c_macroBg0, fg = c_macroBg5 },
   FloatTitle = { bg = c_macroBg0, fg = c_macroGray2, bold = true },
   FoldColumn = { fg = c_macroBg5 },
@@ -125,7 +125,7 @@ local hlgroups = {
   SnippetTabstop = { link = "Snippet" },
 
   Normal = { fg = c_macroFg0 },
-  NormalFloat = { bg = nil, fg = c_macroFg0 },
+  NormalFloat = { bg = nil, fg = c_macroFg1 },
 
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
@@ -141,13 +141,13 @@ local hlgroups = {
   SpellCap = { underdashed = true },
   SpellLocal = { underdashed = true },
   SpellRare = { underdashed = true },
-  StatusLine = { bg = nil, fg = c_macroFg1 },
+  StatusLine = { bg = nil, fg = c_macroFg0 },
   StatusLineNC = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
   TabLine = { link = "StatusLineNC" },
   TabLineFill = { link = "Normal" },
   TabLineSel = { link = "Visual" },
-  TermCursor = { fg = normal_bg, bg = "#89ca78" },
+  TermCursor = { link = "Cursor" },
   TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },
   Underlined = { fg = c_macroTeal, underline = true },
@@ -372,45 +372,6 @@ local hlgroups = {
   NoicePopupmenuSelected = { bg = selection_light_gray },
   NoiceScrollBar = { bg = normal_bg },
 
-  -- nvim-cmp
-  CmpPmenu = { fg = c_macroBg2, bg = nil },
-  CmpCompletion = { link = "Pmenu" },
-  CmpCompletionBorder = { bg = nil, fg = border_purple_ink },
-  CmpCompletionSbar = { fg = "#201d1d" },
-  CmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
-  CmpCompletionThumb = { link = "PmenuThumb" },
-  CmpDocumentation = { link = "NormalFloat" },
-  CmpDocumentationBorder = { link = "CompletionBorder" },
-  CmpItemAbbr = { fg = c_macroFg2 },
-  CmpItemAbbrDeprecated = { fg = c_macroAsh, strikethrough = true },
-  CmpItemAbbrMatch = { fg = c_macroRed },
-  CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
-  CmpItemKindClass = { link = "Type" },
-  CmpItemKindConstant = { link = "Constant" },
-  CmpItemKindConstructor = { link = "@constructor" },
-  CmpItemKindCopilot = { link = "String" },
-  CmpItemKindDefault = { fg = c_katanaGray },
-  CmpItemKindEnum = { link = "Type" },
-  CmpItemKindEnumMember = { link = "Constant" },
-  CmpItemKindField = { link = "@variable.member" },
-  CmpItemKindFile = { link = "Directory" },
-  CmpItemKindFolder = { link = "Directory" },
-  CmpItemKindFunction = { link = "Function" },
-  CmpItemKindInterface = { link = "Type" },
-  CmpItemKindKeyword = { link = "@keyword" },
-  CmpItemKindMethod = { link = "Function" },
-  CmpItemKindModule = { link = "@keyword.import" },
-  CmpItemKindOperator = { link = "Operator" },
-  CmpItemKindProperty = { link = "@property" },
-  CmpItemKindReference = { link = "Type" },
-  CmpItemKindSnippet = { fg = c_macroTeal },
-  CmpItemKindStruct = { link = "Type" },
-  CmpItemKindText = { fg = c_macroFg2 },
-  CmpItemKindTypeParameter = { link = "Type" },
-  CmpItemKindValue = { link = "String" },
-  CmpItemKindVariable = { fg = c_lotusRed2 },
-  CmpItemMenu = { fg = c_macroAsh },
-
   -- gitsigns
   GitSignsAdd = { fg = c_autumnGreen },
   GitSignsChange = { fg = border_purple_ink },
@@ -426,9 +387,9 @@ local hlgroups = {
   DiffRemoved = { fg = c_autumnRed },
 
   -- telescope
-  TelescopeBorder = { bg = normal_bg, fg = border_purple_ink },
+  TelescopeBorder = { link = "FloatBorder" },
   TelescopeMatching = { fg = c_macroRed, bold = true },
-  TelescopeNormal = { fg = c_macroFg2, bg = normal_bg },
+  TelescopeNormal = { link = "NormalFloat" },
   TelescopeResultsClass = { link = "Structure" },
   TelescopeResultsField = { link = "@variable.member" },
   TelescopeResultsMethod = { link = "Function" },
@@ -438,7 +399,7 @@ local hlgroups = {
   TelescopeTitle = { fg = c_macroGray2 },
   TelescopePromptBorder = { link = "TelescopeBorder" },
 
-  -- -- nvim-dap-ui
+  -- -- nvim-dap-ui (one day I'll use this)
   -- DapUIBreakpointsCurrentLine = { bold = true, fg = c_macroFg0 },
   -- DapUIBreakpointsDisabledLine = { link = "Comment" },
   -- DapUIBreakpointsInfo = { fg = c_macroBlue0 },
@@ -475,7 +436,8 @@ local hlgroups = {
   StatusLineHeaderModified = { bg = c_macroRed, fg = normal_bg },
 
   -- mini.files
-  MiniFilesNormal = { bg = nil },
+  -- MiniFilesNormal = { bg = nil },
+  MiniFilesNormal = { link = "NormalFloat" },
   MiniFilesTitle = { bg = nil, fg = c_macroFg2 },
   MiniFilesDirectory = { fg = c_macroBlue1 },
   MiniFilesTitleFocused = { bg = nil, fg = c_macroFg2 },
