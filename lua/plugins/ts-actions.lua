@@ -1,7 +1,7 @@
 return {
   "ckolkey/ts-node-action",
+  commit = "adf1168", -- weird commit broke things
   event = "LazyFile",
-  dependencies = { "nvim-treesitter" },
   keys = {
     {
       "m",
