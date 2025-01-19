@@ -2,9 +2,7 @@ return {
   "saghen/blink.cmp",
   opts = {
     completion = {
-      ghost_text = {
-        enabled = false,
-      },
+      ghost_text = { enabled = false },
       menu = {
         auto_show = true,
         draw = {
@@ -17,7 +15,7 @@ return {
       documentation = {
         window = {
           border = "single",
-          winhighlight = "Normal:BlinkCmpDoc,FloatBorder:CmpCompletionBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+          winhighlight = "FloatBorder:FloatBorder",
         },
       },
     },
@@ -25,9 +23,8 @@ return {
       ["<CR>"] = { "select_and_accept", "fallback" },
       ["<S-CR>"] = {},
       ["<C-e>"] = { "hide", "show", "fallback" },
-      -- used by neocodeium
-      ["<C-n>"] = {},
-      ["<C-p>"] = {},
+      ["<C-n>"] = {}, -- used by neocodeium
+      ["<C-p>"] = {}, -- used by neocodeium
       ["<C-j>"] = { "select_next" },
       ["<C-k>"] = { "select_prev" },
     },
