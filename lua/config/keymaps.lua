@@ -43,6 +43,10 @@ vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
 vim.keymap.set({ "n", "t" }, "<C-S-K>", "<cmd>wincmd k<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 
+-- Block insert in line visual mode
+vim.keymap.set("v", "I", "^<C-v>I", { expr = true })
+vim.keymap.set("v", "A", "$<C-v>A", { expr = true })
+
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
 -- allow changing and deleting without overriding current paste registers
@@ -243,14 +247,3 @@ local spell_select = function()
 end
 vim.keymap.set("n", "z=", spell_select, { desc = "Show spelling suggestions" })
 vim.keymap.set("n", "<leader>fs", "1z=", { noremap = true, silent = true, desc = "Fix Spelling under cursor" })
-
--- Block insert in line visual mode
-vim.keymap.set("x", "I", function()
-  return vim.fn.mode() == "V" and "^<C-v>I" or "I"
-end, { expr = true })
-vim.keymap.set("x", "A", function()
-  return vim.fn.mode() == "V" and "$<C-v>A" or "A"
-end, { expr = true })
-
-vim.keymap.del("n", "<leader>dpp")
-vim.keymap.del("n", "<leader>dph")
