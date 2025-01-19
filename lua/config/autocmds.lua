@@ -30,6 +30,13 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "TabEnter" }, {
+  desc = "Re-enable cursorline when switching tabs",
+  callback = function()
+    vim.wo.cursorline = true
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   desc = "Disable conceal for Mentorship-Hour-Log.md",
   pattern = "Mentorship-Hour-Log.md",
