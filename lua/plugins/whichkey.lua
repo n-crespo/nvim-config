@@ -28,15 +28,6 @@ return {
       { "<leader>dpp", hidden = true },
       { "<leader>d", proxy = false },
     },
-    -- modes = {
-    --   n = true, -- Normal mode
-    --   i = false, -- Insert mode
-    --   x = false, -- Visual mode
-    --   s = true, -- Select mode
-    --   o = true, -- Operator pending mode
-    --   t = false, -- Terminal mode
-    --   c = true, -- Command mode
-    -- },
   },
   keys = {
     { "<leader>K", nil },
@@ -55,6 +46,5 @@ return {
     { "<leader>ft", nil },
     { "<leader>fT", nil },
     { "<leader>qq", nil },
-    { "<leader>dp", nil, hidden = true },
   },
 }

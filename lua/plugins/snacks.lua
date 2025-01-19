@@ -72,6 +72,8 @@ return {
       enabled = false,
     },
     profiler = {
+      enabled = false,
+      autocmds = false,
       startup = {
         event = "",
       },
