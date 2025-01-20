@@ -47,6 +47,9 @@ vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 vim.keymap.set("v", "I", "^<C-v>I", { expr = true })
 vim.keymap.set("v", "A", "$<C-v>A", { expr = true })
 
+-- search within selection by default when using / in visual mode
+vim.keymap.set("x", "/", "<Esc>/\\%V")
+
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
 -- allow changing and deleting without overriding current paste registers
