@@ -93,14 +93,13 @@ return {
     {
       "<C-S-/>",
       function()
-        Snacks.terminal.toggle("fish", {
+        Snacks.terminal.toggle(vim.o.shell, {
           win = {
             position = "float",
             height = 0.8,
             width = 0.8,
             border = "single",
           },
-          -- cwd = vim.loop.cwd(),
         })
       end,
       desc = "Toggle Floating Terminal",
@@ -109,7 +108,7 @@ return {
     {
       "<C-S-Q>",
       function()
-        Snacks.terminal.toggle("fish", {
+        Snacks.terminal.toggle(vim.o.shell, {
           win = {
             relative = "editor",
             position = "float",
