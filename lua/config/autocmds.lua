@@ -86,15 +86,6 @@ autocmd("FileType", {
   end,
 })
 
-autocmd({ "WinResized" }, {
-  desc = "Updates scrolloff on startup and when window is resized",
-  group = vim.api.nvim_create_augroup("smart-scrolloff", { clear = true }),
-  callback = function()
-    local scrolloffPercentage = 0.3
-    vim.opt.scrolloff = math.floor(vim.o.lines * scrolloffPercentage)
-  end,
-})
-
 autocmd("WinResized", {
   desc = "Disable wrap when opening split",
   pattern = "*",
