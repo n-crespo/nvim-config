@@ -1,4 +1,6 @@
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+local autocmd = vim.api.nvim_create_autocmd
+
+autocmd({ "BufWritePre" }, {
   desc = "Remove all trailing whitespace on save",
   pattern = { "*" },
   callback = function()
@@ -10,7 +12,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+autocmd({ "InsertLeave", "WinEnter" }, {
   desc = "Enable cursorline only in active window",
   callback = function()
     if vim.w.auto_cursorline then
@@ -20,7 +22,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+autocmd({ "InsertEnter", "WinLeave" }, {
   desc = "Enable cursorline only in inactive window",
   callback = function()
     if vim.wo.cursorline then
@@ -30,20 +32,20 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "TabEnter" }, {
+autocmd({ "TabEnter" }, {
   desc = "Re-enable cursorline when switching tabs",
   callback = function()
     vim.wo.cursorline = true
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
+autocmd({ "BufRead", "FileType" }, {
   desc = "Disable conceal for Mentorship-Hour-Log.md",
   pattern = "Mentorship-Hour-Log.md",
   command = "setlocal conceallevel=0 textwidth=0",
 })
 
-vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
+autocmd({ "FileType", "BufRead" }, {
   desc = "Set pvs filetype",
   pattern = { "*.pvs" },
   command = "set ft=pvs",
@@ -51,7 +53,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufRead" }, {
 -- use c highlighting for pvs filetype
 vim.treesitter.language.register("c", "pvs")
 
-vim.api.nvim_create_autocmd("OptionSet", {
+autocmd("OptionSet", {
   desc = "Enable text width only when wrap is disabled",
   pattern = "wrap",
   callback = function()
@@ -63,7 +65,7 @@ vim.api.nvim_create_autocmd("OptionSet", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
   desc = "Enable text width only when wrap is disabled",
   callback = function()
     if vim.opt.wrap:get() then
@@ -74,7 +76,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   desc = "Cycle quickfix list while inside qf window",
   pattern = "qf",
   callback = function(event)
@@ -84,7 +86,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "WinResized" }, {
+autocmd({ "WinResized" }, {
   desc = "Updates scrolloff on startup and when window is resized",
   group = vim.api.nvim_create_augroup("smart-scrolloff", { clear = true }),
   callback = function()
@@ -93,12 +95,15 @@ vim.api.nvim_create_autocmd({ "WinResized" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("WinResized", {
+autocmd("WinResized", {
   desc = "Disable wrap when opening split",
   pattern = "*",
   callback = function()
     vim.api.nvim_set_option_value("wrap", false, {
       win = vim.fn.win_getid(vim.fn.winnr("#")),
+    })
+    vim.api.nvim_set_option_value("wrap", false, {
+      win = vim.fn.win_getid(vim.fn.winnr()),
     })
   end,
 })
