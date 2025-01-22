@@ -5,11 +5,6 @@ return {
   "folke/noice.nvim",
   opts = {
     notify = { enabled = false },
-    commands = {
-      last = {
-        opts = { border = "single" },
-      },
-    },
     views = {
       -- transparent lsp progress window
       mini = { win_options = { winblend = 0 } },
@@ -17,7 +12,7 @@ return {
     lsp = {
       documentation = {
         opts = {
-          border = { style = "single", padding = { 0, 1 } },
+          border = { style = "rounded", padding = { 0, 1 } },
           win_options = { wrap = true },
           position = {
             row = 2,

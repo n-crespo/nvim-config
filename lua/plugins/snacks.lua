@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   opts = {
     styles = {
-      border = "single",
+      border = "rounded",
       terminal = { wo = { winbar = "" } },
       notification = { winblend = 100 },
     },
