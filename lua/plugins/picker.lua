@@ -126,9 +126,9 @@ return {
     {
       "<leader>fo",
       function()
-        Snacks.picker.recent()
+        Snacks.picker.smart()
       end,
-      desc = "Recent",
+      desc = "Recent (smart)",
     },
     -- Grep
     {
@@ -148,9 +148,9 @@ return {
     {
       "<leader>j",
       function()
-        Snacks.picker.projects()
+        Snacks.picker.zoxide()
       end,
-      desc = "Jump to Project",
+      desc = "Jumpd to Project",
     },
   },
 }
