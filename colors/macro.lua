@@ -445,8 +445,8 @@ local hlgroups = {
   MiniFilesBorder = { link = "FloatBorder" },
 
   -- incline
-  InclineNormal = { bg = "#201D1D", bold = true, fg = "#afadad" },
-  InclineNormalNC = { bg = "#201D1D", bold = true, fg = "#afadad" },
+  InclineNormal = { bg = "#201D1D", fg = "#afadad" },
+  InclineNormalNC = { bg = "#201D1D", fg = "#afadad" },
 
   -- snacks indent
   SnacksIndent = { fg = selection_light_gray },
