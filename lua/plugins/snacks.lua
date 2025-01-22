@@ -45,7 +45,7 @@ return {
       enabled = true,
       modes = { "n" },
     },
-    animate = { enabled = false, easing = "linear", fps = 120 },
+    animate = { enabled = false },
     input = { enabled = true },
     terminal = {
       enabled = true,
@@ -114,6 +114,7 @@ return {
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
             ["<c-f>"] = { "preview_scroll_down", mode = { "i", "n" } },
             ["<c-b>"] = { "preview_scroll_up", mode = { "i", "n" } },
+
             -- TODO: get <C-d> to close buffer in <leader>,
             ["<c-d>"] = { "buffer_close", mode = { "i", "n" } },
             ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
@@ -126,7 +127,7 @@ return {
 
             -- remap to something else?
             ["<a-i>"] = { "toggle_ignored", mode = { "i", "n" } },
-            ["<a-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<a-u>"] = { "toggle_hidden", mode = { "i", "n" } },
           },
           b = {
             minipairs_disable = true,
@@ -215,29 +216,52 @@ return {
     { "<leader>fr", false },
     { "<leader>ff", false },
     { "<leader>sc", false },
+    { "<leader>sq", false }, -- quickfix list
     { "<leader>sC", false },
+    { "<leader>sG", false },
     { "<leader>sl", false },
     { "<leader>qp", false },
+    { "<leader>sB", false },
+    { "<leader>fF", false },
+    { "<leader>sw", false },
+    { "<leader>sW", false },
     {
       "<leader><space>",
       function()
-        Snacks.picker.files()
+        ---@diagnostic disable-next-line: missing-fields
+        Snacks.picker.files({ cwd = vim.fn.expand("%:h") })
       end,
-      desc = "Find Files",
+      desc = "Find Files (cwd)",
     },
     {
       "<leader>fh",
       function()
-        Snacks.picker.files()
+        ---@diagnostic disable-next-line: missing-fields
+        Snacks.picker.files({ cwd = LazyVim.root.get({ normalize = true }) })
       end,
       desc = "Find Files (Here) (Root)",
     },
     {
-      "<leader>fg",
+      "<leader>fp",
       function()
-        Snacks.picker.git_files()
+        Snacks.picker.files({ cwd = require("lazy.core.config").options.root })
       end,
-      desc = "Find Git Files",
+      desc = "Find Plugin File",
+    },
+    -- TODO: find difference between this and regular files() function
+    -- {
+    --   "<leader>fg",
+    --   function()
+    --     Snacks.picker.git_files()
+    --   end,
+    --   desc = "Find Git Files",
+    -- },
+    {
+      "<leader>fw",
+      function()
+        Snacks.picker.grep({ cwd = vim.fn.expand("%:h") })
+      end,
+      desc = "Grep (cwd)",
     },
     {
       "<leader>fo",
@@ -255,13 +279,6 @@ return {
       desc = "Buffer Lines",
     },
     {
-      "<leader>sB",
-      function()
-        Snacks.picker.grep_buffers()
-      end,
-      desc = "Grep Open Buffers",
-    },
-    {
       "<leader>;",
       function()
         Snacks.picker.commands()
@@ -274,43 +291,6 @@ return {
         Snacks.picker.projects()
       end,
       desc = "Jump to Project",
-    },
-    -- LSP
-    {
-      "gd",
-      function()
-        Snacks.picker.lsp_definitions()
-      end,
-      desc = "Goto Definition",
-    },
-    {
-      "gr",
-      function()
-        Snacks.picker.lsp_references()
-      end,
-      nowait = true,
-      desc = "References",
-    },
-    {
-      "gI",
-      function()
-        Snacks.picker.lsp_implementations()
-      end,
-      desc = "Goto Implementation",
-    },
-    {
-      "gy",
-      function()
-        Snacks.picker.lsp_type_definitions()
-      end,
-      desc = "Goto T[y]pe Definition",
-    },
-    {
-      "<leader>ss",
-      function()
-        Snacks.picker.lsp_symbols()
-      end,
-      desc = "LSP Symbols",
     },
   },
   dependencies = {
