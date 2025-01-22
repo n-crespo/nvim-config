@@ -44,8 +44,9 @@ vim.keymap.set({ "n", "t" }, "<C-S-K>", "<cmd>wincmd k<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 
 -- Block insert in line visual mode
-vim.keymap.set("v", "I", "^<C-v>I", { expr = true })
-vim.keymap.set("v", "A", "$<C-v>A", { expr = true })
+vim.keymap.set("v", "I", "0<C-v>I")
+vim.keymap.set("v", "I", "0<C-v>I")
+vim.keymap.set("v", "A", "$<C-v>A")
 
 -- search within selection by default when using / in visual mode
 vim.keymap.set("x", "/", "<Esc>/\\%V")
