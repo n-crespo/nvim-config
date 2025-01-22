@@ -38,8 +38,8 @@ vim.keymap.set("n", "<ScrollWheelUp>", "<C-y>")
 vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
 
 -- <C-S-J> as  <C-j>
--- vim.keymap.set({ "n", "t" }, "<C-S-H>", "<cmd>wincmd h<cr>")
--- vim.keymap.set({ "n", "t" }, "<S-NL>", "<cmd>wincmd j<cr>")
+vim.keymap.set({ "n", "t" }, "<C-S-H>", "<cmd>wincmd h<cr>")
+vim.keymap.set({ "n", "t" }, "<S-NL>", "<cmd>wincmd j<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-K>", "<cmd>wincmd k<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 
