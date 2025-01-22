@@ -23,7 +23,7 @@ return {
             position = "float",
             height = 0.8,
             width = 0.8,
-            border = "single",
+            border = "rounded",
           },
         })
       end,
@@ -39,7 +39,7 @@ return {
             position = "float",
             height = 0.8,
             width = 0.8,
-            border = "single",
+            border = "rounded",
           },
           -- cwd = vim.loop.cwd(),
         })
