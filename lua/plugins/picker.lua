@@ -44,6 +44,7 @@ return {
         },
         -- preview window
         preview = {
+          wo = { number = false, cursorline = false, statuscolumn = "" },
           keys = {
             ["<Tab>"] = { "focus_input", mode = { "i", "n" } },
             ["<Esc>"] = "close",
