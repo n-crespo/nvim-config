@@ -313,4 +313,25 @@ return {
       desc = "LSP Symbols",
     },
   },
+  dependencies = {
+    {
+      "folke/todo-comments.nvim",
+      keys = {
+        {
+          "<leader>st",
+          function()
+            Snacks.picker.todo_comments({ cwd = vim.fn.expand("%:h") })
+          end,
+          desc = "Todo",
+        },
+        {
+          "<leader>sT",
+          function()
+            Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" }, cwd = vim.fn.expand("%:h") })
+          end,
+          desc = "Todo/Fix/Fixme",
+        },
+      },
+    },
+  },
 }
