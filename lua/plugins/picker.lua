@@ -58,6 +58,7 @@ return {
       {
         "<leader>st",
         function()
+          ---@diagnostic disable-next-line: undefined-field
           Snacks.picker.todo_comments({ cwd = vim.fn.expand("%:h") })
         end,
         desc = "Todo",
@@ -65,6 +66,7 @@ return {
       {
         "<leader>sT",
         function()
+          ---@diagnostic disable-next-line: undefined-field
           Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" }, cwd = vim.fn.expand("%:h") })
         end,
         desc = "Todo/Fix/Fixme",
@@ -73,21 +75,27 @@ return {
   },
   keys = {
     ----------- PICKER KEYMAPS -------------
-    { "<leader>gc", false },
-    { "<leader>sg", false },
-    { "<leader>fb", false },
-    { "<leader>fr", false },
-    { "<leader>ff", false },
-    { "<leader>sc", false },
-    { "<leader>sq", false }, -- quickfix list
-    { "<leader>sC", false },
-    { "<leader>sG", false },
-    { "<leader>sl", false },
-    { "<leader>qp", false },
-    { "<leader>sB", false },
-    { "<leader>fF", false },
-    { "<leader>sw", false },
-    { "<leader>sW", false },
+    { "<leader>gc", nil },
+    { "<leader>sg", nil },
+    { "<leader>fb", nil },
+    { "<leader>fr", nil },
+    { "<leader>ff", nil },
+    { "<leader>sc", nil },
+    { "<leader>sq", nil }, -- quickfix list
+    { "<leader>sC", nil },
+    { "<leader>sG", nil },
+    { "<leader>sl", nil },
+    { '<leader>s"', nil },
+    { "<leader>qp", nil },
+    { "<leader>sB", nil },
+    { "<leader>fF", nil },
+    { "<leader>fg", nil },
+    { "<leader>fR", nil },
+    { "<leader>sw", nil },
+    { "<leader>sW", nil },
+    { "<leader>sM", nil },
+    { "<leader>sm", nil },
+    { "<leader>sb", nil },
     {
       "<leader><leader>",
       function()
@@ -99,7 +107,7 @@ return {
       "<leader>ff",
       function()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.files({ cwd = vim.fn.expand("%:h") })
+        Snacks.picker.files({ cwd = vim.fn.expand("%:h"), hidden = true, ignored = true })
       end,
       desc = "Find Files (Buffer Dir)",
     },
@@ -107,7 +115,7 @@ return {
       "<leader>fh",
       function()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.files({ cwd = LazyVim.root.get({ normalize = true }) })
+        Snacks.picker.files({ cwd = LazyVim.root.get({ normalize = true, hidden = true, ignored = true }) })
       end,
       desc = "Files Here (Root)",
     },
@@ -122,17 +130,10 @@ return {
     {
       "<leader>fw",
       function()
+        ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.grep({ cwd = vim.fn.expand("%:h") })
       end,
       desc = "Grep (cwd)",
-    },
-    -- Grep
-    {
-      "<leader>sb",
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = "Buffer Lines",
     },
     {
       "<leader>;",
