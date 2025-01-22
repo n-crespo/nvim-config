@@ -2,11 +2,7 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
-      layout = {
-        box = {
-          reverse = true,
-        },
-      },
+      layout = "telescope",
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
@@ -25,14 +21,14 @@ return {
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
+            ["<c-space>"] = { "edit_tab", mode = { "i", "n" } },
+            ["<c-l>"] = { "edit_split", mode = { "i", "n" } },
+
+            -- scrolling
             ["<c-f>"] = { "preview_scroll_down", mode = { "i", "n" } },
             ["<c-b>"] = { "preview_scroll_up", mode = { "i", "n" } },
-
-            -- TODO: get <C-d> to close buffer in <leader>,
-            ["<c-d>"] = { "buffer_close", mode = { "i", "n" } },
+            ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
             ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
-            ["<c-l>"] = { "edit_split", mode = { "i", "n" } },
-            ["<c-space>"] = { "edit_tab", mode = { "i", "n" } },
 
             -- what does this do??
             ["<c-g>"] = { "toggle_live", mode = { "i", "n" } },
@@ -93,7 +89,14 @@ return {
     { "<leader>sw", false },
     { "<leader>sW", false },
     {
-      "<leader><space>",
+      "<leader><leader>",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Recent (smart)",
+    },
+    {
+      "<leader>ff",
       function()
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.files({ cwd = vim.fn.expand("%:h") })
@@ -123,13 +126,6 @@ return {
       end,
       desc = "Grep (cwd)",
     },
-    {
-      "<leader>fo",
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = "Recent (smart)",
-    },
     -- Grep
     {
       "<leader>sb",
@@ -150,7 +146,7 @@ return {
       function()
         Snacks.picker.zoxide()
       end,
-      desc = "Jumpd to Project",
+      desc = "Jump to Project",
     },
   },
 }
