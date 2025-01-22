@@ -45,7 +45,6 @@ return {
       position = "bot", -- horiz, top, vert
       size = 18,
     },
-    float = { border = "single", close_key = "<ESC>", blend = 0 },
   },
   init = function()
     -- Close Code Runner buffers with 'q'
