@@ -469,7 +469,7 @@ local hlgroups = {
   -- render markdown
   RenderMarkdownCode = { bg = c_macroBg2 },
   RenderMarkdownBullet = { fg = c_macroTeal },
-  -- RenderMarkdownCodeInline = { link = "@markup.raw.markdown_inline" },
+  RenderMarkdownInlineHighlight = { bg = border_purple_ink },
   -- }}}
 }
 -- }}}1
