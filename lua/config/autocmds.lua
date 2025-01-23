@@ -23,7 +23,7 @@ autocmd({ "InsertLeave", "WinEnter" }, {
 })
 
 autocmd({ "InsertEnter", "WinLeave" }, {
-  desc = "Enable cursorline only in inactive window",
+  desc = "Enable cursorline only in active window",
   callback = function()
     if vim.wo.cursorline then
       vim.w.auto_cursorline = true
@@ -32,10 +32,13 @@ autocmd({ "InsertEnter", "WinLeave" }, {
   end,
 })
 
-autocmd({ "TabEnter" }, {
-  desc = "Re-enable cursorline when switching tabs",
+autocmd({ "BufEnter" }, {
+  desc = "Enable cursorline only in inactive window",
   callback = function()
-    vim.wo.cursorline = true
+    if vim.bo.filetype ~= "snacks_dashboard" then
+      vim.w.auto_cursorline = true
+      vim.wo.cursorline = true
+    end
   end,
 })
 
