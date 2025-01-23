@@ -17,7 +17,7 @@ return {
             ["<C-a>"] = { "", mode = { "i", "n" } },
             ["<C-p>"] = { "history_back", mode = { "i", "n" } },
             ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
-            ["<C-e>"] = "toggle_help", -- doesn't work
+            ["<C-_>"] = "toggle_help", -- doesn't work
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
@@ -132,7 +132,15 @@ return {
       "<leader>fw",
       function()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.grep({ cwd = vim.fn.expand("%:h") })
+        return (vim.fn.expand("%:h") ~= "" and Snacks.picker.grep({ cwd = vim.fn.expand("%:h") }))
+          ---@diagnostic disable-next-line: missing-fields
+          or Snacks.picker.grep({
+            -- if alternate buffer exists, use its directory
+            cwd = vim.fn.bufexists(vim.fn.bufnr("#")) == 1
+                and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
+              -- or use cwd
+              or vim.fn.getcwd(),
+          })
       end,
       desc = "Grep (cwd)",
     },
