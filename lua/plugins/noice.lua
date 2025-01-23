@@ -10,6 +10,9 @@ return {
       mini = { win_options = { winblend = 0 } },
     },
     lsp = {
+      hover = {
+        enabled = false
+      },
       documentation = {
         opts = {
           border = { style = "rounded", padding = { 0, 1 } },
