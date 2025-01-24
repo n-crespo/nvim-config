@@ -453,7 +453,7 @@ local hlgroups = {
   SnacksIndentScope = { fg = border_purple_ink },
 
   -- neocodeium
-  NeoCodeiumSuggestion = { fg = "#454745", bg = nil },
+  NeoCodeiumSuggestion = { link = "NonText" },
   NeoCodeiumLabel = { fg = c_macroFg0, bg = c_macroBg2 },
 
   -- treesitter context
