@@ -470,6 +470,10 @@ local hlgroups = {
   RenderMarkdownCode = { bg = c_macroBg2 },
   RenderMarkdownBullet = { fg = c_macroTeal },
   RenderMarkdownInlineHighlight = { bg = border_purple_ink },
+
+  -- snacks picker
+  SnacksPickerListCursorLine = { link = "Visual" },
+  SnacksPickerPreviewCursorLine = { link = "CursorLine" },
   -- }}}
 }
 -- }}}1
