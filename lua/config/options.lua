@@ -17,6 +17,7 @@ opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
 opt.spelllang = "en" -- spell in english pls
+opt.spelloptions = "noplainbuffer,camel"
 opt.showtabline = 0
 opt.cmdheight = 0 -- no cmdline on bottom of screen
 opt.wrap = false
