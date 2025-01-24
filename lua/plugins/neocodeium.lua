@@ -1,3 +1,4 @@
+vim.g.lualine_ai_status = true
 return {
   "monkoose/neocodeium",
   event = "InsertEnter",
@@ -5,30 +6,33 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "InsertEnter",
     opts = function(_, opts)
-      table.insert(opts.sections.lualine_c, 3, {
-        function()
-          local symbols = {
-            status = {
-              [0] = "󰚩 ", -- Enabled
-              [1] = "󱙺 ", -- Disabled Globally
-              [2] = "󱚧 ", -- Disabled for Buffer
-              [3] = "󱚧 ", -- Disabled for Buffer filetype
-              [4] = "󱚧 ", -- Disabled for Buffer with enabled function
-              [5] = "󱚧 ", -- Disabled for Buffer encoding
-            },
-            server_status = {
-              [0] = "󰣺 ", -- Connected
-              [1] = "󰣻 ", -- Connecting
-              [2] = "󰣽 ", -- Disconnected
-            },
-          }
-          local status, server_status = require("lualine_require").require("neocodeium").get_status()
-          return symbols.status[status] .. symbols.server_status[server_status]
-        end,
-        color = function()
-          return { fg = Snacks.util.color("Special") }
-        end,
-      })
+      if vim.g.lualine_ai_status then
+        table.insert(opts.sections.lualine_c, 3, {
+          function()
+            local symbols = {
+              status = {
+                [0] = "󰚩 ", -- Enabled
+                [1] = "󱙺 ", -- Disabled Globally
+                [2] = "󱚧 ", -- Disabled for Buffer
+                [3] = "󱚧 ", -- Disabled for Buffer filetype
+                [4] = "󱚧 ", -- Disabled for Buffer with enabled function
+                [5] = "󱚧 ", -- Disabled for Buffer encoding
+              },
+              server_status = {
+                [0] = "󰣺 ", -- Connected
+                [1] = "󰣻 ", -- Connecting
+                [2] = "󰣽 ", -- Disconnected
+              },
+            }
+            local status, server_status = require("lualine_require").require("neocodeium").get_status()
+            return symbols.status[status] -- .. symbols.server_status[server_status]
+          end,
+          color = function()
+            return { fg = Snacks.util.color("Special") }
+          end,
+          padding = { left = 1 },
+        })
+      end
     end,
   },
   enabled = not LazyVim.is_win(),
@@ -76,16 +80,16 @@ return {
       local _, server = require("neocodeium").get_status()
       if server == 2 then
         vim.cmd([[NeoCodeium enable]])
-        vim.notify("NeoCodeium: the server has been started", vim.log.levels.INFO, { title = "Codeium" })
+        vim.notify("NeoCodeium: server started", vim.log.levels.INFO, { title = "Codeium" })
       elseif server == 0 then
-        vim.cmd([[NeoCodeium! disable]])
-        -- vim.notify("Codeium server stopped...", vim.log.levels.WARN, { title = "Codeium" })
+        vim.cmd([[silent! NeoCodeium! disable]])
+        vim.notify("NeoCodeium: server halted", vim.log.levels.WARN, { title = "Codeium" })
       end
     end
 
     -- allow user to use :lua ToggleCodeium()
-    _G.ToggleCodeiumCompletion = ToggleCodeiumCompletion
-    _G.ToggleCodeiumServer = ToggleCodeiumServer
+    -- _G.ToggleCodeiumCompletion = ToggleCodeiumCompletion
+    -- _G.ToggleCodeiumServer = ToggleCodeiumServer
 
     -- start codeium when entering insert mode (FOR THE FIRST TIME)
     vim.api.nvim_create_autocmd("InsertEnter", {
@@ -134,6 +138,14 @@ return {
         require("neocodeium").cycle_or_complete(1)
       end,
       mode = "i",
+    },
+    {
+      "<leader>ai",
+      function()
+        vim.g.lualine_ai_status = not vim.g.lualine_ai_status
+      end,
+      mode = "n",
+      desc = "Toggle AI",
     },
   },
 }
