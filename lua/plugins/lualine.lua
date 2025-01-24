@@ -53,6 +53,7 @@ return {
               end -- not recording
               return "recording @" .. reg
             end,
+            color = "WarningMsg",
           },
         },
         lualine_x = {
