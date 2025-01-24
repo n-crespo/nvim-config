@@ -112,7 +112,14 @@ vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc =
 vim.keymap.set("n", "<leader>o", "<cmd>silent! !open %<cr>", { desc = "Open Buffer in System Viewer" })
 -- --------------------------------- TAB RELATED STUFF --------------------------------------------
 
-vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
+-- vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
+vim.keymap.set("n", "<C-space>", function()
+  if vim.fn.tabpagenr("$") >= 3 then
+    vim.notify("Thats a lotta tabs...", vim.log.levels.WARN, { title = "Tabs" })
+  else
+    vim.cmd("tabe")
+  end
+end)
 -- vim.keymap.set("n", "<leader>1", "<cmd>silent! tabn 1<cr>", { silent = true, desc = "Tab 1" })
 -- vim.keymap.set("n", "<leader>2", "<cmd>silent! tabn 2<cr>", { silent = true, desc = "Tab 2" })
 -- vim.keymap.set("n", "<leader>3", "<cmd>silent! tabn 3<cr>", { silent = true, desc = "Tab 3" })
