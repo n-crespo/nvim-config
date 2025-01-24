@@ -39,7 +39,7 @@ return {
   opts = {
     max_lines = 500, -- restrict num of lines read from non-focused buffers
     enabled = false, -- don't enable on start
-    manual = false, -- require <C-n>? nah
+    manual = true, -- require <C-n>?
     show_label = false, -- thing next to line numbers
     silent = true, -- notification when server is started
     filetypes = {
