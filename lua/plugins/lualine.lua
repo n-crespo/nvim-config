@@ -18,14 +18,17 @@ return {
         theme = require("custom.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        section_separators = { left = " ", right = " " },
       },
       sections = {
         lualine_a = { {} },
         ---@diagnostic disable-next-line: assign-type-mismatch
         lualine_b = { LazyVim.lualine.root_dir({ cwd = true }) },
         lualine_c = {
-          { LazyVim.lualine.pretty_path({ relative = "root" }) },
+          {
+            LazyVim.lualine.pretty_path({ relative = "root" }),
+            padding = { left = 0, right = 0 },
+          },
           {
             "diagnostics",
             symbols = {
@@ -57,7 +60,7 @@ return {
             -- see custom/tabline.lua
             require("custom.tabline").tabline,
             separator = " ",
-            padding = { left = 0, right = 1 },
+            padding = { left = 4, right = 0 },
           },
         },
         lualine_y = {
@@ -100,13 +103,3 @@ return {
     },
   },
 }
-
--- section_separators = { left = "", right = "" },
--- component_separators = { left = " ", right = "" }
--- component_separators = { left = "", right = "" }
--- section_separators = { left = "", right = "" }
--- section_separators = { left = "", right = "" }
--- section_separators = { left = "", right = "" }
--- section_separators = { left = "", right = "" }
--- component_separators = { left = '', right = ''}
--- section_separators = { left = "", right = "" }
