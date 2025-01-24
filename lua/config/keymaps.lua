@@ -114,7 +114,7 @@ vim.keymap.set("n", "<leader>o", "<cmd>silent! !open %<cr>", { desc = "Open Buff
 
 -- vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
 vim.keymap.set("n", "<C-space>", function()
-  if vim.fn.tabpagenr("$") >= 3 then
+  if vim.fn.tabpagenr("$") >= 5 then
     vim.notify("Thats a lotta tabs...", vim.log.levels.WARN, { title = "Tabs" })
   else
     vim.cmd("tabe")
