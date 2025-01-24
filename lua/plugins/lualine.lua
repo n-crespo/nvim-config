@@ -39,6 +39,13 @@ return {
             },
           },
           {
+            require("lualine_require").require("lazy.status").updates,
+            cond = require("lualine_require").require("lazy.status").has_updates,
+            color = function()
+              return { fg = Snacks.util.color("Special") }
+            end,
+          },
+          {
             function()
               local reg = vim.fn.reg_recording()
               if reg == "" then
@@ -49,13 +56,6 @@ return {
           },
         },
         lualine_x = {
-          {
-            require("lualine_require").require("lazy.status").updates,
-            cond = require("lualine_require").require("lazy.status").has_updates,
-            color = function()
-              return { fg = Snacks.util.color("Special") }
-            end,
-          },
           {
             -- see custom/tabline.lua
             require("custom.tabline").tabline,
