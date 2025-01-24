@@ -230,12 +230,13 @@ end, { remap = false, desc = "Clean ^M", silent = true })
 
 -- get word count of current file
 vim.keymap.set("n", "<C-S-C>", function()
-  vim.notify("" .. vim.fn.wordcount().words, vim.log.levels.INFO, {
+  vim.notify("Word Count: " .. vim.fn.wordcount().words, vim.log.levels.INFO, {
     title = "Word Count",
   })
 end)
 
--- z=
+-- z= with vim.ui.select() (selection UI)
+-- (you can also type a number to pick the nth suggestion)
 local spell_on_choice = vim.schedule_wrap(function(_, idx)
   if type(idx) == "number" then
     vim.cmd.normal({ idx .. "z=", bang = true })
@@ -250,4 +251,6 @@ local spell_select = function()
   vim.ui.select(vim.fn.spellsuggest(cword, vim.o.lines), { prompt = "Change " .. cword .. " to:" }, spell_on_choice)
 end
 vim.keymap.set("n", "z=", spell_select, { desc = "Show spelling suggestions" })
-vim.keymap.set("n", "<leader>fs", "1z=", { noremap = true, silent = true, desc = "Fix Spelling under cursor" })
+
+-- auto pick the first spelling suggestion and apply it
+vim.keymap.set("n", "<leader>fs", "1z=", { remap = false, silent = true, desc = "Fix Spelling under cursor" })
