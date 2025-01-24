@@ -13,6 +13,7 @@ return {
       vim.cmd([[map <buffer> zh <Plug>Markdown_Fold]])
       vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
       vim.cmd([[imap <buffer> <S-CR> <Plug>Markdown_NewLineBelow]])
+      vim.cmd([[imap <buffer> <CR> <Plug>Markdown_NewLineBelow]])
     end,
   },
   {
