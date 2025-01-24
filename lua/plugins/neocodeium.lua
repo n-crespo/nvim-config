@@ -54,7 +54,7 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       if vim.g.lualine_ai_status then
-        table.insert(opts.sections.lualine_c, 4, {
+        table.insert(opts.sections.lualine_c, 1, {
           function()
             local symbols = {
               status = {
@@ -71,13 +71,14 @@ return {
                 [2] = "󰣽 ", -- Disconnected
               },
             }
+            ---@diagnostic disable-next-line: unused-local
             local status, server_status = require("lualine_require").require("neocodeium").get_status()
             return symbols.status[status] -- .. symbols.server_status[server_status]
           end,
           color = function()
             return { fg = Snacks.util.color("Special") }
           end,
-          -- padding = { left = 1 },
+          padding = { left = 1 },
         })
       end
     end,
