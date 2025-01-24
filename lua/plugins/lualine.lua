@@ -25,10 +25,10 @@ return {
         ---@diagnostic disable-next-line: assign-type-mismatch
         lualine_b = { LazyVim.lualine.root_dir({ cwd = true }) },
         lualine_c = {
-          {
-            LazyVim.lualine.pretty_path({ relative = "root" }),
-            padding = { left = 0, right = 0 },
-          },
+          -- {
+          --   LazyVim.lualine.pretty_path({ relative = "root" }),
+          --   padding = { left = 0, right = 0 },
+          -- },
           {
             "diagnostics",
             symbols = {
