@@ -36,7 +36,7 @@ autocmd({ "InsertEnter", "WinLeave" }, {
 autocmd({ "BufRead", "FileType" }, {
   desc = "Disable conceal for Mentorship-Hour-Log.md",
   pattern = "Mentorship-Hour-Log.md",
-  command = "setlocal conceallevel=0 textwidth=0",
+  command = "setlocal conceallevel=0",
 })
 
 autocmd({ "FileType", "BufRead" }, {
@@ -47,20 +47,9 @@ autocmd({ "FileType", "BufRead" }, {
 -- use c highlighting for pvs filetype
 vim.treesitter.language.register("c", "pvs")
 
-autocmd("OptionSet", {
+autocmd({ "OptionSet", "BufEnter" }, {
   desc = "Enable text width only when wrap is disabled",
   pattern = "wrap",
-  callback = function()
-    if vim.opt.wrap:get() then
-      vim.cmd("setlocal tw=0")
-    else
-      vim.cmd("setlocal tw=80")
-    end
-  end,
-})
-
-autocmd("BufEnter", {
-  desc = "Enable text width only when wrap is disabled",
   callback = function()
     if vim.opt.wrap:get() then
       vim.cmd("setlocal tw=0")
