@@ -7,6 +7,7 @@ M.tabline = function()
   -- component rather than doing it manually buuuuut the builtin one is weird
   local tabs = {}
   for i = 1, vim.fn.tabpagenr("$") do
+    local focused = i == vim.fn.tabpagenr()
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
     local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
 
@@ -14,7 +15,7 @@ M.tabline = function()
     local icon, color = require("mini.icons").get("filetype", filetype)
 
     if name == "" then
-      name = ""
+      name = "[]"
       icon = ""
     elseif name == "fish" or filetype == "snacks_terminal" then
       icon = ""
@@ -24,11 +25,12 @@ M.tabline = function()
       color = "GitSignsDelete"
     end
 
-    local highlight_group = i == vim.fn.tabpagenr() and "LualineTabActive" or "LualineTabInactive"
+    local highlight_group = focused and "LualineTabActive" or "LualineTabInactive"
+    icon = icon ~= "" and icon .. " " or icon
 
     -- there's gotta be a better way to do this but it works now sooo
     local tab_display = string.format(
-      "%%#%s#[%%#%s#%s %%#%s#%s%%#%s#]",
+      "%%#%s#%%#%s#%s%%#%s#%s%%#%s#",
       highlight_group,
       color,
       icon,
