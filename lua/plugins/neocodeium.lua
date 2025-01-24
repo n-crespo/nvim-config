@@ -54,7 +54,7 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       if vim.g.lualine_ai_status then
-        table.insert(opts.sections.lualine_c, 3, {
+        table.insert(opts.sections.lualine_c, 4, {
           function()
             local symbols = {
               status = {
@@ -77,7 +77,7 @@ return {
           color = function()
             return { fg = Snacks.util.color("Special") }
           end,
-          padding = { left = 1 },
+          -- padding = { left = 1 },
         })
       end
     end,
