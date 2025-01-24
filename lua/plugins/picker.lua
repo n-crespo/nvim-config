@@ -10,7 +10,7 @@ return {
     picker = {
       cycle = true,
       layout = function()
-        return vim.o.columns >= 120 and "telescope" or "dropdown"
+        return vim.o.columns >= 120 and "telescope" or "vertical"
       end,
       -- layout = "telescope",
       formatters = {
@@ -107,7 +107,7 @@ return {
     { '<leader>s"', nil },
     { "<leader>qp", nil },
     { "<leader>sB", nil },
-    { "<leader>fF", nil },
+    -- { "<leader>fF", nil },
     { "<leader>fg", nil },
     { "<leader>fR", nil },
     { "<leader>sw", nil },
