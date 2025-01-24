@@ -1,15 +1,13 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- opts set by default lazyvim: LazyVim/lua/lazyvim/config/options.lua
 
 local opt = vim.opt
-
 opt.cursorlineopt = "number,screenline" -- cursorline respects wrapped lines
 opt.relativenumber = false
 opt.swapfile = false -- don't make backup swap files
 opt.incsearch = true -- who knows
 opt.scrolloff = 15 -- don't scroll all the way down
-opt.sidescrolloff = 7 -- don't scroll all the way to the side
-opt.sidescroll = 0 -- don't scroll all the way to the side
+opt.sidescrolloff = 0 -- see :h sidescrolloff
+opt.sidescroll = 3 -- see help pages
 opt.numberwidth = 1 -- left side width
 opt.textwidth = 80 -- formatted text width
 opt.softtabstop = 2 -- 2 space tabs
