@@ -1,9 +1,12 @@
--- vim.api.nvim_create_autocmd({ "BufEnter", "Filetype" }, {
---   pattern = "snacks_picker_preview",
---   callback = function()
---     vim.keymap.set("n", "<Tab>", Snacks.picker.actions.focus_input, { buffer = true })
---   end,
--- })
+-- set the dir to the directory of the current buffer if possible, then
+-- the dir of the alternate buffer, then the cwd
+local get_dir_with_fallback = function()
+  local bufdir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
+  return bufdir ~= "" and bufdir
+    or vim.fn.bufexists(vim.fn.bufnr("#")) and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
+    or vim.uv.cwd()
+end
+
 return {
   "folke/snacks.nvim",
   opts = {
@@ -32,7 +35,7 @@ return {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
             ["<c-space>"] = { "edit_tab", mode = { "i", "n" } },
-            ["<c-l>"] = { "edit_split", mode = { "i", "n" } },
+            ["<c-s>"] = { "edit_split", mode = { "i", "n" } },
 
             -- scrolling
             ["<c-f>"] = { "preview_scroll_down", mode = { "i", "n" } },
@@ -124,27 +127,11 @@ return {
     --   desc = "Commands",
     -- },
     {
-      "z=",
+      "<leader>fo",
       function()
-        Snacks.picker.spelling({
-          layout = {
-            preview = false,
-            layout = {
-              backdrop = true,
-              row = 1,
-              width = 0.4,
-              min_width = 80,
-              height = 0.4,
-              border = "none",
-              box = "vertical",
-              { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
-              { win = "list", border = "rounded" },
-              { win = "preview", title = "{preview}", border = "rounded" },
-            },
-          },
-        })
+        Snacks.picker.recent()
       end,
-      desc = "Show Spelling Suggestions",
+      desc = "Recent (dumb)",
     },
     {
       "<leader><leader>",
@@ -156,29 +143,8 @@ return {
     {
       "<leader>fw",
       function()
-        -- local preset = "ivy"
-        return (
-          vim.fn.expand("%:h") ~= ""
-          ---@diagnostic disable-next-line: missing-fields
-          and Snacks.picker.grep({
-            cwd = vim.fn.expand("%:h"),
-            -- layout = {
-            --   preset = preset,
-            -- },
-          })
-        )
-          ---@diagnostic disable-next-line: missing-fields
-          or Snacks.picker.grep({
-            -- if alternate buffer exists, use its directory
-            cwd = vim.fn.bufexists(vim.fn.bufnr("#")) == 1
-                and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
-              -- or use cwd
-              or vim.fn.getcwd(),
-            -- layout = {
-            --   preview = "main",
-            --   preset = preset,
-            -- },
-          })
+        ---@diagnostic disable-next-line: missing-fields
+        Snacks.picker.grep({ cwd = get_dir_with_fallback() })
       end,
       desc = "Grep (cwd)",
     },
@@ -186,9 +152,9 @@ return {
       "<leader>ff",
       function()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.files({ cwd = vim.fn.expand("%:h"), hidden = true, ignored = true })
+        Snacks.picker.files({ cwd = get_dir_with_fallback() })
       end,
-      desc = "Find Files (Buffer Dir)",
+      desc = "Find Files (cwd)",
     },
     {
       "<leader>fh",
@@ -196,7 +162,7 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.files({ cwd = LazyVim.root.get({ normalize = true, hidden = true, ignored = true }) })
       end,
-      desc = "Files Here (Root)",
+      desc = "Files Here (root)",
     },
     {
       "<leader>fp",
