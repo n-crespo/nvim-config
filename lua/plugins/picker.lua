@@ -1,8 +1,18 @@
+-- vim.api.nvim_create_autocmd({ "BufEnter", "Filetype" }, {
+--   pattern = "snacks_picker_preview",
+--   callback = function()
+--     vim.keymap.set("n", "<Tab>", Snacks.picker.actions.focus_input, { buffer = true })
+--   end,
+-- })
 return {
   "folke/snacks.nvim",
   opts = {
     picker = {
-      layout = "telescope",
+      cycle = true,
+      layout = function()
+        return vim.o.columns >= 120 and "telescope" or "dropdown"
+      end,
+      -- layout = "telescope",
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
@@ -17,7 +27,7 @@ return {
             ["<C-a>"] = { "", mode = { "i", "n" } },
             ["<C-p>"] = { "history_back", mode = { "i", "n" } },
             ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
-            ["<C-_>"] = "toggle_help", -- doesn't work
+            ["<c-s-/>"] = { "toggle_help", mode = { "i", "n" } },
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
@@ -37,18 +47,26 @@ return {
             -- remap to something else?
             ["<a-i>"] = { "toggle_ignored", mode = { "i", "n" } },
             ["<a-u>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<a-p>"] = { "toggle_preview", mode = { "i", "n" } },
           },
           b = {
             minipairs_disable = true,
           },
         },
-        -- preview window
-        preview = {
-          -- wo = { number = false, cursorline = false, statuscolumn = "" },
+        list = {
           keys = {
             ["<Tab>"] = { "focus_input", mode = { "i", "n" } },
-            ["<Esc>"] = "close",
+            ["<S-Tab>"] = { "", mode = { "i", "n" } },
           },
+        },
+        -- preview window
+        preview = {
+          keys = {
+            ["<Tab>"] = { "focus_input" },
+            ["<Esc>"] = "close",
+            ["i"] = "focus_input",
+          },
+          -- wo = { number = false, cursorline = false, statuscolumn = "" },
         },
       },
     },
@@ -97,12 +115,72 @@ return {
     { "<leader>sM", nil },
     { "<leader>sm", nil },
     { "<leader>sb", nil },
+    -- -- bug: this does some weird things
+    -- {
+    --   "<leader>U",
+    --   function()
+    --     Snacks.picker.undo()
+    --   end,
+    --   desc = "Commands",
+    -- },
+    {
+      "z=",
+      function()
+        Snacks.picker.spelling({
+          layout = {
+            preview = false,
+            layout = {
+              backdrop = true,
+              row = 1,
+              width = 0.4,
+              min_width = 80,
+              height = 0.4,
+              border = "none",
+              box = "vertical",
+              { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
+              { win = "list", border = "rounded" },
+              { win = "preview", title = "{preview}", border = "rounded" },
+            },
+          },
+        })
+      end,
+      desc = "Show Spelling Suggestions",
+    },
     {
       "<leader><leader>",
       function()
         Snacks.picker.smart()
       end,
       desc = "Recent (smart)",
+    },
+    {
+      "<leader>fw",
+      function()
+        -- local preset = "ivy"
+        return (
+          vim.fn.expand("%:h") ~= ""
+          ---@diagnostic disable-next-line: missing-fields
+          and Snacks.picker.grep({
+            cwd = vim.fn.expand("%:h"),
+            -- layout = {
+            --   preset = preset,
+            -- },
+          })
+        )
+          ---@diagnostic disable-next-line: missing-fields
+          or Snacks.picker.grep({
+            -- if alternate buffer exists, use its directory
+            cwd = vim.fn.bufexists(vim.fn.bufnr("#")) == 1
+                and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
+              -- or use cwd
+              or vim.fn.getcwd(),
+            -- layout = {
+            --   preview = "main",
+            --   preset = preset,
+            -- },
+          })
+      end,
+      desc = "Grep (cwd)",
     },
     {
       "<leader>ff",
@@ -127,22 +205,6 @@ return {
         Snacks.picker.files({ cwd = require("lazy.core.config").options.root })
       end,
       desc = "Find Plugin File",
-    },
-    {
-      "<leader>fw",
-      function()
-        ---@diagnostic disable-next-line: missing-fields
-        return (vim.fn.expand("%:h") ~= "" and Snacks.picker.grep({ cwd = vim.fn.expand("%:h") }))
-          ---@diagnostic disable-next-line: missing-fields
-          or Snacks.picker.grep({
-            -- if alternate buffer exists, use its directory
-            cwd = vim.fn.bufexists(vim.fn.bufnr("#")) == 1
-                and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
-              -- or use cwd
-              or vim.fn.getcwd(),
-          })
-      end,
-      desc = "Grep (cwd)",
     },
     {
       "<leader>;",
