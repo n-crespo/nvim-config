@@ -1,9 +1,12 @@
+-- use the $SHELL env variable... except in wsl where i wanna use fish
+vim.g.shell = LazyVim.is_win() and vim.o.shell or "fish"
 return {
   "folke/snacks.nvim",
   opts = {
     terminal = {
       enabled = true,
       win = { keys = { nav_l = "<C-l>", nav_j = "<C-j>", nav_k = "<C-k>" } },
+      shell = vim.g.shell,
     },
   },
   keys = {
@@ -18,7 +21,7 @@ return {
     {
       "<C-S-/>",
       function()
-        Snacks.terminal.toggle(vim.o.shell, {
+        Snacks.terminal.toggle(vim.g.shell, {
           win = {
             position = "float",
             height = 0.8,
@@ -33,7 +36,7 @@ return {
     {
       "<C-S-Q>",
       function()
-        Snacks.terminal.toggle(vim.o.shell, {
+        Snacks.terminal.toggle(vim.g.shell, {
           win = {
             relative = "editor",
             position = "float",
