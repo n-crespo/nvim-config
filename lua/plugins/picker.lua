@@ -11,11 +11,6 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
-      cycle = true,
-      layout = function()
-        return vim.o.columns >= 120 and "telescope" or "vertical"
-      end,
-      -- layout = "telescope",
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
