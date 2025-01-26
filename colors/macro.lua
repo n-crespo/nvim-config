@@ -67,24 +67,25 @@ local c_winterYellow         = "#322e29"
 
 -- Terminal colors {{{
 -- stylua: ignore start
-vim.g.terminal_color_0  = c_macroBg0
-vim.g.terminal_color_1  = c_macroRed
-vim.g.terminal_color_2  = c_macroGreen1
-vim.g.terminal_color_3  = c_carpYellow
-vim.g.terminal_color_4  = c_macroBlue1
-vim.g.terminal_color_5  = c_macroPink
-vim.g.terminal_color_6  = c_macroAqua
-vim.g.terminal_color_7  = c_macroFg0
-vim.g.terminal_color_8  = selection_light_gray
-vim.g.terminal_color_9  = c_waveRed
-vim.g.terminal_color_10 = c_macroGreen0
-vim.g.terminal_color_11 = c_autumnYellow
-vim.g.terminal_color_12 = c_springBlue
-vim.g.terminal_color_13 = c_springViolet
-vim.g.terminal_color_14 = c_waveAqua1
-vim.g.terminal_color_15 = c_macroFg0
-vim.g.terminal_color_16 = c_macroOrange0
-vim.g.terminal_color_17 = c_macroOrange1
+
+vim.g.terminal_color_0  = c_macroBg0[1]
+vim.g.terminal_color_1  = c_macroRed[1]
+vim.g.terminal_color_2  = c_macroGreen1[1]
+vim.g.terminal_color_3  = c_carpYellow[1]
+vim.g.terminal_color_4  = c_macroBlue1[1]
+vim.g.terminal_color_5  = c_macroPink[1]
+vim.g.terminal_color_6  = c_macroAqua[1]
+vim.g.terminal_color_7  = c_macroFg1[1]
+vim.g.terminal_color_8  = selection_light_gray[1]
+vim.g.terminal_color_9  = c_waveRed[1]
+vim.g.terminal_color_10 = c_macroGreen0[1]
+vim.g.terminal_color_11 = c_autumnYellow[1]
+vim.g.terminal_color_12 = c_springBlue[1]
+vim.g.terminal_color_13 = c_springViolet[1]
+vim.g.terminal_color_14 = c_waveAqua1[1]
+vim.g.terminal_color_15 = c_macroFg0[1]
+vim.g.terminal_color_16 = c_macroOrange0[1]
+vim.g.terminal_color_17 = c_macroOrange1[1]
 -- stylua: ignore end
 --- }}}
 
@@ -101,8 +102,14 @@ local hlgroups = {
   CursorLineNr = { fg = c_macroGray0, bold = true },
   DebugPC = { bg = c_winterRed },
   DiffAdd = { bg = c_winterGreen },
+  DiffAdded = { fg = c_autumnGreen },
   DiffChange = { bg = c_winterBlue },
+  DiffChanged = { fg = c_autumnYellow },
   DiffDelete = { bg = selection_light_gray },
+  DiffDeleted = { fg = c_autumnRed },
+  DiffNewFile = { fg = c_autumnGreen },
+  DiffOldFile = { fg = c_autumnRed },
+  DiffRemoved = { fg = c_autumnRed },
   DiffText = { bg = border_purple_ink },
   Directory = { fg = c_macroBlue1 },
   EndOfBuffer = { fg = normal_bg },
@@ -122,17 +129,14 @@ local hlgroups = {
   MsgArea = { fg = c_macroFg1 },
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
-  SnippetTabstop = { link = "Snippet" },
-
   Normal = { fg = c_macroFg0 },
   NormalFloat = { bg = nil, fg = c_macroFg1 },
+  SnippetTabstop = { link = "Snippet" },
 
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
-
   Pmenu = { bg = c_macroBg2, fg = c_macroFg1 },
-
-  PmenuSbar = { bg = "#201d1d" },
+  PmenuSbar = { bg = c_macroBg2 },
   PmenuSel = { bg = selection_light_gray },
   PmenuThumb = { bg = c_macroBg5 },
   Question = { link = "MoreMsg" },
@@ -199,9 +203,9 @@ local hlgroups = {
   ["@keyword.return"] = { fg = c_macroRed, italic = true },
   ["@module"] = { fg = c_macroOrange0 },
   ["@operator"] = { link = "Operator" },
-  ["@nospell.latex"] = { fg = "#8ba4b0" },
-  ["@markup.math.latex"] = { fg = "#8ba4b0" },
-  ["@operator.latex"] = { fg = "#c4746e" },
+  ["@nospell.latex"] = { fg = c_macroBlue1 },
+  ["@markup.math.latex"] = { fg = c_macroBlue1 },
+  ["@operator.latex"] = { fg = c_macroRed },
   ["@variable.parameter"] = { fg = c_macroGray0 },
   ["@punctuation.bracket"] = { fg = c_macroGray1 },
   ["@punctuation.delimiter"] = { fg = c_macroGray1 },
@@ -368,7 +372,46 @@ local hlgroups = {
   qfLineNr = { link = "lineNr" },
   -- }}}
 
+  -- BlinkCmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
+  -- BlinkCmpCompletionThumb = { link = "PmenuThumb" },
   -- Plugins {{{2
+  -- nvim-cmp
+  BlinkCmpCompletion = { link = "Pmenu" },
+  BlinkCmpMenu = { link = "Pmenu" },
+  BlinkCmpCompletionBorder = { bg = c_waveBlue0, fg = c_waveBlue1 },
+  BlinkCmpCompletionSbar = { link = "PmenuSbar" },
+  BlinkCmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
+  BlinkCmpCompletionThumb = { link = "PmenuThumb" },
+  BlinkCmpDocumentation = { link = "NormalFloat" },
+  BlinkCmpDocumentationBorder = { link = "FloatBorder" },
+  BlinkCmpItemAbbr = { fg = c_macroFg2 },
+  BlinkCmpItemAbbrDeprecated = { fg = c_macroAsh, strikethrough = true },
+  BlinkCmpItemAbbrMatch = { fg = c_macroRed },
+  BlinkCmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
+  BlinkCmpKindClass = { link = "Type" },
+  BlinkCmpKindConstant = { link = "Constant" },
+  BlinkCmpKindConstructor = { link = "@constructor" },
+  BlinkCmpKindCopilot = { link = "String" },
+  BlinkCmpKindDefault = { fg = c_katanaGray },
+  BlinkCmpKindEnum = { link = "Type" },
+  BlinkCmpKindEnumMember = { link = "Constant" },
+  BlinkCmpKindField = { link = "@variable.member" },
+  BlinkCmpKindFile = { link = "Constant" },
+  BlinkCmpKindFolder = { link = "Directory" },
+  BlinkCmpKindFunction = { link = "Function" },
+  BlinkCmpKindInterface = { link = "Type" },
+  BlinkCmpKindKeyword = { link = "@keyword" },
+  BlinkCmpKindMethod = { link = "Function" },
+  BlinkCmpKindModule = { link = "@keyword.import" },
+  BlinkCmpKindOperator = { link = "Operator" },
+  BlinkCmpKindProperty = { link = "@property" },
+  BlinkCmpKindReference = { link = "Type" },
+  BlinkCmpKindSnippet = { fg = c_macroTeal },
+  BlinkCmpKindStruct = { link = "Type" },
+  BlinkCmpKindText = { fg = c_macroFg2 },
+  BlinkCmpKindTypeParameter = { link = "Type" },
+  BlinkCmpKindValue = { link = "String" },
+  BlinkCmpKindVariable = { fg = c_lotusRed2 },
 
   --noice
   NoicePopupmenuSelected = { bg = selection_light_gray },
@@ -379,14 +422,6 @@ local hlgroups = {
   GitSignsChange = { fg = border_purple_ink },
   GitSignsDelete = { fg = c_lotusRed0 },
   GitSignsDeletePreview = { bg = c_winterRed },
-
-  -- diff
-  DiffAdded = { fg = c_autumnGreen },
-  DiffChanged = { fg = c_autumnYellow },
-  DiffDeleted = { fg = c_autumnRed },
-  DiffNewFile = { fg = c_autumnGreen },
-  DiffOldFile = { fg = c_autumnRed },
-  DiffRemoved = { fg = c_autumnRed },
 
   -- telescope
   TelescopeBorder = { link = "FloatBorder" },
@@ -401,31 +436,31 @@ local hlgroups = {
   TelescopeTitle = { fg = c_macroGray2 },
   TelescopePromptBorder = { link = "TelescopeBorder" },
 
-  -- -- nvim-dap-ui (one day I'll use this)
-  -- DapUIBreakpointsCurrentLine = { bold = true, fg = c_macroFg0 },
-  -- DapUIBreakpointsDisabledLine = { link = "Comment" },
-  -- DapUIBreakpointsInfo = { fg = c_macroBlue0 },
-  -- DapUIBreakpointsPath = { link = "Directory" },
-  -- DapUIDecoration = { fg = border_purple_ink },
-  -- DapUIFloatBorder = { fg = border_purple_ink },
-  -- DapUILineNumber = { fg = c_macroTeal },
-  -- DapUIModifiedValue = { bold = true, fg = c_macroTeal },
-  -- DapUIPlayPause = { fg = c_macroGreen1 },
-  -- DapUIRestart = { fg = c_macroGreen1 },
-  -- DapUIScope = { link = "Special" },
-  -- DapUISource = { fg = c_macroRed },
-  -- DapUIStepBack = { fg = c_macroTeal },
-  -- DapUIStepInto = { fg = c_macroTeal },
-  -- DapUIStepOut = { fg = c_macroTeal },
-  -- DapUIStepOver = { fg = c_macroTeal },
-  -- DapUIStop = { fg = c_lotusRed0 },
-  -- DapUIStoppedThread = { fg = c_macroTeal },
-  -- DapUIThread = { fg = c_macroFg0 },
-  -- DapUIType = { link = "Type" },
-  -- DapUIUnavailable = { fg = c_macroAsh },
-  -- DapUIWatchesEmpty = { fg = c_lotusRed0 },
-  -- DapUIWatchesError = { fg = c_lotusRed0 },
-  -- DapUIWatchesValue = { fg = c_macroFg0 },
+  -- nvim-dap-ui (one day I'll use this)
+  DapUIBreakpointsCurrentLine = { bold = true, fg = c_macroFg0 },
+  DapUIBreakpointsDisabledLine = { link = "Comment" },
+  DapUIBreakpointsInfo = { fg = c_macroBlue0 },
+  DapUIBreakpointsPath = { link = "Directory" },
+  DapUIDecoration = { fg = border_purple_ink },
+  DapUIFloatBorder = { fg = border_purple_ink },
+  DapUILineNumber = { fg = c_macroTeal },
+  DapUIModifiedValue = { bold = true, fg = c_macroTeal },
+  DapUIPlayPause = { fg = c_macroGreen1 },
+  DapUIRestart = { fg = c_macroGreen1 },
+  DapUIScope = { link = "Special" },
+  DapUISource = { fg = c_macroRed },
+  DapUIStepBack = { fg = c_macroTeal },
+  DapUIStepInto = { fg = c_macroTeal },
+  DapUIStepOut = { fg = c_macroTeal },
+  DapUIStepOver = { fg = c_macroTeal },
+  DapUIStop = { fg = c_lotusRed0 },
+  DapUIStoppedThread = { fg = c_macroTeal },
+  DapUIThread = { fg = c_macroFg0 },
+  DapUIType = { link = "Type" },
+  DapUIUnavailable = { fg = c_macroAsh },
+  DapUIWatchesEmpty = { fg = c_lotusRed0 },
+  DapUIWatchesError = { fg = c_lotusRed0 },
+  DapUIWatchesValue = { fg = c_macroFg0 },
 
   -- lazy.nvim
   LazyProgressTodo = { fg = c_macroBg5 },
@@ -490,4 +525,4 @@ for hlgroup_name, hlgroup_attr in pairs(hlgroups) do
 end
 -- }}}1
 
--- !vim:ts=2:sw=2:sts=2:fdm=marker:fdl=0
+-- !vim:ts=2:sw=2:sts=2:fdm=marker:fdl=1
