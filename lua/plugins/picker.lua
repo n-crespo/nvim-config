@@ -93,7 +93,7 @@ return {
         "<leader>st",
         function()
           ---@diagnostic disable-next-line: undefined-field
-          Snacks.picker.todo_comments({ cwd = vim.fn.expand("%:h") })
+          Snacks.picker.todo_comments({ cwd = get_dir_with_fallback() })
         end,
         desc = "Todo",
       },
@@ -101,7 +101,7 @@ return {
         "<leader>sT",
         function()
           ---@diagnostic disable-next-line: undefined-field
-          Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" }, cwd = vim.fn.expand("%:h") })
+          Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" }, cwd = get_dir_with_fallback() })
         end,
         desc = "Todo/Fix/Fixme",
       },

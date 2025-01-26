@@ -5,6 +5,7 @@
 do
   return {}
 end
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "TelescopeResults",
   callback = function(ctx)
