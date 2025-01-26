@@ -1,25 +1,7 @@
 return {
   "catgoose/nvim-colorizer.lua",
-  dependencies = {
-    "folke/snacks.nvim",
-    opts = function()
-      Snacks.toggle({
-        name = "Colorizer Highlights",
-        get = function()
-          return require("colorizer").is_buffer_attached(0)
-        end,
-        set = function(state)
-          if state then
-            require("colorizer").attach_to_buffer(0)
-          else
-            require("colorizer").detach_from_buffer(0)
-          end
-        end,
-      }):map("<leader>uH")
-    end,
-  },
-  -- event = "BufReadPre",
-  ft = { "css", "html", "javascript", "typescript" },
+  ft = { "css", "html", "javascript", "typescript", "lua" },
+  cmd = "REcolor",
   opts = {
     filetypes = {
       "*",
@@ -45,6 +27,24 @@ return {
   },
   config = function(_, opts)
     require("colorizer").setup(opts)
+
+    Snacks.toggle({
+      name = "Colorizer Highlights",
+      get = function()
+        return require("colorizer").is_buffer_attached(0)
+      end,
+      set = function(state)
+        if state then
+          require("colorizer").attach_to_buffer(0)
+        else
+          require("colorizer").detach_from_buffer(0)
+        end
+      end,
+    }):map("<leader>uH")
+
     vim.api.nvim_create_user_command("REcolor", "lua require('colorizer').reload_all_buffers()", { nargs = 0 })
   end,
+  -- config = function(_, opts)
+  --   require("colorizer").setup(opts)
+  -- end,
 }
