@@ -1,6 +1,4 @@
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
-vim.keymap.set("i", "<C-]>", "<C-t>", { buffer = true, silent = true })
-vim.keymap.set("i", "<C-e>", "```<cr><cr>```<up><up>", { buffer = true, silent = true })
 vim.keymap.set("i", "<C-b>", "****<left><left>", { buffer = true, silent = true })
 -- vim.cmd([[ setlocal commentstring=<!--\ %s\ --> ]])
 
