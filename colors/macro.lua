@@ -94,7 +94,7 @@ local hlgroups = {
   ColorColumn = { bg = c_macroBg2 },
   Conceal = { bold = true, fg = c_macroGray2 },
   CurSearch = { link = "IncSearch" },
-  Cursor = { bg = "#89ca78", fg = normal_bg },
+  Cursor = { bg = "#8AE234", fg = normal_bg },
   CursorColumn = { link = "CursorLine" },
   CursorIM = { link = "Cursor" },
   CursorLine = { bg = c_macroBg2 },
@@ -129,9 +129,11 @@ local hlgroups = {
 
   -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
+
   Pmenu = { bg = c_macroBg2, fg = c_macroFg1 },
+
   PmenuSbar = { bg = "#201d1d" },
-  PmenuSel = { bg = selection_light_gray, fg = "NONE" },
+  PmenuSel = { bg = selection_light_gray },
   PmenuThumb = { bg = c_macroBg5 },
   Question = { link = "MoreMsg" },
   QuickFixLine = { bg = c_macroBg3 },
@@ -445,8 +447,8 @@ local hlgroups = {
   MiniFilesBorder = { link = "FloatBorder" },
 
   -- incline
-  InclineNormal = { bg = "#201D1D", fg = "#afadad" },
-  InclineNormalNC = { bg = "#201D1D", fg = "#afadad" },
+  InclineNormal = { link = "Pmenu" },
+  InclineNormalNC = { link = "Pmenu" },
 
   -- snacks indent
   SnacksIndent = { fg = selection_light_gray },
@@ -463,8 +465,8 @@ local hlgroups = {
   TreesitterContextLineNumber = { bg = c_macroBg2, fg = border_purple_ink },
 
   -- lualine tab pages
-  LualineTabInactive = { fg = c_macroAsh },
-  LualineTabActive = { fg = c_macroFg0 },
+  TablineInactive = { fg = c_macroAsh },
+  TablineActive = { fg = c_macroFg0 },
 
   -- render markdown
   RenderMarkdownCode = { bg = c_macroBg2 },
@@ -474,6 +476,10 @@ local hlgroups = {
   -- snacks picker
   SnacksPickerListCursorLine = { link = "Visual" },
   SnacksPickerPreviewCursorLine = { link = "CursorLine" },
+
+  -- blink cmp
+  BlinkCmpLabelMatch = { link = "Special" },
+
   -- }}}
 }
 -- }}}1

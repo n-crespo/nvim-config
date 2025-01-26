@@ -25,7 +25,7 @@ M.tabline = function()
       color = "GitSignsDelete"
     end
 
-    local highlight_group = focused and "LualineTabActive" or "LualineTabInactive"
+    local highlight_group = focused and "TablineActive" or "TablineInactive"
     icon = icon ~= "" and icon .. " " or icon
 
     -- there's gotta be a better way to do this but it works now sooo

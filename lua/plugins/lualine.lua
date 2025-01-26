@@ -63,7 +63,6 @@ return {
         lualine_y = {
           {
             "progress",
-            color = { fg = "#949894" },
           },
         },
         lualine_z = {},
