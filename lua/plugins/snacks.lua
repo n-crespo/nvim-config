@@ -31,10 +31,10 @@ return {
     },
   },
   keys = {
-    -- these are all from debug and don't work...
-    { "<leader>dph", false, desc = "which_key_ignore", hidden = true },
-    { "<leader>dps", false, desc = "which_key_ignore", hidden = true },
-    { "<leader>dpp", false, desc = "which_key_ignore", hidden = true },
+    -- these are all from debug and WONT GO AWAY
+    { "<leader>dph", nil, desc = "which_key_ignore", hidden = true },
+    { "<leader>dps", nil, desc = "which_key_ignore", hidden = true },
+    { "<leader>dpp", nil, desc = "which_key_ignore", hidden = true },
     -- these are from scratch
     { "<leader>S", false },
     { "<leader>.", false },
