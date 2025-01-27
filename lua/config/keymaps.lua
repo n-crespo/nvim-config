@@ -37,6 +37,8 @@ end, { desc = "Start of line", silent = true })
 -- better scrolling with mouse
 vim.keymap.set("n", "<ScrollWheelUp>", "<C-y>")
 vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
+vim.keymap.set("n", "<M-ScrollWheelUp>", "zl") -- left scroll
+vim.keymap.set("n", "<M-ScrollWheelDown>", "zh") -- right scroll
 
 -- <C-S-J> as  <C-j>
 vim.keymap.set({ "n", "t" }, "<C-S-H>", "<cmd>wincmd h<cr>")
