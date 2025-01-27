@@ -1,5 +1,6 @@
--- use the $SHELL env variable... except in wsl where i wanna use fish
-vim.g.shell = LazyVim.is_win() and vim.o.shell or "fish"
+-- use the $SHELL env variable or fish
+vim.g.shell = vim.fn.has("wsl") ~= 0 and "fish" or vim.o.shell
+
 return {
   "folke/snacks.nvim",
   opts = {
