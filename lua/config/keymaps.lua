@@ -44,11 +44,6 @@ vim.keymap.set({ "n", "t" }, "<S-NL>", "<cmd>wincmd j<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-K>", "<cmd>wincmd k<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 
--- Block insert in line visual mode
--- vim.keymap.set("v", "I", "0<C-v>I")
--- vim.keymap.set("v", "I", "0<C-v>I")
--- vim.keymap.set("v", "A", "$<C-v>A")
-
 -- search within selection by default when using / in visual mode
 vim.keymap.set("x", "/", "<Esc>/\\%V")
 
@@ -86,9 +81,18 @@ vim.keymap.set(
 vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>", { desc = "Previous Tab" })
 vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
+-- create a new tab
+vim.keymap.set("n", "<C-space>", function()
+  if vim.fn.tabpagenr("$") >= 5 then
+    vim.notify("Thats a lotta tabs...", vim.log.levels.WARN, { title = "Tabs" })
+  else
+    vim.cmd("tabe")
+  end
+end)
+
 vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
--- cd to root dir of current buffer (replace autochdir)
+-- cd to root dir of current buffer (does some weird things sometimes)
 vim.keymap.set("n", "<leader>bl", function()
   local bufname = vim.api.nvim_buf_get_name(0)
   local root = vim.fs.find({ ".git", "Makefile" }, { upward = true, path = vim.fs.dirname(bufname) })[1]
@@ -104,23 +108,14 @@ vim.keymap.set("n", "<leader>bl", function()
   })
 end, { desc = "Buffer Locate", silent = true })
 
--- vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "Close Window", silent = true })
+vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "Close Window", silent = true })
 
 -- splits
 vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 
 vim.keymap.set("n", "<leader>o", "<cmd>silent! !open %<cr>", { desc = "Open Buffer in System Viewer" })
--- --------------------------------- TAB RELATED STUFF --------------------------------------------
 
--- vim.keymap.set("n", "<C-space>", "<cmd>$tabnew<cr>")
-vim.keymap.set("n", "<C-space>", function()
-  if vim.fn.tabpagenr("$") >= 5 then
-    vim.notify("Thats a lotta tabs...", vim.log.levels.WARN, { title = "Tabs" })
-  else
-    vim.cmd("tabe")
-  end
-end)
 -- vim.keymap.set("n", "<leader>1", "<cmd>silent! tabn 1<cr>", { silent = true, desc = "Tab 1" })
 -- vim.keymap.set("n", "<leader>2", "<cmd>silent! tabn 2<cr>", { silent = true, desc = "Tab 2" })
 -- vim.keymap.set("n", "<leader>3", "<cmd>silent! tabn 3<cr>", { silent = true, desc = "Tab 3" })
@@ -185,8 +180,8 @@ vim.api.nvim_create_user_command("WQ", "wq", { nargs = 0 })
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
--- apply macro over selected region
-vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Play Q Macro", silent = true })
+-- apply last created macro over selected region
+vim.keymap.set("x", "Q", ":norm @@<cr>", { desc = "Play Q Macro", silent = true })
 
 -- replace all instances of word (without LSP)
 vim.keymap.set(

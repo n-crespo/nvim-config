@@ -1,3 +1,2 @@
 require("config.lazy")
-vim.cmd.colorscheme("macro")
-vim.hl = vim.highlight
+vim.hl = vim.highlight -- fix neovim bug
