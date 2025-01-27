@@ -2,13 +2,6 @@ vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
 vim.keymap.set("i", "<C-b>", "****<left><left>", { buffer = true, silent = true })
 -- vim.cmd([[ setlocal commentstring=<!--\ %s\ --> ]])
 
-vim.keymap.set(
-  "n",
-  "<leader>cs",
-  "<cmd>Toc<cr><cmd>set nonu nornu<cr>",
-  { buffer = true, silent = true, desc = "Table of Contents (Symbols)" }
-)
-
 vim.cmd([[inoreabbrev <buffer> ps <!-- prettier-ignore-start -->]])
 vim.cmd([[inoreabbrev <buffer> pe <!-- prettier-ignore-end -->]])
 

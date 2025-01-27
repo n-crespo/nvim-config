@@ -14,6 +14,18 @@ return {
       vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
       vim.cmd([[imap <buffer> <S-CR> <Plug>Markdown_NewLineBelow]])
       vim.cmd([[imap <buffer> <CR> <Plug>Markdown_NewLineBelow]])
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          vim.keymap.set("n", "<leader>cs", function()
+            vim.cmd([[Toc]])
+            vim.opt_local.number = false
+            vim.opt_local.relativenumber = false
+            -- vim.keymap.set("n", "<CR>", "<cr>:lcl<cr>", { buffer = true })
+          end, { buffer = true, silent = true, desc = "Table of Contents (Symbols)" })
+        end,
+      })
     end,
   },
   {
