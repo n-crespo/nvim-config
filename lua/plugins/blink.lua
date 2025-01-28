@@ -2,6 +2,12 @@ return {
   "saghen/blink.cmp",
   opts = {
     completion = {
+      list = {
+        selection = {
+          preselect = true,
+          auto_insert = false,
+        },
+      },
       ghost_text = { enabled = false },
       menu = {
         auto_show = true,
