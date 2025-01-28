@@ -42,15 +42,12 @@ return {
               return { fg = Snacks.util.color("Special") }
             end,
           },
+          -- stylua: ignore
           {
-            function()
-              local reg = vim.fn.reg_recording()
-              if reg == "" then
-                return ""
-              end -- not recording
-              return "recording @" .. reg
-            end,
-            color = "WarningMsg",
+            -- this is for showing when a macro is recording
+            function() return require("lualine_require").require("noice").api.status.mode.get() end,
+            cond = function() return package.loaded["noice"] and require("lualine_require").require("noice").api.status.mode.has() end,
+            color = function() return { fg = Snacks.util.color("Constant") } end,
           },
         },
         lualine_x = {
