@@ -46,7 +46,8 @@ return {
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
-            ["<c-space>"] = { "edit_tab", mode = { "i", "n" } },
+            ["<S-CR>"] = { "edit_tab", mode = { "i", "n" } },
+            ["<C-Space>"] = { "toggle_live", mode = { "i", "n" } },
             ["<c-s>"] = { "edit_split", mode = { "i", "n" } },
 
             -- scrolling
