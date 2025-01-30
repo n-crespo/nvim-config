@@ -1,5 +1,3 @@
-vim.g.lualine_ai_status = true
-
 -- refresh lualine whenever codeium server does something or plugin itself
 -- is disabled
 vim.api.nvim_create_autocmd("User", {
@@ -47,6 +45,7 @@ end
 -- })
 -- something will go here eventually???
 
+vim.g.lualine_ai_status = true
 return {
   "monkoose/neocodeium",
   event = "LazyFile",
@@ -140,14 +139,6 @@ return {
         require("neocodeium").cycle_or_complete(1)
       end,
       mode = "i",
-    },
-    {
-      "<leader>ai",
-      function()
-        vim.g.lualine_ai_status = not vim.g.lualine_ai_status
-      end,
-      mode = "n",
-      desc = "Toggle AI",
     },
   },
 }
