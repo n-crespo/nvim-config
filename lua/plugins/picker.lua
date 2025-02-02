@@ -123,7 +123,7 @@ return {
     { '<leader>s"', nil },
     { "<leader>qp", nil },
     { "<leader>sB", nil },
-    -- { "<leader>fF", nil },
+    { "<leader>fF", nil },
     { "<leader>fg", nil },
     { "<leader>fR", nil },
     { "<leader>sw", nil },
@@ -131,9 +131,11 @@ return {
     { "<leader>sM", nil },
     { "<leader>sm", nil },
     { "<leader>sb", nil },
+    { "<leader>sj", nil },
+    -- { "<leader>sb", nil },
     -- -- bug: this does some weird things
     -- {
-    --   "<leader>U",
+    --   <leader>U",
     --   function()
     --     Snacks.picker.undo()
     --   end,
@@ -159,7 +161,7 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.grep({ cwd = get_dir_with_fallback() })
       end,
-      desc = "Grep (cwd)",
+      desc = "Grep (buffer dir)",
     },
     {
       "<leader>ff",
@@ -167,7 +169,7 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.files({ cwd = get_dir_with_fallback() })
       end,
-      desc = "Find Files (cwd)",
+      desc = "Find Files (buffer dir)",
     },
     {
       "<leader>fh",
