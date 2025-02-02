@@ -106,7 +106,7 @@ vim.keymap.set("n", "<leader>bl", function()
   if root then
     vim.uv.chdir(root_dir)
   else
-    vim.cmd([[cd %:h]])
+    vim.cmd([[lcd %:h]])
   end
   vim.notify(root_dir or vim.fn.getcwd(), vim.log.levels.INFO, {
     title = "Buffer Locate",
