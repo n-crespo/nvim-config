@@ -9,18 +9,19 @@ plugins and to extend functionality.
 
 Some cool things in this config are:
 
-- my [custom tabline](./lua/custom/tabline.lua) and minimal [lualine](./lua/plugins/lualine.lua) config
-- my [mini.files config](https://github.com/echasnovski/mini.files)
-- better word motions with [nvim-spider](https://github.com/chrisgrieser/nvim-spider)
+- my [custom tabline](./lua/custom/tabline.lua)
+- my minimal [lualine](./lua/plugins/lualine.lua) config
+- my [mini.files config](./lua/plugins/mini-files.lua)
+- better word motions with [nvim-spider](./lua/plugins/spider.lua)
 - my custom (borrowed/extended) [color scheme](./colors/macro.lua)
 - [flatten](https://github.com/willothy/flatten.nvim) nested neovim instances
   - super useful when used with the Snacks terminal + zoxide + fzf
-- [all my auto commands](./lua/config/autocmds.lua) and [keymaps](./lua/config/keymaps.lua)
+- [my auto commands](./lua/config/autocmds.lua) and [keymaps](./lua/config/keymaps.lua)
   - remove trailing white space on save
   - only show cursor line in active window
   - `<C-l>` in insert mode to auto fix last spelling error
   - `E` and `B` instead of `0` and `$` (wrap friendly)
-  - Shift modifiers for window nav commands works through terminal mode
+  - Shift modifiers for window navigation commands work through terminal mode
   - increment/decrement numbers with `+` and `-`
   - `<C-S-C>` to get word count
   - `<C-S-S>` to clean Windows generated `^M` chars
