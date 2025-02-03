@@ -13,14 +13,14 @@ autocmd({ "BufWritePre" }, {
 })
 
 -- only show cursorline in active window normal moded
-autocmd({ "InsertLeave", "WinEnter" }, {
+autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
   desc = "Enable cursorline only in active window",
   callback = function()
-    vim.wo.cursorline = not vim.wo.cursorline
+    vim.wo.cursorline = true
   end,
 })
 
-autocmd({ "InsertEnter", "WinLeave" }, {
+autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
   desc = "Enable cursorline only in active window",
   callback = function()
     vim.wo.cursorline = false
