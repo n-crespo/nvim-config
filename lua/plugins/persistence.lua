@@ -11,6 +11,5 @@ return {
     { "<leader>ql", false },
     { "<leader>qd", false },
     { "<leader>qS", false },
-    { "<leader>q", "<C-W>c", { desc = "Close Window" } },
   },
 }
