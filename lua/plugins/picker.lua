@@ -142,6 +142,13 @@ return {
     --   desc = "Commands",
     -- },
     {
+      "<leader>fP",
+      function()
+        Snacks.picker.pickers()
+      end,
+      desc = "Pickers",
+    },
+    {
       "<leader>fo",
       function()
         Snacks.picker.recent()
