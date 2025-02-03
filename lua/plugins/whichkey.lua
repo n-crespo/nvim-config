@@ -24,6 +24,7 @@ return {
       mode = { "n", "v" },
       -- { "<leader>t", group = "+tab" },
       { "<R>", group = "run", icon = "" },
+      { "<leader>q", group = "Close Window" },
       { "<leader>dph", hidden = true },
       { "<leader>dpp", hidden = true },
       { "<leader>d", proxy = false },

@@ -505,9 +505,6 @@ local hlgroups = {
   -- render markdown
   RenderMarkdownCode = { bg = c_macroBg2 },
   RenderMarkdownBullet = { fg = c_macroTeal },
-
-  -- whichkey
-  WhichKeyIcon = { underline = false },
   -- }}}
 }
 -- }}}1
