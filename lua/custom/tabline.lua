@@ -20,12 +20,9 @@ M.tabline = function()
     elseif name == "fish" or filetype == "snacks_terminal" then
       icon = ""
       name = "terminal"
-    elseif name == "lazygit" then
-      icon = "󰊢"
-      color = "GitSignsDelete"
     end
 
-    local highlight_group = focused and "TablineActive" or "TablineInactive"
+    local highlight_group = focused and "TablineSel" or "Tabline"
     icon = icon ~= "" and icon .. " " or icon
 
     -- there's gotta be a better way to do this but it works now sooo

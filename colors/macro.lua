@@ -150,9 +150,9 @@ local hlgroups = {
   StatusLine = { bg = nil, fg = c_macroFg0 },
   StatusLineNC = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
-  TabLine = { link = "StatusLineNC" },
+  TabLine = { fg = c_macroAsh, bg = nil },
   TabLineFill = { link = "Normal" },
-  TabLineSel = { link = "Visual" },
+  TabLineSel = { fg = c_macroFg0 },
   TermCursor = { link = "Cursor" },
   TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },
@@ -412,16 +412,17 @@ local hlgroups = {
   BlinkCmpKindTypeParameter = { link = "Type" },
   BlinkCmpKindValue = { link = "String" },
   BlinkCmpKindVariable = { fg = c_lotusRed2 },
-
-  --noice
-  NoicePopupmenuSelected = { bg = selection_light_gray },
-  NoiceScrollBar = { bg = normal_bg },
+  BlinkCmpLabelMatch = { link = "Special" },
 
   -- gitsigns
   GitSignsAdd = { fg = c_autumnGreen },
   GitSignsChange = { fg = border_purple_ink },
   GitSignsDelete = { fg = c_lotusRed0 },
   GitSignsDeletePreview = { bg = c_winterRed },
+
+  --noice
+  NoicePopupmenuSelected = { bg = selection_light_gray },
+  NoiceScrollBar = { bg = normal_bg },
 
   -- telescope
   TelescopeBorder = { link = "FloatBorder" },
@@ -485,9 +486,11 @@ local hlgroups = {
   InclineNormal = { link = "Pmenu" },
   InclineNormalNC = { link = "Pmenu" },
 
-  -- snacks indent
+  -- snacks indent/picker
   SnacksIndent = { fg = selection_light_gray },
   SnacksIndentScope = { fg = border_purple_ink },
+  SnacksPickerListCursorLine = { link = "Visual" },
+  SnacksPickerPreviewCursorLine = { link = "CursorLine" },
 
   -- neocodeium
   NeoCodeiumSuggestion = { link = "NonText" },
@@ -499,21 +502,12 @@ local hlgroups = {
   TreesitterContext = { bg = c_macroBg2 },
   TreesitterContextLineNumber = { bg = c_macroBg2, fg = border_purple_ink },
 
-  -- lualine tab pages
-  TablineInactive = { fg = c_macroAsh },
-  TablineActive = { fg = c_macroFg0 },
-
   -- render markdown
   RenderMarkdownCode = { bg = c_macroBg2 },
   RenderMarkdownBullet = { fg = c_macroTeal },
 
-  -- snacks picker
-  SnacksPickerListCursorLine = { link = "Visual" },
-  SnacksPickerPreviewCursorLine = { link = "CursorLine" },
-
-  -- blink cmp
-  BlinkCmpLabelMatch = { link = "Special" },
-
+  -- whichkey
+  WhichKeyIcon = { underline = false },
   -- }}}
 }
 -- }}}1
