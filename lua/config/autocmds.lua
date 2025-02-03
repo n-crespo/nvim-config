@@ -16,20 +16,14 @@ autocmd({ "BufWritePre" }, {
 autocmd({ "InsertLeave", "WinEnter" }, {
   desc = "Enable cursorline only in active window",
   callback = function()
-    if vim.w.auto_cursorline then
-      vim.wo.cursorline = true
-      vim.w.auto_cursorline = false
-    end
+    vim.wo.cursorline = not vim.wo.cursorline
   end,
 })
 
 autocmd({ "InsertEnter", "WinLeave" }, {
   desc = "Enable cursorline only in active window",
   callback = function()
-    if vim.wo.cursorline then
-      vim.w.auto_cursorline = true
-      vim.wo.cursorline = false
-    end
+    vim.wo.cursorline = false
   end,
 })
 
