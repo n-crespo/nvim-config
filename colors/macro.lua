@@ -9,7 +9,7 @@
 
 -- Clear hlgroups and set colors_name {{{
 vim.cmd.hi("clear")
-vim.g.colors_name = "macro"
+-- vim.g.colors_name = "macro"
 -- }}}
 
 -- {{{
