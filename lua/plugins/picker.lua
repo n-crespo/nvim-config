@@ -175,6 +175,7 @@ return {
     { "<leader>gc", nil },
     { "<leader>sg", nil },
     { "<leader>fb", nil },
+    { "<leader>fB", nil },
     { "<leader>fr", nil },
     { "<leader>ff", nil },
     { "<leader>sc", nil },
