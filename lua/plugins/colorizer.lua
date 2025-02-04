@@ -43,9 +43,6 @@ return {
     }):map("<leader>uH")
 
     vim.api.nvim_create_user_command("REcolor", "lua require('colorizer').reload_all_buffers()", { nargs = 0 })
-    vim.api.nvim_create_user_command("Color", "lua require('colorizer').attach_to_buffer(0)", { nargs = 0 })
+    vim.api.nvim_create_user_command("C", "lua require('colorizer').attach_to_buffer(0)", { nargs = 0 })
   end,
-  -- config = function(_, opts)
-  --   require("colorizer").setup(opts)
-  -- end,
 }
