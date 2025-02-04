@@ -17,7 +17,7 @@ M.tabline = function()
     if name == "" then
       name = "[]"
       icon = ""
-    elseif name == "fish" or filetype == "snacks_terminal" then
+    elseif name == "fish" or filetype == "snacks_terminal" or name:find("crunner_") then
       icon = ""
       name = "terminal"
     end
