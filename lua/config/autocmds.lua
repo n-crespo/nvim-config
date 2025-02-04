@@ -62,16 +62,3 @@ autocmd("FileType", {
     vim.keymap.set("n", "<C-p>", "<cmd>cN<CR>zz<cmd>wincmd p<CR>", opts)
   end,
 })
-
-autocmd("WinResized", {
-  desc = "Disable wrap when opening split",
-  pattern = "*",
-  callback = function()
-    vim.api.nvim_set_option_value("wrap", false, {
-      win = vim.fn.win_getid(vim.fn.winnr("#")),
-    })
-    vim.api.nvim_set_option_value("wrap", false, {
-      win = vim.fn.win_getid(vim.fn.winnr()),
-    })
-  end,
-})
