@@ -11,6 +11,19 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
+      layout = {
+        cycle = true,
+        preset = function()
+          if vim.o.columns <= 89 and vim.o.lines <= 32 then
+            return "small"
+          end
+          if vim.o.columns <= 89 then
+            return "vertical"
+          else
+            return "default"
+          end
+        end,
+      },
       layouts = {
         vscode = {
           layout = {
@@ -25,6 +38,55 @@ return {
             { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
             { win = "list", border = "single" },
             { win = "preview", title = "{preview}", border = "rounded" },
+          },
+        },
+        -- this is just vertical but without a preview
+        small = {
+          layout = {
+            box = "horizontal",
+            width = 0.8,
+            min_width = 60,
+            height = 0.8,
+            {
+              box = "vertical",
+              border = "rounded",
+              title = "{title} {live} {flags}",
+              { win = "input", height = 1, border = "bottom" },
+              { win = "list", border = "none" },
+            },
+            -- { win = "preview", title = "{preview}", border = "rounded", width = 0.5 },
+          },
+        },
+        vertical = {
+          layout = {
+            backdrop = false,
+            width = 0.8,
+            min_width = 40,
+            height = 0.8,
+            min_height = 20,
+            box = "vertical",
+            border = "rounded",
+            title = "{title} {live} {flags}",
+            title_pos = "center",
+            { win = "input", height = 1, border = "bottom" },
+            { win = "list", border = "none" },
+            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+          },
+        },
+        default = {
+          layout = {
+            box = "horizontal",
+            width = 0.85,
+            min_width = 85,
+            height = 0.8,
+            {
+              box = "vertical",
+              border = "rounded",
+              title = "{title} {live} {flags}",
+              { win = "input", height = 1, border = "bottom" },
+              { win = "list", border = "none" },
+            },
+            { win = "preview", title = "{preview}", border = "rounded", width = 0.5 },
           },
         },
       },
