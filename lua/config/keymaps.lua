@@ -240,9 +240,10 @@ end, { remap = false, desc = "Clean ^M", silent = true })
 
 -- get word count of current file
 vim.keymap.set("n", "<C-S-C>", function()
-  vim.notify("Word Count: " .. vim.fn.wordcount().words, vim.log.levels.INFO, {
-    title = "Word Count",
-  })
+  vim.notify(
+    "Word Count: " .. vim.fn.wordcount().words .. "\nChar Count: " .. vim.fn.wordcount().chars,
+    vim.log.levels.INFO
+  )
 end)
 
 -- z= with vim.ui.select() (selection UI)
