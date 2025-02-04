@@ -81,6 +81,8 @@ vim.keymap.set(
 )
 
 -- --------------------------------------- WINDOWS BUFFERS AND TABS --------------------------------
+-- rotate windows
+vim.keymap.set("n", "<leader>wr", "<C-w>r", { desc = "Rotate Window" })
 
 -- tab navigation
 vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>", { desc = "Previous Tab" })
