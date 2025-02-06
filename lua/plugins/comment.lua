@@ -41,19 +41,19 @@ return {
   },
   keys = {
     {
-      "<C-_>",
+      "<C-/>",
       function()
         require("Comment.api").toggle.linewise.current()
       end,
       mode = "n",
     },
     {
-      "<C-_>",
+      "<C-/>",
       "<Plug>(comment_toggle_linewise_visual)gv",
       mode = "v",
     },
     {
-      "<C-_>",
+      "<C-/>",
       function()
         local line_before = vim.api.nvim_get_current_line()
         local cursor_col = vim.fn.col(".")
