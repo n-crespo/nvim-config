@@ -1,11 +1,5 @@
 -- set the dir to the directory of the current buffer if possible, then
 -- the dir of the alternate buffer, then the cwd
-local get_dir_with_fallback = function()
-  local bufdir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
-  return bufdir ~= "" and bufdir
-    or vim.fn.bufexists(vim.fn.bufnr("#")) and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
-    or vim.uv.cwd()
-end
 
 return {
   "folke/snacks.nvim",
@@ -156,7 +150,7 @@ return {
         "<leader>st",
         function()
           ---@diagnostic disable-next-line: undefined-field
-          Snacks.picker.todo_comments({ cwd = get_dir_with_fallback() })
+          Snacks.picker.todo_comments({ cwd = require("custom.utils").get_dir_with_fallback() })
         end,
         desc = "Todo",
       },
@@ -164,7 +158,10 @@ return {
         "<leader>sT",
         function()
           ---@diagnostic disable-next-line: undefined-field
-          Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" }, cwd = get_dir_with_fallback() })
+          Snacks.picker.todo_comments({
+            keywords = { "TODO", "FIX", "FIXME" },
+            cwd = require("custom.utils").get_dir_with_fallback(),
+          })
         end,
         desc = "Todo/Fix/Fixme",
       },
@@ -229,7 +226,7 @@ return {
       "<leader>fw",
       function()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.grep({ cwd = get_dir_with_fallback() })
+        Snacks.picker.grep({ cwd = require("custom.utils").get_dir_with_fallback() })
       end,
       desc = "Grep (buffer dir)",
     },
@@ -237,7 +234,7 @@ return {
       "<leader>ff",
       function()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.files({ cwd = get_dir_with_fallback() })
+        Snacks.picker.files({ cwd = require("custom.utils").get_dir_with_fallback() })
       end,
       desc = "Find Files (buffer dir)",
     },

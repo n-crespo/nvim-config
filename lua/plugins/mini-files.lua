@@ -33,15 +33,7 @@ return {
       {
         "<leader>e",
         function()
-          local MiniFiles = require("mini.files")
-
-          local success, _ = pcall(function()
-            MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-          end)
-
-          if not success then
-            require("mini.files").open(vim.uv.cwd(), true)
-          end
+          require("mini.files").open(require("custom.utils").get_dir_with_fallback())
         end,
         desc = "Explore",
       },
