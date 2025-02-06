@@ -206,7 +206,6 @@ vim.keymap.set(
 
 -- : (easier to hit when using in combination with <C-k>)
 vim.keymap.set({ "n", "v" }, "<C-;>", ":", { remap = true, silent = false, desc = "Commmand Mode" })
-vim.keymap.set({ "n", "v" }, "<C-x>", ":", { remap = true, silent = false, desc = "Commmand Mode" }) -- NOTE; this (in alacritty) is <C-;>
 
 -- increment and decrement with plus and minus (since I override <C-a>)
 vim.keymap.set({ "n", "v" }, "+", "<C-a>", { noremap = true, silent = true })
