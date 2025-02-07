@@ -39,13 +39,15 @@ end
 -- This function tries to find the current buffer's directory. If it can't find
 -- that, it returns the previously visited buffer's directory. If it can't find
 -- that either, it return the current working directory.
-function M.get_dir_with_fallback()
+function M.get_dir_with_fallback(filename)
+  filename = filename or ""
   local bufdir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
   -- if current buffer is a terminal, use fallback dir
   bufdir = vim.api.nvim_get_option_value("buftype", { scope = "local" }) == "terminal" and "" or bufdir
-  return bufdir ~= "" and bufdir
+  local dir = bufdir ~= "" and bufdir
     or vim.fn.bufexists(vim.fn.bufnr("#")) and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
     or vim.uv.cwd()
+  return dir .. "/" .. filename
 end
 
 return M

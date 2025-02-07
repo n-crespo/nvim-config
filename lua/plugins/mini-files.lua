@@ -33,7 +33,7 @@ return {
       {
         "<leader>e",
         function()
-          require("mini.files").open(require("custom.utils").get_dir_with_fallback())
+          require("mini.files").open(require("custom.utils").get_dir_with_fallback(vim.fn.expand("%:t")))
         end,
         desc = "Explore",
       },
