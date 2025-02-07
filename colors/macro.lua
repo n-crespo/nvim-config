@@ -309,7 +309,7 @@ local hlgroups = {
   DiagnosticUnnecessary = {
     fg = c_macroAsh,
     sp = c_macroAqua,
-    undercurl = true,
+    undercurl = false,
   },
   -- }}}
 
