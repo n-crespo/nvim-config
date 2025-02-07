@@ -16,7 +16,7 @@ autocmd({ "BufWritePre" }, {
 autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
   desc = "Enable cursorline only in active window",
   callback = function()
-    vim.wo.cursorline = true
+    vim.wo.cursorline = vim.bo.filetype ~= "snacks_dashboard"
   end,
 })
 
