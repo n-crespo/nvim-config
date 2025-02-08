@@ -3,11 +3,14 @@ return {
   "folke/which-key.nvim",
   lazy = false,
   opts = {
-    preset = "modern",
+    preset = "helix",
     filter = function(mapping)
       -- exclude mappings without a description
       return mapping.desc and mapping.desc ~= ""
     end,
+    triggers = {
+      { "<auto>", mode = "nso" },
+    },
     show_help = false,
     plugins = {
       marks = false,
