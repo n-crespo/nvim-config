@@ -20,23 +20,13 @@ return {
     scratch = { enabled = false },
     git = { enabled = true },
     gitbrowse = { enabled = true },
-    debug = { enabled = false },
-    profiler = {
-      enabled = false,
-      autocmds = false,
-      startup = {
-        event = "",
-      },
-    },
   },
   keys = {
-    -- these are all from debug and WONT GO AWAY
-    { "<leader>dph", nil, desc = "which_key_ignore", hidden = true },
-    { "<leader>dps", nil, desc = "which_key_ignore", hidden = true },
-    { "<leader>dpp", nil, desc = "which_key_ignore", hidden = true },
-    -- these are from scratch
-    { "<leader>S", false },
-    { "<leader>.", false },
+    { "<leader>dpp", nil },
+    { "<leader>dph", nil },
+    { "<leader>dps", nil },
+    { "<leader>S", nil },
+    { "<leader>.", nil },
     -- <C-.>, <C-S-/>
   },
 }

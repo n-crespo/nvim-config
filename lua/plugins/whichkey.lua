@@ -1,7 +1,6 @@
 -- default LazyVim plugin, adds floating window for remembering keymaps
 return {
   "folke/which-key.nvim",
-  lazy = false,
   opts = {
     preset = "helix",
     filter = function(mapping)
@@ -11,7 +10,7 @@ return {
     triggers = {
       { "<auto>", mode = "nso" },
     },
-    show_help = false,
+    show_help = true,
     plugins = {
       marks = false,
       spelling = {
@@ -24,13 +23,14 @@ return {
       padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
     },
     spec = {
-      mode = { "n", "v" },
-      -- { "<leader>t", group = "+tab" },
-      { "<R>", group = "run", icon = "" },
-      { "<leader>q", group = "Close Window" },
-      { "<leader>dph", hidden = true },
-      { "<leader>dpp", hidden = true },
-      { "<leader>d", proxy = false },
+      {
+        mode = { "n", "v" },
+        { "<R>", group = "run", icon = "" },
+        { "<leader>q", group = "Close Window" },
+        -- i forced this mapping to be  hidden because it hides disabled snacks
+        -- profiler keymaps like <leader>dpp (damn you Snacks.map())
+        { "<leader>d", group = "Delete and Copy", proxy = false, hidden = true },
+      },
     },
   },
   keys = {
@@ -50,5 +50,7 @@ return {
     { "<leader>ft", nil },
     { "<leader>fT", nil },
     { "<leader>qq", nil },
+    { "<leader>d", '"+d', desc = "Cut", silent = true, remap = false, mode = "v" },
+    { "<leader>d", '"+dd', desc = "Cut", silent = true, mode = "n" },
   },
 }
