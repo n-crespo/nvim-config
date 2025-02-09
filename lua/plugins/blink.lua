@@ -1,6 +1,17 @@
 return {
   "saghen/blink.cmp",
   opts = {
+    sources = {
+      default = function()
+        local success, node = pcall(vim.treesitter.get_node)
+        if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+          -- only show buffer source when inside of comment
+          return { "buffer" }
+        else
+          return { "lsp", "path", "snippets", "buffer" }
+        end
+      end,
+    },
     completion = {
       list = {
         selection = {
