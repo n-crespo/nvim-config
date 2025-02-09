@@ -25,4 +25,5 @@ return {
       },
     },
   },
+  keys = { { "<leader>snt", false } },
 }
