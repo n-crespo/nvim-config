@@ -10,25 +10,8 @@ return {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       -- disable <C-k> insert mode keymap for focusing signature help window
-      -- TODO: hello
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       keys[#keys + 1] = { "<C-K>", false, mode = "i" }
-
-      opts.diagnostics = opts.diagnostics or {}
-      opts.diagnostics.signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = "",
-          [vim.diagnostic.severity.WARN] = "",
-          [vim.diagnostic.severity.HINT] = "",
-          [vim.diagnostic.severity.INFO] = "",
-        },
-        numhl = {
-          [vim.diagnostic.severity.WARN] = "WarningMsg",
-          [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-          [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
-          [vim.diagnostic.severity.HINT] = "DiagnosticHint",
-        },
-      }
 
       -- single border for floating diagnostic window ( see in ]d and <leader>cd)
       opts.diagnostics = opts.diagnostics or {}

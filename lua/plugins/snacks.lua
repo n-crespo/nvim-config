@@ -14,7 +14,6 @@ return {
       modes = { "n" },
     },
     quickfile = { enabled = true },
-    statuscolumn = { enabled = false },
     animate = { enabled = false },
     input = { enabled = true },
     rename = { enabled = true },
