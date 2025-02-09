@@ -1,3 +1,11 @@
+vim.api.nvim_create_user_command("AttachReloadColors", function()
+  if not package.loaded["colorizer"] then
+    require("colorizer").attach_to_buffer()
+  else
+    require("colorizer").reload_all_buffers()
+  end
+end, { nargs = 0 })
+
 return {
   "catgoose/nvim-colorizer.lua",
   ft = { "css", "html", "javascript", "typescript", "lua", "json" },
@@ -41,8 +49,5 @@ return {
         end
       end,
     }):map("<leader>uH")
-
-    vim.api.nvim_create_user_command("REcolor", "lua require('colorizer').reload_all_buffers()", { nargs = 0 })
-    vim.api.nvim_create_user_command("C", "lua require('colorizer').attach_to_buffer(0)", { nargs = 0 })
   end,
 }
