@@ -3,6 +3,7 @@ return {
   "folke/which-key.nvim",
   opts = {
     preset = "helix",
+    icons = { mappings = false }, -- disable icons
     filter = function(mapping)
       -- exclude mappings without a description
       return mapping.desc and mapping.desc ~= ""
