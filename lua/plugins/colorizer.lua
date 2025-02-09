@@ -1,6 +1,6 @@
 return {
   "catgoose/nvim-colorizer.lua",
-  ft = { "css", "html", "javascript", "typescript", "lua" },
+  ft = { "css", "html", "javascript", "typescript", "lua", "json" },
   cmd = { "REcolor", "Color" },
   opts = {
     filetypes = {
