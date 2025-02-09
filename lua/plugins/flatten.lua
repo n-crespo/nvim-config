@@ -1,9 +1,9 @@
 return {
   "willothy/flatten.nvim",
-  enabled = true,
   priority = 99999,
-  config = true,
+  enabled = true,
   lazy = false,
+  config = true,
   opts = {
     window = { open = "tab" },
     hooks = {
