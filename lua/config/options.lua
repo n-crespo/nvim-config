@@ -25,7 +25,7 @@ vim.g.loaded_ruby_provider = 0 -- never use these
 vim.g.loaded_perl_provider = 0 -- never use these
 vim.g.loaded_python3_provider = 0
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 -- opt.autochdir = true -- this breaks things
 
 if LazyVim.is_win() then
