@@ -263,3 +263,17 @@ vim.keymap.set("n", "z=", spell_select, { desc = "Show spelling suggestions" })
 
 -- auto pick the first spelling suggestion and apply it
 vim.keymap.set("n", "<leader>fs", "1z=", { remap = false, silent = true, desc = "Fix Spelling under cursor" })
+
+vim.keymap.set("n", "<leader>R", function()
+  local plugins = require("lazy").plugins()
+  local plugin_names = {}
+  for _, plugin in ipairs(plugins) do
+    table.insert(plugin_names, plugin.name)
+  end
+
+  vim.ui.select(plugin_names, {
+    title = "Reload plugin",
+  }, function(selected)
+    require("lazy").reload({ plugins = { selected } })
+  end)
+end, { desc = "Reload plugin" })
