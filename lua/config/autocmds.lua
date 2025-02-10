@@ -38,8 +38,14 @@ autocmd({ "FileType", "BufRead" }, {
   pattern = { "*.pvs" },
   command = "set ft=pvs",
 })
+
 -- use c highlighting for pvs filetype
 vim.treesitter.language.register("c", "pvs")
+vim.filetype.add({
+  pattern = {
+    [".*%.pvs"] = "pvs",
+  },
+})
 
 autocmd({ "OptionSet", "BufEnter" }, {
   desc = "Enable text width only when wrap is disabled",
