@@ -419,6 +419,15 @@ local hlgroups = {
   GitSignsChange = { fg = border_purple_ink },
   GitSignsDelete = { fg = c_lotusRed0 },
   GitSignsDeletePreview = { bg = c_winterRed },
+  GitSignsDeleteInline = { link = "GitSignsDeletePreview" },
+  GitSignsDeleteLnInline = { link = "GitSignsDeletePreview" },
+  GitSignsDeleteVirtLnInLine = { link = "GitSignsDeletePreview" },
+  GitSignsChangeInline = { link = "GitSignsChangeLn" },
+  GitSignsChangeLnInline = { link = "GitSignsChangeLn" },
+  GitSignsChangeVirtLnInLine = { link = "GitSignsChangeLn" },
+  GitSignsAddInline = { link = "GitSignsAddLn" },
+  GitSignsAddLnInline = { link = "GitSignsAddLn" },
+  GitSignsAddVirtLnInLine = { link = "GitSignsAddLn" },
 
   --noice
   NoicePopupmenuSelected = { bg = selection_light_gray },
