@@ -11,6 +11,9 @@ return {
     },
   },
   keys = {
+    -- note: this assumes your terminal can recognize the <C-/> and <C-S-/> keys
+    { "<C-S-_>", nil },
+    { "<C-_>", nil },
     {
       "<C-q>",
       function()
