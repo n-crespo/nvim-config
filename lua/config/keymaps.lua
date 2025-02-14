@@ -51,6 +51,9 @@ vim.keymap.set("n", "<S-CR>", "<NOP>")
 -- search within selection by default when using / in visual mode
 vim.keymap.set("x", "/", "<Esc>/\\%V")
 
+vim.keymap.set({ "n", "x" }, "<C-p>", "<M-k>", { remap = true, silent = true })
+vim.keymap.set({ "n", "x" }, "<C-n>", "<M-j>", { remap = true, silent = true })
+
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
 -- allow changing and deleting without overriding current paste registers
@@ -78,6 +81,8 @@ vim.keymap.set(
   '"`[" . strpart(getregtype(), 0, 1) . "`]"',
   { expr = true, replace_keycodes = false, desc = "Visually select changed text" }
 )
+
+vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "Copy and comment current line" })
 
 -- --------------------------------------- WINDOWS BUFFERS AND TABS --------------------------------
 -- rotate windows
