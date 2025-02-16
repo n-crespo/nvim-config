@@ -67,8 +67,8 @@ vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste"
 vim.keymap.set("n", "X", "0D", { remap = true, desc = "Clear Line", silent = true })
 
 -- delete to register
-vim.keymap.set("v", "<leader>d", '"+d', { desc = "Cut", silent = true, remap = false })
-vim.keymap.set("n", "<leader>d", '"+dd', { desc = "Cut", silent = true })
+vim.keymap.set("v", "<leader>D", '"+d', { desc = "Delete and Cut", silent = true, remap = false })
+vim.keymap.set("n", "<leader>D", '"+dd', { desc = "Delete and Cut", silent = true })
 
 -- paste from system clipboard
 vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })

@@ -1,1 +1,1 @@
-vim.cmd([[set commentstring=//\ %s]])
+-- vim.cmd([[set commentstring=//\ %s]])

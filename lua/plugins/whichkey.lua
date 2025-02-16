@@ -28,9 +28,6 @@ return {
         mode = { "n", "v" },
         { "<R>", group = "run", icon = "" },
         { "<leader>q", group = "Close Window" },
-        -- i forced this mapping to be  hidden because it hides disabled snacks
-        -- profiler keymaps like <leader>dpp (damn you Snacks.map())
-        { "<leader>d", group = "Delete and Copy", proxy = false, hidden = true },
       },
     },
   },
@@ -51,7 +48,5 @@ return {
     { "<leader>ft", nil },
     { "<leader>fT", nil },
     { "<leader>qq", nil },
-    { "<leader>d", '"+d', desc = "Cut", silent = true, remap = false, mode = "v" },
-    { "<leader>d", '"+dd', desc = "Cut", silent = true, mode = "n" },
   },
 }
