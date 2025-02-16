@@ -19,6 +19,7 @@ autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
     vim.wo.cursorline = vim.bo.filetype ~= "snacks_dashboard"
       and vim.bo.filetype ~= "snacks_terminal"
       and vim.bo.filetype ~= "snacks_picker_input"
+      and vim.bo.filetype ~= "dap-repl"
   end,
 })
 
