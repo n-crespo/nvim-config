@@ -138,6 +138,8 @@ vim.keymap.set("n", "<leader>o", "<cmd>silent! !open %<cr>", { desc = "Open Buff
 -- completion cycling in command mode
 vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true, desc = "Next completion items" })
 vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Prev completion items" })
+vim.keymap.set("c", "<C-a>", "<Home>", { remap = true, desc = "Next completion items" })
+vim.keymap.set("c", "<C-e>", "<End>", { remap = true, desc = "Prev completion items" })
 
 -- in insert mode auto-correct the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
