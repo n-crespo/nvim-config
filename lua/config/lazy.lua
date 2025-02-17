@@ -52,7 +52,6 @@ require("lazy").setup({
         "rrhelper",
         "spellfile_plugin",
         "tohtml",
-        "tutor",
         "rplugin",
         "synmenu",
         "optwin",
