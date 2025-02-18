@@ -38,15 +38,26 @@ end
 
 -- This function tries to find the current buffer's directory. If it can't find
 -- that, it returns the previously visited buffer's directory. If it can't find
--- that either, it return the current working directory.
+-- that either, it return the current working directory. `filename` arg
+-- optionally appends the filename on the end of the path returned.
 function M.get_dir_with_fallback(filename)
   filename = filename or ""
+
+  -- Get alternate buffer directory if it exists
+  local alt_buf = vim.fn.bufexists(vim.fn.bufnr("#")) == 1
+      and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":p")
+    or nil
+
+  -- If the buffer is not a file, fallback to alternate buffer or cwd
+  if vim.api.nvim_get_option_value("buftype", { scope = "local" }) ~= "" then
+    return alt_buf or vim.uv.cwd()
+  end
+
+  -- Get directory of the current buffer or fallback
   local bufdir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
-  -- if current buffer is a terminal, use fallback dir
-  bufdir = vim.api.nvim_get_option_value("buftype", { scope = "local" }) == "terminal" and "" or bufdir
-  local dir = bufdir ~= "" and bufdir
-    or vim.fn.bufexists(vim.fn.bufnr("#")) and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":h")
-    or vim.uv.cwd()
+  local dir = bufdir ~= "" and bufdir or alt_buf or vim.uv.cwd()
+
+  -- append filename so cursor opens on current file
   return dir .. "/" .. filename
 end
 
