@@ -10,8 +10,7 @@ return {
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_math = true
       vim.g.vim_markdown_no_default_key_mappings = 0
-      vim.cmd([[map <buffer> zh <Plug>Markdown_Fold]])
-      vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]])
+      vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]]) -- disable
       vim.cmd([[imap <buffer> <S-CR> <Plug>Markdown_NewLineBelow]])
       vim.cmd([[imap <buffer> <CR> <Plug>Markdown_NewLineBelow]])
 
