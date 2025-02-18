@@ -5,6 +5,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
     end
   end,
 })
-return {
-  "mfussenegger/nvim-dap",
-}
+
+return {}
