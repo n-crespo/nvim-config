@@ -1,7 +1,10 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    zen = { enabled = true },
+    zen = {
+      enabled = true,
+      backdrop = { transparent = true, blend = 0 },
+    },
   },
   keys = {
     {
