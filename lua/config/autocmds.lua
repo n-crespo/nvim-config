@@ -36,12 +36,6 @@ autocmd({ "BufRead", "FileType" }, {
   command = "setlocal conceallevel=0",
 })
 
-autocmd({ "FileType", "BufRead" }, {
-  desc = "Set pvs filetype",
-  pattern = { "*.pvs" },
-  command = "set ft=pvs",
-})
-
 -- use c highlighting for pvs filetype
 vim.treesitter.language.register("c", "pvs")
 vim.filetype.add({
@@ -82,3 +76,20 @@ autocmd("TextYankPost", {
     copy_to_unnamed(vim.v.event.regcontents)
   end,
 })
+
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "image" },
+--   desc = "Prompt to open images",
+--   callback = function()
+-- local filename = vim.api.nvim_buf_get_name(0)
+-- vim.defer_fn(function()
+--   vim.ui.select({ "yes", "no" }, { -- Simplified options
+--     prompt = "This file seems to be an image. Open it in the system viewer?",
+--   }, function(choice)
+--     if choice == "yes" then -- Choice will now be the index (1 or 2)
+--       vim.ui.open(filename)
+--     end
+--   end)
+-- end, 0) -- Timeout of 0 milliseconds
+--   end,
+-- })
