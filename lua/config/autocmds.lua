@@ -66,16 +66,18 @@ autocmd("FileType", {
   end,
 })
 
-autocmd("TextYankPost", {
-  desc = "Sync pasting with local clipboard while ssh-ed",
-  callback = function()
-    vim.highlight.on_yank()
-    local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
-    copy_to_unnamedplus(vim.v.event.regcontents)
-    local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
-    copy_to_unnamed(vim.v.event.regcontents)
-  end,
-})
+-- autocmd("TextYankPost", {
+--   desc = "Sync pasting with local clipboard while ssh-ed",
+--   callback = function()
+--     if vim.fn.getenv("SSH_CLIENT") or vim.fn.getenv("SSH_TTY") then
+--       vim.highlight.on_yank()
+--       local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
+--       copy_to_unnamedplus(vim.v.event.regcontents)
+--       local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
+--       copy_to_unnamed(vim.v.event.regcontents)
+--     end
+--   end,
+-- })
 
 -- vim.api.nvim_create_autocmd({ "FileType" }, {
 --   pattern = { "image" },
