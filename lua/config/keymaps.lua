@@ -83,6 +83,7 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "Copy and comment current line" })
+vim.keymap.set("v", "yc", "ygvgc`>p", { remap = true, desc = "Copy and comment current line" })
 
 -- --------------------------------------- WINDOWS BUFFERS AND TABS --------------------------------
 -- rotate windows
