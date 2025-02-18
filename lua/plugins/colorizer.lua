@@ -1,9 +1,8 @@
-vim.api.nvim_create_user_command("AttachReloadColors", function()
-  if not package.loaded["colorizer"] then
-    require("colorizer").attach_to_buffer()
-  else
+vim.api.nvim_create_user_command("AttachOrReloadColors", function()
+  if package.loaded["colorizer"] then
     require("colorizer").reload_all_buffers()
   end
+  require("colorizer").attach_to_buffer(0)
 end, { nargs = 0 })
 
 return {
