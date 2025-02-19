@@ -1,7 +1,18 @@
 -- fast file system viewer, less intrusive oil.nvim
 return {
   "echasnovski/mini.files",
-  lazy = false,
+  -- lazy = false,
+  -- event = "VimEnter",
+  keys = {
+    -- open mini.files in current buffer's directory, if error is thrown fallback to cwd
+    {
+      "<leader>e",
+      function()
+        require("mini.files").open(require("custom.utils").get_dir_with_fallback(vim.fn.expand("%:t")))
+      end,
+      desc = "Explore",
+    },
+  },
   opts = {
     windows = {
       preview = true,
@@ -18,7 +29,23 @@ return {
       use_as_default_explorer = true, -- for nvim .
     },
   },
-  keys = function()
+  init = function()
+    vim.api.nvim_create_autocmd("BufEnter", {
+      desc = "Start Mini-Files with directory",
+      once = true,
+      callback = function()
+        if package.loaded["mini.files"] then
+          return
+        else
+          local stats = vim.uv.fs_stat(vim.fn.argv(0))
+          if stats and stats.type == "directory" then
+            require("mini.files").open()
+          end
+        end
+      end,
+    })
+  end,
+  config = function(_, opts)
     -- don't center motions in mini.files
     vim.api.nvim_create_autocmd({ "FileType" }, {
       pattern = { "minifiles" },
@@ -28,18 +55,7 @@ return {
         vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true })
       end,
     })
-    return {
-      -- open mini.files in current buffer's directory, if error is thrown fallback to cwd
-      {
-        "<leader>e",
-        function()
-          require("mini.files").open(require("custom.utils").get_dir_with_fallback(vim.fn.expand("%:t")))
-        end,
-        desc = "Explore",
-      },
-    }
-  end,
-  config = function(_, opts)
+
     require("mini.files").setup(opts)
 
     local show_dotfiles = true
