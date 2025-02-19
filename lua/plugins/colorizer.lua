@@ -7,24 +7,6 @@ end, { nargs = 0 })
 
 return {
   "catgoose/nvim-colorizer.lua",
-  dependencies = {
-    "folke/snacks.nvim",
-    opts = function()
-      Snacks.toggle({
-        name = "Colorizer Highlights",
-        get = function()
-          return require("colorizer").is_buffer_attached(0)
-        end,
-        set = function(state)
-          if state then
-            require("colorizer").attach_to_buffer(0)
-          else
-            require("colorizer").detach_from_buffer(0)
-          end
-        end,
-      }):map("<leader>uH")
-    end,
-  },
   ft = { "css", "html", "javascript", "typescript", "lua", "json" },
   opts = {
     filetypes = {
@@ -49,7 +31,20 @@ return {
       RGBA = false,
     },
   },
-  config = function(_, opts)
-    require("colorizer").setup(opts)
-  end,
+  keys = {
+    {
+      "<leader>uH",
+      function()
+        local attached = require("colorizer").is_buffer_attached()
+        if not attached then
+          require("colorizer").attach_to_buffer(0)
+          vim.notify("Enabled **Colorizer Highlights**", vim.log.levels.INFO, { title = "Tabs" })
+        else
+          require("colorizer").detach_from_buffer(0)
+          vim.notify("Disabled **Colorizer Highlights**", vim.log.levels.WARN, { title = "Tabs" })
+        end
+      end,
+      desc = "Toggle Colorizer",
+    },
+  },
 }
