@@ -2,7 +2,6 @@ vim.g.snacks_animate = false
 -- vim.g.snac
 return {
   "folke/snacks.nvim",
-  event = "VeryLazy",
   opts = {
     styles = {
       border = "rounded",

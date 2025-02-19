@@ -1,7 +1,7 @@
 vim.g.trouble_lualine = false
 return {
   "nvim-lualine/lualine.nvim",
-  -- event = { "BufReadPre", "BufNewFile" },
+  -- event = "LazyFile",
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus
     if vim.fn.argc(-1) > 0 then
