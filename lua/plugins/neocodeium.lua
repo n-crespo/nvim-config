@@ -32,113 +32,107 @@ function ToggleCodeiumServer()
   end
 end
 
--- allow user to use :lua ToggleCodeium()
--- _G.ToggleCodeiumCompletion = ToggleCodeiumCompletion
--- _G.ToggleCodeiumServer = ToggleCodeiumServer
-
--- start codeium when entering insert mode (FOR THE FIRST TIME)
--- vim.api.nvim_create_autocmd("InsertEnter", {
---   once = true,
---   callback = function()
---     vim.cmd([[NeoCodeium enable]])
---   end,
--- })
--- something will go here eventually???
-
+-- Enables icon in statusline showing status of AI completion
 vim.g.lualine_ai_status = true
 return {
-  "monkoose/neocodeium",
-  event = "LazyFile",
-  dependencies = {
-    "nvim-lualine/lualine.nvim",
-    opts = function(_, opts)
-      if vim.g.lualine_ai_status then
-        table.insert(opts.sections.lualine_c, 1, {
-          function()
-            local symbols = {
-              status = {
-                [0] = "󰚩 ", -- Enabled
-                [1] = "󱙺 ", -- Disabled Globally
-                [2] = "󱚧 ", -- Disabled for Buffer
-                [3] = "󱚧 ", -- Disabled for Buffer filetype
-                [4] = "󱚧 ", -- Disabled for Buffer with enabled function
-                [5] = "󱚧 ", -- Disabled for Buffer encoding
-              },
-              server_status = {
-                [0] = "󰣺 ", -- Connected
-                [1] = "󰣻 ", -- Connecting
-                [2] = "󰣽 ", -- Disconnected
-              },
-            }
-            ---@diagnostic disable-next-line: unused-local
-            local status, server_status = require("lualine_require").require("neocodeium").get_status()
-            return symbols.status[status] -- .. symbols.server_status[server_status]
-          end,
-          color = function()
-            return { fg = Snacks.util.color("Special") }
-          end,
-          padding = { left = 1 },
-        })
-      end
-    end,
-  },
-  enabled = not LazyVim.is_win(),
-  opts = {
-    max_lines = 500, -- restrict num of lines read from non-focused buffers
-    enabled = false, -- don't enable on start
-    manual = false, -- require <C-n>?
-    show_label = false, -- thing next to line numbers
-    silent = true, -- notification when server is started
-    filetypes = {
-      help = false,
-      gitcommit = false,
-      gitrebase = false,
-      TelescopePrompt = false,
-      minifiles = false,
+  {
+    "monkoose/neocodeium",
+    lazy = true,
+    enabled = not LazyVim.is_win(),
+    -- enabled = false,
+    opts = {
+      max_lines = 500, -- restrict num of lines read from non-focused buffers
+      enabled = false, -- don't enable on start
+      manual = false, -- require <C-n>?
+      show_label = false, -- thing next to line numbers
+      silent = false, -- notification when server is started
+      filetypes = {
+        help = false,
+        gitcommit = false,
+        gitrebase = false,
+        TelescopePrompt = false,
+        minifiles = false,
+        ["dap-repl"] = false,
+      },
     },
-  },
-  -- config = function(_, opts)
-  --   require("neocodeium").setup(opts)
-  -- end,
-  keys = {
-    -- toggles server (normal mode)
-    {
-      "<C-S-A>",
-      function()
-        ToggleCodeiumServer()
-      end,
-      mode = "n",
-      desc = "Toggle Codeium",
+    keys = {
+      -- toggles server (normal mode)
+      {
+        "<C-S-A>",
+        function()
+          ToggleCodeiumServer()
+        end,
+        mode = "n",
+        desc = "Toggle Codeium",
+      },
+      -- toggles completion (insert mode)
+      {
+        "<C-S-A>",
+        function()
+          ToggleCodeiumCompletion()
+        end,
+        mode = "i",
+        desc = "Toggle Codeium",
+      },
+      {
+        "<C-CR>",
+        function()
+          require("neocodeium").accept()
+        end,
+        mode = { "i" },
+      },
+      {
+        "<C-n>",
+        function()
+          require("neocodeium").cycle_or_complete()
+        end,
+        mode = "i",
+      },
+      {
+        "<C-p>",
+        function()
+          require("neocodeium").cycle_or_complete(1)
+        end,
+        mode = "i",
+      },
     },
-    -- toggles completion (insert mode)
-    {
-      "<C-S-A>",
-      function()
-        ToggleCodeiumCompletion()
+    dependencies = {
+      "nvim-lualine/lualine.nvim",
+      event = "LazyFile",
+      opts = function(_, opts)
+        if vim.g.lualine_ai_status then
+          table.insert(opts.sections.lualine_c, 1, {
+            function()
+              local symbols = {
+                status = {
+                  [0] = "󰚩 ", -- Enabled
+                  [1] = "󱙺 ", -- Disabled Globally
+                  [2] = "󱚧 ", -- Disabled for Buffer
+                  [3] = "󱚧 ", -- Disabled for Buffer filetype
+                  [4] = "󱚧 ", -- Disabled for Buffer with enabled function
+                  [5] = "󱚧 ", -- Disabled for Buffer encoding
+                },
+                server_status = {
+                  [0] = "󰣺 ", -- Connected
+                  [1] = "󰣻 ", -- Connecting
+                  [2] = "󰣽 ", -- Disconnected
+                },
+              }
+              ---@diagnostic disable-next-line: unused-local
+              if package.loaded["neocodeium"] then
+                local status, server_status = require("lualine_require").require("neocodeium").get_status()
+                return symbols.status[status] -- .. symbols.server_status[server_status]
+              else
+                return symbols.status[1] -- default to disabled icon when plugin hasn't loaded yet
+              end
+            end,
+            color = function()
+              return { fg = Snacks.util.color("Special") }
+            end,
+            padding = { left = 1 },
+          })
+        end
       end,
-      mode = "i",
-      desc = "Toggle Codeium",
-    },
-    {
-      "<C-CR>",
-      function()
-        require("neocodeium").accept()
-      end,
-      mode = { "i" },
-    },
-    {
-      "<C-n>",
-      function()
-        require("neocodeium").cycle_or_complete()
-      end,
-      mode = "i",
-    },
-    {
-      "<C-p>",
-      function()
-        require("neocodeium").cycle_or_complete(1)
-      end,
-      mode = "i",
     },
   },
 }
