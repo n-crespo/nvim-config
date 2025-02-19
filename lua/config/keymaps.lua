@@ -45,6 +45,8 @@ vim.keymap.set({ "n", "t" }, "<S-NL>", "<cmd>wincmd j<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-K>", "<cmd>wincmd k<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 
+vim.keymap.set("t", "<C-v>", "<c-\\><c-n><cmd>norm p<Cr>a", { remap = true })
+
 -- don't scroll on <S-CR>
 vim.keymap.set("n", "<S-CR>", "<NOP>")
 
