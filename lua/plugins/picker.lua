@@ -143,30 +143,6 @@ return {
       },
     },
   },
-  dependencies = {
-    "folke/todo-comments.nvim",
-    keys = {
-      {
-        "<leader>st",
-        function()
-          ---@diagnostic disable-next-line: undefined-field
-          Snacks.picker.todo_comments({ cwd = require("custom.utils").get_dir_with_fallback() })
-        end,
-        desc = "Todo",
-      },
-      {
-        "<leader>sT",
-        function()
-          ---@diagnostic disable-next-line: undefined-field
-          Snacks.picker.todo_comments({
-            keywords = { "TODO", "FIX", "FIXME" },
-            cwd = require("custom.utils").get_dir_with_fallback(),
-          })
-        end,
-        desc = "Todo/Fix/Fixme",
-      },
-    },
-  },
   keys = {
     ----------- PICKER KEYMAPS -------------
     { "<leader>gc", nil },
@@ -267,6 +243,25 @@ return {
         Snacks.picker.zoxide()
       end,
       desc = "Jump to Project",
+    },
+    {
+      "<leader>st",
+      function()
+        ---@diagnostic disable-next-line: undefined-field
+        Snacks.picker.todo_comments({ cwd = require("custom.utils").get_dir_with_fallback() })
+      end,
+      desc = "Todo",
+    },
+    {
+      "<leader>sT",
+      function()
+        ---@diagnostic disable-next-line: undefined-field
+        Snacks.picker.todo_comments({
+          keywords = { "TODO", "FIX", "FIXME" },
+          cwd = require("custom.utils").get_dir_with_fallback(),
+        })
+      end,
+      desc = "Todo/Fix/Fixme",
     },
   },
 }
