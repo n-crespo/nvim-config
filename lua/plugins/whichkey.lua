@@ -8,9 +8,6 @@ return {
       -- exclude mappings without a description
       return mapping.desc and mapping.desc ~= ""
     end,
-    triggers = {
-      { "<auto>", mode = "nso" },
-    },
     show_help = true,
     plugins = {
       marks = false,
