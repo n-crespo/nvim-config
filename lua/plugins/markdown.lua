@@ -80,4 +80,28 @@ return {
       },
     },
   },
+  {
+    "n-crespo/peek.nvim",
+    -- event = { "VeryLazy" },
+    ft = "markdown",
+    build = "deno task --quiet build:fast",
+    config = function()
+      require("peek").setup({
+        app = {
+          "/mnt/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
+          "--new-window",
+        }, -- 'webview', 'browser', string or a table of strings
+      })
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    end,
+    keys = {
+      {
+        "<leader>cp",
+        function()
+          require("peek").open()
+        end,
+      },
+    },
+  },
 }
