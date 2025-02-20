@@ -19,6 +19,7 @@ return {
     scratch = { enabled = false },
     git = { enabled = true },
     gitbrowse = { enabled = true },
+    scroll = { enabled = false },
   },
   keys = {
     { "<leader>dpp", nil },
