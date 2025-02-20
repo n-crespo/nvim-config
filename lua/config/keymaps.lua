@@ -84,8 +84,8 @@ vim.keymap.set(
   { expr = true, replace_keycodes = false, desc = "Visually select changed text" }
 )
 
-vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "Copy and comment current line" })
-vim.keymap.set("v", "yc", "ygvgc`>p", { remap = true, desc = "Copy and comment current line" })
+vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "copy and comment current line" })
+vim.keymap.set("v", "Y", "ygvgc']p", { remap = true, desc = "copy and comment current line" })
 
 -- --------------------------------------- WINDOWS BUFFERS AND TABS --------------------------------
 -- rotate windows
