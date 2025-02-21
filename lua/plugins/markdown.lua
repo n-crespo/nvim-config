@@ -97,10 +97,13 @@ return {
     end,
     keys = {
       {
-        "<leader>cp",
+        "<leader>o",
         function()
           require("peek").open()
         end,
+        desc = "Preview Markdown",
+        ft = "markdown",
+        buffer = true,
       },
     },
   },
