@@ -22,8 +22,8 @@ return {
       javascript = "node",
       java = "cd $dir && javac $fileName -d bin/ && java -cp $dir/bin/ $fileNameWithoutExt",
       cpp = {
-        "cd $dir &&",
-        "clang++ $fileName",
+        'cd "$dir" &&',
+        "g++ $fileName",
         "-o /tmp/$fileNameWithoutExt &&",
         "/tmp/$fileNameWithoutExt",
       },
