@@ -100,7 +100,7 @@ return {
             ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
             ["<c-s-/>"] = { "toggle_help", mode = { "i", "n" } },
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
-            ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<Esc>"] = { "cancel", mode = { "n", "i" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
             ["<S-CR>"] = { "edit_tab", mode = { "i", "n" } },
             ["<C-Space>"] = { "toggle_live", mode = { "i", "n" } },
