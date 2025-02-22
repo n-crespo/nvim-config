@@ -48,6 +48,9 @@ return {
         },
       },
     },
+    appearance = {
+      kind_icons = { Text = "󰉿 " },
+    },
     keymap = {
       ["<CR>"] = { "select_and_accept", "fallback" },
       ["<S-CR>"] = {},
