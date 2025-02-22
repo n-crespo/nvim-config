@@ -11,6 +11,18 @@ return {
           return { "lsp", "path", "snippets", "buffer" }
         end
       end,
+      providers = {
+        buffer = {
+          opts = {
+            -- get words from all active buffers for cmp list
+            get_bufnrs = function()
+              return vim.tbl_filter(function(bufnr)
+                return vim.bo[bufnr].buftype == ""
+              end, vim.api.nvim_list_bufs())
+            end,
+          },
+        },
+      },
     },
     completion = {
       list = {
