@@ -9,6 +9,7 @@ return {
   "catgoose/nvim-colorizer.lua",
   ft = { "css", "html", "javascript", "typescript", "lua", "json" },
   opts = {
+    lazy_load = true,
     filetypes = {
       "*",
       noice = { always_update = true },
@@ -17,7 +18,16 @@ return {
       cmp_menu = { always_update = true },
       cmp_docs = { always_update = true },
     },
+    buftypes = {
+      -- exclude prompt and popup buftypes from highlight
+      "!prompt",
+      "!popup",
+    },
     user_default_options = {
+      tailwind = true,
+      tailwind_opts = { -- Options for highlighting tailwind names
+        update_names = false, -- When using tailwind = 'both', update tailwind names from LSP results.  See tailwind section
+      },
       names_opts = { -- options for mutating/filtering names.
         lowercase = false, -- name:lower(), highlight `blue` and `red`
         camelcase = false, -- name, highlight `Blue` and `Red`
