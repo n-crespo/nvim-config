@@ -16,10 +16,7 @@ autocmd({ "BufWritePre" }, {
 autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
   desc = "Enable cursorline only in active window",
   callback = function()
-    vim.wo.cursorline = vim.bo.filetype ~= "snacks_dashboard"
-      and vim.bo.filetype ~= "snacks_terminal"
-      and vim.bo.filetype ~= "snacks_picker_input"
-      and vim.bo.filetype ~= "dap-repl"
+    vim.wo.cursorline = vim.bo.buftype == ""
   end,
 })
 
