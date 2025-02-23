@@ -17,15 +17,19 @@ M.tabline = function()
 
     -- this accounts for any floating popup windows, pickers, etc (non-editable files)
     if buftype == "prompt" or buftype == "nofile" then
-      -- get first real file in tab, use that name (not float)
-      local win_ids = vim.api.nvim_tabpage_list_wins(i)
-      for _, win_id in ipairs(win_ids) do
-        bufnr = vim.api.nvim_win_get_buf(win_id)
-        buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
+      if vim.fn.bufnr("#") ~= -1 then
+        name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.fn.bufnr("#")), ":t")
+      else
+        -- get first real file in tab, use that name (not float)
+        local win_ids = vim.api.nvim_tabpage_list_wins(i)
+        for _, win_id in ipairs(win_ids) do
+          bufnr = vim.api.nvim_win_get_buf(win_id)
+          buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
 
-        if buftype == "" then
-          name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
-          break
+          if buftype == "" then
+            name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+            break
+          end
         end
       end
     end
@@ -40,8 +44,9 @@ M.tabline = function()
       icon = ""
       name = "terminal"
     elseif name:find(".scratch") then
-      icon = ""
+      icon = ""
       name = "scratch"
+      color = "DiffChanged"
     end
 
     icon = icon ~= "" and icon .. " " -- if icon actually exists, put a space at the end
