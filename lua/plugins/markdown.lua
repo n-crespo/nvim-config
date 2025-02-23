@@ -82,7 +82,7 @@ return {
   },
   {
     "n-crespo/peek.nvim",
-    -- event = { "VeryLazy" },
+    cond = not LazyVim.is_win(),
     ft = "markdown",
     build = "deno task --quiet build:fast",
     config = function()

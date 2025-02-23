@@ -38,7 +38,7 @@ return {
   {
     "monkoose/neocodeium",
     lazy = true,
-    enabled = not LazyVim.is_win(),
+    cond = not LazyVim.is_win(),
     -- enabled = false,
     opts = {
       max_lines = 500, -- restrict num of lines read from non-focused buffers
