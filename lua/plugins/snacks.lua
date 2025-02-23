@@ -16,7 +16,9 @@ return {
     animate = { enabled = false },
     input = { enabled = true },
     rename = { enabled = true },
-    scratch = { enabled = false },
+    scratch = {
+      ft = "markdown",
+    },
     git = { enabled = true },
     gitbrowse = { enabled = true },
     scroll = { enabled = false },
@@ -25,8 +27,8 @@ return {
     { "<leader>dpp", nil },
     { "<leader>dph", nil },
     { "<leader>dps", nil },
-    { "<leader>S", nil },
-    { "<leader>.", nil },
+    -- { "<leader>S", nil },
+    -- { "<leader>.", nil },
     -- <C-.>, <C-S-/>
   },
 }
