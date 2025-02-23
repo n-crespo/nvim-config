@@ -25,6 +25,7 @@ M.tabline = function()
 
         if buftype == "" then
           name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+          break
         end
       end
     end
