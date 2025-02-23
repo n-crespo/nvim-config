@@ -152,6 +152,9 @@ vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
 
+-- folke inspired
+vim.keymap.set("n", "<C-c>", "ciw", { desc = "Change in word" })
+
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 
 -- Force save as sudo (for readonly files)
