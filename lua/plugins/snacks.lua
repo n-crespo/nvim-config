@@ -1,5 +1,12 @@
 vim.g.snacks_animate = false
--- vim.g.snac
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "scratch",
+  callback = function()
+    vim.bo.filetype = "markdown"
+  end,
+})
+-- vim.g.snack
 return {
   "folke/snacks.nvim",
   opts = {
@@ -17,7 +24,8 @@ return {
     input = { enabled = true },
     rename = { enabled = true },
     scratch = {
-      ft = "markdown",
+      ft = "scratch",
+      icon = "✏️",
     },
     git = { enabled = true },
     gitbrowse = { enabled = true },

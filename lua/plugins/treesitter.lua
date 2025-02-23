@@ -9,6 +9,7 @@ return {
       "yaml",
       "xml",
       "vimdoc",
+      "css",
     },
   },
 }

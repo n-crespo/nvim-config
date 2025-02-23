@@ -8,21 +8,30 @@ M.tabline = function()
   local tabs = {}
   for i = 1, vim.fn.tabpagenr("$") do
     local focused = i == vim.fn.tabpagenr()
+    local highlight_group = focused and "TablineSel" or "Tabline"
+
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
     local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+    local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
+    local icon, color = require("mini.icons").get("file", name)
 
-    local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-    local icon, color = require("mini.icons").get("filetype", filetype)
-
-    if name == "" then
-      name = "[]"
-      icon = ""
-    elseif name == "fish" or filetype == "snacks_terminal" or name:find("crunner_") then
+    if buftype == "nofile" then
+      icon = ""
+      name = ""
+      color = highlight_group
+    elseif name == "" then
+      icon = "󰓩"
+      name = ""
+      color = ""
+      color = highlight_group
+    elseif buftype == "terminal" then
       icon = ""
       name = "terminal"
+    elseif name:find(".scratch") then
+      icon = ""
+      name = "scratch"
     end
 
-    local highlight_group = focused and "TablineSel" or "Tabline"
     icon = icon ~= "" and icon .. " " or icon
 
     -- there's gotta be a better way to do this but it works now sooo
