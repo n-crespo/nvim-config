@@ -16,7 +16,7 @@ M.tabline = function()
     local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
 
     -- this accounts for any floating popup windows, pickers, etc (non-editable files)
-    if buftype == "prompt" or buftype == "nofile" or buftype == "terminal" then
+    if buftype == "prompt" or buftype == "nofile" or buftype == "terminal" or buftype == "quickfix" then
       if vim.fn.bufnr("#") ~= -1 then
         name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.fn.bufnr("#")), ":t")
       else
