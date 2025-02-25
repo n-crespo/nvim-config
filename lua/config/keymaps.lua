@@ -152,8 +152,13 @@ vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
 -- backspace to clear snippets
 vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
 
--- folke inspired
-vim.keymap.set("n", "<C-c>", "ciw", { desc = "Change in word" })
+-- indents
+vim.keymap.set("n", "<C-]>", ">>", { desc = "Increase Indent" })
+vim.keymap.set("n", "<C-S-Find>", "<<", { desc = "Decrease Indent" })
+vim.keymap.set("i", "<C-]>", "<C-t>", { desc = "Increase Indent" })
+vim.keymap.set("i", "<C-S-Find>", "<C-d>", { desc = "Decrease Indent" })
+vim.keymap.set("v", "<C-]>", ">", { remap = true, desc = "Increase Indent" })
+vim.keymap.set("v", "<C-S-Find>", "<", { remap = true, desc = "Decrease Indent" })
 
 -- ------------------------------------- PERMISSIONS -----------------------------------------------
 
