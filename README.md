@@ -49,6 +49,7 @@ Some cool things in this config are:
 - ripgrep
 - lazygit
 - wslu (if using WSL)
+- xclip (if using WSL)
 
 ## Install Instructions
 
