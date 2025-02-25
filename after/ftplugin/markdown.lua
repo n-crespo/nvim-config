@@ -1,4 +1,4 @@
-vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true })
+vim.keymap.set("i", "<S-Tab>", "<C-d>", { buffer = true, silent = true, desc = "Decrease Indent" })
 vim.keymap.set("i", "<C-b>", "****<left><left>", { buffer = true, silent = true })
 -- vim.cmd([[ setlocal commentstring=<!--\ %s\ --> ]])
 
