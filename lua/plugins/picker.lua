@@ -264,5 +264,9 @@ return {
       end,
       desc = "Todo/Fix/Fixme",
     },
+    {
+      "<Tab>",
+      "<C-w><C-p>",
+    },
   },
 }
