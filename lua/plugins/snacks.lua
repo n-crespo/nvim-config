@@ -27,6 +27,9 @@ return {
       ft = "scratch",
       icon = "✏️",
     },
+    lazygit = {
+      config = { os = { editPreset = "nvim" } },
+    },
     git = { enabled = true },
     gitbrowse = { enabled = true },
     scroll = { enabled = false },
