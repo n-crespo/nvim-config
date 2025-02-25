@@ -8,10 +8,9 @@ return {
       layout = {
         cycle = true,
         preset = function()
-          if vim.o.columns <= 89 and vim.o.lines <= 32 then
+          if vim.o.lines <= 23 then
             return "small"
-          end
-          if vim.o.columns <= 89 then
+          elseif vim.o.columns <= 130 then
             return "vertical"
           else
             return "default"
@@ -100,6 +99,8 @@ return {
             ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
             ["<c-s-/>"] = { "toggle_help", mode = { "i", "n" } },
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
+            ["<c-l>"] = { "layout_default", mode = { "i", "n" } },
+            ["<c-t>"] = { "trouble_open", mode = { "i", "n" } },
             ["<Esc>"] = { "cancel", mode = { "n", "i" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
             ["<S-CR>"] = { "edit_tab", mode = { "i", "n" } },
