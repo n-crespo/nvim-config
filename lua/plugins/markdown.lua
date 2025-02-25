@@ -6,15 +6,20 @@ return {
     ft = "markdown",
     config = function()
       vim.g.vim_markdown_toc_autofit = 1
-      vim.g.vim_markdown_math = true
+      vim.g.vim_markdown_math = false
       vim.g.vim_markdown_no_default_key_mappings = 1
+
       vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]]) -- disable
-      -- vim.keymap.del("n", "<tab>", { buffer = true })
       vim.cmd([[map <Plug> <Plug>Markdown_Fold]]) -- disable
+
+      vim.cmd([[imap <buffer> <Tab> <Plug>Markdown_Jump]])
+
       vim.cmd([[imap <buffer> <S-CR> <Plug>Markdown_NewLineBelow]])
       vim.cmd([[nmap <buffer> <S-CR> <Plug>Markdown_Checkbox]])
+
       vim.cmd([[nmap <buffer> o <Plug>Markdown_NewLineBelow]])
       vim.cmd([[nmap <buffer> O <Plug>Markdown_NewLineAbove]])
+
       vim.cmd([[nmap <buffer> <CR> <Plug>Markdown_FollowLink]])
       vim.cmd([[imap <buffer> <CR> <Plug>Markdown_NewLineBelow]])
 
