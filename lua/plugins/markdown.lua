@@ -1,10 +1,9 @@
 return {
   -- Use <enter> to follow markdown links (or hyperlinks) and more
   {
-    "n-crespo/nvim-markdown",
+    "ixru/nvim-markdown",
     enabled = true,
     ft = "markdown",
-    branch = "follow-anchor-links",
     config = function()
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_math = true
