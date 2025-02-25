@@ -77,9 +77,7 @@ return {
         icon = "┃",
       },
       bullet = {
-        -- icons = { "●", "○", "◆", "◇" },
-        -- icons = { "◉", "○", "✸", "✿" },
-        -- icons = { "", "○", "◆", "◇" },
+        icons = { "", "○", "◆", "◇" },
       },
       checkbox = {
         checked = { icon = "" },
