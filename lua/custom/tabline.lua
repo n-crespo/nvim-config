@@ -14,9 +14,16 @@ M.tabline = function()
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
     local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
     local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
+    local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
 
     -- this accounts for any floating popup windows, pickers, etc (non-editable files)
-    if buftype == "prompt" or buftype == "nofile" or buftype == "terminal" or buftype == "quickfix" then
+    if
+      buftype == "prompt"
+      or buftype == "nofile"
+      or buftype == "terminal"
+      or buftype == "quickfix"
+      or filetype == "snacks_picker_preview"
+    then
       if vim.fn.bufnr("#") ~= -1 then
         name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.fn.bufnr("#")), ":t")
       else
