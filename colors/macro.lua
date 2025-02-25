@@ -129,7 +129,9 @@ local hlgroups = {
   MsgArea = { fg = c_macroFg1 },
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
-  Normal = { fg = c_macroFg0 },
+  -- note: the below makes your background transparent. edit your terminal's settings
+  -- to set it to a different color, or just add something like bg = "#11111"
+  Normal = { fg = c_macroFg0, bg = nil },
   NormalFloat = { bg = nil, fg = c_macroFg1 },
   SnippetTabstop = { link = "Snippet" },
 
