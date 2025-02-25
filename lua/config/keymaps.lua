@@ -231,7 +231,9 @@ vim.keymap.set({ "n", "v" }, "-", "<C-x>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
 -- follow links better
-vim.keymap.set("n", "gx", "<cmd>sil !open <cWORD><cr>", { silent = true, desc = "Follow Link" })
+vim.keymap.set("n", "gx", function()
+  vim.ui.open(vim.fn.expand("<cfile>"))
+end, { silent = true, desc = "Follow Link" })
 
 -- Use ` to fold when in normal mode
 -- To see help about folds use `:help fold`
