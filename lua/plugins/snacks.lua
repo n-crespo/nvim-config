@@ -4,9 +4,10 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "scratch",
   callback = function()
     vim.bo.filetype = "markdown"
+    vim.b.autoformat = false
   end,
 })
--- vim.g.snack
+
 return {
   "folke/snacks.nvim",
   opts = {
@@ -38,8 +39,5 @@ return {
     { "<leader>dpp", nil },
     { "<leader>dph", nil },
     { "<leader>dps", nil },
-    -- { "<leader>S", nil },
-    -- { "<leader>.", nil },
-    -- <C-.>, <C-S-/>
   },
 }
