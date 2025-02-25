@@ -1,7 +1,7 @@
 return {
   -- Use <enter> to follow markdown links (or hyperlinks) and more
   {
-    "ixru/nvim-markdown",
+    "n-crespo/nvim-markdown",
     enabled = true,
     ft = "markdown",
     config = function()
