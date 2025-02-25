@@ -15,7 +15,8 @@ return {
       vim.cmd([[imap <buffer> <Tab> <Plug>Markdown_Jump]])
 
       vim.cmd([[imap <buffer> <S-CR> <Plug>Markdown_NewLineBelow]])
-      vim.cmd([[nmap <buffer> <S-CR> <Plug>Markdown_Checkbox]])
+      vim.cmd([[map <buffer> <C-C> <Plug>Markdown_Checkbox]])
+      vim.cmd([[imap <buffer> <C-C> <Plug>Markdown_Checkbox]])
 
       vim.cmd([[nmap <buffer> o <Plug>Markdown_NewLineBelow]])
       vim.cmd([[nmap <buffer> O <Plug>Markdown_NewLineAbove]])
@@ -53,9 +54,6 @@ return {
       latex = {
         enabled = true,
       },
-      anti_conceal = {
-        enabled = false,
-      },
       code = {
         sign = false,
         width = "block",
@@ -80,6 +78,7 @@ return {
         icons = { "", "○", "◆", "◇" },
       },
       checkbox = {
+        -- position = "overlay",
         checked = { icon = "" },
         unchecked = { icon = "" },
       },
