@@ -97,7 +97,7 @@ return {
   },
   {
     "n-crespo/peek.nvim",
-    cond = not LazyVim.is_win(),
+    cond = vim.fn.executable("deno") == 1,
     ft = "markdown",
     build = "deno task --quiet build:fast",
     config = function()
