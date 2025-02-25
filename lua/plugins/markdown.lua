@@ -48,9 +48,14 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
-      render_modes = { "n", "c", "i", "v", "V", "\x16", "t", "o" },
+      render_modes = { "n", "c", "i", "\x16", "t", "o" },
       file_types = { "markdown", "norg", "rmd", "org" },
-      latex = { enabled = false },
+      latex = {
+        enabled = true,
+      },
+      anti_conceal = {
+        enabled = false,
+      },
       code = {
         sign = false,
         width = "block",
@@ -74,7 +79,11 @@ return {
       bullet = {
         -- icons = { "●", "○", "◆", "◇" },
         -- icons = { "◉", "○", "✸", "✿" },
-        icons = { "", "○", "◆", "◇" },
+        -- icons = { "", "○", "◆", "◇" },
+      },
+      checkbox = {
+        checked = { icon = "" },
+        unchecked = { icon = "" },
       },
       indent = { enabled = false },
     },

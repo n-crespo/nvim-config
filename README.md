@@ -26,7 +26,7 @@ Some cool things in this config are:
   - `<C-S-C>` to get word count
   - `<C-S-S>` to clean Windows generated `^M` chars
 - [my markdown config](./lua/plugins/markdown.lua)
-  - follow all types of links with Enter
+  - follow all types of links with `<CR>`
   - render things nicely, generate TOC, etc
 - my snacks.nvim [picker](./lua/plugins/picker.lua) and [terminal](./lua/plugins/terminal.lua) config
 - the ~31ms startup time
