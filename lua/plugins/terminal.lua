@@ -1,10 +1,6 @@
 -- use the $SHELL env variable or fish
 vim.g.shell = vim.fn.has("wsl") ~= 0 and "fish" or vim.o.shell
 
-if LazyVim.is_win() then
-  LazyVim.terminal.setup("pwsh")
-end
-
 return {
   "folke/snacks.nvim",
   opts = {

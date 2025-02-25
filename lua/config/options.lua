@@ -28,6 +28,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 -- opt.autochdir = true -- this breaks things
 
+if LazyVim.is_win() then
+  LazyVim.terminal.setup("pwsh")
+end
+
 --- for some reason this doesn't work unless I specify `== 1`???
 -- if vim.fn.has("wsl") == 1 then
 --   ---@diagnostic disable-next-line: undefined-field
