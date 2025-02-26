@@ -21,10 +21,26 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { {} },
+        lualine_a = {},
         ---@diagnostic disable-next-line: assign-type-mismatch
         lualine_b = { LazyVim.lualine.root_dir({ cwd = true }) },
         lualine_c = {
+          {
+            function()
+              return ""
+            end,
+            padding = { right = 0, left = 1 },
+            color = function()
+              return { fg = Snacks.util.color("Comment") }
+            end,
+          },
+          {
+            "hostname",
+            padding = { right = 1, left = 1 },
+            color = function()
+              return { fg = Snacks.util.color("Comment") }
+            end,
+          },
           {
             "diagnostics",
             symbols = {
