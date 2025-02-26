@@ -42,6 +42,7 @@ local c_macroGray1           = "#9E9B93"
 local c_macroGray2           = "#7A8382"
 local c_macroGreen0          = "#87A987"
 local c_macroGreen1          = "#8A9A7B"
+local c_macroGreen2          = "#2f3b2a"
 local c_macroOrange0         = "#B6927B"
 local c_macroOrange1         = "#B98D7B"
 local c_macroPink            = "#A292A3"
@@ -62,6 +63,7 @@ local c_winterBlue           = "#252535"
 local c_winterGreen          = "#2E322D"
 local c_winterRed            = "#43242B"
 local c_winterYellow         = "#322E29"
+local c_winterPurple         = "#292E42"
 -- stylua: ignore end
 -- }}}
 
@@ -230,12 +232,12 @@ local hlgroups = {
   ["@markup.strong"] = { link = "markdownBold" },
   ["@markup.italic.markdown_inline"] = { italic = true },
   ["@markup.heading"] = { link = "Function" },
-  ["@markup.heading.1.markdown"] = { fg = c_macroRed },
-  ["@markup.heading.2.markdown"] = { fg = c_macroRed },
-  ["@markup.heading.3.markdown"] = { fg = c_macroRed },
-  ["@markup.heading.4.markdown"] = { fg = c_macroRed },
-  ["@markup.heading.5.markdown"] = { fg = c_macroRed },
-  ["@markup.heading.6.markdown"] = { fg = c_macroRed },
+  ["@markup.heading.1.markdown"] = { fg = c_springBlue, bold = true },
+  ["@markup.heading.2.markdown"] = { fg = c_autumnYellow, bold = true },
+  ["@markup.heading.3.markdown"] = { fg = c_springGreen, bold = true },
+  ["@markup.heading.4.markdown"] = { fg = c_autumnGreen, bold = true },
+  ["@markup.heading.5.markdown"] = { fg = c_springViolet, bold = true },
+  ["@markup.heading.6.markdown"] = { fg = c_macroViolet, bold = true },
   ["@markup.heading.1.marker.markdown"] = { link = "Delimiter" },
   ["@markup.heading.2.marker.markdown"] = { link = "Delimiter" },
   ["@markup.heading.3.marker.markdown"] = { link = "Delimiter" },
@@ -516,6 +518,12 @@ local hlgroups = {
   -- render markdown
   RenderMarkdownCode = { bg = c_macroBg2 },
   RenderMarkdownBullet = { fg = c_macroTeal },
+  RenderMarkdownH1Bg = { bg = c_waveBlue0 },
+  RenderMarkdownH2Bg = { bg = c_winterYellow },
+  RenderMarkdownH3Bg = { bg = c_winterGreen },
+  RenderMarkdownH4Bg = { bg = c_macroGreen2 },
+  RenderMarkdownH5Bg = { bg = c_winterPurple },
+  RenderMarkdownH6Bg = { bg = c_winterPurple },
   -- }}}
 }
 -- }}}1
