@@ -33,12 +33,18 @@ return {
             color = function()
               return { fg = Snacks.util.color("Comment") }
             end,
+            cond = function()
+              return os.getenv("SSH_CONNECTION") ~= nil
+            end,
           },
           {
             "hostname",
-            padding = { right = 1, left = 1 },
+            padding = { right = 0, left = 1 },
             color = function()
               return { fg = Snacks.util.color("Comment") }
+            end,
+            cond = function()
+              return os.getenv("SSH_CONNECTION") ~= nil
             end,
           },
           {

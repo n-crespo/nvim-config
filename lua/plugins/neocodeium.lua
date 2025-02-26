@@ -129,7 +129,7 @@ return {
             color = function()
               return { fg = Snacks.util.color("Special") }
             end,
-            padding = { left = 0 },
+            padding = { left = 1 },
           })
         end
       end,
