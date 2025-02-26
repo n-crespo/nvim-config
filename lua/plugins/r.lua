@@ -2,7 +2,7 @@ return {
   "R-nvim/R.nvim",
   ft = { "r", "rmarkdown", "rmd" },
   lazy = true,
-  cond = not LazyVim.is_win(),
+  cond = vim.fn.executable("R") == 1,
   opts = {
     pipe_keymap = "",
     R_args = { "--quiet", "--no-save" },
