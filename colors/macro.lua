@@ -105,7 +105,7 @@ local hlgroups = {
   DiffAdded = { fg = c_autumnGreen },
   DiffChange = { bg = c_winterBlue },
   DiffChanged = { fg = c_autumnYellow },
-  DiffDelete = { bg = selection_light_gray },
+  DiffDelete = { bg = c_winterRed },
   DiffDeleted = { fg = c_autumnRed },
   DiffNewFile = { fg = c_autumnGreen },
   DiffOldFile = { fg = c_autumnRed },
