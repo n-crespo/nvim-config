@@ -31,8 +31,8 @@ return {
             vim.cmd([[Toc]])
             vim.opt_local.number = false
             vim.opt_local.relativenumber = false
-            -- vim.keymap.set("n", "<CR>", "<cr>:lcl<cr>", { buffer = true })
-          end, { buffer = true, silent = true, desc = "Table of Contents (Symbols)" })
+            vim.keymap.set("n", "<S-CR>", "<cr>:lcl<cr>", { buffer = true })
+          end, { buffer = true, silent = true, desc = "Select and Close TOC" })
         end,
       })
     end,
