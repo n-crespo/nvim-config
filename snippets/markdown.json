@@ -1,7 +1,7 @@
 {
   "Insert c++ code": {
-    "prefix": "cpp",
-    "body": ["```cpp", "$0", "```"],
+    "prefix": "cbcpp",
+    "body": ["```cpp", "${1: }", "```"],
     "description": "Insert fenced C++ code block"
   },
   "Insert code block": {
