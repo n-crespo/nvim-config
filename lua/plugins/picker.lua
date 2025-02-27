@@ -266,7 +266,7 @@ return {
     },
     {
       "<Tab>",
-      "<C-w><C-p>",
+      "<C-w><C-p>", -- this fixes <tab> in preview window
     },
   },
 }
