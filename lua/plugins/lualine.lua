@@ -32,7 +32,7 @@ return {
               end
               return ""
             end,
-            padding = { right = 0, left = 1 },
+            padding = { right = 1, left = 1 },
             color = function()
               return { fg = Snacks.util.color("Comment") }
             end,
@@ -42,13 +42,14 @@ return {
           },
           {
             "hostname",
-            padding = { right = 0, left = 1 },
+            padding = { right = 0, left = 0 },
             color = function()
               return { fg = Snacks.util.color("Comment") }
             end,
             cond = function()
               return os.getenv("SSH_CONNECTION") ~= nil
             end,
+            always_visible = true,
           },
           {
             "diagnostics",
@@ -58,7 +59,7 @@ return {
               info = LazyVim.config.icons.diagnostics.Info,
               hint = LazyVim.config.icons.diagnostics.Hint,
             },
-            padding = { left = 1, right = 1 },
+            padding = { left = 1, right = 0 },
           },
           {
             require("lualine_require").require("lazy.status").updates,
