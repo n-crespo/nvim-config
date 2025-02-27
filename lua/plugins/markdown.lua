@@ -53,7 +53,7 @@ return {
       render_modes = { "n", "c", "i", "\x16", "t", "o" },
       file_types = { "markdown", "norg", "rmd", "org" },
       latex = {
-        enabled = true,
+        enabled = false,
       },
       code = {
         sign = false,
@@ -97,6 +97,7 @@ return {
     },
   },
   {
+    -- preview markdown
     "n-crespo/peek.nvim",
     cond = vim.fn.executable("deno") == 1,
     ft = "markdown",
