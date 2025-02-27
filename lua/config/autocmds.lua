@@ -64,6 +64,15 @@ autocmd("FileType", {
   end,
 })
 
+-- https://github.com/neovim/neovim/issues/8587#issuecomment-2439415252
+vim.api.nvim_create_autocmd("QuitPre", {
+  callback = function()
+    if LazyVim.is_win() then
+      os.execute('del /Q "%LOCALAPPDATA%\\nvim-data\\shada\\main.shada.tmp.*"')
+    end
+  end,
+})
+
 -- autocmd("TextYankPost", {
 --   desc = "Sync pasting with local clipboard while ssh-ed",
 --   callback = function()
