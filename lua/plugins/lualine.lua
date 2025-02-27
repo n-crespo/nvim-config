@@ -27,6 +27,9 @@ return {
         lualine_c = {
           {
             function()
+              if LazyVim.is_win() then
+                return ""
+              end
               return ""
             end,
             padding = { right = 0, left = 1 },
@@ -34,7 +37,7 @@ return {
               return { fg = Snacks.util.color("Comment") }
             end,
             cond = function()
-              return os.getenv("SSH_CONNECTION") ~= nil
+              return os.getenv("SSH_CONNECTION") ~= nil or LazyVim.is_win()
             end,
           },
           {

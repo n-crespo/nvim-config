@@ -29,7 +29,7 @@ vim.g.maplocalleader = "\\"
 -- opt.autochdir = true -- this breaks things
 
 if LazyVim.is_win() then
-  LazyVim.terminal.setup("pwsh")
+  LazyVim.terminal.setup("pwsh -NoLogo")
 end
 
 --- for some reason this doesn't work unless I specify `== 1`???
