@@ -31,8 +31,13 @@ return {
             vim.cmd([[Toc]])
             vim.opt_local.number = false
             vim.opt_local.relativenumber = false
-            vim.keymap.set("n", "<S-CR>", "<cr>:lcl<cr>", { buffer = true })
-          end, { buffer = true, silent = true, desc = "Select and Close TOC" })
+            vim.keymap.set(
+              "n",
+              "<S-CR>",
+              "<cr>:silent! lcl<cr>",
+              { buffer = true, silent = true, desc = "Select and Close TOC" }
+            )
+          end, { desc = "Symbols (Markdown TOC)" })
         end,
       })
     end,
