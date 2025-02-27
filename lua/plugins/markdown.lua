@@ -23,24 +23,20 @@ return {
 
       vim.cmd([[nmap <buffer> <CR> <Plug>Markdown_FollowLink]])
       vim.cmd([[imap <buffer> <CR> <Plug>Markdown_NewLineBelow]])
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
-        callback = function()
-          vim.keymap.set("n", "<leader>cs", function()
-            vim.cmd([[Toc]])
-            vim.opt_local.number = false
-            vim.opt_local.relativenumber = false
-            vim.keymap.set(
-              "n",
-              "<S-CR>",
-              "<cr>:silent! lcl<cr>",
-              { buffer = true, silent = true, desc = "Select and Close TOC" }
-            )
-          end, { desc = "Symbols (Markdown TOC)" })
-        end,
-      })
     end,
+    keys = {
+      {
+        "<leader>cs",
+        function()
+          vim.cmd([[Toc]])
+          vim.wo.number = false
+          vim.wo.relativenumber = false
+        end,
+        desc = "Symbols (Markdown TOC)",
+        ft = "markdown",
+        buffer = true,
+      },
+    },
   },
   {
     "stevearc/conform.nvim",

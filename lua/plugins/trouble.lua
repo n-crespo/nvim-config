@@ -7,5 +7,13 @@ return {
     { "<leader>xT", nil },
     { "<leader>xq", nil },
     { "<leader>xQ", nil },
+    {
+      "<S-CR>",
+      "o",
+      desc = "Select and Close",
+      remap = true,
+      ft = "trouble",
+      buffer = true,
+    },
   },
 }
