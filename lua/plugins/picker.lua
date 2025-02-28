@@ -241,7 +241,11 @@ return {
     {
       "<leader>j",
       function()
-        Snacks.picker.zoxide()
+        if vim.fn.executable("zoxide") == 1 then
+          Snacks.picker.zoxide()
+        else
+          vim.notify("Zoxide is not installed", vim.log.levels.WARN)
+        end
       end,
       desc = "Jump to Project",
     },
