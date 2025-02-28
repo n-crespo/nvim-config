@@ -57,6 +57,9 @@ function M.get_dir_with_fallback(filename)
   local bufdir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
   local dir = bufdir ~= "" and bufdir or alt_buf or vim.uv.cwd()
 
+  -- file opened may be unsaved, if so ignore filename
+  filename = vim.uv.fs_stat(bufdir .. "/" .. filename) and filename or ""
+
   -- append filename so cursor opens on current file
   return dir .. "/" .. filename
 end
