@@ -93,7 +93,8 @@ return {
         input = {
           keys = {
             -- custom
-            ["<S-Tab>"] = { "", mode = { "i", "n" } },
+            ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
+            ["<S-CR>"] = { "edit_tab", mode = { "i", "n" } },
             ["<C-a>"] = { "", mode = { "i", "n" } },
             ["<C-p>"] = { "history_back", mode = { "i", "n" } },
             ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
@@ -102,8 +103,7 @@ return {
             ["<c-l>"] = { "layout_default", mode = { "i", "n" } },
             ["<c-t>"] = { "trouble_open", mode = { "i", "n" } },
             ["<Esc>"] = { "cancel", mode = { "n", "i" } },
-            ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
-            ["<S-CR>"] = { "edit_tab", mode = { "i", "n" } },
+            ["<S-Tab>"] = { "cycle_win", mode = { "i", "n" } },
             ["<C-Space>"] = { "toggle_live", mode = { "i", "n" } },
             ["<c-s>"] = { "edit_split", mode = { "i", "n" } },
 
@@ -135,6 +135,7 @@ return {
         -- preview window
         preview = {
           keys = {
+            ["<S-Tab>"] = { "focus_input" },
             ["<Tab>"] = { "focus_input" },
             ["<Esc>"] = "close",
             ["i"] = "focus_input",
@@ -269,7 +270,7 @@ return {
       desc = "Todo/Fix/Fixme",
     },
     {
-      "<Tab>",
+      "<S-Tab>",
       "<C-w><C-p>", -- this fixes <tab> in preview window
     },
   },
