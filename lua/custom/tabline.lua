@@ -42,6 +42,7 @@ M.tabline = function()
     end
 
     icon, color = require("mini.icons").get("file", name)
+    color = focused and color or focus_hl
 
     if name == "" then -- this is for empty new tabs
       icon = ""
