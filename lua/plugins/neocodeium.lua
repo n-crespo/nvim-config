@@ -125,20 +125,11 @@ return {
                   status = {
                     [0] = "󰚩 ", -- Enabled
                     [1] = "󱙺 ", -- Disabled Globally
-                    [2] = "󱚧 ", -- Disabled for Buffer
-                    [3] = "󱚧 ", -- Disabled for Buffer filetype
-                    [4] = "󱚧 ", -- Disabled for Buffer with enabled function
-                    [5] = "󱚧 ", -- Disabled for Buffer encoding
-                  },
-                  server_status = {
-                    [0] = "󰣺 ", -- Connected
-                    [1] = "󰣻 ", -- Connecting
-                    [2] = "󰣽 ", -- Disconnected
                   },
                 }
                 ---@diagnostic disable-next-line: unused-local
                 if package.loaded["neocodeium"] then
-                  local status, server_status = require("lualine_require").require("neocodeium").get_status()
+                  local status, _ = require("lualine_require").require("neocodeium").get_status()
                   return symbols.status[status] -- .. symbols.server_status[server_status]
                 else
                   return symbols.status[1] -- default to disabled icon when plugin hasn't loaded yet
