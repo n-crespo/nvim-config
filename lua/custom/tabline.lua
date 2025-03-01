@@ -42,7 +42,6 @@ M.tabline = function()
     end
 
     icon, color = require("mini.icons").get("file", name)
-    color = focused and color or focus_hl
 
     if name == "" then -- this is for empty new tabs
       icon = ""
@@ -54,6 +53,7 @@ M.tabline = function()
       color = "DiffChanged"
     end
 
+    color = focused and color or focus_hl
     icon = icon ~= "" and icon .. " " -- if icon actually exists, put a space at the end
 
     -- there's gotta be a better way to do this but it works now sooo
