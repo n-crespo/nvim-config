@@ -97,42 +97,61 @@ return {
       },
     },
     dependencies = {
-      "nvim-lualine/lualine.nvim",
-      event = "LazyFile",
-      opts = function(_, opts)
-        if vim.g.lualine_ai_status then
-          table.insert(opts.sections.lualine_c, 3, {
-            function()
-              local symbols = {
-                status = {
-                  [0] = "󰚩 ", -- Enabled
-                  [1] = "󱙺 ", -- Disabled Globally
-                  [2] = "󱚧 ", -- Disabled for Buffer
-                  [3] = "󱚧 ", -- Disabled for Buffer filetype
-                  [4] = "󱚧 ", -- Disabled for Buffer with enabled function
-                  [5] = "󱚧 ", -- Disabled for Buffer encoding
-                },
-                server_status = {
-                  [0] = "󰣺 ", -- Connected
-                  [1] = "󰣻 ", -- Connecting
-                  [2] = "󰣽 ", -- Disconnected
-                },
-              }
-              ---@diagnostic disable-next-line: unused-local
-              if package.loaded["neocodeium"] then
-                local status, server_status = require("lualine_require").require("neocodeium").get_status()
-                return symbols.status[status] -- .. symbols.server_status[server_status]
-              else
-                return symbols.status[1] -- default to disabled icon when plugin hasn't loaded yet
-              end
-            end,
-            color = function()
-              return { fg = Snacks.util.color("Special") }
-            end,
-            padding = { left = 1 },
-          })
-        end
-      end,
+      {
+        -- make ghost text show AI when neocodeium is loaded, else regular completions.
+        "saghen/blink.cmp",
+        opts = {
+          completion = {
+            ghost_text = {
+              enabled = function()
+                if package.loaded["neocodeium"] ~= nil then
+                  local plugin, _ = require("neocodeium").get_status()
+                  return plugin ~= 0
+                end
+                return true
+              end,
+            },
+          },
+        },
+      },
+      {
+        "nvim-lualine/lualine.nvim",
+        event = "LazyFile",
+        opts = function(_, opts)
+          if vim.g.lualine_ai_status then
+            table.insert(opts.sections.lualine_c, 3, {
+              function()
+                local symbols = {
+                  status = {
+                    [0] = "󰚩 ", -- Enabled
+                    [1] = "󱙺 ", -- Disabled Globally
+                    [2] = "󱚧 ", -- Disabled for Buffer
+                    [3] = "󱚧 ", -- Disabled for Buffer filetype
+                    [4] = "󱚧 ", -- Disabled for Buffer with enabled function
+                    [5] = "󱚧 ", -- Disabled for Buffer encoding
+                  },
+                  server_status = {
+                    [0] = "󰣺 ", -- Connected
+                    [1] = "󰣻 ", -- Connecting
+                    [2] = "󰣽 ", -- Disconnected
+                  },
+                }
+                ---@diagnostic disable-next-line: unused-local
+                if package.loaded["neocodeium"] then
+                  local status, server_status = require("lualine_require").require("neocodeium").get_status()
+                  return symbols.status[status] -- .. symbols.server_status[server_status]
+                else
+                  return symbols.status[1] -- default to disabled icon when plugin hasn't loaded yet
+                end
+              end,
+              color = function()
+                return { fg = Snacks.util.color("Special") }
+              end,
+              padding = { left = 1 },
+            })
+          end
+        end,
+      },
     },
   },
 }

@@ -31,9 +31,6 @@ return {
           auto_insert = false,
         },
       },
-      ghost_text = {
-        enabled = package.loaded["neocodeium"],
-      },
       menu = {
         auto_show = true,
         draw = {
