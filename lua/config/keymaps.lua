@@ -36,8 +36,8 @@ end, { desc = "Start of line", silent = true })
 -- better scrolling with mouse
 vim.keymap.set("n", "<ScrollWheelUp>", "<C-y>")
 vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
-vim.keymap.set("n", "<M-ScrollWheelUp>", "zl") -- left scroll
-vim.keymap.set("n", "<M-ScrollWheelDown>", "zh") -- right scroll
+vim.keymap.set("n", "<M-ScrollWheelUp>", "zh") -- left scroll
+vim.keymap.set("n", "<M-ScrollWheelDown>", "zl") -- right scroll
 
 -- <C-S-J> as  <C-j>
 vim.keymap.set({ "n", "t" }, "<C-S-H>", "<cmd>wincmd h<cr>")
@@ -192,15 +192,12 @@ for _, v in ipairs(abbrevations) do
 end
 
 vim.cmd("cnoreabbrev Set  set")
-vim.cmd("cnoreabbrev Wq wq")
-vim.cmd("cnoreabbrev WQ wq")
-vim.cmd("cnoreabbrev X LazyExtras")
-
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
 vim.api.nvim_create_user_command("E", "e", { nargs = 0 })
 vim.api.nvim_create_user_command("Q", "qa", { nargs = 0 })
 vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
 vim.api.nvim_create_user_command("WQ", "wq", { nargs = 0 })
+vim.api.nvim_create_user_command("X", "LazyExtras", { nargs = 0 })
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
