@@ -38,9 +38,8 @@ end
 
 -- This function tries to find the current buffer's directory. If it can't find
 -- that, it returns the previously visited buffer's directory. If it can't find
--- that either, it return the current working directory. `filename` arg
--- optionally appends the filename on the end of the path returned.
----@param filename? string
+-- that either, it return the current working directory.
+---@param filename? string filename top optionally append to resulting path
 function M.get_dir_with_fallback(filename)
   filename = filename or ""
 
