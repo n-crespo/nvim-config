@@ -29,33 +29,33 @@ function M.tabline()
     local focus_hl = focused and "TablineSel" or "Tabline"
 
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
-    local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
 
     if M.should_populate(bufnr) or M.cached_tabline[i] == nil then
-      local icon, color = require("mini.icons").get("file", name)
+      local icon, icon_hl = require("mini.icons").get("file", filename)
 
-      if name == "" then -- this is for empty new tabs
+      if filename == "" then -- this is for empty new tabs
         icon = ""
-        name = ""
-        color = focus_hl
-      elseif name:find(".scratch") then
+        filename = ""
+        icon_hl = focus_hl
+      elseif filename:find(".scratch") then
         icon = ""
-        name = "scratch"
-        color = "DiffChanged"
+        filename = "scratch"
+        icon_hl = "DiffChanged"
       end
 
-      color = focused and color or focus_hl
+      icon_hl = focused and icon_hl or focus_hl
       icon = icon ~= "" and icon .. " " -- if icon exists, add space
 
       M.cached_tabline[i] = {
-        focusedhl = focus_hl,
-        iconhl = color,
+        focus_hl = focus_hl,
+        icon_hl = icon_hl,
         icon = icon,
-        filename = name,
+        filename = filename,
       }
     else
       -- Update only the focus_hl
-      M.cached_tabline[i].focusedhl = focus_hl
+      M.cached_tabline[i].focus_hl = focus_hl
     end
   end
 
@@ -66,12 +66,12 @@ function M.tabline()
       formatted_tabs,
       string.format(
         "%%#%s#%%#%s#%s%%#%s#%s%%#%s#",
-        tab.focusedhl,
-        tab.iconhl,
+        tab.focus_hl,
+        tab.icon_hl,
         tab.icon,
-        tab.focusedhl,
+        tab.focus_hl,
         tab.filename,
-        tab.focusedhl
+        tab.focus_hl
       )
     )
   end
