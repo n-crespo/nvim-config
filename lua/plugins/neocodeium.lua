@@ -1,5 +1,6 @@
 -- refresh lualine whenever codeium server does something or plugin itself
 -- is disabled
+
 vim.api.nvim_create_autocmd("User", {
   pattern = { "NeoCodeiumServer*", "NeoCodeium*{En,Dis}abled" },
   callback = function()
@@ -7,28 +8,30 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
--- when in insert mode, toggle completion only
-function ToggleCodeiumCompletion()
-  local plugin, _ = require("neocodeium").get_status()
-  if plugin > 0 then -- (completion is disabled)
-    vim.cmd([[NeoCodeium enable]])
-    vim.notify("Codeium completion enabled", vim.log.levels.INFO, { title = "Codeium" })
-  else -- (completion is enabled)
-    vim.cmd([[NeoCodeium disable]]) -- disable completion
-    require("neocodeium").clear()
-    vim.notify("Codeium completion disabled", vim.log.levels.WARN, { title = "Codeium" })
-  end
-end
+-- Toggle Codeium Completion, in buffer or global scope.
+---@param opts? {scope: "global"|"buffer"}
+function ToggleCodeium(opts)
+  opts = opts or { scope = "global" }
 
--- when in normal mode, keymap toggle servers
-function ToggleCodeiumServer()
-  local _, server = require("neocodeium").get_status()
-  if server == 2 then
-    vim.cmd([[NeoCodeium enable]])
-    vim.notify("NeoCodeium: server started", vim.log.levels.INFO, { title = "Codeium" })
-  elseif server == 0 then
-    vim.cmd([[silent! NeoCodeium! disable]])
-    vim.notify("NeoCodeium: server halted", vim.log.levels.WARN, { title = "Codeium" })
+  local notify_opts = { title = "Codeium" }
+  local commands = require("neocodeium.commands")
+  local status, server = require("neocodeium").get_status()
+
+  if server == 2 or status > 0 then -- server of plugin is disabled
+    commands.enable()
+    commands.enable_buffer()
+    vim.notify("NeoCodeium: enabled", vim.log.levels.INFO, notify_opts)
+    if opts.scope == "buffer" then
+      vim.notify("NeoCodeium: enabled in buffer", vim.log.levels.INFO, notify_opts)
+    end
+  elseif server == 0 then -- server running
+    if opts.scope == "buffer" then
+      commands.disable_buffer() -- stop the server
+      vim.notify("NeoCodeium: disabled in buffer", vim.log.levels.WARN, notify_opts)
+    else
+      commands.disable(true)
+      vim.notify("NeoCodeium: disabled", vim.log.levels.WARN, notify_opts)
+    end
   end
 end
 
@@ -39,7 +42,6 @@ return {
     "monkoose/neocodeium",
     lazy = true,
     cond = not LazyVim.is_win(),
-    -- enabled = false,
     opts = {
       max_lines = 500, -- restrict num of lines read from non-focused buffers
       enabled = false, -- don't enable on start
@@ -60,7 +62,7 @@ return {
       {
         "<C-S-A>",
         function()
-          ToggleCodeiumServer()
+          ToggleCodeium({ scope = "global" })
         end,
         mode = "n",
         desc = "Toggle Codeium",
@@ -69,7 +71,7 @@ return {
       {
         "<C-S-A>",
         function()
-          ToggleCodeiumCompletion()
+          ToggleCodeium({ scope = "buffer" })
         end,
         mode = "i",
         desc = "Toggle Codeium",
@@ -125,6 +127,10 @@ return {
                   status = {
                     [0] = "󰚩 ", -- Enabled
                     [1] = "󱙺 ", -- Disabled Globally
+                    [2] = "󱚧 ", -- Disabled for Buffer
+                    [3] = "󱚧 ", -- Disabled for Buffer filetype
+                    [4] = "󱚧 ", -- Disabled for Buffer with enabled function
+                    [5] = "󱚧 ", -- Disabled for Buffer encoding
                   },
                 }
                 ---@diagnostic disable-next-line: unused-local
