@@ -143,7 +143,8 @@ local hlgroups = {
   PmenuSbar = { bg = c_macroBg2 },
   PmenuSel = { bg = selection_light_gray },
   PmenuThumb = { bg = c_macroBg5 },
-  PmenuExtra = { bg = nil, fg = c_macroAsh },
+  PmenuExtra = { bg = nil, fg = nil },
+  PmenuKind = { bg = nil, fg = nil },
   Question = { link = "MoreMsg" },
   QuickFixLine = { bg = c_macroBg3 },
   Search = { bg = selection_light_gray },
@@ -377,8 +378,6 @@ local hlgroups = {
   qfLineNr = { link = "lineNr" },
   -- }}}
 
-  -- BlinkCmpCompletionSel = { bg = c_waveBlue1, fg = "NONE" },
-  -- BlinkCmpCompletionThumb = { link = "PmenuThumb" },
   -- Plugins {{{2
   -- nvim-cmp
   BlinkCmpCompletion = { link = "Pmenu" },
@@ -524,7 +523,7 @@ local hlgroups = {
   RenderMarkdownH4Bg = { bg = c_macroGreen2 },
   RenderMarkdownH5Bg = { bg = c_winterPurple },
   RenderMarkdownH6Bg = { bg = c_winterPurple },
-  -- }}}
+  -- }}}2
 }
 -- }}}1
 
