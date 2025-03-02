@@ -135,6 +135,7 @@ return {
         -- preview window
         preview = {
           keys = {
+            ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<S-Tab>"] = { "focus_input" },
             ["<Tab>"] = { "focus_input" },
             ["<Esc>"] = "close",
