@@ -493,7 +493,6 @@ local hlgroups = {
   MiniFilesTitle = { bg = nil, fg = c_macroFg2 },
   MiniFilesDirectory = { fg = c_macroBlue1 },
   MiniFilesTitleFocused = { bg = nil, fg = c_macroFg2 },
-  MiniFilesCursorLine = { bg = c_macroBg0 },
   MiniFilesBorder = { link = "FloatBorder" },
 
   -- incline
