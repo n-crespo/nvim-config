@@ -27,6 +27,7 @@ return {
     scratch = {
       ft = "scratch",
       icon = "✏️",
+      win = { zindex = 50 },
     },
     lazygit = {
       config = { os = { editPreset = "nvim" } },
