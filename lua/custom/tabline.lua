@@ -2,65 +2,81 @@
 -- (vim-style "tabs", see :h tabs)
 local M = {}
 
-M.tabline = function()
-  -- this could have potentially been done with the "tabs" lualine
-  -- component rather than doing it manually buuuuut the builtin one is weird
-  local tabs = {}
+---@param bufnr integer bufnr of some buffer
+function M.should_populate(bufnr)
+  local ignored_buftypes = { "prompt", "nofile", "terminal", "quickfix" }
+  local ignored_filetypes = { "snacks_picker_preview" }
+
+  local buftype = vim.bo[bufnr].buftype
+  local filetype = vim.bo[bufnr].filetype
+
+  return not vim.tbl_contains(ignored_buftypes, buftype) and not vim.tbl_contains(ignored_filetypes, filetype)
+end
+
+---@param bufnr integer bufnr of some buffer
+function M.get_name(bufnr)
+  return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+end
+
+M.cached_tabline = {}
+
+function M.tabline()
+  -- Remove tabs that have been closed
+  M.cached_tabline = { unpack(M.cached_tabline or {}, 1, vim.fn.tabpagenr("$")) }
+
   for i = 1, vim.fn.tabpagenr("$") do
-    local icon, color
     local focused = i == vim.fn.tabpagenr()
     local focus_hl = focused and "TablineSel" or "Tabline"
 
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
     local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
-    local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
-    local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
 
-    -- this accounts for any floating popup windows, pickers, etc (non-editable files)
-    if
-      buftype == "prompt"
-      or buftype == "nofile"
-      or buftype == "terminal"
-      or buftype == "quickfix"
-      or filetype == "snacks_picker_preview"
-    then
-      if vim.fn.bufnr("#") ~= -1 then
-        name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.fn.bufnr("#")), ":t")
-      else
-        -- get first real file in tab, use that name (not float)
-        local win_ids = vim.api.nvim_tabpage_list_wins(i)
-        for _, win_id in ipairs(win_ids) do
-          bufnr = vim.api.nvim_win_get_buf(win_id)
-          buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
+    if M.should_populate(bufnr) or M.cached_tabline[i] == nil then
+      local icon, color = require("mini.icons").get("file", name)
 
-          if buftype == "" then
-            name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
-            break
-          end
-        end
+      if name == "" then -- this is for empty new tabs
+        icon = ""
+        name = ""
+        color = focus_hl
+      elseif name:find(".scratch") then
+        icon = ""
+        name = "scratch"
+        color = "DiffChanged"
       end
+
+      color = focused and color or focus_hl
+      icon = icon ~= "" and icon .. " " -- if icon exists, add space
+
+      M.cached_tabline[i] = {
+        focusedhl = focus_hl,
+        iconhl = color,
+        icon = icon,
+        filename = name,
+      }
+    else
+      -- Update only the focus_hl
+      M.cached_tabline[i].focusedhl = focus_hl
     end
-
-    icon, color = require("mini.icons").get("file", name)
-
-    if name == "" then -- this is for empty new tabs
-      icon = ""
-      name = ""
-      color = focus_hl
-    elseif name:find(".scratch") then
-      icon = ""
-      name = "scratch"
-      color = "DiffChanged"
-    end
-
-    color = focused and color or focus_hl
-    icon = icon ~= "" and icon .. " " -- if icon actually exists, put a space at the end
-
-    -- there's gotta be a better way to do this but it works now sooo
-    local tab_display = string.format("%%#%s#%%#%s#%s%%#%s#%s%%#%s#", focus_hl, color, icon, focus_hl, name, focus_hl)
-    table.insert(tabs, tab_display)
   end
-  return table.concat(tabs, " ")
+
+  -- Format and return the tabline
+  local formatted_tabs = {}
+  for _, tab in ipairs(M.cached_tabline) do
+    table.insert(
+      formatted_tabs,
+      string.format(
+        "%%#%s#%%#%s#%s%%#%s#%s%%#%s#",
+        tab.focusedhl,
+        tab.iconhl,
+        tab.icon,
+        tab.focusedhl,
+        tab.filename,
+        tab.focusedhl
+      )
+    )
+  end
+
+  return table.concat(formatted_tabs, " ")
 end
 
 -- the following can be added after "require"ing this file so that the tabline
