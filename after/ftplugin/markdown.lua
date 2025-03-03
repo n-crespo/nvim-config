@@ -9,4 +9,4 @@ vim.cmd([[inoreabbrev <buffer> pe <!-- prettier-ignore-end -->]])
 -- bold/italicize in visual mode
 vim.keymap.set("x", "<C-b>", '"rc****<esc>h"rP', { buffer = true, desc = "Bold" })
 vim.keymap.set("x", "<C-i>", '"rc__<esc>"rP', { buffer = true, desc = "Italicize" })
-vim.opt_local.foldmethod = "expr" -- folds headers and lists nicely
+vim.opt.foldmethod = "expr" -- folds headers and lists nicely

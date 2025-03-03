@@ -134,12 +134,12 @@ return {
         },
         -- preview window
         preview = {
-          wo = {
-            number = false,
-            relativenumber = false,
-            statuscolumn = " ",
-            signcolumn = "no",
-          },
+          -- wo = {
+          --   number = false,
+          --   relativenumber = false,
+          --   statuscolumn = " ",
+          --   signcolumn = "no",
+          -- },
           keys = {
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<S-Tab>"] = { "focus_input" },

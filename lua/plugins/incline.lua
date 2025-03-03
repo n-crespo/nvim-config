@@ -17,7 +17,6 @@ return {
   opts = {
     window = {
       zindex = 30,
-      -- placement = { vertical = "top", horizontal = "center" },
       options = { buftype = "nofile", wrap = false, buflisted = false },
       margin = { horizontal = 0, vertical = 1 },
       overlap = { tabline = false, winbar = false },
