@@ -1,5 +1,5 @@
 -- lsp configurations
-vim.g.lazyvim_python_lsp = "pyright"
+-- vim.g.lazyvim_python_lsp = "basedpyright"
 
 -- borders for K (lsp hover)
 -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
