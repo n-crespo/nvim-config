@@ -23,7 +23,12 @@ return {
 
         if captures and capture then
           local node_type = capture:type()
-          if vim.tbl_contains({ "comment", "line_comment", "block_comment", "comment_content" }, node_type) then
+          if
+            vim.tbl_contains(
+              { "comment", "line_comment", "block_comment", "comment_content", "string", "string_content" },
+              node_type
+            )
+          then
             return { "buffer" }
           end
         end
