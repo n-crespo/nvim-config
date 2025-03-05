@@ -294,3 +294,39 @@ vim.keymap.set("n", "<leader>R", function()
     require("lazy").reload({ plugins = { selected } })
   end)
 end, { desc = "Reload plugin" })
+
+-- Diffview (https://github.com/LazyVim/LazyVim/discussions/5462)
+
+-- util function
+local function greplist(str, inputlist)
+  for i, v in ipairs(inputlist) do
+    if v:match(str) then
+      return i, v
+    end
+  end
+  return nil
+end
+
+local diffwins = {}
+local function diffwins_clean()
+  vim.cmd("diffoff!")
+  diffwins = {}
+end
+vim.keymap.set("n", "<leader>da", function()
+  if #diffwins >= 2 then
+    diffwins_clean()
+    return
+  end
+  local winnr = tostring(vim.fn.winnr())
+  local cached_winnr, _ = greplist(winnr, diffwins)
+  if cached_winnr then
+    vim.cmd("diffoff")
+    table.remove(diffwins, cached_winnr)
+  else
+    vim.cmd("diffthis")
+    table.insert(diffwins, winnr)
+  end
+end, { silent = true, desc = "Diff this buffer" })
+vim.keymap.set("n", "<leader>do", function()
+  return diffwins_clean()
+end, { silent = true, desc = "Diff off all buffers" })
