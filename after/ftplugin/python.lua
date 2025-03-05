@@ -2,11 +2,8 @@ require("lspconfig").pylsp.setup({
   settings = {
     pylsp = {
       plugins = {
-        -- jedi_completion = {
-        --   include_params = true,
-        -- },
         pycodestyle = {
-          ignore = { "E501" },
+          ignore = { "E501" }, -- this disables errors about lines being too long
         },
       },
     },
