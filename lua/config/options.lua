@@ -30,7 +30,7 @@ vim.g.lazyvim_python_lsp = "pylsp"
 -- opt.autochdir = true -- this breaks things
 
 if LazyVim.is_win() then
-  LazyVim.terminal.setup("pwsh -NoLogo")
+  LazyVim.terminal.setup("powershell")
 end
 
 --- for some reason this doesn't work unless I specify `== 1`???
