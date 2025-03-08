@@ -16,8 +16,10 @@ return {
         -- the capture variable will be `block` probably. This gets around
         -- comment detection. So we can try to look at the location left of the
         -- cursor and actually see if we are in a comment or not.
-        if (not captures or not next(captures)) and col > 0 then
-          -- try the locatino to the left, if it exists (col ~= 0)
+        if --[[ (not captures or not next(captures)) and ]]
+          col > 0
+        then
+          -- try the location to the left, if it exists (col ~= 0)
           capture = vim.treesitter.get_node({ bufnr = 0, pos = { row, col - 1 } })
         end
 
@@ -29,13 +31,20 @@ return {
               node_type
             )
           then
+            -- only show buffer completions if we are inside of a comment or string
+            vim.notify("only showing buffer completions...")
             return { "buffer" }
           end
         end
 
-        return { "lsp", "path", "snippets", "buffer" }
+        return { "lsp", "path", "snippets", "buffer", "markdown" }
       end,
       providers = {
+        markdown = {
+          name = "RenderMarkdown",
+          module = "render-markdown.integ.blink",
+          fallbacks = { "lsp" },
+        },
         buffer = {
           opts = {
             -- get words from all active buffers for cmp list
