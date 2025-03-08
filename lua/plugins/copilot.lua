@@ -1,7 +1,6 @@
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
   branch = "main",
-  cmd = "CopilotChat",
   opts = {
     auto_insert_mode = false,
     question_header = "   " .. (vim.env.USER or "User"):gsub("^%l", string.upper) .. "  ",
