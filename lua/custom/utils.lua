@@ -44,12 +44,12 @@ function M.get_dir_with_fallback(filename)
   filename = filename or ""
 
   -- Get alternate buffer directory if it exists
-  local alt_buf = vim.fn.bufexists(vim.fn.bufnr("#")) == 1
+  local alt_buf = vim.api.nvim_buf_is_valid(vim.fn.bufnr("#"))
       and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":p")
     or nil
 
   -- If the buffer is not a file, fallback to alternate buffer or cwd
-  if vim.api.nvim_get_option_value("buftype", { scope = "local" }) ~= "" then
+  if vim.api.nvim_get_option_value("buftype", { scope = "local" }) ~= "" or not vim.api.nvim_buf_is_valid(0) then
     return alt_buf or vim.uv.cwd()
   end
 
