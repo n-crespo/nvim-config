@@ -31,9 +31,8 @@ return {
               node_type
             )
           then
-            -- only show buffer completions if we are inside of a comment or string
-            vim.notify("only showing buffer completions...")
-            return { "buffer" }
+            -- don't show snippets inside of a comment or string
+            return { "buffer", "path", "markdown", "lsp" }
           end
         end
 
