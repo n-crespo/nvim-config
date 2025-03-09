@@ -42,7 +42,6 @@ require("lazy").setup({
         "netrwFileHandlers",
         "zip",
         "tar",
-        "tarPlugin",
         "getscript",
         "getscriptPlugin",
         "vimball",
