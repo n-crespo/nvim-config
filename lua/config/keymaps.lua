@@ -170,9 +170,6 @@ vim.keymap.set(
   { desc = "Force Save File", noremap = true, silent = true }
 )
 
--- grant permissions
-vim.keymap.set("n", "<leader>X", "<Cmd>!sudo chmod +x %<CR>", { silent = true, desc = "Grant File Permissions" })
-
 -- ------------------------------------- ABBREVIATIONS --------------------------------------------
 
 -- note: these will work in every filetype
