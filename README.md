@@ -53,18 +53,28 @@ Some cool things in this config are:
 
 ## Install Instructions
 
-> [!WARNING]
-> Install requires Neovim 0.9+.
+```bash
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install -y neovim
+```
+
+or
+
+```bash
+brew install neovim # can add --HEAD to get nightly
+```
 
 Clone the repository and install the plugins:
 
-```
+```bash
 git clone git@github.com:n-crespo/nvim-config ~/.config/n-crespo/nvim-config
 NVIM_APPNAME=n-crespo/nvim-config/ nvim --headless +"Lazy! sync" +qa
 ```
 
 Open Neovim with this config:
 
-```
+```bash
 NVIM_APPNAME=n-crespo/nvim-config/ nvim
 ```
