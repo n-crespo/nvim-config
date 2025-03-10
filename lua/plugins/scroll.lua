@@ -1,6 +1,5 @@
 return {
   "Aasim-A/scrollEOF.nvim",
-  enabled = false,
   event = "LazyFile",
   opts = {
     pattern = "*",
