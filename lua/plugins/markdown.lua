@@ -52,15 +52,14 @@ return {
     opts = {
       render_modes = { "n", "c", "i", "\x16", "t", "o" },
       file_types = { "markdown", "norg", "rmd", "org" },
-      latex = {
-        enabled = false,
-      },
+      latex = { enabled = false },
+      win_options = { conceallevel = { rendered = 2 } },
       code = {
         sign = false,
         width = "block",
         position = "left",
         style = "full",
-        language_name = false,
+        language_name = true,
         right_pad = 2,
       },
       heading = {
