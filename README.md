@@ -50,6 +50,7 @@ Some cool things in this config are:
 - lazygit
 - wslu (if using WSL)
 - xclip (if using WSL)
+- npm (for some language servers)
 
 ## Install Instructions
 
