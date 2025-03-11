@@ -60,6 +60,11 @@ function M.get_dir_with_fallback(filename)
   -- file opened may be unsaved, if so ignore filename
   filename = vim.uv.fs_stat(bufdir .. "/" .. filename) and filename or ""
 
+  -- Validate the constructed path, fallback if invalid
+  if not vim.uv.fs_stat(dir .. "/" .. filename) then
+    dir = alt_buf or alt_buf or vim.uv.cwd()
+  end
+
   -- append filename so cursor opens on current file
   return dir .. "/" .. filename
 end
