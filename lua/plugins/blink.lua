@@ -9,7 +9,13 @@ return {
 
         local pos = vim.api.nvim_win_get_cursor(0) -- Get current cursor position (row, col - 1-based)
         local row, col = pos[1] - 1, pos[2] -- Convert to 0-based row, col
-        local capture = vim.treesitter.get_node({ bufnr = 0, pos = { row, col } })
+
+        local success, capture = pcall(vim.treesitter.get_node, { bufnr = 0, pos = { row, col } })
+        if not success then
+          print("no ts")
+          return { "buffer", "path" }
+        end
+
         local captures = vim.treesitter.get_captures_at_cursor(0)
 
         -- if we are the end of a line, the captures table will be empty {} and
