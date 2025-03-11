@@ -128,7 +128,13 @@ vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "Close Window", silent = tru
 vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 
-vim.keymap.set("n", "<leader>o", "<cmd>silent! !open %<cr>", { desc = "Open Buffer in System Viewer" })
+vim.keymap.set("n", "<leader>o", function()
+  if vim.fn.executable("wsl-open") == 1 then
+    vim.cmd([[silent! !wsl-open %]])
+  else
+    vim.cmd([[silent! !open %]])
+  end
+end, { desc = "Open File in System Viewer" })
 
 vim.keymap.set("n", "<leader>1", "<cmd>silent! tabn 1<cr>", { silent = true, desc = "Tab 1" })
 vim.keymap.set("n", "<leader>2", "<cmd>silent! tabn 2<cr>", { silent = true, desc = "Tab 2" })
