@@ -68,7 +68,7 @@ return {
         border = false,
         left_pad = 1,
         right_pad = 1,
-        width = "block",
+        width = "full",
         icons = {},
       },
       quote = {
