@@ -42,7 +42,7 @@ return {
           end
         end
 
-        return { "lsp", "path", "snippets", "buffer", "markdown" }
+        return { "lsp", "path", "snippets", "buffer", "markdown", "omni" }
       end,
       providers = {
         markdown = {
