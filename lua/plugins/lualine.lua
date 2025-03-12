@@ -23,33 +23,36 @@ return {
       sections = {
         lualine_a = {},
         ---@diagnostic disable-next-line: assign-type-mismatch
-        lualine_b = { LazyVim.lualine.root_dir({ cwd = true }) },
+        lualine_b = {
+          {
+            LazyVim.lualine.root_dir({ cwd = true })[1],
+            color = function()
+              return { fg = Snacks.util.color("Special") }
+            end,
+          },
+        },
         lualine_c = {
           {
             function()
-              if LazyVim.is_win() then
-                return ""
-              end
+              return "󰨡"
+            end,
+            color = "Exception",
+            cond = LazyVim.is_win,
+            padding = { left = 1 },
+          },
+          {
+            function()
               return ""
             end,
-            padding = { right = 1, left = 1 },
-            color = function()
-              return { fg = Snacks.util.color("Comment") }
-            end,
-            cond = function()
-              return os.getenv("SSH_CONNECTION") ~= nil or LazyVim.is_win()
-            end,
+            padding = { left = 1, right = 1 },
+            color = { fg = Snacks.util.color("Comment") },
           },
           {
             "hostname",
             padding = { right = 0, left = 0 },
-            color = function()
-              return { fg = Snacks.util.color("Comment") }
-            end,
-            cond = function()
-              return os.getenv("SSH_CONNECTION") ~= nil
-            end,
-            always_visible = true,
+            color = { fg = Snacks.util.color("Comment") },
+            -- node: os.getenv("SSH_CONNECTION") ~= nil could be used as cond to
+            -- only show this component when ssh-ed
           },
           {
             "diagnostics",
@@ -64,16 +67,14 @@ return {
           {
             require("lualine_require").require("lazy.status").updates,
             cond = require("lualine_require").require("lazy.status").has_updates,
-            color = function()
-              return { fg = Snacks.util.color("Special") }
-            end,
+            color = { fg = Snacks.util.color("Special") },
           },
           -- stylua: ignore
           {
             -- this is for showing when a macro is recording
             function() return require("lualine_require").require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("lualine_require").require("noice").api.status.mode.has() end,
-            color = function() return { fg = Snacks.util.color("Constant") } end,
+            color = { fg = Snacks.util.color("Constant") }
           },
         },
         lualine_x = {
