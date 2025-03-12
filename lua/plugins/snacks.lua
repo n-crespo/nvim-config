@@ -26,7 +26,7 @@ return {
     rename = { enabled = true },
     scratch = {
       ft = "scratch",
-      icon = "✏️",
+      icon = "",
       win = { zindex = 50 },
     },
     lazygit = {
