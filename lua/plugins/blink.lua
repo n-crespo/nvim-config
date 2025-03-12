@@ -2,48 +2,6 @@ return {
   "saghen/blink.cmp",
   opts = {
     sources = {
-      default = function()
-        if vim.bo.filetype == "minifiles" then
-          return { "buffer", "path" }
-        end
-
-        local pos = vim.api.nvim_win_get_cursor(0) -- Get current cursor position (row, col - 1-based)
-        local row, col = pos[1] - 1, pos[2] -- Convert to 0-based row, col
-
-        local success, capture = pcall(vim.treesitter.get_node, { bufnr = 0, pos = { row, col } })
-        if not success then
-          print("no ts")
-          return { "buffer", "path" }
-        end
-
-        local captures = vim.treesitter.get_captures_at_cursor(0)
-
-        -- if we are the end of a line, the captures table will be empty {} and
-        -- the capture variable will be `block` probably. This gets around
-        -- comment detection. So we can try to look at the location left of the
-        -- cursor and actually see if we are in a comment or not.
-        if --[[ (not captures or not next(captures)) and ]]
-          col > 0
-        then
-          -- try the location to the left, if it exists (col ~= 0)
-          capture = vim.treesitter.get_node({ bufnr = 0, pos = { row, col - 1 } })
-        end
-
-        if captures and capture then
-          local node_type = capture:type()
-          if
-            vim.tbl_contains(
-              { "comment", "line_comment", "block_comment", "comment_content", "string", "string_content" },
-              node_type
-            )
-          then
-            -- don't show snippets inside of a comment or string
-            return { "buffer", "path", "markdown", "lsp" }
-          end
-        end
-
-        return { "lsp", "path", "snippets", "buffer", "markdown", "omni" }
-      end,
       providers = {
         markdown = {
           name = "RenderMarkdown",
@@ -60,6 +18,9 @@ return {
             end,
           },
         },
+        snippets = {
+          min_keyword_length = 2,
+        },
       },
     },
     completion = {
@@ -72,22 +33,28 @@ return {
       menu = {
         auto_show = true,
         draw = {
-          -- align_to = "cursor",
+          align_to = "cursor",
+          padding = 0,
           treesitter = { "lsp" },
           columns = {
             { "label", "label_description", gap = 1 },
-            { "kind_icon", "kind" },
+            { "space", "kind", gap = 0 },
           },
           components = {
             label = {
-              width = { fill = true, max = 45 },
+              text = function(ctx)
+                return " " .. ctx.label
+              end,
+            },
+            space = {
+              width = { fill = true },
+              text = function()
+                return ""
+              end,
             },
             kind = {
               text = function(ctx)
-                -- if ctx.kind == "Snippet" then
-                --   return "Snip"
-                -- end
-                return ctx.kind
+                return ctx.kind_icon .. ctx.kind .. " "
               end,
             },
           },
