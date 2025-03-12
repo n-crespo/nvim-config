@@ -34,14 +34,9 @@ return {
         lualine_c = {
           {
             function()
-              return "󰨡"
-            end,
-            color = "Exception",
-            cond = LazyVim.is_win,
-            padding = { left = 1 },
-          },
-          {
-            function()
+              if LazyVim.is_win() then
+                return ""
+              end
               return ""
             end,
             padding = { left = 1, right = 1 },
