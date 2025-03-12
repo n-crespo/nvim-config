@@ -85,3 +85,13 @@ autocmd("TextYankPost", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+  desc = "Auto save",
+  group = vim.api.nvim_create_augroup("group", { clear = true }),
+  callback = function()
+    if vim.bo.modifiable and vim.bo.buftype == "" then
+      vim.cmd([[noa up]]) -- save but without triggering autocmds (no format)
+    end
+  end,
+})
