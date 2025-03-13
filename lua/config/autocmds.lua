@@ -42,7 +42,7 @@ vim.filetype.add({
   },
 })
 
-autocmd({ "OptionSet", "BufEnter" }, {
+autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
   desc = "Enable text width only when wrap is disabled",
   pattern = "wrap",
   callback = function()
