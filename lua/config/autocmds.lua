@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
   group = vim.api.nvim_create_augroup("group", { clear = true }),
   callback = function()
     if vim.bo.modifiable and vim.bo.buftype == "" and vim.bo.buflisted then
-      vim.cmd([[noa up]]) -- save but without triggering autocmds (no format)
+      vim.cmd([[silent noa up]]) -- save but without triggering autocmds (no format)
     end
   end,
 })
