@@ -3,23 +3,16 @@ return {
   enabled = true,
   event = "VeryLazy",
   opts = {
-    search = {
-      multi_window = false,
-    },
+    search = { multi_window = false },
+    label = { uppercase = false },
     jump = {
       nohlsearch = true, -- clear highlight after jump
-      autojump = true, -- automatically jump when there is only one match
-    },
-    label = {
-      uppercase = false,
+      autojump = false, -- automatically jump when there is only one match
     },
     modes = {
-      char = { -- `f`, `F`, `t`, `T`, `;` and `,` motions
-        enabled = false,
-      },
-      search = {
-        enabled = false,
-      },
+      -- `f`, `F`, `t`, `T`, `;` and `,` motions
+      char = { enabled = false },
+      search = { enabled = false },
     },
   },
 }
