@@ -1,7 +1,10 @@
 return {
   "saghen/blink.cmp",
   opts = {
+    -- prioritize exact matches
+    fuzzy = { sorts = { "exact", "score", "sort_text" } },
     sources = {
+      default = { "lsp", "path", "snippets", "buffer", "markdown", "omni" },
       providers = {
         markdown = {
           name = "RenderMarkdown",
@@ -18,9 +21,7 @@ return {
             end,
           },
         },
-        snippets = {
-          min_keyword_length = 2,
-        },
+        snippets = { min_keyword_length = 2 },
       },
     },
     completion = {
@@ -33,30 +34,9 @@ return {
       menu = {
         auto_show = true,
         draw = {
-          align_to = "cursor",
-          padding = 0,
-          treesitter = { "lsp" },
           columns = {
             { "label", "label_description", gap = 1 },
-            { "space", "kind", gap = 0 },
-          },
-          components = {
-            label = {
-              text = function(ctx)
-                return " " .. ctx.label
-              end,
-            },
-            space = {
-              width = { fill = true },
-              text = function()
-                return ""
-              end,
-            },
-            kind = {
-              text = function(ctx)
-                return ctx.kind_icon .. ctx.kind .. " "
-              end,
-            },
+            { "kind_icon", "kind", gap = 0 },
           },
         },
       },
@@ -68,14 +48,17 @@ return {
       },
     },
     appearance = {
-      kind_icons = { Text = "󰉿 " },
+      kind_icons = {
+        Text = "󰉿 ",
+        Variable = "󰫧 ",
+      },
     },
     keymap = {
-      ["<CR>"] = { "select_and_accept", "fallback" },
-      ["<S-CR>"] = {},
-      ["<C-e>"] = { "hide", "show", "fallback" },
       ["<C-n>"] = {}, -- used by neocodeium
       ["<C-p>"] = {}, -- used by neocodeium
+      ["<S-CR>"] = {}, -- make new line (ignore cmp)
+      ["<CR>"] = { "select_and_accept", "fallback" }, -- for accepting from blink
+      ["<C-e>"] = { "hide", "show", "fallback" },
       ["<C-j>"] = { "select_next" },
       ["<C-k>"] = { "select_prev" },
     },
