@@ -41,24 +41,25 @@ Some cool things in this config are:
 > [!WARNING]
 > see [my dotfiles](https://www.github.com/n-crespo/dotfiles) for full system requirements
 
-- gcc
-- python
-- clang
-- node
-- go
-- ripgrep
-- lazygit
-- wslu (if using WSL)
-- xclip (if using WSL)
-- npm (for some language servers)
+- `gcc`
+- `python`
+- `clang`
+- `node`
+- `go`
+- `ripgrep` (may be `rg` in your package manager)
+- `lazygit`
+- `wslu` (if using WSL)
+- `xclip` (if using WSL)
+- `npm` (for some language servers)
 
 ## Install Instructions
 
 ```bash
+# get nightly
 sudo apt install -y software-properties-common
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt update
-sudo apt install -y neovim
+sudo apt install -y neovim # just do this line to get stable version
 ```
 
 or
