@@ -1,7 +1,7 @@
 vim.g.trouble_lualine = false
+
 return {
   "nvim-lualine/lualine.nvim",
-  -- event = "LazyFile",
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus
     if vim.fn.argc(-1) > 0 then
@@ -22,7 +22,6 @@ return {
       },
       sections = {
         lualine_a = {},
-        ---@diagnostic disable-next-line: assign-type-mismatch
         lualine_b = {
           {
             function()
@@ -32,12 +31,11 @@ return {
               return ""
             end,
             padding = { left = 1, right = 1 },
-            color = { fg = Snacks.util.color("Comment") },
+            color = "HostNameIcon",
           },
           {
             "hostname",
             padding = { left = 0, right = 1 },
-            -- color = { fg = Snacks.util.color("Comment") },
             -- cond = os.getenv("SSH_CONNECTION") ~= nil
             -- (above could be used to only show this component when ssh-ed)
           },
@@ -56,14 +54,14 @@ return {
           {
             require("lualine_require").require("lazy.status").updates,
             cond = require("lualine_require").require("lazy.status").has_updates,
-            color = { fg = Snacks.util.color("Special") },
+            color = "Special",
           },
           -- stylua: ignore
           {
             -- this is for showing when a macro is recording
             function() return require("lualine_require").require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("lualine_require").require("noice").api.status.mode.has() end,
-            color = { fg = Snacks.util.color("Constant") }
+            color = "WarningMsg"
           },
         },
         lualine_x = {
@@ -73,11 +71,7 @@ return {
             padding = { left = 4, right = 1 },
           },
         },
-        lualine_y = {
-          {
-            "progress",
-          },
-        },
+        lualine_y = { "progress" },
         lualine_z = {},
       },
     }
