@@ -1,5 +1,13 @@
 -- this is a custom tabline component for lualinne.
 -- (vim-style "tabs", see :h tabs)
+
+-- make sure to refresh lualine when needed
+vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed" }, {
+  callback = function()
+    require("lualine").refresh() -- this assumes lualine has been loaded (this should be fine since the file is required by lualine)
+  end,
+})
+
 local M = {}
 
 ---@param bufnr integer bufnr of some buffer
