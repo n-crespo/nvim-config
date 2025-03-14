@@ -102,7 +102,9 @@ local function tableFormat()
 end
 
 vim.api.nvim_create_autocmd("BufWrite", {
-  callback = tableFormat,
+  callback = function()
+    pcall(tableFormat)
+  end,
 })
 
 vim.api.nvim_buf_create_user_command(0, "TableFormat", function()
