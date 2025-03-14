@@ -17,7 +17,7 @@ return {
   -- https://github.com/LazyVim/LazyVim/discussions/5462
   {
     "folke/persistence.nvim",
-    lazy = false,
+    lazy = false, -- make persistence start on startup
     opts = function()
       -- Auto restore session
       vim.api.nvim_create_autocmd("VimEnter", {
@@ -28,25 +28,8 @@ return {
             persistence.load()
             -- else
             -- persistence.stop()
+            -- you can use above to ignore sessions when neovim is opened with args
           end
-        end,
-      })
-      -- Auto delete [No Name] buffers.
-      vim.api.nvim_create_autocmd("BufLeave", {
-        callback = function()
-          local buffers = vim.fn.filter(
-            vim.fn.range(1, vim.fn.bufnr("$")),
-            'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])'
-          )
-          local next = next
-          if next(buffers) == nil then
-            return
-          end
-          local cmdstr = ":silent! bw!"
-          for _, v in pairs(buffers) do
-            cmdstr = cmdstr .. " " .. v
-          end
-          vim.cmd(cmdstr)
         end,
       })
     end,
