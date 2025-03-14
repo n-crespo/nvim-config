@@ -49,7 +49,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
-      render_modes = { "n", "c", "i", "\x16", "t", "o" },
+      render_modes = { "n", "c", "i", "\x16", "t", "o", "V" },
       file_types = { "markdown", "norg", "rmd", "org" },
       latex = { enabled = false },
       win_options = { conceallevel = { rendered = 2 } },
