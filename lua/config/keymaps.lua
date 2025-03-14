@@ -106,22 +106,6 @@ end)
 
 vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
--- cd to root dir of current buffer (does some weird things sometimes)
-vim.keymap.set("n", "<leader>bl", function()
-  local bufname = vim.api.nvim_buf_get_name(0)
-  local root = vim.fs.find({ ".git", "Makefile" }, { upward = true, path = vim.fs.dirname(bufname) })[1]
-  local root_dir = root and vim.fs.dirname(root)
-
-  if root then
-    vim.uv.chdir(root_dir)
-  else
-    vim.cmd([[lcd %:h]])
-  end
-  vim.notify(root_dir or vim.fn.getcwd(), vim.log.levels.INFO, {
-    title = "Buffer Locate",
-  })
-end, { desc = "Buffer Locate", silent = true })
-
 vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "Close Window", silent = true })
 
 -- splits
