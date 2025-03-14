@@ -25,17 +25,9 @@ return {
         ---@diagnostic disable-next-line: assign-type-mismatch
         lualine_b = {
           {
-            LazyVim.lualine.root_dir({ cwd = true })[1],
-            color = function()
-              return { fg = Snacks.util.color("Special") }
-            end,
-          },
-        },
-        lualine_c = {
-          {
             function()
               if LazyVim.is_win() then
-                return ""
+                return ""
               end
               return ""
             end,
@@ -44,11 +36,13 @@ return {
           },
           {
             "hostname",
-            padding = { right = 0, left = 0 },
-            color = { fg = Snacks.util.color("Comment") },
-            -- node: os.getenv("SSH_CONNECTION") ~= nil could be used as cond to
-            -- only show this component when ssh-ed
+            padding = { left = 0, right = 1 },
+            -- color = { fg = Snacks.util.color("Comment") },
+            -- cond = os.getenv("SSH_CONNECTION") ~= nil
+            -- (above could be used to only show this component when ssh-ed)
           },
+        },
+        lualine_c = {
           {
             "diagnostics",
             symbols = {
