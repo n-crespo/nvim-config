@@ -100,15 +100,18 @@ return {
     cond = vim.fn.executable("deno") == 1,
     ft = "markdown",
     build = "deno task --quiet build:fast",
-    config = function()
-      require("peek").setup({
+    opts = function()
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+      local opts = {
         app = {
           "/mnt/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
           "--new-window",
         }, -- 'webview', 'browser', string or a table of strings
-      })
-      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+        theme = "light",
+        close_on_bdelete = false,
+      }
+      return opts
     end,
     keys = {
       {
