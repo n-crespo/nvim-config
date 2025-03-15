@@ -48,7 +48,17 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
     opts = {
+      on = {
+        render = function()
+          vim.wo.conceallevel = 3
+        end,
+        clear = function()
+          vim.wo.conceallevel = 0
+        end,
+      },
       render_modes = { "n", "c", "i", "\x16", "t", "o", "V" },
       file_types = { "markdown", "norg", "rmd", "org" },
       latex = { enabled = false },
