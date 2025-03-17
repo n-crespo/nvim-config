@@ -300,6 +300,7 @@ local function diffwins_clean()
   diffwins = {}
 end
 vim.keymap.set("n", "<leader>da", function()
+  vim.notify("Enabled Diffview (Buffer)", vim.log.levels.INFO, { title = "Diffview" })
   if #diffwins >= 2 then
     diffwins_clean()
     return
@@ -314,6 +315,8 @@ vim.keymap.set("n", "<leader>da", function()
     table.insert(diffwins, winnr)
   end
 end, { silent = true, desc = "Diff this buffer" })
+
 vim.keymap.set("n", "<leader>do", function()
+  vim.notify("Disabled Diffview (global)", vim.log.levels.WARN, { title = "Diffview" })
   return diffwins_clean()
 end, { silent = true, desc = "Diff off all buffers" })
