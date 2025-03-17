@@ -1,20 +1,5 @@
-local formats = {
-  "png",
-  "jpg",
-  "jpeg",
-  "gif",
-  "bmp",
-  "webp",
-  "tiff",
-  "heic",
-  "avif",
-  "mp4",
-  "mov",
-  "avi",
-  "mkv",
-  "webm",
-  "pdf",
-}
+local formats =
+  { "png", "jpg", "jpeg", "gif", "bmp", "webp", "tiff", "heic", "avif", "mp4", "mov", "avi", "mkv", "webm", "pdf" }
 
 vim.api.nvim_create_autocmd({ "FileType", "BufReadCmd" }, {
   desc = "Set image filetypes",
@@ -33,9 +18,7 @@ return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
-    image = {
-      enabled = true,
-    },
+    image = { enabled = false },
   },
   keys = {
     {
