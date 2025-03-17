@@ -34,7 +34,7 @@ return {
   ---@type snacks.Config
   opts = {
     image = {
-      enabled = false,
+      enabled = true,
     },
   },
   keys = {
