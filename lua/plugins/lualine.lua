@@ -79,6 +79,16 @@ return {
   end,
   keys = {
     {
+      "<leader>uS",
+      function()
+        vim.o.laststatus = vim.o.laststatus == 0 and 3 or 0
+        local msg = vim.o.laststatus == 0 and "Disabled" or "Enabled"
+        local level = vim.o.laststatus == 0 and vim.log.levels.WARN or vim.log.levels.INFO
+        vim.notify(msg .. " **Statusline**", level)
+      end,
+      desc = "Toggle Statusline",
+    },
+    {
       "<A-,>",
       function()
         local current_tab = vim.fn.tabpagenr()
