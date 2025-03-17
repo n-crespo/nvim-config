@@ -90,7 +90,8 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
   desc = "Auto save",
   group = vim.api.nvim_create_augroup("group", { clear = true }),
   callback = function()
-    if vim.bo.modifiable and vim.bo.buftype == "" and vim.bo.buflisted then
+    local file_path = vim.fn.expand("%") or ""
+    if vim.bo.modifiable and vim.bo.buftype == "" and vim.bo.buflisted and vim.fn.filereadable(file_path) == 1 then
       vim.cmd([[silent noa up]]) -- save but without triggering autocmds (no format)
     end
   end,
