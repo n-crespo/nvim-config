@@ -51,6 +51,8 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
+      anti_conceal = { enabled = false },
+      render_modes = { "n", "c", "i", "\x16", "t", "no", "V", "nov", "noV", "vs", "v" },
       on = {
         render = function()
           vim.wo.conceallevel = 3
@@ -59,7 +61,6 @@ return {
           vim.wo.conceallevel = 0
         end,
       },
-      render_modes = { "n", "c", "i", "\x16", "t", "o", "V" },
       file_types = { "markdown", "norg", "rmd", "org" },
       latex = { enabled = false },
       win_options = { conceallevel = { rendered = 2 } },
