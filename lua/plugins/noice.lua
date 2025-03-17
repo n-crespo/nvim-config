@@ -4,23 +4,17 @@
 return {
   "folke/noice.nvim",
   opts = {
+    presets = { lsp_doc_border = true },
     notify = { enabled = false },
     views = {
-      -- transparent lsp progress window
-      mini = { win_options = { winblend = 0 } },
+      mini = { win_options = { winblend = 0 } }, -- transparent lsp progress window
     },
     lsp = {
-      hover = {
-        enabled = true,
-        silent = true,
-      },
+      hover = { enabled = true, silent = true },
       documentation = {
         opts = {
-          border = { style = "rounded", padding = { 0, 1 } },
           win_options = { wrap = true },
-          position = {
-            row = 2,
-          },
+          position = { row = 2 },
         },
       },
     },
