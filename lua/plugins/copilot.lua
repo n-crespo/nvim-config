@@ -6,6 +6,6 @@ return {
     question_header = "   " .. (vim.env.USER or "User"):gsub("^%l", string.upper) .. "  ",
     answer_header = "   gpt-4o:github_models  ",
     window = { width = 0.4 },
-    model = "gpt-4o:github_models",
+    model = "gpt-4o-mini:github_models",
   },
 }
