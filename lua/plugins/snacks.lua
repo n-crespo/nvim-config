@@ -12,9 +12,10 @@ return {
   "folke/snacks.nvim",
   opts = {
     styles = {
-      border = "rounded",
+      scratch = { wo = { number = false, cursorline = false, statuscolumn = "" } },
       terminal = { wo = { winbar = "" } },
       notification = { winblend = 100 },
+      border = "rounded",
     },
     words = {
       enabled = true,
