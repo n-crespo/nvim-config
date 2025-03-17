@@ -6,6 +6,7 @@ return {
       cf = { glyph = "", hl = "MiniIconsBlue" },
       Rmd = { glyph = "", hl = "MiniIconsBlue" },
       rmd = { glyph = "", hl = "MiniIconsBlue" },
+      autohotkey = { glyph = "", hl = "MiniIconsGreen" },
     },
     extension = {
       h = { glyph = "", hl = "MiniIconsPurple" },
