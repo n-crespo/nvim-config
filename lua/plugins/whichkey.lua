@@ -47,10 +47,5 @@ return {
     { "<leader>ft", nil },
     { "<leader>fT", nil },
     { "<leader>qq", nil },
-    {
-      "<leader>uS",
-      nil,
-      desc = "which_key_ignore",
-    },
   },
 }

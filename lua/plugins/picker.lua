@@ -1,6 +1,3 @@
--- set the dir to the directory of the current buffer if possible, then
--- the dir of the alternate buffer, then the cwd
-
 return {
   "folke/snacks.nvim",
   opts = {
@@ -134,12 +131,6 @@ return {
         },
         -- preview window
         preview = {
-          -- wo = {
-          --   number = false,
-          --   relativenumber = false,
-          --   statuscolumn = " ",
-          --   signcolumn = "no",
-          -- },
           keys = {
             ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<S-Tab>"] = { "focus_input" },
@@ -147,7 +138,6 @@ return {
             ["<Esc>"] = "close",
             ["i"] = "focus_input",
           },
-          -- wo = { number = false, cursorline = false, statuscolumn = "" },
         },
       },
     },
@@ -177,15 +167,6 @@ return {
     { "<leader>sm", nil },
     { "<leader>sb", nil },
     { "<leader>sj", nil },
-    -- { "<leader>sb", nil },
-    -- -- bug: this does some weird things
-    -- {
-    --   <leader>U",
-    --   function()
-    --     Snacks.picker.undo()
-    --   end,
-    --   desc = "Commands",
-    -- },
     {
       "<leader>fP",
       function()
