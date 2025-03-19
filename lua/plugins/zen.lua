@@ -2,7 +2,7 @@ return {
   "folke/snacks.nvim",
   opts = {
     styles = {
-      zen = {
+      quiet = {
         enter = true,
         fixbuf = false,
         minimal = false,
@@ -28,18 +28,20 @@ return {
       toggles = {
         dim = false,
       },
+      zoom = { win = { style = "zen" } },
+      win = { style = "quiet" },
     },
   },
   keys = {
     {
-      "<leader>z",
+      "<leader>Z",
       function()
         Snacks.zen()
       end,
       desc = "Toggle Zen Mode",
     },
     {
-      "<leader>Z",
+      "<leader>z",
       function()
         Snacks.zen.zoom()
       end,
