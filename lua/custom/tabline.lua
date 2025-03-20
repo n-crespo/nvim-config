@@ -73,7 +73,7 @@ function M.tabline()
     table.insert(
       formatted_tabs,
       string.format(
-        "%%#%s#%%#%s#%s%%#%s#%s%%#%s#",
+        "%%#%s# %%#%s#%s%%#%s#%s%%#%s#",
         tab.focus_hl,
         tab.icon_hl,
         tab.icon,

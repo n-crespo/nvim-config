@@ -15,10 +15,19 @@ return {
   opts = function()
     local opts = {
       options = {
-        theme = require("custom.lualine_theme").theme,
+        theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
+      },
+      tabline = {
+        lualine_a = {
+          -- "%=",
+          require("custom.tabline").tabline,
+          -- cond = function()
+          --   return vim.fn.tabpagenr("$") > 1
+          -- end,
+        },
       },
       sections = {
         lualine_a = {},
@@ -65,11 +74,11 @@ return {
           },
         },
         lualine_x = {
-          {
-            -- see custom/tabline.lua
-            require("custom.tabline").tabline,
-            padding = { left = 4, right = 1 },
-          },
+          -- {
+          --   -- see custom/tabline.lua
+          --   require("custom.tabline").tabline,
+          --   padding = { left = 4, right = 1 },
+          -- },
         },
         lualine_y = { "progress" },
         lualine_z = {},

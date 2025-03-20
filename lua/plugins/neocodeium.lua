@@ -121,7 +121,7 @@ return {
         event = "LazyFile",
         opts = function(_, opts)
           if vim.g.lualine_ai_status then
-            table.insert(opts.sections.lualine_c, 1, {
+            table.insert(opts.sections.lualine_x, 1, {
               function()
                 local symbols = {
                   status = {
@@ -144,7 +144,7 @@ return {
               color = function()
                 return { fg = Snacks.util.color("Special") }
               end,
-              padding = { left = 1 },
+              padding = { left = 1, right = 1 },
             })
           end
         end,

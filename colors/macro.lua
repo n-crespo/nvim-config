@@ -156,9 +156,11 @@ local hlgroups = {
   StatusLine = { bg = nil, fg = c_macroFg0 },
   StatusLineNC = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
-  TabLine = { fg = c_macroAsh, bg = nil },
-  TabLineFill = { link = "Normal" },
-  TabLineSel = { fg = c_macroFg0 },
+  -- TabLine = { fg = c_macroAsh, bg = nil },
+  TabLine = { fg = c_macroAsh, bg = "#2e2e2e" },
+  TabLineFill = { link = "Tabline" },
+  -- TabLineSel = { fg = c_macroFg0 },
+  TabLineSel = { fg = c_macroFg0, bg = nil },
   TermCursor = { link = "Cursor" },
   TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },
@@ -509,10 +511,10 @@ local hlgroups = {
   NeoCodeiumLabel = { fg = c_macroFg0, bg = c_macroBg2 },
 
   -- treesitter context
-  TreesitterContextBottom = { underline = false, bg = c_macroBg2, sp = border_purple_ink },
-  TreesitterContextLineNumberBottom = { underline = false, bg = c_macroBg2, sp = border_purple_ink },
-  TreesitterContext = { bg = c_macroBg2 },
-  TreesitterContextLineNumber = { bg = c_macroBg2, fg = border_purple_ink },
+  TreesitterContext = { bg = c_macroBg0 },
+  TreesitterContextLineNumber = { bg = c_macroBg0, fg = border_purple_ink },
+  TreesitterContextLineNumberBottom = { underline = true, bg = c_macroBg0, sp = border_purple_ink },
+  TreesitterContextBottom = { underline = true, bg = c_macroBg0, sp = border_purple_ink },
 
   -- render markdown
   RenderMarkdownCode = { bg = c_macroBg2 },
