@@ -182,11 +182,11 @@ return {
       desc = "Recent (dumb)",
     },
     {
-      "<leader><leader>",
+      "<leader>F",
       function()
         Snacks.picker.smart()
       end,
-      desc = "Recent (smart)",
+      desc = "Find a File (smart)",
     },
     {
       "<leader>fw",
@@ -197,7 +197,7 @@ return {
       desc = "Grep (buffer dir)",
     },
     {
-      "<leader>ff",
+      "<leader><leader>",
       function()
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.files({ cwd = require("custom.utils").get_dir_with_fallback() })

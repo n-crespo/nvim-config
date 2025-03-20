@@ -185,6 +185,7 @@ vim.api.nvim_create_user_command("Q", "qa", { nargs = 0 })
 vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
 vim.api.nvim_create_user_command("WQ", "wq", { nargs = 0 })
 vim.api.nvim_create_user_command("X", "LazyExtras", { nargs = 0 })
+vim.cmd("cnoreabbrev F !prettier -w --parser=markdown") -- use for formatting lines with markdown
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
