@@ -28,6 +28,7 @@ vim.g.loaded_python3_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.lazyvim_python_lsp = "pylsp"
+vim.g.root_spec = { ".root", "lsp", ".git", "cwd" }
 -- opt.autochdir = true -- this breaks things
 
 if LazyVim.is_win() then

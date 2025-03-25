@@ -30,9 +30,6 @@ return {
       icon = "",
       win = { zindex = 50 },
     },
-    lazygit = {
-      config = { os = { editPreset = "nvim" } },
-    },
     git = { enabled = true },
     gitbrowse = { enabled = true },
     scroll = { enabled = false },

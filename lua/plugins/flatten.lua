@@ -1,5 +1,6 @@
 return {
   "willothy/flatten.nvim",
+  enabled = false,
   lazy = false,
   config = true,
   opts = {

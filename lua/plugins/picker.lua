@@ -92,6 +92,7 @@ return {
             -- custom
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
             ["<S-CR>"] = { "edit_tab", mode = { "i", "n" } },
+            ["<C-CR>"] = { "pick_win", mode = { "i", "n" } },
             ["<C-a>"] = { "", mode = { "i", "n" } },
             ["<C-p>"] = { "history_back", mode = { "i", "n" } },
             ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
@@ -172,14 +173,14 @@ return {
       function()
         Snacks.picker.pickers()
       end,
-      desc = "Pickers",
+      desc = "Find Pickers",
     },
     {
       "<leader>fo",
       function()
         Snacks.picker.recent()
       end,
-      desc = "Recent (dumb)",
+      desc = "Find Oldfiles (dumb)",
     },
     {
       "<leader>F",
@@ -197,20 +198,12 @@ return {
       desc = "Grep (buffer dir)",
     },
     {
-      "<leader><leader>",
+      "<leader>fh",
       function()
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.files({ cwd = require("custom.utils").get_dir_with_fallback() })
       end,
       desc = "Find Files (buffer dir)",
-    },
-    {
-      "<leader>fh",
-      function()
-        ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.files({ cwd = LazyVim.root.get({ normalize = true, hidden = true, ignored = true }) })
-      end,
-      desc = "Files Here (root)",
     },
     {
       "<leader>fp",
@@ -228,15 +221,24 @@ return {
       desc = "Commands",
     },
     {
-      "<leader>j",
+      "<leader>j", -- uses zoxide, jumps to selected dir and opens picker there
       function()
         if vim.fn.executable("zoxide") == 1 then
-          Snacks.picker.zoxide()
+          Snacks.picker.zoxide({
+            confirm = function(picker, item)
+              require("snacks").picker.files({
+                cwd = item._path,
+                title = vim.fn.fnamemodify(item._path, ":~"),
+                hidden = true,
+              })
+              picker:close()
+            end,
+          })
         else
           vim.notify("Zoxide is not installed", vim.log.levels.WARN)
         end
       end,
-      desc = "Jump to Project",
+      desc = "Jump to Dir and Pick",
     },
     {
       "<leader>st",
