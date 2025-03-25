@@ -1,3 +1,12 @@
+-- use c highlighting for pvs filetype
+vim.treesitter.language.register("c", "pvs")
+vim.filetype.add({
+  pattern = {
+    [".*%.pvs"] = "pvs",
+    [".*%.service"] = "systemd",
+  },
+})
+
 return {
   "nvim-treesitter/nvim-treesitter",
   event = "LazyFile",

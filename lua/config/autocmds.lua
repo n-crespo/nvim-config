@@ -33,15 +33,6 @@ autocmd({ "BufRead", "FileType" }, {
   command = "setlocal conceallevel=0",
 })
 
--- use c highlighting for pvs filetype
-vim.treesitter.language.register("c", "pvs")
-vim.filetype.add({
-  pattern = {
-    [".*%.pvs"] = "pvs",
-    [".*%.service"] = "systemd",
-  },
-})
-
 autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
   desc = "Enable text width only when wrap is disabled",
   pattern = "wrap",
