@@ -84,7 +84,6 @@ function M.tabline()
         icon_hl = icon_hl,
         icon = icon,
         filename = filename,
-        tabnr = i,
       }
     else
       -- Update only the focus_hl
@@ -96,7 +95,7 @@ function M.tabline()
   local formatted_tabs = {}
   for i, tab in ipairs(M.cached_tabline) do
     if not vim.g.lualine_hide_tabnr then
-      tab.tabnr = (i > 1 and " " or "") .. tab.tabnr
+      tab.tabnr = (i > 1 and " " or "") .. i
     else
       tab.tabnr = ""
     end
