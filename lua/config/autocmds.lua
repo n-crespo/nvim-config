@@ -86,7 +86,7 @@ autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+autocmd({ "BufLeave", "FocusLost" }, {
   desc = "Auto save",
   group = vim.api.nvim_create_augroup("group", { clear = true }),
   callback = function()
