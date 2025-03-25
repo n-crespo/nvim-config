@@ -35,7 +35,7 @@ local c_macroBg5             = "#625E5A"
 local c_macroBlue0           = "#658594"
 local c_macroBlue1           = "#8BA4B0"
 local c_macroFg0             = "#C5C9C5"
-local c_macroFg1             = "#B4B3A7" -- NOTE: this one
+local c_macroFg1             = "#B4B3A7"
 local c_macroFg2             = "#A09F95"
 local c_macroGray0           = "#A6A69C"
 local c_macroGray1           = "#9E9B93"
@@ -156,11 +156,9 @@ local hlgroups = {
   StatusLine = { bg = nil, fg = c_macroFg0 },
   StatusLineNC = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
-  -- TabLine = { fg = c_macroAsh, bg = nil },
-  TabLine = { fg = c_macroAsh, bg = "#2e2e2e" },
-  TabLineFill = { link = "Tabline" },
-  -- TabLineSel = { fg = c_macroFg0 },
-  TabLineSel = { fg = c_macroFg0, bg = nil },
+  TabLine = { fg = c_macroAsh },
+  TabLineFill = { link = "Tabline", bg = c_macroFg1 },
+  TabLineSel = { bg = c_macroBg2, fg = c_macroFg1 },
   TermCursor = { link = "Cursor" },
   TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },

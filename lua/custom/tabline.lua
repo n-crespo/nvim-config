@@ -52,7 +52,31 @@ function M.tabline()
         icon_hl = "DiffChanged"
       end
 
-      icon_hl = focused and icon_hl or focus_hl
+      local function resolve_highlight(name)
+        local hl = vim.api.nvim_get_hl(0, { name = name })
+        if hl and hl.link then
+          return vim.api.nvim_get_hl(0, { name = hl.link }) -- Resolve linked highlight
+        end
+        return hl
+      end
+
+      if focused then
+        local focus_hl_def = resolve_highlight(focus_hl)
+        local icon_hl_def = resolve_highlight(icon_hl)
+
+        local focus_bg = focus_hl_def and focus_hl_def.bg or nil
+        local icon_fg = icon_hl_def and icon_hl_def.fg or nil
+
+        if focus_bg and icon_fg then
+          vim.api.nvim_set_hl(0, "TablineIconFocused", { fg = icon_fg, bg = focus_bg })
+          icon_hl = "TablineIconFocused"
+        else
+          icon_hl = focus_hl -- Fallback if something is missing
+        end
+      else
+        icon_hl = focus_hl
+      end
+
       icon = icon ~= "" and icon .. " " -- if icon exists, add space
 
       M.cached_tabline[i] = {

@@ -1,5 +1,12 @@
 vim.g.trouble_lualine = false
 
+-- make sure to refresh lualine when needed
+vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed" }, {
+  callback = function()
+    require("lualine").refresh() -- this assumes lualine has been loaded (this should be fine since the file is required by lualine)
+  end,
+})
+
 return {
   "nvim-lualine/lualine.nvim",
   init = function()
@@ -22,11 +29,12 @@ return {
       },
       tabline = {
         lualine_a = {
-          -- "%=",
-          require("custom.tabline").tabline,
-          -- cond = function()
-          --   return vim.fn.tabpagenr("$") > 1
-          -- end,
+          {
+            require("custom.tabline").tabline,
+            -- cond = function()
+            -- return vim.fn.tabpagenr("$") > 1
+            -- end,
+          },
         },
       },
       sections = {
@@ -74,11 +82,11 @@ return {
           },
         },
         lualine_x = {
-          -- {
-          --   -- see custom/tabline.lua
-          --   require("custom.tabline").tabline,
-          --   padding = { left = 4, right = 1 },
-          -- },
+          {
+            -- tabline can also go on the bottom...
+            "diff",
+            padding = { left = 1, right = 1 },
+          },
         },
         lualine_y = { "progress" },
         lualine_z = {},
