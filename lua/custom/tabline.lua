@@ -2,7 +2,7 @@
 -- (vim-style "tabs", see :h tabs)
 
 -- make sure to refresh lualine when needed
-vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed" }, {
+vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed", "WinEnter", "BufWinEnter" }, {
   callback = function()
     require("lualine").refresh() -- this assumes lualine has been loaded (this should be fine since the file is required by lualine)
   end,
@@ -84,6 +84,7 @@ function M.tabline()
         icon_hl = icon_hl,
         icon = icon,
         filename = filename,
+        tabnr = i,
       }
     else
       -- Update only the focus_hl
@@ -93,11 +94,19 @@ function M.tabline()
 
   -- Format and return the tabline
   local formatted_tabs = {}
-  for _, tab in ipairs(M.cached_tabline) do
+  for i, tab in ipairs(M.cached_tabline) do
+    if not vim.g.lualine_hide_tabnr then
+      tab.tabnr = (i > 1 and " " or "") .. tab.tabnr
+    else
+      tab.tabnr = ""
+    end
+
     table.insert(
       formatted_tabs,
       string.format(
-        "%%#%s# %%#%s#%s%%#%s#%s%%#%s#",
+        "%%#%s#%s%%#%s# %%#%s#%s%%#%s#%s%%#%s#",
+        tab.focus_hl,
+        tab.tabnr,
         tab.focus_hl,
         tab.icon_hl,
         tab.icon,
@@ -111,11 +120,9 @@ function M.tabline()
   return table.concat(formatted_tabs, " ")
 end
 
--- the following can be added after "require"ing this file so that the tabline
--- is only shown when there are more than 1 tab
-
+-- (below) only show tabline when >1 tabs
 -- cond = function()
 --   return vim.fn.tabpagenr("$") > 1
 -- end,
 
-return M
+return M.tabline

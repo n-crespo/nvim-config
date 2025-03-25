@@ -1,11 +1,5 @@
 vim.g.trouble_lualine = false
-
--- make sure to refresh lualine when needed
-vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed" }, {
-  callback = function()
-    require("lualine").refresh() -- this assumes lualine has been loaded (this should be fine since the file is required by lualine)
-  end,
-})
+vim.g.lualine_hide_tabnr = false
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -26,11 +20,15 @@ return {
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
+        refresh = {
+          tabline = 10000,
+          statusline = 100,
+        },
       },
       tabline = {
         lualine_a = {
           {
-            require("custom.tabline").tabline,
+            require("custom.tabline"),
             -- cond = function()
             -- return vim.fn.tabpagenr("$") > 1
             -- end,
