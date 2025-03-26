@@ -157,6 +157,8 @@ return {
     { "<leader>sG", nil },
     { "<leader>sl", nil },
     { '<leader>s"', nil },
+    { "<leader>sd", nil }, -- search diagnostics
+    { "<leader>s/", nil }, -- search history
     { "<leader>qp", nil },
     { "<leader>sB", nil },
     { "<leader>fF", nil },
@@ -188,6 +190,24 @@ return {
         Snacks.picker.smart()
       end,
       desc = "Find a File (smart)",
+    },
+    {
+      "<leader>fH",
+      function()
+        Snacks.picker.highlights()
+      end,
+      desc = "Highlights",
+    },
+    {
+      "<leader>sH",
+      function()
+        Snacks.picker.grep({
+          glob = { "**/doc/*.txt" },
+          rtp = true,
+          previewers = { file = { ft = "help" } },
+        })
+      end,
+      desc = "Help Grep",
     },
     {
       "<leader>fw",
