@@ -34,13 +34,20 @@ function M.tabline()
 
   for i = 1, vim.fn.tabpagenr("$") do
     local focused = i == vim.fn.tabpagenr()
-    local focus_hl = focused and "TablineSel" or "Tabline"
+    local focus_hl = focused and "TabLineSel" or "TabLine"
 
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
     local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
 
     if M.should_populate(bufnr) or M.cached_tabline[i] == nil then
-      local icon, icon_hl = require("mini.icons").get("file", filename)
+      local icon, icon_hl, is_fallback = require("mini.icons").get("file", filename)
+
+      local icon_fg
+      if not is_fallback then
+        local icon_color = vim.api.nvim_get_hl(0, { name = icon_hl, link = false })
+        icon_fg = string.format("#%06x", icon_color.fg)
+        -- print(icon_fg)
+      end
 
       if filename == "" then -- this is for empty new tabs
         icon = ""
@@ -52,25 +59,21 @@ function M.tabline()
         icon_hl = "DiffChanged"
       end
 
-      local function resolve_highlight(name)
-        local hl = vim.api.nvim_get_hl(0, { name = name })
-        if hl and hl.link then
-          return vim.api.nvim_get_hl(0, { name = hl.link }) -- Resolve linked highlight
-        end
-        return hl
+      -- return get_color("Normal", "bg#")
+      local function get_color(group, attr)
+        local fn = vim.fn
+        return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr)
       end
 
       if focused then
-        local focus_hl_def = resolve_highlight(focus_hl)
-        local icon_hl_def = resolve_highlight(icon_hl)
-
-        local focus_bg = focus_hl_def and focus_hl_def.bg or nil
-        local icon_fg = icon_hl_def and icon_hl_def.fg or nil
+        local focus_bg = get_color(focus_hl, "bg#")
+        -- local icon_fg = get_color(icon_hl, "fg#")
 
         if focus_bg and icon_fg then
-          vim.api.nvim_set_hl(0, "TablineIconFocused", { fg = icon_fg, bg = focus_bg })
-          icon_hl = "TablineIconFocused"
+          vim.api.nvim_set_hl(0, "TabLineIconFocused", { fg = icon_fg, bg = focus_bg })
+          icon_hl = "TabLineIconFocused"
         else
+          print("falling back")
           icon_hl = focus_hl -- Fallback if something is missing
         end
       else
@@ -103,15 +106,15 @@ function M.tabline()
     table.insert(
       formatted_tabs,
       string.format(
-        "%%#%s#%s%%#%s# %%#%s#%s%%#%s#%s%%#%s#",
-        tab.focus_hl,
-        tab.tabnr,
-        tab.focus_hl,
-        tab.icon_hl,
-        tab.icon,
-        tab.focus_hl,
-        tab.filename,
-        tab.focus_hl
+        "%%#%s# %s %%#%s# %%#%s#%s%%#%s# %s %%#%s#",
+        tab.focus_hl, -- %#TabLine#
+        tab.tabnr, -- 1(no ending space)
+        tab.focus_hl, -- %#TabLine#
+        tab.icon_hl, -- %#TabLine#
+        tab.icon, -- icon
+        tab.focus_hl, -- TabLine
+        tab.filename, -- tabline.lua
+        tab.focus_hl -- Tabline
       )
     )
   end

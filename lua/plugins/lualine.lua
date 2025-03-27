@@ -21,20 +21,20 @@ return {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         refresh = {
-          tabline = 10000,
+          -- tabline = 10000,
           statusline = 100,
         },
       },
-      tabline = {
-        lualine_a = {
-          {
-            require("custom.tabline"),
-            -- cond = function()
-            -- return vim.fn.tabpagenr("$") > 1
-            -- end,
-          },
-        },
-      },
+      -- tabline = {
+      --   lualine_a = {
+      --     {
+      --       require("custom.tabline"),
+      --       -- cond = function()
+      --       -- return vim.fn.tabpagenr("$") > 1
+      --       -- end,
+      --     },
+      --   },
+      -- },
       sections = {
         lualine_a = {},
         lualine_b = {

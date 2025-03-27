@@ -30,7 +30,7 @@ return {
       "<leader>r",
       function()
         vim.ui.input({ prompt = "Enter new tab name: " }, function(input)
-          if input then
+          if input and input ~= "" then
             vim.cmd("TabRename " .. input)
           end
         end)
