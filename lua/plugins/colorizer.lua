@@ -7,9 +7,9 @@ end, { nargs = 0 })
 
 return {
   "catgoose/nvim-colorizer.lua",
-  ft = { "css", "html", "javascript", "typescript", "lua", "json" },
+  ft = { "css", "html", "javascript", "typescript", "lua", "json", "noice" },
   opts = {
-    lazy_load = true,
+    lazy_load = false,
     filetypes = {
       "*",
       noice = { always_update = true },
