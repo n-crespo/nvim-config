@@ -6,6 +6,7 @@
 -- Last Updated: 2024-12-29 13:30
 
 -- NOTE; this intentionally avoids the use of bright red and yellow (reserved for errors)
+-- credits: https://github.com/Bekaboo/dot/blob/master/.config/nvim/colors/macro.lua
 
 -- Clear hlgroups and set colors_name {{{
 vim.cmd.hi("clear")
@@ -77,7 +78,7 @@ vim.g.terminal_color_3  = c_carpYellow[1]
 vim.g.terminal_color_4  = c_macroBlue1[1]
 vim.g.terminal_color_5  = c_macroPink[1]
 vim.g.terminal_color_6  = c_macroAqua[1]
-vim.g.terminal_color_7  = c_macroFg1[1]
+vim.g.terminal_color_7  = c_macroFg0[1]
 vim.g.terminal_color_8  = selection_light_gray[1]
 vim.g.terminal_color_9  = c_waveRed[1]
 vim.g.terminal_color_10 = c_macroGreen0[1]
@@ -86,6 +87,7 @@ vim.g.terminal_color_12 = c_springBlue[1]
 vim.g.terminal_color_13 = c_springViolet[1]
 vim.g.terminal_color_14 = c_waveAqua1[1]
 vim.g.terminal_color_15 = c_macroFg0[1]
+
 vim.g.terminal_color_16 = c_macroOrange0[1]
 vim.g.terminal_color_17 = c_macroOrange1[1]
 -- stylua: ignore end
@@ -94,6 +96,12 @@ vim.g.terminal_color_17 = c_macroOrange1[1]
 -- Highlight groups {{{1
 local hlgroups = {
   -- UI {{{2
+
+  -- note: the below makes your background transparent. edit your terminal's settings
+  -- to set it to a different color, or just add something like bg = "#11111"
+  Normal = { fg = c_macroFg0, bg = nil },
+  NormalFloat = { bg = nil, fg = c_macroFg1 },
+
   ColorColumn = { bg = c_macroBg2 },
   Conceal = { bold = true, fg = c_macroGray2 },
   CurSearch = { link = "IncSearch" },
@@ -131,13 +139,7 @@ local hlgroups = {
   MsgArea = { fg = c_macroFg1 },
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
-  -- note: the below makes your background transparent. edit your terminal's settings
-  -- to set it to a different color, or just add something like bg = "#11111"
-  Normal = { fg = c_macroFg0, bg = nil },
-  NormalFloat = { bg = nil, fg = c_macroFg1 },
   SnippetTabstop = { link = "Snippet" },
-
-  -- NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC = { link = "Normal" },
   Pmenu = { bg = c_macroBg2, fg = c_macroFg1 },
   PmenuSbar = { bg = c_macroBg2 },
@@ -157,7 +159,7 @@ local hlgroups = {
   StatusLineNC = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
   TabLine = { fg = c_macroAsh },
-  TabLineFill = { link = "Tabline", bg = c_macroFg1 },
+  TabLineFill = { link = "Normal" },
   TabLineSel = { bg = c_macroBg2, fg = c_macroFg1 },
   TermCursor = { link = "Cursor" },
   TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
@@ -185,7 +187,7 @@ local hlgroups = {
   Exception = { fg = c_macroRed },
   Float = { link = "Number" },
   Function = { fg = c_macroBlue1 },
-  Identifier = { fg = c_macroFg0 },
+  Identifier = {}, -- used to be c_macroFg0
   Keyword = { fg = c_macroViolet },
   Number = { fg = c_macroPink },
   Operator = { fg = c_macroRed },
@@ -268,7 +270,7 @@ local hlgroups = {
   ["@lsp.type.magicFunction"] = { link = "@function.builtin" },
   ["@lsp.type.method"] = { link = "@function.method" },
   ["@lsp.type.namespace"] = { link = "@module" },
-  ["@lsp.type.parameter"] = { link = "@variable.parameter" },
+  ["@lsp.type.parameter"] = {}, -- used to be  { link = "@variable.parameter" }
   ["@lsp.type.selfParameter"] = { link = "@variable.builtin" },
   ["@lsp.type.variable"] = { fg = "NONE" },
   ["@lsp.typemod.function.builtin"] = { link = "@function.builtin" },
@@ -347,7 +349,7 @@ local hlgroups = {
   htmlLink = { fg = c_lotusBlue, underline = true },
   htmlSpecialChar = { link = "SpecialChar" },
   htmlSpecialTagName = { fg = c_macroViolet },
-  htmlString = { fg = c_macroAsh },
+  htmlString = { link = "String" },
   htmlTagName = { link = "Tag" },
   htmlTitle = { link = "Title" },
 
