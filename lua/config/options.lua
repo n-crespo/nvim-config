@@ -18,7 +18,7 @@ opt.smartcase = true -- casing in search
 opt.ignorecase = true -- casing in search
 opt.spelllang = "en" -- spell in english pls
 opt.spelloptions = "noplainbuffer,camel"
-opt.showtabline = 0
+opt.showtabline = 2
 opt.cmdheight = 0 -- no cmdline on bottom of screen
 opt.wrap = false
 opt.completeopt = "menu,menuone,noselect,noinsert,popup"
@@ -29,6 +29,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.lazyvim_python_lsp = "pylsp"
 vim.g.root_spec = { ".root", "lsp", ".git", "cwd" }
+vim.o.sessionoptions = vim.o.sessionoptions .. ",globals"
 -- opt.autochdir = true -- this breaks things
 
 if LazyVim.is_win() then
