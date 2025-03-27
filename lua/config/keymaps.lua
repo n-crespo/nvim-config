@@ -323,3 +323,5 @@ vim.keymap.set("n", "<leader>do", function()
   vim.notify("Disabled Diffview (global)", vim.log.levels.WARN, { title = "Diffview" })
   return diffwins_clean()
 end, { silent = true, desc = "Diff off all buffers" })
+
+vim.keymap.set("n", "<leader>m", "<cmd>messages<cr>", { desc = "Show messages" })
