@@ -80,7 +80,6 @@ return {
           },
         },
       },
-
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
@@ -93,6 +92,10 @@ return {
           builtin = false,
           cmd = { "delta" },
         },
+      },
+      matcher = {
+        frecency = true,
+        cwd_bonus = true,
       },
       win = {
         -- input window
