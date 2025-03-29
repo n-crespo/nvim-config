@@ -53,6 +53,18 @@ return {
         Variable = "󰫧 ",
       },
     },
+    signature = {
+      enabled = true,
+      trigger = {
+        show_on_insert = true,
+        show_on_insert_on_trigger_character = true,
+      },
+      window = {
+        show_documentation = true,
+        border = "rounded",
+        winhighlight = "FloatBorder:FloatBorder",
+      },
+    },
     keymap = {
       ["<C-n>"] = {}, -- used by neocodeium
       ["<C-p>"] = {}, -- used by neocodeium
@@ -61,6 +73,7 @@ return {
       ["<C-e>"] = { "hide", "show", "fallback" },
       ["<C-j>"] = { "select_next" },
       ["<C-k>"] = { "select_prev" },
+      ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
     },
   },
 }

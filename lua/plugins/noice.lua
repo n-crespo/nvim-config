@@ -11,6 +11,7 @@ return {
     },
     lsp = {
       hover = { enabled = true, silent = true },
+      signature = { enabled = false },
       documentation = {
         opts = {
           win_options = { wrap = true },
