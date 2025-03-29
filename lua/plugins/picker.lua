@@ -80,9 +80,18 @@ return {
           },
         },
       },
+
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
+          truncate = 60, -- truncate to rougthly this length
+        },
+      },
+      ---@class snacks.picker.previewers.Config
+      previewers = {
+        git = {
+          builtin = false,
+          cmd = { "delta" },
         },
       },
       win = {
@@ -90,17 +99,20 @@ return {
         input = {
           keys = {
             -- custom
+            ["<C-a>"] = { nil, mode = { "i", "n" } },
             ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
-            ["<S-CR>"] = { "edit_tab", mode = { "i", "n" } },
-            ["<C-CR>"] = { "pick_win", mode = { "i", "n" } },
-            ["<C-a>"] = { "", mode = { "i", "n" } },
+            ["<S-CR>"] = { "tab", mode = { "i", "n" } },
+
             ["<C-p>"] = { "history_back", mode = { "i", "n" } },
             ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
+
+            -- <C-/> conflicts with commenting keymap
             ["<c-s-/>"] = { "toggle_help", mode = { "i", "n" } },
-            ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
-            ["<c-l>"] = { "layout_default", mode = { "i", "n" } },
-            ["<c-t>"] = { "trouble_open", mode = { "i", "n" } },
+
+            -- exit when exiting insert mode
             ["<Esc>"] = { "cancel", mode = { "n", "i" } },
+
+            -- misc
             ["<S-Tab>"] = { "cycle_win", mode = { "i", "n" } },
             ["<C-Space>"] = { "toggle_live", mode = { "i", "n" } },
             ["<c-s>"] = { "edit_split", mode = { "i", "n" } },
@@ -115,7 +127,8 @@ return {
             ["<c-g>"] = { "toggle_live", mode = { "i", "n" } },
             ["<a-y>"] = { "toggle_follow", mode = { "i", "n" } },
 
-            -- remap to something else?
+            -- alt mappings
+            ["<a-o>"] = { "toggle_maximize", mode = { "i", "n" } },
             ["<a-i>"] = { "toggle_ignored", mode = { "i", "n" } },
             ["<a-u>"] = { "toggle_hidden", mode = { "i", "n" } },
             ["<a-p>"] = { "toggle_preview", mode = { "i", "n" } },
@@ -170,6 +183,26 @@ return {
     { "<leader>sm", nil },
     { "<leader>sb", nil },
     { "<leader>sj", nil },
+    {
+      "<leader>j", -- uses zoxide, jumps to selected dir and opens picker there
+      function()
+        if vim.fn.executable("zoxide") == 1 then
+          Snacks.picker.zoxide({
+            confirm = function(picker, item)
+              require("snacks").picker.files({
+                cwd = item._path,
+                title = vim.fn.fnamemodify(item._path, ":~"),
+                hidden = true,
+              })
+              picker:close()
+            end,
+          })
+        else
+          vim.notify("Zoxide is not installed", vim.log.levels.WARN)
+        end
+      end,
+      desc = "Jump to Dir and Pick",
+    },
     {
       "<leader>fP",
       function()
@@ -239,26 +272,6 @@ return {
         Snacks.picker.commands({ layout = "vscode" })
       end,
       desc = "Commands",
-    },
-    {
-      "<leader>j", -- uses zoxide, jumps to selected dir and opens picker there
-      function()
-        if vim.fn.executable("zoxide") == 1 then
-          Snacks.picker.zoxide({
-            confirm = function(picker, item)
-              require("snacks").picker.files({
-                cwd = item._path,
-                title = vim.fn.fnamemodify(item._path, ":~"),
-                hidden = true,
-              })
-              picker:close()
-            end,
-          })
-        else
-          vim.notify("Zoxide is not installed", vim.log.levels.WARN)
-        end
-      end,
-      desc = "Jump to Dir and Pick",
     },
     {
       "<leader>st",
