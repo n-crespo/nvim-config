@@ -187,7 +187,7 @@ local hlgroups = {
   Exception = { fg = c_macroRed },
   Float = { link = "Number" },
   Function = { fg = c_macroBlue1 },
-  Identifier = {}, -- used to be c_macroFg0
+  Identifier = { fg = c_macroFg0 },
   Keyword = { fg = c_macroViolet },
   Number = { fg = c_macroPink },
   Operator = { fg = c_macroRed },
@@ -270,7 +270,7 @@ local hlgroups = {
   ["@lsp.type.magicFunction"] = { link = "@function.builtin" },
   ["@lsp.type.method"] = { link = "@function.method" },
   ["@lsp.type.namespace"] = { link = "@module" },
-  ["@lsp.type.parameter"] = {}, -- used to be  { link = "@variable.parameter" }
+  ["@lsp.type.parameter"] = { link = "@variable.parameter" },
   ["@lsp.type.selfParameter"] = { link = "@variable.builtin" },
   ["@lsp.type.variable"] = { fg = "NONE" },
   ["@lsp.typemod.function.builtin"] = { link = "@function.builtin" },
