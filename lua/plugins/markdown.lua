@@ -73,6 +73,7 @@ return {
         right_pad = 2,
       },
       heading = {
+        setext = false,
         sign = false,
         position = "inline",
         border = false,
