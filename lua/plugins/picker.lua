@@ -186,6 +186,14 @@ return {
     { "<leader>sm", nil },
     { "<leader>sb", nil },
     { "<leader>sj", nil },
+    { "<leader>sR", nil },
+    {
+      "<leader>sr",
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = "Resume",
+    },
     {
       "<leader>j", -- uses zoxide, jumps to selected dir and opens picker there
       function()
