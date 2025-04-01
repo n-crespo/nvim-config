@@ -1,3 +1,4 @@
+vim.cmd([[cab cc CodeCompanion]])
 return {
   "olimorris/codecompanion.nvim",
   event = "LazyFile",
@@ -20,7 +21,6 @@ return {
       "ga",
       function()
         require("codecompanion").add()
-        -- vim.fn.norm
       end,
       mode = "v",
     },
