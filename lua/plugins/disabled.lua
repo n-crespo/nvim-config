@@ -1,6 +1,10 @@
 -- disables some plugins
 return {
   {
+    "MagicDuck/grug-far.nvim",
+    enabled = false,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim", -- mini files better
     enabled = false,
   },
