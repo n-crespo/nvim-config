@@ -14,9 +14,11 @@ vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" 
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
 --
 -- don't let cursor fly around when using J
-vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true, desc = "better J" })
+vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true })
 vim.keymap.set("n", "\\j", "j", { remap = false })
 vim.keymap.set("n", "\\k", "k", { remap = false })
+
+vim.keymap.set({ "n", "v" }, "go", "%", { desc = "Go to other pair" })
 
 -- go to visual end of line unless wrap is disabled!!
 vim.keymap.set({ "n", "v", "o" }, "E", function()
