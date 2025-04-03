@@ -50,6 +50,7 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
+    ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
     opts = {
       anti_conceal = { enabled = false },
       render_modes = { "n", "c", "i", "\x16", "t", "no", "V", "nov", "noV", "vs", "v" },
@@ -61,7 +62,7 @@ return {
           vim.wo.conceallevel = 0
         end,
       },
-      file_types = { "markdown", "norg", "rmd", "org" },
+      file_types = { "markdown", "norg", "rmd", "org", "codecompanion" },
       latex = { enabled = false },
       win_options = { conceallevel = { rendered = 2 } },
       code = {
@@ -95,7 +96,6 @@ return {
       },
       indent = { enabled = false },
     },
-    ft = { "markdown", "norg", "rmd", "org" },
     keys = {
       {
         "<leader>um",
