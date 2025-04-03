@@ -188,6 +188,13 @@ return {
     { "<leader>sj", nil },
     { "<leader>sR", nil },
     {
+      "<leader>cl",
+      function()
+        Snacks.picker.lsp_config()
+      end,
+      desc = "Resume",
+    },
+    {
       "<leader>sr",
       function()
         Snacks.picker.resume()
