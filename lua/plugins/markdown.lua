@@ -120,7 +120,7 @@ return {
           "/mnt/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe",
           "--new-window",
         }, -- 'webview', 'browser', string or a table of strings
-        theme = "light",
+        theme = "dark",
         close_on_bdelete = false,
       }
       return opts
