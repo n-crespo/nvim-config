@@ -1,3 +1,4 @@
+-- include borders in <leader>cd diagnostic floating window
 vim.diagnostic.config({
   float = { border = "rounded" },
 })
@@ -5,9 +6,10 @@ vim.diagnostic.config({
 return {
   "neovim/nvim-lspconfig",
   opts = function(_, opts)
-    -- disable <C-k> insert mode keymap for focusing signature help window
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
+    -- disable <C-k> insert mode keymap for focusing signature help window
     keys[#keys + 1] = { "<C-K>", false, mode = "i" }
+    -- disable some other keymaps
     keys[#keys + 1] = { "<leader>cA", false, mode = "n" }
     keys[#keys + 1] = { "<leader>cc", false, mode = "n" }
     keys[#keys + 1] = { "<leader>cC", false, mode = "n" }
