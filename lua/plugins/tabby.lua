@@ -14,7 +14,7 @@ return {
           return {
             line.sep("", hl, theme.fill),
             -- tab.is_current() and "" or "󰆣",
-            tab.number(),
+            (vim.fn.tabpagenr("$") > 3) and tab.number() or "", -- only show tab nums when >3 tabs
             tab.name(),
             -- tab.close_btn(""),
             line.sep(" ", hl, theme.fill),
