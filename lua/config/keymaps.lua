@@ -97,8 +97,8 @@ vim.keymap.set("v", "Y", "ygvgc']p", { remap = true, desc = "copy and comment cu
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { desc = "Rotate Window" })
 
 -- tab navigation
-vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>")
-vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>")
+vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
 -- create a new tab
 vim.keymap.set("n", "<C-space>", function()
