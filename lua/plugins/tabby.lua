@@ -5,6 +5,7 @@ local theme = {
 }
 return {
   "nanozuki/tabby.nvim",
+  enabled = false,
   event = "VeryLazy",
   opts = {
     line = function(line)

@@ -17,6 +17,7 @@ return {
   opts = function()
     local opts = {
       options = {
+        always_show_tabline = false, -- only show tabline when >1 tabs
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         padding = 0,
@@ -27,16 +28,81 @@ return {
           statusline = 100,
         },
       },
-      -- tabline = {
-      --   lualine_a = {
-      --     {
-      --       require("custom.tabline"),
-      --       -- cond = function()
-      --       -- return vim.fn.tabpagenr("$") > 1
-      --       -- end,
-      --     },
-      --   },
-      -- },
+      tabline = {
+        lualine_a = {
+          {
+            "tabs",
+            show_modified_status = false,
+            max_length = vim.o.columns - 2,
+            mode = 1,
+            padding = 1,
+            tabs_color = {
+              -- Same values as the general color option can be used here.
+              active = "TabLineSel", -- Color for active tab.
+              inactive = "TabLineFill", -- Color for inactive tab.
+            },
+            filetype_names = {
+              snacks_terminal = "TERMINAL",
+            },
+
+            fmt = function(name, context)
+              -- utility function
+              local function ignore_buffer(buftype, filetype)
+                -- local buftype = ctx.buftype
+                -- local filetype = ctx.filetype
+                local ignored_buftypes = { "prompt", "nofile", "terminal", "quickfix" }
+                local ignored_filetypes = { "snacks_picker_preview" }
+                return vim.tbl_contains(ignored_buftypes, buftype) or vim.tbl_contains(ignored_filetypes, filetype)
+              end
+
+              local buflist = vim.fn.tabpagebuflist(context.tabnr)
+              local bufnr = buflist[1]
+              local alt_bufnr = vim.fn.bufnr("#")
+              -- local winnr = vim.fn.tabpagewinnr(context.tabnr)
+
+              if name:find(".scratch") then
+                name = "scratch"
+              elseif ignore_buffer(context.buftype, context.filetype) then
+                -- first check alternate file
+                if
+                  vim.api.nvim_buf_is_valid(alt_bufnr)
+                  and not ignore_buffer(vim.bo[alt_bufnr].buftype, vim.bo[alt_bufnr].filetype)
+                then
+                  name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(alt_bufnr), ":t")
+                else
+                  -- now check for other possible windows to populate tabline
+                  local i = 2
+                  local check_bufnr
+                  local found
+                  while i <= #buflist and not found do
+                    check_bufnr = buflist[i]
+                    if not ignore_buffer(vim.bo[check_bufnr].buftype, vim.bo[check_bufnr].filetype) then
+                      found = true
+                    end
+                    i = i + 1
+                  end
+                  if found then
+                    name = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ":t")
+                  else
+                    name = "[No Name]"
+                  end
+                end
+              end
+
+              -- final check for edge cases
+              if name == "" then
+                name = "[No Name]"
+              end
+
+              return name
+              -- return ((vim.fn.tabpagenr("$") > 3) and (context.tabnr .. "") or "") .. " " .. name
+            end,
+            -- cond = function()
+            --   return vim.fn.tabpagenr("$") > 1
+            -- end,
+          },
+        },
+      },
       sections = {
         lualine_a = {},
         lualine_b = {
