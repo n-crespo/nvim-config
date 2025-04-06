@@ -2,7 +2,7 @@
 return {
   "folke/which-key.nvim",
   opts = {
-    icons = { mappings = false }, -- disable icons
+    icons = { mappings = true }, -- disable icons
     filter = function(mapping)
       -- exclude mappings without a description
       return mapping.desc and mapping.desc ~= ""
@@ -13,20 +13,19 @@ return {
     end,
     plugins = {
       marks = false,
-      spelling = {
-        enabled = false,
-      },
+      spelling = false,
+      presets = { motions = false, operators = false },
     },
     win = {
       no_overlap = false,
       border = "rounded",
-      padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
     },
     spec = {
       {
         mode = { "n", "v" },
         { "<R>", group = "run", icon = "" },
         { "<leader>q", group = "Close Window" },
+        { "<leader>a", group = "+ai" },
       },
     },
   },

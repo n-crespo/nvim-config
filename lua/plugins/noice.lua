@@ -20,5 +20,14 @@ return {
       },
     },
   },
-  keys = { { "<leader>snt", false } },
+  keys = {
+    { "<leader>snt", false },
+    {
+      "<leader>m",
+      function()
+        require("noice").cmd("all")
+      end,
+      desc = "Messages",
+    },
+  },
 }

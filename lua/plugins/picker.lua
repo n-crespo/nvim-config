@@ -192,7 +192,7 @@ return {
       function()
         Snacks.picker.lsp_config()
       end,
-      desc = "Resume",
+      desc = "Lsp Info",
     },
     {
       "<leader>sr",
@@ -206,6 +206,7 @@ return {
       function()
         if vim.fn.executable("zoxide") == 1 then
           Snacks.picker.zoxide({
+            title = "Jump to Directory",
             confirm = function(picker, item)
               require("snacks").picker.files({
                 cwd = item._path,
@@ -219,7 +220,29 @@ return {
           vim.notify("Zoxide is not installed", vim.log.levels.WARN)
         end
       end,
-      desc = "Jump to Dir and Pick",
+      desc = "Jump to Directory",
+    },
+    {
+      "<leader>k", -- same as <leader>j but loads session rather than opening picker
+      function()
+        if vim.fn.executable("zoxide") == 1 then
+          Snacks.picker.zoxide({
+            confirm = function(picker, item)
+              picker:close()
+              vim.fn.chdir(item._path)
+              local session = Snacks.dashboard.sections.session()
+              if session then
+                vim.cmd(session.action:sub(2))
+                vim.notify("Loading Session at: " .. vim.fn.fnamemodify(item._path, ":~"), "info")
+              end
+            end,
+            title = "Load Session",
+          })
+        else
+          vim.notify("Zoxide is not installed", vim.log.levels.WARN)
+        end
+      end,
+      desc = "Load Session",
     },
     {
       "<leader>fP",
@@ -233,14 +256,14 @@ return {
       function()
         Snacks.picker.recent()
       end,
-      desc = "Find Oldfiles (dumb)",
+      desc = "Find Old Files",
     },
     {
-      "<leader>F",
+      "<leader>fr",
       function()
         Snacks.picker.smart()
       end,
-      desc = "Find a File (smart)",
+      desc = "Find Recent File (smart)",
     },
     {
       "<leader>fH",
@@ -264,7 +287,8 @@ return {
       "<leader>fw",
       function()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.grep({ cwd = require("custom.utils").get_dir_with_fallback() })
+        local dir = require("custom.utils").get_dir_with_fallback()
+        Snacks.picker.grep({ cwd = dir, title = vim.fn.fnamemodify(dir, ":~") })
       end,
       desc = "Grep (buffer dir)",
     },

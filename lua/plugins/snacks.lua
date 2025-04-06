@@ -38,5 +38,13 @@ return {
     { "<leader>dpp", nil },
     { "<leader>dph", nil },
     { "<leader>dps", nil },
+    { "<leader>S", nil },
+    {
+      "<leader>n",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Notification History",
+    },
   },
 }

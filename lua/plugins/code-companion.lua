@@ -22,6 +22,10 @@ return {
   },
   keys = {
     {
+      "<leader>a",
+      desc = "+ai",
+    },
+    {
       "<leader>ac",
       function()
         require("codecompanion").chat()

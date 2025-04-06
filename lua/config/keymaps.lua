@@ -8,10 +8,10 @@ vim.keymap.set({ "i", "n" }, "", "<Nop>") -- skip
 
 -- --------------------------------------- BETTER MOTIONS ---------------------------------------
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, desc = "Half Page Down" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, desc = "Half Page Up" })
-vim.keymap.set("n", "n", "nzzzv", { noremap = true, desc = "Next Search Result" })
-vim.keymap.set("n", "N", "Nzzzv", { noremap = true, desc = "Prev Search Result" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
+vim.keymap.set("n", "n", "nzzzv", { noremap = true })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
 --
 -- don't let cursor fly around when using J
 vim.keymap.set("n", "J", "mzJ`z<cmd>delm z<CR>", { silent = true })
@@ -27,7 +27,7 @@ vim.keymap.set({ "n", "v", "o" }, "E", function()
   else
     vim.cmd("normal! $")
   end
-end, { desc = "End of line", silent = true })
+end, { silent = true })
 
 vim.keymap.set({ "n", "v", "o" }, "B", function()
   if vim.opt.wrap:get() then
@@ -35,7 +35,7 @@ vim.keymap.set({ "n", "v", "o" }, "B", function()
   else
     vim.cmd("normal! ^")
   end
-end, { desc = "Start of line", silent = true })
+end, { silent = true })
 
 -- better scrolling with mouse
 vim.keymap.set("n", "<ScrollWheelUp>", "<C-y>")
@@ -64,20 +64,21 @@ vim.keymap.set({ "n", "x" }, "<C-n>", "<M-j>", { remap = true, silent = true })
 
 -- allow changing and deleting without overriding current paste registers
 -- in other words automatically delete or change to the void register
-vim.keymap.set({ "n", "v" }, "D", '"_D', { noremap = true, silent = true, desc = "Delete till end of line" })
-vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, silent = true, desc = "Delete" })
-vim.keymap.set({ "n", "v" }, "C", '"_C', { noremap = true, silent = true, desc = "Change till end of line" })
-vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true, silent = true, desc = "Change" })
-vim.keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true, desc = "Delete under cursor" })
-vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true, desc = "Paste" })
+vim.keymap.set({ "n", "v" }, "D", '"_D', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "C", '"_C', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "x", '"_x', { noremap = true, silent = true })
+vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true })
+-- this one is a bit weird
 vim.keymap.set("n", "X", "0D", { remap = true, desc = "Clear Line", silent = true })
 
 -- delete to register
-vim.keymap.set("v", "<leader>D", '"+d', { desc = "Delete and Cut", silent = true, remap = false })
-vim.keymap.set("n", "<leader>D", '"+dd', { desc = "Delete and Cut", silent = true })
+vim.keymap.set("v", "<leader>D", '"+d', { desc = "Delete and Copy", silent = true, remap = false })
+vim.keymap.set("n", "<leader>D", '"+dd', { desc = "Delete and Copy", silent = true })
 
 -- paste from system clipboard
-vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, silent = true })
 vim.keymap.set("c", "<C-v>", "<C-r>+")
 
 -- select last changed/yanked text
@@ -85,7 +86,7 @@ vim.keymap.set(
   "n",
   "gV",
   '"`[" . strpart(getregtype(), 0, 1) . "`]"',
-  { expr = true, replace_keycodes = false, desc = "Visually select changed text" }
+  { expr = true, replace_keycodes = false, desc = "Select last changed/yanked text" }
 )
 
 vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "copy and comment current line" })
@@ -96,8 +97,8 @@ vim.keymap.set("v", "Y", "ygvgc']p", { remap = true, desc = "copy and comment cu
 vim.keymap.set("n", "<leader>wr", "<C-w>r", { desc = "Rotate Window" })
 
 -- tab navigation
-vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>", { desc = "Previous Tab" })
-vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+vim.keymap.set("n", "<S-h>", "<cmd>tabprev<cr>")
+vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>")
 
 -- create a new tab
 vim.keymap.set("n", "<C-space>", function()
@@ -124,45 +125,36 @@ vim.keymap.set("n", "<leader>o", function()
   end
 end, { desc = "Open File in System Viewer" })
 
-vim.keymap.set("n", "<leader>1", "<cmd>silent! tabn 1<cr>", { silent = true, desc = "Tab 1" })
-vim.keymap.set("n", "<leader>2", "<cmd>silent! tabn 2<cr>", { silent = true, desc = "Tab 2" })
-vim.keymap.set("n", "<leader>3", "<cmd>silent! tabn 3<cr>", { silent = true, desc = "Tab 3" })
-vim.keymap.set("n", "<leader>4", "<cmd>silent! tabn 4<cr>", { silent = true, desc = "Tab 4" })
-vim.keymap.set("n", "<leader>5", "<cmd>silent! tabn 5<cr>", { silent = true, desc = "Tab 5" })
+-- exclude "desc" so they don't populate which-key
+vim.keymap.set("n", "<leader>1", "<cmd>silent! tabn 1<cr>", { silent = true })
+vim.keymap.set("n", "<leader>2", "<cmd>silent! tabn 2<cr>", { silent = true })
+vim.keymap.set("n", "<leader>3", "<cmd>silent! tabn 3<cr>", { silent = true })
+vim.keymap.set("n", "<leader>4", "<cmd>silent! tabn 4<cr>", { silent = true })
+vim.keymap.set("n", "<leader>5", "<cmd>silent! tabn 5<cr>", { silent = true })
 
 -- --------------------------------- INSERT MODE + COMPLETION -------------------------------------
 
 -- completion cycling in command mode
-vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true, desc = "Next completion items" })
-vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true, desc = "Prev completion items" })
-vim.keymap.set("c", "<C-a>", "<Home>", { remap = true, desc = "Next completion items" })
-vim.keymap.set("c", "<C-e>", "<End>", { remap = true, desc = "Prev completion items" })
+vim.keymap.set("c", "<C-j>", "<C-n>", { remap = true })
+vim.keymap.set("c", "<C-k>", "<C-p>", { remap = true })
+vim.keymap.set("c", "<C-a>", "<Home>", { remap = true })
+vim.keymap.set("c", "<C-e>", "<End>", { remap = true })
 
 -- in insert mode auto-correct the last misspelled word
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Auto Correct", silent = true })
 
 vim.keymap.set("i", "<C-Del>", "<C-o>de") -- traditional functionality of <C-delete>
-vim.keymap.set("i", "<M-BS>", "<C-u>", { desc = "Clear Line" })
--- backspace to clear snippets
-vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true })
+vim.keymap.set("i", "<M-BS>", "<C-u>") -- clean line (windows keymap)
+vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true }) -- backspace to clear snippets
 
--- indents
-vim.keymap.set("n", "<C-]>", ">>", { desc = "Increase Indent" })
-vim.keymap.set("n", "<C-[>", "<<", { desc = "Decrease Indent" })
-vim.keymap.set("i", "<C-]>", "<C-t>", { desc = "Increase Indent" })
-vim.keymap.set("i", "<C-[>", "<C-d>", { desc = "Decrease Indent" })
-vim.keymap.set("v", "<C-]>", ">", { remap = true, desc = "Increase Indent" })
-vim.keymap.set("v", "<C-S-Find>", "<", { remap = true, desc = "Decrease Indent" })
+-- indenting easier
+vim.keymap.set("n", "<C-]>", ">>")
+vim.keymap.set("i", "<C-]>", "<C-t>")
+vim.keymap.set("v", "<C-]>", ">", { remap = true })
 
--- ------------------------------------- PERMISSIONS -----------------------------------------------
-
--- Force save as sudo (for readonly files)
-vim.keymap.set(
-  "n",
-  "<leader>W",
-  "<cmd>silent! w !sudo tee %<cr>",
-  { desc = "Force Save File", noremap = true, silent = true }
-)
+vim.keymap.set("n", "<C-S-Find>", "<<")
+vim.keymap.set("v", "<C-S-Find>", "<")
+vim.keymap.set("i", "<C-S-Find>", "<C-d>", { remap = true })
 
 -- ------------------------------------- ABBREVIATIONS --------------------------------------------
 
@@ -189,43 +181,36 @@ vim.api.nvim_create_user_command("Q", "qa", { nargs = 0 })
 vim.api.nvim_create_user_command("Wq", "wq", { nargs = 0 })
 vim.api.nvim_create_user_command("WQ", "wq", { nargs = 0 })
 vim.api.nvim_create_user_command("X", "LazyExtras", { nargs = 0 })
-vim.cmd("cnoreabbrev F !prettier -w --parser=markdown") -- use for formatting lines with markdown
+
+-- force save as sudo, good for readonly files
+vim.api.nvim_create_user_command("WF", "silent! w !sudo tee %", { nargs = 0, desc = "Force Save" })
+
+-- use for formatting lines with markdown
+vim.cmd("cnoreabbrev F !prettier -w --parser=markdown")
 
 -- ------------------------------------- MISC KEYMAPS ----------------------------------------------
 
 -- apply last created macro over selected region
 vim.keymap.set("x", "Q", ":norm @@<cr>", { desc = "Play Q Macro", silent = true })
 
--- replace all instances of word (without LSP)
-vim.keymap.set(
-  "n",
-  "<leader>ci",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace instances" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>cI",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]],
-  { desc = "Replace instances with confirmation" }
-)
+-- default mappings, just removing description so they're hidden from whichkey
+vim.keymap.set("x", "Y", "y$")
+vim.keymap.set("x", "&", ":&&<CR>")
 
 -- : (easier to hit when using in combination with <C-k>)
 vim.keymap.set({ "n", "v" }, "<C-;>", ":", { remap = true, silent = false, desc = "Commmand Mode" })
 
--- increment and decrement with plus and minus (since I override <C-a>)
-vim.keymap.set({ "n", "v" }, "+", "<C-a>", { noremap = true, silent = true })
+-- increment and decrement with plus and minus (since i override <c-a>)
+vim.keymap.set({ "n", "v" }, "+", "<c-a>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "-", "<C-x>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
+vim.keymap.set("n", "<C-a>", "ggVG")
 
 -- follow links better
-vim.keymap.set("n", "gx", function()
+vim.keymap.set({ "n", "x" }, "gx", function()
   vim.ui.open(vim.fn.expand("<cfile>"))
-end, { silent = true, desc = "Follow Link" })
+end, { silent = true })
 
 -- Use ` to fold when in normal mode
--- To see help about folds use `:help fold`
 vim.keymap.set({ "n", "v" }, "`", function()
   -- Get the current line number
   local line = vim.fn.line(".")
@@ -236,7 +221,7 @@ vim.keymap.set({ "n", "v" }, "`", function()
   else
     vim.cmd("normal! za")
   end
-end, { desc = "Toggle fold" })
+end)
 
 -- clean ^Ms (windows newlines)
 vim.keymap.set("n", "<C-S-S>", function()
@@ -268,10 +253,10 @@ local spell_select = function()
   local cword = vim.fn.expand("<cword>")
   vim.ui.select(vim.fn.spellsuggest(cword, vim.o.lines), { prompt = "Change " .. cword .. " to:" }, spell_on_choice)
 end
-vim.keymap.set("n", "z=", spell_select, { desc = "Show spelling suggestions" })
+vim.keymap.set("n", "z=", spell_select)
 
 -- auto pick the first spelling suggestion and apply it
-vim.keymap.set("n", "<leader>fs", "1z=", { remap = false, silent = true, desc = "Fix Spelling under cursor" })
+vim.keymap.set("n", "<leader>fs", "1z=", { remap = false, silent = true, desc = "Fix Spelling" })
 
 vim.keymap.set("n", "<leader>R", function()
   local plugins = require("lazy").plugins()
@@ -286,44 +271,3 @@ vim.keymap.set("n", "<leader>R", function()
     require("lazy").reload({ plugins = { selected } })
   end)
 end, { desc = "Reload plugin" })
-
--- Diffview (https://github.com/LazyVim/LazyVim/discussions/5462)
-
--- util function
-local function greplist(str, inputlist)
-  for i, v in ipairs(inputlist) do
-    if v:match(str) then
-      return i, v
-    end
-  end
-  return nil
-end
-
-local diffwins = {}
-local function diffwins_clean()
-  vim.cmd("diffoff!")
-  diffwins = {}
-end
-vim.keymap.set("n", "<leader>da", function()
-  vim.notify("Enabled Diffview (Buffer)", vim.log.levels.INFO, { title = "Diffview" })
-  if #diffwins >= 2 then
-    diffwins_clean()
-    return
-  end
-  local winnr = tostring(vim.fn.winnr())
-  local cached_winnr, _ = greplist(winnr, diffwins)
-  if cached_winnr then
-    vim.cmd("diffoff")
-    table.remove(diffwins, cached_winnr)
-  else
-    vim.cmd("diffthis")
-    table.insert(diffwins, winnr)
-  end
-end, { silent = true, desc = "Diff this buffer" })
-
-vim.keymap.set("n", "<leader>do", function()
-  vim.notify("Disabled Diffview (global)", vim.log.levels.WARN, { title = "Diffview" })
-  return diffwins_clean()
-end, { silent = true, desc = "Diff off all buffers" })
-
-vim.keymap.set("n", "<leader>m", "<cmd>messages<cr>", { desc = "Show messages" })

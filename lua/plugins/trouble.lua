@@ -7,6 +7,7 @@ return {
     { "<leader>xT", nil },
     { "<leader>xq", nil },
     { "<leader>xQ", nil },
+    { "<leader>cS", nil },
     {
       "<S-CR>",
       "o",
