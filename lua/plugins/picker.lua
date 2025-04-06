@@ -249,21 +249,21 @@ return {
       function()
         Snacks.picker.pickers()
       end,
-      desc = "Find Pickers",
+      desc = "Pickers",
     },
     {
       "<leader>fo",
       function()
         Snacks.picker.recent()
       end,
-      desc = "Find Old Files",
+      desc = "Old Files",
     },
     {
       "<leader>fr",
       function()
         Snacks.picker.smart()
       end,
-      desc = "Find Recent File (smart)",
+      desc = "Recent Files (smart)",
     },
     {
       "<leader>fH",
@@ -298,7 +298,7 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.files({ cwd = require("custom.utils").get_dir_with_fallback() })
       end,
-      desc = "Find Files (buffer dir)",
+      desc = "Files (buffer dir)",
     },
     {
       "<leader>fp",
@@ -306,7 +306,7 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         Snacks.picker.files({ cwd = require("lazy.core.config").options.root })
       end,
-      desc = "Find Plugin File",
+      desc = "Plugin Files",
     },
     {
       "<leader>;",
