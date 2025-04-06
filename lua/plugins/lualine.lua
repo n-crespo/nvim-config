@@ -94,6 +94,16 @@ return {
   end,
   keys = {
     {
+      "<leader>r",
+      function()
+        vim.ui.input({ prompt = "New Tab Name: " }, function(input)
+          if input or input == "" then
+            vim.cmd("LualineRenameTab " .. input)
+          end
+        end)
+      end,
+    },
+    {
       "<leader>uS",
       function()
         vim.o.laststatus = vim.o.laststatus == 0 and 3 or 0
