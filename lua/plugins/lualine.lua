@@ -1,5 +1,6 @@
 vim.g.trouble_lualine = false
 vim.g.lualine_hide_tabnr = false
+local icons = LazyVim.config.icons
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -18,6 +19,7 @@ return {
       options = {
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
+        padding = 0,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         refresh = {
@@ -41,7 +43,7 @@ return {
           {
             function()
               if LazyVim.is_win() then
-                return ""
+                return "🪟"
               end
               return ""
             end,
@@ -50,7 +52,7 @@ return {
           },
           {
             "hostname",
-            padding = { left = 0, right = 1 },
+            padding = { right = 1 },
             -- cond = os.getenv("SSH_CONNECTION") ~= nil
             -- (above could be used to only show this component when ssh-ed)
           },
@@ -59,12 +61,12 @@ return {
           {
             "diagnostics",
             symbols = {
-              error = LazyVim.config.icons.diagnostics.Error,
-              warn = LazyVim.config.icons.diagnostics.Warn,
-              info = LazyVim.config.icons.diagnostics.Info,
-              hint = LazyVim.config.icons.diagnostics.Hint,
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
             },
-            padding = { left = 1, right = 0 },
+            padding = { right = 1 },
           },
           {
             require("lualine_require").require("lazy.status").updates,
@@ -76,17 +78,37 @@ return {
             -- this is for showing when a macro is recording
             function() return require("lualine_require").require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("lualine_require").require("noice").api.status.mode.has() end,
-            color = "WarningMsg"
+            color = "WarningMsg",
+            padding = 1,
           },
         },
         lualine_x = {
           {
-            -- tabline can also go on the bottom...
             "diff",
-            padding = { left = 1, right = 1 },
+            source = function()
+              local gitsigns = vim.b.gitsigns_status_dict
+              if gitsigns then
+                return {
+                  added = gitsigns.added,
+                  modified = gitsigns.changed,
+                  removed = gitsigns.removed,
+                }
+              end
+            end,
+            padding = { right = 1 },
           },
         },
-        lualine_y = { "progress" },
+        lualine_y = {
+          {
+            "location",
+            cond = function()
+              return not string.find(vim.fn.mode():lower(), "[v]")
+            end,
+            padding = 1,
+          },
+          { "selectioncount", padding = 1 },
+          { "progress", padding = { left = 0, right = 1 } },
+        },
         lualine_z = {},
       },
     }
