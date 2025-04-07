@@ -1,7 +1,7 @@
 vim.g.trouble_lualine = false
 local icons = LazyVim.config.icons
 
-local NO_NAME = " "
+local NO_NAME = ""
 
 -- make sure to refresh lualine when needed
 vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
@@ -87,7 +87,8 @@ return {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         refresh = {
-          tabline = 10000,
+          -- only refresh tabline when absolutely necessary (autocmd + manual refresh)
+          tabline = 0,
           statusline = 100,
         },
       },
@@ -96,7 +97,7 @@ return {
           {
             "tabs",
             show_modified_status = false,
-            max_length = vim.o.columns - 2,
+            max_length = 99999,
             mode = 1,
             padding = 1,
             tabs_color = {
@@ -108,6 +109,8 @@ return {
             fmt = function(name, context)
               local buflist = vim.fn.tabpagebuflist(context.tabnr)
               local winnr = vim.fn.tabpagewinnr(context.tabnr)
+              local is_selected = context.tabnr == vim.fn.tabpagenr()
+
               local bufnr = buflist[winnr]
 
               -- hardcode name for Snacks scratch buffers
@@ -117,8 +120,25 @@ return {
                 name = get_buffer_name(bufnr, context)
               end
 
-              -- include tabnr only if # of tabs > 3
-              return ((vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or "") .. name
+              local tabline_hl = is_selected and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
+              local icon, hl = require("mini.icons").get("file", name)
+
+              if is_selected then
+                local fn = vim.fn
+                local icon_fg = fn.synIDattr(fn.synIDtrans(fn.hlID(hl)), "fg#") or nil
+                local icon_bg = fn.synIDattr(fn.synIDtrans(fn.hlID(tabline_hl)), "bg#") or nil
+                vim.api.nvim_set_hl(0, "TabLineIconFocused", { fg = icon_fg, bg = icon_bg, bold = true })
+                hl = "TabLineIconFocused"
+              end
+
+              name = name ~= "" and name .. " " or name
+              name = "%#" .. hl .. "#" .. icon .. " " .. "%#" .. tabline_hl .. "#" .. name
+
+              -- Include tabnr only if the number of tabs is greater than 3
+              local tab_number = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or ""
+              name = tab_number .. name
+
+              return "%#" .. tabline_hl .. "#" .. name .. "%*"
             end,
           },
         },
