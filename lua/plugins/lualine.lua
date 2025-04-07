@@ -80,7 +80,7 @@ return {
   opts = function()
     local opts = {
       options = {
-        always_show_tabline = false, -- only show tabline when >1 tabs
+        always_show_tabline = true, -- only show tabline when >1 tabs
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         padding = 0,
@@ -121,21 +121,11 @@ return {
               end
 
               local tabline_hl = is_selected and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
-              local icon, hl = require("mini.icons").get("file", name)
-
-              if is_selected then
-                local hl_props = vim.api.nvim_get_hl(0, { name = hl, link = false })
-                local tabline_hl_props = vim.api.nvim_get_hl(0, { name = tabline_hl, link = false })
-
-                local icon_fg = hl_props.fg or nil
-                local icon_bg = tabline_hl_props.bg or nil
-
-                vim.api.nvim_set_hl(0, "TabLineIconFocused", { fg = icon_fg, bg = icon_bg, bold = true })
-                hl = "TabLineIconFocused"
-              end
+              local icon, icon_hl = require("mini.icons").get("file", name)
+              icon_hl = icon_hl .. "_" .. tabline_hl
 
               name = name ~= "" and name .. " " or name
-              name = "%#" .. hl .. "#" .. icon .. " " .. "%#" .. tabline_hl .. "#" .. name
+              name = "%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tabline_hl .. "#" .. name
 
               -- Include tabnr only if the number of tabs is greater than 3
               local tab_number = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or ""
@@ -215,7 +205,25 @@ return {
             end,
             padding = 1,
           },
-          { "selectioncount", padding = 1 },
+          {
+            "selectioncount",
+            padding = 1,
+            fmt = function(str)
+              if str == "" then
+                return
+              end
+              local total_width = 6
+              local str_len = #str
+              if str_len < total_width and str_len ~= "" then
+                local padding = total_width - str_len
+                local right_pad = math.floor(padding / 2)
+                local left_pad = padding - right_pad
+                return string.rep(" ", left_pad) .. str .. string.rep(" ", right_pad)
+              else
+                return str
+              end
+            end,
+          },
           { "progress", padding = { left = 0, right = 1 } },
         },
         lualine_z = {},
