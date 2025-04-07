@@ -106,13 +106,25 @@ return {
           completion = {
             ghost_text = {
               enabled = function()
-                if package.loaded["neocodeium"] ~= nil then
+                if package.loaded["neocodeium"] and require("neocodeium").visible() then
                   local plugin, _ = require("neocodeium").get_status()
                   return plugin ~= 0
                 end
                 return true
               end,
             },
+          },
+          keymap = {
+            ["<C-CR>"] = {
+              function()
+                if package.loaded["neocodeium"] and require("neocodeium").visible() then
+                  require("neocodeium").accept()
+                  return true
+                end
+              end,
+              "select_and_accept",
+              "fallback",
+            }, -- for accepting from blink
           },
         },
       },

@@ -71,6 +71,7 @@ return {
       ["<C-p>"] = {}, -- used by neocodeium
       ["<S-CR>"] = {}, -- make new line (ignore cmp)
       ["<CR>"] = { "select_and_accept", "fallback" }, -- for accepting from blink
+      ["<C-CR>"] = { "select_and_accept", "fallback" }, -- for accepting from blink
       ["<C-e>"] = { "hide", "show", "fallback" },
       ["<C-j>"] = { "select_next" },
       ["<C-k>"] = { "select_prev" },
