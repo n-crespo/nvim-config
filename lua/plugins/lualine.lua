@@ -18,6 +18,29 @@ local function ignore_buffer(bufnr)
   return vim.api.nvim_buf_get_name(bufnr) == ""
 end
 
+-- Get buffer name, using alternate buffer or last visited buffer if necessary
+local function get_buffer_name(bufnr)
+  if ignore_buffer(bufnr) then
+    local alt_bufnr = vim.fn.bufnr("#")
+    if alt_bufnr ~= -1 and alt_bufnr ~= bufnr and not ignore_buffer(alt_bufnr) then
+      -- use name of alternate buffer
+      return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(alt_bufnr), ":t")
+    end
+
+    -- Try to use the name of a different window in the same tab
+    local win_ids = vim.api.nvim_tabpage_list_wins(0)
+    for _, win_id in ipairs(win_ids) do
+      local check_bufnr = vim.api.nvim_win_get_buf(win_id)
+      if not ignore_buffer(check_bufnr) then
+        local name = vim.fn.fnamemodify(vim.fn.bufname(check_bufnr), ":t")
+        return name == "" and "[No Name]" or name
+      end
+    end
+    return "[No Name]"
+  end
+  return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   init = function()
@@ -33,7 +56,7 @@ return {
   opts = function()
     local opts = {
       options = {
-        -- always_show_tabline = false, -- only show tabline when >1 tabs
+        always_show_tabline = false, -- only show tabline when >1 tabs
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         padding = 0,
@@ -63,9 +86,6 @@ return {
               local winnr = vim.fn.tabpagewinnr(context.tabnr)
               local bufnr = buflist[winnr]
 
-              -- print("bufnr: " .. bufnr)
-
-              -- vim.notify("begin")
               if name:find(".scratch") then
                 name = "scratch"
               elseif
@@ -74,43 +94,13 @@ return {
                 and (not ignore_buffer(bufnr) or vim.fn.tabpagebuflist(0) == 0)
               then
                 name = "[No Name]"
-              elseif ignore_buffer(bufnr) then
-                local alt_bufnr = vim.fn.bufnr("#")
-
-                -- first check alternate file
-                if alt_bufnr ~= -1 and alt_bufnr ~= bufnr and not ignore_buffer(alt_bufnr) then
-                  -- using alternate buffer
-                  name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(alt_bufnr), ":t")
-                else
-                  -- try to populate tabline with name of previously visited buffer in this tab
-                  local check_bufnr
-                  local found
-                  local win_ids = vim.api.nvim_tabpage_list_wins(0)
-                  for _, win_id in ipairs(win_ids) do
-                    check_bufnr = vim.api.nvim_win_get_buf(win_id)
-                    if not ignore_buffer(check_bufnr) then
-                      found = true
-                      break
-                    end
-                  end
-                  if found then
-                    -- using buffer found by iterating thorugh buflist
-                    name = vim.fn.fnamemodify(vim.fn.bufname(check_bufnr), ":t")
-                    if name == "" then
-                      return "[No Name]"
-                    end
-                  else
-                    name = "[No Name]"
-                  end
-                end
+              else
+                name = get_buffer_name(bufnr)
               end
 
               -- include tabnr only if # of tabs > 3
               return ((vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or "") .. name
             end,
-            -- cond = function()
-            --   return vim.fn.tabpagenr("$") > 1
-            -- end,
           },
         },
       },
