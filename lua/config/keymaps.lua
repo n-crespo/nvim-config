@@ -104,11 +104,11 @@ vim.keymap.set("n", "<S-l>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
 -- create a new tab
 vim.keymap.set("n", "<C-space>", function()
-  if vim.fn.tabpagenr("$") >= 5 then
-    vim.notify("Thats a lotta tabs...", vim.log.levels.WARN, { title = "Tabs" })
-  else
-    vim.cmd("tabe")
-  end
+  -- if vim.fn.tabpagenr("$") >= 5 then
+  --   vim.notify("Thats a lotta tabs...", vim.log.levels.WARN, { title = "Tabs" })
+  -- else
+  vim.cmd("tabe")
+  -- end
 end)
 
 vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
