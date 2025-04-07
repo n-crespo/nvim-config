@@ -1,6 +1,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd({ "BufWritePre" }, {
+  group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
   desc = "Remove all trailing whitespace on save",
   pattern = { "*" },
   callback = function()
@@ -14,6 +15,7 @@ autocmd({ "BufWritePre" }, {
 
 -- only show cursorline in active window normal mode
 autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
+  group = vim.api.nvim_create_augroup("SmartCursorline", { clear = false }),
   desc = "Enable cursorline only in active window",
   callback = function()
     vim.wo.cursorline = vim.bo.buftype == ""
@@ -21,6 +23,7 @@ autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
 })
 
 autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
+  group = vim.api.nvim_create_augroup("SmartCursorline", { clear = false }),
   desc = "Enable cursorline only in active window",
   callback = function()
     vim.wo.cursorline = false
@@ -28,12 +31,14 @@ autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
 })
 
 autocmd({ "BufRead", "FileType" }, {
+  group = vim.api.nvim_create_augroup("UnConceal", { clear = true }),
   desc = "Disable conceal for Mentorship-Hour-Log.md",
   pattern = "Mentorship-Hour-Log.md",
   command = "setlocal conceallevel=0",
 })
 
 autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
+  group = vim.api.nvim_create_augroup("SmartTextWidth", { clear = true }),
   desc = "Enable text width only when wrap is disabled",
   pattern = "wrap",
   callback = function()
@@ -47,6 +52,7 @@ autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
 
 autocmd("FileType", {
   desc = "Cycle quickfix list while inside qf window",
+  group = vim.api.nvim_create_augroup("CycleQuickFix", { clear = true }),
   pattern = "qf",
   callback = function(event)
     local opts = { buffer = event.buf, silent = true }
@@ -57,6 +63,7 @@ autocmd("FileType", {
 
 -- https://github.com/neovim/neovim/issues/8587#issuecomment-2439415252
 vim.api.nvim_create_autocmd("QuitPre", {
+  group = vim.api.nvim_create_augroup("WindowsCleanUp", { clear = true }),
   callback = function()
     if LazyVim.is_win() then
       os.execute('del /Q "%LOCALAPPDATA%\\nvim-data\\shada\\main.shada.tmp.*"')
@@ -65,6 +72,7 @@ vim.api.nvim_create_autocmd("QuitPre", {
 })
 
 autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("SSHClipboard", { clear = true }),
   desc = "Sync pasting with local clipboard while ssh-ed",
   callback = function()
     if os.getenv("SSH_CONNECTION") ~= nil then
@@ -78,8 +86,8 @@ autocmd("TextYankPost", {
 })
 
 autocmd({ "BufLeave", "FocusLost" }, {
-  desc = "Auto save",
-  group = vim.api.nvim_create_augroup("group", { clear = true }),
+  group = vim.api.nvim_create_augroup("AutoSave", { clear = true }),
+  desc = "Auto save buffers when focus is lost (skips formatting).",
   callback = function()
     local file_path = vim.fn.expand("%") or ""
     if vim.bo.modifiable and vim.bo.buftype == "" and vim.bo.buflisted and vim.fn.filereadable(file_path) == 1 then

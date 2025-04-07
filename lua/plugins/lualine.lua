@@ -4,7 +4,9 @@ local icons = LazyVim.config.icons
 local NO_NAME = " "
 
 -- make sure to refresh lualine when needed
-vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed", "WinEnter", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
+  desc = "Refresh tabline when needed",
+  group = vim.api.nvim_create_augroup("TablineReload", { clear = true }),
   callback = function()
     require("lualine").refresh({ scope = "all", place = { "tabline" } })
   end,
