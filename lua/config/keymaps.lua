@@ -152,11 +152,11 @@ vim.keymap.set("s", "<BS>", "<C-O>c", { remap = true }) -- backspace to clear sn
 -- indenting easier
 vim.keymap.set("n", "<C-]>", ">>")
 vim.keymap.set("i", "<C-]>", "<C-t>")
-vim.keymap.set("v", "<C-]>", ">", { remap = true })
+vim.keymap.set("v", "<C-]>", ">gv")
 
 vim.keymap.set("n", "<C-S-Find>", "<<")
-vim.keymap.set("v", "<C-S-Find>", "<")
-vim.keymap.set("i", "<C-S-Find>", "<C-d>", { remap = true })
+vim.keymap.set("i", "<C-S-Find>", "<C-d>")
+vim.keymap.set("v", "<C-S-Find>", "<gv")
 
 -- ------------------------------------- ABBREVIATIONS --------------------------------------------
 
