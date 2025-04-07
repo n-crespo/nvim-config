@@ -20,7 +20,7 @@ vim.keymap.set("n", "\\k", "k", { remap = false })
 
 vim.keymap.set({ "n", "v" }, "go", "%", { desc = "Go to other pair" })
 
--- go to visual end of line unless wrap is disabled!!
+-- go to visual end of line (unless wrap is disabled)
 vim.keymap.set({ "n", "v", "o" }, "E", function()
   if vim.opt.wrap:get() then
     vim.cmd("normal! g$")
@@ -28,7 +28,6 @@ vim.keymap.set({ "n", "v", "o" }, "E", function()
     vim.cmd("normal! $")
   end
 end, { silent = true })
-
 vim.keymap.set({ "n", "v", "o" }, "B", function()
   if vim.opt.wrap:get() then
     vim.cmd("normal! g^")
@@ -49,6 +48,8 @@ vim.keymap.set({ "n", "t" }, "<S-NL>", "<cmd>wincmd j<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-K>", "<cmd>wincmd k<cr>")
 vim.keymap.set({ "n", "t" }, "<C-S-L>", "<cmd>wincmd l<cr>")
 
+-- paste easier in terminal
+vim.keymap.set("t", "<C-v>", "<c-\\><c-n><cmd>norm p<Cr>a", { remap = true })
 vim.keymap.set("t", "<C-v>", "<c-\\><c-n><cmd>norm p<Cr>a", { remap = true })
 
 -- don't scroll on <S-CR>
@@ -57,6 +58,7 @@ vim.keymap.set("n", "<S-CR>", "<NOP>")
 -- search within selection by default when using / in visual mode
 vim.keymap.set("x", "/", "<Esc>/\\%V")
 
+-- move lines of code with <C-n> and <C-p> (since M-j/k are taken by window manager)
 vim.keymap.set({ "n", "x" }, "<C-p>", "<M-k>", { remap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<C-n>", "<M-j>", { remap = true, silent = true })
 
