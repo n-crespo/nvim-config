@@ -124,9 +124,12 @@ return {
               local icon, hl = require("mini.icons").get("file", name)
 
               if is_selected then
-                local fn = vim.fn
-                local icon_fg = fn.synIDattr(fn.synIDtrans(fn.hlID(hl)), "fg#") or nil
-                local icon_bg = fn.synIDattr(fn.synIDtrans(fn.hlID(tabline_hl)), "bg#") or nil
+                local hl_props = vim.api.nvim_get_hl(0, { name = hl, link = false })
+                local tabline_hl_props = vim.api.nvim_get_hl(0, { name = tabline_hl, link = false })
+
+                local icon_fg = hl_props.fg or nil
+                local icon_bg = tabline_hl_props.bg or nil
+
                 vim.api.nvim_set_hl(0, "TabLineIconFocused", { fg = icon_fg, bg = icon_bg, bold = true })
                 hl = "TabLineIconFocused"
               end
