@@ -28,7 +28,7 @@ local c_lotusRed2            = "#D9A594"
 local c_macroAqua            = "#95AEAC"
 local c_macroAsh             = "#626462"
 local c_macroBg0             = "#0D0C0C"
-local normal_bg              = "#181616"
+local normal_bg              = "#111111"
 local c_macroBg2             = "#201D1D"
 local c_macroBg3             = "#0D0C0C" -- changed from #282727 to fix box in lualine
 local selection_light_gray   = "#393836"
@@ -159,8 +159,8 @@ local hlgroups = {
   StatusLineNC = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
   TabLine = { fg = c_macroAsh },
-  TabLineFill = { link = "Normal" },
-  TabLineSel = { bg = c_macroBg2, fg = c_macroFg1 },
+  TabLineFill = { bg = c_macroBg0, fg = c_macroFg1 },
+  TabLineSel = { bg = c_macroBg2, fg = c_macroFg0, bold = true, underline = true },
   TermCursor = { link = "Cursor" },
   TermCursorNC = { fg = normal_bg, bg = c_macroAsh },
   Title = { bold = true, fg = c_macroBlue1 },
