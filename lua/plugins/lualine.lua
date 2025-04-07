@@ -1,6 +1,14 @@
 vim.g.trouble_lualine = false
-vim.g.lualine_hide_tabnr = false
 local icons = LazyVim.config.icons
+
+local NO_NAME = "[No Name]"
+
+-- make sure to refresh lualine when needed
+vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed", "WinEnter", "BufWinEnter" }, {
+  callback = function()
+    require("lualine").refresh({ scope = "all", place = { "tabline" } })
+  end,
+})
 
 -- utility function, returns true if buffer with specified
 -- buf/filetype should be ignored by the tabline or not
@@ -10,35 +18,49 @@ local function ignore_buffer(bufnr)
 
   local filetype = vim.bo[bufnr].filetype
   local buftype = vim.bo[bufnr].buftype
+  local name = vim.api.nvim_buf_get_name(bufnr)
 
-  if vim.tbl_contains(ignored_buftypes, buftype) or vim.tbl_contains(ignored_filetypes, filetype) then
-    return true
-  end
-
-  return vim.api.nvim_buf_get_name(bufnr) == ""
+  return vim.tbl_contains(ignored_buftypes, buftype) or vim.tbl_contains(ignored_filetypes, filetype) or name == ""
 end
 
 -- Get buffer name, using alternate buffer or last visited buffer if necessary
-local function get_buffer_name(bufnr)
+local function get_buffer_name(bufnr, context)
+  local function get_filename(buf)
+    return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
+  end
+
+  -- rename tabs with <leader>r and ensure globals persist between sessions with:
+  -- vim.o.sessionoptions = vim.o.sessionoptions .. ",globals"
+  local custom_name = vim.g["Lualine_tabname_" .. context.tabnr]
+  if custom_name and custom_name ~= "" then
+    return custom_name
+  end
+
+  -- this makes empty buffers/tabs show "[No Name]"
+  if vim.api.nvim_buf_get_name(bufnr) == "" and vim.bo[bufnr].buflisted then
+    return NO_NAME
+  end
+
   if ignore_buffer(bufnr) then
     local alt_bufnr = vim.fn.bufnr("#")
     if alt_bufnr ~= -1 and alt_bufnr ~= bufnr and not ignore_buffer(alt_bufnr) then
       -- use name of alternate buffer
-      return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(alt_bufnr), ":t")
+      return get_filename(alt_bufnr)
     end
 
     -- Try to use the name of a different window in the same tab
     local win_ids = vim.api.nvim_tabpage_list_wins(0)
     for _, win_id in ipairs(win_ids) do
-      local check_bufnr = vim.api.nvim_win_get_buf(win_id)
-      if not ignore_buffer(check_bufnr) then
-        local name = vim.fn.fnamemodify(vim.fn.bufname(check_bufnr), ":t")
-        return name == "" and "[No Name]" or name
+      local found_bufnr = vim.api.nvim_win_get_buf(win_id)
+      if not ignore_buffer(found_bufnr) then
+        local name = get_filename(found_bufnr)
+        return name ~= "" and name or NO_NAME
       end
     end
-    return "[No Name]"
+    return NO_NAME
   end
-  return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+
+  return get_filename(bufnr)
 end
 
 return {
@@ -63,7 +85,7 @@ return {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         refresh = {
-          -- tabline = 10000,
+          tabline = 10000,
           statusline = 100,
         },
       },
@@ -86,16 +108,11 @@ return {
               local winnr = vim.fn.tabpagewinnr(context.tabnr)
               local bufnr = buflist[winnr]
 
+              -- hardcode name for Snacks scratch buffers
               if name:find(".scratch") then
                 name = "scratch"
-              elseif
-                name == "[No Name]"
-                and vim.bo[bufnr].filetype == ""
-                and (not ignore_buffer(bufnr) or vim.fn.tabpagebuflist(0) == 0)
-              then
-                name = "[No Name]"
               else
-                name = get_buffer_name(bufnr)
+                name = get_buffer_name(bufnr, context)
               end
 
               -- include tabnr only if # of tabs > 3
@@ -185,9 +202,11 @@ return {
     {
       "<leader>r",
       function()
+        local current_tab = vim.fn.tabpagenr()
         vim.ui.input({ prompt = "New Tab Name: " }, function(input)
           if input or input == "" then
-            vim.cmd("LualineRenameTab " .. input)
+            vim.g["Lualine_tabname_" .. current_tab] = input
+            require("lualine").refresh({ scope = "all", place = { "tabline" } })
           end
         end)
       end,
@@ -211,7 +230,7 @@ return {
         else
           vim.cmd("-tabmove")
         end
-        require("lualine").refresh()
+        require("lualine").refresh({ scope = "all", place = { "tabline" } })
       end,
       desc = "Move Tab Left",
     },
@@ -224,7 +243,7 @@ return {
         else
           vim.cmd("+tabmove")
         end
-        require("lualine").refresh()
+        require("lualine").refresh({ scope = "all", place = { "tabline" } })
       end,
       desc = "Move Tab Right",
     },

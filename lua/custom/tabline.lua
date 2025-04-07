@@ -1,6 +1,12 @@
 -- this is a custom tabline component for lualinne.
 -- (vim-style "tabs", see :h tabs)
 
+-- i no longer use this. check lualine.lua for more robust tabline config
+
+do
+  return {}
+end
+
 -- make sure to refresh lualine when needed
 vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed", "WinEnter", "BufWinEnter" }, {
   callback = function()
