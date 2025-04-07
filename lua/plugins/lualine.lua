@@ -1,7 +1,7 @@
 vim.g.trouble_lualine = false
 local icons = LazyVim.config.icons
 
-local NO_NAME = "[No Name]"
+local NO_NAME = " "
 
 -- make sure to refresh lualine when needed
 vim.api.nvim_create_autocmd({ "TabNew", "TabEnter", "TabClosed", "WinEnter", "BufWinEnter" }, {
