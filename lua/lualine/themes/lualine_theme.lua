@@ -1,17 +1,11 @@
 local M = {}
 
 M.theme = function()
-  -- local innerbg = "#2e2e2e"
   local innerbg = nil
   local azbg = "#2E2E2E"
   local bybg = "#201d1d"
   local gray = "#b4b3a7"
   local tabline = "#2e2e2e"
-
-  -- local innerbg = nil
-  -- local azbg = "#393836"
-  -- local bybg = "#201d1d"
-  -- local gray = "#b4b3a7"
 
   return {
     inactive = {
