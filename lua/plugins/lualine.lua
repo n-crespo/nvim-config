@@ -157,6 +157,8 @@ return {
           },
         },
         lualine_c = {
+          -- stylua: ignore
+          { function() return " " end, },
           {
             "diagnostics",
             symbols = {
@@ -171,6 +173,7 @@ return {
             require("lualine_require").require("lazy.status").updates,
             cond = require("lualine_require").require("lazy.status").has_updates,
             color = "Special",
+            padding = { left = 1 },
           },
           -- stylua: ignore
           {
