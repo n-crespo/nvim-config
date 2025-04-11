@@ -41,7 +41,6 @@ return {
   {
     "monkoose/neocodeium",
     lazy = true,
-    cond = not LazyVim.is_win(),
     opts = {
       max_lines = 500, -- restrict num of lines read from non-focused buffers
       enabled = false, -- don't enable on start
@@ -133,7 +132,7 @@ return {
         event = "LazyFile",
         opts = function(_, opts)
           if vim.g.lualine_ai_status then
-            table.insert(opts.sections.lualine_c, 2, {
+            table.insert(opts.sections.lualine_x, #opts.sections.lualine_x + 1, {
               function()
                 local symbols = {
                   status = {
@@ -156,7 +155,8 @@ return {
               color = function()
                 return { fg = Snacks.util.color("Special") }
               end,
-              padding = { right = 1 },
+              padding = { right = 1, left = 1 },
+              cond = package.loaded["neocodeium"],
             })
           end
         end,
