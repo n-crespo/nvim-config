@@ -111,6 +111,7 @@ return {
 
             -- <C-/> conflicts with commenting keymap
             ["<c-s-/>"] = { "toggle_help", mode = { "i", "n" } },
+            ["<c-/>"] = { "toggle_help", mode = { "i", "n" } },
 
             -- exit when exiting insert mode
             ["<Esc>"] = { "cancel", mode = { "n", "i" } },

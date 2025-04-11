@@ -18,18 +18,35 @@ return {
     {
       "<C-/>",
       function()
-        local line_before = vim.api.nvim_get_current_line()
-        local cursor_col = vim.fn.col(".")
+        local success, comment_str = pcall(require("Comment.ft").get, vim.bo.filetype, nil)
 
-        require("Comment.api").toggle.linewise.current()
-
-        local line_after = vim.api.nvim_get_current_line()
-        if line_after:match("^%s*%-%-%s*$") then
-          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>A", true, false, true), "n", false)
-        else
-          local diff = #line_after - #line_before - 1
-          vim.api.nvim_win_set_cursor(0, { vim.fn.line("."), cursor_col + diff })
+        -- allow fallback to some other buffer-local <C-/> keymap if commentstring is not defined
+        if not success or not comment_str then
+          local matches = {}
+          local bufnr = vim.api.nvim_get_current_buf()
+          for _, map in ipairs(vim.api.nvim_buf_get_keymap(bufnr, "i")) do
+            if map.lhs == "<C-/>" then
+              table.insert(matches, map)
+            end
+          end
+          if #matches > 1 then
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-/>", true, false, true), "n", false)
+            return
+          end
+          -- show error message if no fallback
+          vim.notify("Invalid commentstring for " .. vim.bo.filetype .. "!", vim.log.levels.WARN)
+          return
         end
+
+        -- store state of line/cursor before and after commenting
+        local original_col = vim.fn.col(".")
+        local line_before = vim.api.nvim_get_current_line()
+        require("Comment.api").toggle.linewise.current()
+        local line_after = vim.api.nvim_get_current_line()
+
+        -- move cursor to correct position after commentstring has been inserted
+        local diff = #line_after - #line_before - 1
+        vim.api.nvim_win_set_cursor(0, { vim.fn.line("."), original_col + diff })
       end,
       mode = "i",
     },
