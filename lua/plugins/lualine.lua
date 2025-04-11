@@ -113,9 +113,10 @@ return {
 
               local bufnr = buflist[winnr]
 
-              -- hardcode name for Snacks scratch buffers
-              if name:find(".scratch") then
-                name = "scratch"
+              if vim.api.nvim_buf_get_name(bufnr) == "health://" then
+                name = "health"
+              elseif name:find(".scratch") then
+                name = "scratch" -- hardcode name for Snacks scratch buffers
               else
                 name = get_buffer_name(bufnr, context)
               end
