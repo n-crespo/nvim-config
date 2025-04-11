@@ -8,7 +8,9 @@ vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
   desc = "Refresh tabline when needed",
   group = vim.api.nvim_create_augroup("TablineReload", { clear = true }),
   callback = function()
-    require("lualine").refresh({ scope = "all", place = { "tabline" } })
+    if package.loaded["lualine"] then
+      require("lualine").refresh({ scope = "all", place = { "tabline" } })
+    end
   end,
 })
 
@@ -88,7 +90,7 @@ return {
         section_separators = { left = "", right = "" },
         refresh = {
           -- only refresh tabline when absolutely necessary (autocmd + manual refresh)
-          tabline = 0,
+          tabline = 1000,
           statusline = 100,
         },
       },
@@ -138,6 +140,7 @@ return {
         },
       },
       sections = {
+        ------- LEFT SIDE of statusline -----
         lualine_a = {},
         lualine_b = {
           {
@@ -158,8 +161,6 @@ return {
           },
         },
         lualine_c = {
-          -- stylua: ignore
-          { function() return " " end, },
           {
             "diagnostics",
             symbols = {
@@ -168,7 +169,7 @@ return {
               info = icons.diagnostics.Info,
               hint = icons.diagnostics.Hint,
             },
-            padding = { right = 1 },
+            padding = { left = 1 },
           },
           {
             require("lualine_require").require("lazy.status").updates,
@@ -182,9 +183,11 @@ return {
             function() return require("lualine_require").require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("lualine_require").require("noice").api.status.mode.has() end,
             color = "WarningMsg",
-            padding = 1,
+            padding = { left = 1 }
           },
         },
+
+        ------- RIGHT SIDE of statusline -----
         lualine_x = {
           {
             "diff",
