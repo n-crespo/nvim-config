@@ -159,6 +159,7 @@ return {
       },
     },
   },
+  -- stylua: ignore
   keys = {
     ----------- PICKER KEYMAPS -------------
     { "<leader>gc", nil },
@@ -174,6 +175,7 @@ return {
     { "<leader>sl", nil },
     { '<leader>s"', nil },
     { "<leader>sd", nil }, -- search diagnostics
+    { "<leader>sD", nil }, -- buffer diagnostics
     { "<leader>s/", nil }, -- search history
     { "<leader>qp", nil },
     { "<leader>sB", nil },
@@ -187,20 +189,16 @@ return {
     { "<leader>sb", nil },
     { "<leader>sj", nil },
     { "<leader>sR", nil },
-    {
-      "<leader>cl",
-      function()
-        Snacks.picker.lsp_config()
-      end,
-      desc = "Lsp Info",
-    },
-    {
-      "<leader>sr",
-      function()
-        Snacks.picker.resume()
-      end,
-      desc = "Resume",
-    },
+    { "<leader>fo", function() Snacks.picker.recent() end, desc = "Old Files", },
+    { "<leader>fO", function() Snacks.picker.smart() end, desc = "Recent Files (smart)", },
+    { "<leader>fp", function() Snacks.picker.files({ cwd = require("lazy.core.config").options.root, title = "Plugin Files" }) end, desc = "Plugin Files", },
+    { "<leader>fP", function() Snacks.picker.lazy({ title = "Search for Plugin Spec" }) end, desc = "Search for Plugin Spec", },
+    { "<leader>sp", function() Snacks.picker.pickers() end, desc = "Pickers", },
+    { "<leader>fH", function() Snacks.picker.highlights() end, desc = "Highlights", },
+    { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info", },
+    { "<leader>sr", function() Snacks.picker.resume() end, desc = "Resume", },
+    { "<leader>;", function() Snacks.picker.commands({ layout = "vscode", title = "Builtin Commands" }) end, desc = "Commands", },
+    { "<S-Tab>", "<C-w><C-p>", }, -- this fixes <tab> in preview window
     {
       "<leader>j", -- uses zoxide, jumps to selected dir and opens picker there
       function()
@@ -245,37 +243,10 @@ return {
       desc = "Load Session",
     },
     {
-      "<leader>fP",
-      function()
-        Snacks.picker.pickers()
-      end,
-      desc = "Pickers",
-    },
-    {
-      "<leader>fo",
-      function()
-        Snacks.picker.recent()
-      end,
-      desc = "Old Files",
-    },
-    {
-      "<leader>fr",
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = "Recent Files (smart)",
-    },
-    {
-      "<leader>fH",
-      function()
-        Snacks.picker.highlights()
-      end,
-      desc = "Highlights",
-    },
-    {
       "<leader>sH",
       function()
         Snacks.picker.grep({
+          title = "Help Grep",
           glob = { "**/doc/*.txt" },
           rtp = true,
           previewers = { file = { ft = "help" } },
@@ -288,55 +259,43 @@ return {
       function()
         ---@diagnostic disable-next-line: missing-fields
         local dir = require("custom.utils").get_dir_with_fallback()
-        Snacks.picker.grep({ cwd = dir, title = vim.fn.fnamemodify(dir, ":~") })
+        Snacks.picker.grep({ cwd = dir, title = "Files in " .. vim.fn.fnamemodify(dir, ":~") })
       end,
       desc = "Grep (buffer dir)",
     },
     {
       "<leader>fh",
       function()
+        local dir = require("custom.utils").get_dir_with_fallback()
         ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.files({ cwd = require("custom.utils").get_dir_with_fallback() })
+        Snacks.picker.files({
+          cwd = require("custom.utils").get_dir_with_fallback(),
+          title = "Files in " .. vim.fn.fnamemodify(dir, ":~"),
+        })
       end,
-      desc = "Files (buffer dir)",
-    },
-    {
-      "<leader>fp",
-      function()
-        ---@diagnostic disable-next-line: missing-fields
-        Snacks.picker.files({ cwd = require("lazy.core.config").options.root })
-      end,
-      desc = "Plugin Files",
-    },
-    {
-      "<leader>;",
-      function()
-        Snacks.picker.commands({ layout = "vscode" })
-      end,
-      desc = "Commands",
+      desc = "Here (buffer dir)",
     },
     {
       "<leader>st",
       function()
         ---@diagnostic disable-next-line: undefined-field
-        Snacks.picker.todo_comments({ cwd = require("custom.utils").get_dir_with_fallback() })
-      end,
+        Snacks.picker.todo_comments({
+          cwd = require("custom.utils").get_dir_with_fallback()
+        }) end,
       desc = "Todo",
     },
     {
       "<leader>sT",
       function()
+        local dir = require("custom.utils").get_dir_with_fallback()
         ---@diagnostic disable-next-line: undefined-field
         Snacks.picker.todo_comments({
+          title = "Todo Comments in " .. vim.fn.fnamemodify(dir,":~"),
           keywords = { "TODO", "FIX", "FIXME" },
-          cwd = require("custom.utils").get_dir_with_fallback(),
+          cwd = dir,
         })
       end,
       desc = "Todo/Fix/Fixme",
-    },
-    {
-      "<S-Tab>",
-      "<C-w><C-p>", -- this fixes <tab> in preview window
     },
   },
 }
