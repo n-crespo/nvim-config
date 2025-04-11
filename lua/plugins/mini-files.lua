@@ -101,9 +101,7 @@ return {
       if cur_directory ~= nil then
         vim.fn.chdir(cur_directory)
       end
-      vim.notify(vim.fn.getcwd(), vim.log.levels.INFO, {
-        title = "Changed Directory",
-      })
+      vim.notify(vim.fn.fnamemodify(vim.fn.getcwd(), ":~"), vim.log.levels.INFO, {})
     end
 
     vim.api.nvim_create_autocmd("User", {
@@ -122,8 +120,12 @@ return {
           "n",
           opts.mappings and opts.mappings.change_cwd or "gc",
           files_set_cwd,
-          { buffer = args.data.buf_id, desc = "Set cwd" }
+          { buffer = buf_id, desc = "Set cwd" }
         )
+        -- New keymap: 'gh' to navigate to home directory
+        vim.keymap.set("n", "gh", function()
+          require("mini.files").open(vim.fn.expand("~"))
+        end, { buffer = buf_id, desc = "Go to home directory" })
 
         map_split(buf_id, opts.mappings and opts.mappings.go_in_horizontal or "<C-w>s", "horizontal", false)
         map_split(buf_id, opts.mappings and opts.mappings.go_in_vertical or "<C-w>v", "vertical", false)

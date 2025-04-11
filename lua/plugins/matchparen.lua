@@ -3,7 +3,4 @@ return {
   enabled = true,
   event = "LazyFile",
   opts = {},
-  -- config = function()
-  --   require("matchparen").setup()
-  -- end,
 }
