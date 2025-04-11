@@ -5,7 +5,7 @@ return {
     fuzzy = { sorts = { "exact", "score", "sort_text" } },
     sources = {
       per_filetype = { codecompanion = { "codecompanion" } },
-      default = { "lsp", "path", "snippets", "buffer", "markdown", "omni" },
+      -- default = { "lsp", "path", "snippets", "buffer", "markdown", "omni" },
       providers = {
         markdown = {
           name = "RenderMarkdown",
