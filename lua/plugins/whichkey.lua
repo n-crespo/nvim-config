@@ -5,7 +5,7 @@ return {
     icons = { mappings = true }, -- disable icons
     filter = function(mapping)
       -- exclude mappings without a description but enable vimtext keymaps
-      if mapping.rhs and mapping.rhs:find("vimtex") then
+      if type(mapping.rhs) == "string" and mapping.rhs:find("vimtex") then
         mapping.rhs = mapping.rhs:gsub("vimtex%-", "")
         mapping.rhs = mapping.rhs:sub(1, -2)
         return true
