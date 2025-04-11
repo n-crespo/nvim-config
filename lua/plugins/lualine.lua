@@ -82,7 +82,7 @@ return {
   opts = function()
     local opts = {
       options = {
-        always_show_tabline = true, -- only show tabline when >1 tabs
+        always_show_tabline = false, -- only show tabline when >1 tabs
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         padding = 0,
@@ -135,6 +135,9 @@ return {
               name = tab_number .. name
 
               return "%#" .. tabline_hl .. "#" .. name .. "%*"
+            end,
+            cond = function()
+              return vim.bo.filetype ~= "snacks_dashboard"
             end,
           },
         },
