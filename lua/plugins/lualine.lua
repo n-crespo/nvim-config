@@ -53,7 +53,7 @@ local function get_buffer_name(bufnr, context)
     end
 
     -- Try to use the name of a different window in the same tab
-    local win_ids = vim.api.nvim_tabpage_list_wins(0)
+    local win_ids = vim.api.nvim_tabpage_list_wins(context.tabnr)
     for _, win_id in ipairs(win_ids) do
       local found_bufnr = vim.api.nvim_win_get_buf(win_id)
       if not ignore_buffer(found_bufnr) then
