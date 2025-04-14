@@ -5,8 +5,8 @@ return {
     fuzzy = { sorts = { "exact", "score", "sort_text" } },
     sources = {
       per_filetype = { codecompanion = { "codecompanion" } },
-      -- default = { "lsp", "path", "snippets", "buffer", "markdown", "omni" },
       providers = {
+        snippets = { min_keyword_length = 2 },
         markdown = {
           name = "RenderMarkdown",
           module = "render-markdown.integ.blink",
@@ -22,7 +22,6 @@ return {
             end,
           },
         },
-        snippets = { min_keyword_length = 2 },
       },
     },
     completion = {
