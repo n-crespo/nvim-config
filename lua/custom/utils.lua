@@ -1,6 +1,7 @@
--- NOTE; this is for the reload plugin keymaps
 local M = {}
 
+-- the following is used with the <leader>R keymap to :Lazy reload plugins with
+-- a picker that provides a list of all plugins
 function M.pluginNames()
   local function readFile(filepath)
     local file = io.open(filepath, "r")
@@ -36,9 +37,11 @@ function M.pluginNames()
   return keys
 end
 
--- This function tries to find the current buffer's directory. If it can't find
--- that, it returns the previously visited buffer's directory. If it can't find
--- that either, it return the current working directory.
+-- This function tries to returns one of the following. If trying to find one
+-- fails, it fallback to the next in the list.
+--   a) the directory of the current buffer
+--   b) the previously visited buffer's directory (using the :h alternate-file)
+--   b) the current working directory.
 ---@param filename? string filename to optionally append to resulting path
 function M.get_dir_with_fallback(filename)
   filename = filename or ""
