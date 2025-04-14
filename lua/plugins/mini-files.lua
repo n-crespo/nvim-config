@@ -12,6 +12,13 @@ return {
       end,
       desc = "Explore",
     },
+    {
+      "<leader>E",
+      function()
+        require("mini.files").open()
+      end,
+      desc = "Explore (cwd)",
+    },
   },
   opts = {
     windows = {
