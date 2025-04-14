@@ -30,6 +30,8 @@ return {
       go_in_plus = "<CR>",
       go_in_horizontal_plus = "_",
       go_in_vertical_plus = "|",
+      go_home = "gh",
+      go_config = "gd",
     },
     options = {
       permanent_delete = false, -- files are sent to ~/.local/share/nvim/mini.files/trash/
@@ -102,20 +104,12 @@ return {
       vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
     end
 
-    local files_set_cwd = function()
-      local cur_entry_path = MiniFiles.get_fs_entry().path
-      local cur_directory = vim.fs.dirname(cur_entry_path)
-      if cur_directory ~= nil then
-        vim.fn.chdir(cur_directory)
-      end
-      vim.notify(vim.fn.fnamemodify(vim.fn.getcwd(), ":~"), vim.log.levels.INFO, {})
-    end
-
     vim.api.nvim_create_autocmd("User", {
       pattern = "MiniFilesBufferCreate",
       callback = function(args)
         local buf_id = args.data.buf_id
 
+        -- g. to toggle hidden files
         vim.keymap.set(
           "n",
           opts.mappings and opts.mappings.toggle_hidden or "g.",
@@ -123,14 +117,13 @@ return {
           { buffer = buf_id, desc = "Toggle hidden files" }
         )
 
-        vim.keymap.set(
-          "n",
-          opts.mappings and opts.mappings.change_cwd or "gc",
-          files_set_cwd,
-          { buffer = buf_id, desc = "Set cwd" }
-        )
-        -- New keymap: 'gh' to navigate to home directory
-        vim.keymap.set("n", "gh", function()
+        -- 'gc' to navigate to config directory
+        vim.keymap.set("n", opts.mappings and opts.mappings.go_config or "gd", function()
+          require("mini.files").open(vim.api.nvim_get_runtime_file("", true)[1])
+        end, { buffer = buf_id, desc = "Go to config directory" })
+
+        -- 'gh' to navigate to home directory
+        vim.keymap.set("n", opts.mappings and opts.mappings.go_home or "gh", function()
           require("mini.files").open(vim.fn.expand("~"))
         end, { buffer = buf_id, desc = "Go to home directory" })
 
