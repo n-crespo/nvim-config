@@ -434,6 +434,7 @@ local hlgroups = {
   GitSignsAddInline = { link = "GitSignsAddLn" },
   GitSignsAddLnInline = { link = "GitSignsAddLn" },
   GitSignsAddVirtLnInLine = { link = "GitSignsAddLn" },
+  GitSignsCurrentLineBlame = { fg = selection_light_gray, italic = true },
 
   --noice
   NoicePopupmenuSelected = { bg = selection_light_gray },
