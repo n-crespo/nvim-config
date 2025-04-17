@@ -113,7 +113,14 @@ end)
 
 vim.keymap.set("n", "<leader><Tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
-vim.keymap.set("n", "<leader>q", "<C-W>c", { desc = "Close Window", silent = true })
+vim.keymap.set("n", "<leader>q", function()
+  -- stylua: ignore
+  local close_window = function() vim.cmd("close") end
+  local ok, _ = pcall(close_window)
+  if not ok then
+    vim.cmd("bdelete")
+  end
+end, { desc = "Close Window", silent = true })
 
 -- splits
 vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
