@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
+  optional = true,
   opts = {
     -- multiwindow = true, -- Enable multiwindow support.
     highlight = {
