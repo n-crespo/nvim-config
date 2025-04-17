@@ -1,0 +1,21 @@
+{
+  "header": {
+    "prefix": "header",
+    "body": [
+      "---",
+      "title: \"${1}\"",
+      "author: \"Nicolas Crespo\"",
+      "date: \"`r Sys.Date()`\"",
+      "output: pdf_document",
+      "---",
+      "",
+      "```{r setup, include=FALSE}",
+      "knitr::opts_chunk$set(echo = TRUE)",
+      "```",
+      "",
+      "---",
+      ""
+    ],
+    "description": "Rmarkdown Header"
+  }
+}
