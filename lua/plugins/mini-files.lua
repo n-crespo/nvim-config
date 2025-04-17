@@ -1,4 +1,5 @@
 -- fast file system viewer, less intrusive oil.nvim
+-- note: this is mostly stolen from the lazyvim mini-files extra
 return {
   "echasnovski/mini.files",
   -- lazy = false,
