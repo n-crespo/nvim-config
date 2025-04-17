@@ -1,4 +1,4 @@
-vim.api.nvim_create_user_command("AttachOrReloadColors", function()
+vim.api.nvim_create_user_command("Colorizer", function()
   if package.loaded["colorizer"] then
     require("colorizer").reload_all_buffers()
   end
@@ -7,6 +7,7 @@ end, { nargs = 0 })
 
 return {
   "catgoose/nvim-colorizer.lua",
+  cmd = "Colorizer",
   ft = { "css", "html", "javascript", "typescript", "lua", "json", "noice" },
   opts = {
     lazy_load = false,
@@ -18,27 +19,18 @@ return {
       cmp_menu = { always_update = true },
       cmp_docs = { always_update = true },
     },
+    -- exclude prompt and popup buftypes from highlight
     buftypes = {
-      -- exclude prompt and popup buftypes from highlight
       "!prompt",
       "!popup",
     },
     user_default_options = {
-      tailwind = true,
-      tailwind_opts = { -- Options for highlighting tailwind names
-        update_names = false, -- When using tailwind = 'both', update tailwind names from LSP results.  See tailwind section
-      },
-      names_opts = { -- options for mutating/filtering names.
-        lowercase = false, -- name:lower(), highlight `blue` and `red`
-        camelcase = false, -- name, highlight `Blue` and `Red`
-        uppercase = false, -- name:upper(), highlight `BLUE` and `RED`
-        strip_digits = true, -- ignore names with digits,
-        -- highlight `blue` and `red`, but not `blue3` and `red4`
-      },
-      rgb_fn = true, -- CSS rgb() and rgba() functions
-      hsl_fn = true, -- CSS hsl() and hsla() functions
       RGB = false, -- #RGB hex codes
       RGBA = false,
+      css_fn = true, -- CSS rgb(), rgba() hsl(), and hsla() functions
+      names = false, -- `blue`, `red`
+      tailwind = true,
+      tailwind_opts = { update_names = false },
     },
   },
   keys = {
