@@ -9,7 +9,7 @@ Some cool things in here are:
 
 - my minimal [lualine](./lua/plugins/lualine.lua) config
 - my [mini.files config](./lua/plugins/mini-files.lua)
-- my [util functions](./lua/custom/utils.lua)
+- my [utility functions](./lua/custom/utils.lua)
 - my custom (borrowed/extended) [color scheme](./colors/macro.lua)
 - [my markdown config](./lua/plugins/markdown.lua)
   - follow all types of links with `<CR>`
