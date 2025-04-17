@@ -1,10 +1,9 @@
 return {
-  -- Use <enter> to follow markdown links (or hyperlinks) and more
   {
-    "n-crespo/nvim-markdown",
-    enabled = true,
+    "ixru/nvim-markdown",
     ft = "markdown",
     config = function()
+      -- allows using <CR> to follow markdown links (or hyperlinks) and more
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_math = false
       vim.g.vim_markdown_no_default_key_mappings = 1
