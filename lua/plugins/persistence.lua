@@ -24,7 +24,7 @@ return {
         nested = true,
         callback = function()
           local persistence = require("persistence")
-          if vim.fn.argc() == 0 and not vim.g.started_with_stdin then
+          if vim.fn.argc() == 0 and not require("custom.utils").is_man_pager() and not vim.g.started_with_stdin then
             persistence.load()
             -- else
             -- persistence.stop()

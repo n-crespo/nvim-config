@@ -72,4 +72,14 @@ function M.get_dir_with_fallback(filename)
   return dir .. "/" .. filename
 end
 
+-- returns true if neovim has been started as a man pager
+function M.is_man_pager()
+  for _, arg in ipairs(vim.v.argv) do
+    if arg == "+Man!" then
+      return true
+    end
+  end
+  return false
+end
+
 return M
