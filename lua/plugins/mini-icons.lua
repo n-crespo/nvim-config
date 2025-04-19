@@ -2,6 +2,8 @@ return {
   "echasnovski/mini.icons",
   lazy = true,
   opts = {
+    -- Override default glyph for "file" category (reuse highlight group)
+    default = { file = { glyph = "󰈤" } },
     filetype = {
       cf = { glyph = "", hl = "MiniIconsBlue" },
       Rmd = { glyph = "", hl = "MiniIconsBlue" },
@@ -9,12 +11,14 @@ return {
       autohotkey = { glyph = "", hl = "MiniIconsGreen" },
     },
     extension = {
+      c = { glyph = "", hl = "MiniIconsBlue" },
       h = { glyph = "", hl = "MiniIconsPurple" },
     },
   },
-  config = function(opts)
+  config = function(_, opts)
     require("mini.icons").setup(opts)
 
+    -- generate custom highlights that are used in tabline (see lualine.lua)
     local highlights = {
       "MiniIconsAzure",
       "MiniIconsBlue",
@@ -31,8 +35,8 @@ return {
       return vim.api.nvim_get_hl(0, { name = name, link = false })
     end
 
-    local tabs_active = hl_get("lualine_a_tabs_active")
-    local tabs_inactive = hl_get("lualine_a_tabs_inactive")
+    local tabs_active = hl_get("TabLineSel")
+    local tabs_inactive = hl_get("TabLineFill")
 
     for _, hl in ipairs(highlights) do
       local icon = hl_get(hl)
