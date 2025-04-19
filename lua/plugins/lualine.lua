@@ -33,40 +33,16 @@ local function get_buffer_name(bufnr, context)
     return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
   end
 
-  -- rename tabs with <leader>r and ensure globals persist between sessions with:
-  -- vim.o.sessionoptions = vim.o.sessionoptions .. ",globals"
-  local custom_name = vim.g["Lualine_tabname_" .. context.tabnr]
-  if custom_name and custom_name ~= "" then
-    return custom_name
-  end
-
   -- this makes empty buffers/tabs show "[No Name]"
   if vim.api.nvim_buf_get_name(bufnr) == "" and vim.bo[bufnr].buflisted then
-    return NO_NAME
+    vim.g["lualine_tabname_" .. context.tabnr] = NO_NAME
   end
 
-  if ignore_buffer(bufnr) then
-    local alt_bufnr = vim.fn.bufnr("#")
-    if alt_bufnr ~= -1 and alt_bufnr ~= bufnr and not ignore_buffer(alt_bufnr) then
-      -- use name of alternate buffer
-      return get_filename(alt_bufnr)
-    end
-
-    -- Try to use the name of a different window in the same tab
-    if vim.api.nvim_tabpage_is_valid(context.tabnr) then
-      local win_ids = vim.api.nvim_tabpage_list_wins(context.tabnr)
-      for _, win_id in ipairs(win_ids) do
-        local found_bufnr = vim.api.nvim_win_get_buf(win_id)
-        if not ignore_buffer(found_bufnr) then
-          local name = get_filename(found_bufnr)
-          return name ~= "" and name or NO_NAME
-        end
-      end
-    end
-    return NO_NAME
+  if not ignore_buffer(bufnr) then
+    vim.g["lualine_tabname_" .. context.tabnr] = get_filename(bufnr)
   end
 
-  return get_filename(bufnr)
+  return vim.g["lualine_tabname_" .. context.tabnr] and vim.g["lualine_tabname_" .. context.tabnr] or "ERROR"
 end
 
 return {
@@ -116,6 +92,13 @@ return {
               local is_selected = context.tabnr == vim.fn.tabpagenr()
 
               local bufnr = buflist[winnr]
+
+              -- rename tabs with <leader>r and ensure globals persist between sessions with:
+              -- vim.o.sessionoptions = vim.o.sessionoptions .. ",globals"
+              local custom_name = vim.g["LualineCustomTabname" .. context.tabnr]
+              if custom_name and custom_name ~= "" then
+                return custom_name
+              end
 
               if vim.api.nvim_buf_get_name(bufnr) == "health://" then
                 name = "health"
@@ -250,7 +233,7 @@ return {
         local current_tab = vim.fn.tabpagenr()
         vim.ui.input({ prompt = "New Tab Name: " }, function(input)
           if input or input == "" then
-            vim.g["Lualine_tabname_" .. current_tab] = input
+            vim.g["LualineCustomTabname" .. current_tab] = input
             require("lualine").refresh({ scope = "all", place = { "tabline" } })
           end
         end)
