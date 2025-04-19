@@ -89,31 +89,31 @@ return {
             fmt = function(name, context)
               local buflist = vim.fn.tabpagebuflist(context.tabnr)
               local winnr = vim.fn.tabpagewinnr(context.tabnr)
-              local is_selected = context.tabnr == vim.fn.tabpagenr()
-
               local bufnr = buflist[winnr]
+
+              local is_selected = context.tabnr == vim.fn.tabpagenr()
+              local tabline_hl = is_selected and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
 
               -- rename tabs with <leader>r and ensure globals persist between sessions with:
               -- vim.o.sessionoptions = vim.o.sessionoptions .. ",globals"
               local custom_name = vim.g["LualineCustomTabname" .. context.tabnr]
               if custom_name and custom_name ~= "" then
-                return custom_name
-              end
-
-              if vim.api.nvim_buf_get_name(bufnr) == "health://" then
-                name = "health"
-              elseif name:find(".scratch") then
-                name = "scratch" -- hardcode name for Snacks scratch buffers
+                name = custom_name .. " "
               else
-                name = get_buffer_name(bufnr, context)
+                if vim.api.nvim_buf_get_name(bufnr) == "health://" then
+                  name = "health"
+                elseif name:find(".scratch") then
+                  name = "scratch" -- hardcode name for Snacks scratch buffers
+                else
+                  name = get_buffer_name(bufnr, context)
+                end
+
+                local icon, icon_hl = require("mini.icons").get("file", name)
+                icon_hl = icon_hl .. "_" .. tabline_hl
+
+                name = name ~= "" and name .. " " or name
+                name = "%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tabline_hl .. "#" .. name
               end
-
-              local tabline_hl = is_selected and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
-              local icon, icon_hl = require("mini.icons").get("file", name)
-              icon_hl = icon_hl .. "_" .. tabline_hl
-
-              name = name ~= "" and name .. " " or name
-              name = "%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tabline_hl .. "#" .. name
 
               -- Include tabnr only if the number of tabs is greater than 3
               local tab_number = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or ""
