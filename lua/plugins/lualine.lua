@@ -1,5 +1,4 @@
 vim.g.trouble_lualine = false
-vim.g.FullsizeTabs = true
 local icons = LazyVim.config.icons
 
 local NO_NAME = ""
@@ -316,6 +315,13 @@ return {
         require("lualine").refresh({ scope = "all", place = { "tabline" } })
       end,
       desc = "Move Tab Right",
+    },
+    {
+      "<leader>uW",
+      function()
+        vim.g.FullsizeTabs = not vim.g.FullsizeTabs
+      end,
+      desc = "Toggle Full Width Tabs",
     },
   },
 }
