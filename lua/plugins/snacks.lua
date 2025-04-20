@@ -34,6 +34,29 @@ return {
     git = { enabled = true },
     gitbrowse = { enabled = true },
     scroll = { enabled = false },
+    scope = {
+      enabled = true,
+      keys = {
+        jump = {
+          ["[["] = {
+            min_size = 1, -- allow single line scopes
+            bottom = false,
+            cursor = false,
+            edge = true,
+            treesitter = { blocks = { enabled = false } },
+            desc = "jump to top edge of scope",
+          },
+          ["]]"] = {
+            min_size = 1, -- allow single line scopes
+            bottom = true,
+            cursor = false,
+            edge = true,
+            treesitter = { blocks = { enabled = false } },
+            desc = "jump to bottom edge of scope",
+          },
+        },
+      },
+    },
   },
   keys = {
     { "<leader>dpp", nil },
