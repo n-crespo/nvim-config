@@ -16,6 +16,8 @@ return {
     keys[#keys + 1] = { "<leader>cR", false, mode = "n" }
     keys[#keys + 1] = { "<M-n>", false, mode = "n" }
     keys[#keys + 1] = { "<M-p>", false, mode = "n" }
+    keys[#keys + 1] = { "]]", false, mode = "n" }
+    keys[#keys + 1] = { "[[", false, mode = "n" }
     return opts
   end,
 }
