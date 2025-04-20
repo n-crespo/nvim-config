@@ -1,4 +1,5 @@
 vim.g.trouble_lualine = false
+vim.g.FullsizeTabs = true
 local icons = LazyVim.config.icons
 
 local NO_NAME = ""
@@ -63,6 +64,9 @@ return {
         always_show_tabline = false, -- only show tabline when >1 tabs
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
+        always_divide_middle = false, -- When set to true, left sections i.e. 'a','b' and 'c'
+        -- can't take over the entire statusline even
+        -- if neither of 'x', 'y' or 'z' are present.
         padding = 0,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
@@ -77,7 +81,9 @@ return {
           {
             "tabs",
             show_modified_status = false,
-            max_length = 99999,
+            separator = "",
+            tab_max_length = 999999,
+            max_length = 900,
             mode = 1,
             padding = 1,
             tabs_color = {
@@ -115,11 +121,39 @@ return {
                 name = "%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tabline_hl .. "#" .. name
               end
 
-              -- Include tabnr only if the number of tabs is greater than 3
-              local tab_number = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or ""
-              name = tab_number .. name
+              if vim.g["FullsizeTabs"] then
+                -- Include tabnr only if the number of tabs is greater than 3
+                local n_tabs = vim.fn.tabpagenr("$")
+                local tab_number = (n_tabs > 3) and (context.tabnr .. " ") or ""
+                name = tab_number .. name
 
-              return "%#" .. tabline_hl .. "#" .. name .. "%*"
+                local margin = 2 -- ← 1 leading + 1 trailing space
+                local base_w = math.floor((vim.o.columns - margin * n_tabs) / n_tabs)
+
+                -- leftover columns ( < n_tabs ) that don’t divide evenly
+                local leftover = vim.o.columns - (base_w + margin) * n_tabs
+
+                -- first `leftover` tabs get one extra cell so the line is perfectly flush
+                local tgt_w = (context.tabnr <= leftover) and (base_w + 1) or base_w
+
+                local plain = name
+                  :gsub("%%#.-#", "") -- %#…#
+                  :gsub("%%[%d%@].-@", "") -- %@…@
+                  :gsub("%%[Tt*]", "") -- %T, %t, %*
+
+                -- print(plain)
+                local vis = vim.fn.strdisplaywidth(plain)
+                local pad_needed = tgt_w - vis
+
+                if pad_needed > 0 then
+                  local left = string.rep(" ", math.floor(pad_needed / 2))
+                  local right = string.rep(" ", pad_needed - #left)
+                  name = left .. name .. right -- keep padding inside tab‑bg hl group
+                end
+              end
+
+              local label = ("%#" .. tabline_hl .. "#" .. name .. "%*")
+              return label
             end,
             cond = function()
               return vim.bo.filetype ~= "snacks_dashboard"
