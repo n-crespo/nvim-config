@@ -160,8 +160,8 @@ return {
       },
     },
   },
-  -- stylua: ignore
   keys = {
+    -- stylua: ignore start
     ----------- PICKER KEYMAPS -------------
     { "<leader>gc", nil },
     { "<leader>sg", nil },
@@ -200,6 +200,7 @@ return {
     { "<leader>sr", function() Snacks.picker.resume() end, desc = "Resume", },
     { "<leader>;", function() Snacks.picker.commands({ layout = "vscode", title = "Builtin Commands" }) end, desc = "Commands", },
     { "<S-Tab>", "<C-w><C-p>", }, -- this fixes <tab> in preview window
+    -- stylua: ignore end
     {
       "<leader>j", -- uses zoxide, jumps to selected dir and opens picker there
       function()
@@ -281,8 +282,9 @@ return {
       function()
         ---@diagnostic disable-next-line: undefined-field
         Snacks.picker.todo_comments({
-          cwd = require("custom.utils").get_dir_with_fallback()
-        }) end,
+          cwd = require("custom.utils").get_dir_with_fallback(),
+        })
+      end,
       desc = "Todo",
     },
     {
@@ -291,7 +293,7 @@ return {
         local dir = require("custom.utils").get_dir_with_fallback()
         ---@diagnostic disable-next-line: undefined-field
         Snacks.picker.todo_comments({
-          title = "Todo Comments in " .. vim.fn.fnamemodify(dir,":~"),
+          title = "Todo Comments in " .. vim.fn.fnamemodify(dir, ":~"),
           keywords = { "TODO", "FIX", "FIXME" },
           cwd = dir,
         })
