@@ -140,6 +140,9 @@ vim.keymap.set("n", "<leader>2", "<cmd>silent! tabn 2<cr>", { silent = true })
 vim.keymap.set("n", "<leader>3", "<cmd>silent! tabn 3<cr>", { silent = true })
 vim.keymap.set("n", "<leader>4", "<cmd>silent! tabn 4<cr>", { silent = true })
 vim.keymap.set("n", "<leader>5", "<cmd>silent! tabn 5<cr>", { silent = true })
+vim.keymap.set("n", "<leader>6", "<cmd>silent! tabn 6<cr>", { silent = true })
+vim.keymap.set("n", "<leader>7", "<cmd>silent! tabn 7<cr>", { silent = true })
+vim.keymap.set("n", "<leader>8", "<cmd>silent! tabn 8<cr>", { silent = true })
 
 -- --------------------------------- INSERT MODE + COMPLETION -------------------------------------
 
