@@ -15,6 +15,17 @@ vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
   end,
 })
 
+-- make sure to refresh lualine when needed
+vim.api.nvim_create_autocmd({ "WinResized" }, {
+  desc = "Resize tabline when needed",
+  group = "TablineReload",
+  callback = function()
+    if vim.g.FullsizeTabs then
+      require("lualine").refresh({ scope = "all", place = { "tabline" } })
+    end
+  end,
+})
+
 -- utility function, returns true if buffer with specified
 -- buf/filetype should be ignored by the tabline or not
 local function ignore_buffer(bufnr)
@@ -64,9 +75,7 @@ return {
         always_show_tabline = false, -- only show tabline when >1 tabs
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
-        always_divide_middle = false, -- When set to true, left sections i.e. 'a','b' and 'c'
-        -- can't take over the entire statusline even
-        -- if neither of 'x', 'y' or 'z' are present.
+        always_divide_middle = true,
         padding = 0,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
@@ -85,7 +94,7 @@ return {
             tab_max_length = 999999,
             max_length = 900,
             mode = 1,
-            padding = 1,
+            padding = { left = 0, right = 0 },
             tabs_color = {
               -- Same values as the general color option can be used here.
               active = "TabLineSel", -- Color for active tab.
@@ -97,63 +106,62 @@ return {
               local winnr = vim.fn.tabpagewinnr(context.tabnr)
               local bufnr = buflist[winnr]
 
-              local is_selected = context.tabnr == vim.fn.tabpagenr()
-              local tabline_hl = is_selected and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
+              local is_sel = (context.tabnr == vim.fn.tabpagenr())
+              local tab_hl = is_sel and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
 
-              -- rename tabs with <leader>r and ensure globals persist between sessions with:
-              -- vim.o.sessionoptions = vim.o.sessionoptions .. ",globals"
-              local custom_name = vim.g["LualineCustomTabname" .. context.tabnr]
-              if custom_name and custom_name ~= "" then
-                name = custom_name .. " "
+              local custom = vim.g["LualineCustomTabname" .. context.tabnr]
+              if custom and custom ~= "" then
+                name = custom .. " "
               else
                 if vim.api.nvim_buf_get_name(bufnr) == "health://" then
                   name = "health"
                 elseif name:find(".scratch") then
-                  name = "scratch" -- hardcode name for Snacks scratch buffers
+                  name = "scratch"
                 else
                   name = get_buffer_name(bufnr, context)
                 end
 
                 local icon, icon_hl = require("mini.icons").get("file", name)
-                icon_hl = icon_hl .. "_" .. tabline_hl
+                icon_hl = icon_hl .. "_" .. tab_hl
 
-                name = name ~= "" and name .. " " or name
-                name = "%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tabline_hl .. "#" .. name
+                name = (name ~= "" and name .. " " or name)
+                name = ("%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tab_hl .. "#" .. name)
               end
 
+              -- optional full width layout
               if vim.g["FullsizeTabs"] then
-                -- Include tabnr only if the number of tabs is greater than 3
                 local n_tabs = vim.fn.tabpagenr("$")
-                local tab_number = (n_tabs > 3) and (context.tabnr .. " ") or ""
-                name = tab_number .. name
 
-                local margin = 2 -- ← 1 leading + 1 trailing space
-                local base_w = math.floor((vim.o.columns - margin * n_tabs) / n_tabs)
+                -- prepend tab‑number when there are many tabs
+                if n_tabs > 3 then
+                  name = context.tabnr .. " " .. name
+                end
 
-                -- leftover columns ( < n_tabs ) that don’t divide evenly
-                local leftover = vim.o.columns - (base_w + margin) * n_tabs
+                local margin = n_tabs
+                local content_w = vim.o.columns - margin
 
-                -- first `leftover` tabs get one extra cell so the line is perfectly flush
+                local base_w = math.floor(content_w / n_tabs)
+                local leftover = content_w - base_w * n_tabs -- < n_tabs
                 local tgt_w = (context.tabnr <= leftover) and (base_w + 1) or base_w
 
+                -- visible width of the label (strip status‑line escapes)
                 local plain = name
-                  :gsub("%%#.-#", "") -- %#…#
+                  :gsub("%%#.-#", "") -- %#hl#
                   :gsub("%%[%d%@].-@", "") -- %@…@
-                  :gsub("%%[Tt*]", "") -- %T, %t, %*
+                  :gsub("%%[Tt*]", "") -- %T / %* reset
 
-                -- print(plain)
                 local vis = vim.fn.strdisplaywidth(plain)
                 local pad_needed = tgt_w - vis
 
                 if pad_needed > 0 then
                   local left = string.rep(" ", math.floor(pad_needed / 2))
                   local right = string.rep(" ", pad_needed - #left)
-                  name = left .. name .. right -- keep padding inside tab‑bg hl group
+                  name = left .. name .. right
                 end
               end
 
-              local label = ("%#" .. tabline_hl .. "#" .. name .. "%*")
-              return label
+              local label = "%#" .. tab_hl .. "#" .. name .. "%*"
+              return " " .. label -- single leading space lualine expects
             end,
             cond = function()
               return vim.bo.filetype ~= "snacks_dashboard"
