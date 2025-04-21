@@ -6,15 +6,18 @@ return {
   opts = {
     display = {
       chat = {
-        auto_scroll = false,
-        show_settings = true,
-        window = { opts = { number = false, statuscolumn = "  " } },
+        window = {
+          opts = {
+            number = false,
+            statuscolumn = "  ",
+          },
+        },
       },
     },
     strategies = {
       chat = {
         keymaps = {
-          send = { modes = { n = "<CR>", i = "<C-CR>" } },
+          send = { modes = { n = "<CR>", i = "<CR>" } },
           close = { modes = { n = "q", i = "<C-c>" } },
         },
       },
@@ -24,6 +27,7 @@ return {
     {
       "<leader>a",
       desc = "+ai",
+      mode = { "n", "v" },
     },
     {
       "<leader>ac",
@@ -31,6 +35,7 @@ return {
         require("codecompanion").chat()
       end,
       desc = "AI Chat",
+      mode = { "n", "v" },
     },
     {
       "<leader>aa",
@@ -39,6 +44,7 @@ return {
         require("codecompanion").actions()
       end,
       desc = "AI Actions",
+      mode = { "n", "v" },
     },
     {
       "ga",
