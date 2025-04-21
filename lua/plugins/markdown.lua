@@ -65,12 +65,15 @@ return {
       latex = { enabled = false },
       win_options = { conceallevel = { rendered = 2 } },
       code = {
-        sign = false,
+        sign = true,
         width = "block",
         position = "left",
         style = "full",
-        language_name = true,
+        language_icon = false,
+        language_name = false,
         right_pad = 2,
+        highlight_inline = "DiagnosticOk",
+        border = "thick",
       },
       heading = {
         setext = false,
@@ -79,7 +82,7 @@ return {
         border = false,
         left_pad = 1,
         right_pad = 1,
-        width = "full",
+        width = "block",
         icons = {},
       },
       quote = {
