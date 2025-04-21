@@ -1,7 +1,7 @@
 vim.g.trouble_lualine = false
 local icons = LazyVim.config.icons
 
-local NO_NAME = ""
+local NO_NAME = "[Scratch]"
 
 -- make sure to refresh lualine when needed
 vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
@@ -53,7 +53,7 @@ local function get_buffer_name(bufnr, context)
     vim.g["lualine_tabname_" .. context.tabnr] = get_filename(bufnr)
   end
 
-  return vim.g["lualine_tabname_" .. context.tabnr] and vim.g["lualine_tabname_" .. context.tabnr] or "ERROR"
+  return vim.g["lualine_tabname_" .. context.tabnr] or ""
 end
 
 return {
@@ -200,12 +200,12 @@ return {
             },
             padding = { left = 1 },
           },
-          {
-            require("lualine_require").require("lazy.status").updates,
-            cond = require("lualine_require").require("lazy.status").has_updates,
-            color = "Special",
-            padding = { left = 1 },
-          },
+          -- {
+          --   require("lualine_require").require("lazy.status").updates,
+          --   cond = require("lualine_require").require("lazy.status").has_updates,
+          --   color = "Special",
+          --   padding = { left = 1 },
+          -- },
           -- stylua: ignore
           {
             -- this is for showing when a macro is recording
