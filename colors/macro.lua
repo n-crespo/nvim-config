@@ -17,6 +17,7 @@ vim.cmd.hi("clear")
 -- stylua: ignore start
 local c_autumnGreen          = "#76946A"
 local c_autumnRed            = "#C34043"
+local c_autumnOrange         = "#E87D3E"
 local c_autumnYellow         = "#DCA561"
 local c_carpYellow           = "#C8AE81"
 local c_katanaGray           = "#717C7C"
@@ -65,6 +66,7 @@ local c_winterGreen          = "#2E322D"
 local c_winterRed            = "#43242B"
 local c_winterYellow         = "#322E29"
 local c_winterPurple         = "#292E42"
+local c_winterOrange         = "#3B2B24"  -- muted, deep brownish-orange
 -- stylua: ignore end
 -- }}}
 
@@ -236,12 +238,12 @@ local hlgroups = {
   ["@markup.strong"] = { link = "markdownBold" },
   ["@markup.italic.markdown_inline"] = { italic = true },
   ["@markup.heading"] = { link = "Function" },
-  ["@markup.heading.1.markdown"] = { fg = c_springBlue, bg = c_waveBlue0, bold = true },
-  ["@markup.heading.2.markdown"] = { fg = c_autumnYellow, bg = c_winterYellow, bold = true },
-  ["@markup.heading.3.markdown"] = { fg = c_springGreen, bg = c_winterGreen, bold = true },
-  ["@markup.heading.4.markdown"] = { fg = c_autumnGreen, bg = c_macroGreen2, bold = true },
-  ["@markup.heading.5.markdown"] = { fg = c_springViolet, bg = c_winterPurple, bold = true },
-  ["@markup.heading.6.markdown"] = { fg = c_macroViolet, bg = c_winterPurple, bold = true },
+  ["@markup.heading.1.markdown"] = { fg = c_macroRed, bg = c_winterRed, bold = true },
+  ["@markup.heading.2.markdown"] = { fg = c_autumnOrange, bg = c_winterOrange, bold = true },
+  ["@markup.heading.3.markdown"] = { fg = c_autumnYellow, bg = c_winterYellow, bold = true },
+  ["@markup.heading.4.markdown"] = { fg = c_springGreen, bg = c_winterGreen, bold = true },
+  ["@markup.heading.5.markdown"] = { fg = c_springBlue, bg = c_waveBlue0, bold = true },
+  ["@markup.heading.6.markdown"] = { fg = c_springViolet, bg = c_winterPurple, bold = true },
   ["@markup.heading.1.marker.markdown"] = { link = "Delimiter" },
   ["@markup.heading.2.marker.markdown"] = { link = "Delimiter" },
   ["@markup.heading.3.marker.markdown"] = { link = "Delimiter" },
@@ -518,13 +520,13 @@ local hlgroups = {
   TreesitterContextBottom = { underline = true, bg = c_macroBg0, sp = border_purple_ink },
 
   -- render markdown
-  RenderMarkdownCode = { bg = c_macroBg2 },
   RenderMarkdownBullet = { fg = c_macroTeal },
-  RenderMarkdownH1Bg = { bg = c_waveBlue0 },
-  RenderMarkdownH2Bg = { bg = c_winterYellow },
-  RenderMarkdownH3Bg = { bg = c_winterGreen },
-  RenderMarkdownH4Bg = { bg = c_macroGreen2 },
-  RenderMarkdownH5Bg = { bg = c_winterPurple },
+
+  RenderMarkdownH1Bg = { bg = c_winterRed },
+  RenderMarkdownH2Bg = { bg = c_winterOrange },
+  RenderMarkdownH3Bg = { bg = c_winterYellow },
+  RenderMarkdownH4Bg = { bg = c_winterGreen },
+  RenderMarkdownH5Bg = { bg = c_waveBlue0 },
   RenderMarkdownH6Bg = { bg = c_winterPurple },
 
   -- for lualine
