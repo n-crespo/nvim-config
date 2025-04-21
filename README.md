@@ -22,7 +22,7 @@ Some cool things in here are:
   - `<C-S-C>` to get word count
   - `<C-S-S>` to clean Windows generated `^M` chars (when editing from WSL land)
 - [mini.files](./lua/plugins/mini-files.lua), the best explorer
-- [nvim-spider](./lua/plugins/spider.lua) for better 'w', 'e', and 'b' motions
+- [nvim-spider](./lua/plugins/spider.lua) for better `w`, `e`, and `b` motions
 - my snacks.nvim [picker](./lua/plugins/picker.lua) and [terminal](./lua/plugins/terminal.lua) config
   - with great integration with zoxide
 - ~31ms startup time
