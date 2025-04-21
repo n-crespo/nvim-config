@@ -320,6 +320,7 @@ return {
       "<leader>uW",
       function()
         vim.g.FullsizeTabs = not vim.g.FullsizeTabs
+        require("lualine").refresh({ scope = "all", place = { "tabline" } })
       end,
       desc = "Toggle Full Width Tabs",
     },
