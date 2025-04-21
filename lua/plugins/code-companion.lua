@@ -8,7 +8,7 @@ return {
       chat = {
         auto_scroll = false,
         show_settings = true,
-        window = { opts = { number = false } },
+        window = { opts = { number = false, statuscolumn = "  " } },
       },
     },
     strategies = {
