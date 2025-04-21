@@ -64,9 +64,10 @@ local c_waveRed              = "#E46876"
 local c_winterBlue           = "#252535"
 local c_winterGreen          = "#2E322D"
 local c_winterRed            = "#43242B"
+local c_winterRed2           = "#332828"
 local c_winterYellow         = "#322E29"
 local c_winterPurple         = "#292E42"
-local c_winterOrange         = "#3B2B24"  -- muted, deep brownish-orange
+local c_winterOrange         = "#3B2B24"
 -- stylua: ignore end
 -- }}}
 
@@ -238,7 +239,7 @@ local hlgroups = {
   ["@markup.strong"] = { link = "markdownBold" },
   ["@markup.italic.markdown_inline"] = { italic = true },
   ["@markup.heading"] = { link = "Function" },
-  ["@markup.heading.1.markdown"] = { fg = c_macroRed, bg = c_winterRed, bold = true },
+  ["@markup.heading.1.markdown"] = { fg = c_macroRed, bg = c_winterRed2, bold = true },
   ["@markup.heading.2.markdown"] = { fg = c_autumnOrange, bg = c_winterOrange, bold = true },
   ["@markup.heading.3.markdown"] = { fg = c_autumnYellow, bg = c_winterYellow, bold = true },
   ["@markup.heading.4.markdown"] = { fg = c_springGreen, bg = c_winterGreen, bold = true },
@@ -522,7 +523,7 @@ local hlgroups = {
   -- render markdown
   RenderMarkdownBullet = { fg = c_macroTeal },
 
-  RenderMarkdownH1Bg = { bg = c_winterRed },
+  RenderMarkdownH1Bg = { bg = c_winterRed2 },
   RenderMarkdownH2Bg = { bg = c_winterOrange },
   RenderMarkdownH3Bg = { bg = c_winterYellow },
   RenderMarkdownH4Bg = { bg = c_winterGreen },
