@@ -25,6 +25,38 @@ vim.api.nvim_create_autocmd({ "WinResized" }, {
   end,
 })
 
+local function apply_fullwidth_padding(context, name)
+  local n_tabs = vim.fn.tabpagenr("$")
+
+  -- prepend tab‑number when there are many tabs
+  if n_tabs > 3 then
+    name = context.tabnr .. " " .. name
+  end
+
+  local margin = n_tabs
+  local content_w = vim.o.columns - margin
+
+  local base_w = math.floor(content_w / n_tabs)
+  local leftover = content_w - base_w * n_tabs -- < n_tabs
+  local tgt_w = (context.tabnr <= leftover) and (base_w + 1) or base_w
+
+  -- visible width of the tabname (strip status‑line escapes)
+  local plain = name
+    :gsub("%%#.-#", "") -- %#hl#
+    :gsub("%%[%d%@].-@", "") -- %@…@
+    :gsub("%%[Tt*]", "") -- %T / %* reset
+
+  local vis = vim.fn.strdisplaywidth(plain)
+  local pad_needed = tgt_w - vis
+
+  if pad_needed > 0 then
+    local left = string.rep(" ", math.floor(pad_needed / 2))
+    local right = string.rep(" ", pad_needed - #left)
+    name = left .. name .. right
+  end
+  return name
+end
+
 -- utility function, returns true if buffer with specified
 -- buf/filetype should be ignored by the tabline or not
 local function ignore_buffer(bufnr)
@@ -108,9 +140,10 @@ return {
               local is_sel = (context.tabnr == vim.fn.tabpagenr())
               local tab_hl = is_sel and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
 
-              local custom = vim.g["LualineCustomTabname" .. context.tabnr]
+              local tabpage = vim.api.nvim_list_tabpages()[context.tabnr]
+              local custom = vim.g["LualineCustomTabname" .. tabpage]
               if custom and custom ~= "" then
-                name = custom .. " "
+                name = string.upper(custom .. " ")
               else
                 if vim.api.nvim_buf_get_name(bufnr) == "health://" then
                   name = "health"
@@ -127,40 +160,15 @@ return {
                 name = ("%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tab_hl .. "#" .. name)
               end
 
+              local padding = "    "
               -- optional full width layout
               if vim.g["FullsizeTabs"] then
-                local n_tabs = vim.fn.tabpagenr("$")
-
-                -- prepend tab‑number when there are many tabs
-                if n_tabs > 3 then
-                  name = context.tabnr .. " " .. name
-                end
-
-                local margin = n_tabs
-                local content_w = vim.o.columns - margin
-
-                local base_w = math.floor(content_w / n_tabs)
-                local leftover = content_w - base_w * n_tabs -- < n_tabs
-                local tgt_w = (context.tabnr <= leftover) and (base_w + 1) or base_w
-
-                -- visible width of the label (strip status‑line escapes)
-                local plain = name
-                  :gsub("%%#.-#", "") -- %#hl#
-                  :gsub("%%[%d%@].-@", "") -- %@…@
-                  :gsub("%%[Tt*]", "") -- %T / %* reset
-
-                local vis = vim.fn.strdisplaywidth(plain)
-                local pad_needed = tgt_w - vis
-
-                if pad_needed > 0 then
-                  local left = string.rep(" ", math.floor(pad_needed / 2))
-                  local right = string.rep(" ", pad_needed - #left)
-                  name = left .. name .. right
-                end
+                name = apply_fullwidth_padding(context, name)
+                padding = ""
               end
 
-              local label = "%#" .. tab_hl .. "#" .. name .. "%*"
-              return " " .. label -- single leading space lualine expects
+              local label = "%#" .. tab_hl .. "#" .. name .. padding .. "%*"
+              return " " .. padding .. label -- single leading space lualine expects
             end,
             cond = function()
               return vim.bo.filetype ~= "snacks_dashboard"
@@ -271,7 +279,7 @@ return {
     {
       "<leader>r",
       function()
-        local current_tab = vim.fn.tabpagenr()
+        local current_tab = vim.api.nvim_get_current_tabpage()
         vim.ui.input({ prompt = "New Tab Name: " }, function(input)
           if input or input == "" then
             vim.g["LualineCustomTabname" .. current_tab] = input
