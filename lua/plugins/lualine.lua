@@ -65,17 +65,25 @@ local function apply_fullwidth_padding(context, name)
   return name
 end
 
--- utility function, returns true if buffer with specified
--- buf/filetype should be ignored by the tabline or not
+-- returns true if tabline should ignore the name of the currently focused
+-- buffer (meaaning the state of the tabline should not change)
 local function ignore_buffer(bufnr)
+  -- this works for MOST picker preview windows, but (for performance reasons)
+  -- if the buffer is loaded already in neovim, picker will not load a preview but
+  -- instead put the buffer itself in the preview window, meaning the ft will be
+  -- set to that buffer's actual ft, rather than snacks_picker_preview. This
+  -- seems to happen most often in the 'buffers' picker.
+  local ignored_filetypes = { "snacks_picker_preview", "snacks_picker_input" }
   local ignored_buftypes = { "prompt", "nofile", "terminal", "quickfix" }
-  local ignored_filetypes = { "snacks_picker_preview" }
 
   local filetype = vim.bo[bufnr].filetype
   local buftype = vim.bo[bufnr].buftype
   local name = vim.api.nvim_buf_get_name(bufnr)
 
-  return vim.tbl_contains(ignored_buftypes, buftype) or vim.tbl_contains(ignored_filetypes, filetype) or name == ""
+  return vim.tbl_contains(ignored_buftypes, buftype)
+    or vim.tbl_contains(ignored_filetypes, filetype)
+    or name == ""
+    or vim.fn.mode == "i" -- for some reason this doesn't fully work to stop the picker preview problem
     or name:find(".scratch") -- ignore snacks scratch buffer floating window
 end
 
