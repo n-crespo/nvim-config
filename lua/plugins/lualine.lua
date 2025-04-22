@@ -76,6 +76,7 @@ local function ignore_buffer(bufnr)
   local name = vim.api.nvim_buf_get_name(bufnr)
 
   return vim.tbl_contains(ignored_buftypes, buftype) or vim.tbl_contains(ignored_filetypes, filetype) or name == ""
+    or name:find(".scratch") -- ignore snacks scratch buffer floating window
 end
 
 -- Get buffer name, using alternate buffer or last visited buffer if necessary
@@ -155,8 +156,6 @@ return {
               else
                 if vim.api.nvim_buf_get_name(bufnr) == "health://" then
                   name = "health"
-                elseif name:find(".scratch") then
-                  name = "scratch"
                 else
                   name = get_buffer_name(bufnr, context)
                 end
