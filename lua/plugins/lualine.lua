@@ -28,11 +28,6 @@ vim.api.nvim_create_autocmd({ "WinResized" }, {
 local function apply_fullwidth_padding(context, name)
   local n_tabs = vim.fn.tabpagenr("$")
 
-  -- prepend tab‑number when there are many tabs
-  if n_tabs > 3 then
-    name = context.tabnr .. " " .. name
-  end
-
   local margin = n_tabs
   local content_w = vim.o.columns - margin
 
@@ -158,6 +153,11 @@ return {
 
                 name = (name ~= "" and name .. " " or name)
                 name = ("%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tab_hl .. "#" .. name)
+              end
+
+              -- only include tabnrs if >3 tabs are open
+              if vim.fn.tabpagenr("$") > 3 then
+                name = context.tabnr .. " " .. name
               end
 
               local padding = "    "
