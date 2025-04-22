@@ -146,31 +146,35 @@ return {
               local winnr = vim.fn.tabpagewinnr(context.tabnr)
               local bufnr = buflist[winnr]
 
-              local is_sel = (context.tabnr == vim.fn.tabpagenr())
-              local tab_hl = is_sel and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
+              -- detect if tab is currently selected or not
+              local tab_hl = (context.tabnr == vim.fn.tabpagenr()) and "lualine_a_tabs_active"
+                or "lualine_a_tabs_inactive"
 
+              -- use tabpage number for indexing rather than tabnr to preserve
+              -- names while reordering
               local tabpage = vim.api.nvim_list_tabpages()[context.tabnr]
-              local custom = vim.g["LualineCustomTabname" .. tabpage]
-              if custom and custom ~= "" then
-                name = string.upper(custom .. " ")
+              local custom_name = vim.g["LualineCustomTabname" .. tabpage]
+
+              if custom_name and custom_name ~= "" then
+                name = string.upper(custom_name .. " ")
               else
                 if vim.api.nvim_buf_get_name(bufnr) == "health://" then
+                  -- we are looking at a :checkhealth buffer
                   name = "health"
                 else
+                  -- we are looking at an actual buffer/a file
                   name = get_buffer_name(bufnr, context)
+
+                  local icon, icon_hl = require("mini.icons").get("file", name)
+                  icon_hl = icon_hl .. "_" .. tab_hl
+
+                  name = (name ~= "" and name .. " " or name)
+                  name = ("%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tab_hl .. "#" .. name)
                 end
-
-                local icon, icon_hl = require("mini.icons").get("file", name)
-                icon_hl = icon_hl .. "_" .. tab_hl
-
-                name = (name ~= "" and name .. " " or name)
-                name = ("%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tab_hl .. "#" .. name)
               end
 
-              -- only include tabnrs if >3 tabs are open
-              if vim.fn.tabpagenr("$") > 3 then
-                name = context.tabnr .. " " .. name
-              end
+              -- only include tab numbers if >3 tabs are open
+              name = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or "" .. name
 
               local padding = "    "
               -- optional full width layout
