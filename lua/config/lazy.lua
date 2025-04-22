@@ -27,6 +27,7 @@ require("lazy").setup({
   -- don't show message on config change/reload
   change_detection = { notify = false },
   checker = { enabled = false, notify = false }, --   automatically check for plugin updates
+  profiling = { require = true },
   performance = {
     rtp = {
       disabled_plugins = {
