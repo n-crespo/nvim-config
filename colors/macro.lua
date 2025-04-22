@@ -103,7 +103,7 @@ local hlgroups = {
   -- note: the below makes your background transparent. edit your terminal's settings
   -- to set it to a different color, or just add something like bg = "#11111"
   Normal = { fg = c_macroFg0, bg = nil },
-  NormalFloat = { bg = nil, fg = c_macroFg1 },
+  NormalFloat = { bg = nil, fg = c_macroFg0 },
 
   ColorColumn = { bg = c_macroBg2 },
   Conceal = { bold = true, fg = c_macroGray2 },
