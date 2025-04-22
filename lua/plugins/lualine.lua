@@ -25,6 +25,19 @@ vim.api.nvim_create_autocmd({ "WinResized" }, {
   end,
 })
 
+-- delete stored custom tab names when no longer needed
+vim.api.nvim_create_autocmd("TabClosed", {
+  desc = "Delete stored custom tab names when no longer needed",
+  group = vim.api.nvim_create_augroup("CustomTabnameCleanup", { clear = true }),
+  callback = function(args)
+    local tabpage = args.file
+    local var_name = "LualineCustomTabname" .. tabpage
+    if vim.g[var_name] ~= nil then
+      vim.g[var_name] = nil
+    end
+  end,
+})
+
 local function apply_fullwidth_padding(context, name)
   local n_tabs = vim.fn.tabpagenr("$")
 
