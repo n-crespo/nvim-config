@@ -120,7 +120,7 @@ return {
   opts = function()
     local opts = {
       options = {
-        always_show_tabline = false, -- only show tabline when >1 tabs
+        always_show_tabline = true, -- only show tabline when >1 tabs
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         always_divide_middle = true,
