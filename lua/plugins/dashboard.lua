@@ -14,6 +14,14 @@ return {
             desc = "Config",
             action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
           },
+          {
+            icon = " ",
+            key = "g",
+            -- stylua: ignore
+            ---@diagnostic disable-next-line: missing-fields
+            action = function() Snacks.lazygit({ cwd = LazyVim.root.git() }) end,
+            desc = "LazyGit",
+          },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
@@ -27,7 +35,7 @@ return {
       sections = {
         { section = "header", padding = 1 },
         { section = "keys", gap = 1, padding = 1 },
-        -- { section = "startup" },
+        { section = "startup" },
       },
     },
   },
