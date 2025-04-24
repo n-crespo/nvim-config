@@ -1,4 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local full_config = vim.env.NVIM_FULL_CONFIG == "true"
+
 if not vim.loop.fs_stat(lazypath) then
    -- bootstrap lazy.nvim
    -- stylua: ignore
@@ -9,9 +11,25 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   colorscheme = "macro",
   spec = {
+    -- import default LazyVim plugins (some disabled in disabled.lua)
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
+    -- these will only be enabled if you set the environment variable
+    -- NVIM_MAIN_CONFIG to true (in your ~/.bashrc, ~/.zshrc, config.fish, ect)
+    -- note: always-enabled extras are in lazyvim.json
+    { import = "lazyvim.plugins.extras.dap.core", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.java", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.python", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.tailwind", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.tex", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.toml", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.yaml", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.typescript", cond = full_config },
+    { import = "lazyvim.plugins.extras.ui.treesitter-context", cond = full_config },
+    { import = "lazyvim.plugins.extras.util.dot", cond = full_config },
+
+    -- this enables user define plugins, from ../plugins/
     { import = "plugins" },
-    -- lang_extras,
   },
   defaults = {
     lazy = true,
