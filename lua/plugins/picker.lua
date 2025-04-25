@@ -208,7 +208,7 @@ return {
           Snacks.picker.zoxide({
             title = "Jump to Directory",
             confirm = function(picker, item)
-              require("snacks").picker.files({
+              Snacks.picker.files({
                 cwd = item._path,
                 title = vim.fn.fnamemodify(item._path, ":~"),
                 hidden = true,
