@@ -2,15 +2,18 @@ return {
   "b0o/incline.nvim",
   event = "LazyFile",
   dependencies = {
-    "folke/snacks.nvim",
-    opts = {
-      zen = {
-        on_close = function()
-          require("incline").enable()
-        end,
-        on_open = function()
-          require("incline").disable()
-        end,
+    { "echasnovski/mini.icons" },
+    {
+      "folke/snacks.nvim",
+      opts = {
+        zen = {
+          on_close = function()
+            require("incline").enable()
+          end,
+          on_open = function()
+            require("incline").disable()
+          end,
+        },
       },
     },
   },
