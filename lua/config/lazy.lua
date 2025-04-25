@@ -19,7 +19,6 @@ require("lazy").setup({
     -- NVIM_MAIN_CONFIG to true (in your ~/.bashrc, ~/.zshrc, config.fish, ect)
     -- note: always-enabled extras are in lazyvim.json
     { import = "lazyvim.plugins.extras.dap.core", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.java", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.python", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.tailwind", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.tex", cond = full_config },
@@ -28,6 +27,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript", cond = full_config },
     { import = "lazyvim.plugins.extras.ui.treesitter-context", cond = full_config },
     { import = "lazyvim.plugins.extras.util.dot", cond = full_config },
+    -- { import = "lazyvim.plugins.extras.lang.java", cond = full_config },
 
     -- this enables user define plugins, from ../plugins/
     { import = "plugins" },
