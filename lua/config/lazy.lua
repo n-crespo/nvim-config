@@ -1,6 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local full_config = vim.env.NVIM_FULL_CONFIG == "true"
 
+---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
    -- bootstrap lazy.nvim
    -- stylua: ignore
