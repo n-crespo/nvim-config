@@ -3,6 +3,14 @@ local icons = LazyVim.config.icons
 
 local NO_NAME = "[Scratch]"
 
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNew" }, {
+  group = vim.api.nvim_create_augroup("ShowTabline", { clear = true }),
+  once = true,
+  callback = function()
+    vim.o.showtabline = 2
+  end,
+})
+
 -- make sure to refresh lualine when needed
 vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
   desc = "Refresh tabline when needed",
@@ -15,7 +23,7 @@ vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
 })
 
 -- make sure to refresh lualine when needed
-vim.api.nvim_create_autocmd({ "WinResized" }, {
+vim.api.nvim_create_autocmd({ "VimResized" }, {
   desc = "Resize tabline when needed",
   group = "TablineReload",
   callback = function()
@@ -107,6 +115,7 @@ end
 
 return {
   "nvim-lualine/lualine.nvim",
+  event = "LazyFile",
   dependencies = { "echasnovski/mini.icons" },
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus
@@ -315,6 +324,7 @@ return {
         lualine_z = {},
       },
     }
+    vim.o.showtabline = 2
     return opts
   end,
   keys = {
