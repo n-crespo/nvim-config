@@ -119,6 +119,7 @@ return {
     end
   end,
   opts = function()
+    vim.o.laststatus = vim.g.lualine_laststatus
     local opts = {
       options = {
         always_show_tabline = false, -- only show tabline when >1 tabs
@@ -207,22 +208,38 @@ return {
         lualine_b = {
           {
             function()
-              if LazyVim.is_win() then
-                return "🪟"
+              -- only show an icon when ssh-ed
+              if os.getenv("SSH_CONNECTION") ~= nil then
+                if LazyVim.is_win() then
+                  return "🪟"
+                end
+                return ""
               end
-              return ""
+              return ""
             end,
             padding = { left = 1, right = 1 },
             color = "HostNameIcon",
           },
           {
-            "hostname",
-            padding = { right = 1 },
-            -- cond = os.getenv("SSH_CONNECTION") ~= nil
-            -- (above could be used to only show this component when ssh-ed)
+            function()
+              return " "
+            end,
+          },
+          LazyVim.lualine.root_dir({ cwd = true }),
+          {
+            function()
+              return " "
+            end,
           },
         },
         lualine_c = {
+          { LazyVim.lualine.pretty_path(), padding = { left = 1 } },
+          -- stylua: ignore
+          {
+            function() return "  " .. require("dap").status() end,
+            cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+            color = function() return { fg = Snacks.util.color("Debug") } end,
+          },
           {
             "diagnostics",
             symbols = {
