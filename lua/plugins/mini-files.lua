@@ -1,5 +1,4 @@
 -- fast file system viewer, less intrusive oil.nvim
--- note: this is mostly stolen from the lazyvim mini-files extra
 return {
   "echasnovski/mini.files",
   -- lazy = false,
@@ -32,6 +31,7 @@ return {
       go_in_horizontal_plus = "_",
       go_in_vertical_plus = "|",
       go_home = "gh",
+      go_here = "gH",
       go_config = "gd",
     },
     options = {
@@ -77,6 +77,15 @@ return {
       return not vim.startswith(fs_entry.name, ".")
     end
 
+    local files_set_cwd = function()
+      local cur_entry_path = MiniFiles.get_fs_entry().path
+      local cur_directory = vim.fs.dirname(cur_entry_path)
+      if cur_directory ~= nil then
+        vim.fn.chdir(cur_directory)
+      end
+      vim.notify(vim.fn.fnamemodify(vim.fn.getcwd(), ":~"), vim.log.levels.INFO, {})
+    end
+
     local toggle_dotfiles = function()
       show_dotfiles = not show_dotfiles
       local new_filter = show_dotfiles and filter_show or filter_hide
@@ -118,7 +127,12 @@ return {
           { buffer = buf_id, desc = "Toggle hidden files" }
         )
 
-        -- 'gc' to navigate to config directory
+        -- 'gh' to change cwd to Here
+        vim.keymap.set("n", opts.mappings and opts.mappings.go_here or "gH", function()
+          files_set_cwd()
+        end, { buffer = buf_id, desc = "Change cwd to here" })
+
+        -- 'gd' to navigate to config directory
         vim.keymap.set("n", opts.mappings and opts.mappings.go_config or "gd", function()
           require("mini.files").open(vim.api.nvim_get_runtime_file("", true)[1])
         end, { buffer = buf_id, desc = "Go to config directory" })
