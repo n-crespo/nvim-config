@@ -95,14 +95,3 @@ autocmd({ "BufLeave", "FocusLost" }, {
     end
   end,
 })
-
-autocmd({ "TermClose" }, {
-  group = vim.api.nvim_create_augroup("CloseTerm", { clear = true }),
-  desc = "Close terminal windows on exit", -- bypass [Process exited 0] message
-  callback = function()
-    local buftype = vim.api.nvim_get_option_value("buftype", { scope = "local" })
-    if buftype == "terminal" then
-      vim.cmd("close")
-    end
-  end,
-})
