@@ -193,7 +193,7 @@ return {
               end
 
               -- only include tab numbers if >3 tabs are open
-              name = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " ") or "" .. name
+              name = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " " .. name) or name
 
               local padding = "    "
               -- optional full width layout
