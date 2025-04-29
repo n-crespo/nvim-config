@@ -1,5 +1,5 @@
 -- use the $SHELL env variable or fish
-vim.g.shell = vim.fn.has("wsl") ~= 0 and "fish" or vim.o.shell
+vim.g.shell = vim.fn.has("wsl") ~= 0 and "/usr/bin/fish" or vim.o.shell
 
 return {
   "folke/snacks.nvim",
