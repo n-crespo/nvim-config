@@ -132,7 +132,7 @@ return {
         event = "LazyFile",
         opts = function(_, opts)
           if vim.g.lualine_ai_status then
-            table.insert(opts.sections.lualine_x, #opts.sections.lualine_x + 1, {
+            table.insert(opts.sections.lualine_z, 1, {
               function()
                 local symbols = {
                   status = {
@@ -155,7 +155,7 @@ return {
               color = function()
                 return { fg = Snacks.util.color("Special") }
               end,
-              padding = { right = 1, left = 1 },
+              padding = 1,
               cond = package.loaded["neocodeium"],
             })
           end

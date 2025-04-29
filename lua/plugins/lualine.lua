@@ -213,8 +213,7 @@ return {
       },
       sections = {
         ------- LEFT SIDE of statusline -----
-        lualine_a = {},
-        lualine_b = {
+        lualine_a = {
           {
             function()
               -- only show an icon when ssh-ed
@@ -234,6 +233,7 @@ return {
               return " "
             end,
           },
+          ---@diagnostic disable-next-line: assign-type-mismatch
           LazyVim.lualine.root_dir({ cwd = true }),
           {
             function()
@@ -241,8 +241,19 @@ return {
             end,
           },
         },
+        lualine_b = {
+          {
+            "branch",
+            padding = 1,
+            icon = { "" },
+            -- color = "DiagnosticOK",
+          },
+        },
         lualine_c = {
-          { LazyVim.lualine.pretty_path(), padding = { left = 1 } },
+          {
+            LazyVim.lualine.pretty_path(),
+            padding = { left = 1 },
+          },
           -- stylua: ignore
           {
             function() return "  " .. require("dap").status() end,
@@ -271,7 +282,7 @@ return {
             function() return require("lualine_require").require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("lualine_require").require("noice").api.status.mode.has() end,
             color = "WarningMsg",
-            padding = { left = 1 }
+            padding = { left = 1 },
           },
         },
 
