@@ -54,6 +54,7 @@ vim.keymap.set("t", "<C-v>", "<c-\\><c-n><cmd>norm p<Cr>a", { remap = true })
 
 -- don't scroll on <S-CR>
 vim.keymap.set("n", "<S-CR>", "<NOP>")
+vim.keymap.set("n", "<C-CR>", "] j", { remap = true, desc = "Insert line after line" })
 
 -- search within selection by default when using / in visual mode
 vim.keymap.set("x", "/", "<Esc>/\\%V")
