@@ -4,7 +4,7 @@ M.theme = function()
   local innerbg = nil
   local azbg = "#2E2E2E"
   local bybg = "#201d1d"
-  local gray = "#b4b3a7"
+  local gray = "#C5C9C5"
   local tabline = "#2e2e2e"
 
   return {

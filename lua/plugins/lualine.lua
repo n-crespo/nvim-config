@@ -128,7 +128,6 @@ return {
     end
   end,
   opts = function()
-    vim.o.laststatus = vim.g.lualine_laststatus
     local opts = {
       options = {
         always_show_tabline = false, -- only show tabline when >1 tabs
