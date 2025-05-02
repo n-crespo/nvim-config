@@ -23,6 +23,7 @@ opt.spelloptions = "noplainbuffer,camel"
 opt.cmdheight = 0 -- no cmdline on bottom of screen
 opt.wrap = false
 opt.completeopt = "menu,menuone,noselect,noinsert,popup"
+opt.foldtext = "v:lua.require'custom.utils'.custom_foldtext()" -- see ../custom/utils.lua
 vim.g.loaded_ruby_provider = 0 -- never use these
 vim.g.loaded_perl_provider = 0 -- never use these
 vim.g.loaded_python3_provider = "/usr/bin/python3"
@@ -31,6 +32,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.lazyvim_python_lsp = "pylsp"
 vim.g.root_spec = { ".root", "lsp", ".git", "cwd" }
+
 -- opt.autochdir = true -- this breaks things
 
 if LazyVim.is_win() then
