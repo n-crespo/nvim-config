@@ -250,8 +250,12 @@ return {
         },
         lualine_c = {
           {
-            LazyVim.lualine.pretty_path(),
+            "filetype",
+            icon_only = true,
             padding = { left = 1 },
+          },
+          {
+            LazyVim.lualine.pretty_path(),
           },
           -- stylua: ignore
           {
@@ -284,7 +288,6 @@ return {
             padding = { left = 1 },
           },
         },
-
         ------- RIGHT SIDE of statusline -----
         lualine_x = {
           {
