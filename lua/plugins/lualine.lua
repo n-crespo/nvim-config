@@ -1,15 +1,8 @@
 vim.g.trouble_lualine = false
+vim.g.lualine_showtabline = 2 -- use just like :h showtabline (and instead of showtabline)
 local icons = LazyVim.config.icons
 
-local NO_NAME = "[Scratch]"
-
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNew" }, {
-  group = vim.api.nvim_create_augroup("ShowTabline", { clear = true }),
-  once = true,
-  callback = function()
-    vim.o.showtabline = 2
-  end,
-})
+local NO_NAME = "[No Name]"
 
 -- make sure to refresh lualine when needed
 vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
@@ -73,14 +66,20 @@ local function apply_fullwidth_padding(context, name)
   return name
 end
 
+-- return true if snacks.picker is loaded and the picker is open in this tab.
+-- this is needed because of how preview windows work in the picker when a
+-- buffer has already been loaded: https://github.com/folke/snacks.nvim/issues/1417#issuecomment-2681995070
+local function snacks_picker_open()
+  if package.loaded["snacks.picker"] then
+    local pickers = require("snacks.picker").get({ tab = true })
+    return #pickers > 0
+  end
+  return false
+end
+
 -- returns true if tabline should ignore the name of the currently focused
--- buffer (meaaning the state of the tabline should not change)
+-- buffer (meaning the state of the tabline should not change)
 local function ignore_buffer(bufnr)
-  -- this works for MOST picker preview windows, but (for performance reasons)
-  -- if the buffer is loaded already in neovim, picker will not load a preview but
-  -- instead put the buffer itself in the preview window, meaning the ft will be
-  -- set to that buffer's actual ft, rather than snacks_picker_preview. This
-  -- seems to happen most often in the 'buffers' picker.
   local ignored_filetypes = { "snacks_picker_preview", "snacks_picker_input" }
   local ignored_buftypes = { "prompt", "nofile", "terminal", "quickfix" }
 
@@ -88,16 +87,15 @@ local function ignore_buffer(bufnr)
   local buftype = vim.bo[bufnr].buftype
   local name = vim.api.nvim_buf_get_name(bufnr)
 
-  return vim.tbl_contains(ignored_buftypes, buftype)
+  return name == ""
+    or vim.tbl_contains(ignored_buftypes, buftype)
     or vim.tbl_contains(ignored_filetypes, filetype)
-    or name == ""
-    or vim.fn.mode == "i" -- for some reason this doesn't fully work to stop the picker preview problem
-    or name:find(".scratch") -- ignore snacks scratch buffer floating window
+    or snacks_picker_open()
 end
 
 -- Get buffer name, using alternate buffer or last visited buffer if necessary
 local function get_buffer_name(bufnr, context)
-  local function get_filename(buf)
+  local function get_filename(buf) -- bufnr
     return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
   end
 
@@ -106,7 +104,8 @@ local function get_buffer_name(bufnr, context)
     vim.g["lualine_tabname_" .. context.tabnr] = NO_NAME
   end
 
-  if not ignore_buffer(bufnr) then
+  -- only update tabline if we _actually_ need to
+  if vim.bo.buftype ~= "prompt" and not ignore_buffer(bufnr) then
     vim.g["lualine_tabname_" .. context.tabnr] = get_filename(bufnr)
   end
 
@@ -130,7 +129,7 @@ return {
   opts = function()
     local opts = {
       options = {
-        always_show_tabline = false, -- only show tabline when >1 tabs
+        always_show_tabline = false, -- DON'T USE THIS
         theme = require("lualine.themes.lualine_theme").theme,
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         always_divide_middle = true,
@@ -173,14 +172,15 @@ return {
               local tabpage = vim.api.nvim_list_tabpages()[context.tabnr]
               local custom_name = vim.g["LualineCustomTabname" .. tabpage]
 
+              -- use custom name if specified (auto uppercase because why not)
               if custom_name and custom_name ~= "" then
                 name = string.upper(custom_name .. " ")
               else
+                -- we are looking at a :checkhealth buffer
                 if vim.api.nvim_buf_get_name(bufnr) == "health://" then
-                  -- we are looking at a :checkhealth buffer
                   name = "health"
                 else
-                  -- we are looking at an actual buffer/a file
+                  -- an actual buffer or file
                   name = get_buffer_name(bufnr, context)
 
                   local icon, icon_hl = require("mini.icons").get("file", name)
@@ -244,6 +244,7 @@ return {
           {
             "branch",
             padding = 1,
+            draw_empty = false,
             icon = { "" },
             -- color = "DiagnosticOK",
           },
@@ -337,7 +338,6 @@ return {
         lualine_z = {},
       },
     }
-    vim.o.showtabline = 2
     return opts
   end,
   keys = {
@@ -352,16 +352,6 @@ return {
           end
         end)
       end,
-    },
-    {
-      "<leader>uS",
-      function()
-        vim.o.laststatus = vim.o.laststatus == 0 and 3 or 0
-        local msg = vim.o.laststatus == 0 and "Disabled" or "Enabled"
-        local level = vim.o.laststatus == 0 and vim.log.levels.WARN or vim.log.levels.INFO
-        vim.notify(msg .. " **Statusline**", level)
-      end,
-      desc = "Toggle Statusline",
     },
     {
       "<A-,>",

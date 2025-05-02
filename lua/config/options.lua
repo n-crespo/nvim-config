@@ -2,7 +2,7 @@
 
 local opt = vim.opt
 opt.cursorlineopt = "number,screenline" -- cursorline respects wrapped lines
-opt.showtabline = 0
+-- opt.showtabline = 2
 opt.laststatus = 3
 opt.relativenumber = false
 opt.swapfile = false -- don't make backup swap files
