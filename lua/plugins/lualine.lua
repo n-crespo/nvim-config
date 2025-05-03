@@ -208,10 +208,17 @@ return {
           },
         },
         lualine_c = {
+          -- stylua: ignore
+          {
+            function() return " " end, -- artificial padding
+          },
           {
             "filetype",
             icon_only = true,
-            padding = { left = 1 },
+            padding = 0,
+            draw_empty = false,
+            -- stylua: ignore
+            cond = function() return vim.bo.filetype ~= "minifiles" end,
           },
           {
             LazyVim.lualine.pretty_path(),
