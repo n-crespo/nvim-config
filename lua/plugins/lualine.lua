@@ -1,14 +1,5 @@
 vim.g.trouble_lualine = false
 local icons = LazyVim.config.icons
-local fn = vim.fn
-local api = vim.api
-local tabpagenr = fn.tabpagenr
-local tabpagebuflist = fn.tabpagebuflist
-local tabpagewinnr = fn.tabpagewinnr
-local list_tabpages = api.nvim_list_tabpages
-local buf_get_name = api.nvim_buf_get_name
-local fn_fnamemodify = fn.fnamemodify
-
 local NO_NAME = "[No Name]"
 local BASIC_PADDING = "    "
 
@@ -24,7 +15,7 @@ local function picker_open()
 end
 
 local function ignore_buffer(bufnr)
-  local ft, bt, nm = vim.bo[bufnr].filetype, vim.bo[bufnr].buftype, buf_get_name(bufnr)
+  local ft, bt, nm = vim.bo[bufnr].filetype, vim.bo[bufnr].buftype, vim.api.nvim_buf_get_name(bufnr)
   return nm == "" or ignored_ft[ft] or ignored_bt[bt] or picker_open()
 end
 
@@ -33,12 +24,12 @@ local function get_buffer_name(bufnr, context)
     return vim.g["lualine_tabname_" .. context.tabnr] or ""
   end
 
-  local name = buf_get_name(bufnr)
+  local name = vim.api.nvim_buf_get_name(bufnr)
 
   if name == "" and vim.bo[bufnr].buflisted then
     vim.g["lualine_tabname_" .. context.tabnr] = NO_NAME
   elseif vim.bo[bufnr].buftype ~= "prompt" and not ignore_buffer(bufnr) then
-    vim.g["lualine_tabname_" .. context.tabnr] = fn_fnamemodify(name, ":t")
+    vim.g["lualine_tabname_" .. context.tabnr] = vim.fn.fnamemodify(name, ":t")
   end
 
   return vim.g["lualine_tabname_" .. context.tabnr] or ""
@@ -47,14 +38,14 @@ end
 -- the fmt for lualine
 local fmt = function(_, ctx)
   local tabnr = ctx.tabnr
-  local is_cur = (tabnr == tabpagenr())
+  local is_cur = (tabnr == vim.fn.tabpagenr())
   local hl = is_cur and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
 
-  local tps = list_tabpages()
+  local tps = vim.api.nvim_list_tabpages()
   local custom = vim.g["LualineCustomTabname" .. tps[tabnr]]
-  local buflist = tabpagebuflist(tabnr)
-  local bufnr = buflist[tabpagewinnr(tabnr)]
-  local bufname = buf_get_name(bufnr)
+  local buflist = vim.fn.tabpagebuflist(tabnr)
+  local bufnr = buflist[vim.fn.tabpagewinnr(tabnr)]
+  local bufname = vim.api.nvim_buf_get_name(bufnr)
 
   -- decide raw name
   local name
@@ -69,7 +60,7 @@ local fmt = function(_, ctx)
   name = name or ""
 
   -- number if >3 tabs
-  if tabpagenr("$") > 3 then
+  if vim.fn.tabpagenr("$") > 3 then
     name = ("%d %s"):format(tabnr, name)
   end
 
