@@ -1,38 +1,81 @@
 local M = {}
 
--- This function tries to returns one of the following. If trying to find one
--- fails, it fallback to the next in the list.
---   a) the directory of the current buffer
---   b) the previously visited buffer's directory (using the :h alternate-file)
---   b) the current working directory.
----@param filename? string filename to optionally append to resulting path
+---@diagnostic disable: undefined-field
+local uv = vim.loop
+local api = vim.api
+local fn = vim.fn
+
+--- Get the parent directory of a buffer's file.
+--- Returns nil if the buffer has no associated filepath.
+---
+--- @param bufnr number Buffer number to inspect
+--- @return string|nil Absolute path to the buffer's directory, or nil
+local function buf_dir(bufnr)
+  local name = api.nvim_buf_get_name(bufnr)
+  if name ~= "" then
+    -- make it absolute and strip to the parent directory
+    return fn.fnamemodify(name, ":p:h")
+  end
+end
+
+--- Select the first valid directory from a list of candidates.
+--- A directory is valid if it's non-empty and, if filename is provided,
+--- the file exists in that directory.
+---
+--- @param candidates (string|nil)[] List of directory paths to try in order
+--- @param filename string Filename to check existence (optional)
+--- @return string|nil First directory that passes checks, or nil
+local function pick_dir(candidates, filename)
+  for _, d in ipairs(candidates) do
+    if type(d) == "string" and d ~= "" then
+      if filename == "" or uv.fs_stat(d .. "/" .. filename) then
+        return d
+      end
+    end
+  end
+end
+
+--- Determines a directory based on buffer context, with fallbacks.
+---
+--- Priority order:
+---   1. Current buffer's directory (if file-backed)
+---   2. Alternate buffer's directory (#) (if valid)
+---   3. Current working directory
+---
+--- If a filename is provided, appends it only if that file exists.
+--- Otherwise returns just the directory.
+---
+--- @param filename string? Optional filename to append to the directory
+--- @return string Absolute path to the chosen directory or file path
 function M.get_dir_with_fallback(filename)
   filename = filename or ""
 
-  -- Get alternate buffer directory if it exists
-  local alt_buf = vim.api.nvim_buf_is_valid(vim.fn.bufnr("#"))
-      and vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr("#")), ":p")
-    or nil
+  -- Candidate 1: current buffer dir (nil if no file)
+  local cur_dir = buf_dir(0)
 
-  -- If the buffer is not a file, fallback to alternate buffer or cwd
-  if vim.api.nvim_get_option_value("buftype", { scope = "local" }) ~= "" or not vim.api.nvim_buf_is_valid(0) then
-    return alt_buf or vim.uv.cwd()
+  -- Candidate 2: alternate buffer dir (#), or nil
+  local alt_bufnr = fn.bufnr("#")
+  local alt_dir = nil
+  if api.nvim_buf_is_valid(alt_bufnr) then
+    alt_dir = buf_dir(alt_bufnr)
   end
 
-  -- Get directory of the current buffer or fallback
-  local bufdir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
-  local dir = bufdir ~= "" and bufdir or alt_buf or vim.uv.cwd()
+  -- Candidate 3: fallback to cwd
+  local cwd = uv.cwd()
 
-  -- file opened may be unsaved, if so ignore filename
-  filename = vim.uv.fs_stat(bufdir .. "/" .. filename) and filename or ""
+  -- Pick the first that exists (and matches filename, if any)
+  local dir = pick_dir({ cur_dir, alt_dir, cwd }, filename) or cwd
 
-  -- Validate the constructed path, fallback if invalid
-  if not vim.uv.fs_stat(dir .. "/" .. filename) then
-    dir = alt_buf or alt_buf or vim.uv.cwd()
+  -- If filename provided and the file exists, return full path
+  if filename ~= "" then
+    local full = dir .. "/" .. filename
+    if uv.fs_stat(full) then
+      return full
+    end
   end
 
-  -- append filename so cursor opens on current file
-  return dir .. "/" .. filename
+  -- Otherwise just return the directory
+  return dir
 end
 
 -- returns true if neovim has been started as a man pager
@@ -45,50 +88,37 @@ function M.is_man_pager()
   return false
 end
 
--- used in opt.foldtext in options.lua
-function M.fold_virt_text(result, s, lnum, coloff)
-  if not coloff then
-    coloff = 0
+--- Adjusts the width of a tab name in the tabline to ensure all tabs are evenly
+--- distributed across the available screen width. (UNUSED)
+---
+--- @param context table A table containing the context for the tab, including the tab number (`context.tabnr`).
+--- @param name string The original name of the tab, which may include status-line escape sequences.
+--- @return string The adjusted tab name, padded to fit the calculated target width.
+function M.apply_fullwidth_tabline(context, name)
+  local n_tabs = vim.fn.tabpagenr("$")
+
+  local margin = n_tabs
+  local content_w = vim.o.columns - margin
+
+  local base_w = math.floor(content_w / n_tabs)
+  local leftover = content_w - base_w * n_tabs -- < n_tabs
+  local tgt_w = (context.tabnr <= leftover) and (base_w + 1) or base_w
+
+  -- visible width of the tabname (strip status‑line escapes)
+  local plain = name
+    :gsub("%%#.-#", "") -- %#hl#
+    :gsub("%%[%d%@].-@", "") -- %@…@
+    :gsub("%%[Tt*]", "") -- %T / %* reset
+
+  local vis = vim.fn.strdisplaywidth(plain)
+  local pad_needed = tgt_w - vis
+
+  if pad_needed > 0 then
+    local left = string.rep(" ", math.floor(pad_needed / 2))
+    local right = string.rep(" ", pad_needed - #left)
+    name = left .. name .. right
   end
-  local text = ""
-  local hl
-  for i = 1, #s do
-    local char = s:sub(i, i)
-    local hls = vim.treesitter.get_captures_at_pos(0, lnum, coloff + i - 1)
-    local _hl = hls[#hls]
-    if _hl then
-      local new_hl = "@" .. _hl.capture
-      if new_hl ~= hl then
-        table.insert(result, { text, hl })
-        text = ""
-        hl = nil
-      end
-      text = text .. char
-      hl = new_hl
-    else
-      text = text .. char
-    end
-  end
-  table.insert(result, { text, hl })
-end
-
--- used in opt.foldtext in options.lua
-function M.custom_foldtext()
-  local start = vim.fn.getline(vim.v.foldstart):gsub("\t", string.rep(" ", vim.o.tabstop))
-  local end_str = vim.fn.getline(vim.v.foldend)
-  local end_ = vim.trim(end_str)
-  local result = {}
-
-  -- Add the start and end lines with Tree-sitter highlighting
-  M.fold_virt_text(result, start, vim.v.foldstart - 1)
-  table.insert(result, { " ... ", "Delimiter" })
-  M.fold_virt_text(result, end_, vim.v.foldend - 1, #(end_str:match("^(%s+)") or ""))
-
-  -- Add the number of folded lines at the end
-  local line_count = vim.v.foldend - vim.v.foldstart + 1
-  table.insert(result, { string.format(" (%d lines)", line_count), "Comment" })
-
-  return result
+  return name
 end
 
 return M

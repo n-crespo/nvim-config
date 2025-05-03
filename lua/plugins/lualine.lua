@@ -1,116 +1,120 @@
 vim.g.trouble_lualine = false
-vim.g.lualine_showtabline = 2 -- use just like :h showtabline (and instead of showtabline)
 local icons = LazyVim.config.icons
+local fn = vim.fn
+local api = vim.api
+local tabpagenr = fn.tabpagenr
+local tabpagebuflist = fn.tabpagebuflist
+local tabpagewinnr = fn.tabpagewinnr
+local list_tabpages = api.nvim_list_tabpages
+local buf_get_name = api.nvim_buf_get_name
+local fn_fnamemodify = fn.fnamemodify
 
 local NO_NAME = "[No Name]"
+local BASIC_PADDING = "    "
 
--- make sure to refresh lualine when needed
-vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
-  desc = "Refresh tabline when needed",
-  group = vim.api.nvim_create_augroup("TablineReload", { clear = true }),
-  callback = function()
-    if package.loaded["lualine"] then
-      require("lualine").refresh({ scope = "all", place = { "tabline" } })
-    end
-  end,
-})
+local icon_get -- mini.icons.get, lazy-loaded below
 
--- make sure to refresh lualine when needed
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-  desc = "Resize tabline when needed",
-  group = "TablineReload",
-  callback = function()
-    if vim.g.FullsizeTabs then
-      require("lualine").refresh({ scope = "all", place = { "tabline" } })
-    end
-  end,
-})
+local ignored_ft = { snacks_picker_preview = true, snacks_picker_input = true }
+local ignored_bt = { prompt = true, nofile = true, terminal = true, quickfix = true }
 
--- delete stored custom tab names when no longer needed
-vim.api.nvim_create_autocmd("TabClosed", {
-  desc = "Delete stored custom tab names when no longer needed",
-  group = vim.api.nvim_create_augroup("CustomTabnameCleanup", { clear = true }),
-  callback = function(args)
-    local tabpage = args.file
-    local var_name = "LualineCustomTabname" .. tabpage
-    if vim.g[var_name] ~= nil then
-      vim.g[var_name] = nil
-    end
-  end,
-})
-
-local function apply_fullwidth_padding(context, name)
-  local n_tabs = vim.fn.tabpagenr("$")
-
-  local margin = n_tabs
-  local content_w = vim.o.columns - margin
-
-  local base_w = math.floor(content_w / n_tabs)
-  local leftover = content_w - base_w * n_tabs -- < n_tabs
-  local tgt_w = (context.tabnr <= leftover) and (base_w + 1) or base_w
-
-  -- visible width of the tabname (strip status‑line escapes)
-  local plain = name
-    :gsub("%%#.-#", "") -- %#hl#
-    :gsub("%%[%d%@].-@", "") -- %@…@
-    :gsub("%%[Tt*]", "") -- %T / %* reset
-
-  local vis = vim.fn.strdisplaywidth(plain)
-  local pad_needed = tgt_w - vis
-
-  if pad_needed > 0 then
-    local left = string.rep(" ", math.floor(pad_needed / 2))
-    local right = string.rep(" ", pad_needed - #left)
-    name = left .. name .. right
-  end
-  return name
+-- only check package.loaded so we stay fully lazy
+local function picker_open()
+  local P = package.loaded["snacks.picker.core.picker"]
+  return P and #P.get() > 0
 end
 
--- return true if snacks.picker is loaded and the picker is open in this tab.
--- this is needed because of how preview windows work in the picker when a
--- buffer has already been loaded: https://github.com/folke/snacks.nvim/issues/1417#issuecomment-2681995070
-local function snacks_picker_open()
-  if package.loaded["snacks.picker"] then
-    local pickers = require("snacks.picker").get({ tab = true })
-    return #pickers > 0
-  end
-  return false
-end
-
--- returns true if tabline should ignore the name of the currently focused
--- buffer (meaning the state of the tabline should not change)
 local function ignore_buffer(bufnr)
-  local ignored_filetypes = { "snacks_picker_preview", "snacks_picker_input" }
-  local ignored_buftypes = { "prompt", "nofile", "terminal", "quickfix" }
-
-  local filetype = vim.bo[bufnr].filetype
-  local buftype = vim.bo[bufnr].buftype
-  local name = vim.api.nvim_buf_get_name(bufnr)
-
-  return name == ""
-    or vim.tbl_contains(ignored_buftypes, buftype)
-    or vim.tbl_contains(ignored_filetypes, filetype)
-    or snacks_picker_open()
+  local ft, bt, nm = vim.bo[bufnr].filetype, vim.bo[bufnr].buftype, buf_get_name(bufnr)
+  return nm == "" or ignored_ft[ft] or ignored_bt[bt] or picker_open()
 end
 
--- Get buffer name, using alternate buffer or last visited buffer if necessary
 local function get_buffer_name(bufnr, context)
-  local function get_filename(buf) -- bufnr
-    return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
+  if picker_open() then
+    return vim.g["lualine_tabname_" .. context.tabnr] or ""
   end
 
-  -- this makes empty buffers/tabs show "[No Name]"
-  if vim.api.nvim_buf_get_name(bufnr) == "" and vim.bo[bufnr].buflisted then
+  local name = buf_get_name(bufnr)
+
+  if name == "" and vim.bo[bufnr].buflisted then
     vim.g["lualine_tabname_" .. context.tabnr] = NO_NAME
-  end
-
-  -- only update tabline if we _actually_ need to
-  if vim.bo.buftype ~= "prompt" and not ignore_buffer(bufnr) then
-    vim.g["lualine_tabname_" .. context.tabnr] = get_filename(bufnr)
+  elseif vim.bo[bufnr].buftype ~= "prompt" and not ignore_buffer(bufnr) then
+    vim.g["lualine_tabname_" .. context.tabnr] = fn_fnamemodify(name, ":t")
   end
 
   return vim.g["lualine_tabname_" .. context.tabnr] or ""
 end
+
+-- the fmt for lualine
+local fmt = function(_, ctx)
+  local tabnr = ctx.tabnr
+  local is_cur = (tabnr == tabpagenr())
+  local hl = is_cur and "lualine_a_tabs_active" or "lualine_a_tabs_inactive"
+
+  local tps = list_tabpages()
+  local custom = vim.g["LualineCustomTabname" .. tps[tabnr]]
+  local buflist = tabpagebuflist(tabnr)
+  local bufnr = buflist[tabpagewinnr(tabnr)]
+  local bufname = buf_get_name(bufnr)
+
+  -- decide raw name
+  local name
+  if custom and custom ~= "" then
+    name = string.upper(custom)
+  elseif bufname == "health://" then
+    name = "health"
+  else
+    name = get_buffer_name(bufnr, ctx)
+  end
+
+  name = name or ""
+
+  -- number if >3 tabs
+  if tabpagenr("$") > 3 then
+    name = ("%d %s"):format(tabnr, name)
+  end
+
+  -- build icon+text and skip icon for custom name
+  local s = ""
+  if not (custom and custom ~= "") then
+    if not icon_get then
+      icon_get = require("mini.icons").get
+    end
+    local icon, icon_hl = icon_get("file", name)
+    s = "%#" .. icon_hl .. "_" .. hl .. "#" .. icon .. " "
+  end
+
+  -- append the name itself and standard padding
+  s = s .. "%#" .. hl .. "#" .. name .. BASIC_PADDING .. "%*"
+
+  -- lualine wants a leading space
+  return " " .. BASIC_PADDING .. s
+end
+
+local lualine_mod
+local TablineGrp = vim.api.nvim_create_augroup("MyTabline", { clear = true })
+vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
+  group = TablineGrp,
+  desc = "Refresh lualine tabline when tabs, windows or size changes",
+  callback = function()
+    if not package.loaded["lualine"] then
+      return
+    end
+    lualine_mod = lualine_mod or require("lualine") -- lazy-cache the module
+    lualine_mod.refresh({ scope = "all", place = { "tabline" } })
+  end,
+})
+
+-- cleanup custom tabnames on TabClosed
+vim.api.nvim_create_autocmd("TabClosed", {
+  group = TablineGrp,
+  desc = "Cleanup custom tabname var",
+  callback = function(args)
+    local tp = tonumber(args.file) -- args.file is the closed tabpage number as a string
+    if tp then
+      vim.g["LualineCustomTabname" .. tp] = nil
+    end
+  end,
+})
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -157,53 +161,7 @@ return {
               active = "TabLineSel", -- Color for active tab.
               inactive = "TabLineFill", -- Color for inactive tab.
             },
-
-            fmt = function(name, context)
-              local buflist = vim.fn.tabpagebuflist(context.tabnr)
-              local winnr = vim.fn.tabpagewinnr(context.tabnr)
-              local bufnr = buflist[winnr]
-
-              -- detect if tab is currently selected or not
-              local tab_hl = (context.tabnr == vim.fn.tabpagenr()) and "lualine_a_tabs_active"
-                or "lualine_a_tabs_inactive"
-
-              -- use tabpage number for indexing rather than tabnr to preserve
-              -- names while reordering
-              local tabpage = vim.api.nvim_list_tabpages()[context.tabnr]
-              local custom_name = vim.g["LualineCustomTabname" .. tabpage]
-
-              -- use custom name if specified (auto uppercase because why not)
-              if custom_name and custom_name ~= "" then
-                name = string.upper(custom_name .. " ")
-              else
-                -- we are looking at a :checkhealth buffer
-                if vim.api.nvim_buf_get_name(bufnr) == "health://" then
-                  name = "health"
-                else
-                  -- an actual buffer or file
-                  name = get_buffer_name(bufnr, context)
-
-                  local icon, icon_hl = require("mini.icons").get("file", name)
-                  icon_hl = icon_hl .. "_" .. tab_hl
-
-                  name = (name ~= "" and name .. " " or name)
-                  name = ("%#" .. icon_hl .. "#" .. icon .. " " .. "%#" .. tab_hl .. "#" .. name)
-                end
-              end
-
-              -- only include tab numbers if >3 tabs are open
-              name = (vim.fn.tabpagenr("$") > 3) and (context.tabnr .. " " .. name) or name
-
-              local padding = "    "
-              -- optional full width layout
-              if vim.g["FullsizeTabs"] then
-                name = apply_fullwidth_padding(context, name)
-                padding = ""
-              end
-
-              local label = "%#" .. tab_hl .. "#" .. name .. padding .. "%*"
-              return " " .. padding .. label -- single leading space lualine expects
-            end,
+            fmt = fmt, -- previously defined fmt function
             cond = function()
               return vim.bo.filetype ~= "snacks_dashboard"
             end,
@@ -378,14 +336,6 @@ return {
         require("lualine").refresh({ scope = "all", place = { "tabline" } })
       end,
       desc = "Move Tab Right",
-    },
-    {
-      "<leader>uW",
-      function()
-        vim.g.FullsizeTabs = not vim.g.FullsizeTabs
-        require("lualine").refresh({ scope = "all", place = { "tabline" } })
-      end,
-      desc = "Toggle Full Width Tabs",
     },
   },
 }
