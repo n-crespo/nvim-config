@@ -1,6 +1,4 @@
-local autocmd = vim.api.nvim_create_autocmd
-
-autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
   desc = "Remove all trailing whitespace on save",
   pattern = { "*" },
@@ -14,7 +12,7 @@ autocmd({ "BufWritePre" }, {
 })
 
 -- only show cursorline in active window normal mode
-autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
   group = vim.api.nvim_create_augroup("SmartCursorline", { clear = false }),
   desc = "Enable cursorline only in active window",
   callback = function()
@@ -22,7 +20,7 @@ autocmd({ "InsertLeave", "WinEnter", "TabEnter", "TermLeave" }, {
   end,
 })
 
-autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
+vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
   group = vim.api.nvim_create_augroup("SmartCursorline", { clear = false }),
   desc = "Enable cursorline only in active window",
   callback = function()
@@ -30,14 +28,14 @@ autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
   end,
 })
 
-autocmd({ "BufRead", "FileType" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "FileType" }, {
   group = vim.api.nvim_create_augroup("UnConceal", { clear = true }),
   desc = "Disable conceal for Mentorship-Hour-Log.md",
   pattern = "Mentorship-Hour-Log.md",
   command = "setlocal conceallevel=0",
 })
 
-autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
+vim.api.nvim_create_autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
   group = vim.api.nvim_create_augroup("SmartTextWidth", { clear = true }),
   desc = "Enable text width only when wrap is disabled",
   pattern = "wrap",
@@ -50,7 +48,7 @@ autocmd({ "OptionSet", "WinEnter", "VimEnter" }, {
   end,
 })
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   desc = "Cycle quickfix list while inside qf window",
   group = vim.api.nvim_create_augroup("CycleQuickFix", { clear = true }),
   pattern = "qf",
@@ -71,7 +69,7 @@ vim.api.nvim_create_autocmd("QuitPre", {
   end,
 })
 
-autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("SSHClipboard", { clear = true }),
   desc = "Sync pasting with local clipboard while ssh-ed",
   callback = function()
@@ -85,7 +83,7 @@ autocmd("TextYankPost", {
   end,
 })
 
-autocmd({ "BufLeave", "FocusLost" }, {
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
   group = vim.api.nvim_create_augroup("AutoSave", { clear = true }),
   desc = "Auto save buffers when focus is lost (skips formatting).",
   callback = function()
