@@ -202,32 +202,24 @@ return {
     { "<S-Tab>", "<C-w><C-p>", }, -- this fixes <tab> in preview window
     -- stylua: ignore end
     {
-      "<leader>j", -- uses zoxide, jumps to selected dir and opens picker there
+      "<leader>j",
       function()
-        if vim.fn.executable("zoxide") == 1 then
-          Snacks.picker.zoxide({
-            title = "Jump to Directory",
-            confirm = function(picker, item)
-              Snacks.picker.files({
-                cwd = item._path,
-                title = vim.fn.fnamemodify(item._path, ":~"),
-                hidden = true,
-              })
-              picker:close()
-            end,
-          })
-        else
-          vim.notify("Zoxide is not installed", vim.log.levels.WARN)
+        if vim.fn.executable("zoxide") ~= 1 then
+          return vim.notify("Zoxide is not installed", vim.log.levels.WARN)
         end
-      end,
-      desc = "Jump to Directory",
-    },
-    {
-      "<leader>k", -- same as <leader>j but loads session rather than opening picker
-      function()
-        if vim.fn.executable("zoxide") == 1 then
-          Snacks.picker.zoxide({
-            confirm = function(picker, item)
+        Snacks.picker.zoxide({
+          title = "[Zoxide] <C-CR> load session <CR> picker at dir",
+          win = {
+            input = {
+              keys = {
+                ["<CR>"] = { "files", mode = { "n", "i" } },
+                ["<C-CR>"] = { "session", mode = { "n", "i" } },
+              },
+            },
+          },
+          actions = {
+            -- load session at directory with <C-CR>
+            session = function(picker, item)
               picker:close()
               vim.fn.chdir(item._path)
               local session = Snacks.dashboard.sections.session()
@@ -236,13 +228,19 @@ return {
                 vim.notify("Loading Session at: " .. vim.fn.fnamemodify(item._path, ":~"), "info")
               end
             end,
-            title = "Load Session",
-          })
-        else
-          vim.notify("Zoxide is not installed", vim.log.levels.WARN)
-        end
+            -- open picker in directory with <CR>
+            files = function(picker, item)
+              Snacks.picker.files({
+                cwd = item._path,
+                title = vim.fn.fnamemodify(item._path, ":~"),
+                hidden = true,
+              })
+              picker:close()
+            end,
+          },
+        })
       end,
-      desc = "Load Session",
+      desc = "Zoxide",
     },
     {
       "<leader>sH",
