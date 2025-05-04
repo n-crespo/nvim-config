@@ -9,6 +9,7 @@ opt.scrolloff = 8 -- don't scroll all the way down
 opt.sidescrolloff = 7 -- see :h sidescrolloff
 opt.sidescroll = 0 -- see help pages
 opt.numberwidth = 1 -- left side width
+opt.isfname:append("@-@")
 opt.textwidth = 80 -- formatted text width
 opt.softtabstop = 2 -- 2 space tabs
 opt.pumblend = 0 -- some transparency
@@ -27,6 +28,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.lazyvim_python_lsp = "pylsp"
 vim.g.root_spec = { ".root", "lsp", { ".git", "lua" }, "cwd" }
+vim.g.editorconfig = true
 
 if LazyVim.is_win() then
   LazyVim.terminal.setup("powershell")
