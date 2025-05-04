@@ -531,7 +531,7 @@ local hlgroups = {
   RenderMarkdownH6Bg = { bg = c_winterPurple },
 
   -- for lualine
-  HostNameIcon = { fg = c_macroAsh, bg = c_macroBg2 },
+  HostNameIcon = { fg = c_macroAsh, bg = nil },
   -- }}}2
 }
 -- }}}1
