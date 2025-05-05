@@ -21,6 +21,7 @@ return {
       "xml",
       "vimdoc",
       "css",
+      "objdump",
     },
   },
 }
