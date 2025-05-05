@@ -1,9 +1,11 @@
 -- use c highlighting for pvs filetype
 vim.treesitter.language.register("c", "pvs")
 vim.filetype.add({
+  extension = { od = "objdump", objdump = "objdump" },
   pattern = {
     [".*%.pvs"] = "pvs",
     [".*%.service"] = "systemd",
+    ["%.objdump$"] = "objdump",
   },
 })
 
