@@ -21,7 +21,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.dap.core", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.python", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.tailwind", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.tex", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.toml", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.yaml", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.typescript", cond = full_config },
