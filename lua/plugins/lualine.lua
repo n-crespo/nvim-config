@@ -1,4 +1,5 @@
 vim.g.trouble_lualine = false
+vim.g.numbered_tabline = false
 local icons = LazyVim.config.icons
 local NO_NAME = "[No Name]"
 local BASIC_PADDING = "    "
@@ -60,7 +61,7 @@ local fmt = function(_, ctx)
   name = name or ""
 
   -- number if >3 tabs
-  if vim.fn.tabpagenr("$") > 3 then
+  if vim.g.numbered_tabline and vim.fn.tabpagenr("$") > 3 then
     name = ("%d %s"):format(tabnr, name)
   end
 
