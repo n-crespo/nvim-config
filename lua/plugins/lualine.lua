@@ -206,10 +206,6 @@ return {
           {
             "filetype",
             icon_only = true,
-            padding = 0,
-            draw_empty = false,
-            -- stylua: ignore
-            cond = function() return vim.bo.filetype ~= "minifiles" end,
           },
           {
             LazyVim.lualine.pretty_path(),

@@ -9,6 +9,7 @@ return {
       Rmd = { glyph = "", hl = "MiniIconsBlue" },
       rmd = { glyph = "", hl = "MiniIconsBlue" },
       autohotkey = { glyph = "", hl = "MiniIconsGreen" },
+      minifiles = { glyph = "", hl = "MiniIconsYellow" },
     },
     extension = {
       c = { glyph = "", hl = "MiniIconsBlue" },
