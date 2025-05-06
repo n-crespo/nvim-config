@@ -42,6 +42,7 @@ return {
     opts = {
       formatters_by_ft = {
         ["markdown"] = { "cbfmt" },
+        ["arduino"] = { "clang-format" },
       },
     },
   },
