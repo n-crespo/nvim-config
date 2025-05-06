@@ -12,7 +12,6 @@ opt.numberwidth = 1 -- left side width
 opt.isfname:append("@-@")
 opt.textwidth = 80 -- formatted text width
 opt.softtabstop = 2 -- 2 space tabs
-opt.pumblend = 0 -- some transparency
 opt.startofline = true
 opt.breakindent = true -- indent smartly
 opt.smartcase = true -- casing in search
