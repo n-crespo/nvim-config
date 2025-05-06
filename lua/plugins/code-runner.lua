@@ -1,15 +1,35 @@
+local group = vim.api.nvim_create_augroup("CodeRunner", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "close crunner buffers with q",
+  group = group,
+  pattern = "crunner",
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.opt_local.scrolloff = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+  desc = "go to top of buffer when runner is opened",
+  group = group,
+  pattern = "crunner",
+  callback = function()
+    vim.cmd([[norm gg]])
+  end,
+})
+
 -- use R to run any file! very nice
 -- this overrides the vim native replace mode, which i never use
 return {
   "CRAG666/code_runner.nvim",
-  event = "LazyFile",
-  dependencies = {
-    "folke/which-key.nvim",
-    opts = {
-      spec = {
-        mode = { "n" },
-        { "R", "<cmd>RunCode<cr>", desc = "Run Code" },
-      },
+  keys = {
+    {
+      "R",
+      function()
+        require("code_runner").run_code()
+      end,
+      desc = "Run Code",
     },
   },
   config = true,
@@ -18,7 +38,7 @@ return {
     mode = "term",
     startinsert = false,
     filetype = {
-      python = "python -u '$dir/$fileName'",
+      python = "python3 -u '$dir/$fileName'",
       javascript = "node",
       java = "cd $dir && javac $fileName -d bin/ && java -cp $dir/bin/ $fileNameWithoutExt",
       cpp = {
@@ -46,22 +66,4 @@ return {
       size = 18,
     },
   },
-  init = function()
-    -- Close Code Runner buffers with 'q'
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "crunner",
-      callback = function(event)
-        vim.bo[event.buf].buflisted = false
-        vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-        vim.opt_local.scrolloff = 0
-      end,
-    })
-    -- go to top of buffer when runner is opened
-    vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-      pattern = "crunner",
-      callback = function()
-        vim.cmd([[norm gg]])
-      end,
-    })
-  end,
 }
