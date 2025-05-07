@@ -1,5 +1,13 @@
 vim.g.snacks_animate = false
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "scratch",
+  callback = function()
+    vim.bo.filetype = "markdown"
+    vim.b.autoformat = false
+  end,
+})
+
 return {
   "folke/snacks.nvim",
   opts = {
@@ -13,8 +21,9 @@ return {
     git = { enabled = true },
     gitbrowse = { enabled = true },
     scratch = {
-      ft = "markdown",
+      ft = "scratch",
       win = { zindex = 50 },
+      bo = { autoformat = false },
     },
     styles = {
       scratch = { wo = { number = false, cursorline = false, statuscolumn = " " } },
