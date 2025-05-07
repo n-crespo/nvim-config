@@ -6,7 +6,6 @@ local BASIC_PADDING = "    "
 
 local icon_get -- mini.icons.get, lazy-loaded below
 
-local ignored_ft = { snacks_picker_preview = true, snacks_picker_input = true }
 local ignored_bt = { prompt = true, nofile = true, terminal = true, quickfix = true }
 
 -- only check package.loaded so we stay fully lazy
@@ -16,8 +15,10 @@ local function picker_open()
 end
 
 local function ignore_buffer(bufnr)
-  local ft, bt, nm = vim.bo[bufnr].filetype, vim.bo[bufnr].buftype, vim.api.nvim_buf_get_name(bufnr)
-  return nm == "" or ignored_ft[ft] or ignored_bt[bt] or picker_open()
+  local bt = vim.bo[bufnr].buftype
+  local bh = vim.bo[bufnr].bufhidden
+  local name = vim.api.nvim_buf_get_name(bufnr)
+  return name == "" or bh ~= "" or ignored_bt[bt] or picker_open()
 end
 
 local function get_buffer_name(bufnr, context)
@@ -26,14 +27,15 @@ local function get_buffer_name(bufnr, context)
   end
 
   local name = vim.api.nvim_buf_get_name(bufnr)
+  local tabname_key = "lualine_tabname_" .. context.tabnr
 
   if name == "" and vim.bo[bufnr].buflisted then
-    vim.g["lualine_tabname_" .. context.tabnr] = NO_NAME
+    vim.g[tabname_key] = NO_NAME
   elseif vim.bo[bufnr].buftype ~= "prompt" and not ignore_buffer(bufnr) then
-    vim.g["lualine_tabname_" .. context.tabnr] = vim.fn.fnamemodify(name, ":t")
+    vim.g[tabname_key] = vim.fn.fnamemodify(name, ":t")
   end
 
-  return vim.g["lualine_tabname_" .. context.tabnr] or ""
+  return vim.g[tabname_key] or ""
 end
 
 -- the fmt for lualine
@@ -83,9 +85,9 @@ local fmt = function(_, ctx)
 end
 
 local lualine_mod
-local TablineGrp = vim.api.nvim_create_augroup("MyTabline", { clear = true })
+local MyTabline = vim.api.nvim_create_augroup("MyTabline", { clear = true })
 vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
-  group = TablineGrp,
+  group = MyTabline,
   desc = "Refresh lualine tabline when tabs, windows or size changes",
   callback = function()
     if not package.loaded["lualine"] then
@@ -98,7 +100,7 @@ vim.api.nvim_create_autocmd({ "TabNew", "TabClosed", "WinEnter", "BufEnter" }, {
 
 -- cleanup custom tabnames on TabClosed
 vim.api.nvim_create_autocmd("TabClosed", {
-  group = TablineGrp,
+  group = MyTabline,
   desc = "Cleanup custom tabname var",
   callback = function(args)
     local tp = tonumber(args.file) -- args.file is the closed tabpage number as a string
@@ -125,8 +127,8 @@ return {
   opts = function()
     local opts = {
       options = {
-        always_show_tabline = false, -- DON'T USE THIS
-        theme = require("lualine.themes.lualine_theme").theme,
+        always_show_tabline = false, -- causes flicker in dashboard, use autocmd workaround
+        theme = "gray",
         disabled_filetypes = { statusline = { "snacks_dashboard" } },
         always_divide_middle = true,
         padding = 0,
