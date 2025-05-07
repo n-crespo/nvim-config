@@ -1,39 +1,27 @@
 vim.g.snacks_animate = false
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "scratch",
-  callback = function()
-    vim.bo.filetype = "markdown"
-    vim.b.autoformat = false
-  end,
-})
-
 return {
   "folke/snacks.nvim",
   opts = {
+    words = { enabled = false },
+    scroll = { enabled = false },
+    animate = { enabled = false },
+    quickfile = { enabled = true },
+    statuscolumn = { enabled = true },
+    input = { enabled = true },
+    rename = { enabled = true },
+    git = { enabled = true },
+    gitbrowse = { enabled = true },
+    scratch = {
+      ft = "markdown",
+      win = { zindex = 50 },
+    },
     styles = {
-      scratch = { wo = { number = false, cursorline = false, statuscolumn = "" } },
+      scratch = { wo = { number = false, cursorline = false, statuscolumn = " " } },
       terminal = { wo = { winbar = "" } },
       notification = { winblend = 100 },
       border = "rounded",
     },
-    words = {
-      enabled = true,
-      modes = { "n" },
-    },
-    quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    animate = { enabled = false },
-    input = { enabled = true },
-    rename = { enabled = true },
-    scratch = {
-      ft = "scratch",
-      icon = "",
-      win = { zindex = 50 },
-    },
-    git = { enabled = true },
-    gitbrowse = { enabled = true },
-    scroll = { enabled = false },
     scope = {
       enabled = true,
       keys = {
