@@ -2,7 +2,7 @@ vim.g.trouble_lualine = false
 vim.g.numbered_tabline = false
 local icons = LazyVim.config.icons
 local NO_NAME = "[No Name]"
-local BASIC_PADDING = "    "
+local BASIC_PADDING = " "
 
 local icon_get -- mini.icons.get, lazy-loaded below
 
@@ -81,7 +81,7 @@ local fmt = function(_, ctx)
   s = s .. "%#" .. hl .. "#" .. name .. BASIC_PADDING .. "%*"
 
   -- lualine wants a leading space
-  return " " .. BASIC_PADDING .. s
+  return BASIC_PADDING .. s
 end
 
 local lualine_mod
