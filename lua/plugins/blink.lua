@@ -1,8 +1,21 @@
 return {
   "saghen/blink.cmp",
   opts = {
-    -- prioritize exact matches
-    fuzzy = { sorts = { "exact", "score", "sort_text" } },
+    cmdline = {
+      enabled = true,
+      keymap = { preset = "cmdline" },
+      sources = function()
+        local type = vim.fn.getcmdtype()
+        if type == "/" or type == "?" then
+          return { "buffer" }
+        end
+        if type == ":" or type == "@" then
+          return { "cmdline" }
+        end
+        return {}
+      end,
+    },
+    fuzzy = { sorts = { "exact", "score", "sort_text" } }, -- prioritize exact matches
     sources = {
       per_filetype = { codecompanion = { "codecompanion" } },
       providers = {
@@ -70,6 +83,7 @@ return {
       ["<C-p>"] = {}, -- used by neocodeium
       ["<S-CR>"] = {}, -- make new line (ignore cmp)
       ["<CR>"] = { "select_and_accept", "fallback" }, -- for accepting from blink
+      ["<Tab>"] = { "select_and_accept", "fallback" }, -- for accepting from blink
       ["<C-CR>"] = { "select_and_accept", "fallback" }, -- for accepting from blink
       ["<C-e>"] = { "hide", "show", "fallback" },
       ["<C-j>"] = { "select_next" },
