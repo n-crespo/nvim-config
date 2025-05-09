@@ -202,45 +202,46 @@ return {
     { "<S-Tab>", "<C-w><C-p>", }, -- this fixes <tab> in preview window
     -- stylua: ignore end
     {
+      "<leader>F",
+      function()
+        if vim.fn.executable("zoxide") ~= 1 then
+          return vim.notify("Zoxide is not installed", vim.log.levels.WARN)
+        end
+        Snacks.picker.zoxide({
+          title = "Load Session at...",
+          -- load session at directory
+          confirm = function(picker, item)
+            picker:close()
+            vim.fn.chdir(item._path)
+            local session = Snacks.dashboard.sections.session()
+            if session then
+              vim.cmd(session.action:sub(2))
+              vim.notify("Loading Session at: " .. vim.fn.fnamemodify(item._path, ":~"), "info")
+            end
+          end,
+        })
+      end,
+      desc = "Load Session",
+    },
+    {
       "<leader>j",
       function()
         if vim.fn.executable("zoxide") ~= 1 then
           return vim.notify("Zoxide is not installed", vim.log.levels.WARN)
         end
         Snacks.picker.zoxide({
-          title = "[Zoxide] <C-CR> load session <CR> picker at dir",
-          win = {
-            input = {
-              keys = {
-                ["<CR>"] = { "files", mode = { "n", "i" } },
-                ["<C-CR>"] = { "session", mode = { "n", "i" } },
-              },
-            },
-          },
-          actions = {
-            -- load session at directory with <C-CR>
-            session = function(picker, item)
-              picker:close()
-              vim.fn.chdir(item._path)
-              local session = Snacks.dashboard.sections.session()
-              if session then
-                vim.cmd(session.action:sub(2))
-                vim.notify("Loading Session at: " .. vim.fn.fnamemodify(item._path, ":~"), "info")
-              end
-            end,
-            -- open picker in directory with <CR>
-            files = function(picker, item)
-              Snacks.picker.files({
-                cwd = item._path,
-                title = vim.fn.fnamemodify(item._path, ":~"),
-                hidden = true,
-              })
-              picker:close()
-            end,
-          },
+          title = "Jump picker to...",
+          confirm = function(picker, item)
+            Snacks.picker.files({
+              cwd = item._path,
+              title = vim.fn.fnamemodify(item._path, ":~"),
+              hidden = true,
+            })
+            picker:close()
+          end,
         })
       end,
-      desc = "Zoxide",
+      desc = "Jump with Zoxide",
     },
     {
       "<leader>sH",
