@@ -244,7 +244,6 @@ end)
 -- clean ^Ms (windows newlines)
 vim.keymap.set("n", "<C-S-S>", function()
   vim.cmd([[silent! %s/\r//g]])
-  vim.cmd([[w]])
   vim.notify("Cleaned all newline characters!", vim.log.levels.INFO, { title = "File Saved" })
 end, { remap = false, desc = "Clean ^M", silent = true })
 
