@@ -255,6 +255,14 @@ vim.keymap.set("n", "<C-S-C>", function()
   )
 end)
 
+-- Define a command to get word and character count of the current file
+vim.api.nvim_create_user_command("Wordcount", function()
+  vim.notify(
+    "Word Count: " .. vim.fn.wordcount().words .. "\nChar Count: " .. vim.fn.wordcount().chars,
+    vim.log.levels.INFO
+  )
+end, { desc = "Display word and character count of the current file" })
+
 -- z= with vim.ui.select() (selection UI)
 -- (you can also type a number to pick the nth suggestion)
 local spell_on_choice = vim.schedule_wrap(function(_, idx)
