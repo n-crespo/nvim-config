@@ -14,14 +14,6 @@ return {
         },
       },
     },
-    strategies = {
-      chat = {
-        keymaps = {
-          send = { modes = { n = "<CR>", i = "<CR>" } },
-          close = { modes = { n = "q", i = "<C-c>" } },
-        },
-      },
-    },
   },
   keys = {
     {
