@@ -20,6 +20,7 @@ require("lazy").setup({
     -- note: always-enabled extras are in lazyvim.json
     { import = "lazyvim.plugins.extras.dap.core", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.python", cond = full_config },
+    { import = "lazyvim.plugins.extras.lang.json", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.tailwind", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.toml", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.yaml", cond = full_config },
