@@ -122,6 +122,10 @@ vim.keymap.set("n", "<leader>q", function()
   end
 end, { desc = "Close Window", silent = true })
 
+vim.keymap.set("n", "<leader>Q", function()
+  vim.cmd("bufdo bd")
+end, { desc = "Close All Buffers", silent = true })
+
 -- splits
 vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { remap = true, silent = true, desc = "Vertical Split" })
 vim.keymap.set("n", "_", "<cmd>split<cr>", { remap = true, silent = true, desc = "Vertical Split" })
