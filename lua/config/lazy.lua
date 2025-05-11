@@ -34,8 +34,8 @@ require("lazy").setup({
   },
   defaults = {
     lazy = true,
-    -- version = false, -- always use the latest git commit
-    version = "*", -- try installing the latest stable version for plugins that support semver
+    version = false, -- always use the latest git commit
+    -- version = "*",  try installing the latest stable version for plugins that support semver
   },
   ui = {
     size = { width = 0.8, height = 0.8 },
