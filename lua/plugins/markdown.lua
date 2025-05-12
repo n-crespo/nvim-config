@@ -1,41 +1,16 @@
 return {
   {
-    "ixru/nvim-markdown",
-    ft = "markdown",
+    "bullets-vim/bullets.vim",
+    ft = { "markdown", "text", "gitcommit", "scratch" },
     config = function()
-      -- allows using <CR> to follow markdown links (or hyperlinks) and more
-      vim.g.vim_markdown_toc_autofit = 1
-      vim.g.vim_markdown_math = false
-      vim.g.vim_markdown_no_default_key_mappings = 1
-
-      vim.cmd([[map <Plug> <Plug>Markdown_CreateLink]]) -- disable
-      vim.cmd([[map <Plug> <Plug>Markdown_Fold]]) -- disable
-
-      vim.cmd([[imap <buffer> <Tab> <Plug>Markdown_Jump]])
-
-      vim.cmd([[imap <buffer> <S-CR> <Plug>Markdown_NewLineBelow]])
-      vim.cmd([[map <buffer> <C-C> <Plug>Markdown_Checkbox]])
-      vim.cmd([[imap <buffer> <C-C> <Plug>Markdown_Checkbox]])
-
-      vim.cmd([[nmap <buffer> o <Plug>Markdown_NewLineBelow]])
-      vim.cmd([[nmap <buffer> O <Plug>Markdown_NewLineAbove]])
-
-      vim.cmd([[nmap <buffer> <CR> <Plug>Markdown_FollowLink]])
-      vim.cmd([[imap <buffer> <CR> <Plug>Markdown_NewLineBelow]])
+      vim.g.bullets_set_mappings = 1
+      vim.g.bullets_enabled_file_types = {
+        "markdown",
+        "text",
+        "gitcommit",
+        "scratch",
+      }
     end,
-    keys = {
-      {
-        "<leader>cs",
-        function()
-          vim.cmd([[Toc]])
-          vim.wo.number = false
-          vim.wo.relativenumber = false
-        end,
-        desc = "Symbols (Markdown TOC)",
-        ft = "markdown",
-        buffer = true,
-      },
-    },
   },
   {
     "stevearc/conform.nvim",
