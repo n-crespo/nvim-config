@@ -1,5 +1,14 @@
 # Neovim Configuration
 
+<!--toc:start-->
+- [Neovim Configuration](#neovim-configuration)
+- [Install](#install)
+  - [Install Instructions](#install-instructions)
+    - [Debian](#debian)
+    - [Homebrew on macOS or Linux](#homebrew-on-macos-or-linux)
+  - [Usage](#usage)
+<!--toc:end-->
+
 My Neovim configuration based on the [LazyVim](https://www.lazyvim.org)
 distribution, with custom features to extend/remove unneeded functionality.
 
@@ -27,7 +36,7 @@ Some cool things in here are:
   - with great integration with zoxide
 - ~31ms startup time
 
-# Install
+## Install
 
 > [!WARNING]
 > see [my dotfiles](https://www.github.com/n-crespo/dotfiles) for full system requirements
