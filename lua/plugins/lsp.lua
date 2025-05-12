@@ -10,6 +10,7 @@ return {
       servers = {
         -- enable when needed... this is overkill really for just markdown files
         marksman = { enabled = false },
+        markdownlint = { enabled = false },
       },
     },
   },
