@@ -59,6 +59,183 @@ vim.keymap.set("x", "/", "<Esc>/\\%V")
 vim.keymap.set({ "n", "x" }, "<C-p>", "<M-k>", { remap = true, silent = true })
 vim.keymap.set({ "n", "x" }, "<C-n>", "<M-j>", { remap = true, silent = true })
 
+-- better path following! ---
+-- if arg tab is true, open link in new tab
+local function follow_link(tab)
+  tab = tab or false
+  local ecmd = tab and "tabe " or "edit "
+  local api, fn = vim.api, vim.fn
+
+  -- Get the current line and cursor position
+  local function get_cursor_info()
+    local win = api.nvim_get_current_win()
+    local buf = api.nvim_get_current_buf()
+    local cursor = api.nvim_win_get_cursor(win)
+    local line_num = cursor[1]
+    local col = cursor[2]
+    local line = api.nvim_buf_get_lines(buf, line_num - 1, line_num, false)[1]
+    return line, col, win
+  end
+
+  -- Find Markdown link under the cursor
+  local function find_markdown_link(line, col)
+    local search_start_index = 1
+    while true do
+      local link_start, link_end, _, target = line:find("%[([^]]*)%]%(([^)]*)%)", search_start_index)
+      if not link_start then
+        break
+      end
+      if col >= (link_start - 1) and col < link_end then
+        return target
+      end
+      search_start_index = link_end + 1
+    end
+    return nil
+  end
+
+  -- Get file or word under the cursor
+  local function get_target_from_cursor(line, col)
+    local target = fn.expand("<cfile>")
+    if not target or target == "" then
+      local cursor_col_1based = col + 1
+      local find_start = 1
+      while true do
+        local word_start, word_end, word = line:find("([^%s]+)", find_start)
+        if not word_start then
+          break
+        end
+        if word_start <= cursor_col_1based and word_end >= cursor_col_1based then
+          return word
+        end
+        find_start = word_end + 1
+      end
+    end
+    return target
+  end
+
+  -- Open a URL
+  local function open_url(url)
+    if vim.startswith(url, "www.") and not (vim.startswith(url, "http://") or vim.startswith(url, "https://")) then
+      url = "http://" .. url
+    end
+    vim.ui.open(url)
+  end
+
+  -- Navigate to a file
+  local function navigate_to_file(path, line_number_cmd)
+    local current_file_dir = fn.expand("%:p:h")
+    if not (vim.startswith(path, "/") or vim.startswith(path, "~") or path:match("^[a-zA-Z]:")) then
+      path = current_file_dir .. "/" .. path
+    end
+    local norm_ok, norm_path = pcall(vim.fs.normalize, path)
+    if norm_ok then
+      path = norm_path
+    end
+    if fn.filereadable(path) == 1 or fn.isdirectory(path) == 1 then
+      pcall(vim.cmd, ecmd .. line_number_cmd .. fn.fnameescape(path))
+      return true
+    end
+    return false
+  end
+
+  -- Search for an anchor in the current file
+  local function search_anchor(anchor_text)
+    local search_pattern = "^#\\+\\s*" .. fn.escape(anchor_text:gsub("-", "[%- ]"), "\\")
+    if tab then
+      vim.cmd("tabnew | buffer #")
+    end
+    if fn.search(search_pattern) > 0 then
+      vim.cmd("normal! zz")
+      return true
+    end
+    return false
+  end
+
+  -- Main logic
+  local line, col, win = get_cursor_info()
+  if not line then -- invalid line
+    api.nvim_feedkeys(api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+    return
+  end
+
+  local target = find_markdown_link(line, col) or get_target_from_cursor(line, col)
+  if not target or target == "" then
+    api.nvim_feedkeys(api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+    return
+  end
+
+  -- Process the target
+  if vim.startswith(target, "http://") or vim.startswith(target, "https://") or vim.startswith(target, "www.") then
+    open_url(target)
+    return
+  end
+
+  vim.cmd("normal! m'")
+
+  local line_number_cmd = ""
+  local anchor_text = ""
+  local path_part = target
+
+  -- Extract line number
+  local line_num_match = path_part:match("(.+)#L(%d+)$")
+  if line_num_match then
+    path_part, line_number_cmd = line_num_match[1], "+" .. line_num_match[2] .. " "
+  else
+    local only_line_num = path_part:match("^#L(%d+)$")
+    if only_line_num then
+      path_part, line_number_cmd = "", "+" .. only_line_num .. " "
+    end
+  end
+
+  -- Extract anchor
+  local anchor_match = path_part:match("(.+)#(.+)$")
+  if anchor_match then
+    path_part, anchor_text = anchor_match[1], anchor_match[2]
+  else
+    local only_anchor = path_part:match("^#(.+)$")
+    if only_anchor then
+      path_part, anchor_text = "", only_anchor
+    end
+  end
+
+  -- Navigate to file if applicable
+  if path_part ~= "" then
+    if navigate_to_file(path_part, line_number_cmd) then
+      if anchor_text ~= "" then
+        search_anchor(anchor_text)
+      end
+      return
+    end
+  end
+
+  -- Search for anchor if no file navigation is needed
+  if anchor_text ~= "" then
+    if search_anchor(anchor_text) then
+      return
+    end
+  end
+
+  -- Jump to line number if applicable
+  if line_number_cmd ~= "" then
+    local line_num_val = tonumber(line_number_cmd:match("%d+"))
+    if line_num_val then
+      api.nvim_win_set_cursor(win, { line_num_val, 0 })
+      vim.cmd("normal! zz")
+      return
+    end
+  end
+
+  -- Default action
+  api.nvim_feedkeys(api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+end
+
+vim.keymap.set("n", "<CR>", function()
+  follow_link()
+end, { noremap = true, silent = true, desc = "Follow Link" })
+
+vim.keymap.set("n", "<s-CR>", function()
+  follow_link(true)
+end, { noremap = true, silent = true, desc = "Follow Link (new tab)" })
 -- --------------------------------------- PASTING + REGISTERS -------------------------------------
 
 -- allow changing and deleting without overriding current paste registers
