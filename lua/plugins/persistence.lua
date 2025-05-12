@@ -21,7 +21,7 @@ return {
     lazy = false, -- make persistence start on startup
     opts = function()
       -- Auto restore session (in main config)
-      if vim.env.NVIM_FULL_CONFIG == "true" then
+      if vim.env.NVIM_FULL_CONFIG == "1" then
         vim.api.nvim_create_autocmd("VimEnter", {
           nested = true,
           callback = function()
