@@ -61,12 +61,6 @@ return {
         },
       },
     },
-    appearance = {
-      kind_icons = {
-        Text = "󰉿 ",
-        Variable = "󰫧 ",
-      },
-    },
     signature = {
       enabled = true,
       trigger = {
