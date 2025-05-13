@@ -25,8 +25,4 @@ return {
     "iamcco/markdown-preview.nvim",
     enabled = false,
   },
-  {
-    "LazyVim/LazyVim",
-    opts = { colorscheme = "macro" },
-  },
 }

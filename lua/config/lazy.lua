@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-  colorscheme = "macro",
   spec = {
     -- import default LazyVim plugins (some disabled in disabled.lua)
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
@@ -21,6 +20,8 @@ require("lazy").setup({
     -- NVIM_FULL_CONFIG to true (in your ~/.bashrc, ~/.zshrc, config.fish, ect)
     -- note: always-enabled extras are in lazyvim.json
     { import = "lazyvim.plugins.extras.dap.core", cond = full_config },
+    { import = "lazyvim.plugins.extras.ui.treesitter-context", cond = full_config },
+    { import = "lazyvim.plugins.extras.util.dot", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.python", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.json", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.tailwind", cond = full_config },
@@ -28,8 +29,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.yaml", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.typescript", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.markdown", cond = full_config },
-    { import = "lazyvim.plugins.extras.ui.treesitter-context", cond = full_config },
-    { import = "lazyvim.plugins.extras.util.dot", cond = full_config },
     -- { import = "lazyvim.plugins.extras.lang.java", cond = full_config },
 
     -- this enables user define plugins, from ../plugins/
@@ -40,11 +39,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*",  try installing the latest stable version for plugins that support semver
   },
-  ui = {
-    size = { width = 0.8, height = 0.8 },
-    border = "rounded",
-    wrap = false,
-  },
+  ui = { border = "rounded" },
   -- don't show message on config change/reload
   change_detection = { notify = false },
   checker = { enabled = false, notify = false }, --   automatically check for plugin updates
