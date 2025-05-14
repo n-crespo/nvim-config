@@ -2,8 +2,8 @@
 
 <!--toc:start-->
 - [Neovim Configuration](#neovim-configuration)
-- [Install](#install)
-  - [Install Instructions](#install-instructions)
+  - [Dependencies](#dependencies)
+  - [Install](#install)
     - [Debian](#debian)
     - [Homebrew on macOS or Linux](#homebrew-on-macos-or-linux)
   - [Usage](#usage)
@@ -36,7 +36,7 @@ Some cool things in here are:
   - with great integration with zoxide
 - ~31ms startup time
 
-## Install
+## Dependencies
 
 > [!WARNING]
 > see [my dotfiles](https://www.github.com/n-crespo/dotfiles) for full system requirements
@@ -53,7 +53,7 @@ Some cool things in here are:
 - `xclip` (if using WSL)
 - `npm` (for some language servers)
 
-## Install Instructions
+## Install
 
 ### Debian
 
