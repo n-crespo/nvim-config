@@ -3,7 +3,8 @@
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.editor.snacks_picker",
     "lazyvim.plugins.extras.formatting.prettier",
-    "lazyvim.plugins.extras.lang.clangd"
+    "lazyvim.plugins.extras.lang.clangd",
+    "lazyvim.plugins.extras.lang.json"
   ],
   "install_version": 7,
   "news": {
@@ -11,3 +12,4 @@
   },
   "version": 8
 }
+

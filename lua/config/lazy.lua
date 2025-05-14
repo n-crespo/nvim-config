@@ -23,12 +23,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.treesitter-context", cond = full_config },
     { import = "lazyvim.plugins.extras.util.dot", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.python", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.json", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.tailwind", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.toml", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.yaml", cond = full_config },
     { import = "lazyvim.plugins.extras.lang.typescript", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.markdown", cond = full_config },
     -- { import = "lazyvim.plugins.extras.lang.java", cond = full_config },
 
     -- this enables user define plugins, from ../plugins/
