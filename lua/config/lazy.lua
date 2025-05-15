@@ -1,7 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- set the environment variable NVIM_FULL_CONFIG to 1 to enable all features.
 -- set to 0 or leave unset to use lite version
-local full_config = vim.env.NVIM_FULL_CONFIG == "1" or false
+vim.g.full_config = vim.env.NVIM_FULL_CONFIG == "1" or false
 
 ---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
@@ -19,14 +19,14 @@ require("lazy").setup({
     -- these will only be enabled if you set the environment variable
     -- NVIM_FULL_CONFIG to true (in your ~/.bashrc, ~/.zshrc, config.fish, ect)
     -- note: always-enabled extras are in lazyvim.json
-    { import = "lazyvim.plugins.extras.dap.core", cond = full_config },
-    { import = "lazyvim.plugins.extras.ui.treesitter-context", cond = full_config },
-    { import = "lazyvim.plugins.extras.util.dot", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.python", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.tailwind", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.toml", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.yaml", cond = full_config },
-    { import = "lazyvim.plugins.extras.lang.typescript", cond = full_config },
+    { import = "lazyvim.plugins.extras.dap.core", cond = vim.g.full_config },
+    { import = "lazyvim.plugins.extras.ui.treesitter-context", cond = vim.g.full_config },
+    { import = "lazyvim.plugins.extras.util.dot", cond = vim.g.full_config },
+    { import = "lazyvim.plugins.extras.lang.python", cond = vim.g.full_config },
+    { import = "lazyvim.plugins.extras.lang.tailwind", cond = vim.g.full_config },
+    { import = "lazyvim.plugins.extras.lang.toml", cond = vim.g.full_config },
+    { import = "lazyvim.plugins.extras.lang.yaml", cond = vim.g.full_config },
+    { import = "lazyvim.plugins.extras.lang.typescript", cond = vim.g.full_config },
     -- { import = "lazyvim.plugins.extras.lang.java", cond = full_config },
 
     -- this enables user define plugins, from ../plugins/

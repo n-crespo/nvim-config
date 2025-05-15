@@ -30,8 +30,7 @@ return {
           ┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
           │  .  ││  .__││  .  ││  │  ││  ││  .  .  │
           └──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
-        ]]):gsub("^%s+", ""):gsub("\n%s+", "\n")
-          .. (vim.env.NVIM_FULL_CONFIG and "[main]" or "[lite]"),
+        ]]):gsub("^%s+", ""):gsub("\n%s+", "\n") .. (vim.g.full_config and "[full]" or "[lite]"),
       },
       sections = {
         { section = "header", padding = 1 },
