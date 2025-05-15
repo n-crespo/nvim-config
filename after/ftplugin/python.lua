@@ -1,4 +1,4 @@
-if package.loaded["lspconfig"] then
+if package.loaded["lspconfig"] and vim.g.full_config then
   require("lspconfig").pylsp.setup({
     settings = {
       pylsp = {
