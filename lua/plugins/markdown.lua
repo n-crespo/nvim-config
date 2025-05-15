@@ -1,4 +1,4 @@
-return {
+local M = {
   {
     "bullets-vim/bullets.vim",
     ft = { "markdown", "text", "gitcommit", "scratch" },
@@ -116,3 +116,36 @@ return {
     },
   },
 }
+
+-- enable marksman lsp/markdown-toc formatter in full config
+if vim.g.full_config then
+  -- cbfmt requires a config file
+  if vim.fn.filereadable(vim.fn.expand("~/.cbfmt.toml")) == 0 then
+    vim.api.nvim_echo({
+      {
+        "Please create a ~/.cbfmt.toml file for markdown codeblock formatting.",
+        "WarningMsg",
+      },
+    }, true, {})
+  end
+  table.insert(M, {
+    {
+      "stevearc/conform.nvim",
+      opts = {
+        formatters_by_ft = {
+          ["markdown"] = { "cbfmt" },
+          ["markdown.mdx"] = { "cbfmt" },
+        },
+      },
+    },
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          marksman = {}, -- enable marskamn lsp
+        },
+      },
+    },
+  })
+end
+return M
