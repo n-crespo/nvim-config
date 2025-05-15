@@ -292,7 +292,7 @@ return {
         lualine_z = {
           {
             function()
-              return not vim.g.full_config and "🚀" or ""
+              return vim.g.full_config and "🚀" or ""
             end,
             padding = 1,
             color = {
