@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
-  optional = true,
+  optional = true, -- only enable if enabled by :LazyExtras
   opts = {
     -- multiwindow = true, -- Enable multiwindow support.
     highlight = {
