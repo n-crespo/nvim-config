@@ -384,7 +384,7 @@ vim.cmd("cnoreabbrev F !prettier -w --parser=markdown")
 vim.keymap.set("n", "<leader>ci", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Change Instances" })
 
 -- Executes shell command from in here making file executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make Executable" })
+vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make Executable" })
 
 -- apply last created macro over selected region
 vim.keymap.set("x", "Q", ":norm @@<cr>", { desc = "Play Q Macro", silent = true })
