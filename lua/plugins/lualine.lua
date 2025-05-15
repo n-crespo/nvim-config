@@ -289,7 +289,17 @@ return {
           },
           { "progress", padding = { left = 0, right = 1 } },
         },
-        lualine_z = {},
+        lualine_z = {
+          {
+            function()
+              return not vim.g.full_config and "🚀" or ""
+            end,
+            padding = 1,
+            color = {
+              fg = string.format("%x", vim.api.nvim_get_hl(0, { name = "DiagnosticWarn", link = false }).fg), -- grab yellow fg part of
+            },
+          },
+        },
       },
     }
     return opts

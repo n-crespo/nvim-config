@@ -40,6 +40,7 @@ vim.g.lualine_ai_status = true
 return {
   {
     "monkoose/neocodeium",
+    enabled = false,
     lazy = true,
     opts = {
       max_lines = 500, -- restrict num of lines read from non-focused buffers
