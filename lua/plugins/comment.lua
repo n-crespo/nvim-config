@@ -9,60 +9,47 @@ local function insert_mode_comment()
   else
     local U = require("Comment.utils")
     local ft = require("Comment.ft")
-    local comment_str = ft.get(vim.bo.filetype, U.ctype.linewise)
+    local api = vim.api
+    local cs = ft.get(vim.bo.filetype, U.ctype.linewise)
 
-    -- allow fallback to some other buffer-local <C-/> keymap if commentstring
+    -- allow fallback to some other buffer-local <C-/> keymap if comment string
     -- is not defined (snacks.picker uses this for help keymap for example)
-    if not comment_str then
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-/>", true, false, true), "n", false)
+    if not cs then
+      api.nvim_feedkeys(api.nvim_replace_termcodes("<C-/>", true, false, true), "n", false)
       return
     end
 
-    comment_str = (type(comment_str) == "table") and comment_str[1] or comment_str
-    local prefix = comment_str:match("^(.-)%%s") or ""
-    local postfix = comment_str:match("%%s(.-)$") or ""
+    -- i just want one thing please
+    cs = (type(cs) == "table") and cs[1] or cs
 
-    -- we don't shift the cursor backwards when uncommenting if its already at
-    -- the end of the line
-    local original_length = #vim.api.nvim_get_current_line()
-    local row, old_col = unpack(vim.api.nvim_win_get_cursor(0))
-    local cursor_was_at_eol = (old_col == original_length)
+    -- split & trim around '%s'
+    local prefix, postfix = tostring(cs):match("^(.-)%%s(.-)$")
+    prefix = prefix:match("^%s*(.-)%s*$") or ""
+    postfix = postfix:match("^%s*(.-)%s*$") or ""
 
-    -- either need to shift the cursor forwards or backwards
-    require("Comment.api").toggle.linewise.current()
+    -- store initial cursor + line state
+    local row, old_col = unpack(api.nvim_win_get_cursor(0)) -- store initial state of the cursor
+    line = api.nvim_get_current_line():match("^%s*(.-)%s*$") or ""
 
-    local _, new_col = unpack(vim.api.nvim_win_get_cursor(0))
-    local new_length = #vim.api.nvim_get_current_line()
-    local cursor_is_at_eol = (new_col == new_length)
-
-    -- split into opener / closer around the '%s'
-    local opener, closer = comment_str:match("^(.-)%%s(.-)$")
-    -- trim any stray whitespace
-    opener = opener:match("^%s*(.-)%s*$") or ""
-    closer = closer:match("^%s*(.-)%s*$") or ""
-
-    -- get the current line and trim it
-    line = vim.api.nvim_get_current_line():match("^%s*(.-)%s*$") or ""
-    local got_commented
-    if closer == "" then
+    local is_comment_first
+    if postfix == "" then
       -- single-sided (line) comment
-      got_commented = line:sub(1, #opener) == opener
+      is_comment_first = line:sub(1, #prefix) == prefix
     else
       -- two-sided (block) comment
-      got_commented = line:sub(1, #opener) == opener and line:sub(-#closer) == closer
+      is_comment_first = line:sub(1, #prefix) == prefix and line:sub(-#postfix) == postfix
     end
 
-    local sign = got_commented and 1 or -1
-    local diff = sign * (#prefix + 1)
+    -- shift the cursor left if we are about to uncomment
+    if is_comment_first then
+      api.nvim_win_set_cursor(0, { row, math.max(0, old_col - (#prefix + 1)) })
+    end
 
-    if not got_commented and (cursor_is_at_eol or cursor_was_at_eol or (old_col + diff > new_col)) then
-      vim.notify("not moving")
-      -- print("1: moving to: " .. col + diff)
-    else
-      -- normal case (middle of line)
-      vim.notify("moving")
-      -- vim.notify("2: moving to: " .. col + diff)
-      vim.api.nvim_win_set_cursor(0, { row, math.max(0, new_col + diff) })
+    require("Comment.api").toggle.linewise.current()
+
+    -- either need to shift the cursor forwards if we just commented!
+    if not is_comment_first then
+      api.nvim_win_set_cursor(0, { row, math.max(0, old_col + (#prefix + 1)) })
     end
   end
 end
