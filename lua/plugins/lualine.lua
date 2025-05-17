@@ -30,8 +30,9 @@ local function get_buffer_name(bufnr, context)
   local tabname_key = "lualine_tabname_" .. context.tabnr
 
   if name == "" and vim.bo[bufnr].buflisted then
+    -- this is an empty scratch buffer
     vim.g[tabname_key] = NO_NAME
-  elseif vim.bo[bufnr].buftype ~= "prompt" and not ignore_buffer(bufnr) then
+  elseif not ignore_buffer(bufnr) then
     vim.g[tabname_key] = vim.fn.fnamemodify(name, ":t")
   end
 
@@ -73,7 +74,7 @@ local fmt = function(_, ctx)
     if not icon_get then
       icon_get = require("mini.icons").get
     end
-    local icon, icon_hl = icon_get("file", name)
+    local icon, icon_hl = icon_get("file", tostring(name))
     s = "%#" .. icon_hl .. "_" .. hl .. "#" .. icon .. " "
   end
 
