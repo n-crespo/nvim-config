@@ -1,8 +1,6 @@
 -- fast file system viewer, less intrusive oil.nvim
 return {
   "echasnovski/mini.files",
-  -- lazy = false,
-  -- event = "VimEnter",
   keys = {
     -- open mini.files in current buffer's directory, if error is thrown fallback to cwd
     {
@@ -47,7 +45,7 @@ return {
         if package.loaded["mini.files"] then
           return
         else
-          local stats = vim.uv.fs_stat(vim.fn.argv(0))
+          local stats = vim.uv.fs_stat(tostring(vim.fn.argv(0)))
           if stats and stats.type == "directory" then
             require("mini.files").open()
           end
@@ -60,7 +58,6 @@ return {
     vim.api.nvim_create_autocmd({ "FileType" }, {
       pattern = { "minifiles" },
       callback = function()
-        vim.keymap.set("n", "G", "G", { buffer = true })
         vim.keymap.set("n", "<C-d>", "<C-d>", { buffer = true })
         vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true })
       end,
