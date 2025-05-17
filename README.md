@@ -1,5 +1,8 @@
 # Neovim Configuration
 
+<details>
+  <summary> Table of Contents</summary>
+
 <!--toc:start-->
 - [Neovim Configuration](#neovim-configuration)
   - [Dependencies](#dependencies)
@@ -9,8 +12,14 @@
   - [Usage](#usage)
 <!--toc:end-->
 
+</details>
+
 My Neovim configuration based on the [LazyVim](https://www.lazyvim.org)
-distribution, with custom features to extend/remove unneeded functionality.
+distribution, with custom features to extend or remove unneeded functionality.
+
+Comes in two varieties: `main` and `lite` (default). Set the environment variable
+`NVIM_MAIN_CONFIG = 1` to enable the main config. `main` enables more language
+features and features that may be slow on older machines/servers.
 
 ![image](./images/image.png)
 
@@ -18,18 +27,17 @@ Some cool things in here are:
 
 - my custom (borrowed/extended) [color scheme](./colors/macro.lua)
 - my custom [lualine](./lua/plugins/lualine.lua) config
-- [my markdown config](./lua/plugins/markdown.lua) which allows for
-  - following all types of links with `<CR>`
-  - rendering things nicely, generate TOC, more
-- [my auto commands](./lua/config/autocmds.lua) and [keymaps](./lua/config/keymaps.lua)
+- [my auto commands](./lua/config/autocmds.lua)
   - remove trailing white space on save
   - only show cursor line in active window (like reticle.nvim but in 15 LOC)
-  - `<C-l>` in insert mode to auto fix last spelling error
-  - `E` and `B` instead of `0` and `$` (wrap friendly)
-  - Shift modifiers for window navigation commands to work through terminal mode
-  - increment/decrement numbers with `+` and `-`
-  - `<C-S-C>` to get word count
-  - `<C-S-S>` to clean Windows generated `^M` chars (when editing from WSL land)
+  - reliable auto save without formatting
+- my [keymaps](./lua/config/keymaps.lua)
+  - following all types of links with `<CR>`, `<S-CR>` to open in new tab
+  (replaces `gf`, `gx`)
+  - wrap friendly `B` and `E` motions to replace `0` and `$`
+  - auto fix last spelling error in insert mode: `<C-l>`
+  - word/char count: `<C-S-C>`
+  - clean `^M` Windows artifacts: `<C-S-S>`
 - [mini.files](./lua/plugins/mini-files.lua), the best explorer
 - [nvim-spider](./lua/plugins/spider.lua) for better `w`, `e`, and `b` motions
 - my snacks.nvim [picker](./lua/plugins/picker.lua) and [terminal](./lua/plugins/terminal.lua) config
@@ -38,10 +46,10 @@ Some cool things in here are:
 
 ## Dependencies
 
-> [!WARNING]
-> see [my dotfiles](https://www.github.com/n-crespo/dotfiles) for full system requirements
+> [!IMPORTANT]
+> see [my full dotfiles](https://www.github.com/n-crespo/dotfiles) for other system requirements
 
-- `neovim` (>=0.11 preferred)
+- `neovim` (>= 0.11 preferred)
 - `gcc`
 - `python`
 - `go`
@@ -62,7 +70,7 @@ sudo apt-get install -y neovim
 sudo apt-get install python3-neovim
 ```
 
-For nightly (not needed):
+For nightly (optional):
 
 ```bash
 sudo apt install -y software-properties-common
@@ -74,7 +82,7 @@ sudo apt install -y neovim # just do this line to get stable version
 ### Homebrew on macOS or Linux
 
 ```bash
-brew install neovim # add --HEAD to install nightly (not needed)
+brew install neovim # add --HEAD to install nightly (optional)
 ```
 
 ## Usage
