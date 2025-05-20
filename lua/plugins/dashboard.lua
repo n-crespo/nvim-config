@@ -27,14 +27,12 @@ return {
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         header = ([[
-          ┌─────┐┌─────┐┌─────┐┌──┐──┐┌──┐┌────────┐
-          │  .  ││  .__││  .  ││  │  ││  ││  .  .  │
-          └──┘──┘└─────┘└─────┘ '───' └──┘└──┘──┘──┘
+        neovim
         ]]):gsub("^%s+", ""):gsub("\n%s+", "\n") .. (vim.g.full_config and "[full]" or "[lite]"),
       },
       sections = {
         { section = "header", padding = 1 },
-        { section = "keys", gap = 0, padding = 1 },
+        { section = "keys", gap = 1, padding = 1 },
         { section = "startup" },
       },
     },
