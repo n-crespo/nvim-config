@@ -4,30 +4,12 @@ return {
   cmd = "CodeCompanion", -- allow the abbreviation :cc to load the plugin
   config = true,
   opts = {
-    -- gemini = function()
-    --   return require("codecompanion.adapters").extend("gemini", {
-    --     schema = {
-    --       model = {
-    --         default = "gemini-2.0-flash-lite",
-    --       },
-    --     },
-    --     env = {
-    --       api_key = "GEMINI_API_KEY",
-    --     },
-    --   })
-    -- end,
+    -- this defaults to 4o
     strategies = {
-      chat = {
-        adapter = "gemini",
-      },
-      inline = {
-        adapter = "gemini",
-      },
-      cmd = {
-        adapter = "gemini",
-      },
+      chat = { adapter = "githubmodels" },
+      inline = { adapter = "githubmodels" },
+      cmd = { adapter = "githubmodels" },
     },
-    -- model = "gpt-4o",  -- "gpt-4.1", "claude-3.5-sonnet", "gemini-2.0-flash-001", "o3-mini",
     display = {
       chat = {
         window = {
