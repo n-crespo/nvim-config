@@ -1,6 +1,6 @@
 return {
   "Aasim-A/scrollEOF.nvim",
-  event = "LazyFile",
+  event = "VeryLazy",
   opts = {
     pattern = "*",
     disabled_filetypes = {
