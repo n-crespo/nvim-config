@@ -14,7 +14,8 @@ return {
   opts = {
     options = {
       mode = "tabs",
-      enforce_regular_tabs = true,
+      tab_size = 10,
+      enforce_regular_tabs = false,
       indicator = { style = "none" },
 
       -- hide things
