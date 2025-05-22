@@ -88,39 +88,6 @@ function M.is_man_pager()
   return false
 end
 
---- Adjusts the width of a tab name in the tabline to ensure all tabs are evenly
---- distributed across the available screen width. (UNUSED)
----
---- @param context table A table containing the context for the tab, including the tab number (`context.tabnr`).
---- @param name string The original name of the tab, which may include status-line escape sequences.
---- @return string The adjusted tab name, padded to fit the calculated target width.
-function M.apply_fullwidth_tabline(context, name)
-  local n_tabs = vim.fn.tabpagenr("$")
-
-  local margin = n_tabs
-  local content_w = vim.o.columns - margin
-
-  local base_w = math.floor(content_w / n_tabs)
-  local leftover = content_w - base_w * n_tabs -- < n_tabs
-  local tgt_w = (context.tabnr <= leftover) and (base_w + 1) or base_w
-
-  -- visible width of the tabname (strip status‑line escapes)
-  local plain = name
-    :gsub("%%#.-#", "") -- %#hl#
-    :gsub("%%[%d%@].-@", "") -- %@…@
-    :gsub("%%[Tt*]", "") -- %T / %* reset
-
-  local vis = vim.fn.strdisplaywidth(plain)
-  local pad_needed = tgt_w - vis
-
-  if pad_needed > 0 then
-    local left = string.rep(" ", math.floor(pad_needed / 2))
-    local right = string.rep(" ", pad_needed - #left)
-    name = left .. name .. right
-  end
-  return name
-end
-
 -- gf and gx all in one, with markdown support
 -- if `tab` is true, open link in new tab
 function M.follow_link(tab)
