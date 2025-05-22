@@ -145,13 +145,14 @@ return {
         lualine_z = {
           {
             function()
-              return vim.g.full_config and "" or ""
+              return vim.g.full_config and " " or ""
             end,
             padding = 1,
             color = {
               fg = vim.g.full_config
-                  and string.format("%x", vim.api.nvim_get_hl(0, { name = "markdownCode", link = false }).fg)
+                  and string.format("%x", vim.api.nvim_get_hl(0, { name = "Directory", link = false }).fg)
                 or string.format("%x", vim.api.nvim_get_hl(0, { name = "DiagnosticWarn", link = false }).fg), -- grab yellow fg part of
+              bold = true,
             },
           },
         },
