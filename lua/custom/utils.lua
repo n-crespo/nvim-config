@@ -176,26 +176,15 @@ function M.follow_path(path, line_number_pattern, tab)
       print("followig absolute")
       vim.cmd(ecmd .. line_number .. path)
     else
+      -- follow relative path if it exists
       path = vim.fn.expand("%:p:h") .. "/" .. path
       if vim.loop.fs_stat(path) then
-        print("following relative")
-        -- follow relative path if it exists
-        vim.cmd(ecmd .. line_number .. vim.fn.expand("%:p:h") .. "/" .. path)
+        vim.cmd(ecmd .. line_number .. path)
       end
     end
   end)
   if not ok then
     return -- silently error out
-  end
-end
-
-function M.open_web_link(url)
-  if url:match("^www.") then
-    url = "https://" .. url
-  end
-  if url:match("^https?://") then
-    -- prepend https if needed
-    vim.ui.open(url)
   end
 end
 
@@ -215,8 +204,8 @@ function M.follow_link(tab)
   end
 
   if link and link.url then
-    if not M.open_web_link(link.url) then
-      M.open_web_link(link.url)
+    if link.url:match("^https?://") then
+      vim.ui.open(link.url)
     else
       local anchor = link.url:match("#(.+)$") or ""
       if anchor then
@@ -233,11 +222,8 @@ function M.follow_link(tab)
     end
   elseif word and word.text then
     -- follow a bare links (not in markdown syntax)
-    word.text = word.text:gsub("%.$", "") -- remove trailing period
-    if word.text:match("^www") then
-      word.text = "https://" .. word.text -- prepend https:// if needed
-    end
     if word.text:match("^https?://") then
+      word.text = word.text:gsub("%.$", "") -- remove trailing period
       vim.ui.open(word.text)
     else
       M.follow_path(word.text, ",%s*$") -- we have a file path!
