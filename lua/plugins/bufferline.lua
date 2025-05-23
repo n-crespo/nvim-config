@@ -19,7 +19,7 @@ return {
       indicator = { style = "none" },
 
       -- hide things
-      show_duplicate_prefix = false,
+      show_duplicate_prefix = true,
       show_tab_indicators = false,
       always_show_bufferline = false,
       show_close_icon = false,
@@ -74,6 +74,12 @@ return {
         },
       },
       modified_selected = {
+        bg = {
+          attribute = "bg",
+          highlight = "TabLineSel",
+        },
+      },
+      duplicate_selected = {
         bg = {
           attribute = "bg",
           highlight = "TabLineSel",

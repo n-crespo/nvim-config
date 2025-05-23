@@ -1,5 +1,7 @@
 # Neovim Configuration
 
+[existence](https://www.google.com)
+
 <details>
   <summary> Table of Contents</summary>
 
@@ -39,7 +41,7 @@ Some cool things in here are:
   - word/char count: `<C-S-C>`
   - clean `^M` Windows artifacts: `<C-S-S>`
 - [mini.files](./lua/plugins/mini-files.lua), the best explorer
-- [nvim-spider](./lua/plugins/spider.lua:12) for better `w`, `e`, and `b` motions
+- [nvim-spider](./lua/plugins/spider.lua#L12) for better `w`, `e`, and `b` motions
 - my snacks.nvim [picker](./lua/plugins/picker.lua) and [terminal](./lua/plugins/terminal.lua) config
   - with great integration with zoxide
 - ~31ms startup time

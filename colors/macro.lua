@@ -103,9 +103,9 @@ local hlgroups = {
   -- note: the below makes your background transparent. edit your terminal's settings
   -- to set it to a different color, or just add something like bg = "#11111"
   Normal = { fg = c_macroFg0, bg = nil },
-  NormalFloat = { bg = nil, fg = c_macroFg0 },
+  NormalFloat = { link = "NormalFloat" },
 
-  ColorColumn = { bg = c_macroBg2 },
+  ColorColumn = { link = "CursorLine" },
   Conceal = { bold = true, fg = c_macroGray2 },
   CurSearch = { link = "IncSearch" },
   Cursor = { bg = c_macroFg0, fg = nil },
@@ -113,16 +113,16 @@ local hlgroups = {
   CursorIM = { link = "Cursor" },
   CursorLine = { bg = c_macroBg2 },
   CursorLineNr = { fg = c_macroGray0, bold = true },
-  DebugPC = { bg = c_winterRed },
+  DebugPC = { link = "DiffDelete" },
   DiffAdd = { bg = c_winterGreen },
   DiffAdded = { fg = c_autumnGreen },
   DiffChange = { bg = c_winterBlue },
   DiffChanged = { fg = c_autumnYellow },
   DiffDelete = { bg = c_winterRed },
   DiffDeleted = { fg = c_autumnRed },
-  DiffNewFile = { fg = c_autumnGreen },
-  DiffOldFile = { fg = c_autumnRed },
-  DiffRemoved = { fg = c_autumnRed },
+  DiffNewFile = { link = "DiffAdded" },
+  DiffOldFile = { link = "DiffDeleted" },
+  DiffRemoved = { link = "DiffDeleted" },
   DiffText = { bg = border_purple_ink },
   Directory = { fg = c_macroBlue1 },
   EndOfBuffer = { fg = normal_bg },
@@ -131,12 +131,12 @@ local hlgroups = {
   CompletionBorder = { bg = nil, fg = border_purple_ink },
   FloatFooter = { bg = c_macroBg0, fg = c_macroBg5 },
   FloatTitle = { bg = c_macroBg0, fg = c_macroGray2, bold = true },
-  FoldColumn = { fg = c_macroBg5 },
+  FoldColumn = { link = "NonText" },
   Folded = { bg = c_macroBg2, fg = c_lotusGray },
   Ignore = { link = "NonText" },
   IncSearch = { bg = c_carpYellow, fg = c_waveBlue0 },
-  LineNr = { fg = c_macroBg5 },
-  MatchParen = { bg = selection_light_gray },
+  LineNr = { link = "NonText" },
+  MatchParen = { link = "Visual" },
   ModeMsg = { fg = c_macroRed, bold = true },
   MoreMsg = { fg = c_macroBlue0 },
   MsgArea = { fg = c_macroFg1 },
@@ -145,14 +145,14 @@ local hlgroups = {
   SnippetTabstop = { link = "Snippet" },
   NormalNC = { link = "Normal" },
   Pmenu = { bg = c_macroBg2, fg = c_macroFg1 },
-  PmenuSbar = { bg = c_macroBg2 },
-  PmenuSel = { bg = selection_light_gray },
+  PmenuSbar = { link = "CursorColumn" },
+  PmenuSel = { link = "Visual" },
   PmenuThumb = { bg = c_macroBg5 },
   PmenuExtra = { bg = nil, fg = nil },
   PmenuKind = { bg = nil, fg = nil },
   Question = { link = "MoreMsg" },
   QuickFixLine = { bg = c_macroBg3 },
-  Search = { bg = selection_light_gray },
+  Search = { link = "Visual" },
   SignColumn = { fg = c_macroGray2 },
   SpellBad = { fg = c_lotusRed0, underdashed = true },
   SpellCap = { underdashed = true },
@@ -161,7 +161,7 @@ local hlgroups = {
   StatusLine = { bg = nil, fg = c_macroFg0 },
   StatusLineNC = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute = { bg = c_autumnRed, fg = c_macroFg0 },
-  TabLine = { fg = c_macroAsh },
+  TabLine = { link = "Comment" },
   TabLineFill = { bg = nil, fg = c_macroFg1 },
   TabLineSel = { bg = c_macroBg2, fg = c_macroFg0, bold = true },
   TermCursor = { link = "Cursor" },
@@ -212,7 +212,7 @@ local hlgroups = {
   ["@keyword.luap"] = { link = "@string.regexp" },
   ["@keyword.operator"] = { bold = true, fg = c_macroRed },
   ["@keyword.return"] = { fg = c_macroRed, italic = true },
-  ["@module"] = { fg = c_macroOrange0 },
+  ["@module"] = { link = "Constant" },
   ["@operator"] = { link = "Operator" },
   ["@nospell.latex"] = { fg = c_macroBlue1 },
   ["@markup.math.latex"] = { fg = c_macroBlue1 },
@@ -221,8 +221,8 @@ local hlgroups = {
   ["@punctuation.bracket"] = { fg = c_macroGray1 },
   ["@punctuation.delimiter"] = { fg = c_macroGray1 },
   ["@markup.list"] = { fg = c_macroTeal },
-  ["@string.escape"] = { fg = c_macroOrange0 },
-  ["@string.regexp"] = { fg = c_macroOrange0 },
+  ["@string.escape"] = { link = "Constant" },
+  ["@string.regexp"] = { link = "Constant" },
   ["@string.special.url.comment"] = { fg = c_macroTeal, underline = true },
   ["@markup.link.label.symbol"] = { fg = c_macroFg0 },
   ["@tag.attribute"] = { fg = c_macroFg0 },
@@ -253,7 +253,7 @@ local hlgroups = {
   ["@markup.heading.6.marker.markdown"] = { link = "Delimiter" },
   -- ["@markup.markdown_inline"] = { fg = c_macroFg0 },
   ["@markup.strikethrough.markdown_inline"] = { strikethrough = true },
-  ["@comment.todo.checked"] = { fg = c_macroAsh },
+  ["@comment.todo.checked"] = { link = "Comment" },
   ["@comment.todo.unchecked"] = { fg = c_macroRed },
   ["@markup.link.label.markdown_inline"] = { link = "htmlLink" },
   ["@markup.link.url.markdown_inline"] = { fg = c_macroAsh, underline = true },
@@ -291,12 +291,12 @@ local hlgroups = {
   -- }}}
 
   -- LSP {{{2
-  LspCodeLens = { fg = c_macroAsh },
+  LspCodeLens = { link = "Comment" },
   LspInfoBorder = { link = "FloatBorder" },
   LspReferenceRead = { link = "LspReferenceText" },
   LspReferenceText = { bg = nil },
   LspReferenceWrite = { bg = nil, underline = false },
-  LspSignatureActiveParameter = { fg = c_roninYellow },
+  LspSignatureActiveParameter = { link = "WarningMsg" },
   -- }}}
 
   -- Diagnostic {{{2
@@ -326,7 +326,7 @@ local hlgroups = {
 
   -- Filetype {{{2
   -- Git
-  gitHash = { fg = c_macroAsh },
+  gitHash = { link = "Comment" },
 
   -- Sh/Bash
   bashSpecialVariables = { link = "Constant" },
@@ -369,12 +369,12 @@ local hlgroups = {
   markdownH4 = { link = "htmlH4" },
   markdownH5 = { link = "htmlH5" },
   markdownH6 = { link = "htmlH6" },
-  markdownListMarker = { fg = c_autumnYellow },
+  markdownListMarker = { link = "DiffChanged" },
 
   -- Checkhealth
   healthError = { fg = c_lotusRed0 },
   healthSuccess = { fg = c_springGreen },
-  healthWarning = { fg = c_roninYellow },
+  healthWarning = { link = "WarningMsg" },
   helpHeader = { link = "Title" },
   helpSectionDelim = { link = "Title" },
 
@@ -424,10 +424,10 @@ local hlgroups = {
   BlinkCmpLabelMatch = { link = "Special" },
 
   -- gitsigns
-  GitSignsAdd = { fg = c_autumnGreen },
+  GitSignsAdd = { link = "DiffAdded" },
   GitSignsChange = { fg = border_purple_ink },
   GitSignsDelete = { fg = c_lotusRed0 },
-  GitSignsDeletePreview = { bg = c_winterRed },
+  GitSignsDeletePreview = { link = "DiffDelete" },
   GitSignsDeleteInline = { link = "GitSignsDeletePreview" },
   GitSignsDeleteLnInline = { link = "GitSignsDeletePreview" },
   GitSignsDeleteVirtLnInLine = { link = "GitSignsDeletePreview" },
@@ -440,7 +440,7 @@ local hlgroups = {
   GitSignsCurrentLineBlame = { fg = selection_light_gray, italic = true },
 
   --noice
-  NoicePopupmenuSelected = { bg = selection_light_gray },
+  NoicePopupmenuSelected = { link = "Visual" },
   NoiceScrollBar = { bg = normal_bg },
 
   -- telescope
@@ -453,7 +453,7 @@ local hlgroups = {
   TelescopeResultsStruct = { link = "Structure" },
   TelescopeResultsVariable = { link = "@variable" },
   TelescopeSelection = { link = "Visual" },
-  TelescopeTitle = { fg = c_macroGray2 },
+  TelescopeTitle = { link = "SpecialKey" },
   TelescopePromptBorder = { link = "TelescopeBorder" },
 
   -- nvim-dap-ui (one day I'll use this)
@@ -477,13 +477,13 @@ local hlgroups = {
   DapUIStoppedThread = { fg = c_macroTeal },
   DapUIThread = { fg = c_macroFg0 },
   DapUIType = { link = "Type" },
-  DapUIUnavailable = { fg = c_macroAsh },
+  DapUIUnavailable = { link = "Comment" },
   DapUIWatchesEmpty = { fg = c_lotusRed0 },
   DapUIWatchesError = { fg = c_lotusRed0 },
   DapUIWatchesValue = { fg = c_macroFg0 },
 
   -- lazy.nvim
-  LazyProgressTodo = { fg = c_macroBg5 },
+  LazyProgressTodo = { link = "NonText" },
 
   -- statusline
   StatusLineGitAdded = { bg = c_macroBg3, fg = c_macroGreen1 },
@@ -526,7 +526,7 @@ local hlgroups = {
   RenderMarkdownH1Bg = { bg = c_winterRed2 },
   RenderMarkdownH2Bg = { bg = c_winterOrange },
   RenderMarkdownH3Bg = { bg = c_winterYellow },
-  RenderMarkdownH4Bg = { bg = c_winterGreen },
+  RenderMarkdownH4Bg = { link = "DiffAdd" },
   RenderMarkdownH5Bg = { bg = c_waveBlue0 },
   RenderMarkdownH6Bg = { bg = c_winterPurple },
 
