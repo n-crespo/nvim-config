@@ -8,7 +8,7 @@
   - [Dependencies](#dependencies)
   - [Install](#install)
     - [Debian](#debian)
-    - [Homebrew on macOS or Linux](#homebrew-on-macos-or-linux)
+    - [Homebrew](#homebrew)
   - [Usage](#usage)
 <!--toc:end-->
 
@@ -39,7 +39,7 @@ Some cool things in here are:
   - word/char count: `<C-S-C>`
   - clean `^M` Windows artifacts: `<C-S-S>`
 - [mini.files](./lua/plugins/mini-files.lua), the best explorer
-- [nvim-spider](./lua/plugins/spider.lua) for better `w`, `e`, and `b` motions
+- [nvim-spider](./lua/plugins/spider.lua:12) for better `w`, `e`, and `b` motions
 - my snacks.nvim [picker](./lua/plugins/picker.lua) and [terminal](./lua/plugins/terminal.lua) config
   - with great integration with zoxide
 - ~31ms startup time
@@ -79,7 +79,7 @@ sudo apt update
 sudo apt install -y neovim # just do this line to get stable version
 ```
 
-### Homebrew on macOS or Linux
+### Homebrew
 
 ```bash
 brew install neovim # add --HEAD to install nightly (optional)
