@@ -144,15 +144,14 @@ end
 --- @param tab boolean? open in new tab?
 function M.follow_path(path, tab)
   local ecmd = tab and "tabe " or "e "
-  -- remove trailing commas... maybe this shouldn't happen
-  path = path:gsub(",%s*$", "")
+  path = path:gsub('^"(.-)[.,"]?$', "%1") -- remove quotes, trailing commas/peridos
   -- an absolute path
-  if string.match(path, "^[~/]") and uv.fs_stat(path) then
+  if string.match(path, "^[~/]") and uv.fs_stat(fn.expand(path)) then
     vim.cmd(ecmd .. path)
   else
     -- follow relative path if it exists (relative to curent buffer)
     path = fn.expand("%:p:h") .. "/" .. path
-    if uv.fs_stat(path) then
+    if uv.fs_stat(fn.expand(path)) then
       vim.cmd(ecmd .. path)
     else
       return false
@@ -177,36 +176,42 @@ function M.follow_link(tab)
   if link and link.url then
     if link.url:match("^https?://") then
       vim.ui.open(link.url)
+      return
     else
       local anchor = link.url:match("#(.+)$") or ""
       if anchor then
         link.url = link.url:gsub("#.+$", "")
       end
+      -- follow anchor link if there's no URL
+      if link.url == "" then
+        fn.search("^#* " .. anchor:gsub("-", "[%- ]"))
+        return
+      end
       -- try to follow a file path
       if M.follow_path(link.url, tab) then
         -- try to go to anchor e.g. file.md#my-header or just #my-header
         local matches = fn.search("^#* " .. anchor:gsub("-", "[%- ]"))
-        if matches == 0 then
+        if matches == 0 and anchor:match("^L?(%d+)") then
           -- try to go to line number
-          local line_number = anchor:gsub("^L", "")
-          line_number = tostring(tonumber(line_number) - 1) -- always off by one?
+          local line_number = anchor:gsub("L", "")
           if line_number then
             api.nvim_win_set_cursor(0, { tonumber(line_number), 0 })
             vim.cmd("normal! zz") -- center the cursor
+            return
           end
         end
       end
     end
   elseif word and word.text then -- follow a bare links (not in markdown syntax)
     if word.text:match("^https?://") then -- a URL!
-      word.text = word.text:gsub("%.$", "") -- remove trailing period
-      word.text = word.text:gsub("%,$", "") -- remove trailing commas
+      word.text = word.text:gsub("[.,:]$", "") -- remove trailing periods or commas
       vim.ui.open(word.text)
       return
     else
-      if M.follow_path(word.text, tab) then -- a file path!
-        local line_number = word.text:gsub("^#", "")
-        vim.cmd(": " .. line_number) -- go to line number
+      local line_number = tonumber(word.text:match(":(%d+)$")) or nil
+      word.text = word.text:gsub(":(%d+)$", "")
+      if M.follow_path(word.text, tab) and line_number then -- a file path!
+        api.nvim_win_set_cursor(0, { line_number, 0 })
         vim.cmd("normal! zz") -- center the cursor
         return
       end
