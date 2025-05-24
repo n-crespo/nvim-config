@@ -138,10 +138,12 @@ function M.find_link_under_cursor()
   end
 end
 
---- Follows a given path string (optionally in a new tab).
+--- Follows a given path string (optionally in a new tab). Returns true if path
+--- was navigated to.
 ---
 --- @param path string defaults to relative path, provide full for absolute
 --- @param tab boolean? open in new tab?
+--- @return boolean success if path was navigated to
 function M.follow_path(path, tab)
   local ecmd = tab and "tabe " or "e "
   path = path:gsub('^"(.-)[.,"]?$', "%1") -- remove quotes, trailing commas/peridos
@@ -160,7 +162,8 @@ function M.follow_path(path, tab)
   return true
 end
 
---- `gf` and `gx` all in one, with markdown support. Largely inspired by
+--- A function I have <CR> mapped to. `gf` and `gx` all in one, with markdown
+--- support and other improvements. Largely inspired by
 --- http://github.com/ixru/nvim-markdown.
 --- @param tab boolean open in new tab?
 function M.follow_link(tab)
@@ -209,9 +212,10 @@ function M.follow_link(tab)
       return
     else
       local line_number = tonumber(word.text:match(":(%d+)$")) or nil
-      word.text = word.text:gsub(":(%d+)$", "")
+      word.text = word.text:gsub(":(%d+)$", "") -- cut out line numbers
+      -- try to follow file path!
       if M.follow_path(word.text, tab) and line_number then -- a file path!
-        api.nvim_win_set_cursor(0, { line_number, 0 })
+        api.nvim_win_set_cursor(0, { line_number, 0 }) -- go to line number
         vim.cmd("normal! zz") -- center the cursor
         return
       end
