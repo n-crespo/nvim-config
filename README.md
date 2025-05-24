@@ -1,7 +1,5 @@
 # Neovim Configuration
 
-[existence](https://www.google.com)
-
 <details>
   <summary> Table of Contents</summary>
 

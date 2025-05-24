@@ -49,23 +49,17 @@ end
 --- @return string dir Absolute path to the chosen directory or file path
 function M.get_dir_with_fallback(filename)
   filename = filename or ""
-
   -- Candidate 1: current buffer dir (nil if no file)
   local cur_dir = buf_dir(0)
-
   -- Candidate 2: alternate buffer dir (#), or nil
   local alt_bufnr = fn.bufnr("#")
   local alt_dir = nil
   if api.nvim_buf_is_valid(alt_bufnr) then
     alt_dir = buf_dir(alt_bufnr)
   end
-
-  -- Candidate 3: fallback to cwd
-  local cwd = uv.cwd()
-
+  local cwd = uv.cwd() -- Candidate 3: fallback to cwd
   -- Pick the first that exists (and matches filename, if any)
   local dir = pick_dir({ cur_dir, alt_dir, cwd }, filename) or cwd
-
   -- If filename provided and the file exists, return full path
   if filename ~= "" then
     local full = dir .. "/" .. filename
@@ -73,7 +67,6 @@ function M.get_dir_with_fallback(filename)
       return full
     end
   end
-
   -- Otherwise just return the directory
   return dir
 end
@@ -90,15 +83,14 @@ end
 
 -- https://github.com/ixru/nvim-markdown
 function M.find_word_under_cursor()
-  local cursor = vim.api.nvim_win_get_cursor(0)
-  local mode = vim.fn.mode(".")
+  local cursor = api.nvim_win_get_cursor(0)
+  local mode = fn.mode(".")
   if mode:find("n") then
     -- normal mode is converted to 1 index while insert mode is
     -- left as 0 index, this is because of how spaces are counted
     cursor[2] = cursor[2] + 1
   end
-
-  local line = vim.fn.getline(cursor[1])
+  local line = fn.getline(cursor[1])
   local word_start, word_stop, word
   local start = 1
   repeat
@@ -108,7 +100,6 @@ function M.find_word_under_cursor()
       start = word_stop + 1
     end
   until not word_start or (word_start <= cursor[2] and word_stop >= cursor[2])
-
   if word_start then
     return {
       start = word_start,
@@ -122,8 +113,8 @@ end
 
 -- https://github.com/ixru/nvim-markdown
 function M.find_link_under_cursor()
-  local cursor = vim.api.nvim_win_get_cursor(0)
-  local line = vim.fn.getline(cursor[1])
+  local cursor = api.nvim_win_get_cursor(0)
+  local line = fn.getline(cursor[1])
   local column = cursor[2] + 1
   local link_start, link_stop, text, url
   local start = 1
@@ -134,7 +125,6 @@ function M.find_link_under_cursor()
       start = link_stop + 1
     end
   until not link_start or (link_start <= column and link_stop >= column)
-
   if link_start then
     return {
       link = "[" .. text .. "](" .. url .. ")",
@@ -148,44 +138,27 @@ function M.find_link_under_cursor()
   end
 end
 
---- Follows a given path string optionally in a new tab while accounting for
---- possibly line number specification.
+--- Follows a given path string (optionally in a new tab).
 ---
 --- @param path string defaults to relative path, provide full for absolute
---- @param line_number_pattern string regex pattern to match line number ex. :%d+$
 --- @param tab boolean? open in new tab?
-function M.follow_path(path, line_number_pattern, tab)
-  line_number_pattern = line_number_pattern or ""
+function M.follow_path(path, tab)
   local ecmd = tab and "tabe " or "e "
-
-  -- check if path contains a line number e.g. file.md#L12, file.md:12
-  local line_number = path:match(line_number_pattern) or ""
-
-  -- strip line number info if it exists
-  if line_number ~= "" then
-    line_number = "+" .. line_number .. " "
-    path = path:gsub(line_number_pattern, "")
-  end
-
   -- remove trailing commas... maybe this shouldn't happen
   path = path:gsub(",%s*$", "")
-
-  local ok, _ = pcall(function()
-    -- an absolute path
-    if string.match(path, "^[~/]") then
-      print("followig absolute")
-      vim.cmd(ecmd .. line_number .. path)
+  -- an absolute path
+  if string.match(path, "^[~/]") and uv.fs_stat(path) then
+    vim.cmd(ecmd .. path)
+  else
+    -- follow relative path if it exists (relative to curent buffer)
+    path = fn.expand("%:p:h") .. "/" .. path
+    if uv.fs_stat(path) then
+      vim.cmd(ecmd .. path)
     else
-      -- follow relative path if it exists
-      path = vim.fn.expand("%:p:h") .. "/" .. path
-      if vim.loop.fs_stat(path) then
-        vim.cmd(ecmd .. line_number .. path)
-      end
+      return false
     end
-  end)
-  if not ok then
-    return -- silently error out
   end
+  return true
 end
 
 --- `gf` and `gx` all in one, with markdown support. Largely inspired by
@@ -193,16 +166,14 @@ end
 --- @param tab boolean open in new tab?
 function M.follow_link(tab)
   tab = tab or false
-
   local word = M.find_word_under_cursor()
   local link = M.find_link_under_cursor() -- matches []() links only
-
   -- don't break qflists
   if vim.bo.filetype == "qf" then
     api.nvim_feedkeys(api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
     return
   end
-
+  -- prioritize markdown formatted link
   if link and link.url then
     if link.url:match("^https?://") then
       vim.ui.open(link.url)
@@ -211,27 +182,38 @@ function M.follow_link(tab)
       if anchor then
         link.url = link.url:gsub("#.+$", "")
       end
-
-      -- a file path/anchor
-      M.follow_path(link.url, "#L(%d+)$", tab)
-
-      -- go to anchor if needed e.g. file.md#my-header or just #my-header
-      if anchor then
-        vim.fn.search("^#* " .. anchor:gsub("-", "[%- ]"))
+      -- try to follow a file path
+      if M.follow_path(link.url, tab) then
+        -- try to go to anchor e.g. file.md#my-header or just #my-header
+        local matches = fn.search("^#* " .. anchor:gsub("-", "[%- ]"))
+        if matches == 0 then
+          -- try to go to line number
+          local line_number = anchor:gsub("^L", "")
+          line_number = tostring(tonumber(line_number) - 1) -- always off by one?
+          if line_number then
+            api.nvim_win_set_cursor(0, { tonumber(line_number), 0 })
+            vim.cmd("normal! zz") -- center the cursor
+          end
+        end
       end
     end
-  elseif word and word.text then
-    -- follow a bare links (not in markdown syntax)
-    if word.text:match("^https?://") then
+  elseif word and word.text then -- follow a bare links (not in markdown syntax)
+    if word.text:match("^https?://") then -- a URL!
       word.text = word.text:gsub("%.$", "") -- remove trailing period
+      word.text = word.text:gsub("%,$", "") -- remove trailing commas
       vim.ui.open(word.text)
+      return
     else
-      M.follow_path(word.text, ",%s*$") -- we have a file path!
+      if M.follow_path(word.text, tab) then -- a file path!
+        local line_number = word.text:gsub("^#", "")
+        vim.cmd(": " .. line_number) -- go to line number
+        vim.cmd("normal! zz") -- center the cursor
+        return
+      end
     end
-  else
-    -- just sent <CR> if no case was chosen
-    api.nvim_feedkeys(api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
   end
+  -- just sent <CR> if no case was chosen
+  api.nvim_feedkeys(api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
 end
 
 return M
